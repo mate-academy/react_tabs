@@ -15,18 +15,17 @@ class App extends React.Component {
 
   changeTabOrder = (event) => {
     const { name } = event.target;
-    const { tabs } = this.state;
 
     if (name === 'next') {
-      this.setState({
-        tabs: [...tabs.slice(1), ...tabs.slice(0, 1)],
-      });
+      this.setState(prevState => ({
+        tabs: [...prevState.tabs.slice(1), ...prevState.tabs.slice(0, 1)],
+      }));
     }
 
     if (name === 'back') {
-      this.setState({
-        tabs: [...tabs.slice(-1), ...tabs.slice(0, -1)],
-      });
+      this.setState(prevState => ({
+        tabs: [...prevState.tabs.slice(-1), ...prevState.tabs.slice(0, -1)],
+      }));
     }
   }
 
