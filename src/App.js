@@ -1,4 +1,5 @@
 import React from 'react';
+import Tabs from './components/Tabs';
 import './App.css';
 
 class App extends React.Component {
@@ -8,16 +9,33 @@ class App extends React.Component {
       { title: 'Tab 2', content: 'Some text 2' },
       { title: 'Tab 3', content: 'Some text 3' },
     ],
+    isTab: 0,
   };
 
+  handleClick = (id) => {
+    this.setState({
+      isTab: id,
+    });
+  }
+
   render() {
-    const { tabs } = this.state;
+    const { tabs, isTab } = this.state;
 
     return (
-      <div className="App">
-        {/* eslint-disable-next-line */}
-        <h1>{tabs.length} tabs</h1>
-      </div>
+      <Tabs>
+        {
+          tabs.map((tab, index) => (
+            <Tabs.Tab
+              title={tab.title}
+              id={index}
+              onTab={this.handleClick}
+              select={index === isTab}
+            >
+              {tab.content}
+            </Tabs.Tab>
+          ))
+        }
+      </Tabs>
     );
   }
 }
