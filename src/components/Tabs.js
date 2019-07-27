@@ -1,56 +1,79 @@
+/* eslint-disable jsx-a11y/click-events-have-key-events */
+/* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable react/forbid-prop-types */
 import React from 'react';
 import PropTypes from 'prop-types';
+import Tab from './Tab';
+import './tabs.css';
 
-const Tabs = ({ children }) => (
-  <div className="tabs">
-    {children}
-  </div>
-);
+class Tabs extends React.Component {
+  static Tab = Tab;
 
-Tabs.Tab = ({
-  title, id, children, onTab, select,
-}) => (
-  <>
-    <a
-      href={`#/${title}`}
-      className={`tab--title ${select ? 'select' : ''}`}
-      onClick={() => onTab(id)}
-    >
-      {title}
-    </a>
+  state = {
+    isTab: 0,
+  }
 
-    {
-      select && (
+  handleClick = (id) => {
+    this.setState({
+      isTab: id,
+    });
+  }
+
+  getChildren = (array, startIndex = 0, ChildElement) => {
+    const { isTab } = this.state;
+
+    return (
+      array.map((item, index) => (
         <div
-          className="tab--content"
+          key={`key${index + startIndex}`}
+          className={`${index + startIndex === isTab ? 'select' : ''}`}
+          onClick={() => this.handleClick(index + startIndex)}
         >
-          {children}
+          {
+            ChildElement
+              ? (
+                <ChildElement
+                  title={item.title}
+                >
+                  {item.content}
+                </ChildElement>
+              )
+              : item
+          }
         </div>
-      )
-    }
-  </>
-);
+      ))
+    );
+  }
+
+  render() {
+    const { tabs, children } = this.props;
+    const startIndex = tabs ? tabs.length : 0;
+    const checkChildren = children.length > 1 ? children : [children];
+
+    return (
+      <div className="tabs">
+        {
+          this.getChildren(tabs, 0, Tab)
+        }
+        {
+          this.getChildren(checkChildren, startIndex)
+        }
+      </div>
+    );
+  }
+}
 
 Tabs.propTypes = {
-  children: PropTypes.object,
+  children: PropTypes.arrayOf(PropTypes.object),
+  tabs: PropTypes.arrayOf(PropTypes.shape({
+    title: PropTypes.string,
+    content: PropTypes.string,
+  })),
 };
 
 Tabs.defaultProps = {
-  children: '',
-};
-
-Tabs.Tab.propTypes = {
-  title: PropTypes.string,
-  id: PropTypes.number.isRequired,
-  children: PropTypes.object,
-  onTab: PropTypes.func.isRequired,
-  select: PropTypes.bool.isRequired,
-};
-
-Tabs.Tab.defaultProps = {
-  title: 'Title',
-  children: '',
+  children: [],
+  tabs: [],
 };
 
 export default Tabs;
