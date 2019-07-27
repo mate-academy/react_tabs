@@ -8,20 +8,35 @@ import {
   TabPanel,
 } from 'react-tabs';
 
-const TabNav = ({ tabs }) => (
-  <Tabs>
-    <TabList>
+const TabNav = ({ tabs }) => {
+  const color = `#${Math.round(Math.random() * 1000000)}`;
+  const contentStyle = { fontSize: '18px', textAlign: 'center' };
+
+  return (
+    <Tabs style={{ color }}>
+      <TabList>
+        {tabs.map(item => (
+          <Tab
+            style={{ fontSize: '25px' }}
+            key={Math.round(Date.now() * Math.random())}
+          >
+            {item.title}
+          </Tab>
+        ))}
+      </TabList>
+
       {tabs.map(item => (
-        <Tab>{item.title}</Tab>
+        <TabPanel
+          style={contentStyle}
+          key={Math.round(Date.now() * Math.random())}
+        >
+          {item.content}
+
+        </TabPanel>
       ))}
-    </TabList>
-
-    {tabs.map(item => (
-      <TabPanel>{item.content}</TabPanel>
-    ))}
-
-  </Tabs>
-);
+    </Tabs>
+  );
+};
 
 TabNav.propTypes = {
   tabs: PropTypes.arrayOf(PropTypes.object).isRequired,
