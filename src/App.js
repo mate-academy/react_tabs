@@ -1,7 +1,7 @@
-import React from 'react';
-import './App.css';
+import React, { Component } from 'react';
+import TabNav from './TabNav';
 
-class App extends React.Component {
+export default class App extends Component {
   state = {
     tabs: [
       { title: 'Tab 1', content: 'Some text 1' },
@@ -15,11 +15,13 @@ class App extends React.Component {
 
     return (
       <div className="App">
+
         {/* eslint-disable-next-line */}
         <h1>{tabs.length} tabs</h1>
+
+        <TabNav tabs={tabs} />
+
       </div>
     );
   }
 }
-
-export default App;
