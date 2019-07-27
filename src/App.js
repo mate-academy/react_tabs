@@ -1,4 +1,6 @@
 import React from 'react';
+import Navigation from './Navigation';
+import ArticlesGroup from './ArticlesGroup';
 import './App.css';
 
 class App extends React.Component {
@@ -37,31 +39,8 @@ class App extends React.Component {
 
     return (
       <div className="App">
-
-        <nav>
-          <ul>
-            {tabs.map(tab => (
-              <li className={(tab.id === activeId) && 'active-tab'}>
-                <a
-                  href={`#${tab.title}`}
-                  onClick={() => this.clickTab(tab.id)}
-                  className={(tab.id === activeId) && 'active-link'}
-                >
-                  {tab.title}
-                </a>
-              </li>
-            ))}
-          </ul>
-        </nav>
-
-        <main>
-          {tabs.map(article => (
-            <article className={(article.id === activeId) && 'active-article'}>
-              <a name={article.title}></a>
-              {article.content}
-            </article>
-          ))}
-        </main>
+        <Navigation tabs ={tabs} activeId={activeId} clickTab={this.clickTab}/>
+        <ArticlesGroup tabs ={tabs} activeId={activeId}/>
       </div>
     );
   }
