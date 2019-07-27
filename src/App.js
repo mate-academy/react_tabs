@@ -18,11 +18,11 @@ class App extends React.Component {
   };
 
   title = tabs => tabs.map(tabItem => (
-    <Tab>{tabItem.title}</Tab>
+    <Tab key={tabItem.title}>{tabItem.title}</Tab>
   ));
 
   content = tabs => tabs.map(tabItem => (
-    <TabPanel>{tabItem.content}</TabPanel>
+    <TabPanel key={tabItem.title}>{tabItem.content}</TabPanel>
   ));
 
   setIndex = tabs => tabs.map((tabItem, i) => (
