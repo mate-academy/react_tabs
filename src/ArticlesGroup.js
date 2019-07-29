@@ -1,15 +1,23 @@
 import React from 'react';
-import Article from './Article';
 import PropTypes from 'prop-types';
+import Article from './Article';
 
 const ArticlesGroup = ({ tabs, activeId }) => (
   <main>
     {tabs.map(article => (
-      <Article article={article} activeId={activeId} />
+      <Article
+        key={article.id}
+        article={article}
+        activeId={activeId} />
     ))}
   </main>
-)
+);
+
+ArticlesGroup.propTypes = {
+  tabs: PropTypes.arrayOf(PropTypes.shape({
+    content: PropTypes.string.isRequired,
+  })).isRequired,
+  activeId: PropTypes.number.isRequired,
+};
 
 export default ArticlesGroup;
-
-

@@ -1,5 +1,5 @@
 import React from 'react';
-import Navigation from './Navigation';
+import TabsGroup from './TabsGroup';
 import ArticlesGroup from './ArticlesGroup';
 import './App.css';
 
@@ -27,7 +27,7 @@ class App extends React.Component {
     }));
   }
 
-  clickTab(id) {
+  handleClick = (id) => {
     this.forceUpdate();
     this.setState({
       activeId: id,
@@ -39,8 +39,15 @@ class App extends React.Component {
 
     return (
       <div className="App">
-        <Navigation tabs ={tabs} activeId={activeId} clickTab={this.clickTab}/>
-        <ArticlesGroup tabs ={tabs} activeId={activeId}/>
+        <TabsGroup
+          tabs={tabs}
+          activeId={activeId}
+          handleClick={this.handleClick}
+        />
+        <ArticlesGroup
+          tabs={tabs}
+          activeId={activeId}
+        />
       </div>
     );
   }

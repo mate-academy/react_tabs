@@ -6,6 +6,13 @@ const Article = ({ article, activeId }) => (
     <a name={article.title}></a>
     {article.content}
   </article>
-)
+);
+
+Article.propTypes = {
+  article: PropTypes.shape({
+    content: PropTypes.string.isRequired,
+  }).isRequired,
+  activeId: PropTypes.number.isRequired,
+};
 
 export default Article;
