@@ -1,1 +1,48 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat:100i,400,600,600i,700&display=swap");
+
+* {
+  margin: 0;
+  padding: 10px;
+  font-family: Montserrat;
+  box-sizing: border-box;
+}
+
+body {
+  padding: 0;
+  background-color: #1F2124;
+  color: #9AB76C;
+  user-select: none;
+}
+
+.tabButtons {
+  display: grid;
+  grid-template-columns: repeat(3, 300px);
+  justify-content: center;
+}
+
+.Button {
+  background-color: #40433B;
+  font-size: 25px;
+  width: 300px;
+  height: 50px;
+  border: 0;
+  outline: none;
+  border-radius: 2px;
+  transition: 0.3s;
+}
+
+.Button:hover {
+  background-color: #508769;
+}
+
+.Button:focus {
+  background-color: #63C377;
+}
+
+.Tab {
+  border-bottom: 1px solid #778660;
+  font-size: 20px;
+}
+
+
 
