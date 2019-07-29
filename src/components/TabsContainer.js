@@ -4,8 +4,8 @@ import PropTypes from 'prop-types';
 const TabsContainer = ({ tabs, index }) => (
   tabs.map(tab => (
     <div
-      className={index === tab.title ? 'Tabs-content' : 'Tabs-content hiden'}
-      key={tab.title}
+      className={index === tab.id ? 'Tabs-content' : 'Tabs-content hiden'}
+      key={tab.id}
     >
       {tab.content}
     </div>

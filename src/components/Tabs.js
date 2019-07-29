@@ -9,11 +9,11 @@ import '../components_css/Tabs.css';
 
 class Tabs extends React.Component {
   state={
-    index: this.props.tabs[0].title,
+    index: 0,
   }
 
   onTabSelected = (event) => {
-    this.setState({ index: event.target.name });
+    this.setState({ index: +event.target.name });
   }
 
   render() {

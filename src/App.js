@@ -8,9 +8,11 @@ const tabsOrigin = [
   { title: 'Tab 3', content: 'Some text 3' },
 ];
 
+const tabsForWord = tabsOrigin.map((tab, index) => ({ ...tab, id: index }));
+
 class App extends React.Component {
   state = {
-    tabs: tabsOrigin,
+    tabs: tabsForWord,
   };
 
   changeTabOrder = (event) => {

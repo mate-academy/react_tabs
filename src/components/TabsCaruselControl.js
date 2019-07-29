@@ -11,7 +11,7 @@ const TabsCaruselControl = ({ changeTabOrder }) => (
       {'< Back'}
     </button>
 
-    <h4>Change Tabs Order</h4>
+    <p>Change Tabs Order</p>
 
     <button
       type="button"

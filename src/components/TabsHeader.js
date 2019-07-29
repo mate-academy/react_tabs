@@ -3,13 +3,13 @@ import PropTypes from 'prop-types';
 
 const TabsHeader = ({ tabs, onTabSelected, index }) => {
   const tabsHeader = tabs.map(tab => (
-    <li className="Tabs__items" key={tab.title}>
+    <li className="Tabs__items" key={tab.id}>
       <button
         onClick={onTabSelected}
-        name={tab.title}
+        name={tab.id}
         type="button"
         className={
-          index === tab.title ? 'button button--active' : 'button'
+          index === tab.id ? 'button button--active' : 'button'
         }
       >
         {tab.title}
