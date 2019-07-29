@@ -1,0 +1,23 @@
+.tabs-container {
+  min-width: 350px;
+}
+
+.tab-item {
+  display: inline-block;
+  cursor: pointer;
+  padding: 10px 30px;
+}
+
+.tab-item--selected {
+  border: solid black;
+  border-width: 1px 1px 0;
+  border-bottom: 2px solid #fff;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.tab-content {
+  border-top: 1px solid black;
+  margin: -17px auto;
+  padding: 10px;
+}

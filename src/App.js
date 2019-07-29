@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import TabNav from './TabNav';
+import Tabs from './Tabs';
 
 export default class App extends Component {
   state = {
@@ -8,18 +8,24 @@ export default class App extends Component {
       { title: 'Tab 2', content: 'Some text 2' },
       { title: 'Tab 3', content: 'Some text 3' },
     ],
+    id: 0,
   };
 
+  onTabSelected = id => this.setState({ id });
+
   render() {
-    const { tabs } = this.state;
+    const { tabs, id } = this.state;
 
     return (
-      <div className="App">
-
-        {/* eslint-disable-next-line */}
+      <div>
+        {/* eslint-disable-next-line react/jsx-one-expression-per-line */}
         <h1>{tabs.length} tabs</h1>
 
-        <TabNav tabs={tabs} />
+        <Tabs
+          onTabSelected={this.onTabSelected}
+          tabs={tabs}
+          id={id}
+        />
 
       </div>
     );
