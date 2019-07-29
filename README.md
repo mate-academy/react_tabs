@@ -1,4 +1,5 @@
 # React Tabs
+[DEMO](https://irakalmykova.github.io/react_tabs)
 
 ## Task 
 
