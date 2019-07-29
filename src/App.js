@@ -26,7 +26,7 @@ class App extends React.Component {
         <Tabs index={index}>
           {tabs.map((tab, i) => (
             <Tabs.Tab
-              key={new Date()}
+              key={tab.title}
               title={tab.title}
               onTabSelected={this.onTabSelected}
               index={index}
