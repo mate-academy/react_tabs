@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.css';
 import PropTypes from 'prop-types';
+import TabsCaruselControl from './components/TabsCaruselControl';
 
 const TabsBlockContext = React.createContext();
 
@@ -45,6 +46,8 @@ class App extends React.Component {
       <div className="App">
         {/* eslint-disable-next-line */}
         <h1>{tabs.length} tabs</h1>
+
+        <TabsCaruselControl changeTabOrder={this.changeTabOrder} />
 
         <TabsBlockContext.Provider
           value={tabs.find(tab => tab.id === index).content}
