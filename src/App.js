@@ -20,9 +20,9 @@ class App extends React.Component {
   };
 
   selectTab = (tabId) => {
-    const selectedTab = this.state.tabs
-      .filter(tab => Number(tab.id) === Number(tabId))[0];
-
+    const { tabs } = this.state;
+    const selectedTab = tabs
+      .find(tab => Number(tab.id) === Number(tabId));
     this.setState({
       selectedTabText: selectedTab.content,
       selectedTabId: Number(tabId),
