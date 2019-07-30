@@ -1,0 +1,32 @@
+.nav-tab {
+  display: block;
+  padding: 12px 20px;
+  margin-right: 5px;
+  cursor: pointer;
+
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+
+    a {
+      display: block;
+      padding: 10px 15px;
+      background: #eee;
+      text-decoration: none;
+    }
+  }
+  .tabbed {
+    width: 700px;
+    margin: 50px auto;
+  }
+
+  .tab {
+    display: block;
+    width: 700px;
+    position: absolute;
+    border: 2px solid #4EC6DE;
+    font-weight: bold;
+  }
+}
