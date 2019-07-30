@@ -1,1 +1,52 @@
+body {
+  margin: 20px 0 0;
+  padding: 0;
+}
 
+p {
+  margin: 0;
+}
+
+.tabs-links {
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+
+.tabs-links__item {
+  border: 1px solid #eee;
+  border-bottom: 0;
+  height: 40px;
+  padding: 2px 5px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.tabs-links__item--selected {
+  background: #eee;
+}
+
+.tabs-links__item a {
+  height: inherit;
+  text-decoration: none;
+  color: black;
+  display: flex;
+  align-items: center;
+}
+
+.tabs {
+  max-width: 500px;
+  margin: auto;
+}
+
+.tabs-content {
+  border: 1px solid #eee;
+  height: 400px;
+  overflow: auto;
+  padding: 20px 10px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
