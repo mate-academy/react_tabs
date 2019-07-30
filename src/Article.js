@@ -17,11 +17,11 @@ const Article = ({ tabs, selectedId }) => (
 );
 
 Article.propTypes = {
-  tabs: PropTypes.shape({
+  tabs: PropTypes.arrayOf(PropTypes.shape({
     id: PropTypes.number,
     title: PropTypes.string,
     content: PropTypes.string,
-  }).isRequired,
+  })).isRequired,
   selectedId: PropTypes.number.isRequired,
 };
 
