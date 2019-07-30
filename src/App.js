@@ -1,6 +1,9 @@
 import React from 'react';
 import './App.css';
 
+import Tabs from './Tabs';
+import Article from './Article';
+
 class App extends React.Component {
   state = {
     tabs: [
@@ -8,15 +11,47 @@ class App extends React.Component {
       { title: 'Tab 2', content: 'Some text 2' },
       { title: 'Tab 3', content: 'Some text 3' },
     ],
+    selectedId: 1,
   };
 
+  componentDidMount() {
+    let id = 0;
+
+    this.setState(prevState => ({
+      tabs: prevState.tabs.map((tab) => {
+        id += 1;
+
+        return (
+          { ...tab, id }
+        );
+      }),
+    }));
+  }
+
+  onTabSelected = (id) => {
+    this.setState({
+      selectedId: id,
+    });
+  }
+
   render() {
-    const { tabs } = this.state;
+    const { tabs, selectedId } = this.state;
 
     return (
       <div className="App">
         {/* eslint-disable-next-line */}
-        <h1>{tabs.length} tabs</h1>
+        <h1 className="main-title">Number of tabs: {tabs.length}</h1>
+        <ul className="nav nav-tabs">
+          {tabs.map(tab => (
+            <Tabs
+              tabs={tab}
+              key={tab.id}
+              selectedId={selectedId}
+              onTabSelected={this.onTabSelected}
+            />
+          ))}
+        </ul>
+        <Article tabs={tabs} selectedId={selectedId} />
       </div>
     );
   }
