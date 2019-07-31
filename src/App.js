@@ -1,5 +1,6 @@
 import React from 'react';
 import './App.css';
+import Tabs from './component/Tabs';
 
 class App extends React.Component {
   state = {
@@ -8,15 +9,25 @@ class App extends React.Component {
       { title: 'Tab 2', content: 'Some text 2' },
       { title: 'Tab 3', content: 'Some text 3' },
     ],
+    indexOfSelect: 0,
   };
 
+  selectedTab = (index) => {
+    this.setState({
+      indexOfSelect: index,
+    });
+  }
+
   render() {
-    const { tabs } = this.state;
+    const { tabs, indexOfSelect } = this.state;
 
     return (
       <div className="App">
-        {/* eslint-disable-next-line */}
-        <h1>{tabs.length} tabs</h1>
+        <Tabs
+          tabs={tabs}
+          activeTab={indexOfSelect}
+          selectedTab={this.selectedTab}
+        />
       </div>
     );
   }
