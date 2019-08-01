@@ -9,28 +9,28 @@ class App extends React.Component {
       { title: 'Tab 2', content: 'Some text 2' },
       { title: 'Tab 3', content: 'Some text 3' },
     ],
-    index: 0,
+    activeTabIndex: 0,
   };
 
   onTabSelected = (index) => {
-    this.setState({ index });
+    this.setState({ activeTabIndex: index });
   }
 
   render() {
-    const { tabs, index } = this.state;
+    const { tabs, activeTabIndex } = this.state;
 
     return (
       <div className="App">
         {/* eslint-disable-next-line */}
-        <h1 App__title>{tabs.length} tabs</h1>
-        <Tabs index={index}>
-          {tabs.map((tab, i) => (
+        <h1>{tabs.length} tabs</h1>
+        <Tabs activeTabIndex={activeTabIndex}>
+          {tabs.map((tab, tabIndex) => (
             <Tabs.Tab
               key={tab.title}
               title={tab.title}
               onTabSelected={this.onTabSelected}
-              index={index}
-              i={i}
+              activeTabIndex={activeTabIndex}
+              tabIndex={tabIndex}
             >
               {tab.content}
             </Tabs.Tab>
