@@ -55,11 +55,7 @@ class App extends React.Component {
     currentTabId: '0',
   };
 
-  onTabSelected = (id) => {
-    this.setState({
-      currentTabId: id,
-    });
-  };
+  selectTab = currentTabId => this.setState({ currentTabId });
 
   render() {
     const { tabs } = this.state;
@@ -69,7 +65,7 @@ class App extends React.Component {
         <h1 className="title">React tabs</h1>
         <Tabs
           tabs={tabs}
-          onTabSelected={this.onTabSelected}
+          onTabSelected={this.selectTab}
           currentTabId={this.state.currentTabId}
         />
       </div>
