@@ -1,5 +1,6 @@
 import React from 'react';
 import './App.css';
+import Tabs from './Tabs';
 
 class App extends React.Component {
   state = {
@@ -8,15 +9,28 @@ class App extends React.Component {
       { title: 'Tab 2', content: 'Some text 2' },
       { title: 'Tab 3', content: 'Some text 3' },
     ],
+    setActiveTab: 0,
   };
 
+  handleChangeTab = (event) => {
+    this.setState({
+      setActiveTab: event,
+    });
+  }
+
   render() {
-    const { tabs } = this.state;
+    const { tabs, setActiveTab } = this.state;
 
     return (
       <div className="App">
-        {/* eslint-disable-next-line */}
-        <h1>{tabs.length} tabs</h1>
+        <Tabs
+          tabs={tabs}
+          setActiveTab={setActiveTab}
+          handleChangeTab={this.handleChangeTab}
+        />
+        <section>
+          {tabs[setActiveTab].content}
+        </section>
       </div>
     );
   }
