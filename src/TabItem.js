@@ -13,11 +13,12 @@ const TabItem = ({
     >
       <button
         type="button"
+        className="button"
         onClick={() => handleChangeTab(index)}
       >
-        tab
+        {tab.title}
       </button>
-      {tab.title}
+
     </li>
   );
 };
