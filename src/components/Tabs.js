@@ -1,24 +1,19 @@
 import React from 'react';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
+import {
+  NavLink,
+} from 'react-router-dom';
 
 class Tabs extends React.Component {
   static Tab = ({ children }) => children ;
 
-  state = {
-    selectedTab: 0,
-  };
-
-  handleClick = (event, selectedIndex) => {
-    event.preventDefault();
-
-    this.setState({
-      selectedTab: selectedIndex,
-    });
-  };
+  componentDidMount() {
+  }
 
   render() {
     let { children } = this.props;
+    const { match } = this.props;
 
     children = children.length ? children : [children];
 
@@ -26,28 +21,37 @@ class Tabs extends React.Component {
       <div className="tabs">
         <ul className="tabs-links">
           {
-            children.map((child, index) => {
+            children.map((child) => {
+              const link = `${child.props.title.replace(' ', '-')}`;
+
               const classes = classNames({
                 'tabs-links__item': true,
-                'tabs-links__item--selected': index === this.state.selectedTab,
               });
 
               return (
                 <li className={classes}>
-                  <a
-                    href="/"
-                    onClick={event => this.handleClick(event, index)}
+                  <NavLink
+                    isActive={() => match.params.title === link}
+                    activeClassName="tabs-links__item--selected"
+                    to={link}
                   >
                     {child.props.title}
-                  </a>
+                  </NavLink>
                 </li>
               );
             })
           }
         </ul>
+
         <div className="tabs-content">
           {
-            children[this.state.selectedTab]
+            children.find((child) => {
+              const title = match.params.title || '';
+
+              return (
+                child.props.title === title.replace('-', ' ')
+              );
+            })
           }
         </div>
       </div>
@@ -58,5 +62,10 @@ class Tabs extends React.Component {
 export default Tabs;
 
 Tabs.propTypes = {
+  match: PropTypes.shape({
+    params: PropTypes.shape({
+      title: PropTypes.string,
+    }),
+  }).isRequired,
   children: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
