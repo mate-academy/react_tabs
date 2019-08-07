@@ -1,5 +1,7 @@
 # React Tabs
 
+[DEMO](https://neitiris.github.io/react_tabs/)
+
 ## Task 
 
 ![tabs](./description/tabs.gif)
