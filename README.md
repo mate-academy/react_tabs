@@ -17,24 +17,25 @@
     ```
 2. Implement `onTabSelected` callback triggered on tab change with tab data as an argument
 3. Add `index` prop (default `0`)  to set an index of tab active at the beginning
-4. (*) Add an ability to use Tabs like this 
+4. (*) Add an ability to use Tabs like this ([Children](https://youtu.be/2dlvPZW_Bx8) video will help)
     ```html
     <Tabs>
-      <Tabs.Tab title="Tab 2">
+      <Tab title="Tab 2">
         It could be a text
-      </Tabs.Tab>
+      </Tab>
    
-      <Tabs.Tab title="Tab 3">
+      <Tab title="Tab 3">
         <div>1</div>
         <div>2</div>
-      </Tabs.Tab>
+      </Tab>
    
-      <Tabs.Tab title="Tab 1">
+      <Tab title="Tab 1">
         Or even any JSX
-      </Tabs.Tab>
+      </Tab>
     </Tabs>
     ```
-    
+
+
 ## Workflow
 
 - Fork the repository with task
