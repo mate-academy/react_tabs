@@ -1,1 +1,24 @@
+.button {
+  cursor: pointer;
+  border: none;
+  font-size: 15px;
+  font-weight: 700;
+  margin: 5px;
+  padding: 10px;
+  color: rgb(128, 156, 233);
+  background-color: rgb(238, 234, 186);
+  transition-duration: 0.5s;
+}
 
+.button:hover {
+  background: rgb(41, 13, 177);
+}
+
+.button:active {
+  outline-color: 1px solid rgb(28, 11, 110);
+}
+
+.textContent {
+  font-weight: 700;
+  color: rgb(128, 156, 233);
+}
