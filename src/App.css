@@ -1,1 +1,19 @@
+.tab__title--active {
+  color: #4e4eeb;
+  display: inline-block;
+  width: 70px !important;
+  height: 29px;
+  border: 1px solid;
+  border-color: #000 #000 #fff;
+}
 
+.tab {
+  list-style: none;
+  display: flex;
+  border-bottom: 1px solid black;
+}
+
+.button {
+  height: 100%;
+  width: 70px;
+}
