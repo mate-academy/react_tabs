@@ -1,1 +1,19 @@
+ul {
+  display: inline-flex;
+  padding: 0;
+}
 
+li {
+  list-style: none;
+}
+
+button {
+  color: blue;
+  background: transparent;
+  border: none;
+  outline: none;
+}
+
+.active button {
+  color: black;
+}
