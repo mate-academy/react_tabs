@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { TabTypes } from '../../constants/proptypes';
 import './Tab.scss';
 
-// eslint-disable-next-line
+// eslint-disable-next-line import/prefer-default-export
 export class Tab extends Component {
   constructor(props) {
     super(props);
@@ -10,23 +10,23 @@ export class Tab extends Component {
   }
 
   handleClick() {
-    this.props.onClick(this.props.title);
+    this.props.onClick(this.props.ind);
   }
 
   render() {
     const {
-      key, title, content, isActive,
+      title, content, isActive,
     } = this.props;
 
     return (
-      <div className="tab" key={key}>
-        <div
+      <div className="tab">
+        <button
           className={`tab__button ${isActive ? ' tab__button--active' : ''}`}
           onClick={this.handleClick}
-          role="presentation"
+          type="button"
         >
           {title}
-        </div>
+        </button>
         <p className={`tab__text ${isActive ? ' tab__text--active' : ''}`}>
           {content}
         </p>

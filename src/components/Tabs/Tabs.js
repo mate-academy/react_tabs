@@ -3,30 +3,31 @@ import './Tabs.scss';
 import { TabsTypes } from '../../constants/proptypes';
 import { Tab } from '../Tab/Tab';
 
-export default class Tabs extends Component {
+class Tabs extends Component {
   constructor(props) {
     super(props);
-    this.activeTabChange = this.activeTabChange.bind(this);
     this.state = {
-      activeTabKey: this.props.activeTabTitle,
+      activeTabKey: this.props.activeTab,
     };
+    this.activeTabChange = this.activeTabChange.bind(this);
   }
 
-  activeTabChange(activeTitle) {
-    this.setState({ activeTabKey: activeTitle });
+  activeTabChange(newActiveTab) {
+    this.setState({ activeTabKey: newActiveTab });
   }
 
   render() {
-    const { children } = this.props;
+    const { tabs } = this.props;
 
     return (
       <div className="tabs">
-        {children.map(tab => (
+        {tabs.map((tab, i) => (
           <Tab
             key={tab.title}
             title={tab.title}
             content={tab.content}
-            isActive={tab.title === this.state.activeTabKey}
+            ind={i}
+            isActive={i === this.state.activeTabKey}
             onClick={this.activeTabChange}
           />
         ))}
@@ -36,3 +37,5 @@ export default class Tabs extends Component {
 }
 
 Tabs.propTypes = TabsTypes;
+
+export default Tabs;

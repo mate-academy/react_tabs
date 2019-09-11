@@ -17,9 +17,7 @@ class App extends React.Component {
     return (
       <div className="App">
         <h1>{`${tabs.length} tabs`}</h1>
-        <Tabs activeTabTitle={tabs[0].title}>
-          {tabs}
-        </Tabs>
+        <Tabs activeTab={0} tabs={tabs} />
       </div>
     );
   }
