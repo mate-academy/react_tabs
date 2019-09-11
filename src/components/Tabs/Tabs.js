@@ -26,7 +26,7 @@ class Tabs extends Component {
             key={tab.title}
             title={tab.title}
             content={tab.content}
-            ind={i}
+            index={i}
             isActive={i === this.state.activeTabKey}
             onClick={this.activeTabChange}
           />

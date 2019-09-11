@@ -10,7 +10,7 @@ export class Tab extends Component {
   }
 
   handleClick() {
-    this.props.onClick(this.props.ind);
+    this.props.onClick(this.props.index);
   }
 
   render() {
