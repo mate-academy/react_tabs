@@ -3,16 +3,18 @@
     position: relative;
     z-index: 1;
     height: 40px;
-    border-radius: 10px 10px 0 0;
-    border: 1px solid gray;
-    border-bottom: 2px solid #fff;
-    margin: 0 10px;
+    border-radius: 5px 5px 0 0;
+    margin: 0 3px;
     padding: 10px 20px 0;
     background-color: #fff;
+    color: dodgerblue;
+    font-weight: 700;
     cursor: pointer;
 
     &--active {
-      color: red;
+      color: gray;
+      border: 1px solid gray;
+      border-bottom: 2px solid #fff;
       z-index: 3;
     }
   }
