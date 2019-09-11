@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import './TabsList.scss';
+import './Tabs.scss';
 import { TabsTypes } from '../../constants/proptypes';
 import { Tab } from '../Tab/Tab';
 
-export default class TabsList extends Component {
+export default class Tabs extends Component {
   constructor(props) {
     super(props);
     this.activeTabChange = this.activeTabChange.bind(this);
@@ -35,4 +35,4 @@ export default class TabsList extends Component {
   }
 }
 
-TabsList.propTypes = TabsTypes;
+Tabs.propTypes = TabsTypes;

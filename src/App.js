@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import TabsList from './components/TabsList/TabsList';
+import Tabs from './components/Tabs/Tabs';
 
 class App extends React.Component {
   state = {
@@ -17,9 +17,9 @@ class App extends React.Component {
     return (
       <div className="App">
         <h1>{`${tabs.length} tabs`}</h1>
-        <TabsList activeTabTitle={tabs[0].title}>
+        <Tabs activeTabTitle={tabs[0].title}>
           {tabs}
-        </TabsList>
+        </Tabs>
       </div>
     );
   }
