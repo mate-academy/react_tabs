@@ -10,7 +10,7 @@ export class Tab extends Component {
   }
 
   handleClick() {
-    this.props.onChange(this.props.title);
+    this.props.onClick(this.props.title);
   }
 
   render() {

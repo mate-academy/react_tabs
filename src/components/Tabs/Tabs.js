@@ -27,7 +27,7 @@ export default class Tabs extends Component {
             title={tab.title}
             content={tab.content}
             isActive={tab.title === this.state.activeTabKey}
-            onChange={this.activeTabChange}
+            onClick={this.activeTabChange}
           />
         ))}
       </div>
