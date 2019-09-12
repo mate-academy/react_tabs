@@ -19,6 +19,7 @@
   border: 1px solid white;
   transition: border 300ms, border-bottom 300ms;
   background-color: white;
+  outline: #d1d5da;
 }
 
 .tab:hover {
