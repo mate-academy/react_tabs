@@ -1,0 +1,17 @@
+.wrapper {
+  position: relative;
+  border-bottom: 1px solid #eee;
+  margin: 40px auto 10px;
+}
+
+.tab-list {
+  display: flex;
+  left: 0;
+  position: absolute;
+  bottom: -1px;
+}
+
+.text-container {
+  padding-top: 10px;
+  color: coral;
+}
