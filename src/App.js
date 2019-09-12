@@ -26,32 +26,32 @@ class App extends React.Component {
       <div className="App">
         <Tabs>
           <div className="tab-switch__wrapp">
-            {tabs.map((elem, index) => {
-              return (
-                <div role="button" onClick={() => this.onTabSelected(index)} className="tab">
-                  {elem.title}
-                </div>
-              );
-            })}
+            {tabs.map((elem, index) => (
+              <button
+                type="button"
+                onClick={() => this.onTabSelected(index)}
+                className="tab"
+              >
+                {elem.title}
+              </button>
+            ))}
           </div>
 
-          {tabs.map((elem, index) => {
-            return (
-              <>
-                {this.state.childVisible === index
-                  ? (
-                    <Tab
-                      title={elem.title}
-                      key={elem.title}
-                    >
-                      { elem.content }
-                    </Tab>
-                  )
-                  : null
-                }
-              </>
-            );
-          })}
+          {tabs.map((elem, index) => (
+            <>
+              {this.state.childVisible === index
+                ? (
+                  <Tab
+                    title={elem.title}
+                    key={elem.title}
+                  >
+                    { elem.content }
+                  </Tab>
+                )
+                : null
+              }
+            </>
+          ))}
         </Tabs>
       </div>
     );
