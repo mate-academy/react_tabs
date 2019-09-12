@@ -1,7 +1,7 @@
 import React from 'react';
 
-import Tabs from './Tabs';
-import Tab from './Tab';
+import Tabs from './components/Tabs';
+import Tab from './components/Tab';
 
 import './App.css';
 
