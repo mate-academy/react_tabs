@@ -1,0 +1,22 @@
+.tabs {
+  text-align: center;
+}
+
+.tabs__tab {
+  display: inline-block;
+  cursor: pointer;
+  margin-right: 5px;
+  padding: 10px;
+  background-color: #ddd;
+  border-radius: 4px;
+  margin-bottom: 10px;
+}
+
+.tabs__tab--active {
+  background-color: rgb(144, 144, 144);
+}
+
+.tabs__content {
+  font-size: 20px;
+}
+
