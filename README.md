@@ -69,3 +69,4 @@
 You should be writing your code in `src/` directory.
 
 - [DEMO LINK](https://igaryok.github.io/react_tabs/)
+- [PR](https://github.com/mate-academy/react_tabs/pull/33)
