@@ -4,7 +4,6 @@
   margin: 100px 0 0 100px;
   font-family: Arial;
   font-size: 25px;
-  cursor: pointer;
   border-bottom: 1px solid #d1d5da;
 }
 
@@ -20,6 +19,7 @@
   transition: border 300ms, border-bottom 300ms;
   background-color: white;
   outline: #d1d5da;
+  cursor: pointer;
 }
 
 .tab:hover {
