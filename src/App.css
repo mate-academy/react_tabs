@@ -1,1 +1,11 @@
+body {
+  margin: 0;
+}
 
+.App {
+  text-align: center;
+  width: 900px;
+  height: 100vh;
+  box-shadow: 00 4px 4px #ddd;
+  margin: 0 auto;
+}
