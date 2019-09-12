@@ -1,1 +1,38 @@
+.wrapper {
+  position: relative;
+  border-bottom: 1px solid #eee;
+}
 
+.tab-list {
+  display: flex;
+  left: 0;
+  position: absolute;
+  bottom: -1px;
+}
+
+.text-container {
+  padding-top: 10px;
+}
+
+
+.button {
+  width: 50px;
+  margin-right: 10px;
+  box-shadow: none;
+  color: lightskyblue;
+  border-radius: 1px;
+  border: none;
+  border-bottom: 1px solid #eee; 
+}
+
+.button:focus {
+  outline: none;
+}
+
+.button--active {
+  margin-right: 10px;
+  border:  1px solid #eee;
+  border-bottom: 2px solid #fff;
+  outline: none;
+  color: gray;
+}
