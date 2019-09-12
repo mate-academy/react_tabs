@@ -14,7 +14,7 @@
   justify-content: center;
   height: 80px;
   width: 80px;
-  margin-left: 20px;
+  margin-right: 20px;
   border: 1px solid white;
   transition: border 300ms, border-bottom 300ms;
   background-color: white;
