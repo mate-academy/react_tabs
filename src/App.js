@@ -28,7 +28,7 @@ class App extends React.Component {
           <div className="tab-switch__wrapp">
             {tabs.map((elem, index) => {
               return (
-                <div onClick={() => this.onTabSelected(index)} className="tab">
+                <div role="button" onClick={() => this.onTabSelected(index)} className="tab">
                   {elem.title}
                 </div>
               );
