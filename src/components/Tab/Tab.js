@@ -8,18 +8,25 @@ class Tab extends React.Component {
   }
 
   handleClick(event) {
-    const titleTab = event.nativeEvent.target.innerText;
+    const idTab = Number(event.nativeEvent.target.id);
 
-    this.props.handleIndex(titleTab);
+    this.props.handleIndex(idTab);
   }
 
   render() {
-    const { tab, index, idx } = this.props;
-    const classActive = (index === idx ? `nav-link active` : 'nav-link');
+    const { tab, activeIndex, currentIndex } = this.props;
+    const classActive = (
+      activeIndex === currentIndex ? `nav-link active` : 'nav-link'
+    );
 
     return (
       <li className="nav-item">
-        <a onClick={this.handleClick} className={classActive} href="# ">
+        <a
+          id={currentIndex}
+          onClick={this.handleClick}
+          className={classActive}
+          href="# "
+        >
           {tab.title}
         </a>
       </li>
@@ -32,8 +39,8 @@ Tab.propTypes = {
     title: PropTypes.string,
     content: PropTypes.string,
   }).isRequired,
-  index: PropTypes.number.isRequired,
-  idx: PropTypes.number.isRequired,
+  activeIndex: PropTypes.number.isRequired,
+  currentIndex: PropTypes.number.isRequired,
   handleIndex: PropTypes.func.isRequired,
 };
 

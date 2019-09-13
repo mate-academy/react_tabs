@@ -7,35 +7,29 @@ class Tabs extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      index: 0,
+      activeIndex: 0,
     };
     this.handleIndex = this.handleIndex.bind(this);
   }
 
-  handleIndex(title) {
-    let findTab = this.props.tabs.findIndex(item => item.title === title);
-
-    if (findTab === -1) {
-      findTab = 0;
-    }
-
-    this.setState({ index: findTab });
+  handleIndex(id) {
+    this.setState({ activeIndex: id });
   }
 
   render() {
     const { tabs } = this.props;
-    const { index } = this.state;
-    const tabContent = tabs[index].content;
+    const { activeIndex } = this.state;
+    const tabContent = tabs[activeIndex].content;
 
     return (
       <>
         <ul className="nav nav-tabs">
           {tabs.map(
-            (item, idx) => (
+            (item, currentIndex) => (
               <Tab
                 tab={item}
-                index={index}
-                idx={idx}
+                activeIndex={activeIndex}
+                currentIndex={currentIndex}
                 key={item.title}
                 handleIndex={this.handleIndex}
               />
