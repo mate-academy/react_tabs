@@ -23,9 +23,15 @@ class App extends React.Component {
     return (
       <div className="main">
         <h1>
-          {tabs.length} tabs
+          {tabs.length}
+          {' '}
+tabs
         </h1>
-        <Tabs tabs={tabs} handleTab={this.handleTab} indexItem={indexElem} />
+        <Tabs
+          tabs={tabs}
+          handleTab={this.handleTab}
+          indexItem={indexElem}
+        />
       </div>
     );
   }
