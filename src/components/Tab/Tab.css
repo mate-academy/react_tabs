@@ -1,8 +1,10 @@
 .button {
   width: 100px;
   color: cadetblue;
+  margin-right: 5px;
 }
 
 .button--active {
   width: 100px;
+  color: blue;
 }
