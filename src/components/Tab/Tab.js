@@ -2,11 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const Tab = ({
-  className, onTabSelected, i, tab, activeClass,
+  className, onTabSelected, index, tab, activeClass,
 }) => (
   <div
     className={`${className} ${activeClass}`.trim()}
-    onClick={() => onTabSelected(i)}
+    onClick={() => onTabSelected(index)}
   >
     {tab.title}
   </div>
@@ -21,7 +21,7 @@ Tab.propTypes = {
   className: PropTypes.string.isRequired,
   onTabSelected: PropTypes.func.isRequired,
   activeClass: PropTypes.string.isRequired,
-  i: PropTypes.number.isRequired,
+  index: PropTypes.number.isRequired,
   tab: shape.isRequired,
 };
 

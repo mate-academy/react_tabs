@@ -11,17 +11,16 @@ class App extends Component {
       { title: 'Tab 4', content: 'Some text 4' },
     ],
     tabIndex: 0,
-    activeClass: 'tabs__tab--active',
   };
 
-  onTabSelected = (i) => {
+  onTabSelected = (index) => {
     this.setState({
-      tabIndex: i,
+      tabIndex: index,
     });
   }
 
   render() {
-    const { tabs, tabIndex, activeClass } = this.state;
+    const { tabs, tabIndex } = this.state;
 
     return (
       <div className="App">
@@ -29,7 +28,6 @@ class App extends Component {
           tabs={tabs}
           onTabSelected={this.onTabSelected}
           tabIndex={tabIndex}
-          activeClass={activeClass}
         />
       </div>
     );

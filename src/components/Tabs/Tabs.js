@@ -4,21 +4,19 @@ import './Tabs.css';
 import Tab from '../Tab/Tab';
 
 const Tabs = ({
-  tabs, tabIndex, onTabSelected, activeClass,
+  tabs, tabIndex, onTabSelected,
 }) => (
   <div className="tabs">
-    {
-      tabs.map((tab, i) => (
-        <Tab
-          key={tab.title}
-          className="tabs__tab"
-          onTabSelected={onTabSelected}
-          tab={tab}
-          i={i}
-          activeClass={tabIndex === i ? activeClass : ''}
-        />
-      ))
-    }
+    {tabs.map((tab, index) => (
+      <Tab
+        key={tab.title}
+        className="tabs__tab"
+        onTabSelected={onTabSelected}
+        tab={tab}
+        index={index}
+        activeClass={tabIndex === index ? 'tabs__tab--active' : ''}
+      />
+    ))}
     <div className="tabs__content">
       {tabs[tabIndex].content}
     </div>
