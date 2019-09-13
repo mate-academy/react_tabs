@@ -23,19 +23,16 @@ class Tabs extends React.Component {
 
     return (
       <>
-        <ul className="nav nav-tabs">
-          {tabs.map(
-            (item, currentIndex) => (
-              <Tab
-                tab={item}
-                activeIndex={activeIndex}
-                currentIndex={currentIndex}
-                key={item.title}
-                handleActiveIndex={this.handleActiveIndex}
-              />
-            )
-          )}
-        </ul>
+        {tabs.map(
+          (item, currentIndex) => (
+            <Tab
+              tab={item}
+              currentIndex={currentIndex}
+              key={item.title}
+              handleActiveIndex={this.handleActiveIndex}
+            />
+          )
+        )}
         <p className="content">{tabContent}</p>
       </>
     );
