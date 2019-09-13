@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import './Tab.css';
 
 class Tab extends React.Component {
   constructor(props) {
@@ -20,6 +21,7 @@ class Tab extends React.Component {
       <button
         id={currentIndex}
         type="button"
+        className="btn btn-primary btn-lg"
         onClick={this.handleClick}
       >
         {tab.title}
