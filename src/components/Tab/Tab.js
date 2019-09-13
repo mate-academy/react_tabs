@@ -10,7 +10,7 @@ class Tab extends React.Component {
   handleClick(event) {
     const idTab = Number(event.nativeEvent.target.id);
 
-    this.props.handleIndex(idTab);
+    this.props.handleActiveIndex(idTab);
   }
 
   render() {
@@ -41,7 +41,7 @@ Tab.propTypes = {
   }).isRequired,
   activeIndex: PropTypes.number.isRequired,
   currentIndex: PropTypes.number.isRequired,
-  handleIndex: PropTypes.func.isRequired,
+  handleActiveIndex: PropTypes.func.isRequired,
 };
 
 export default Tab;

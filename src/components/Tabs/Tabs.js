@@ -9,10 +9,10 @@ class Tabs extends React.Component {
     this.state = {
       activeIndex: 0,
     };
-    this.handleIndex = this.handleIndex.bind(this);
+    this.handleActiveIndex = this.handleActiveIndex.bind(this);
   }
 
-  handleIndex(id) {
+  handleActiveIndex(id) {
     this.setState({ activeIndex: id });
   }
 
@@ -31,7 +31,7 @@ class Tabs extends React.Component {
                 activeIndex={activeIndex}
                 currentIndex={currentIndex}
                 key={item.title}
-                handleIndex={this.handleIndex}
+                handleActiveIndex={this.handleActiveIndex}
               />
             )
           )}
