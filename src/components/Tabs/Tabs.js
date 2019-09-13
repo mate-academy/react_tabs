@@ -16,7 +16,11 @@ class Tabs extends Component {
   }
 
   render() {
-    const { onClickTabItem, props: { children }, state: { activeTab } } = this;
+    const {
+      onClickTabItem,
+      props: { children },
+      state: { activeTab },
+    } = this;
 
     return (
       <div className="tabs">

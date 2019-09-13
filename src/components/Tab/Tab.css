@@ -7,6 +7,7 @@
   padding: 10px 30px;
   background-color: #fff;
   margin-bottom: -1px;
+  cursor: pointer;
 }
 
 .tab-list-item__button:focus {

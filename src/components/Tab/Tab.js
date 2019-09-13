@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import './Tab.css';
 
+const classNames = require('classnames');
+
 class Tab extends Component {
   onClick = () => {
     const { label, onClick } = this.props;
@@ -11,11 +13,10 @@ class Tab extends Component {
 
   render() {
     const { onClick, props: { activeTab, label } } = this;
-    let className = 'tab-list-item__button';
-
-    if (activeTab === label) {
-      className += ' tab-list-item__button--active';
-    }
+    const className = classNames(
+      'tab-list-item__button',
+      { 'tab-list-item__button--active': activeTab === label }
+    );
 
     return (
       <li className="tab-list-item">
