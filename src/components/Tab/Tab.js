@@ -5,14 +5,14 @@ import { TabPropTypes } from '../../proptypes/proptypes';
 const Tab = ({
   tab, onTabSelected, index, activeTab,
 }) => {
-  const className = i => (
+  const getClassName = i => (
     activeTab === i ? 'active item' : 'item'
   );
 
   return (
     <button
       type="button"
-      className={className(index)}
+      className={getClassName(index)}
       onClick={() => onTabSelected(index)}
     >
       {tab.title}
