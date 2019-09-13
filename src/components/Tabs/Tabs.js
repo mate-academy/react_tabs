@@ -23,13 +23,13 @@ class Tabs extends Component {
         <div className="tabs">
           <ul className="tabs-list">
             {tabs.map((tab) => {
-              const { title } = tab;
+              const { title, content } = tab;
 
               return (
                 <Tab
                   key={title}
                   title={title}
-                  content={tab.content}
+                  content={content}
                   isActive={title === this.state.activeTab}
                   onClick={this.onClickTabItem}
                 />
@@ -38,16 +38,18 @@ class Tabs extends Component {
           </ul>
           <div className="tab-content">
             {tabs.map((tab) => {
-              if (tab.title !== this.state.activeTab) {
+              const { title, content } = tab;
+
+              if (title !== this.state.activeTab) {
                 return undefined;
               }
 
               return (
                 <p
-                  key={tab.title}
+                  key={title}
                   className="tab-content__item"
                 >
-                  {tab.content}
+                  {content}
                 </p>
               );
             })}
