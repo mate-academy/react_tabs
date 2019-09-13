@@ -1,13 +1,15 @@
 import React from 'react';
 
-function Tab(tab) {
-  const { children } = tab;
+import PropTypes from 'prop-types';
 
-  return (
-    <div className="tab-content__wrapp">
-      <p className="tab-content">{children}</p>
-    </div>
-  );
-}
+const Tab = ({ children }) => (
+  <div className="tab-content__wrapper">
+    <p className="tab-content">{children}</p>
+  </div>
+);
+
+Tab.propTypes = {
+  children: PropTypes.string.isRequired,
+};
 
 export default Tab;

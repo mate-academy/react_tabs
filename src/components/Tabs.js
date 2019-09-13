@@ -1,11 +1,9 @@
 import React from 'react';
 
-function Tabs(tabs) {
-  return (
-    <>
-      {tabs.children}
-    </>
-  );
-}
+const Tabs = tabs => (
+  <>
+    {tabs.children}
+  </>
+);
 
 export default Tabs;

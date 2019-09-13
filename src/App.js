@@ -12,45 +12,39 @@ class App extends React.Component {
       { title: 'Tab 2', content: 'Some text 2' },
       { title: 'Tab 3', content: 'Some text 3' },
     ],
-    childVisible: 0,
+    visibleContentTab: 0,
   };
 
-  onTabSelected(num) {
-    this.setState({ childVisible: num });
-  }
+  onTabSelected = num => this.setState({ visibleContentTab: num });
 
   render() {
-    const { tabs } = this.state;
+    const { tabs, visibleContentTab } = this.state;
+    const { onTabSelected } = this;
+    const mapArr = tabs.map(tab => (
+      <Tab
+        key={tab.title}
+      >
+        {tab.content}
+      </Tab>
+    ));
 
     return (
       <div className="App">
         <Tabs>
-          <div className="tab-switch__wrapp">
-            {tabs.map((elem, index) => (
+          <div className="tab-list">
+            {tabs.map((tab, index) => (
               <button
                 type="button"
-                onClick={() => this.onTabSelected(index)}
+                onClick={() => onTabSelected(index)}
                 className="tab"
               >
-                {elem.title}
+                {tab.title}
               </button>
             ))}
           </div>
 
-          {tabs.map((elem, index) => (
-            <>
-              {this.state.childVisible === index
-                ? (
-                  <Tab
-                    title={elem.title}
-                    key={elem.title}
-                  >
-                    { elem.content }
-                  </Tab>
-                )
-                : null
-              }
-            </>
+          {mapArr.find((tab, index) => (
+            visibleContentTab === index
           ))}
         </Tabs>
       </div>
