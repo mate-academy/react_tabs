@@ -25,14 +25,3 @@
   position: absolute;
   left: 8px;
 }
-
-/*.tabs-list__item:last-child:before {*/
-/*  content: "";*/
-/*  position: absolute;*/
-/*  bottom: -5px;*/
-/*  left: 0;*/
-/*  right: -2px;*/
-/*  z-index: -1;*/
-/*  height: 5px;*/
-/*  background: lightgray;*/
-/*}*/

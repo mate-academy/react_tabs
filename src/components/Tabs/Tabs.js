@@ -24,14 +24,16 @@ class Tabs extends Component {
           <ul className="tabs-list">
             {tabs.map((tab) => {
               const { title, content } = tab;
+              const { onClickTabItem } = this;
+              const { activeTab } = this.state;
 
               return (
                 <Tab
                   key={title}
                   title={title}
                   content={content}
-                  isActive={title === this.state.activeTab}
-                  onClick={this.onClickTabItem}
+                  isActive={title === activeTab}
+                  onClick={onClickTabItem}
                 />
               );
             })}
