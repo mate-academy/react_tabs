@@ -10,27 +10,25 @@ class App extends React.Component {
       { title: 'Tab 2', content: 'Some text 2' },
       { title: 'Tab 3', content: 'Some text 3' },
     ],
-    indexElem: 0,
+    selectedTabIndex: 0,
   };
 
-  handleTab = (index) => {
-    this.setState({ indexElem: index });
+  handleTabSelect = (index) => {
+    this.setState({ selectedTabIndex: index });
   };
 
   render() {
-    const { tabs, indexElem } = this.state;
+    const { tabs, selectedTabIndex } = this.state;
 
     return (
       <div className="main">
         <h1>
-          {tabs.length}
-          {' '}
-tabs
+          {tabs.length} tabs
         </h1>
         <Tabs
           tabs={tabs}
-          handleTab={this.handleTab}
-          indexItem={indexElem}
+          handleTabSelect={this.handleTabSelect}
+          indexItem={selectedTabIndex}
         />
       </div>
     );
