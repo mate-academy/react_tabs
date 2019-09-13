@@ -1,0 +1,12 @@
+.tabs__wrapper {
+  background-color: rgba(82, 204, 252, 0.4);
+  width: 960px;
+}
+
+.tabs {
+  display: flex;
+}
+
+.tabs__content {
+  padding: 10px;
+}

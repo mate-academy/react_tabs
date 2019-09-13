@@ -13,13 +13,7 @@ class App extends React.Component {
   };
 
   handleClick = (index) => {
-    this.setState({ currentTab: index })
-  }
-
-  changeClassName = (index, currentTab) => {
-    return (currentTab === index)
-            ? 'tab active'
-            : 'tab'
+    this.setState({ currentTab: index });
   }
 
   render() {
@@ -27,10 +21,10 @@ class App extends React.Component {
 
     return (
       <div className="App">
-        <Tabs tabs={tabs}
+        <Tabs
+          tabs={tabs}
           currentTab={currentTab}
           handleClick={this.handleClick}
-          changeClassName={this.changeClassName}
         />
       </div>
     );
