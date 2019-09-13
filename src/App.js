@@ -12,13 +12,13 @@ class App extends React.Component {
       { title: 'Tab 2', content: 'Some text 2' },
       { title: 'Tab 3', content: 'Some text 3' },
     ],
-    visibleContentTab: 0,
+    currentTab: 0,
   };
 
-  onTabSelected = num => this.setState({ visibleContentTab: num });
+  onTabSelected = num => this.setState({ currentTab: num });
 
   render() {
-    const { tabs, visibleContentTab } = this.state;
+    const { tabs, currentTab } = this.state;
     const { onTabSelected } = this;
     const mapArr = tabs.map(tab => (
       <Tab
@@ -44,7 +44,7 @@ class App extends React.Component {
           </div>
 
           {mapArr.find((tab, index) => (
-            visibleContentTab === index
+            currentTab === index
           ))}
         </Tabs>
       </div>
