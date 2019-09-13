@@ -9,37 +9,36 @@ class Tabs extends React.Component {
 
     this.state = {
       activeTab: 0,
-      isActive: 0,
     };
   }
 
   onTabSelected = (index) => {
     this.setState({
       activeTab: index,
-      isActive: index,
     });
   }
 
   render() {
     const { tabs } = this.props;
+    const { activeTab } = this.state;
 
     return (
       <>
         <div className="wrapper">
           <div className="tab-list">
-            {tabs.map((tab, i) => (
+            {tabs.map(({ title }, i) => (
               <Tab
                 handleClick={() => this.onTabSelected(i)}
-                key={tab.title}
-                title={tab.title}
+                key={title}
+                title={title}
                 index={i}
-                isActive={this.state.isActive}
+                isActive={activeTab}
               />
             ))}
           </div>
         </div>
         <div className="text-container">
-          {tabs[this.state.activeTab].content}
+          {tabs[activeTab].content}
         </div>
       </>
     );

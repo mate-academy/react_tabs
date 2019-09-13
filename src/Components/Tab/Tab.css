@@ -5,6 +5,7 @@
   color: lightskyblue;
   border: none;
   border-bottom: 1px solid #eee;
+  cursor: pointer;
 }
 
 .button:focus {
