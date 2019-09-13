@@ -1,4 +1,5 @@
 import React from 'react';
+import Tabs from './Components/Tabs/Tabs';
 import './App.css';
 
 class App extends React.Component {
@@ -14,10 +15,13 @@ class App extends React.Component {
     const { tabs } = this.state;
 
     return (
-      <div className="App">
-        {/* eslint-disable-next-line */}
-        <h1>{tabs.length} tabs</h1>
-      </div>
+      <>
+        <div className="App">
+          {/* eslint-disable-next-line */}
+          <h1 className="header-title">{tabs.length} tabs</h1>
+        </div>
+        <Tabs tabs={tabs} />
+      </>
     );
   }
 }
