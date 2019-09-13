@@ -1,1 +1,37 @@
+.tab-list {
+  position: relative;
+  display: flex;
+  margin: 100px 0 0 100px;
+  font-family: Arial;
+  font-size: 25px;
+  border-bottom: 1px solid #d1d5da;
+}
 
+.tab {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 80px;
+  width: 80px;
+  margin-right: 20px;
+  border: 1px solid white;
+  transition: border 300ms, border-bottom 300ms;
+  background-color: white;
+  outline: #d1d5da;
+  cursor: pointer;
+}
+
+.tab:hover {
+  border-radius: 5%;
+  position: relative;
+  z-index: 1;
+  border: 1px solid #d1d5da;
+  border-bottom: 1px solid white;
+}
+
+.tab-content__wrapper {
+  font-size: 20px;
+  font-family: Arial;
+  margin: 50px 0 0 100px;
+}

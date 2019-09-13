@@ -1,4 +1,8 @@
 import React from 'react';
+
+import Tabs from './components/Tabs';
+import Tab from './components/Tab';
+
 import './App.css';
 
 class App extends React.Component {
@@ -8,15 +12,41 @@ class App extends React.Component {
       { title: 'Tab 2', content: 'Some text 2' },
       { title: 'Tab 3', content: 'Some text 3' },
     ],
+    currentTab: 0,
   };
 
+  onTabSelected = num => this.setState({ currentTab: num });
+
   render() {
-    const { tabs } = this.state;
+    const { tabs, currentTab } = this.state;
+    const { onTabSelected } = this;
+    const mapArr = tabs.map(tab => (
+      <Tab
+        key={tab.title}
+      >
+        {tab.content}
+      </Tab>
+    ));
 
     return (
       <div className="App">
-        {/* eslint-disable-next-line */}
-        <h1>{tabs.length} tabs</h1>
+        <Tabs>
+          <div className="tab-list">
+            {tabs.map((tab, index) => (
+              <button
+                type="button"
+                onClick={() => onTabSelected(index)}
+                className="tab"
+              >
+                {tab.title}
+              </button>
+            ))}
+          </div>
+
+          {mapArr.find((tab, index) => (
+            currentTab === index
+          ))}
+        </Tabs>
       </div>
     );
   }
