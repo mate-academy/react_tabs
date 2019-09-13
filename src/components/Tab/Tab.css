@@ -1,0 +1,21 @@
+.tab-list-item {
+  display: inline;
+}
+
+.tab-list-item__button {
+  border: none;
+  padding: 10px 30px;
+  background-color: #fff;
+  margin-bottom: -1px;
+  cursor: pointer;
+}
+
+.tab-list-item__button:focus {
+  outline: none;
+}
+
+.tab-list-item__button--active {
+  border: 1px solid green;
+  border-bottom: 1px solid #fff;
+  box-sizing: border-box;
+}
