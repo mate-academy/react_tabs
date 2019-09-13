@@ -1,0 +1,9 @@
+.tabs-list {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.tabs-text {
+  margin-top: 20px;
+}
