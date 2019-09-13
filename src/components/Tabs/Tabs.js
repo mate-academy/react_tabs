@@ -8,7 +8,11 @@ const Tabs = ({ tabs, clickTab, indexItem }) => {
     <>
       <div className="ui attached tabular menu">
         {tabs.map((tab, i) => (
-          <a onClick={() => clickTab(i)} className={className(i)} key={i}>
+          <a
+            onClick={() => clickTab(i)}
+            className={className(i)}
+            key={i}
+          >
             {tab.title}
           </a>
         ))}
