@@ -6,7 +6,11 @@ function Tab({
   handleClick, title,
 }) {
   return (
-    <button type="button" onClick={handleClick} className="button">
+    <button
+      type="button"
+      onClick={handleClick}
+      className="button"
+    >
       {title}
     </button>
   );
