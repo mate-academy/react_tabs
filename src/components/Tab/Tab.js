@@ -3,17 +3,10 @@ import './Tab.css';
 import PropTypes from 'prop-types';
 
 function Tab({
-  handleClick, title, currentActive, index,
+  handleClick, title,
 }) {
   return (
-    <button
-      type="button"
-      onClick={handleClick}
-      className={
-        currentActive === index
-          ? 'button--active'
-          : 'button'}
-    >
+    <button type="button" onClick={handleClick} className="button">
       {title}
     </button>
   );
@@ -22,8 +15,6 @@ function Tab({
 Tab.propTypes = {
   handleClick: PropTypes.func.isRequired,
   title: PropTypes.string.isRequired,
-  currentActive: PropTypes.number.isRequired,
-  index: PropTypes.number.isRequired,
 };
 
 export default Tab;

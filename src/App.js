@@ -15,15 +15,13 @@ class App extends React.Component {
     const { tabs } = this.state;
 
     return (
-      <div className="wrapperAll">
-        <div className="App">
-          <h1 className="title">
-            {tabs.length}
+      <>
+        <h1 className="title">
+          {tabs.length}
             tabs
-          </h1>
-        </div>
+        </h1>
         <Tabs tabs={tabs} />
-      </div>
+      </>
     );
   }
 }

@@ -2,21 +2,17 @@ html {
   background: lightgoldenrodyellow;
 }
 
-.wrapperAll {
-  margin-left: 500px;
-  margin-top: 250px;
-}
-
-.App {
-  margin-left: 110px;
-}
-
-.wrapper {
-  margin-left: 0;
-}
-
 .text-container {
   padding-top: 20px;
   margin-left: 115px;
   font-size: 20px;
+}
+
+.wrapper {
+  margin-left: 500px;
+}
+
+.title {
+  margin-left: 620px;
+  margin-top: 250px;
 }

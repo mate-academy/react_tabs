@@ -4,8 +4,8 @@ import Tab from '../Tab/Tab';
 import './Tabs.css';
 
 class Tabs extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
 
     this.state = {
       tabId: 0,
@@ -16,29 +16,24 @@ class Tabs extends React.Component {
     this.setState({
       tabId: index,
     });
-  }
+  };
 
   render() {
     const { tabs } = this.props;
     const { tabId } = this.state;
 
     return (
-      <>
-        <div className="wrapper">
-          {tabs.map(({ title }, i) => (
-            <Tab
-              handleClick={() => this.choseTab(i)}
-              key={title}
-              title={title}
-              index={i}
-              isActive={tabId}
-            />
-          ))}
-        </div>
+      <div className="wrapper">
+        {tabs.map(({ title }, i) => (
+          <Tab
+            handleClick={() => this.choseTab(i)}
+            title={title}
+          />
+        ))}
         <div className="text-container">
           {tabs[tabId].content}
         </div>
-      </>
+      </div>
     );
   }
 }
