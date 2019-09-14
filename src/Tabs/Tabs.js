@@ -1,7 +1,15 @@
 import React from 'react';
 import './Tabs.css';
+import PropTypes from 'prop-types';
 
 class Tabs extends React.Component {
+  static propTypes = {
+    children: PropTypes.arrayOf(PropTypes.shape({
+      title: PropTypes.string.isRequired,
+      content: PropTypes.string.isRequired,
+    })).isRequired,
+  };
+
   state = {
     index: `0`,
   };
@@ -11,17 +19,17 @@ class Tabs extends React.Component {
   };
 
   render() {
-    const self = this;
+    const { children } = this.props;
 
     return (
       <div>
         <ul className="nav">
-          {self.props.children.map((tab, index) => (
+          {children.map((tab, index) => (
             <li className="nav-item" key={index.toString()}>
               <button
                 type="button"
-                onClick={self.onTabSelected.bind(this, `${index}`)}
-                className={`${index}` === self.state.index
+                onClick={this.onTabSelected.bind(this, `${index}`)}
+                className={`${index}` === this.state.index
                   ? 'nav-link active'
                   : 'nav-link'}
               >
@@ -31,10 +39,10 @@ class Tabs extends React.Component {
           ))}
         </ul>
         <div className="tab-content">
-          {self.props.children.map((tab, index) => (
+          {children.map((tab, index) => (
             <div
               key={index.toString()}
-              className={`${index}` === self.state.index
+              className={`${index}` === this.state.index
                 ? 'tab-pane active'
                 : 'tab-pane'}
             >
