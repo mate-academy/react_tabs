@@ -1,3 +1,7 @@
+.button:hover {
+  cursor: pointer;
+}
+
 .active {
   background-color: lightgreen;
   border-radius: 50%;

@@ -5,9 +5,12 @@ function Tab(props) {
   return (
     <button
       type="button"
-      onClick={props.tabOnClick}
-      className={props.activeTab === props.index
-        ? 'button active' : 'button'}
+      onClick={() => props.onTabSelected(props.index)}
+      className={
+        props.activeTab === props.index
+          ? 'button active'
+          : 'button'
+      }
     >
       {props.title}
     </button>

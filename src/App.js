@@ -9,20 +9,26 @@ class App extends React.Component {
       { title: 'Tab 2', content: 'Some text 2' },
       { title: 'Tab 3', content: 'Some text 3' },
     ],
+
+    activeTab: 0,
   };
 
   onTabSelected = (index) => {
     this.setState({
-      selectedTab: index,
+      activeTab: index,
     });
   }
 
   render() {
-    const { tabs } = this.state;
+    const { tabs, activeTab } = this.state;
 
     return (
       <div className="App">
-        <Tabs tabs={tabs} />
+        <Tabs
+          tabs={tabs}
+          onTabSelected={this.onTabSelected}
+          activeTab={activeTab}
+        />
       </div>
     );
   }
