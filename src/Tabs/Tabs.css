@@ -30,11 +30,3 @@
   background-color: #fff;
   border-color: #dee2e6 #dee2e6 #fff;
 }
-
-.tab-pane {
-  display: none;
-}
-
-.tab-pane.active {
-  display: block;
-}

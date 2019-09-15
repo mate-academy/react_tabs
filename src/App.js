@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.css';
 import Tabs from './Tabs/Tabs';
+import Tab from './Tab/Tab';
 
 class App extends React.Component {
   state = {
@@ -18,7 +19,30 @@ class App extends React.Component {
       <div className="App">
         {/* eslint-disable-next-line */}
         <h1>{tabs.length} tabs</h1>
-        <Tabs>{tabs}</Tabs>
+        <Tabs>
+          {tabs.map(tab => (
+            <Tab title={tab.title}>
+              {tab.content}
+            </Tab>
+          ))}
+        </Tabs>
+        {/* eslint-disable-next-line */}
+        <h1>{tabs.length} tabs (*)</h1>
+        <Tabs>
+          <Tab title="Tab 2">
+            It could be a text
+          </Tab>
+
+          <Tab title="Tab 3">
+            <div>1</div>
+            <div>2</div>
+          </Tab>
+
+          <Tab title="Tab 1">
+            Or even any JSX
+            <Tab>test</Tab>
+          </Tab>
+        </Tabs>
       </div>
     );
   }

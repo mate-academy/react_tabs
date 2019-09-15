@@ -5,17 +5,19 @@ import PropTypes from 'prop-types';
 class Tabs extends React.Component {
   static propTypes = {
     children: PropTypes.arrayOf(PropTypes.shape({
-      title: PropTypes.string.isRequired,
-      content: PropTypes.string.isRequired,
+      props: PropTypes.shape({
+        title: PropTypes.string.isRequired,
+        children: PropTypes.node.isRequired,
+      }),
     })).isRequired,
   };
 
   state = {
-    index: `0`,
+    index: 0,
   };
 
   onTabSelected = (index) => {
-    this.setState(prevState => ({ index: index || prevState.index }));
+    this.setState({ index });
   };
 
   render() {
@@ -28,28 +30,17 @@ class Tabs extends React.Component {
             <li className="nav-item" key={index.toString()}>
               <button
                 type="button"
-                onClick={this.onTabSelected.bind(this, `${index}`)}
-                className={`${index}` === this.state.index
+                onClick={this.onTabSelected.bind(this, index)}
+                className={index === this.state.index
                   ? 'nav-link active'
                   : 'nav-link'}
               >
-                {tab.title}
+                {tab.props.title}
               </button>
             </li>
           ))}
         </ul>
-        <div className="tab-content">
-          {children.map((tab, index) => (
-            <div
-              key={index.toString()}
-              className={`${index}` === this.state.index
-                ? 'tab-pane active'
-                : 'tab-pane'}
-            >
-              {tab.content}
-            </div>
-          ))}
-        </div>
+        <div className="tab-content">{children[this.state.index]}</div>
       </div>
     );
   }
