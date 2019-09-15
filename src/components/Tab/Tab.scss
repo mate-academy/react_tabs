@@ -1,0 +1,14 @@
+.button {
+  height: 30px;
+  width: 80px;
+  margin: 0 10px;
+  outline: none;
+  border: none;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  cursor: pointer;
+
+  &--active {
+    color: white;
+  }
+}
