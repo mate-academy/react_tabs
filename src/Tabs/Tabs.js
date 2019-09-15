@@ -27,7 +27,7 @@ class Tabs extends React.Component {
       <div>
         <ul className="nav">
           {children.map((tab, index) => (
-            <li className="nav-item" key={index.toString()}>
+            <li className="nav-item" key={tab.props.title}>
               <button
                 type="button"
                 onClick={this.onTabSelected.bind(this, index)}
