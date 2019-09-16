@@ -3,12 +3,9 @@ import './Tabs.scss';
 import Tab from '../Tab/Tab';
 
 class Tabs extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      activeItem: 0,
-    };
-  }
+  state = {
+    activeItem: 0,
+  };
 
   onItemSelected = (index) => {
     this.setState({
@@ -25,7 +22,7 @@ class Tabs extends Component {
         <div className="tabs">
           {tabs.map((tab, index) => (
             <Tab
-              handleClick={() => { this.onItemSelected(index); }}
+              handleClick={() => this.onItemSelected(index)}
               key={tab.title}
               index={index}
               activeItem={activeItem}
