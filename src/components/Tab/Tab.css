@@ -1,0 +1,11 @@
+.button {
+  width: 300px;
+  height: 200px;
+  background: black;
+  color: white;
+}
+
+.button--active {
+  color: white;
+  background: pink;
+}

@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { Component } from 'react';
 import './App.css';
+import Tabs from './components/Tabs/Tabs';
 
-class App extends React.Component {
+class App extends Component {
   state = {
     tabs: [
       { title: 'Tab 1', content: 'Some text 1' },
@@ -15,8 +16,7 @@ class App extends React.Component {
 
     return (
       <div className="App">
-        {/* eslint-disable-next-line */}
-        <h1>{tabs.length} tabs</h1>
+        <Tabs tabs={tabs} />
       </div>
     );
   }
