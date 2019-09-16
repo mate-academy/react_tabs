@@ -1,0 +1,13 @@
+.button {
+  width: 100px;
+  padding: 10px;
+  box-sizing: border-box;
+  cursor: pointer;
+  background-color: #fff;
+  outline: 0;
+  border: 0;
+}
+
+.button:focus {
+  background-color: #e3e3e3;
+}
