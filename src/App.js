@@ -13,8 +13,8 @@ class App extends React.Component {
     activeTab: 'Tab 1',
   };
 
-  changeActiveTab = (changeTab) => {
-    this.setState(() => ({ activeTab: changeTab }));
+  changeActiveTab = (index) => {
+    this.setState(() => ({ activeTab: index }));
   };
 
   render() {
@@ -26,7 +26,7 @@ class App extends React.Component {
         <Tabs
           tabs={tabs}
           tabsFunc={this.changeActiveTab}
-          whatTab={activeTab}
+          activeTabIndex={activeTab}
         />
         <p className="app__content">{text}</p>
       </div>
