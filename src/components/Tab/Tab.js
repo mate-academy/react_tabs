@@ -25,4 +25,5 @@ Tab.propTypes = ({
   status: PropTypes.string,
   clickTab: PropTypes.func,
 }).isRequired;
+
 export default Tab;
