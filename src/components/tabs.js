@@ -1,5 +1,5 @@
 import React from 'react';
-import propTypes from 'prop-types';
+import PropTypes from 'prop-types';
 
 function Tabs({ tabs, handleTabSelect, activeTab }) {
   const className = i => (activeTab === i ? 'active item' : 'item');
@@ -8,7 +8,6 @@ function Tabs({ tabs, handleTabSelect, activeTab }) {
     <>
       <div className="ui pointing secondary menu">
         {tabs.map((item, i) => (
-          // eslint-disable-next-line
           <a className={className(i)} onClick={() => handleTabSelect(i)}>
             {item.title}
           </a>
@@ -20,9 +19,14 @@ function Tabs({ tabs, handleTabSelect, activeTab }) {
 }
 
 Tabs.propTypes = {
-  tabs: propTypes.arrayOf.isRequired,
-  handleTabSelect: propTypes.func.isRequired,
-  activeTab: propTypes.number.isRequired,
+  tabs: PropTypes.arrayOf(
+    PropTypes.shape({
+      title: PropTypes.string,
+      content: PropTypes.string,
+    })
+  ).isRequired,
+  handleTabSelect: PropTypes.func.isRequired,
+  activeTab: PropTypes.number.isRequired,
 };
 
 export default Tabs;
