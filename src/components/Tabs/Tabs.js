@@ -4,15 +4,11 @@ import Tab from '../Tab/Tab';
 import './Tabs.css';
 
 class Tabs extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
+    state = {
       tabId: 0,
     };
-  }
 
-  choseTab = (index) => {
+  handleTabSelect = (index) => {
     this.setState({
       tabId: index,
     });
@@ -26,7 +22,8 @@ class Tabs extends React.Component {
       <div className="wrapper">
         {tabs.map(({ title }, i) => (
           <Tab
-            handleClick={() => this.choseTab(i)}
+            handleClick={() => this.handleTabSelect(i)}
+            key={title}
             title={title}
           />
         ))}
