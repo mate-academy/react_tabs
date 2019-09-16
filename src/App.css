@@ -1,1 +1,9 @@
+.title {
+  font-size: 2.5em;
+  color: grey;
+  font-style: italic;
+}
 
+body {
+  text-align: center;
+}
