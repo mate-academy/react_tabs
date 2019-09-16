@@ -4,6 +4,7 @@ import Tabs from './components/Tabs/Tabs';
 
 class App extends React.Component {
   state = {
+    activeTab: 0,
     tabs: [
       { title: 'Tab 1', content: 'Some text 1' },
       { title: 'Tab 2', content: 'Some text 2' },
@@ -11,15 +12,25 @@ class App extends React.Component {
     ],
   };
 
+  getActiveTab = (index) => {
+    this.setState({
+      activeTab: index,
+    });
+  }
+
   render() {
-    const { tabs } = this.state;
+    const { tabs, activeTab } = this.state;
 
     return (
       <>
         <div className="App">
-          <h1>Tabs with React</h1>
+          <h1 className="title">Tabs with React</h1>
         </div>
-        <Tabs tabs={tabs} />
+        <Tabs
+          tabs={tabs}
+          getActiveTab={this.getActiveTab}
+          activeTab={activeTab}
+        />
       </>
     );
   }

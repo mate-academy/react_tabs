@@ -3,49 +3,42 @@ import './Tabs.scss';
 import PropTypes from 'prop-types';
 import Tab from '../Tab/Tab';
 
-class Tabs extends React.Component {
-  state = {
-    activeTab: 0,
-  }
+const Tabs = (props) => {
+  const {
+    tabs,
+    getActiveTab,
+    activeTab,
+  } = props;
 
-  getActiveTab = (index) => {
-    this.setState({
-      activeTab: index,
-    });
-  }
-
-  render() {
-    const { tabs } = this.props;
-    const { activeTab } = this.state;
-
-    return (
-      <>
-        <div className="tabs tabs__container">
-          <div className="tabs__wrapper">
-            {tabs.map(({ title }, index) => (
-              <Tab
-                handleClick={() => this.getActiveTab(index)}
-                title={title}
-                key={title}
-                index={index}
-                isActiveTab={activeTab}
-              />
-            ))}
-          </div>
+  return (
+    <>
+      <div className="tabs tabs__container">
+        <div className="tabs__wrapper">
+          {tabs.map(({ title }, index) => (
+            <Tab
+              handleClick={() => getActiveTab(index)}
+              title={title}
+              key={title}
+              index={index}
+              isActiveTab={activeTab}
+            />
+          ))}
         </div>
-        <p className="tabs__content">
-          { tabs[activeTab].content }
-        </p>
-      </>
-    );
-  }
-}
+      </div>
+      <p className="tabs__content">
+        { tabs[activeTab].content }
+      </p>
+    </>
+  );
+};
 
 Tabs.propTypes = ({
   tabs: PropTypes.arrayOf(PropTypes.shape({
     title: PropTypes.srting,
     content: PropTypes.srting,
   })),
+  getActiveTab: PropTypes.func,
+  activeTab: PropTypes.number,
 }).isRequired;
 
 export default Tabs;
