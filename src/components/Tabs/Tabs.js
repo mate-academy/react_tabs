@@ -21,10 +21,10 @@ Tabs.propTypes = {
   tabsFunc: PropTypes.func.isRequired,
   activeTabIndex: PropTypes.string.isRequired,
   tabs: PropTypes.arrayOf(
-    PropTypes.objectOf({
+    PropTypes.shape({
       title: PropTypes.string,
       content: PropTypes.string,
-    })
+    }).isRequired,
   ).isRequired,
 };
 

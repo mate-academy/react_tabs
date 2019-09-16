@@ -1,22 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import classNames from 'classnames';
 import './Tab.css';
 
-function Tab({ title, tabFunc, activeTab }) {
-  const activeClass = (activeTab === title)
-    ? 'tab tab--is-active'
-    : 'tab';
-
-  return (
-    <button
-      type="submit"
-      onClick={() => tabFunc(title)}
-      className={activeClass}
-    >
-      {title}
-    </button>
-  );
-}
+const Tab = ({ title, tabFunc, activeTab }) => (
+  <button
+    type="submit"
+    onClick={() => tabFunc(title)}
+    className={classNames('tab', { 'tab--is-active': activeTab === title })}
+  >
+    {title}
+  </button>
+);
 
 Tab.propTypes = {
   title: PropTypes.string.isRequired,
