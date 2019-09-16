@@ -1,20 +1,18 @@
 import React from 'react';
 import './Tab.css';
 
-function Tab(props) {
-  return (
-    <button
-      type="button"
-      onClick={() => props.onTabSelected(props.index)}
-      className={
-        props.activeTab === props.index
-          ? 'button active'
-          : 'button'
-      }
-    >
-      {props.title}
-    </button>
-  );
-}
+const Tab = ({ activeTab, title, index, onTabSelected }) => (
+  <button
+    type="button"
+    onClick={() => onTabSelected(index)}
+    className={
+      activeTab === index
+        ? 'button btn-active'
+        : 'button'
+    }
+  >
+    {title}
+  </button>
+);
 
 export default Tab;
