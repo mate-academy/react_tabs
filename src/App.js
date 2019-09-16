@@ -1,4 +1,5 @@
 import React from 'react';
+import Tabs from './components/Tabs/Tabs';
 import './App.css';
 
 class App extends React.Component {
@@ -8,15 +9,26 @@ class App extends React.Component {
       { title: 'Tab 2', content: 'Some text 2' },
       { title: 'Tab 3', content: 'Some text 3' },
     ],
+
+    activeTab: 'Tab 1',
+  };
+
+  changeActiveTab = (index) => {
+    this.setState(() => ({ activeTab: index }));
   };
 
   render() {
-    const { tabs } = this.state;
+    const { tabs, activeTab } = this.state;
+    const text = tabs.find(tab => tab.title === activeTab).content;
 
     return (
-      <div className="App">
-        {/* eslint-disable-next-line */}
-        <h1>{tabs.length} tabs</h1>
+      <div className="app">
+        <Tabs
+          tabs={tabs}
+          tabsFunc={this.changeActiveTab}
+          activeTabIndex={activeTab}
+        />
+        <p className="app__content">{text}</p>
       </div>
     );
   }

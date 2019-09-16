@@ -1,1 +1,33 @@
+body {
+  font-family: sans-serif;
+  padding: 0;
+  background-color: #d5d5d5;
+}
 
+button {
+  border: none;
+  background-image: none;
+  background-color: transparent;
+  box-shadow: none;
+  outline: none;
+  font-family: inherit;
+  cursor: pointer;
+}
+
+.app {
+  margin: 0 auto;
+  width: 80%;
+  padding: 1em;
+  box-shadow: 5px 5px 10px #444;
+  border-radius: 10px;
+
+}
+
+.app__content {
+  padding: 1em;
+  margin: 0;
+  background-color: #e5e5e5;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  border-top-right-radius: 5px;
+}

@@ -1,0 +1,16 @@
+.tab {
+  padding: 1em;
+  color: #252525;
+  transition: 0.3s;
+}
+
+.tab:hover {
+  background-color: #ccc;
+}
+
+.tab--is-active,
+.tab--is-active:hover {
+  background-color: #e5e5e5;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
