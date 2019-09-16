@@ -1,28 +1,28 @@
-import React from 'react';
+import React, { Component } from 'react';
 import './Tabs.css';
-import Tab from './../Tab/Tab';
+import Tab from '../Tab/Tab';
 
-class Tabs extends React.Component {
-  constructor({ props }) {
-    super({ props })
+class Tabs extends Component {
+  constructor(props) {
+    super(props);
     this.state = {
-      active:0,
-    }
+      active: 0,
+    };
   }
 
   activeTab = (index) => {
     this.setState({
       active: index,
-    })
+    });
   }
-
 
   render() {
     const { tabs } = this.props;
     const { active } = this.state;
-    return(
+
+    return (
       <>
-        <ul className="tab-list">
+        <div className="tab-list">
           {tabs.map((tab, index) => (
             <Tab
               tab={tab}
@@ -32,18 +32,17 @@ class Tabs extends React.Component {
               active={active}
             />
           ))}
-        </ul>
-        <div style={{background:tabs[active].background,
-                     borderTop:tabs[active].borderTop,
-                    }}
-          className="content">
+        </div>
+        <div
+          style={{ background: tabs[active].background }}
+          className="content"
+        >
           {tabs[active].content}
-          <hr className="line"/>
+          <hr className="line" />
         </div>
       </>
-    )
+    );
   }
 }
 
 export default Tabs;
-

@@ -2,23 +2,23 @@
   list-style: none;
   display: flex;
   width: 340px;
-  padding: 0 258px;
   margin: auto;
   justify-content: space-around;
   height: 39px;
 }
 .tab-item {
+  outline: none;
   margin-left: 3px;
   width: 100px;
   height: 40px;
   text-align: center;
-  padding-top: 8px;
   box-sizing: border-box;
   font-family: monospace;
   border-radius: 3px 3px 0 0;
   color: #145b7a;
   font-size: 17px;
   transition: border-radius 3s;
+  border: none;
 }
 .tab-item:hover {
   cursor: pointer;
@@ -65,7 +65,7 @@ background: #b4a3cb;
 
 .wrapH1 {
   height: 500px;
-  width: 75%;
+  min-width: 400px;
   margin: -77px auto;
   padding-top: 107px;
   box-sizing: border-box;
@@ -79,6 +79,8 @@ background: #b4a3cb;
 .App {
   z-index: -2;
   margin-top: 40px;
+  height: 1px;
+  padding: 0 200px;
 }
 
 
@@ -94,7 +96,7 @@ background: #b4a3cb;
   text-shadow: 0px 4px 1px rgba(255,255,255,0.5);
   transition: opacity 0.7s, background 0.7s;
   z-index: 1;
-  width: 200px;
+  min-width: 400px;
   margin: auto;
   opacity: 0.75;
 }
