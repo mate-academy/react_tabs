@@ -1,0 +1,18 @@
+html {
+  background: lightgoldenrodyellow;
+}
+
+.text-container {
+  padding-top: 20px;
+  margin-left: 115px;
+  font-size: 20px;
+}
+
+.wrapper {
+  margin-left: 500px;
+}
+
+.title {
+  margin-left: 620px;
+  margin-top: 250px;
+}
