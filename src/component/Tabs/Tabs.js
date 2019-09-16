@@ -4,19 +4,15 @@ import './Tabs.css';
 import { tabsProps } from '../PropTypes/PropTypes';
 
 class Tabs extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      currentTab: 0,
-    };
-  }
+  state = {
+    currentTab: 0,
+  };
 
   onTabSelected = (index) => {
     this.setState({
       currentTab: index,
     });
-  }
+  };
 
   render() {
     const { tabs } = this.props;
