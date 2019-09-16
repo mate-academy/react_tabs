@@ -1,24 +1,23 @@
 import React from 'react';
+import classNames from 'classnames';
 import { TabProps } from '../../constants/proptypes';
 
 import './Tab.css';
 
-const Tab = (props) => {
-  const { title, isActive, onClick } = props;
-  const classNames = isActive
-    ? 'tabs-list__item tabs-list__item--active'
-    : 'tabs-list__item';
+const Tab = ({ title, isActive, onClick }) => {
+  const classes = classNames({
+    'tabs-list__item': true,
+    'tabs-list__item--active': isActive,
+  });
 
   return (
-    <>
-      <li
-        className={classNames}
-        key={title}
-        onClick={() => onClick(title)}
-      >
-        {title}
-      </li>
-    </>
+    <li
+      className={classes}
+      key={title}
+      onClick={() => onClick(title)}
+    >
+      {title}
+    </li>
   );
 };
 

@@ -17,47 +17,39 @@ class Tabs extends Component {
 
   render() {
     const { tabs } = this.props;
+    const { onClickTabItem } = this;
+    const { activeTab } = this.state;
 
     return (
-      <>
-        <div className="tabs">
-          <ul className="tabs-list">
-            {tabs.map((tab) => {
-              const { title, content } = tab;
-              const { onClickTabItem } = this;
-              const { activeTab } = this.state;
+      <div className="tabs">
+        <ul className="tabs-list">
+          {tabs.map(({ title, content }) => (
+            <Tab
+              key={title}
+              title={title}
+              content={content}
+              isActive={title === activeTab}
+              onClick={onClickTabItem}
+            />
+          ))}
+        </ul>
+        <div className="tab-content">
+          {tabs.map(({ title, content }) => {
+            if (title !== activeTab) {
+              return undefined;
+            }
 
-              return (
-                <Tab
-                  key={title}
-                  title={title}
-                  content={content}
-                  isActive={title === activeTab}
-                  onClick={onClickTabItem}
-                />
-              );
-            })}
-          </ul>
-          <div className="tab-content">
-            {tabs.map((tab) => {
-              const { title, content } = tab;
-
-              if (title !== this.state.activeTab) {
-                return undefined;
-              }
-
-              return (
-                <p
-                  key={title}
-                  className="tab-content__item"
-                >
-                  {content}
-                </p>
-              );
-            })}
-          </div>
+            return (
+              <p
+                key={title}
+                className="tab-content__item"
+              >
+                {content}
+              </p>
+            );
+          })}
         </div>
-      </>
+      </div>
     );
   }
 }
