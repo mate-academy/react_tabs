@@ -1,5 +1,6 @@
 import React from 'react';
 import './App.css';
+import Tabs from './Tabs';
 
 class App extends React.Component {
   state = {
@@ -10,16 +11,36 @@ class App extends React.Component {
     ],
   };
 
-  render() {
-    const { tabs } = this.state;
+  pageText = this.state.tabs[0].content
 
-    return (
-      <div className="App">
-        {/* eslint-disable-next-line */}
-        <h1>{tabs.length} tabs</h1>
-      </div>
-    );
-  }
+changeText = newText => (
+  this.setState({
+    pageText: newText,
+  }))
+
+render() {
+  const { tabs } = this.state;
+
+  return (
+    <div className="App">
+
+      <input
+        type="text"
+        value={this.state.pageText}
+        placeholder={tabs[0].content}
+      />
+
+      { this.state.tabs.map(({ title, content }) => (
+        <Tabs
+          key={title}
+          title={title}
+          content={content}
+          onChangeText={() => this.changeText(content)}
+        />
+      ))}
+    </div>
+  );
+}
 }
 
 export default App;
