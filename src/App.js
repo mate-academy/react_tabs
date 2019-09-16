@@ -30,16 +30,14 @@ render() {
         placeholder={tabs[0].content}
       />
 
-      { this.state.tabs.map((tab, index) => {
-        return (
-          <Tabs
-            key={index}
-            title={tab.title}
-            content={tab.content}
-            onChangeText={() => this.changeText(tab.content)}
-          />
-        );
-      }) }
+      { this.state.tabs.map(({ title, content }) => (
+        <Tabs
+          key={title}
+          title={title}
+          content={content}
+          onChangeText={() => this.changeText(content)}
+        />
+      ))}
     </div>
   );
 }
