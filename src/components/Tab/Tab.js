@@ -5,8 +5,8 @@ import classNames from 'classnames';
 
 const Tab = ({ title, status, clickTab }) => {
   const clasess = classNames({
-    'tab tab-not-active': true,
-    'tab-active': status === title,
+    tabs: true,
+    tab__active: status === title,
   });
 
   return (

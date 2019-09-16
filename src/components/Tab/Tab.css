@@ -1,20 +1,17 @@
-.tab {
+.tabs {
   cursor: pointer;
   margin: 0 25px;
   height: 50px;
   width: 90px;
   text-decoration: none;
   font-size: 22px;
+  background-color: aqua;
   color: rgb(77, 47, 9);
   border-radius: 500px;
   outline: none;
 }
 
-.tab-not-active {
-  background-color: aqua;
-}
-
-.tab-active {
+.tab__active {
   background-color: rgb(77, 47, 9);
   color: white;
 }
