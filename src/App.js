@@ -9,18 +9,25 @@ class App extends React.Component {
       { title: 'Tab 2', content: 'Some text 2' },
       { title: 'Tab 3', content: 'Some text 3' },
     ],
+    activeTab: 'Tab 1',
   };
 
+  clickTab = (title) => {
+    this.setState({
+      activeTab: title,
+    });
+  }
+
   render() {
-    const { tabs } = this.state;
+    const { tabs, activeTab } = this.state;
 
     return (
-      <div className="App">
+      <div className="app">
         <h1>
           {tabs.length}
           tabs
         </h1>
-        <Tabs tabs={tabs} />
+        <Tabs clickTab={this.clickTab} tabs={tabs} activeTab={activeTab} />
       </div>
     );
   }
