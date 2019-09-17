@@ -1,0 +1,13 @@
+.active {
+  color: red;
+}
+
+.button {
+  height: 20px;
+  width: 50px;
+  margin: 0 20px;
+  outline: none;
+  border: 1px solid black;
+  cursor: pointer;
+  background-color: antiquewhite;
+}
