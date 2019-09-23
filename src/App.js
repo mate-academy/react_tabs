@@ -1,5 +1,6 @@
 import React from 'react';
 import './App.css';
+import Tabs from './components/Tabs/Tabs';
 
 class App extends React.Component {
   state = {
@@ -12,11 +13,19 @@ class App extends React.Component {
 
   render() {
     const { tabs } = this.state;
+    let index = 0;
+    const tabsWithId = tabs.map(tab => (
+      {
+        id: index++,
+        ...tab,
+      }
+    ));
 
     return (
       <div className="App">
         {/* eslint-disable-next-line */}
-        <h1>{tabs.length} tabs</h1>
+        <h1 className="title">{tabs.length} tabs</h1>
+        <Tabs tabs={tabsWithId} />
       </div>
     );
   }
