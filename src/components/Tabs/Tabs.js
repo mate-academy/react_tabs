@@ -4,17 +4,17 @@ import './Tabs.css';
 
 class Tabs extends React.Component {
   state = {
-    activeTab: 0,
+    activeTabId: 0,
   };
 
-  onTabSelected = (id) => {
+  handleClick = (id) => {
     this.setState({
-      activeTab: id,
+      activeTabId: id,
     });
   };
 
   render() {
-    const { activeTab } = this.state;
+    const { activeTabId } = this.state;
     const { tabs } = this.props;
 
     return (
@@ -22,16 +22,16 @@ class Tabs extends React.Component {
         <div className="tabs-header">
           {tabs.map(tab => (
             <Tab
-              handleClick={() => this.onTabSelected(tab.id)}
+              onClick={() => this.handleClick(tab.id)}
               title={tab.title}
-              activeTab={activeTab}
+              isActive={this.state.activeTabId === tab.id}
               id={tab.id}
               key={tab.id}
             />
           ))}
         </div>
         <div className="tab-body">
-          {tabs[activeTab].content}
+          {tabs[activeTabId].content}
         </div>
       </div>
     );

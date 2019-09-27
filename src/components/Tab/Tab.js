@@ -2,18 +2,18 @@ import React from 'react';
 
 const Tab = (props) => {
   const {
-    handleClick, title, activeTab, id,
+    onClick, title, isActive,
   } = props;
 
   return (
     <button
       className={
-        activeTab === id
+        isActive
           ? 'tab-item tab-item--active'
           : 'tab-item'
       }
       type="button"
-      onClick={handleClick}
+      onClick={onClick}
     >
       {title}
     </button>
