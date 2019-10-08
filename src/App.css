@@ -1,1 +1,21 @@
+.App {
+  width: 50%;
+  margin: 20px auto;
+  font-size: 18px;
+}
 
+.main-title {
+  text-align: center;
+  padding-bottom: 10px;
+}
+
+.content-tab {
+  display: none;
+}
+
+.active-article {
+  display: block;
+  padding: 25px 5px 40px;
+  border: 1px solid rgb(206, 206, 206);
+  border-top: none;
+}
