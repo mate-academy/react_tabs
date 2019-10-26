@@ -16,12 +16,12 @@ class Tabs extends React.PureComponent {
     } else {
       this.state = {
         tabs: this.getTabsFromChildren(),
-      }
+      };
     }
   }
 
   getTabsFromChildren() {
-    const children = this.props.children.length ? [ ...this.props.children ] : [ this.props.children ];
+    const children = this.props.children.length ? [...this.props.children] : [this.props.children];
 
     return children.map((child, index) => ({
       title: child.props.title,

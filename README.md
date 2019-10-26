@@ -1,5 +1,7 @@
 # React Tabs
 
+- [DEMO LINK](https://volodymyr-roiuk.github.io/react_tabs/)
+
 ## Task 
 
 ![tabs](./description/tabs.gif)
