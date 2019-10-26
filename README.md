@@ -7,9 +7,9 @@
 1. Implement `Tabs` component displaying tabs from a given array of objects
     ```javascript
     let tabs = [
-      { title: 'Tab 1', content: 'Some text 1' },
-      { title: 'Tab 2', content: 'Some text 2' },
-      { title: 'Tab 3', content: 'Some text 3' },
+      { title: tab, content: 'Some text 1' },
+      { title: tab, content: 'Some text 2' },
+      { title: tab, content: 'Some text 3' },
     ];
     ```
     ```jsx harmony
