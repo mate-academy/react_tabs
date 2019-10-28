@@ -7,9 +7,9 @@
 1. Implement `Tabs` component displaying tabs from a given array of objects
     ```javascript
     let tabs = [
-      { title: 'Tab 1', content: 'Some text 1' },
-      { title: 'Tab 2', content: 'Some text 2' },
-      { title: 'Tab 3', content: 'Some text 3' },
+      { title: TabItemm 1', content: 'Some text 1' },
+      { titTabItembItem 2', content: 'Some text 2' },
+      {TabItem 'TabItem 3', content: 'Some text 3' },
     ];
     ```
     ```jsx harmony
@@ -20,18 +20,18 @@
 4. (*) Add an ability to use Tabs like this ([Children](https://youtu.be/2dlvPZW_Bx8) video will help)
     ```html
     <Tabs>
-      <Tab title="Tab 2">
+      <TabItem title="TabItem 2">
         It could be a text
-      </Tab>
+      </TabItem>
    
-      <Tab title="Tab 3">
+      <TabItem title="TabItem 3">
         <div>1</div>
         <div>2</div>
-      </Tab>
+      </TabItem>
    
-      <Tab title="Tab 1">
+      <TabItem title="TabItem 1">
         Or even any JSX
-      </Tab>
+      </TabItem>
     </Tabs>
     ```
 
@@ -57,7 +57,7 @@
 - run `npm run lint` to check code style
 - When you finished add correct `homepage` to `package.json` and run `npm run deploy` 
 - Add links to your demo in readme.md.
-  - `[DEMO LINK](https://<your_account>.github.io/<repo_name>/)` - this will be a 
+  - [DEMO LINK](https://Sijey.github.io/reacy_tabs/) - this will be a 
   link to your index.html
 - Commit and push all recent changes.
 - Create `Pull Request` from forked repo `(<branch_name>)` to original repo 
