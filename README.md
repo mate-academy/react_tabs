@@ -1,7 +1,7 @@
 # React Tabs
 
 ## Task 
-
+[LINK](https://dsrtf0x-git.github.io/react_tabs/)
 ![tabs](./description/tabs.gif)
     
 1. Implement `Tabs` component displaying tabs from a given array of objects
