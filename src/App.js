@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
-import { Tab } from 'semantic-ui-react';
-import CreatingTabs from './CreatingTabs';
+import { Tab, Grid } from 'semantic-ui-react';
+import CreatingTabs from './component/CreatingTabs';
 
 class App extends React.Component {
 
@@ -24,9 +24,11 @@ class App extends React.Component {
     });
 
     return (
-      <div className="App">
-        <CreatingTabs panes={tabsList}/>
-      </div>
+      <Grid centered>
+        <Grid.Column width={10}>
+          <CreatingTabs panes={tabsList}/>
+        </Grid.Column>
+      </Grid>
     );
   }
 }
