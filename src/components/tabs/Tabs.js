@@ -16,13 +16,13 @@ class Tabs extends Component {
     };
   }
 
-  onClickTabItem = (tab) => {
+  onTabSelected = (tab) => {
     this.setState({ activeTab: tab });
   };
 
   render() {
     const {
-      onClickTabItem,
+      onTabSelected,
       props: {
         children,
       },
@@ -42,7 +42,7 @@ class Tabs extends Component {
                 activeTab={activeTab}
                 key={label}
                 label={label}
-                onClick={onClickTabItem}
+                onClick={onTabSelected}
               />
             );
           })}
