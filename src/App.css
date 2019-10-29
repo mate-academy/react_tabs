@@ -1,1 +1,24 @@
+button {
+  border: 1px solid black;
+  width: calc(100% / 3);
+  height: 10vh;
+  outline: none;
+}
 
+button:hover {
+  background-color: lightgray;
+  cursor: pointer;
+}
+
+.container {
+  border: 1px solid black;
+  width: 50%;
+  height: 30vh;
+}
+
+.content_container {
+  height: calc(100% - 10vh);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
