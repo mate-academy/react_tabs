@@ -1,25 +1,24 @@
 import React from 'react';
-import './App.css';
+import Tabs from './components/tabs/Tabs';
 
-class App extends React.Component {
-  state = {
-    tabs: [
-      { title: 'Tab 1', content: 'Some text 1' },
-      { title: 'Tab 2', content: 'Some text 2' },
-      { title: 'Tab 3', content: 'Some text 3' },
-    ],
-  };
+require('./App.css');
 
-  render() {
-    const { tabs } = this.state;
-
-    return (
-      <div className="App">
-        {/* eslint-disable-next-line */}
-        <h1>{tabs.length} tabs</h1>
-      </div>
-    );
-  }
+function App() {
+  return (
+    <div>
+      <Tabs>
+        <div label="Tab 1">
+          Some text 1
+        </div>
+        <div label="Tab 2">
+          Some text 2
+        </div>
+        <div label="Tab 3">
+          Some text 3
+        </div>
+      </Tabs>
+    </div>
+  );
 }
 
 export default App;
