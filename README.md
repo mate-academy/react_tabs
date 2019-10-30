@@ -2,6 +2,9 @@
 
 ## Task 
 
+
+solution ---- https://Dmitriymush.github.io/react_tabs 
+
 ![tabs](./description/tabs.gif)
     
 1. Implement `Tabs` component displaying tabs from a given array of objects
