@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.css';
 import Tabs from "./components/Tabs";
+import Content from "./components/Content";
 
 class App extends React.Component {
   state = {
@@ -27,9 +28,10 @@ class App extends React.Component {
           }
           }
         />
-        <div className="content_container">
-          {this.state.tabs[this.state.currentTabIndex].title}
-        </div>
+        {/*<div className="content_container">*/}
+        {/*  {this.state.tabs[this.state.currentTabIndex].title}*/}
+        {/*</div>*/}
+        <Content state={this.state} />
       </div>
     );
   }
