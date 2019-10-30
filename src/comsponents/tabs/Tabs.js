@@ -1,8 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Tab from '../tab/Tab';
-
-
+import TabContent from '../tabcontent/TabContent';
 
 
 class Tabs extends React.Component {
@@ -35,9 +34,7 @@ class Tabs extends React.Component {
             ))
           }
         </div>
-        <div>
-          <div class="ui bottom attached segment active tab">{tabs[this.state.activeTab].content}</div>
-        </div>
+        <TabContent content={tabs[this.state.activeTab].content} />
       </>
     )
   }
