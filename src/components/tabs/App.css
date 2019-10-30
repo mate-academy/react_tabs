@@ -1,0 +1,13 @@
+.tab {
+  padding: 20px;
+  margin: 0;
+  margin-right: -1px;
+  outline: none;
+  background-color: #fff;
+  border: 1px lightgray solid;
+}
+
+.tab:hover {
+  cursor: pointer;
+  background-color: lightyellow;
+}
