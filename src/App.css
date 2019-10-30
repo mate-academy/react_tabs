@@ -1,1 +1,7 @@
-
+.tab-content {
+  border: 1px solid #ccc;
+  border-top: none;
+  box-sizing: border-box;
+  width: 30%;
+  padding: 1%;
+}
