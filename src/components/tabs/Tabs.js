@@ -1,5 +1,6 @@
 import React from 'react';
 import TabUnique from '../tab/TabUnique';
+import TabConent from '../tabContent/TabContent';
 
 const Tabs = ({ tabs, onTabSelected, activeTab }) => (
   <>
@@ -14,9 +15,9 @@ const Tabs = ({ tabs, onTabSelected, activeTab }) => (
         />
       ))}
     </div>
-    <div className="tab-content">
-      {tabs[activeTab].content}
-    </div>
+    <TabConent
+      content={tabs[activeTab].content}
+    />
   </>
 );
 
