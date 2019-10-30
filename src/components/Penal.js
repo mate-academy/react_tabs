@@ -9,14 +9,17 @@ class Penal extends React.Component {
     };
   }
 
+  selectTab = (selectedIndex) => {
+    (this.setState({ activeTab: selectedIndex }));
+  }
+
   render() {
     return (
       <>
         <Tabs
           className="active item"
-          tabs={this.state.tabs}
-          onTabSelected={selectedIndex => (
-            this.setState({ activeTab: selectedIndex }))}
+          tabs={this.props.tabs}
+          onTabSelected={this.selectTab}
         />
         <div className="ui bottom attached active tab segment">
           {this.state.activeTab || this.props.tabs[0].content}
