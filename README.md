@@ -1,5 +1,7 @@
 # React Tabs
 
+[LINK](https://anisimovv.github.io/react_tabs/)
+
 ## Task 
 
 ![tabs](./description/tabs.gif)
