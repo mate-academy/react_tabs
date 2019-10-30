@@ -1,7 +1,8 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import './App.css';
 
 function Tabs(props) {
+  // eslint-disable-next-line react/prop-types
   const { tabs, onTabSelected } = props;
 
   return (
@@ -21,10 +22,5 @@ function Tabs(props) {
     </>
   );
 }
-
-Tabs.propTypes = {
-  tabs: PropTypes.element.isRequired,
-  onTabSelected: PropTypes.element.isRequired,
-};
 
 export default Tabs;

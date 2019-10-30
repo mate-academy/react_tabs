@@ -26,7 +26,7 @@ class App extends React.Component {
             }));
           }}
         />
-        <div>
+        <div className="content">
           {tabs[currentTab].content}
         </div>
       </div>
