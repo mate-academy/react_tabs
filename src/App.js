@@ -1,6 +1,7 @@
 import React from 'react';
 import Tabs from './components/Tabs/Tabs';
 import './App.css';
+import TabContent from './components/TabContent/TabContent';
 
 class App extends React.Component {
   state = {
@@ -13,6 +14,8 @@ class App extends React.Component {
   };
 
   render() {
+    const { tabs, currentTabIndex } = this.state;
+
     return (
       <div className="App">
         <Tabs
@@ -24,9 +27,9 @@ class App extends React.Component {
             }));
           }}
         />
-        <div className="tab-content">
-          {this.state.tabs[this.state.currentTabIndex].content}
-        </div>
+        <TabContent
+          text={tabs[currentTabIndex].content}
+        />
       </div>
     );
   }
