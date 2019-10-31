@@ -28,7 +28,7 @@ class App extends React.Component {
                           key={tab.key}>{tab.title}
                   </button>)
     }
-    // {tab.activ ? "" : "isActiv"
+
     return (
       <div className="App">
         <div className={"content"}>
