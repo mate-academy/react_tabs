@@ -1,22 +1,31 @@
-import React from 'react';
+import React, { Component } from 'react';
 import './App.css';
+import TabsList from './component/tabsList/TabsList';
 
-class App extends React.Component {
+class App extends Component {
   state = {
     tabs: [
-      { title: 'Tab 1', content: 'Some text 1' },
-      { title: 'Tab 2', content: 'Some text 2' },
-      { title: 'Tab 3', content: 'Some text 3' },
+      { title: 'Таб 1', content: 'Текст табу 1' },
+      { title: 'Таб 2', content: 'Текст табу 2' },
+      { title: 'Таб 3', content: 'Текст табу 3' },
     ],
+    activeTab: 0,
+  };
+
+  onTabSelected = (index) => {
+    this.setState({
+      activeTab: index,
+    });
   };
 
   render() {
-    const { tabs } = this.state;
-
     return (
       <div className="App">
-        {/* eslint-disable-next-line */}
-        <h1>{tabs.length} tabs</h1>
+        <TabsList
+          tabs={this.state.tabs}
+          onTabSelected={this.onTabSelected}
+          activeTab={this.state.activeTab}
+        />
       </div>
     );
   }
