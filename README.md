@@ -67,3 +67,5 @@
 ## Project structure
 
 You should be writing your code in `src/` directory.
+
+[LINK](https://nikakarelets.github.io/react_tabs/)
