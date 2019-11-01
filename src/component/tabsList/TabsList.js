@@ -15,9 +15,7 @@ const Tabs = ({ tabs, onTabSelected, activeTab }) => (
         />
       ))}
     </div>
-    <h1 className="ui huge header">
-      <Content content={tabs} activeTab={activeTab} />
-    </h1>
+    <Content content={tabs} activeTab={activeTab} />
   </>
 );
 
