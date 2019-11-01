@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Tab from '../tab/Tab';
+import Content from '../content/Content';
 
 const Tabs = ({ tabs, onTabSelected, activeTab }) => (
   <>
@@ -15,7 +16,7 @@ const Tabs = ({ tabs, onTabSelected, activeTab }) => (
       ))}
     </div>
     <h1 className="ui huge header">
-      {tabs[activeTab].content}
+      <Content content={tabs} activeTab={activeTab} />
     </h1>
   </>
 );
