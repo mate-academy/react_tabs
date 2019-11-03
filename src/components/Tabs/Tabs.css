@@ -17,7 +17,7 @@
 
 .tabs__button {
   width: 90px;
-  height: 50px;
+  height: 40px;
   background: white;
   border: none;
   border-bottom: 2px solid #d1d5da;
@@ -29,6 +29,15 @@
   font-size: 20px;
   outline: none;
   cursor: pointer;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .tabs__button:hover {
