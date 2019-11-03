@@ -1,0 +1,35 @@
+button {
+  border: none;
+  margin: 0;
+  padding: 0;
+  width: auto;
+  overflow: visible;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  -webkit-font-smoothing: inherit;
+  -moz-osx-font-smoothing: inherit;
+  -webkit-appearance: none;
+}
+
+.tabs {
+  display: flex;
+  border-bottom: 1px solid #aaa;
+}
+
+.tab {
+  height: 48px;
+  width: 100px;
+  color: blue;
+}
+
+.tab:hover {
+  border-top: 1px solid #aaa;
+  border-left: 1px solid #aaa;
+  border-right: 1px solid #aaa;
+}
+
+.active {
+  border-bottom: none;
+  color: black;
+}
