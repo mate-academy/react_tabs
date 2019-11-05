@@ -1,25 +1,44 @@
 import React from 'react';
 import './App.css';
+import ButtonPanel from './components/ButtonPanel';
 
-class App extends React.Component {
+export default class App extends React.Component {
   state = {
     tabs: [
-      { title: 'Tab 1', content: 'Some text 1' },
-      { title: 'Tab 2', content: 'Some text 2' },
-      { title: 'Tab 3', content: 'Some text 3' },
+      {
+        title: 'Home',
+        content: 'Windows talking painted pasture yet its express parties use.',
+        id: 1,
+      },
+      {
+        title: 'profile',
+        content: 'Sure last upon he same as knew next.',
+        id: 2,
+      },
+      {
+        title: 'Contact',
+        content: 'Of believed or diverted no rejoiced.',
+        id: 3,
+      },
     ],
+    activeTab: 1,
   };
 
-  render() {
-    const { tabs } = this.state;
+  selectedTab = (index) => {
+    this.setState({
+      activeTab: index,
+    });
+  }
 
+  render() {
     return (
       <div className="App">
-        {/* eslint-disable-next-line */}
-        <h1>{tabs.length} tabs</h1>
+        <ButtonPanel
+          tabs={this.state.tabs}
+          selectedTab={this.selectedTab}
+          activeTab={this.state.activeTab}
+        />
       </div>
     );
   }
 }
-
-export default App;
