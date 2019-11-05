@@ -1,2 +1,4 @@
 /build
 /node_modules
+/src/components/Content.js
+/src/components/Tabs.js
