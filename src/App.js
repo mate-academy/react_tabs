@@ -21,7 +21,7 @@ export default class App extends React.Component {
         id: 3,
       },
     ],
-    activeTab: 1,
+    activeTab: 0,
   };
 
   selectedTab = (index) => {

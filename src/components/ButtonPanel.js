@@ -5,15 +5,13 @@ import Button from './Button';
 function ButtonPanel({ tabs, selectedTab, activeTab }) {
   return (
     <>
-
       <div className="tabs">
         {tabs.map((tab, index) => (
           <Button
-            className="tabs__item"
+            active={activeTab === index}
             selectedTab={selectedTab}
             key={tab.title}
             index={index}
-            activeTab={activeTab}
             title={tab.title}
           />
         ))}

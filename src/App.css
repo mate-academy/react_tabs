@@ -12,14 +12,6 @@ button {
   border-top-right-radius: 4px;
 }
 
-button:focus {
-  border: solid rgba(200, 200, 200, 0.4) 1px;
-  border-bottom: none;
-  color: black;
-  position: relative;
-  z-index: 8;
-}
-
 .tabs::after {
   display: block;
   content: "";
@@ -29,6 +21,14 @@ button:focus {
   position: relative;
   top: -1px;
   z-index: 6;
+}
+
+.active {
+  border: solid rgba(200, 200, 200, 0.4) 1px;
+  border-bottom: none;
+  color: black;
+  position: relative;
+  z-index: 8;
 }
 
 .App {
