@@ -1,1 +1,57 @@
+body {
+  margin: 0;
+}
+
+.content {
+  width: 250px;
+  margin: 100px auto;
+}
+
+.button {
+  width: 76px;
+  position: relative;
+  font-weight: bold;
+  color: blue;
+  background: #ffffff;
+  padding: 10px 0;
+  margin: 0;
+  border:none;
+  outline: none;
+  cursor: pointer;
+}
+
+.isActiv {
+  color: #000;
+  border: 1px solid black;
+}
+
+.isActiv::after {
+  content: "";
+  position: absolute;
+  width: 74px;
+  height: 2px;
+  background-color: white;
+  bottom: -2px;
+  left: 0;
+  z-index: 1;
+}
+
+.block__button {
+  display: flex;
+  justify-content: space-between;
+}
+
+.text {
+  margin: 0;
+  position: relative;
+}
+
+.text::before{
+  content: "";
+  position: absolute;
+  width: 250px;
+  height: 1px;
+  background-color: #000;
+}
+
 
