@@ -1,6 +1,8 @@
 import React from 'react';
 import './App.css';
 
+import Button from './Button';
+
 class App extends React.Component {
   state = {
     tabs: [
@@ -19,21 +21,13 @@ class App extends React.Component {
     });
   }
 
-  render() {
-    const button = [];
-    const { tabs } = this.state;
-    for (const tab of tabs) {
-      button.push(<button className={tab.key !== this.state.buttonIndex ? "button" : "isActiv " + "button"}
-                          onClick={ () => this.buttonCliked(tab.content, tab.key)}
-                          key={tab.key}>{tab.title}
-                  </button>)
-    }
 
+  render() {
     return (
       <div className="App">
         <div className={"content"}>
           <div className={"block__button"}>
-            {button}
+            <Button props={this.state} cliked={this.buttonCliked.bind(this)} />
           </div>
           <p className={"text"}>{this.state.activ}</p>
         </div>
