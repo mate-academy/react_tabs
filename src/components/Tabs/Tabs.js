@@ -2,9 +2,6 @@ import React, { Component } from 'react';
 import { Button } from 'semantic-ui-react';
 
 class Tabs extends Component {
-  tabSelected(selectedIndex) {
-    console.log(selectedIndex);
-  }
 
   render() {
     return (

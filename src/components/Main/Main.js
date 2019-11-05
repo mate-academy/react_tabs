@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Tabs from '../Tabs/Tabs';
+import Content from "../Content/Content";
 
 class Main extends Component {
   constructor(props) {
@@ -14,7 +15,9 @@ class Main extends Component {
       <>
         <Tabs tabs={this.props.tabs}
           onTabSelected={selectedIndex => this.setState({activeTab: selectedIndex })} />
-        <div>Some text: {this.state.activeTab}</div>
+        <div>
+          <Content activeTab={this.state.activeTab} />
+        </div>
       </>
     );
   }
