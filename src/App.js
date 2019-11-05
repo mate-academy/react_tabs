@@ -2,7 +2,7 @@ import React from 'react';
 import './App.css';
 
 import Button from './Button';
-
+import Content from './Button';
 class App extends React.Component {
   state = {
     tabs: [
@@ -29,7 +29,7 @@ class App extends React.Component {
           <div className={"block__button"}>
             <Button props={this.state} cliked={this.buttonCliked.bind(this)} />
           </div>
-          <p className={"text"}>{this.state.activ}</p>
+          <Content text={this.state.activ}/>
         </div>
       </div>
     );
