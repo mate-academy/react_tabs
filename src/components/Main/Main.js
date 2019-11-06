@@ -10,11 +10,19 @@ class Main extends Component {
     };
   }
 
+  onTabSelected = (selectedIndex) => {
+    this.setState(state => ({
+      ...state,
+      activeTab: selectedIndex,
+    }));
+  };
+
   render() {
     return (
       <>
         <Tabs tabs={this.props.tabs}
-          onTabSelected={selectedIndex => this.setState({activeTab: selectedIndex })} />
+          onTabSelected={this.onTabSelected}
+        />
         <div>
           <Content activeTab={this.state.activeTab} />
         </div>
