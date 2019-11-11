@@ -13,6 +13,13 @@ class App extends React.Component {
     currentTabIndex: 0,
   };
 
+  selected = (tab) => {
+    this.setState(state => ({
+      ...state,
+      currentTabIndex: tab,
+    }));
+  }
+
   render() {
     const { tabs } = this.state;
 
@@ -20,13 +27,7 @@ class App extends React.Component {
       <div className="container">
         <Tabs
           tabs={tabs}
-          onTabSelected={(tab) => {
-            this.setState(state => ({
-              ...state,
-              currentTabIndex: tab,
-            }));
-          }
-          }
+          onTabSelected={this.selected}
         />
         <Content state={this.state} />
       </div>

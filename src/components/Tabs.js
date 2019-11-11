@@ -1,17 +1,16 @@
 import React, { Component } from 'react';
 
-// eslint-disable-next-line react/prefer-stateless-function
 class Tabs extends Component {
+
   render() {
+    const { tabs, onTabSelected} = this.props;
     return (
       <>
-        {/* // eslint-disable-next-line react/prop-types */}
-        {this.props.tabs.map((tab, index) => (
+        {tabs.map((tab, index) => (
           <button
             type="button"
             key={tab.title}
-            // eslint-disable-next-line react/prop-types
-            onClick={() => this.props.onTabSelected(index)}
+            onClick={() => onTabSelected(index)}
           >
             {tab.title}
           </button>
