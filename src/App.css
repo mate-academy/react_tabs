@@ -1,1 +1,25 @@
 
+button {
+  border: 1px solid grey;
+  border-radius: 20px;
+  width: calc(100% / 3);
+  height: 10vh;
+  outline: none;
+}
+
+button:hover {
+  background-color: #e3e8e5;
+  cursor: pointer;
+  color: blue;
+}
+
+.container {
+  width: 50%;
+}
+
+.content_container {
+  height: calc(100% - 10vh);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
