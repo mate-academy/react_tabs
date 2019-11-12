@@ -1,6 +1,7 @@
 # React Tabs
 
 ## Task 
+[Demo](https://shurkodr.github.io/react_tabs/)
 
 ![tabs](./description/tabs.gif)
     
