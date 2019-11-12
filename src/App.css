@@ -1,1 +1,37 @@
 
+button {
+  border: none;
+  color: blue;
+  cursor: pointer;
+  width: 70px;
+  font-size: 16px;
+  line-height: 30px;
+  background-color: white;
+  outline: none;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+}
+
+.tabs::after {
+  display: block;
+  content: "";
+  width: 100vw;
+  height: 1px;
+  background-color: rgba(200, 200, 200, 0.4);
+  position: relative;
+  top: -1px;
+  z-index: 6;
+}
+
+.active {
+  border: solid rgba(200, 200, 200, 0.4) 1px;
+  border-bottom: none;
+  color: black;
+  position: relative;
+  z-index: 8;
+}
+
+.App {
+  margin: 20px;
+  position: relative;
+}
