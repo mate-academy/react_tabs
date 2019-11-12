@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Button from './Button';
 
-function ButtonPanel({ tabs, selectedTab, activeTab }) {
+function Tabs({ tabs, selectedTab, activeTab }) {
   return (
     <>
       <div className="tabs">
@@ -25,10 +25,10 @@ function ButtonPanel({ tabs, selectedTab, activeTab }) {
   );
 }
 
-ButtonPanel.propTypes = {
+Tabs.propTypes = {
   tabs: PropTypes.arrayOf(PropTypes.object).isRequired,
   selectedTab: PropTypes.func.isRequired,
   activeTab: PropTypes.number.isRequired,
 };
 
-export default ButtonPanel;
+export default Tabs;

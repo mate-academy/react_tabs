@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import ButtonPanel from './components/ButtonPanel';
+import Tabs from './components/Tabs';
 
 export default class App extends React.Component {
   state = {
@@ -31,12 +31,14 @@ export default class App extends React.Component {
   }
 
   render() {
+    const { tabs, activeTab } = this.state;
+
     return (
       <div className="App">
-        <ButtonPanel
-          tabs={this.state.tabs}
+        <Tabs
+          tabs={tabs}
           selectedTab={this.selectedTab}
-          activeTab={this.state.activeTab}
+          activeTab={activeTab}
         />
       </div>
     );
