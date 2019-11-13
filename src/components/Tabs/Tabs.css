@@ -1,0 +1,69 @@
+.tabs {
+  width: 50%;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.tabs__switchers {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  width: 100%;
+  border-bottom: 2px solid #d1d5dA;
+}
+
+.tabs__button {
+  width: 90px;
+  height: 40px;
+  background: white;
+  border: none;
+  border-bottom: 2px solid #d1d5da;
+  margin-bottom: -2px;
+  border-radius: 8px 8px 0 0;
+  border-collapse: collapse;
+  color: #0268b3;
+  font-weight: bold;
+  font-size: 20px;
+  outline: none;
+  cursor: pointer;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.tabs__button:hover {
+  color: #015190;
+}
+
+.tabs__button_active {
+  border-top: 2px solid #d1d5da;
+  border-left: 2px solid #d1d5da;
+  border-right: 2px solid #d1d5da;
+  border-bottom: 2px solid white;
+  color: #a0a0a2;
+}
+
+.tabs__button_active:hover {
+  color: #a0a0a2;
+}
+
+.tabs__item {
+  display: none;
+  height: 250px;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.show {
+  display: block;
+}
+/*# sourceMappingURL=Tabs.css.map */
