@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 import './Tabs.css';
 
 const article = `Lorem ipsum dolor sit amet, consectetur
@@ -40,31 +39,24 @@ class Tabs extends Component {
     this.setState(() => ({
       tabSwitcher: i,
     }));
-    if (this.props.switchTabs) {
-      this.props.switchTabs(i);
-    }
   }
-
-  makeTitleSwitchers = () => (
-    <div className="tabs__switchers">
-      {this.tabs.map((tab, index) => (
-        <button
-          type="button"
-          className={this.state.tabSwitcher === index
-            ? `tabs__button tabs__button_active`
-            : `tabs__button`}
-          onClick={() => this.switchTabs(index)}
-        >
-          {tab.title}
-        </button>
-      ))}
-    </div>
-  )
 
   render() {
     return (
       <section className="tabs">
-        {this.makeTitleSwitchers(this.switchTabs)}
+        <div className="tabs__switchers">
+          {this.tabs.map((tab, index) => (
+            <button
+              type="button"
+              className={this.state.tabSwitcher === index
+                ? `tabs__button tabs__button_active`
+                : `tabs__button`}
+              onClick={() => this.switchTabs(index)}
+            >
+              {tab.title}
+            </button>
+          ))}
+        </div>
         {this.tabs.map((tab, index) => (
           <article className={this.state.tabSwitcher === index
             ? 'tabs__item show'
@@ -77,9 +69,5 @@ class Tabs extends Component {
     );
   }
 }
-
-Tabs.propTypes = {
-  switchTabs: PropTypes.func.isRequired,
-};
 
 export default Tabs;
