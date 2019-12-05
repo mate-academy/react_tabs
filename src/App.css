@@ -1,1 +1,30 @@
 
+.tab {
+  border: 0;
+  height: 2em;
+  background-color: white;
+  color: blue;
+  outline: 0;
+}
+
+.tab:hover {
+  border: 1px solid gray;
+}
+
+.tab-selected {
+  border-top: 1px solid gray;
+  border-left: 1px solid gray;
+  border-right: 1px solid gray;
+  color: black;
+  position: relative;
+}
+
+.hr {
+  margin-top: 0;
+  background-color: gray;
+}
+
+.tabcontain {
+  width: 70%;
+  margin: 0 auto;
+}
