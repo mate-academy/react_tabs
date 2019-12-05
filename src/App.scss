@@ -1,0 +1,66 @@
+html {
+  font-size: 22px;
+  font-family: Arial, sans-serif;
+}
+
+.App {
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.tabs {
+  width: 1000px;
+
+  &__buttons {
+
+    &:after {
+      content: "";
+      display: block;
+      height: 1px;
+      top: -2px;
+      position: relative;
+      width: 100%;
+      z-index: -1;
+      border-bottom: 1px solid #e5e5e5;
+    }
+  }
+
+  &__button {
+    width: 120px;
+    font-size: 24px;
+    line-height: 1.8;
+    color: rgb(50, 50, 214);
+    background-color: white;
+    border: 0;
+    outline: none;
+
+    &:hover,
+    &--active {
+      cursor: pointer;
+      border: 1px solid #e5e5e5;
+      color: black;
+    }
+
+    &--active {
+      border-bottom: 1px solid white;
+
+      &:hover {
+        border-bottom: 1px solid white;
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+
+  .tabs {
+    &__button {
+      width: 80px;
+      font-size: 18px;
+    }
+  }
+}
