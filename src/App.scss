@@ -1,0 +1,35 @@
+.tabs {
+  width: max-content;
+  margin: auto;
+}
+
+.tab {
+  width: 150px;
+  height: 75px;
+  border: none;
+  outline: none;
+  font-size: 24px;
+  color: white;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+
+  &--notactive {
+    background: linear-gradient(90deg,#b993d6, #8ca6db);
+
+    &:hover {
+      background: linear-gradient(90deg, #f2709c, #ff9472);
+    }
+  }
+}
+
+.content {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 18px;
+  background-color: buttonface;
+  min-height: 500px;
+  margin: auto;
+  width: 80%;
+  border-radius: 10px;
+  box-sizing: border-box;
+  padding: 10px;
+}
