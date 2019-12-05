@@ -1,1 +1,49 @@
+.App {
+  width: 400px;
+  margin: 20px auto;
+}
 
+.text {
+  width: 400px;
+  height: 200px;
+  background-color: rgb(245, 219, 243);
+  padding: 10px;
+  box-sizing: border-box;
+  border-left: 1px solid grey;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.button {
+  width: 60px;
+  height: 30px;
+  color: rgb(48, 8, 75);
+  background-color: white;
+  border: 1px solid grey;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 600;
+  outline: none;
+  border-radius: 5px 5px 0 0;
+  top: 1px;
+  position: relative;
+}
+
+.button--active {
+  border-bottom: none;
+  background-color: rgb(245, 219, 243);
+}
+
+.button__container {
+  width: 400px;
+  position: relative;
+  top: 1px;
+}
+
+.button__container::after {
+  content: "";
+  width: 220px;
+  height: 1px;
+  background-color: grey;
+  position: absolute;
+  bottom: -1px;
+  z-index: 1;
+}
