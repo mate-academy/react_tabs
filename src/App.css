@@ -1,1 +1,61 @@
+.App {
+  font-family: Menlo, sans-serif;
+  background: aliceblue;
+}
 
+html {
+  background: aliceblue;
+}
+
+.tab-item:hover {
+  background-color: lightcyan;
+  border-radius: 20px;
+}
+
+.tabs-container {
+  max-width: 550px;
+  margin: 200px auto 0;
+  padding: 20px 10px;
+  border-width: 3px;
+  border-style: solid;
+  border-image-source: linear-gradient(
+    to bottom,
+    #86cb92 0%,
+    transparent 40%,
+    transparent 60%,
+    #86cb92 100%
+  );
+  border-image-slice: 1;
+}
+
+button:active,
+button:focus {
+  outline: none;
+}
+
+.tab-item {
+  display: inline-block;
+  cursor: pointer;
+  padding: 10px 15px;
+  background-color: aliceblue;
+}
+
+.tab-item--selected {
+  border-width: 3px;
+  border-style: solid;
+  border-image-source: linear-gradient(
+    to bottom,
+    #86cb92 0%,
+    transparent 40%,
+    transparent 60%,
+    #86cb92 100%
+  );
+  border-image-slice: 1;
+}
+
+.tab-content {
+  border-top: 2px solid #86cb92;
+  border-radius: 10px;
+  margin: -17px auto;
+  padding: 10px;
+}
