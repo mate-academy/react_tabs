@@ -1,23 +1,45 @@
 import React from 'react';
 import './App.css';
+import Tabs from './Tabs';
+
+const text1 = `Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
+  Culpa dolores earum eligendi, est excepturi expedita fuga harum ipsa 
+  laborum minima perferendis quam quos ratione reiciendis, 
+  rerum suscipit tempora tempore voluptatum!`;
+
+const text2 = `Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
+  Aperiam at consequatur deleniti, doloribus error harum, impedit iusto magnam 
+  nostrum officiis perferendis ratione reprehenderit repudiandae 
+  sint sit suscipit tempora vel vitae!`;
+
+const text3 = `Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
+  Deserunt dolore ducimus, est ex excepturi ipsum libero natus praesentium, 
+  quia, quos repellat rerum sequi sit ullam unde veniam vitae voluptatum? 
+  Excepturi?`;
 
 class App extends React.Component {
   state = {
     tabs: [
-      { title: 'Tab 1', content: 'Some text 1' },
-      { title: 'Tab 2', content: 'Some text 2' },
-      { title: 'Tab 3', content: 'Some text 3' },
+      { title: 'Home', content: text1 },
+      { title: 'Profile', content: text2 },
+      { title: 'Contact', content: text3 },
     ],
+    indexOfActiveTab: 0,
+  };
+
+  onTabSelected = (i) => {
+    this.setState({ indexOfActiveTab: i });
   };
 
   render() {
-    const { tabs } = this.state;
+    const { tabs, indexOfActiveTab } = this.state;
 
     return (
-      <div className="App">
-        {/* eslint-disable-next-line */}
-        <h1>{tabs.length} tabs</h1>
-      </div>
+      <Tabs
+        tabsList={tabs}
+        activeIndex={indexOfActiveTab}
+        onTabSelected={this.onTabSelected}
+      />
     );
   }
 }
