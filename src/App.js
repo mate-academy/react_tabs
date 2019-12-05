@@ -7,8 +7,6 @@ class App extends React.Component {
   constructor(props) {
     super(props);
 
-    this.onTabSelected = this.onTabSelected.bind(this);
-
     this.state = {
       tabs: [
         { title: 'Tab 1', content: 'Some text 1' },
