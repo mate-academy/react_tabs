@@ -1,1 +1,67 @@
+body,
+p {
+  margin: 0;
+  outline: none;
+}
 
+.tabs {
+  margin: 20px auto;
+  width: 50%;
+  border-collapse: collapse;
+}
+
+.tabs__tabsList {
+  background-color: white;
+}
+
+.tabs__button {
+  width: 80px;
+  height: 30px;
+  border: none;
+  outline: none;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  transition: background-color 1s;
+}
+
+.tabs__button:hover {
+  cursor: pointer;
+  background-color: rgba(122, 179, 240, 1);
+}
+
+.tabs__button-home {
+  background-color: rgba(247, 210, 233, 1);
+}
+
+.tabs__button-profile {
+  background-color: rgba(235, 210, 247, 1);
+}
+
+.tabs__button-contact {
+  background-color: rgba(180, 193, 240, 1);
+}
+
+.button--active {
+  border-top: 1px solid #3f52b0;
+  border-left: 1px solid #3f52b0;
+  border-right: 1px solid #3f52b0;
+  transform: translate(0, 2px);
+  color: rgba(63, 82, 176, 1);
+}
+
+.content {
+  border-top: 1px solid #3f52b0;
+  padding: 10px 2px;
+}
+
+.content--home {
+  background-color: rgba(247, 210, 233, 1);
+}
+
+.content--profile {
+  background-color: rgba(235, 210, 247, 1);
+}
+
+.content--contact {
+  background-color: rgba(180, 193, 240, 1);
+}
