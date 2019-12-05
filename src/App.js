@@ -16,7 +16,7 @@ class App extends React.Component {
         { title: 'Tab 3', content: 'Some text 3' },
       ],
 
-      currentText: 'Some text 1',
+      currentText: '',
     };
   }
 

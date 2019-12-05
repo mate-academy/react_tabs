@@ -16,7 +16,7 @@
 
 .tab__button:hover {
   border: 2px solid rgba(171, 171, 171, 0.5);
-  border-bottom: none;
+  border-bottom-color: #fff;
 }
 
 .tab__input:checked + .tab__button {
