@@ -15,7 +15,7 @@ p {
 }
 
 .tabs__button {
-  width: 80px;
+  width: calc(100% / 3);
   height: 30px;
   border: none;
   outline: none;
@@ -52,6 +52,11 @@ p {
 .content {
   border-top: 1px solid #3f52b0;
   padding: 10px 2px;
+  border-bottom: 1px solid #3f52b0;
+  border-left: 1px solid #3f52b0;
+  border-right: 1px solid #3f52b0;
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
 }
 
 .content--home {

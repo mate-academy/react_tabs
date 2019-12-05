@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 class Tab extends React.Component {
   render() {
     const { tab, onTabSelected, tabIndex, tabIndexActive } = this.props;
+
     const buttonClassName = (currentIndex, activeIndex) => {
       let nameOfClass = 'tabs__button';
 
