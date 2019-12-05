@@ -1,12 +1,22 @@
 import React from 'react';
-import './App.css';
+import './App.scss';
+import Tabs from './Tabs';
 
 class App extends React.Component {
   state = {
     tabs: [
-      { title: 'Tab 1', content: 'Some text 1' },
-      { title: 'Tab 2', content: 'Some text 2' },
-      { title: 'Tab 3', content: 'Some text 3' },
+      {
+        title: 'Tabs 1',
+        content: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.'
+          + ' Hic numquam quos sapiente.'
+          + ' Est illo omnis, rem saepe similique ullam! Minima.',
+      },
+      {
+        title: 'Tabs 2',
+        content: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.'
+          + ' Ad, harum.',
+      },
+      { title: 'Tabs 3', content: 'Lorem ipsum dolor sit amet.' },
     ],
   };
 
@@ -15,8 +25,7 @@ class App extends React.Component {
 
     return (
       <div className="App">
-        {/* eslint-disable-next-line */}
-        <h1>{tabs.length} tabs</h1>
+        <Tabs tabs={tabs} />
       </div>
     );
   }
