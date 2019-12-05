@@ -1,0 +1,54 @@
+$base-color: darkslategrey;
+$border-color: lightgrey;
+$bg-color: antiquewhite;
+
+ul,
+body {
+  margin: 0;
+  padding: 0;
+  font-size: 32px;
+}
+
+.list {
+  display: flex;
+  list-style: none;
+  border-bottom: 1px solid $border-color;
+  padding: 50px 50px 0;
+}
+
+.content {
+  color: $base-color;
+  background-color: $bg-color;
+  padding: 50px;
+  height: 100vh;
+}
+
+.button {
+  color: lightseagreen;
+  border: none;
+  border-bottom: 1px solid $border-color;
+  cursor: pointer;
+  transform: translateY(1px);
+  height: 70px;
+  width: 200px;
+  margin-right: 10px;
+  transition: color 0.3s;
+  font-size: 32px;
+
+  &:focus {
+    outline: none;
+  }
+
+  &:hover {
+    color: $base-color;
+  }
+
+  &_active {
+    @extend .button;
+    color: $base-color;
+    outline: none;
+    border: 1px solid $border-color;
+    border-bottom: 2px solid $bg-color;
+    background-color: $bg-color;
+  }
+}
