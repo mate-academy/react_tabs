@@ -7,7 +7,7 @@ const Tabs = ({ tab }) => {
 
     document.querySelector('.tab-selected').className = 'tab';
     target.className = 'tab tab-selected';
-    const tabindex = tab.find(title => title.title === e.target.value);
+    const tabindex = tab.find(title => title.title === e.target.innerText);
     const output = document.querySelector('.output');
 
     output.innerText = tabindex.content;
@@ -19,21 +19,23 @@ const Tabs = ({ tab }) => {
         tab.map((output, index) => (
           (index === 0)
             ? (
-              <input
+              <button
                 type="button"
                 key={output.title}
                 className="tab tab-selected"
                 onClick={onTabSelected}
-                value={output.title}
-              />
+              >
+                {output.title}
+              </button>
             ) : (
-              <input
+              <button
                 type="button"
                 key={output.title}
                 className="tab"
                 onClick={onTabSelected}
-                value={output.title}
-              />
+              >
+                {output.title}
+              </button>
             )
         ))
       }
