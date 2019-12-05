@@ -1,0 +1,30 @@
+.tabs {
+  margin: 20px;
+
+  &__item {
+    border: none;
+    padding: 10px;
+    background-color: white;
+    outline: none;
+    font-weight: bold;
+    transition: 0.5s;
+  }
+
+  &__item:hover {
+    background-color: lightskyblue;
+  }
+
+  &__item:focus {
+    background-color: lightskyblue;
+  }
+
+  &__text {
+    width: 500px;
+    height: 100px;
+    //border-top: 1px solid lightskyblue;
+    padding: 10px;
+    background-color: lightskyblue;
+    //margin-top: -1px;
+  }
+
+}
