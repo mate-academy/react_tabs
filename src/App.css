@@ -1,1 +1,41 @@
+.article {
+  width: 400px;
+  margin: 50px;
+  padding: 10px 20px;
+  border: 2px solid lightpink;
+  background-color: beige;
+}
 
+.article__p {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.tabs {
+  display: flex;
+  padding: 0;
+  list-style: none;
+}
+
+.tabs__tab--unactive {
+  padding: 10px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 14px;
+  background-color: beige;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.tabs__tab--active {
+  padding: 10px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 14px;
+  background-color: beige;
+  border: none;
+  outline: none;
+  color: darkred;
+}
+
+.tabs__tab--unactive:hover {
+  text-decoration: underline;
+}
