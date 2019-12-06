@@ -1,1 +1,35 @@
+.tab-list__tab--title {
+  position: relative;
+  width: 70px;
+  border: 1px solid white;
+  background-color: white;
+  outline: none;
+  display: inline-block;
+  padding: 10px;
+  color: #297ca0;
+}
 
+.active-tab {
+  border: 1px solid #ccc;
+  color: black;
+
+}
+
+.active-tab::after {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  content: "";
+  display: block;
+  width: 67.5px;
+  height: 5px;
+  background-color: white;
+}
+
+.tab-list__tab--current-content::before {
+  content: "";
+  display: block;
+  height: 1px;
+  background-color: #ccc;
+}
