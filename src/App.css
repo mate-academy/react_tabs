@@ -1,1 +1,41 @@
+.App {
+  position: relative;
+  margin-top: 20px;
+  margin-right: auto;
+  margin-left: auto;
+}
 
+button {
+  padding-left: 10px;
+  border: none;
+  font: inherit;
+  color: white;
+  font-weight: 900;
+  background-color: inherit;
+  outline: none;
+  cursor: pointer;
+}
+
+.button_text {
+  border-radius: 30px;
+  width: 600px;
+  background-image: linear-gradient(to top right, rgb(101, 115, 255),
+  rgb(122, 113, 238), rgb(143, 112, 220), rgb(164, 110, 203),
+  rgb(185, 109, 185), rgb(206, 107, 168), rgb(178, 125, 175),
+  rgb(149, 143, 181), rgb(121, 162, 188), rgb(92, 180, 194),
+  rgb(64, 198, 201), rgb(35, 216, 207));
+  color: white;
+  padding: 20px;
+}
+
+.select {
+  border-top: 2px solid ;
+  border-left: 2px solid;
+  border-right: 2px solid;
+  border-radius: 5px;
+  transform: scale(1.1);
+}
+
+.no_select {
+  color: rgb(245, 225, 198);
+}
