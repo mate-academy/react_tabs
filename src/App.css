@@ -17,15 +17,15 @@ body {
 button {
   background-color: #65f0a6;
   color: #025e2d;
-  font-size: 20px;
+  font-size: 22px;
   font-family: "Alice", serif;
   font-weight: 900;
   border: none;
   padding: 30px 65px;
-  /* margin: 1px; */
   outline: none;
   cursor: pointer;
   margin-bottom: 25px;
+  margin-top: 20px;
 }
 
 .button-content {
@@ -40,11 +40,10 @@ button {
 }
 
 .selected {
-  border: 1px solid #0bb89b;
   border-radius: 10px;
   transform: scale(1.3);
 }
 
 .unselected {
-  color: #0bb879;
+  color: #7d8080;
 }
