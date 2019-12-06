@@ -1,12 +1,21 @@
 import React from 'react';
 import './App.css';
+import Tabs from './components/Tabs';
+
+const AuthorName = `Charles Lutwidge Dodgson ~
+                    Lewis Carroll ~
+                    [27 January 1832 – 14 January 1898]`;
+const BookTitle = `|| Alice's Adventures in Wonderland ||`;
+const BookQuote = `*It takes all the running you can do, to
+  keep in the same place. If you want to get somewhere else,
+  you must run at least twice as fast as that!`;
 
 class App extends React.Component {
   state = {
     tabs: [
-      { title: 'Tab 1', content: 'Some text 1' },
-      { title: 'Tab 2', content: 'Some text 2' },
-      { title: 'Tab 3', content: 'Some text 3' },
+      { title: 'Author', content: AuthorName },
+      { title: 'Book', content: BookTitle },
+      { title: 'Quote', content: BookQuote },
     ],
   };
 
@@ -15,8 +24,7 @@ class App extends React.Component {
 
     return (
       <div className="App">
-        {/* eslint-disable-next-line */}
-        <h1>{tabs.length} tabs</h1>
+        <Tabs tabs={tabs} />
       </div>
     );
   }
