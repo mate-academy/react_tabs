@@ -1,5 +1,5 @@
 {
-  "homepage": "https://mate-academy.github.io/react_tabs",
+  "homepage": "http://banduraweb.github.io/react_tabs",
   "name": "react_tabs",
   "version": "0.1.0",
   "private": true,
@@ -37,11 +37,8 @@
     "*.css": [
       "stylelint",
       "git add"
-    ],
-    "*.js": [
-      "eslint",
-      "git add"
     ]
+
   },
   "browserslist": {
     "production": [
