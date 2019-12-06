@@ -1,1 +1,42 @@
+.section {
+  display: inline-block;
+}
 
+.section__text {
+  background: whitesmoke;
+  width: 500px;
+  height: 150px;
+  padding: 15px;
+  font-size: 18px;
+  margin: 0;
+  position: relative;
+  bottom: 1px;
+}
+
+.section__button {
+  font-size: 20px;
+  color: rgb(76, 147, 240);
+  border-radius: 3px 3px 0 0;
+  outline: none;
+  border: 1px solid whitesmoke;
+  background: whitesmoke;
+  position: relative;
+  padding: 10px;
+}
+
+.section__button:focus {
+  border: 1px solid rgb(126, 126, 126);
+  border-bottom: 1px solid whitesmoke;
+  z-index: 1;
+}
+
+.activ {
+  color: black;
+}
+
+.section__decor {
+  margin: 0;
+  position: relative;
+  bottom: 1px;
+  z-index: 0;
+}
