@@ -1,0 +1,46 @@
+html {
+  font-size: 18px;
+  font-family: Arial, sans-serif;
+}
+
+.tabs {
+  &:after {
+    content: "";
+    display: block;
+    height: 1px;
+    top: -2px;
+    position: relative;
+    width: 100%;
+    z-index: -1;
+    border-bottom: 1px solid #e5e5e5;
+  }
+}
+
+.tab {
+  width: 200px;
+  font-size: 24px;
+  box-sizing: border-box;
+  border: 0;
+  background-color: #fff;
+  color: #1da9fb;
+
+  &:hover {
+    cursor: pointer;
+    border: 1px solid #e5e5e5;
+  }
+
+  &--active {
+    width: 200px;
+    font-size: 24px;
+    outline: none;
+    background-color: white;
+    border: 1px solid #e5e5e5;
+    border-bottom: 1px solid white;
+    color: black;
+  }
+
+}
+
+.text {
+  margin-top: 10px;
+}
