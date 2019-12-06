@@ -12,12 +12,12 @@ class Tabs extends React.Component {
   }
 
   render() {
-    const { tabs } = this.props;
+    const { tabsData } = this.props;
 
     return (
       <>
         <section className="tabs">
-          {tabs.map(
+          {tabsData.map(
             (tab, i) => (
               <button
                 className={
@@ -31,12 +31,12 @@ class Tabs extends React.Component {
             )
           )}
         </section>
-        <div className="text">{tabs[this.state.index].content}</div>
+        <div className="text">{tabsData[this.state.index].content}</div>
       </>
     );
   }
 }
 
-Tabs.propTypes = { tabs: PropTypes.arrayOf(PropTypes.object).isRequired };
+Tabs.propTypes = { tabsData: PropTypes.arrayOf(PropTypes.object).isRequired };
 
 export default Tabs;

@@ -25,7 +25,7 @@ class App extends React.Component {
 
     return (
       <div className="App">
-        <Tabs tabs={tabs} />
+        <Tabs tabsData={tabs} />
       </div>
     );
   }

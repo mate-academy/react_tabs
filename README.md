@@ -13,7 +13,7 @@
     ];
     ```
     ```jsx harmony
-    <Tabs tabs={tabs} />
+    <Tabs tabsData={tabs} />
     ```
 2. Implement `onTabSelected` callback triggered on tab change with tab data as an argument
 3. Add `index` prop (default `0`)  to set an index of tab active at the beginning
