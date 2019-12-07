@@ -1,1 +1,46 @@
+body {
+  margin: 0;
+}
 
+.tabs {
+  text-align: center;
+}
+
+.tabs__button {
+  margin: 20px 5px;
+  box-shadow: 0 10px 14px -7px #276873;
+  background: #599bb6 linear-gradient(to bottom, #599bb3 5%, #408c99 100%);
+  border-radius: 8px;
+  display: inline-block;
+  cursor: pointer;
+  color: #fff;
+  font-family: Arial, serif;
+  font-size: 20px;
+  font-weight: bold;
+  padding: 13px 32px;
+  text-decoration: none;
+  text-shadow: 0 1px 0 #3d768a;
+}
+
+.tabs__button:hover {
+  background: #408c99 linear-gradient(to bottom, #408c99 5%, #599bb3 100%);
+}
+
+.tabs__button:active {
+  position: relative;
+  top: 1px;
+}
+
+.tabs__bottom--active {
+  color: #fff6af;
+}
+
+.tabs__button:focus {
+  outline: none;
+}
+
+.tabs__content {
+  margin-top: 20px;
+  font-family: Arial, serif;
+  font-size: 20px;
+}
