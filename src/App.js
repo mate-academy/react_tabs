@@ -1,23 +1,19 @@
 import React from 'react';
 import './App.css';
+import Tab from './Tab';
 
 class App extends React.Component {
   state = {
     tabs: [
-      { title: 'Tab 1', content: 'Some text 1' },
-      { title: 'Tab 2', content: 'Some text 2' },
-      { title: 'Tab 3', content: 'Some text 3' },
+      { title: 'Lorem ipsum', content: `Lorem ipsum dolor sit amet.` },
+      { title: 'Duis aliquam', content: `Duis aliquam nisi tempor iaculis` },
+      { title: 'Pellentesque', content: `Pellentesque, blandit felis in.` },
     ],
   };
 
   render() {
-    const { tabs } = this.state;
-
     return (
-      <div className="App">
-        {/* eslint-disable-next-line */}
-        <h1>{tabs.length} tabs</h1>
-      </div>
+      <Tab tabs={this.state.tabs} />
     );
   }
 }
