@@ -6,7 +6,6 @@ class Tabs extends React.Component {
 
   render() {
     const { tab } = this.props;
-    const { state } = this;
     const { activeTabIndex } = this.state;
 
     return (
@@ -26,7 +25,7 @@ class Tabs extends React.Component {
           ))
         }
         <hr className="hr" />
-        <div className="tab__content">{tab[state.activeTabIndex].content}</div>
+        <div className="tab__content">{tab[activeTabIndex].content}</div>
       </section>
     );
   }
