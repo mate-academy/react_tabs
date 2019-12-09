@@ -1,1 +1,50 @@
+body {
+  margin: 0;
+  padding: 0;
+}
 
+hr {
+  margin: 0;
+  top: -2px;
+  z-index: -1;
+  position: relative;
+}
+
+button:focus {
+  outline: none;
+}
+
+.tabs {
+  position: relative;
+  margin-top: 20px;
+  margin-right: auto;
+  margin-left: auto;
+  width: 300px;
+}
+
+.tab {
+  padding-top: 20px;
+  width: 600px;
+  display: flex;
+  flex-direction: column;
+}
+
+.tab-item:hover {
+  background-color: lightcyan;
+  border-radius: 20px;
+}
+
+.button {
+  padding: 20px;
+  margin-bottom: 2px;
+  width: 100px;
+  border: none;
+  background: none;
+  color: black;
+  cursor: pointer;
+}
+
+.button--active {
+  color: green;
+  background-color: blue;
+}
