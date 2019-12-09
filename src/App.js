@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import Buttons from './Buttons';
+import Tabs from './Tabs';
 
 class App extends React.Component {
   state = {
@@ -17,7 +17,7 @@ class App extends React.Component {
     return (
       <div className="App">
         {/* eslint-disable-next-line */}
-        <Buttons tab={tabs} />
+        <Tabs tab={tabs} />
       </div>
     );
   }
