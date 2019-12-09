@@ -4,37 +4,27 @@ import PropTypes from 'prop-types';
 class Tabs extends React.Component {
   state = { activeTabIndex: 0 };
 
-tabClick = (ev) => {
-  const tabText = ev.target.innerText;
+  render() {
+    const { tabs } = this.props;
+    const { activeTabIndex } = this.state;
 
-  this.setState(state => ({
-    activeTabIndex: this.props.tabs.findIndex(
-      item => item.title === tabText
-    ),
-  }));
-};
-
-render() {
-  const { tabs } = this.props;
-  const { activeTabIndex } = this.state;
-
-  return (
-    <div className="tabs">
-      {tabs.map((tab, index) => (
-        <button
-          onClick={ev => this.tabClick(ev)}
-          className={activeTabIndex === index
-            ? 'tabs__item active'
-            : 'tabs__item'}
-          type="button"
-        >
-          {tab.title}
-        </button>
-      ))}
-      <div className="tabs__text">{tabs[activeTabIndex].content}</div>
-    </div>
-  );
-}
+    return (
+      <div className="tabs">
+        {tabs.map((tab, index) => (
+          <button
+            onClick={() => this.setState({ activeTabIndex: index })}
+            className={activeTabIndex === index
+              ? 'tabs__item active'
+              : 'tabs__item'}
+            type="button"
+          >
+            {tab.title}
+          </button>
+        ))}
+        <div className="tabs__text">{tabs[activeTabIndex].content}</div>
+      </div>
+    );
+  }
 }
 
 Tabs.propTypes = {
