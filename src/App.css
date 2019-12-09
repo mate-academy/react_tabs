@@ -33,12 +33,8 @@
   cursor: pointer;
 }
 
-.button--active {
-  padding: 10px;
-  width: 33.33%;
-  background: purple;
-  border: none;
+.is-active {
   color: white;
-  font-weight: bold;
-  cursor: pointer;
+  background: purple;
+  border-bottom: none;
 }
