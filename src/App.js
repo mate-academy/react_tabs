@@ -1,12 +1,22 @@
 import React from 'react';
 import './App.css';
+import Tabs from './Tabs';
+
+// eslint-disable-next-line max-len
+const str = 'Версткой веб-страниц будем называть создание такого HTML-кода, который позволяет размещать элементы веб-страницы (изображения, текст, линии и т.д.) в нужных местах документа и отображать их в окне браузера согласно разработанному макету. При этом следует принимать во внимание ограничения присущие HTML и CSS, учитывать особенности браузеров и знать приемы верстки, которые дают желаемый результат.';
+
+// eslint-disable-next-line max-len
+const str2 = 'Чтобы стало понятно, что же входит в верстку и почему она считается достаточно важным и сложным этапом создания сайта, разберем небольшой пример. Сразу отметим, что верстка это процесс творческий и четких алгоритмов здесь не существует, поэтому не следует принимать изложенные советы и рекомендации как догму, это лишь один из возможных путей.';
+
+// eslint-disable-next-line max-len
+const str3 = 'Вначале дизайнер готовит макеты веб-страниц в графическом редакторе (например, Adobe Illustrator, Adobe Photoshop), утверждает их у заказчика и передает верстальщику на формирование HTML-кода.';
 
 class App extends React.Component {
   state = {
     tabs: [
-      { title: 'Tab 1', content: 'Some text 1' },
-      { title: 'Tab 2', content: 'Some text 2' },
-      { title: 'Tab 3', content: 'Some text 3' },
+      { title: 'Home', content: str },
+      { title: 'Profile', content: str2 },
+      { title: 'Contact', content: str3 },
     ],
   };
 
@@ -14,10 +24,11 @@ class App extends React.Component {
     const { tabs } = this.state;
 
     return (
-      <div className="App">
-        {/* eslint-disable-next-line */}
-        <h1>{tabs.length} tabs</h1>
-      </div>
+      <>
+        <div className="App">
+          <Tabs tabs={tabs} />
+        </div>
+      </>
     );
   }
 }
