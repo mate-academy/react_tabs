@@ -2,13 +2,17 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 class Tabs extends React.Component {
-state = { textOnClick: this.props.tabs[0].content };
+  state = {
+    textOnClick: this.props.tabs[0].content,
+    selectedTab: this.props.tabs[0].title,
+  };
 
 tabClick = (ev) => {
   const tabText = ev.target.innerText;
   const newText = this.props.tabs.find(item => item.title === tabText);
 
   this.setState(state => ({ textOnClick: newText.content }));
+  this.setState(state => ({ selectedTab: tabText }));
 };
 
 render() {
@@ -19,7 +23,9 @@ render() {
       {tabs.map(tab => (
         <button
           onClick={ev => this.tabClick(ev)}
-          className="tabs__item"
+          className={this.state.selectedTab === tab.title
+            ? 'tabs__item active'
+            : 'tabs__item'}
           type="button"
         >
           {tab.title}
