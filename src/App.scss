@@ -1,0 +1,27 @@
+.tabs {
+  margin: 20px;
+
+  &__item {
+    border: none;
+    padding: 10px;
+    background-color: white;
+    outline: none;
+    font-weight: bold;
+    transition: 0.5s;
+  }
+
+  &__item:hover {
+    background-color: lightskyblue;
+  }
+
+  .active {
+    background-color: lightskyblue;
+  }
+
+  &__text {
+    width: 500px;
+    height: 100px;
+    padding: 10px;
+    background-color: lightskyblue;
+  }
+}
