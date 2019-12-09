@@ -2,11 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 class Tabs extends React.Component {
-  state = { indexOfTabs: 0 }
+  state = { activeTabIndex: 0 }
 
   render() {
     const { tab } = this.props;
     const { state } = this;
+    const { activeTabIndex } = this.state;
 
     return (
       <section className="tabs__container">
@@ -15,9 +16,9 @@ class Tabs extends React.Component {
             <button
               type="button"
               key={tabContent.title}
-              className={i === state.indexOfTabs ? 'tab tab-selected' : 'tab'}
+              className={i === activeTabIndex ? 'tab tab-selected' : 'tab'}
               onClick={() => {
-                this.setState({ indexOfTabs: i });
+                this.setState({ activeTabIndex: i });
               }}
             >
               {tabContent.title}
@@ -25,12 +26,12 @@ class Tabs extends React.Component {
           ))
         }
         <hr className="hr" />
-        <div className="tab__content">{tab[state.indexOfTabs].content}</div>
+        <div className="tab__content">{tab[state.activeTabIndex].content}</div>
       </section>
     );
   }
 }
 
-Tabs.propTypes = { tab: PropTypes.objectOf(PropTypes.any).isRequired };
+Tabs.propTypes = { tab: PropTypes.arrayOf(PropTypes.object).isRequired };
 
 export default Tabs;
