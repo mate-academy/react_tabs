@@ -1,1 +1,41 @@
+* {
+  padding: 0;
+  box-sizing: border-box;
+  outline: transparent;
+}
 
+.App {
+  width: 700px;
+  height: 400px;
+  margin: 50px auto;
+}
+
+.wrapper {
+  border: 1px solid purple;
+  height: 500px;
+  background: purple;
+  border-radius: 4px;
+}
+
+.content {
+  width: 100%;
+  text-align: center;
+  padding-top: 150px;
+  font-size: 100px;
+  color: white;
+}
+
+.button {
+  width: 33.33%;
+  padding: 10px ;
+  color: purple;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.button--active {
+  width: 33%;
+  color: white;
+  background: purple;
+  border: none;
+}
