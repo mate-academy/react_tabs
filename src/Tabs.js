@@ -6,7 +6,9 @@ class Tabs extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = { currentIndex: 0 };
+    this.state = {
+      currentIndex: 0,
+    };
   }
 
   chooseTabsIndex = index => (
@@ -41,6 +43,8 @@ class Tabs extends React.Component {
   };
 }
 
-Tabs.propTypes = { tabsArr: PropTypes.arrayOf(PropTypes.object).isRequired };
+Tabs.propTypes = { tabsArr: PropTypes.arrayOf(
+  PropTypes.objectOf(PropTypes.string)
+).isRequired };
 
 export default Tabs;
