@@ -5,9 +5,11 @@ class Tabs extends React.Component {
   state = { activeTabIndex: 0 };
 
 tabClick = (ev) => {
+  const tabText = ev.target.innerText;
+
   this.setState(state => ({
     activeTabIndex: this.props.tabs.findIndex(
-      item => item.title === ev.target.innerText
+      item => item.title === tabText
     ),
   }));
 };
