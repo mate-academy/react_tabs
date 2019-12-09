@@ -33,8 +33,9 @@
   cursor: pointer;
 }
 
-.is-active {
+.button--active {
+  width: 33%;
   color: white;
   background: purple;
-  border-bottom: none;
+  border: none;
 }

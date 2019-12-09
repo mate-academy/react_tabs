@@ -18,7 +18,7 @@ class Tabs extends React.Component {
               this.setState({ selectedTab: i });
             }}
             className={(
-              i === selectedTab ? 'button is-active' : 'button'
+              i === selectedTab ? 'button--active' : 'button'
             )}
           >
             { tab.title }
