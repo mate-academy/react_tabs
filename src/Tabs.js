@@ -2,30 +2,26 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 class Tabs extends React.Component {
-  state = {
-    contentIndex: 0,
-    selectedTab: this.props.tabs[0].title,
-  };
+  state = { activeTabIndex: 0 };
 
 tabClick = (ev) => {
-  const tabText = ev.target.innerText;
-
   this.setState(state => ({
-    contentIndex: this.props.tabs.findIndex(item => item.title === tabText),
-    selectedTab: tabText,
+    activeTabIndex: this.props.tabs.findIndex(
+      item => item.title === ev.target.innerText
+    ),
   }));
 };
 
 render() {
   const { tabs } = this.props;
-  const { selectedTab, contentIndex } = this.state;
+  const { activeTabIndex } = this.state;
 
   return (
     <div className="tabs">
-      {tabs.map(tab => (
+      {tabs.map((tab, index) => (
         <button
           onClick={ev => this.tabClick(ev)}
-          className={selectedTab === tab.title
+          className={activeTabIndex === index
             ? 'tabs__item active'
             : 'tabs__item'}
           type="button"
@@ -33,7 +29,7 @@ render() {
           {tab.title}
         </button>
       ))}
-      <div className="tabs__text">{tabs[contentIndex].content}</div>
+      <div className="tabs__text">{tabs[activeTabIndex].content}</div>
     </div>
   );
 }
