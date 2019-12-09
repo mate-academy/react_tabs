@@ -24,14 +24,11 @@
   padding: 10px;
 }
 
-.section__button:focus {
+.section__button--is-active {
+  color: black;
   border: 1px solid rgb(126, 126, 126);
   border-bottom: 1px solid whitesmoke;
   z-index: 1;
-}
-
-.activ {
-  color: black;
 }
 
 .section__decor {

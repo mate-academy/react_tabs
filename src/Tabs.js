@@ -6,16 +6,21 @@ class Tabs extends React.Component {
 
   render() {
     const { tabs } = this.props;
+    const { index } = this.state;
 
     return (
       <section className="section">
         {tabs.map((item, i) => (
           <button
+            key={item.title}
             type="button"
             className={
-              (i === this.state.index
-                ? 'section__button activ' : 'section__button')}
-            onClick={() => this.setState({ index: i })}
+              (i === index
+                ? 'section__button section__button--is-active'
+                : 'section__button')}
+            onClick={() => {
+              this.setState({ index: i });
+            }}
           >
             {item.title}
           </button>
@@ -30,6 +35,11 @@ class Tabs extends React.Component {
   }
 }
 
-Tabs.propTypes = { tabs: PropTypes.objectOf.isRequired };
+Tabs.propTypes = {
+  tabs: PropTypes.shape({
+    title: PropTypes.string,
+    content: PropTypes.string,
+  }).isRequired,
+};
 
 export default Tabs;
