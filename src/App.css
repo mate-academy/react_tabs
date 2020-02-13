@@ -1,1 +1,38 @@
+* {
+  outline: none;
+  transition: all 0.7s;
+  font-weight: bold;
+}
 
+.title {
+  text-align: center;
+}
+
+.active {
+  background: purple;
+  border: 1px solid transparent;
+  color: white;
+}
+
+.non-active {
+  background: fff;
+}
+
+.wrapper {
+  max-width: 600px;
+  height: 500px;
+  margin: 50px auto;
+  background: purple;
+  color: white;
+}
+
+.content {
+  width: 200px;
+  margin: 180px auto;
+  font-weight: bold;
+  font-size: 40px;
+}
+
+button {
+  padding: 10px 20px;
+}
