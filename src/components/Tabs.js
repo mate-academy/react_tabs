@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Content } from './Content';
 import './Tabs.css';
 
 class Tabs extends React.Component {
@@ -8,24 +9,17 @@ class Tabs extends React.Component {
   };
 
   onTabSelected = (event) => {
-    const heading = document.querySelector('.button__heading--active');
     const { target } = event;
+    const index = +target.dataset.number;
 
-    if (heading !== target) {
-      const index = target.dataset.number;
-
-      heading.classList.remove('button__heading--active');
-      target.classList.add('button__heading--active');
-
-      this.setState({
-        contentNum: index,
-      });
-    }
+    this.setState({
+      contentNum: index,
+    });
   }
 
   render() {
     const { tabs } = this.props;
-    const { index } = this.props;
+    const { contentNum } = this.state;
 
     return (
       <>
@@ -34,7 +28,7 @@ class Tabs extends React.Component {
             key={tab.title}
             type="button"
             className={
-              (index === i)
+              (contentNum === i)
                 ? 'button__heading button__heading--active'
                 : 'button__heading'
             }
@@ -44,9 +38,7 @@ class Tabs extends React.Component {
             {tab.title}
           </button>
         ))}
-        <div className="tab__content">
-          {tabs[this.state.contentNum].content}
-        </div>
+        <Content tab={tabs[contentNum]} />
       </>
     );
   }
@@ -55,7 +47,6 @@ class Tabs extends React.Component {
 Tabs.propTypes = {
   tabs: PropTypes.arrayOf(PropTypes.shape({
     title: PropTypes.string.isRequired,
-    content: PropTypes.string.isRequired,
   })).isRequired,
   index: PropTypes.number,
 };
