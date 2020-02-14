@@ -1,11 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import classNames from 'classnames';
 import { Content } from './Content';
 import './Tabs.css';
 
 class Tabs extends React.Component {
   state = {
-    contentNum: this.props.index,
+    tabIndex: this.props.index,
   };
 
   onTabSelected = (event) => {
@@ -13,13 +14,13 @@ class Tabs extends React.Component {
     const index = +target.dataset.number;
 
     this.setState({
-      contentNum: index,
+      tabIndex: index,
     });
   }
 
   render() {
     const { tabs } = this.props;
-    const { contentNum } = this.state;
+    const { tabIndex } = this.state;
 
     return (
       <>
@@ -28,9 +29,10 @@ class Tabs extends React.Component {
             key={tab.title}
             type="button"
             className={
-              (contentNum === i)
-                ? 'button__heading button__heading--active'
-                : 'button__heading'
+              classNames({
+                button__heading: true,
+                'button__heading--active': tabIndex === i,
+              })
             }
             data-number={i}
             onClick={this.onTabSelected}
@@ -38,7 +40,7 @@ class Tabs extends React.Component {
             {tab.title}
           </button>
         ))}
-        <Content tab={tabs[contentNum]} />
+        <Content tab={tabs[tabIndex]} />
       </>
     );
   }
