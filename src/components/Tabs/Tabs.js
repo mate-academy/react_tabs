@@ -5,18 +5,18 @@ import './Tabs.css';
 
 export class Tabs extends React.Component {
   state = {
-    tabindex: 0,
+    tabIndex: 0,
   };
 
   onTabSelected = (event, index) => {
     this.setState({
-      tabindex: index,
+      tabIndex: index,
     });
   };
 
   btnClass = index => (
     classNames({
-      enableButton: this.state.tabindex === index,
+      enableButton: this.state.tabIndex === index,
       tabButton: true,
     })
   );
@@ -39,7 +39,7 @@ export class Tabs extends React.Component {
           ))
         }
 
-        <TabContent state={this.state.tabindex} tabs={tabs} />
+        <TabContent state={this.state.tabIndex} tabs={tabs} />
       </div>
     );
   }
