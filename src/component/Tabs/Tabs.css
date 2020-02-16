@@ -1,0 +1,25 @@
+.wrapper {
+  width: 50%;
+  margin: 20px auto 0;
+}
+
+.btn {
+  width: 150px;
+  height: 50px;
+  text-transform: uppercase;
+  background-color: #9adbe8;
+  outline: none;
+  border: none;
+}
+
+.btn--active {
+  background-color: #4ec3e0;
+}
+
+.content {
+  padding: 10px;
+  font-size: 1.4em;
+  height: 200px;
+  border: 2px solid #4ec3e0;
+  border-radius: 0 5px 5px;
+}
