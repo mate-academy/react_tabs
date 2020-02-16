@@ -18,7 +18,6 @@ export default class Tabs extends React.Component {
 
     return (
       <>
-        <hr className="tab-line" />
         {tabs.map((tab, index) => (
           <button
             type="button"

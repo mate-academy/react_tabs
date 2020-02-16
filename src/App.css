@@ -32,16 +32,12 @@
   cursor: pointer;
 }
 
-.tab-line {
-  position: relative;
-  top: 47px;
-  left: 138px;
-  height: 1px;
-  width: 72%;
-  background-color: rgb(77, 158, 206);
-  border: none;
-}
-
 .text {
+  width: 60%;
+  height: 400px;
+  padding: 20px 10px;
+  margin: 0;
   font-size: 20px;
+  background-color: rgb(226, 226, 226);
+  border: 1px solid rgb(77, 158, 206);
 }
