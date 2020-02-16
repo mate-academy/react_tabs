@@ -1,5 +1,5 @@
 {
-  "name": "react_counter",
+  "name": "react_tabs",
   "homepage": ".",
   "version": "0.1.0",
   "private": true,
@@ -7,6 +7,9 @@
   "author": "Mate Academy",
   "license": "GPL-3.0",
   "dependencies": {
+    "bulma": "^0.8.0",
+    "classnames": "^2.2.6",
+    "node-sass": "^4.13.1",
     "prop-types": "^15.7.2",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
