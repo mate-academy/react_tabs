@@ -8,8 +8,7 @@
   justify-content: space-between;
 }
 
-.tabs__button,
-.tabs__enabled-button {
+.tabs__button {
   font-size: 20px;
   cursor: pointer;
   background-color: #6fa9bb;

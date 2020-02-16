@@ -1,14 +1,21 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import classNames from 'classnames';
 
 export default class Tabs extends React.Component {
   state = {
     enabeledTab: 0,
   }
 
-  tabSwapping = (btn, index) => {
+  tabSwapping = (e, index) => {
     this.setState({ enabeledTab: index });
   };
+
+  buttonClasses = index => classNames({
+    tabs__button: true,
+    'tabs__enabled-button':
+      this.state.enabeledTab === index,
+  });
 
   render() {
     const { tabs } = this.props;
@@ -19,12 +26,10 @@ export default class Tabs extends React.Component {
         <div className="tabs__row">
           {tabs.map((tab, index) => (
             <button
-              className={enabeledTab === index
-                ? 'tabs__enabled-button'
-                : 'tabs__button'}
+              className={this.buttonClasses(index)}
               key={tab.title}
               type="button"
-              onClick={btn => this.tabSwapping(btn, index)}
+              onClick={e => this.tabSwapping(e, index)}
             >
               {tab.title}
             </button>
