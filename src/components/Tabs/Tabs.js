@@ -12,16 +12,15 @@ export class Tabs extends React.Component {
     const { activeTab } = this.state;
     const { tabs } = this.props;
     const handleClick = index => this.setState({ activeTab: index });
-    const getClass = index => classNames({
-      button: true,
-      'button--active': activeTab === index,
-    });
 
     return (
       <div className="tabs">
         {tabs.map((tab, index) => (
           <button
-            className={getClass(index)}
+            className={classNames({
+              button: true,
+              'button--active': activeTab === index,
+            })}
             type="button"
             key={tab.title}
             onClick={() => handleClick(index)}
