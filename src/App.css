@@ -1,1 +1,8 @@
+* {
+  box-sizing: border-box;
+}
 
+.app-wrapper {
+  max-width: 300px;
+  margin: 0 auto;
+}
