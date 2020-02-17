@@ -1,0 +1,26 @@
+.button,
+.button--active {
+  width: 100px;
+  height: 30px;
+  border: none;
+  background-color: #fff;
+  outline: none;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+  cursor: pointer;
+}
+
+.button {
+  color: #518cdf;
+}
+
+.button--active {
+  color: black;
+}
+
+.button--active,
+.button:active {
+  border: 1px solid rgba(0, 0, 0, 0.4);
+  border-top-right-radius: 3px;
+  border-top-left-radius: 3px;
+  border-bottom: none;
+}
