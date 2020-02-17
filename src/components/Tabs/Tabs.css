@@ -1,0 +1,19 @@
+.tabs {
+  border: 1px solid #ccc;
+  background-color: #f1f1f1;
+}
+
+.tabs__content {
+  padding: 6px 12px;
+  border: 1px solid #ccc;
+  border-top: none;
+  margin: 0;
+}
+
+.tabs__button--active {
+  background-color: #ccc;
+}
+
+.tabs__button:hover {
+  background-color: #ddd;
+}
