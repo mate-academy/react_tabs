@@ -1,5 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import classNames from 'classnames';
+
 import './Tabs.css';
 
 export class Tabs extends React.Component {
@@ -22,9 +24,12 @@ export class Tabs extends React.Component {
             key={tab.title}
             type="button"
             index={index}
-            className={(selectedTab === index)
-              ? 'tabs__button tabs__button--active'
-              : 'tabs__button'}
+            className={
+              classNames({
+                tabs__button: true,
+                'tabs__button--active': selectedTab === index,
+              })
+            }
             onClick={() => {
               this.onTabSelected(index);
             }}
