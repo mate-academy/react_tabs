@@ -10,8 +10,10 @@ export class Tabs extends React.Component {
   };
 
   onTabSelected = (event) => {
+    const index = +event.target.getAttribute('data-number');
+
     this.setState({
-      tabIndex: parseInt(event.target.getAttribute('data-number'), 10),
+      tabIndex: index,
     });
   }
 
@@ -45,6 +47,9 @@ export class Tabs extends React.Component {
 
 Tabs.propTypes = {
   tabs: PropTypes.arrayOf(
-    PropTypes.object,
+    PropTypes.shape({
+      title: PropTypes.string.isRequired,
+      content: PropTypes.string.isRequired,
+    }),
   ).isRequired,
 };
