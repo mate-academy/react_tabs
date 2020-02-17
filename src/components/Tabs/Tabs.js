@@ -4,19 +4,20 @@ import classNames from 'classnames';
 import './Tabs.css';
 import { Content } from '../Content/Content';
 
-class Tabs extends React.Component {
+export class Tabs extends React.Component {
   state = {
     tabIndex: 0,
   };
 
   onTabSelected = (event) => {
     this.setState({
-      tabIndex: +event.target.getAttribute('data-number'),
+      tabIndex: parseInt(event.target.getAttribute('data-number'), 10),
     });
   }
 
   render() {
     const { tabs } = this.props;
+    const { tabIndex } = this.state;
 
     return (
       <div className="tabs">
@@ -28,7 +29,7 @@ class Tabs extends React.Component {
             className={
               classNames({
                 tabs__button: true,
-                'tabs__button-active': this.state.tabIndex === i,
+                'tabs__button-active': tabIndex === i,
               })
             }
             onClick={this.onTabSelected}
@@ -36,7 +37,7 @@ class Tabs extends React.Component {
             {item.title}
           </button>
         ))}
-        <Content text={tabs[this.state.tabIndex]} />
+        <Content text={tabs[tabIndex]} />
       </div>
     );
   }
@@ -47,5 +48,3 @@ Tabs.propTypes = {
     PropTypes.object,
   ).isRequired,
 };
-
-export default Tabs;
