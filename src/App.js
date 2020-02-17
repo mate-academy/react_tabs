@@ -1,8 +1,8 @@
 import React from 'react';
-import './App.css';
+import uuidv4 from 'uuid/v4';
+import { Tabs } from './components/Tabs/Tabs';
 
-// eslint-disable-next-line no-unused-vars
-const tabs = [
+const dataFromServer = [
   {
     title: 'Tab 1',
     content: 'Some text 1',
@@ -17,8 +17,13 @@ const tabs = [
   },
 ];
 
+const tabs = dataFromServer.map(tab => ({
+  ...tab,
+  id: uuidv4(),
+}));
+
 const App = () => (
-  <h1>React tabs</h1>
+  <Tabs tabs={tabs} />
 );
 
 export default App;

@@ -1,0 +1,10 @@
+.tabs__button {
+  background-color: transparent;
+  border: 1px solid #000;
+  outline: none;
+  cursor: pointer;
+}
+
+.tabs__button--active {
+  border-bottom: none;
+}
