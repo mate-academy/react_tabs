@@ -1,0 +1,37 @@
+.button {
+  border: none;
+  border-bottom: 1px solid lightgrey;
+  cursor: pointer;
+  height: 70px;
+  width: 200px;
+  margin-right: 20px;
+  font-size: 32px;
+  transition: all ease-in-out 0.4s;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.button:focus {
+  outline: none;
+}
+
+.button:hover {
+  color: darkslategrey;
+  background: slategrey;
+}
+
+.button_active {
+  transition: all ease-in-out 0.4s;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  cursor: pointer;
+  height: 70px;
+  width: 200px;
+  margin-right: 20px;
+  font-size: 36px;
+  color: red;
+  outline: none;
+  border: 2px solid lightgrey;
+  border-bottom: 2px solid ivory;
+  background-color: ivory;
+}
