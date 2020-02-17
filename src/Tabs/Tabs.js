@@ -6,17 +6,17 @@ import './Tabs.css';
 
 class Tabs extends React.Component {
   state = {
-    tab: 0,
+    activeTab: 0,
   }
 
   clickHandler = (index) => {
-    this.setState(prevState => ({
-      tab: index,
-    }));
+    this.setState({
+      activeTab: index,
+    });
   }
 
   render() {
-    const { tab } = this.state;
+    const { activeTab } = this.state;
     const { tabs } = this.props;
 
     return (
@@ -26,7 +26,7 @@ class Tabs extends React.Component {
             <button
               className={classNames({
                 tab__button: true,
-                'tab__button tab__button--active': tab === index,
+                'tab__button tab__button--active': activeTab === index,
               })}
               type="button"
               onClick={() => this.clickHandler(index)}
@@ -36,7 +36,7 @@ class Tabs extends React.Component {
           </li>
         ))}
 
-        <p className="content">{tabs[tab].content}</p>
+        <p className="content">{tabs[activeTab].content}</p>
       </ul>
     );
   }
