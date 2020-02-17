@@ -1,7 +1,8 @@
 import React from 'react';
-import './App.css';
+import './App.scss';
+import uuidv4 from 'uuid/v4';
+import { Tabs } from './components/Tabs';
 
-// eslint-disable-next-line no-unused-vars
 const tabs = [
   {
     title: 'Tab 1',
@@ -17,8 +18,13 @@ const tabs = [
   },
 ];
 
+const prepTabs = tabs.map(item => ({
+  ...item,
+  id: uuidv4(),
+}));
+
 const App = () => (
-  <h1>React tabs</h1>
+  <Tabs tabs={prepTabs} />
 );
 
 export default App;
