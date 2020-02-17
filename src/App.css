@@ -1,1 +1,13 @@
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
 
+.tabs__button {
+  background-color: inherit;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  transition: 0.3s;
+  font-size: 17px;
+}
