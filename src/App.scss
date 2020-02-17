@@ -1,0 +1,10 @@
+.tabs {
+  &__button {
+    background: none;
+    border: 1px solid #eee;
+    outline: none;
+    &--isActive {
+      border-bottom: none;
+    }
+  }
+}
