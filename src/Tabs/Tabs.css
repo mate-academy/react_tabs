@@ -1,0 +1,21 @@
+.tab__list {
+  display: inline-block;
+}
+
+.tab__button {
+  font-size: 18px;
+  color: #768fbc;
+  background-color: #fff;
+  border: 1px solid transparent;
+  border-bottom-color: #f4f4f4;
+  border-radius: 5px 5px 0 0;
+  cursor: pointer;
+  outline: none;
+  line-height: 35px;
+}
+
+.tab__button--active {
+  color: #5d5c60;
+  border: 1px solid #f4f4f4;
+  border-bottom-color: white;
+}
