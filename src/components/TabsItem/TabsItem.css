@@ -1,0 +1,11 @@
+.jumbotron.tabs-box {
+  background-color: #a8ddc2;
+}
+
+.tab-pane {
+  padding: 40px;
+  background: #fff;
+  font-size: 20px;
+  border: 1px solid #eceeef;
+  border-top: none;
+}
