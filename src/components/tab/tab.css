@@ -1,0 +1,8 @@
+.content {
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.2;
+  padding: 20px 30px;
+  border-top: 1px solid blue;
+  margin-top: -1px;
+}

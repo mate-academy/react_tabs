@@ -1,0 +1,23 @@
+button {
+  display: inline-block;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 14px;
+  text-align: center;
+  padding: 20px 65px;
+  color: blue;
+  background-color: white;
+  border: 1px solid white;
+  border-bottom-color: blue;
+  box-sizing: border-box;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  cursor: pointer;
+  outline: none;
+}
+
+.activeTab {
+  border: 1px solid blue;
+  border-bottom-color: #fff;
+  color: gray;
+}
