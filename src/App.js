@@ -1,4 +1,7 @@
 import React from 'react';
+import { Tabs } from './components/Tabs/TabsBox';
+import 'bootswatch/dist/lux/bootstrap.min.css';
+import './reset.css';
 import './App.css';
 
 // eslint-disable-next-line no-unused-vars
@@ -17,8 +20,9 @@ const tabs = [
   },
 ];
 
-const App = () => (
-  <h1>React tabs</h1>
+export const App = () => (
+  <section className="wrapper">
+    <h1 className="title">My Tabs</h1>
+    <Tabs tabs={tabs} />
+  </section>
 );
-
-export default App;
