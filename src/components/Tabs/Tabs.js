@@ -5,12 +5,9 @@ import Content from '../Content/Content';
 import Tab from '../Tab/Tab';
 
 class Tabs extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      activeTab: 0,
-    };
-  }
+  state = {
+    activeTab: 0,
+  };
 
   onTabSelected = (index) => {
     this.setState({
@@ -32,6 +29,7 @@ class Tabs extends React.Component {
               clickHandler={() => this.onTabSelected(i)}
               isActive={activeTab}
               title={tab.title}
+
             >
               {tab.title}
             </Tab>
