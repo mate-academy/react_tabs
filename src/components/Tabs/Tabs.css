@@ -1,12 +1,7 @@
 .tabs {
   list-style-type: none;
   display: flex;
-  border-bottom: 1;
   margin: 0;
   padding: 0;
-}
-
-.tabs__empty-element {
-  flex-grow: 2 ;
   border-bottom: 1px solid grey;
 }

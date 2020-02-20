@@ -1,5 +1,5 @@
 .tabs__element {
-  border-bottom: 1px solid grey;
+
   border-top-left-radius: 3px;
   border-top-right-radius: 3px;
 }
@@ -7,6 +7,16 @@
 .tabs__element--active {
   border: 1px solid grey;
   border-bottom: none;
+  height: 27px;
+}
+
+.tabs__element--active::after {
+  content: "";
+  display: block;
+  height: 1px;
+  background-color: white;
+  position: relative;
+  bottom: -2px;
 }
 
 .tabs__button {

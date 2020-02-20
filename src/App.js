@@ -14,7 +14,7 @@ const tabs = [
     content: 'Some text 2',
   },
   {
-    title: 'Tab 4',
+    title: 'Tab 3',
     content: 'Some text 3',
   },
   {

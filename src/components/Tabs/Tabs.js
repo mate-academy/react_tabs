@@ -35,7 +35,6 @@ export class Tabs extends React.Component {
               {tab.title}
             </Tab>
           ))}
-          <li className="tabs__empty-element" />
         </ul>
         <p className="tabs__text">{tabs[this.state.index].content}</p>
       </>
