@@ -4,8 +4,7 @@ import classNames from 'classnames';
 
 function Tab({ title, index, selectTab, isActive }) {
   const classCondition = classNames(
-    `tabs__button 
-        ${isActive ? 'tabs__button--active' : ''}`,
+    'tabs__button', { isActive: 'tabs__button--active' },
   );
 
   return (
