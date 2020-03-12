@@ -1,13 +1,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import classNames from 'classnames';
 
-function Tab({ title, index, handler, isActive }) {
+function Tab({ title, index, selectTab, isActive }) {
+  const classCondition = classNames(
+    `tabs__button 
+        ${isActive ? 'tabs__button--active' : ''}`,
+  );
+
   return (
     <button
       type="button"
-      className={`tabs__button ${isActive ? 'tabs__button--active' : ''}`}
+      className={classCondition}
       onClick={() => {
-        handler(index);
+        selectTab(index);
       }}
     >
       {title}
@@ -18,7 +24,7 @@ function Tab({ title, index, handler, isActive }) {
 Tab.propTypes = {
   title: PropTypes.string.isRequired,
   index: PropTypes.number.isRequired,
-  handler: PropTypes.func.isRequired,
+  selectTab: PropTypes.func.isRequired,
   isActive: PropTypes.bool.isRequired,
 };
 

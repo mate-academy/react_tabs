@@ -4,7 +4,6 @@ import Tab from '../Tab/Tab';
 
 class Tabs extends React.Component {
   state = {
-    tabs: this.props.tabs,
     tabIndex: 0,
   }
 
@@ -13,7 +12,8 @@ class Tabs extends React.Component {
   }
 
   render() {
-    const { tabs, tabIndex } = this.state;
+    const { tabIndex } = this.state;
+    const { tabs } = this.props;
 
     return (
       <>
@@ -24,7 +24,7 @@ class Tabs extends React.Component {
               title={tab.title}
               index={index}
               isActive={index === tabIndex}
-              handler={this.onTabSelected}
+              selectTab={this.onTabSelected}
             />
           ))}
         </div>
@@ -37,7 +37,10 @@ class Tabs extends React.Component {
 }
 
 Tabs.propTypes = {
-  tabs: PropTypes.arrayOf(PropTypes.object).isRequired,
+  tabs: PropTypes.arrayOf(PropTypes.shape({
+    title: PropTypes.string,
+    content: PropTypes.string,
+  })).isRequired,
 };
 
 export default Tabs;
