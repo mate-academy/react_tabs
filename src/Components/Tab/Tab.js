@@ -3,8 +3,7 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
 function Tab({ title, index, selectTab, isActive }) {
-  const classCondition = classNames({
-    tabs__button: true,
+  const classCondition = classNames('tabs__button', {
     'tabs__button--active': isActive,
   });
 
