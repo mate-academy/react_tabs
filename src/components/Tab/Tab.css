@@ -1,8 +1,5 @@
 li {
   display: block;
-}
-
-li > h2 {
   padding: 10px;
   margin: 0;
   margin-bottom: -1px;
@@ -14,11 +11,11 @@ li > h2 {
   font-size: 16px;
   font-weight: 100;
   color: rgb(108, 108, 255);
+  outline: none;
 }
 
-li > h2:focus {
-  border-color: #eee;
+.activ {
+  border-color: #ccc;
   border-bottom-color: white;
-  outline: none;
   color: black;
 }

@@ -17,6 +17,16 @@ class Tabs extends React.Component {
     });
   }
 
+  toggleActiv = (e) => {
+    if (this.currentActiv) {
+      this.currentActiv.classList.remove('activ');
+    }
+
+    e.target.classList.add('activ');
+
+    this.currentActiv = e.target;
+  }
+
   render() {
     const { content } = this.state;
     const { tabs } = this.props;
@@ -31,6 +41,7 @@ class Tabs extends React.Component {
               content={tab.content}
               tabIndex={tab.tabIndex}
               onTabSelected={this.onTabSelected}
+              toggleActiv={this.toggleActiv}
             />
           ))}
         </ul>

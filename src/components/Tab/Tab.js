@@ -5,16 +5,17 @@ import './Tab.css';
 
 class Tab extends React.PureComponent {
   render() {
-    const { title, content, onTabSelected, tabIndex } = this.props;
+    const { title, content, tabIndex, onTabSelected, toggleActiv } = this.props;
 
     return (
-      <li className="Tab">
-        <h2
-          tabIndex={tabIndex}
-          onFocus={() => onTabSelected(content)}
-        >
-          {title}
-        </h2>
+      <li
+        tabIndex={tabIndex}
+        onFocus={(e) => {
+          onTabSelected(content);
+          toggleActiv(e);
+        }}
+      >
+        {title}
       </li>
     );
   }
@@ -23,8 +24,9 @@ class Tab extends React.PureComponent {
 Tab.propTypes = {
   title: PropTypes.string.isRequired,
   content: PropTypes.string.isRequired,
-  onTabSelected: PropTypes.func.isRequired,
   tabIndex: PropTypes.number.isRequired,
+  onTabSelected: PropTypes.func.isRequired,
+  toggleActiv: PropTypes.func.isRequired,
 };
 
 export default Tab;
