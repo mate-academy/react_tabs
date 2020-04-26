@@ -1,8 +1,8 @@
 # React Tabs
 - Replace `<your_account>` with your Github username in the links
 
-    - [DEMO LINK](https://andreas-just.github.io/react_counter/)
-    - [PULL REQUEST](https://github.com/mate-academy/react_counter/pull/77)
+    - [DEMO LINK](https://andreas-just.github.io/react_tabs/)
+    - [PULL REQUEST](https://github.com/mate-academy/react_tabs/pull/134)
 
 - Follow the [React task guideline](https://github.com/mate-academy/react_task-guideline#react-tasks-guideline)
 
