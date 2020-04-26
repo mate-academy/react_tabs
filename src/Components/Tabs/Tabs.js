@@ -13,16 +13,16 @@ class Tabs extends React.PureComponent {
     };
   }
 
-  toggleTab = (e, selectingTab) => {
+  selectTab = (e, selectedTab) => {
     e.preventDefault();
 
     this.setState((prevState) => {
       const tabs = prevState.tabs.map((tab) => {
-        if (selectingTab.id !== tab.id && !tab.selected) {
+        if (selectedTab.id !== tab.id && !tab.selected) {
           return tab;
         }
 
-        if (selectingTab.id === tab.id && tab.selected) {
+        if (selectedTab.id === tab.id && tab.selected) {
           return tab;
         }
 
@@ -46,7 +46,7 @@ class Tabs extends React.PureComponent {
           {tabs.map(tab => (
             <Tab
               tab={tab}
-              toggleTab={this.toggleTab}
+              selectTab={this.selectTab}
               key={tab.id}
             />
           ))}
