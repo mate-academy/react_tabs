@@ -10,6 +10,7 @@ class Tabs extends React.PureComponent {
 
     this.state = {
       tabs: [...this.props.tabs],
+      content: this.props.tabs.find(tab => tab.selected),
     };
   }
 
@@ -32,13 +33,15 @@ class Tabs extends React.PureComponent {
         };
       });
 
-      return { tabs };
+      return {
+        tabs,
+        content: tabs.find(tab => tab.selected),
+      };
     });
   };
 
   render() {
     const { tabs } = this.state;
-    const selected = this.state.tabs.find(tab => tab.selected);
 
     return (
       <section className="tabs">
@@ -51,7 +54,7 @@ class Tabs extends React.PureComponent {
             />
           ))}
         </ul>
-        <TabContent {...selected} />
+        <TabContent {...this.state.content} />
       </section>
     );
   }
