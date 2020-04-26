@@ -2,8 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 class Tab extends React.PureComponent {
+  toggleTab = this.props.toggleTab;
+
+  handleToggleTab = e => this.toggleTab(e, this.props.tab);
+
   render() {
-    const { tab, toggleTabs } = this.props;
+    const { tab } = this.props;
     const { id, title, selected } = tab;
     const liClassName = selected
       ? 'tabs__item tabs__item--selected'
@@ -18,7 +22,7 @@ class Tab extends React.PureComponent {
         <a
           href="./#"
           className={linkClassName}
-          onClick={e => toggleTabs(e, this.props.tab)}
+          onClick={this.handleToggleTab}
         >
           {title}
         </a>
@@ -33,7 +37,7 @@ Tab.propTypes = {
     title: PropTypes.string.isRequired,
     selected: PropTypes.bool.isRequired,
   }).isRequired,
-  toggleTabs: PropTypes.func.isRequired,
+  toggleTab: PropTypes.func.isRequired,
 };
 
 export default Tab;
