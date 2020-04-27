@@ -1,0 +1,26 @@
+.head {
+  display: inline-block;
+  position: relative;
+  z-index: 1;
+  padding: 0 5px;
+  top: 1px;
+  background-color: aliceblue;
+  color: rgb(0, 100, 180);
+}
+
+.head-active {
+  border: 1px solid rgba(138, 138, 150, 0.5);
+  border-bottom: none;
+  z-index: 3;
+  color: black;
+}
+
+.content {
+  position: relative;
+  z-index: 2;
+  border: 1px solid rgba(138, 138, 150, 0.5);
+}
+
+p {
+  margin: 0;
+}

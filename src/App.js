@@ -1,5 +1,6 @@
 import React from 'react';
 import './App.css';
+import Tabs from './Component/Tabs/Tabs';
 
 // eslint-disable-next-line no-unused-vars
 const tabs = [
@@ -17,8 +18,12 @@ const tabs = [
   },
 ];
 
+for (let i = 0; i < tabs.length; i += 1) {
+  tabs[i].id = i;
+}
+
 const App = () => (
-  <h1>React tabs</h1>
+  <Tabs tabs={tabs} />
 );
 
 export default App;
