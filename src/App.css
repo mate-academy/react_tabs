@@ -1,1 +1,33 @@
+.text {
+  border: 1px solid darkslategray;
+  padding: 10px;
+  margin: 0;
+  background-color: darkslategray;
+  color: white;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
 
+}
+
+.button__clicked {
+  border: 1px solid black;
+  border-bottom: none;
+  margin: 0;
+  background-color: darkslategray;
+  color: white;
+  position: relative;
+  width: 90px;
+  height: 30px;
+}
+
+.button {
+  position: relative;
+  width: 90px;
+  height: 30px;
+  outline: none;
+}
+
+.button__clicked:focus {
+  outline: none;
+  font-weight: bolder;
+}
