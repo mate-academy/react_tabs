@@ -1,1 +1,36 @@
+.app {
+  width: 500px;
+  height: 300px;
+}
 
+.button {
+  width: 90px;
+  height: 40px;
+
+  font-family: sans-serif;
+  font-size: 18px;
+
+  border: none;
+  border-bottom: 1px solid #dbdbdb;
+  border-radius: 10px 10px 0 0;
+  cursor: pointer;
+
+  outline: none;
+}
+
+.button--active {
+  border: none;
+  border-bottom: 1px solid transparent;
+}
+
+.text {
+  box-sizing: border-box;
+  height: 250px;
+  margin: -1px;
+  padding: 20px;
+
+  border: 1px solid #dbdbdb;
+
+  font-family: sans-serif;
+  font-size: 15px;
+}
