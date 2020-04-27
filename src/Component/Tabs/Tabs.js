@@ -9,9 +9,6 @@ class Tabs extends React.Component {
     prev: null,
   }
 
-  // componentDidMount() {
-  // }
-
   onTabSelected = (e) => {
     const x = e.target.id;
 
@@ -27,7 +24,7 @@ class Tabs extends React.Component {
 
   render() {
     return (
-      <>
+      <div>
         <div className="wrapper">
           {this.props.tabs.map(tab => (
             <button
@@ -44,7 +41,7 @@ class Tabs extends React.Component {
         <p className="content">
           {this.props.tabs[this.state.index].content}
         </p>
-      </>
+      </div>
     );
   }
 }
