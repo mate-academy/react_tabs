@@ -1,1 +1,15 @@
 
+.button {
+  border: none;
+  background: lightskyblue;
+  border-radius: 15px;
+}
+
+.paragraph::before {
+  content: "";
+  display: block;
+  background: cadetblue;
+  width: 271px;
+  height: 2px;
+  transform: translate(2px, -16px);
+}
