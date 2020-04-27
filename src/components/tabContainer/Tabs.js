@@ -12,8 +12,6 @@ class Tabs extends React.Component {
 
     this.setState((state) => {
       const newActive = state.activeTab = selected.id
-      console.log('state ',state.activeTab)
-
       return { activeTabs: newActive };
     });
   }
