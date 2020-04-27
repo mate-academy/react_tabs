@@ -1,1 +1,25 @@
 
+.tabs__wrap {
+  width: 70%;
+}
+
+.button {
+  width: 100px;
+  height: 30px;
+  background-color: lightgrey;
+  margin-right: 10px;
+  border: 1 px solid lightgrey;
+  border-radius: 8px 8px 0 0;
+  outline: none;
+  box-sizing: border-box;
+}
+
+.button__active,
+.tabs__content {
+  background-color: darkgrey;
+}
+
+.tabs__content {
+  margin: 0 auto;
+  padding: 8px;
+}
