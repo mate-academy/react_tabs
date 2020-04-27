@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import Tabs from './component/Tabs';
+import Tabs from './component/tabs/Tabs';
 
 // eslint-disable-next-line no-unused-vars
 const tabs = [

@@ -1,4 +1,5 @@
 import React from 'react';
+import './Tabs.css';
 
 const Tabs = ({ tabs, clickHandler }) => tabs.map(
   tab => (
