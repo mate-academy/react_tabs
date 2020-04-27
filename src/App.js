@@ -21,7 +21,6 @@ const tabs = [
 const preparedTabs = tabs.map((tab, i) => ({
   ...tab,
   id: i + 1,
-  selected: (i === 0),
 }));
 
 const App = () => (

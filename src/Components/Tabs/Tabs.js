@@ -9,39 +9,24 @@ class Tabs extends React.PureComponent {
     super(props);
 
     this.state = {
+      activeTabId: this.props.tabs[0].id,
       tabs: [...this.props.tabs],
-      content: this.props.tabs.find(tab => tab.selected),
     };
   }
 
-  selectTab = (e, selectedTab) => {
-    e.preventDefault();
-
-    this.setState((prevState) => {
-      const tabs = prevState.tabs.map((tab) => {
-        if (selectedTab.id !== tab.id && !tab.selected) {
-          return tab;
-        }
-
-        if (selectedTab.id === tab.id && tab.selected) {
-          return tab;
-        }
-
-        return {
-          ...tab,
-          selected: !tab.selected,
-        };
-      });
+  selectTab = (id) => {
+    this.setState(() => {
+      const { tabs } = this.state;
 
       return {
-        tabs,
-        content: tabs.find(tab => tab.selected),
+        activeTabId: id,
+        content: tabs.find(tab => tab.id === id),
       };
     });
   };
 
   render() {
-    const { tabs } = this.state;
+    const { tabs, activeTabId } = this.state;
 
     return (
       <section className="tabs">
@@ -49,12 +34,15 @@ class Tabs extends React.PureComponent {
           {tabs.map(tab => (
             <Tab
               tab={tab}
+              activeTabId={activeTabId}
               selectTab={this.selectTab}
               key={tab.id}
             />
           ))}
         </ul>
-        <TabContent {...this.state.content} />
+        <TabContent
+          {...tabs.find(tab => tab.id === activeTabId)}
+        />
       </section>
     );
   }
