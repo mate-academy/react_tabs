@@ -12,7 +12,7 @@ const Tabs = ({ tabs }) => {
       <div className="ui attached tabular menu inverted blue">
         {tabs.map((tab, index) => (
           <Tab
-            key={tab.title}
+            key={tab.content}
             tabClickHandler={() => chooseTabsIndex(index)}
             activeIdx={currIdx.idx}
             tabIdx={index}
@@ -22,7 +22,6 @@ const Tabs = ({ tabs }) => {
         ))}
       </div>
       <div className="ui bottom attached segment active tab inverted blue">
-        <p>{tabs[currIdx.idx].content}</p>
         <Post {...tabs[currIdx.idx].post} />
       </div>
     </>

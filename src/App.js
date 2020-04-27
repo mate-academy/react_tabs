@@ -7,7 +7,7 @@ import posts from './api/posts';
 
 const preparedTabs = tabs.map(tab => ({
   ...tab,
-  post: posts.find(post => post.id === tab.postId),
+  post: posts.find(post => post.id === tab.content),
 }));
 
 const App = () => (
