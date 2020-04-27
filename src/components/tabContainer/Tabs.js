@@ -4,46 +4,34 @@ import Tab from './Tab';
 class Tabs extends React.Component {
   state = {
     tabs: [...this.props.tab],
+    activeTab: 0,
   }
 
   selected = (event, selected) => {
     event.preventDefault();
 
     this.setState((state) => {
-      const newTabs = state.tabs.map((tab) => {
-        if (selected.id !== tab.id && !tab.active) {
-          return tab;
-        }
+      const newActive = state.activeTab = selected.id
+      console.log('state ',state.activeTab)
 
-        if (selected.id === tab.id && tab.active) {
-          return tab;
-        }
-
-        return {
-          ...tab,
-          active: !tab.active,
-        };
-      });
-
-      return { tabs: newTabs };
+      return { activeTabs: newActive };
     });
   }
 
   render() {
     const { tabs } = this.state;
-    const textContent = this.state.tabs.find(tab => tab.active);
 
     return (
       <>
         <div className="container tab">
           <ul className="tab__list">
             {tabs.map(element => (
-              <Tab tab={element} event={this.selected} key={element.id} />
+              <Tab tab={element} event={this.selected} active={this.state.activeTab} key={element.id} />
             ))}
           </ul>
         </div>
         <article className="article">
-          {textContent.content}
+          {this.state.tabs[this.state.activeTab].content}
         </article>
       </>
     );

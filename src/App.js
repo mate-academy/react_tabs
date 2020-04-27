@@ -21,7 +21,6 @@ const tabs = [
 const renderedTabs = tabs.map((tab, i) => ({
   ...tab,
   id: i,
-  active: (i === 0),
 }));
 
 class App extends React.PureComponent {
