@@ -1,12 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-export const Tab = ({ title, index, hadler, isActive }) => (
+export const Tab = ({ title, index, handler, isActive }) => (
   <button
     type="button"
     className={`tabs__btn ${isActive ? 'tabs__btn--active' : ''}`}
     onClick={() => {
-      hadler(index);
+      handler(index);
     }}
   >
     {title}

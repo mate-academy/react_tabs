@@ -10,7 +10,7 @@ class Tabs extends React.Component {
     tabIndex: 0,
   }
 
-  selectedTab = (index) => {
+  onTabSelected = (index) => {
     this.setState({ tabIndex: index });
   }
 
@@ -26,7 +26,7 @@ class Tabs extends React.Component {
               title={tab.title}
               index={index}
               isActive={index === tabIndex}
-              hadler={this.selectedTab}
+              handler={this.onTabSelected}
             />
           ))}
         </div>
