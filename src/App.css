@@ -1,1 +1,18 @@
+.button__clicked {
+  border: 1px solid rgb(187, 185, 185);
+  border-bottom: none;
+  margin: 0;
+  background-color: rgb(40, 172, 13);
 
+  outline: none;
+  width: 90px;
+  height: 30px;
+}
+
+.button {
+  background-color: rgb(234, 236, 231);
+  border: 1px solid rgb(187, 185, 185);
+  width: 90px;
+  height: 30px;
+  outline: none;
+}
