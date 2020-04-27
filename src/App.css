@@ -1,1 +1,22 @@
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  background-color: #1b1c1d;
+}
 
+.App.ui.container {
+  display: flex;
+  flex-direction: column;
+}
+
+.App .title {
+  margin: 10px 0;
+  color: #2185d0;
+  text-align: center;
+  text-transform: capitalize;
+}
+
+.ui.tabular.menu .item {
+  outline: none;
+}
