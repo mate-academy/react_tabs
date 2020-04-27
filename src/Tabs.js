@@ -21,7 +21,7 @@ class Tabs extends React.Component {
           {tabs.map(tab => (
             <button
               type="button"
-              className="button"
+              className={`button ${tab.index === active ? 'active' : ''}`}
               key={tab.index}
               onClick={() => this.onTabSelected(tab.index)}
             >
