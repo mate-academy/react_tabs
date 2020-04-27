@@ -14,7 +14,7 @@ class Tabs extends React.Component {
     this.changeTab = (event) => {
       this.setState({
         content: props.tabs.find(tab => (
-          event.nativeEvent.srcElement.textContent === tab.title)).content,
+          event.target.textContent === tab.title)).content,
       });
     };
   }
@@ -23,7 +23,7 @@ class Tabs extends React.Component {
     return (
       <>
         <ul className="tabs">
-          {this.props.tabs.map(tab => (
+          {this.props.tabs.map((tab, index) => (
             <button
               type="button"
               className="tabs__tab"
