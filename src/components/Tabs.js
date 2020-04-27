@@ -18,7 +18,7 @@ class Tabs extends React.Component {
 
     return (
       <div className="tabs__wrap">
-        {this.props.tabs.map((item, index) => (
+        {tabs.map((item, index) => (
           <button
             type="button"
             onClick={() => this.activeTab(index)}
