@@ -1,1 +1,18 @@
+.btn {
+  width: 100px;
+  border: none;
+  background-color: transparent;
+  border-bottom: 1px solid gray;
+  outline: none;
+}
 
+.btn:focus {
+  border: 1px solid gray;
+  border-bottom: none;
+  border-top-right-radius: 4px;
+  border-top-left-radius: 4px;
+}
+
+.content {
+  padding: 20px;
+}
