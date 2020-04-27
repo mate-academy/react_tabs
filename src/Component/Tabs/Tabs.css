@@ -1,11 +1,17 @@
+.wrapper {
+  display: flex;
+}
+
 .head {
-  display: inline-block;
   position: relative;
   z-index: 1;
   padding: 0 5px;
   top: 1px;
-  background-color: aliceblue;
+  border: 1px solid rgba(138, 138, 150, 0);
+  background-color: white;
   color: rgb(0, 100, 180);
+  outline: none;
+  border-style: none;
 }
 
 .head-active {

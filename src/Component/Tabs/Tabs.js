@@ -9,30 +9,36 @@ class Tabs extends React.Component {
     prev: null,
   }
 
-  componentDidMount() {
-    const onTabSelected = (event) => {
-      if (event.target.className === 'head') {
-        this.setState(() => ({ index: event.target.id }));
-        if (this.state.prev) {
-          this.state.prev.classList.remove('head-active');
-        }
+  // componentDidMount() {
+  // }
 
-        this.state.prev = event.target;
-        event.target.classList.add('head-active');
-      }
-    };
+  onTabSelected = (e) => {
+    const x = e.target.id;
 
-    document.addEventListener('click', onTabSelected);
-  }
+    this.setState(() => ({ index: x }));
+
+    if (this.state.prev) {
+      this.state.prev.classList.remove('head-active');
+    }
+
+    this.state.prev = e.target;
+    e.target.classList.add('head-active');
+  };
 
   render() {
     return (
       <>
-        <div>
+        <div className="wrapper">
           {this.props.tabs.map(tab => (
-            <div key={tab.id} className="head" id={tab.id}>
+            <button
+              type="button"
+              key={tab.id}
+              className="head"
+              id={tab.id}
+              onClick={this.onTabSelected}
+            >
               {tab.title}
-            </div>
+            </button>
           ))}
         </div>
         <p className="content">
