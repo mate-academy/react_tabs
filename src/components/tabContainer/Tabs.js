@@ -7,29 +7,28 @@ class Tabs extends React.Component {
     activeTab: 0,
   }
 
-  selected = (event, selected) => {
-    event.preventDefault();
-
+  selected = (selected) => {
     this.setState((state) => {
-      const newActive = state.activeTab = selected.id
+      const newActive = state.activeTab = selected.id;
+
       return { activeTabs: newActive };
     });
   }
 
   render() {
-    const { tabs } = this.state;
+    const { tabs, activeTab } = this.state;
 
     return (
       <>
         <div className="container tab">
           <ul className="tab__list">
             {tabs.map(element => (
-              <Tab tab={element} event={this.selected} active={this.state.activeTab} key={element.id} />
+              <Tab tab={element} event={this.selected} active={activeTab} key={element.id} />
             ))}
           </ul>
         </div>
         <article className="article">
-          {this.state.tabs[this.state.activeTab].content}
+          {tabs[activeTab].content}
         </article>
       </>
     );

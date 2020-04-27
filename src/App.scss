@@ -36,8 +36,16 @@
     border-bottom: 1px solid #fff;
   }
 
-  &__disabled {
-    color: #5f7fb5;
+  &__link {
+    text-decoration: none;
+
+    &--active {
+      color: #000;
+    }
+
+    &--disabled {
+      color: #5f7fb5;
+    }
   }
 }
 
