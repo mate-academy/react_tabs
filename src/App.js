@@ -2,7 +2,6 @@ import React from 'react';
 import './App.css';
 import Tabs from './Tabs';
 
-// eslint-disable-next-line no-unused-vars
 const tabs = [
   {
     title: 'Ukraine',
