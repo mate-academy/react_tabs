@@ -15,25 +15,25 @@ class Tabs extends React.Component {
 
     return (
       <div className="wrapper">
-        <ul className="nav nav-tabs">
+        <div className="tabs">
           {tabs.map(
             (tab, index) => (
-              <a
-                href="!#"
+              <button
+                type="button"
                 className={
                   (this.state.activeTab === index)
-                    ? 'nav-link active'
-                    : 'nav-link'
+                    ? 'tab active'
+                    : 'tab'
                 }
                 onClick={() => this.onTabSelected(index)}
                 key={tab.title}
               >
                 {tab.title}
-              </a>
+              </button>
             ),
           )
           }
-        </ul>
+        </div>
 
         <div className="tab-content">
           <p>{tabs[this.state.activeTab].content}</p>
