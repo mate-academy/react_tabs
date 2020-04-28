@@ -3,20 +3,16 @@
 }
 
 .tab__item {
-  list-style: none;
-}
-
-.tab__item a {
-  display: block;
   padding: 10px;
   border: 1px solid transparent;
   border-radius: 5px 5px 0 0;
-  text-decoration: none;
-  color: rgb(0, 0, 0);
+  outline: none;
+  background-color: transparent;
+  cursor: pointer;
 }
 
-.tab__item .blue {
+.tab__item--active {
   color: rgb(0, 0, 255);
   border-color: rgb(207, 195, 195);
-  border-bottom: 1px solid rgb(255, 255, 255);
+  border-bottom: 1px solid #fff;
 }

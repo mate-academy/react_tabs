@@ -1,25 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import './Tab.css';
+import classNames from 'classnames';
 
 const Tab = ({ title, click, id, active }) => (
-  <>
-    <li className="tab__item">
-      <a
-        href="http://#"
-        className={active === id ? 'blue' : ''}
-        onClick={(e) => {
-          e.preventDefault();
-
-          return (
-            click(id)
-          );
-        }}
-      >
-        {title}
-      </a>
-    </li>
-  </>
+  <button
+    type="button"
+    className={classNames('tab__item', { 'tab__item--active': active === id })}
+    onClick={() => (
+      click(id)
+    )}
+  >
+    {title}
+  </button>
 );
 
 Tab.propTypes = {

@@ -18,7 +18,7 @@ class Tabs extends React.Component {
 
     return (
       <>
-        <ul className="tab__list">
+        <div className="tab__list">
           {tabs.map(tab => (
             <Tab
               {...tab}
@@ -27,7 +27,7 @@ class Tabs extends React.Component {
               active={active}
             />
           ))}
-        </ul>
+        </div>
         <section className="tab__content">{tabs[active].content}</section>
       </>
     );
