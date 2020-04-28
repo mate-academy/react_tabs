@@ -1,5 +1,5 @@
 # React Tabs
-- Replace `<your_account>` with your Github username in the [DEMO LINK](https://<your_account>.github.io/react_tabs/)
+- Replace `romarios1987` with your Github username in the [DEMO LINK](https://romarios1987.github.io/react_tabs/)
 - Follow the [React task guideline](https://github.com/mate-academy/react_task-guideline#react-tasks-guideline)
 
 ## Task

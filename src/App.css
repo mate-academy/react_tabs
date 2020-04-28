@@ -1,1 +1,30 @@
+.wrapper {
+  max-width: 500px;
+  margin: 10% auto 0;
+}
 
+.tabs {
+  display: flex;
+}
+
+.tab {
+  width: 100%;
+  outline: none;
+  background: #fff;
+  border: none;
+  font-weight: bold;
+  padding: 15px;
+  cursor: pointer;
+}
+
+.tab.active {
+  border: 1px solid #ccc;
+  border-bottom: 0;
+  color: #61dafb;
+  border-radius: 10px 10px 0 0;
+}
+
+.tab-content {
+  padding-left: 15px;
+  border-top: 1px solid #ccc;
+}
