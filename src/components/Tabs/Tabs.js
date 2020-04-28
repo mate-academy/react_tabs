@@ -38,7 +38,15 @@ class Tabs extends React.Component {
                 )
               }
             >
-              <a href="/" onClick={() => this.setState({ activeIndex: index })}>
+              <a
+                href="/"
+                onClick={(e) => {
+                  e.preventDefault();
+
+                  return this.setState({ activeIndex: index });
+                }
+                }
+              >
                 {tab.title}
               </a>
             </li>
