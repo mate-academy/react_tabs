@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import { ObjectType } from '../typedefs';
+import { TabType } from '../typedefs';
 
-const Tabs = ({ tabs, activeIndex, activeTab, onTabSelected }) => (
+const Tabs = ({ tabs, activeIndex, activeTab, changeTab }) => (
   <section className="tabs">
     {tabs.map(tab => (
       <button
@@ -13,7 +13,7 @@ const Tabs = ({ tabs, activeIndex, activeTab, onTabSelected }) => (
           'tabs__button',
           { 'tabs__button--active': tab.id === activeIndex },
         )}
-        onClick={() => onTabSelected(tab.id)}
+        onClick={() => changeTab(tab.id)}
       >
         {tab.title}
       </button>
@@ -25,10 +25,10 @@ const Tabs = ({ tabs, activeIndex, activeTab, onTabSelected }) => (
 );
 
 Tabs.propTypes = {
-  tabs: PropTypes.arrayOf(ObjectType).isRequired,
+  tabs: PropTypes.arrayOf(TabType).isRequired,
   activeIndex: PropTypes.number.isRequired,
-  activeTab: ObjectType.isRequired,
-  onTabSelected: PropTypes.func.isRequired,
+  activeTab: TabType.isRequired,
+  changeTab: PropTypes.func.isRequired,
 };
 
 export default Tabs;
