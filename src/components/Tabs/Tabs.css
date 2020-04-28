@@ -1,0 +1,15 @@
+.list {
+  list-style-type: none;
+  display: flex;
+}
+
+.list__item {
+  border: 2px solid darkgrey;
+  padding: 5px;
+  margin: 5px;
+}
+
+.active {
+  background-color: yellow;
+  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
