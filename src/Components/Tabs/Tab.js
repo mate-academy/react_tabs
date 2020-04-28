@@ -18,7 +18,7 @@ const Tab = ({ tab, activeTabId, selectTab }) => {
       <button
         type="button"
         className="tabs__button"
-        onClick={handleSelectTab}
+        onClick={() => selectTab(id)}
       >
         {title}
       </button>
