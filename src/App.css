@@ -1,1 +1,46 @@
+body {
+  display: flex;
+  justify-content: center;
+}
 
+.tab {
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+  width: 500px;
+  border: 1px solid #ccc;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  background-color: rgb(204, 201, 201);
+}
+
+.button {
+  background-color: inherit;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  padding: 14px 16px;
+  transition: 0.3s;
+  width: 100px;
+}
+
+.button:hover {
+  background-color: #ddd;
+}
+
+.button:active {
+  background-color: #ccc;
+}
+
+.tabcontent {
+  padding: 6px 12px;
+  border: 1px solid #ccc;
+  width: 476px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.active {
+  background-color: gray;
+  border-radius: 5px;
+}
