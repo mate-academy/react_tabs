@@ -1,0 +1,9 @@
+.tab__list {
+  margin-left: 10px;
+}
+
+.tab__content {
+  margin: -1px;
+  padding: 10px;
+  border-top: 1px solid rgb(207, 195, 195);
+}
