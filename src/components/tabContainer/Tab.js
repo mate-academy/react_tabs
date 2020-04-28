@@ -1,28 +1,24 @@
 import React from 'react';
 
-class Tab extends React.Component {
-  render() {
-    const { tab, active, event } = this.props;
-    const { title, id } = tab;
+const Tab = (props) => {
+  const { tab, active, event } = props;
+  const { title, id } = tab;
 
-    const handleTab = () => event(tab);
+  const classList = id === active
+    ? `tab__item tab__active`
+    : `tab__item`;
 
-    this.classList = id === active
-      ? `tab__item tab__active`
-      : `tab__item`;
+  const classForLink = id === active
+    ? `tab__link--active tab__link`
+    : `tab__lind--disabled tab__link`;
 
-    this.classForLink = id === active
-      ? `tab__link--active tab__link`
-      : `tab__lind--disabled tab__link`;
-
-    return (
-      <li className={this.classList} id={id} onClick={handleTab}>
-        <a href="#" className={this.classForLink}>
-          {title}
-        </a>
-      </li>
-    );
-  }
+  return (
+    <li className={classList} id={id} onClick={() => event(tab)}>
+      <a href="#" className={classForLink}>
+        {title}
+      </a>
+    </li>
+  );
 }
 
 export default Tab;
