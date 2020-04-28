@@ -1,17 +1,20 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import ClassNames from 'classnames';
 
 const Tab = ({ tab, activeTabId, selectTab }) => {
   const { id, title } = tab;
   const handleSelectTab = () => selectTab(id);
-  let itemClass = 'tabs__item';
-
-  if (id === activeTabId) {
-    itemClass += ' tabs__item--selected';
-  }
+  const isSelected = (id === activeTabId);
 
   return (
-    <li id={id} className={itemClass}>
+    <li
+      id={id}
+      className={ClassNames(
+        'tabs__item',
+        { 'tabs__item--selected': isSelected },
+      )}
+    >
       <button
         type="button"
         className="tabs__button"
