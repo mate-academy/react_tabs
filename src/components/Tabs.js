@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Tab from './Tab';
 
 class Tabs extends React.Component {
   state = {
@@ -12,24 +13,20 @@ class Tabs extends React.Component {
 
   render() {
     const { tabs } = this.props;
+    const { activeTab } = this.state;
 
     return (
       <div className="wrapper">
         <div className="tabs">
           {tabs.map(
             (tab, index) => (
-              <button
-                type="button"
-                className={
-                  (this.state.activeTab === index)
-                    ? 'tab active'
-                    : 'tab'
-                }
-                onClick={() => this.onTabSelected(index)}
+              <Tab
+                activeTab={activeTab}
+                title={tab.title}
                 key={tab.title}
-              >
-                {tab.title}
-              </button>
+                index={index}
+                handleClick={() => this.onTabSelected(index)}
+              />
             ),
           )
           }
