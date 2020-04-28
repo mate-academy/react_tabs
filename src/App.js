@@ -1,5 +1,6 @@
 import React from 'react';
-import './App.css';
+import './App.scss';
+import Tabs from './components/tabContainer/Tabs';
 
 // eslint-disable-next-line no-unused-vars
 const tabs = [
@@ -17,8 +18,17 @@ const tabs = [
   },
 ];
 
-const App = () => (
-  <h1>React tabs</h1>
-);
+const renderedTabs = tabs.map((tab, i) => ({
+  ...tab,
+  id: i,
+}));
+
+class App extends React.PureComponent {
+  render() {
+    return (
+      <Tabs tab={renderedTabs} />
+    );
+  }
+}
 
 export default App;

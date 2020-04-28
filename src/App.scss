@@ -1,0 +1,55 @@
+.tab {
+  position: relative;
+
+  &::after {
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 1px;
+    background-color: #e6e6e7;
+    bottom: 0;
+    z-index: -1;
+  }
+
+  &__list {
+    padding: 0;
+    margin-left: 30px;
+    display: flex;
+    width: 250px;
+    list-style-type: none;
+    height: 35px;
+    line-height: 35px;
+    font-size: 18px;
+    font-family: Gill Sans, Gill Sans MT, Calibri, Trebuchet MS, sans-serif;
+  }
+
+  &__item {
+    cursor: pointer;
+    margin-right: 25px;
+  }
+
+  &__active {
+    padding: 0 10px;
+    color: #000;
+    border: 1px solid #e6e6e7;
+    border-radius: 10px 10px 0 0;
+    border-bottom: 1px solid #fff;
+  }
+
+  &__link {
+    text-decoration: none;
+
+    &--active {
+      color: #000;
+    }
+
+    &--disabled {
+      color: #5f7fb5;
+    }
+  }
+}
+
+.article {
+  font-size: 20px;
+  margin-left: 30px;
+}
