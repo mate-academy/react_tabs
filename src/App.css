@@ -1,1 +1,17 @@
 
+.button {
+  border: none;
+  border-bottom: 1px solid black;
+}
+
+.button-active {
+  background-color: white;
+  border: 1px solid black;
+  border-radius: 15% 15% 0 0;
+  outline: none;
+  border-bottom: none;
+}
+
+div {
+  font-size: 12px;
+}
