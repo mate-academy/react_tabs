@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import ClassNames from 'classnames';
+import cn from 'classnames';
 
 const Tab = ({ tab, activeTabId, selectTab }) => {
   const { id, title } = tab;
