@@ -1,1 +1,9 @@
+.button {
+  width: 50px;
+  height: 25px;
+  background-color: #fefefe;
+}
 
+.button:focus {
+  background-color: hsl(0, 0%, 80%);
+}
