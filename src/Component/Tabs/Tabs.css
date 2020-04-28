@@ -2,7 +2,7 @@
   display: flex;
 }
 
-.head {
+.wrapper > * {
   box-sizing: border-box;
   display: block;
   position: relative;

@@ -5,41 +5,26 @@ import { TabsType } from '../../Typedefs';
 
 class Tabs extends React.Component {
   state = {
-    index: 0,
-    prev: null,
+    activeIndex: 1,
   }
-
-  onTabSelected = (e) => {
-    const x = e.target.id;
-
-    this.setState(() => ({ index: x }));
-
-    if (this.state.prev) {
-      this.state.prev.classList.remove('head-active');
-    }
-
-    this.state.prev = e.target;
-    e.target.classList.add('head-active');
-  };
 
   render() {
     return (
       <div>
         <div className="wrapper">
-          {this.props.tabs.map(tab => (
+          {this.props.tabs.map((tab, index) => (
             <button
               type="button"
-              key={tab.id}
-              className="head"
-              id={tab.id}
-              onClick={this.onTabSelected}
+              key={tab.title}
+              className={index === this.state.activeIndex ? 'head-active' : ''}
+              onClick={() => (this.setState({ activeIndex: index }))}
             >
               {tab.title}
             </button>
           ))}
         </div>
         <p className="content">
-          {this.props.tabs[this.state.index].content}
+          {this.props.tabs[this.state.activeIndex].content}
         </p>
       </div>
     );

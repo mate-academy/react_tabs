@@ -18,10 +18,6 @@ const tabs = [
   },
 ];
 
-for (let i = 0; i < tabs.length; i += 1) {
-  tabs[i].id = i;
-}
-
 const App = () => (
   <Tabs tabs={tabs} />
 );
