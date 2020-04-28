@@ -1,1 +1,18 @@
+.button,
+.button-active {
+  width: 150px;
+  height: 50px;
+  background-color: wheat;
+  border-radius: 10px;
+  outline: none;
+  border: none;
+}
 
+.button-active {
+  background-color: tomato;
+
+}
+
+.description {
+  width: 450px;
+}
