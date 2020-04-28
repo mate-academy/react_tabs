@@ -1,24 +1,26 @@
 import React from 'react';
 import './App.css';
 
+import Tabs from './Tabs';
+
 // eslint-disable-next-line no-unused-vars
 const tabs = [
   {
-    title: 'Tab 1',
+    title: 'Home',
     content: 'Some text 1',
   },
   {
-    title: 'Tab 2',
+    title: 'Profile',
     content: 'Some text 2',
   },
   {
-    title: 'Tab 3',
+    title: 'Contact',
     content: 'Some text 3',
   },
 ];
 
 const App = () => (
-  <h1>React tabs</h1>
+  <Tabs tabs={tabs} />
 );
 
 export default App;
