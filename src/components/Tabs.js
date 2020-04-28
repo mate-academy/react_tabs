@@ -1,9 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Tab from './Tab';
 
 class Tabs extends React.Component {
     state = {
-      tabs: this.props.tabs,
+      // tabs: this.props.tabs, - весь массив tabs
       tabIndex: 0,
     };
 
@@ -14,20 +15,18 @@ class Tabs extends React.Component {
   }
 
   render() {
-    const { tabs } = this.state;
+    const { tabs } = this.props;
 
     return (
       <div className="tabs__wrap">
-        {tabs.map((item, index) => (
-          <button
-            type="button"
-            onClick={() => this.activeTab(index)}
+        {this.props.tabs.map((item, index) => (
+          <Tab
             key={item.title}
-            className={`${this.state.tabIndex === index
-              ? 'button button__active' : 'button'}`}
-          >
-            {item.title}
-          </button>
+            index={index}
+            item={item}
+            activeTab={this.activeTab}
+            tabIndex={this.state.tabIndex}
+          />
         ))}
         <p className="tabs__content">
           {tabs[this.state.tabIndex].content}
