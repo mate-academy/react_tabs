@@ -1,1 +1,36 @@
+html {
+  font-family: Arial, Helvetica, sans-serif;
+}
 
+body {
+  margin: 0 auto;
+}
+
+.section {
+  width: 400px;
+  height: 400px;
+  margin: 20px;
+  border-radius: 5px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+}
+
+.button {
+  width: 100px;
+  height: 50px;
+  margin: 10px 0 10px 10px;
+  font-size: 16px;
+  font-weight: bold;
+  background-color: rgb(5, 129, 230);
+  border-radius: 5px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.button--active {
+  background-color: rgb(235, 118, 22);
+}
+
+.text {
+  margin: 10px;
+}
