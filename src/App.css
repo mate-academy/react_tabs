@@ -1,1 +1,23 @@
+.text {
+  border: 1px solid rgb(197, 197, 197);
+  width: 500px;
+  height: 300px;
+  border-radius: 7px;
+  margin-top: 5px;
+}
 
+.tab {
+  margin: 2px;
+  border-radius: 7px;
+  outline: none;
+  border: 1px solid rgb(197, 197, 197);
+  width: 100px;
+  height: 30px;
+  transition: transform 0.2s, border 0.3s;
+}
+
+.tab:hover {
+  cursor: pointer;
+  transform: scale(1.05);
+  border: 1px solid black;
+}
