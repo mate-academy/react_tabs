@@ -1,1 +1,25 @@
+.tabs {
+  height: 50px;
+  border-bottom: 1px solid black;
+}
 
+.tabs__content {
+  margin-top: 20px;
+}
+
+.tabs__button {
+  display: inline-block;
+  text-decoration: none;
+  color: black;
+  padding: 10px 20px;
+  margin-top: 14px;
+  border: none;
+  border-bottom: black 1px solid;
+  background-color: #fff;
+  outline: none;
+}
+
+.tabs__button--active {
+  border: black 1px solid;
+  border-bottom: 1px solid white;
+}
