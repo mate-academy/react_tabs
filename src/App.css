@@ -1,1 +1,24 @@
+.button {
+  width: 100px;
+  height: 30px;
+  border: none;
+  background-color: transparent;
+}
+  
+.button-active {
+  background-color: white;
+  border-top: 1px solid gray;
+  border-left: 1px solid gray;
+  border-right: 1px solid gray;
+  border-radius: 5px 5px 0 0;
+  outline: none;
+  border-bottom: none;
+}
 
+div {
+  margin-top: -2px;
+  border-top: 1px solid grey;
+  width: 500px;
+  padding: 10px;
+  font-size: 12px;
+}
