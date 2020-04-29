@@ -1,1 +1,14 @@
+.tabs {
+  max-width: 600px;
+}
 
+.tabs__button {
+  padding: 10px;
+  border: 0;
+  cursor: pointer;
+  outline: 0;
+}
+
+.tabs__button--active {
+  border-bottom: 1px solid black;
+}
