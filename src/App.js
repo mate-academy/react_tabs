@@ -28,12 +28,13 @@ class App extends React.Component {
     activeIndex: 1,
   };
 
+  changeTab = (tabId) => {
+    this.setState({ activeIndex: tabId });
+  };
+
   render() {
     const { activeIndex } = this.state;
     const activeTab = tabs.find(tab => tab.id === activeIndex);
-    const changeTab = (tabId) => {
-      this.setState({ activeIndex: tabId });
-    };
 
     return (
       <>
@@ -42,7 +43,7 @@ class App extends React.Component {
           tabs={tabs}
           activeIndex={activeIndex}
           activeTab={activeTab}
-          changeTab={changeTab}
+          changeTab={this.changeTab}
         />
       </>
     );
