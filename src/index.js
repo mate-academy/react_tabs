@@ -3,4 +3,4 @@ import ReactDOM from 'react-dom';
 import App from './App';
 
 ReactDOM.render(<App />, document.getElementById('root'));
-document.querySelector('.tabs__tab').focus();
+document.querySelector('.game2048__container').focus();
