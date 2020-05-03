@@ -1,0 +1,18 @@
+.buttons {
+  display: flex;
+  flex-direction: row;
+}
+
+.btn {
+  display: inline-block;
+  width: 50px;
+  box-sizing: border-box;
+  height: 20px;
+  background-color: #eee;
+  outline: none;
+}
+
+.btn--selected {
+  background-color: #fff;
+  border: 1px solid black;
+}

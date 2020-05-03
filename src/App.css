@@ -1,1 +1,13 @@
+@import "./Tabs/Tabs.css";
 
+.table {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.table__content {
+  display: flex;
+  flex-direction: column;
+}
