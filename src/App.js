@@ -10,6 +10,8 @@ class App extends React.Component {
     zeros: 16,
   }
 
+  possibleAddNumbers = [2, 2, 2, 2, 2, 4, 2, 2, 2, 2]
+
   componentDidMount() {
     this.addNewField();
   }
@@ -302,7 +304,8 @@ class App extends React.Component {
             if (countOfZeros === randomOfZeros) {
               const nextMainGameField = [...this.state.mainGameField];
 
-              nextMainGameField[i][i2] = 2;
+              nextMainGameField[i][i2] = this
+                .possibleAddNumbers[Math.floor(Math.random() * 10)];
               this.setState(prevState => ({
 
                 mainGameField: [...nextMainGameField],
@@ -317,11 +320,13 @@ class App extends React.Component {
   }
 
   handleTouchStart = (event) => {
+    // event.nativeEvent.preventDefault()
     this.clientXStart = event.nativeEvent.changedTouches[0].clientX;
     this.clientYStart = event.nativeEvent.changedTouches[0].clientY;
   }
 
   handleTouchEnd = (event) => {
+    // event.preventDefault()
     this.clientXEnd = event.nativeEvent.changedTouches[0].clientX;
     this.clientYEnd = event.nativeEvent.changedTouches[0].clientY;
     const deltaX = this.clientXStart - this.clientXEnd;
@@ -360,7 +365,7 @@ class App extends React.Component {
 
         </p>
         <p>
-          Досягніть цифри
+          Досягніть числа
           {' '}
           <strong>2048</strong>
           {' '}
