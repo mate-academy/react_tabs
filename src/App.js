@@ -1,24 +1,38 @@
 import React from 'react';
-import './App.css';
+import './components/Tabs.scss';
+import { Tabs } from './components/Tabs';
 
 // eslint-disable-next-line no-unused-vars
 const tabs = [
   {
-    title: 'Tab 1',
-    content: 'Some text 1',
+    title: 'HTML',
+    content: 'Hyper-Text Markup Language is used to put '
+      + 'the structure of a website together. '
+      + '(Like a skeleton of a body)',
   },
   {
-    title: 'Tab 2',
-    content: 'Some text 2',
+    title: 'CSS',
+    content: 'Cascading Style Sheets acts like makeup for '
+      + 'the HTML. CSS improves the colors and layout of a website '
+      + 'structure built with HTML.',
   },
   {
-    title: 'Tab 3',
-    content: 'Some text 3',
+    title: 'JavaScript',
+    content: 'JavaScript is a full-on programming language '
+      + 'that adds interactivity and functionality to a website.',
   },
 ];
 
-const App = () => (
-  <h1>React tabs</h1>
-);
+export default function App() {
+  const preparedTabs = tabs.map((tab, i) => ({
+    ...tab,
+    index: i,
+  }));
 
-export default App;
+  return (
+    <>
+      <h1>React tabs</h1>
+      <Tabs tabs={preparedTabs} />
+    </>
+  );
+}
