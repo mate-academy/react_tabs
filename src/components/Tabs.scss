@@ -8,6 +8,10 @@ body {
   display: flex;
 }
 
+.active {
+  background-color: yellow;
+}
+
 .tab {
   &__btn {
     width: 100px;

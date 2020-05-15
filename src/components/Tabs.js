@@ -4,16 +4,16 @@ import { Tab, TabType } from './Tab';
 
 export class Tabs extends React.Component {
   state = {
-    active: 0,
+    activeTab: 0,
   }
 
   onTabSelected = content => this.setState(() => ({
-    active: content,
+    activeTab: content,
   }));
 
   render() {
     const { tabs } = this.props;
-    const { active } = this.state;
+    const { activeTab } = this.state;
 
     return (
       <>
@@ -23,13 +23,13 @@ export class Tabs extends React.Component {
               <Tab
                 tab={tab}
                 clickHandler={this.onTabSelected}
-                activeContent={active}
+                activeContent={activeTab}
               />
             </div>
           ))}
         </div>
         <div className="tab__content">
-          {tabs[this.state.active].content}
+          {tabs[this.state.activeTab].content}
         </div>
       </>
     );
