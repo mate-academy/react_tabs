@@ -1,26 +1,35 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import './Tabs.css';
-import { TabsButtons } from '../TabsButton/TabsButton';
 
 class Tabs extends React.PureComponent {
   state = {
-    active: 0,
+    content: this.props.children[0].props.children || '',
   }
 
-  changeContent = (tabId) => {
+  changeContent = (anotherContent) => {
     this.setState({
-      active: tabId,
+      content: anotherContent,
     });
   }
 
   render() {
-    const tabs = [...this.props.tabs];
+    const tabs = [...this.props.children];
 
     return (
       <div className="tabs">
-        <TabsButtons tabs={tabs} changeContent={this.changeContent} />
-        <p>{tabs[this.state.active].content}</p>
+        <div className="tabs__buttons">
+          {
+            tabs.map(tab => ({
+              ...tab,
+              props: {
+                ...tab.props,
+                changeContent: this.changeContent,
+              },
+            }))
+          }
+        </div>
+        <p>{this.state.content}</p>
       </div>
     );
   }
@@ -29,5 +38,5 @@ class Tabs extends React.PureComponent {
 export { Tabs };
 
 Tabs.propTypes = {
-  tabs: PropTypes.arrayOf(PropTypes.object).isRequired,
+  children: PropTypes.arrayOf(PropTypes.element).isRequired,
 };

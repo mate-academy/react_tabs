@@ -1,0 +1,7 @@
+.tabs__button {
+  border: none;
+  background-color: inherit;
+  cursor: pointer;
+  width: 150px;
+  padding: 15px;
+}
