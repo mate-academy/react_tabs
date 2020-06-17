@@ -4,12 +4,14 @@ import './Tabs.css';
 
 class Tabs extends React.PureComponent {
   state = {
-    content: this.props.children[0].props.children || '',
+    activeContent: this.props.children[0].props.children,
+    activeTitle: this.props.children[0].props.title,
   }
 
-  changeContent = (anotherContent) => {
+  changeContent = (content, title) => {
     this.setState({
-      content: anotherContent,
+      activeContent: content,
+      activeTitle: title,
     });
   }
 
@@ -20,16 +22,17 @@ class Tabs extends React.PureComponent {
       <div className="tabs">
         <div className="tabs__buttons">
           {
-            tabs.map(tab => ({
+            tabs.map((tab, index) => ({
               ...tab,
               props: {
                 ...tab.props,
-                changeContent: this.changeContent,
+                handleClick: this.changeContent,
+                isActive: this.state.activeTitle === tab.props.title,
               },
             }))
           }
         </div>
-        <p>{this.state.content}</p>
+        <p>{this.state.activeContent}</p>
       </div>
     );
   }

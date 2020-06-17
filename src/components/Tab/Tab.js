@@ -4,9 +4,11 @@ import './Tab.css';
 
 const Tab = props => (
   <button
-    className="tabs__button"
+    className={`tabs__button${
+      props.isActive ? ' tabs__button--active' : ''
+    }`}
     type="button"
-    onClick={() => props.changeContent(props.children)}
+    onClick={() => props.handleClick(props.children, props.title)}
   >
     {props.title}
   </button>
@@ -15,11 +17,16 @@ const Tab = props => (
 export { Tab };
 
 Tab.defaultProps = {
-  changeContent: () => 'no text',
+  handleClick: () => 'no text',
+};
+
+Tab.defaultProps = {
+  isActive: false,
 };
 
 Tab.propTypes = {
   title: PropTypes.string.isRequired,
-  changeContent: PropTypes.func,
+  handleClick: PropTypes.func,
   children: PropTypes.string.isRequired,
+  isActive: PropTypes.bool,
 };

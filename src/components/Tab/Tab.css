@@ -2,6 +2,22 @@
   border: none;
   background-color: inherit;
   cursor: pointer;
-  width: 150px;
+  width: 100px;
   padding: 15px;
+  outline: none;
+  color: rgb(107, 107, 148);
+  transform: translateY(2px);
+}
+
+.tabs__button--active,
+.tabs__button:hover,
+.tabs__button:focus {
+  border: 1px solid gray;
+  border-bottom: none;
+  border-radius: 5px 5px 0 0;
+  color: #000;
+}
+
+.tabs__button--active {
+  background-color: #fff;
 }
