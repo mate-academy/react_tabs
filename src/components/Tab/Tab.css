@@ -9,15 +9,10 @@
   transform: translateY(2px);
 }
 
-.tabs__button--active,
-.tabs__button:hover,
-.tabs__button:focus {
+.tabs__button--active {
   border: 1px solid gray;
   border-bottom: none;
   border-radius: 5px 5px 0 0;
   color: #000;
-}
-
-.tabs__button--active {
   background-color: #fff;
 }

@@ -8,7 +8,7 @@ class Tabs extends React.PureComponent {
     activeTitle: this.props.children[0].props.title,
   }
 
-  changeContent = (content, title) => {
+  onFocus = (content, title) => {
     this.setState({
       activeContent: content,
       activeTitle: title,
@@ -22,11 +22,11 @@ class Tabs extends React.PureComponent {
       <div className="tabs">
         <div className="tabs__buttons">
           {
-            tabs.map((tab, index) => ({
+            tabs.map(tab => ({
               ...tab,
               props: {
                 ...tab.props,
-                handleClick: this.changeContent,
+                onFocus: this.onFocus,
                 isActive: this.state.activeTitle === tab.props.title,
               },
             }))

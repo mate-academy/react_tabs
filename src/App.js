@@ -1,5 +1,4 @@
 import React from 'react';
-import './App.css';
 import { Tabs } from './components/Tabs/Tabs';
 import { Tab } from './components/Tab/Tab';
 
