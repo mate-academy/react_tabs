@@ -9,7 +9,6 @@ const Tab = props => (
     }`}
     type="button"
     onFocus={() => props.onFocus(props.children, props.title)}
-    onMouseOver={event => event.target.focus()}
   >
     {props.title}
   </button>
