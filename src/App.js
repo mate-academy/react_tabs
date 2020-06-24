@@ -21,7 +21,7 @@ const tabs = [
 const App = () => (
   <>
     <h1>React tabs</h1>
-    <Tabs tabs={tabs} />
+    <Tabs tabs={tabs} index={1} />
   </>
 );
 
