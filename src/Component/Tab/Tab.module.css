@@ -1,0 +1,8 @@
+.item {
+  background-color: cadetblue;
+}
+
+.item:focus {
+  background-color: rgb(212, 237, 100);
+  outline: 0;
+}
