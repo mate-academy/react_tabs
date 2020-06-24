@@ -8,7 +8,9 @@ export class Tab extends React.PureComponent {
       <button
         type="button"
         onClick={this.props.toggle}
-        className={styles.item}
+        className={
+          [styles.item, (this.props.toggleClass ? styles.active : '')].join(' ')
+        }
       >
         {this.props.title}
       </button>
@@ -23,4 +25,5 @@ Tab.defaultProps = {
 Tab.propTypes = {
   title: PropTypes.string.isRequired,
   toggle: PropTypes.func,
+  toggleClass: PropTypes.bool.isRequired,
 };

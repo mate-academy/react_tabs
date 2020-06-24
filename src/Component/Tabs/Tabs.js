@@ -7,6 +7,10 @@ export class Tabs extends React.Component {
     activeTab: 0,
   };
 
+  componentDidMount() {
+    return true;
+  }
+
   toggleTab = index => () => {
     this.setState(() => ({
       activeTab: index,
@@ -22,6 +26,7 @@ export class Tabs extends React.Component {
             props: {
               ...child.props,
               toggle: this.toggleTab(index),
+              toggleClass: index === this.state.activeTab,
             },
           }))}
         </ul>

@@ -2,6 +2,10 @@
   background-color: cadetblue;
 }
 
+.active {
+  background-color: rgb(212, 237, 100);
+}
+
 .item:focus {
   background-color: rgb(212, 237, 100);
   outline: 0;
