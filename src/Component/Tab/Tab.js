@@ -9,7 +9,10 @@ export class Tab extends React.PureComponent {
         type="button"
         onClick={this.props.toggle}
         className={
-          [styles.item, (this.props.toggleClass ? styles.active : '')].join(' ')
+          [
+            styles.item,
+            (this.props.toggleClass ? styles.active : ''),
+          ].join(' ')
         }
       >
         {this.props.title}

@@ -7,10 +7,6 @@ export class Tabs extends React.Component {
     activeTab: 0,
   };
 
-  componentDidMount() {
-    return true;
-  }
-
   toggleTab = index => () => {
     this.setState(() => ({
       activeTab: index,
