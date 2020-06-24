@@ -16,7 +16,7 @@ export class Tabs extends Component {
   render() {
     return (
       <div className={styles.tabs}>
-        <ul className={styles.tabs__header}>
+        <div className={styles.tabs__header}>
           {
             this.props.tabs
               .map((header, index) => (
@@ -28,7 +28,7 @@ export class Tabs extends Component {
                 />
               ))
           }
-        </ul>
+        </div>
         <p>{this.state.data}</p>
       </div>
     );
