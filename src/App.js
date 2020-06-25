@@ -1,24 +1,30 @@
 import React from 'react';
 import './App.css';
+import { TabList } from './components/TabList/TabList';
 
-// eslint-disable-next-line no-unused-vars
 const tabs = [
   {
-    title: 'Tab 1',
-    content: 'Some text 1',
+    title: 'Home',
+    content: `Some text 1 Some text 1 Some text 1 Some text 1
+              Some text 1 Some text 1 Some text 1 Some text 1
+              Some text 1 Some text 1 Some text 1 Some text 1`,
   },
   {
-    title: 'Tab 2',
-    content: 'Some text 2',
+    title: 'Profile',
+    content: `Some text 2 Some text 2 Some text 2 Some text 2
+              Some text 2 Some text 2 Some text 2 Some text 2
+              Some text 2 Some text 2 Some text 2 Some text 2`,
   },
   {
-    title: 'Tab 3',
-    content: 'Some text 3',
+    title: 'Contact',
+    content: `Some text 3 Some text 3 Some text 3 Some text 3
+              Some text 3 Some text 3Some text 3 Some text 3
+              Some text 3 Some text 3 Some text 3 Some text 3`,
   },
 ];
 
 const App = () => (
-  <h1>React tabs</h1>
+  <TabList tabs={tabs} />
 );
 
 export default App;

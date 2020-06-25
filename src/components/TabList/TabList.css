@@ -1,0 +1,12 @@
+.tabs {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.tabs__menu {
+  display: flex;
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+  border-bottom: 1px solid #ccc;
+}
