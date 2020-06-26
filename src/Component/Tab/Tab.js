@@ -1,5 +1,5 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import { ShapeTab, ShapeTabDefault } from '../Shapes/ShapeTab';
 import styles from './Tab.module.css';
 
 export class Tab extends React.PureComponent {
@@ -21,12 +21,6 @@ export class Tab extends React.PureComponent {
   }
 }
 
-Tab.defaultProps = {
-  toggle: () => '',
-};
+Tab.defaultProps = ShapeTabDefault;
 
-Tab.propTypes = {
-  title: PropTypes.string.isRequired,
-  toggle: PropTypes.func,
-  toggleClass: PropTypes.bool.isRequired,
-};
+Tab.propTypes = ShapeTab.isRequired;

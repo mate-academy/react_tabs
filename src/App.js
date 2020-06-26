@@ -19,21 +19,23 @@ const tabs = [
   },
 ];
 
-const App = () => (
-  <Tabs>
-    <Tab title="Tab 2">
-      It could be a text
-    </Tab>
+export const App = () => (
+  <>
+    <Tabs tabs={tabs} />
 
-    <Tab title="Tab 3">
-      <div>1</div>
-      <div>2</div>
-    </Tab>
+    <Tabs>
+      <Tab title="Tab 2">
+        It could be a text
+      </Tab>
 
-    <Tab title="Tab 1">
-      Or even any JSX
-    </Tab>
-  </Tabs>
+      <Tab title="Tab 3">
+        <div>1</div>
+        <div>2</div>
+      </Tab>
+
+      <Tab title="Tab 1">
+        Or even any JSX
+      </Tab>
+    </Tabs>
+  </>
 );
-
-export default App;

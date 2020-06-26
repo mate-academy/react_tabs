@@ -1,6 +1,7 @@
 .tabsList {
   background-color: cornflowerblue;
   width: 200px;
+  margin: 0 auto;
 }
 
 .tabs {
