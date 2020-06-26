@@ -5,7 +5,7 @@ import './TabList.css';
 import { Content } from '../Content/Content';
 import { Tab } from '../Tab/Tab';
 
-class TabList extends React.Component {
+export class TabList extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -43,5 +43,3 @@ class TabList extends React.Component {
 TabList.propTypes = {
   tabs: PropTypes.arrayOf(TabShape).isRequired,
 };
-
-export { TabList };

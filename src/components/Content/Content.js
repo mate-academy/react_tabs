@@ -2,7 +2,7 @@ import React from 'react';
 import { TabShape } from '../../shapes';
 import './Content.css';
 
-const Content = (props) => {
+export const Content = (props) => {
   const { tabs, tabIndex } = props;
 
   return (
@@ -13,5 +13,3 @@ const Content = (props) => {
 };
 
 Content.propTypes = TabShape.isRequired;
-
-export { Content };

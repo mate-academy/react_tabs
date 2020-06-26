@@ -2,7 +2,7 @@ import React from 'react';
 import './Tab.css';
 import { TabShape } from '../../shapes';
 
-const Tab = (props) => {
+export const Tab = (props) => {
   const { onSelect, tabs, tabIndex } = props;
 
   return (
@@ -25,5 +25,3 @@ const Tab = (props) => {
 };
 
 Tab.propTypes = TabShape.isRequired;
-
-export { Tab };
