@@ -1,1 +1,40 @@
+html {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 20px;
+}
+/* eslint-disable */
+.tab__tittle {
+  text-align: center;
+  display: flex;
+  border-bottom: 2px solid teal;
+  max-width: 700px;
+  margin: 0 auto;
+}
 
+.tab__element {
+  text-decoration: none;
+  font-size: 0.8rem;
+  border: none;
+  background-color: inherit;
+  cursor: pointer;
+  width: 100px;
+  padding: 15px;
+  outline: none;
+  color: crimson;
+  transform: translateY(2px);
+}
+
+.active {
+  font-size: 1rem;
+  border: 2px solid teal;
+  border-bottom: none;
+  border-radius: 5px 5px 0 0;
+  color: hotpink;
+  background-color: #fff;
+}
+
+.tab__content {
+  display: flex;
+  justify-content: center;
+  font-size: 1rem;
+}
