@@ -18,3 +18,8 @@
   background-color: white;
   transform: translateY(1px);
 }
+
+.tab:focus,
+.tab--active:focus {
+  outline: none;
+}
