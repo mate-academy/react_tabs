@@ -1,10 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
+import './Tabs.css';
 import { Tab } from '../Tab/Tab';
 
 export class Tabs extends React.Component {
-  state ={
+  state = {
     activeTab: 0,
   };
 
@@ -24,10 +24,10 @@ export class Tabs extends React.Component {
           {tabs.map((tab, index) => (
             <Tab
               title={tab.title}
-              key={tab.index}
               index={index}
               isActive={index === activeTab}
               selectTab={this.onClickTabSelection}
+              key={tab.title}
             />
           ))}
         </div>

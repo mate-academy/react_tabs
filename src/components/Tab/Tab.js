@@ -1,15 +1,16 @@
-/* eslint-disable jsx-a11y/no-static-element-interactions */
-/* eslint-disable jsx-a11y/click-events-have-key-events */
 import React from 'react';
 import PropTypes from 'prop-types';
-// import './Tab.css';
+import './Tab.css';
 
 export const Tab = ({ title, index, isActive, selectTab }) => (
   <div
     className={`tab${isActive ? '--active' : ''}`}
     onClick={() => selectTab(index)}
+    onKeyPress={() => selectTab(index)}
+    role="button"
+    tabIndex="0"
   >
-    <h2>{title}</h2>
+    <p>{title}</p>
   </div>
 );
 

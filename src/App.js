@@ -6,15 +6,15 @@ import { Tabs } from './components/Tabs/Tabs';
 const tabs = [
   {
     title: 'Tab 1',
-    content: 'Some text 1',
+    content: 'Lorem sed do eiusmod ut labore et dolore magna aliqua.',
   },
   {
     title: 'Tab 2',
-    content: 'Some text 2',
+    content: 'Excepteur sint occaecat cupidatat non proident, sunt in culpa.',
   },
   {
     title: 'Tab 3',
-    content: 'Some text 3',
+    content: 'Sed ut perspiciatis unde omnis error sit voluptatem accusantium.',
   },
 ];
 
