@@ -55,11 +55,12 @@ Tabs.propTypes = {
   children: PropTypes.arrayOf(shape({
     props: PropTypes.shape({
       title: PropTypes.string.isRequired,
+      children: PropTypes.nodes,
     }),
   })),
 };
 
 Tabs.defaultProps = {
-  tabs: Tabs.children,
-  children: Tab.tabs,
+  tabs: [],
+  children: [],
 };
