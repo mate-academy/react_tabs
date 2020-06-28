@@ -29,7 +29,7 @@ export class Tabs extends React.Component {
             {tabs.map((heading, indexTab) => (
               <li key={tabs.title}>
                 <Tab
-                  {...heading}
+                  title={heading.title}
                   isActive={index === indexTab}
                   click={this.onTabSelected(indexTab)}
                 />
