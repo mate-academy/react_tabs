@@ -17,7 +17,7 @@ class Tabs extends React.Component {
             <button
               type="button"
               key={tab.id}
-              onClick={() => {
+              onFocus={() => {
                 this.setState({ selectedIndex: i });
               }}
               className={(
