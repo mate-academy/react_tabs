@@ -39,5 +39,9 @@ export { Tabs };
 
 Tabs.propTypes = {
   tabs: PropType.arrayOf(tabShape).isRequired,
-  index: PropType.number.isRequired,
+  index: PropType.number,
+};
+
+Tabs.defaultProps = {
+  index: 0,
 };
