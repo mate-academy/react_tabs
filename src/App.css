@@ -29,11 +29,12 @@ button:focus {
   position: relative;
   color: blue;
   border: 1px solid grey;
-  border-bottom: 2px solid white;
+  border-radius: 5px;
+  border-bottom: 4px solid white;
 }
 
 hr {
-  top: -2px;
+  top: -3px;
   margin: 0;
   z-index: -1;
   position: relative;

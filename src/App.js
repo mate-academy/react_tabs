@@ -5,7 +5,7 @@ import { Tabs } from './components/Tabs';
 // eslint-disable-next-line no-unused-vars
 const tabs = [
   {
-    title: 'Tab 1',
+    title: 'Profile',
     id: 1,
     content: `Lorem ipsum vivamus — metus — enim —
     at maecenas bibendum nibh: lectus quisque orci donec,
@@ -21,7 +21,7 @@ const tabs = [
     donec duis fusce enim integer porta. In porta sodales p`,
   },
   {
-    title: 'Tab 2',
+    title: 'Contact',
     id: 2,
     content: `Justo ornare justo in lorem metus quam, duis adipiscing enim
     quam, et odio — quisque pellentesque pharetra lectus. A leo pharetra
@@ -30,7 +30,7 @@ const tabs = [
     arcu eget sem gravida, diam, sit at justo, vivamus ma`,
   },
   {
-    title: 'Tab 3',
+    title: 'Home',
     id: 3,
     content: `Massa mauris duis ut nec mauris commodo orci metus
     vitae quam, at vulputate tempus. Diam quam vivamus, ornare malesuada quisque
