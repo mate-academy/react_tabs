@@ -1,0 +1,8 @@
+.tabs__list {
+  display: flex;
+}
+
+.tabs__content {
+  padding: 20px;
+  line-height: 1.3;
+}
