@@ -1,5 +1,5 @@
 # React Tabs
-- [DEMO LINK](https://coroboX.github.io/react_counter/)
+- [DEMO LINK](https://coroboX.github.io/react_tabs/)
 
 - Follow the [React task guideline](https://github.com/mate-academy/react_task-guideline#react-tasks-guideline)
 
