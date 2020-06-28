@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Route, NavLink } from 'react-router-dom';
 import tabs from '../../box/tabs';
 import Switch from './Switch';
-/* eslint-disable */
+
 const Tab = () => (
   <Router>
     <div className="tab__tittle">
@@ -18,7 +18,7 @@ const Tab = () => (
       ))}
     </div>
 
-    <Route path="/switch/:id" component={Switch} className="tab__content"/>
+    <Route path="/switch/:id" component={Switch} className="tab__content" />
   </Router>
 );
 

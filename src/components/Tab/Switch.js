@@ -1,6 +1,7 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import tabs from '../../box/tabs';
-/* eslint-disable */
+
 class Switch extends React.Component {
   state = {};
 
@@ -38,4 +39,12 @@ setTimeout(() => {
   active.addEventListener('keyup', swich);
 }, 0);
 
-export default Switch;
+export default (Switch);
+
+Switch.propTypes = {
+  match: PropTypes.shape({
+    params: PropTypes.shape({
+      id: PropTypes.string.isRequired,
+    }).isRequired,
+  }).isRequired,
+};
