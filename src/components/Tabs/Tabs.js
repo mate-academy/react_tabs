@@ -5,13 +5,9 @@ import './Tabs.css';
 import { tabShape } from './tabShape';
 
 class Tabs extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      content: this.props.tabs[this.props.index].content,
-    };
-  }
+  state = {
+    content: this.props.tabs[this.props.index].content,
+  };
 
   onTabSelected = (index) => {
     this.setState({
