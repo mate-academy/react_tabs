@@ -11,6 +11,7 @@ export const TabShape = {
   name: PropTypes.string,
   index: PropTypes.number,
   onClick: PropTypes.func,
+  activeIndex: PropTypes.number,
 };
 
 export const TabSectionShapes = {
@@ -19,4 +20,5 @@ export const TabSectionShapes = {
     content: PropTypes.string,
   })),
   onClick: PropTypes.func,
+  isActive: PropTypes.func,
 };

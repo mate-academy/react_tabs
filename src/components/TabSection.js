@@ -2,7 +2,7 @@ import React from 'react';
 import { Tab } from './Tab';
 import { TabSectionShapes } from './Shapes';
 
-export const TabSection = ({ tabs, onClick }) => (
+export const TabSection = ({ tabs, onClick, activeIndex }) => (
   <div className="buttons">
     {tabs.map((tab, tabIndex) => (
       <Tab
@@ -10,6 +10,7 @@ export const TabSection = ({ tabs, onClick }) => (
         index={tabIndex}
         onClick={onClick}
         name={tab.title}
+        activeIndex={activeIndex}
       />
     ))}
   </div>

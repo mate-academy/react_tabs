@@ -1,22 +1,28 @@
 import React from 'react';
 import { TabSection } from './TabSection';
 import { TabsShape } from './Shapes';
-import { Date } from './Date';
+import { Data } from './Data';
 
 export class Tabs extends React.Component {
   state = {
-    date: this.props.tabs[this.props.defaultIndex].content,
+    activeIndex: 0,
   };
 
   onTabSelected = (index) => {
-    this.setState(() => ({ date: this.props.tabs[index].content }));
+    this.setState(() => ({ activeIndex: index }));
   }
 
   render() {
+    const { activeIndex } = this.state;
+
     return (
       <>
-        <TabSection tabs={this.props.tabs} onClick={this.onTabSelected} />
-        <Date date={this.state.date} />
+        <TabSection
+          tabs={this.props.tabs}
+          onClick={this.onTabSelected}
+          activeIndex={this.state.activeIndex}
+        />
+        <Data data={this.props.tabs[activeIndex].content} />
       </>
     );
   }
