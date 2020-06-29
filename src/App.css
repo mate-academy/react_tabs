@@ -1,1 +1,8 @@
+.tab {
+  margin-right: 5px;
+}
 
+.is-active {
+  border: none;
+  background-color: lightgrey;
+}
