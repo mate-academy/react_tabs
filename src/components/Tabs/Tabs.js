@@ -1,45 +1,44 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import Tab from '../Tab/Tab';
 import './Tabs.css';
+import { TabsShape } from '../Shapes/TabsShape';
 
 class Tabs extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      article: props.tabs[props.index].content,
+      value: 0,
     };
   }
 
   generateTabContent = (index) => {
     this.setState(() => ({
-      article: this.props.tabs[index].content,
+      value: index,
     }));
   }
 
   render() {
+    const { tabs } = this.props;
+    const { value } = this.state;
+
     return (
       <div className="tabs__list">
         {this.props.tabs.map((tabItem, index) => (
           <Tab
             title={tabItem.title}
             index={index}
+            isActive={value === index}
+            key={tabItem.title}
             changeTab={this.generateTabContent}
           />
         ))}
-        <p className="tabs__content">{this.state.article}</p>
+        <p className="tabs__content">{tabs[value].content}</p>
       </div>
     );
   }
 }
 
-Tabs.propTypes = {
-  tabs: PropTypes.arrayOf(PropTypes.shape({
-    title: PropTypes.string.isRequired,
-    content: PropTypes.string.isRequired,
-  })).isRequired,
-  index: PropTypes.number.isRequired,
-};
+Tabs.propTypes = TabsShape.isRequired;
 
 export default Tabs;

@@ -5,16 +5,26 @@
 }
 
 .tabs__button {
+  width: 80px;
+  height: 40px;
   font-family: inherit;
   text-transform: uppercase;
   font-size: 18px;
   color: #17abdf;
-  outline: none;
-  border: 2px solid white;
+  border: none;
   background-color: white;
-  transition: border 0.3s;
+  margin-right: 20px;
+  cursor: pointer;
 }
 
-.tabs__button:hover {
-  border: 2px solid #17abdf;
+.tabs__button--active {
+  color: #000;
+}
+
+.tabs__content {
+  margin: 5px;
+  width: 400px;
+  text-align: center;
+  padding-top: 20px;
+  border-top: 1px solid #6d6f6f;
 }

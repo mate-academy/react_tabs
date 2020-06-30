@@ -21,9 +21,7 @@ const tabs = [
 ];
 
 const App = () => (
-  <div className="tabs__container">
-    <Tabs tabs={tabs} index={0} />
-  </div>
+  <Tabs tabs={tabs} index={0} />
 );
 
 export default App;
