@@ -20,7 +20,10 @@ class Tabs extends React.Component {
       <div className="tabs">
         <div className="tabs__list">
           {this.props.tabs.map((tab, index) => (
-            <Tab key={tab.title} onSelected={() => this.onTabSelected(index)}>
+            <Tab
+              key={tab.title}
+              onSelected={() => this.onTabSelected(index)}
+            >
               {tab.title}
             </Tab>
           ))}
