@@ -26,13 +26,15 @@ class App extends React.Component {
   }
 
   changeTabIndex = (index) => {
-    this.setState({ tabIndex: index });
+    this.setState({
+      tabIndex: index,
+    });
   }
 
   render() {
     return (
       <>
-        <h1>React tabs</h1>
+        <h1 className="App__header">React tabs</h1>
         <Tabs>
           {tabs.map((tab, index) => (
             <Tab
@@ -45,7 +47,7 @@ class App extends React.Component {
             </Tab>
           ))}
         </Tabs>
-        <p>{tabs[this.state.tabIndex].content}</p>
+        <p className="App__text">{tabs[this.state.tabIndex].content}</p>
       </>
     );
   }

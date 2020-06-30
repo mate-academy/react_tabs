@@ -1,0 +1,11 @@
+﻿.Tab {
+  margin-right: 10px;
+}
+
+.Tab:last-child {
+  margin-right: 0;
+}
+
+.Tab:hover {
+  cursor: pointer;
+}
