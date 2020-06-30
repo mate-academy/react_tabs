@@ -1,27 +1,15 @@
-import React, { createRef } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 
-class Tab extends React.Component {
-  constructor(props) {
-    super(props);
-    this.tabRef = createRef();
-  }
-
-  render() {
-    const { title, index, changeTab, isActive } = this.props;
-
-    return (
-      <button
-        className={`tabs__button ${isActive ? 'tabs__button--active' : ''}`}
-        ref={this.tabRef}
-        type="button"
-        onClick={() => changeTab(index)}
-      >
-        {title}
-      </button>
-    );
-  }
-}
+const Tab = ({ title, index, changeTab, isActive }) => (
+  <button
+    className={`tabs__button ${isActive ? 'tabs__button--active' : ''}`}
+    type="button"
+    onClick={() => changeTab(index)}
+  >
+    {title}
+  </button>
+);
 
 Tab.propTypes = {
   title: PropTypes.string.isRequired,
