@@ -14,14 +14,15 @@
   width: 200px;
   height: 50px;
   border: none;
-  outline: none;
+  outline-color: rgb(78, 75, 75);
   background-color: white;
 }
 
 .tabs__click-active {
+  color: rgb(90, 90, 221);
+  border-radius: 10px 10px 0 0;
   position: relative;
   bottom: -1px;
   border: 1px solid black;
   border-bottom: none;
-
 }

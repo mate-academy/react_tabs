@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Tab from '../Tab/Tab';
 
 class Tabs extends React.Component {
   state = {
@@ -18,19 +19,11 @@ class Tabs extends React.Component {
 
     return (
       <div className="tabs">
-        {tabs.map((tab, tabIndex) => (
-          <button
-            onClick={() => this.tabSwitch(tabIndex)}
-            type="button"
-            key={tab.title}
-            className={
-              tabIndex === index
-                ? 'tabs__click tabs__click-active'
-                : 'tabs__click'}
-          >
-            {tab.title}
-          </button>
-        ))}
+        <Tab
+          tabs={tabs}
+          tabSwitch={this.tabSwitch}
+          tabIndex={index}
+        />
         <div className="tabs__container">
           {tabs[index].content}
         </div>
