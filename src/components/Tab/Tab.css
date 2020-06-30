@@ -1,0 +1,21 @@
+.tabs__button {
+  position: relative;
+  width: 150px;
+  padding: 10px;
+  margin-right: 2px;
+
+  border: none;
+  border-radius: 5px 5px 0 0;
+  cursor: pointer;
+  background-color: #fff;
+  color: #5388c5;
+  font-weight: bold;
+  outline-color: #ccc;
+}
+
+.tabs__button--active {
+  border: 1px solid #ccc;
+  border-bottom: none;
+  color: inherit;
+  bottom: -1px;
+}
