@@ -14,27 +14,27 @@ export class Tabs extends React.Component {
     }));
   }
 
-  changeChildrenProps() {
-    return this.props.children.map((child, index) => ({
-      ...child,
-      props: {
-        ...child.props,
-        toggle: this.toggleTab(index),
-        toggleClass: index === this.state.activeTab,
-      },
-    }));
-  }
+  // changeChildrenProps() {
+  //   return this.props.children.map((child, index) => ({
+  //     ...child,
+  //     props: {
+  //       ...child.props,
+  //       toggle: this.toggleTab(index),
+  //       toggleClass: index === this.state.activeTab,
+  //     },
+  //   }));
+  // }
 
-  renderComponentTab() {
-    return this.props.tabs.map((child, index) => (
-      <Tab
-        key={index.toString()}
-        title={child.title}
-        toggle={this.toggleTab(index)}
-        toggleClass={index === this.state.activeTab}
-      />
-    ));
-  }
+  // renderComponentTab() {
+  //   return this.props.tabs.map((child, index) => (
+  //     <Tab
+  //       key={index.toString()}
+  //       title={child.title}
+  //       toggle={this.toggleTab(index)}
+  //       toggleClass={index === this.state.activeTab}
+  //     />
+  //   ));
+  // }
 
   renderTabsContent(tabs) {
     return tabs.map((tab, index) => (
@@ -50,20 +50,35 @@ export class Tabs extends React.Component {
   }
 
   render() {
+    const { children, tabs } = this.props;
+
     return (
       <div className={styles.tabsList}>
         <div className={styles.tabs}>
           {(this.props.children.length !== 0
-            ? this.changeChildrenProps()
-            : this.renderComponentTab())
+            ? this.props.children.map((child, index) => ({
+              ...child,
+              props: {
+                ...child.props,
+                toggle: this.toggleTab(index),
+                toggleClass: index === this.state.activeTab,
+              },
+            }))
+            : this.props.tabs.map((child, index) => (
+              <Tab
+                key={index.toString()}
+                title={child.title}
+                toggle={this.toggleTab(index)}
+                toggleClass={index === this.state.activeTab}
+              />
+            )))
           }
         </div>
-        <ul className={styles.tabs}>
-          {(this.props.children.length !== 0
-            ? this.renderTabsContent(this.props.children)
-            : this.renderTabsContent(this.props.tabs))
-          }
-        </ul>
+        <div className={styles.tabs}>
+          {this.props.children.length !== 0
+            ? children[this.state.activeTab].props.children
+            : tabs[this.state.activeTab].content}
+        </div>
       </div>
     );
   }
