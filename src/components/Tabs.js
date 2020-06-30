@@ -17,8 +17,10 @@ class Tabs extends React.Component {
             <button
               type="button"
               key={tab.id}
-              onFocus={() => {
-                this.setState({ selectedIndex: i });
+              onClick={() => {
+                this.setState({
+                  selectedIndex: i,
+                });
               }}
               className={(
                 i === selectedIndex ? 'button button--active' : 'button'
@@ -29,7 +31,9 @@ class Tabs extends React.Component {
           </>
         )) }
         <hr />
-        <div className="tab">{ tabs[selectedIndex].content }</div>
+        <div>
+          { tabs[selectedIndex].content }
+        </div>
       </div>
     );
   }
