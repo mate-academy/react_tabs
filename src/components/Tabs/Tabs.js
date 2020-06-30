@@ -9,7 +9,7 @@ export class Tabs extends React.Component {
       index: 0,
     };
 
-  onTabSelected = (indexTab) => {
+  onTabSelected = indexTab => () => {
     this.setState({
       index: indexTab,
     });
@@ -28,7 +28,7 @@ export class Tabs extends React.Component {
                 <Tab
                   title={heading.title}
                   isActive={index === indexTab}
-                  click={() => this.onTabSelected(indexTab)}
+                  click={this.onTabSelected(indexTab)}
                 />
               </li>
             ))}
