@@ -4,8 +4,8 @@ import PropTypes from 'prop-types';
 import './Tab.css';
 
 const Tab = ({ title, activeIndex, onTabSelected }) => (
-  <li>
-    <button onClick={onTabSelected} type="button" disabled={activeIndex}>
+  <li className="Tabs__Tab Tab">
+    <button onClick={onTabSelected} disabled={activeIndex} type="button">
       {title}
     </button>
   </li>

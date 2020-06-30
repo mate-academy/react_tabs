@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import './Tabs.css';
 
 const Tabs = ({ children }) => (
-  <ul className="App__list">
+  <ul className="App__Tabs Tabs">
     {children}
   </ul>
 );
