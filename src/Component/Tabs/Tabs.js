@@ -9,32 +9,10 @@ export class Tabs extends React.Component {
   };
 
   toggleTab = index => () => {
-    this.setState(() => ({
+    this.setState({
       activeTab: index,
-    }));
+    });
   }
-
-  // changeChildrenProps() {
-  //   return this.props.children.map((child, index) => ({
-  //     ...child,
-  //     props: {
-  //       ...child.props,
-  //       toggle: this.toggleTab(index),
-  //       toggleClass: index === this.state.activeTab,
-  //     },
-  //   }));
-  // }
-
-  // renderComponentTab() {
-  //   return this.props.tabs.map((child, index) => (
-  //     <Tab
-  //       key={index.toString()}
-  //       title={child.title}
-  //       toggle={this.toggleTab(index)}
-  //       toggleClass={index === this.state.activeTab}
-  //     />
-  //   ));
-  // }
 
   renderTabsContent(tabs) {
     return tabs.map((tab, index) => (
