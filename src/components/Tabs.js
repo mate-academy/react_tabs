@@ -1,9 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Tab } from './Tab';
+import { TabValidation } from './PropsValidation';
 
 class Tabs extends React.Component {
   state = {
     selectedIndex: 0,
+  }
+
+  onClickTab = (tab) => {
+    this.setState({
+      selectedIndex: tab,
+    });
   }
 
   render() {
@@ -13,22 +21,13 @@ class Tabs extends React.Component {
     return (
       <div className="tabs">
         {tabs.map((tab, i) => (
-          <>
-            <button
-              type="button"
-              key={tab.id}
-              onClick={() => {
-                this.setState({
-                  selectedIndex: i,
-                });
-              }}
-              className={(
-                i === selectedIndex ? 'button button--active' : 'button'
-              )}
-            >
-              { tab.title }
-            </button>
-          </>
+          <Tab
+            title={tab.title}
+            key={tab.id}
+            index={i}
+            isActive={i === selectedIndex}
+            selectTab={this.onClickTab}
+          />
         )) }
         <hr />
         <div>
@@ -39,14 +38,6 @@ class Tabs extends React.Component {
   }
 }
 
-const TabShape = PropTypes.shape({
-  title: PropTypes.string.isRequired,
-  is: PropTypes.number.isRequired,
-  content: PropTypes.string.isRequired,
-});
-
-Tabs.propTypes = {
-  tabs: TabShape.isRequired,
-};
+Tabs.propTypes = PropTypes.shape(TabValidation).isRequired;
 
 export { Tabs };
