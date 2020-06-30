@@ -19,7 +19,7 @@
   transform: translateY(1px);
 }
 
-.tab:focus,
+/* .tab:focus,
 .tab--active:focus {
   outline: none;
-}
+} */
