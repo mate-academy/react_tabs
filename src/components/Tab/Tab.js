@@ -9,15 +9,13 @@ export const Tab = (props) => {
   } = props;
 
   return (
-    <a
-      role="button"
+    <button
+      type="button"
       onClick={click}
       className={`nav-link ${isActive ? 'active' : ''}`}
-      data-toggle="tab"
-      href="#home"
     >
       {title}
-    </a>
+    </button>
   );
 };
 
