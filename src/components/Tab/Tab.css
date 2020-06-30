@@ -10,7 +10,7 @@
   background-color: #fff;
   color: #5388c5;
   font-weight: bold;
-  outline: none;
+  outline-color: #ccc;
 }
 
 .tabs__button--active {
