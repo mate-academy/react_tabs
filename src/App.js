@@ -20,7 +20,7 @@ const tabs = [
 
 const App = () => (
   <>
-    <h1>React tabs</h1>
+    <h1 className="heading">React tabs</h1>
     <Tabs tabs={tabs} />
   </>
 );

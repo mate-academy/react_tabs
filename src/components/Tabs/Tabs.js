@@ -1,16 +1,13 @@
 import React from 'react';
+import './Tabs.css';
 import PropTypes from 'prop-types';
 import { TabsTypes } from '../Shape/TabsTypes';
 import { Tab } from '../Tab/Tab';
 
 export class Tabs extends React.Component {
-  constructor(props) {
-    super({ props });
-
-    this.state = {
+    state = {
       index: 0,
     };
-  }
 
   onTabSelected = indexTab => () => {
     this.setState({
