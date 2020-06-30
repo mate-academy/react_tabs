@@ -1,0 +1,17 @@
+.tabs__item {
+  position: relative;
+  margin-right: -2px;
+  padding: 5px 20px;
+  font-size: 1.2em;
+  color: #777;
+  background-color: #fff;
+  border: 2px solid #777;
+  cursor: pointer;
+}
+
+.tabs__item:hover,
+.tabs__item:focus {
+  z-index: 1;
+  background-color: #dde;
+  border-color: #33e;
+}
