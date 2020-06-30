@@ -19,7 +19,9 @@
   transform: translateY(1px);
 }
 
-/* .tab:focus,
+.tab:focus,
 .tab--active:focus {
-  outline: none;
-} */
+  outline-style: solid;
+  outline-width: 0.5px;
+  outline-color: rgb(198, 220, 248);
+}
