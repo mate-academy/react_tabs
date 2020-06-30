@@ -18,25 +18,8 @@ const tabs = [
   },
 ];
 
-class App extends React.Component {
-  state ={
-    textContent: tabs[0].content,
-  }
-
-  change = (index) => {
-    this.setState(state => ({
-      textContent: tabs[index].content,
-    }));
-  };
-
-  render() {
-    return (
-      <div className="wrapper">
-        <Tabs tabs={tabs} onChange={this.change} />
-        <p>{this.state.textContent}</p>
-      </div>
-    );
-  }
-}
+export const App = () => (
+  <Tabs tabs={tabs} />
+);
 
 export default App;

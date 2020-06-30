@@ -1,12 +1,12 @@
 import PropTypes from 'prop-types';
 
-const shapeTab = PropTypes.shape({
+const tabsFromServer = PropTypes.shape({
   title: PropTypes.string.isRequired,
   content: PropTypes.string.isRequired,
 });
 
 export const shapeAllTab = PropTypes.shape({
-  tab: shapeTab,
+  tab: tabsFromServer,
   change: PropTypes.func.isRequired,
   index: PropTypes.number.isRequired,
 });

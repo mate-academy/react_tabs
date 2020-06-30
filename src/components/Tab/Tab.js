@@ -2,18 +2,14 @@
 import React from 'react';
 import { shapeAllTab } from '../Shapes';
 
-export class Tab extends React.PureComponent {
-  render() {
-    return (
-      <button
-        className="button"
-        type="submit"
-        onClick={() => this.props.change(this.props.index)}
-      >
-        {this.props.tab.title}
-      </button>
-    );
-  }
-}
+export const Tab = props => (
+  <button
+    className="button"
+    type="submit"
+    onClick={() => props.change(props.index)}
+  >
+    {props.title}
+  </button>
+);
 
 Tab.propTypes = shapeAllTab.isRequired;
