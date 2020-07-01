@@ -23,7 +23,7 @@ export class Tabs extends React.Component {
       <div className="center">
         <ul className="nav nav-tabs">
           {tabs.map((tab, indexTab) => (
-            <li key={this.props.title}>
+            <li key={tab.title}>
               <Tab
                 title={tab.title}
                 isActive={index === indexTab}
@@ -48,5 +48,4 @@ Tabs.propTypes = {
   tabs: PropTypes.arrayOf(
     TabsTypes,
   ).isRequired,
-  title: PropTypes.string.isRequired,
 };
