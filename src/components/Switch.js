@@ -2,14 +2,14 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 export const Switch = (props) => {
-  const { active, title, activate, tabulate } = props;
+  const { active, title, handleClick, tabPress } = props;
 
   return (
     <button
       type="button"
       className={active ? ' tab__element active' : 'tab__element'}
-      onClick={activate}
-      onKeyUp={tabulate}
+      onClick={handleClick}
+      onKeyUp={tabPress}
     >
       {title}
     </button>
@@ -19,8 +19,8 @@ export const Switch = (props) => {
 Switch.propTypes = {
   active: PropTypes.bool,
   title: PropTypes.string.isRequired,
-  activate: PropTypes.func.isRequired,
-  tabulate: PropTypes.func.isRequired,
+  handleClick: PropTypes.func.isRequired,
+  tabPress: PropTypes.func.isRequired,
 };
 
 Switch.defaultProps = {

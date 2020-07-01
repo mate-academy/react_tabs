@@ -8,13 +8,13 @@ export class Tab extends React.Component {
     active: 0,
   }
 
-  activator = (index) => {
+  changeText = (index) => {
     this.setState({
       active: index,
     });
   };
 
-  tabulate = (event) => {
+  tabPress = (event) => {
     event.target.click();
   };
 
@@ -30,8 +30,8 @@ export class Tab extends React.Component {
               key={tab.title}
               title={tab.title}
               isSelected={active === index}
-              activate={() => this.activator(index)}
-              tabulate={event => this.tabulate(event)}
+              handleClick={() => this.changeText(index)}
+              tabPress={event => this.tabPress(event)}
             />
           ))}
         </div>
