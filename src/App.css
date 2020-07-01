@@ -1,1 +1,20 @@
+button {
+  border: none;
+  background-color: inherit;
+  color: inherit;
+  outline: none;
+}
 
+.tab {
+  font-size: 25px;
+  color: #000080;
+
+  border-bottom: 1px solid grey;
+  border-radius: 5%;
+}
+
+.selected {
+  border: 1px solid grey;
+  border-bottom: none;
+  color: black;
+}
