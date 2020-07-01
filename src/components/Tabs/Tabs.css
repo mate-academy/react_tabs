@@ -1,0 +1,8 @@
+.tabs {
+  display: flex;
+  padding: 0;
+}
+
+.tabs__item {
+  list-style-type: none;
+}
