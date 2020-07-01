@@ -3,34 +3,31 @@ html {
   font-size: 20px;
 }
 
-.App {
-  width: 100%;
-  height: 100%;
-}
-
 .tab__tittle {
-  height: 100px;
+  width: 400px;
   text-align: center;
   display: flex;
-  border-bottom: 2px solid teal;
+  border-radius: 0.5rem;
+  height: 100px;
   max-width: 400px;
   margin: 0 auto;
 }
 
 .tab__element {
-  text-decoration: none;
   font-size: 0.8rem;
-  border: none;
+  border: 2px solid teal ;
+  border-radius: 5px 5px 0 0;
   background-color: inherit;
   cursor: pointer;
-  width: 100px;
-  padding: 15px;
   color: crimson;
-  transform: translateY(2px);
   outline: none;
+
+  width: 150px;
+  height: 110px;
+  margin: 0 -1px;
 }
 
-.active {
+.tab__element:focus {
   font-size: 0.9rem;
   border: 2px solid teal;
   border-bottom: none;
