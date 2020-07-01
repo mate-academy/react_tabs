@@ -1,0 +1,8 @@
+.tab {
+  padding: 10px 30px;
+  margin-right: 15px;
+}
+
+.tab__active {
+  background-color: orange;
+}
