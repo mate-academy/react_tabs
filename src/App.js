@@ -1,7 +1,6 @@
 /* eslint-disable max-len */
 import React from 'react';
 import { Tabs } from './components/Tabs/Tabs';
-import './App.css';
 
 const tabs = [
   {
