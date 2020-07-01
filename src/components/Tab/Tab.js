@@ -11,7 +11,9 @@ export const Tab = ({ title, index, isActive, tabChange }) => (
       }`
     }
     type="button"
+    tabIndex={index}
     onClick={() => tabChange(index)}
+    onFocus={() => tabChange(index)}
   >
     {title}
   </button>
