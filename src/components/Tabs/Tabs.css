@@ -36,23 +36,21 @@
   text-align: center;
   margin-bottom: -1px;
 
-  border: 0 solid transparent;
+  border: 1px solid transparent;
   border-bottom: 1px solid var(--c-main);
   border-radius: 0.25rem 0.25rem 0 0;
-  border-color: var(--c-main);
 
 
   transition: color 0.15s ease-in-out,
     background-color 0.15s ease-in-out,
     border-color 0.15s ease-in-out,
     box-shadow 0.15s ease-in-out;
-
 }
 
-.button:hover {
+.button:hover,
+.button:focus {
   color: var(--c-main-txt);
   background-color: rgb(212, 221, 238);
-  border-bottom: none;
 }
 
 .button:focus {
@@ -61,7 +59,6 @@
 
 .button--active {
   color: #212529;
-  border: 1px solid transparent;
-  border-bottom: 0;
-  border-color: var(--c-hovered-border);
+  border: 1px solid var(--c-main);
+  border-bottom: 1px solid transparent;
 }

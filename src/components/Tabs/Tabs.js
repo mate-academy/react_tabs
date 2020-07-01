@@ -1,53 +1,33 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+
 import './Tabs.css';
+import { Tab } from '../Tab/Tab';
 
 export class Tabs extends React.Component {
   state = {
     activeTab: 1,
   }
 
-  componentDidMount() {
-    const buttons = document.querySelectorAll('.button');
-
-    [...buttons].forEach((button) => {
-      if (+button.dataset.tab === this.state.activeTab) {
-        button.classList.add('button--active');
-      }
-    });
-  }
-
-  switchTab = (event) => {
+  handleTabSwitch = (index) => {
     this.setState({
-      activeTab: event.target.dataset.tab,
+      activeTab: index,
     });
-
-    const buttons = event.target.closest('.tabs').children;
-
-    [...buttons].forEach((button) => {
-      if (button.classList.contains('button--active')) {
-        button.classList.remove('button--active');
-      }
-    });
-
-    event.target.classList.toggle('button--active');
   };
 
   render() {
     const { tabs } = this.props;
+    const { activeTab } = this.state;
 
     return (
       <div className="tabs">
         {tabs.map((tab, index) => (
-          <button
+          <Tab
             key={tab.title}
-            type="button"
-            className="button"
-            data-tab={index}
-            onClick={this.switchTab}
-          >
-            {tab.title}
-          </button>
+            title={tab.title}
+            isSelected={activeTab === index}
+            onSelect={() => this.handleTabSwitch(index)}
+          />
         ))}
         <p className="content">
           {tabs[this.state.activeTab].content}
