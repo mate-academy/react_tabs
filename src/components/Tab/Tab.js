@@ -1,9 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import '../Tabs/Tabs.css';
 
 export const Tab = ({ title, index, isActive, tabChange }) => (
   <button
-    className="tabs__button"
+    className={
+      `${isActive
+        ? 'tabs__btn tabs__btn--active'
+        : 'tabs__btn'
+      }`
+    }
     type="button"
     onClick={() => tabChange(index)}
   >
