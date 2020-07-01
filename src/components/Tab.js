@@ -1,10 +1,10 @@
 import React from 'react';
 import { TabShape } from './TabShape';
 
-export const Tab = ({ tab, onSelected }) => (
+export const Tab = ({ tab, onSelected, isSelected }) => (
   <button
     type="button"
-    className="tab"
+    className={isSelected ? 'tab selected' : 'tab'}
     onClick={onSelected}
   >
     {tab.title}
