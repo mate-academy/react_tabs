@@ -3,3 +3,7 @@
   list-style-type: none;
   cursor: pointer;
 }
+
+.active {
+  background-color: #00acee;
+}
