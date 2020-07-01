@@ -1,1 +1,25 @@
+h1 {
+  color: red;
+}
 
+.wrapper {
+  width: 400px;
+  margin-left: 30%;
+}
+
+.button {
+  width: 100px;
+  background-color: white;
+  font-size: 16px;
+  padding: 5px;
+  border: none;
+  outline: none;
+  color: blue;
+  border-bottom: 1px solid rgb(161, 158, 158);
+}
+
+.button:focus {
+  border: 1px solid rgb(161, 158, 158);
+  border-bottom: none;
+  color: black;
+}
