@@ -1,5 +1,5 @@
 import React from 'react';
-import { shapeAllTabs } from '../Shapes';
+import { shapeTabs } from '../Shapes';
 import { Tab } from '../Tab/Tab';
 
 export class Tabs extends React.Component {
@@ -7,7 +7,7 @@ export class Tabs extends React.Component {
     textContent: this.props.tabs[0].content,
   }
 
-  change = (index) => {
+  handleChange = (index) => {
     this.setState({
       textContent: this.props.tabs[index].content,
     });
@@ -21,7 +21,7 @@ export class Tabs extends React.Component {
             key={tab.title}
             title={tab.title}
             index={index}
-            change={this.change}
+            handleChange={this.handleChange}
           />
         ))}
         <p>{this.state.textContent}</p>
@@ -30,4 +30,4 @@ export class Tabs extends React.Component {
   }
 }
 
-Tabs.propTypes = shapeAllTabs.isRequired;
+Tabs.propTypes = shapeTabs.isRequired;

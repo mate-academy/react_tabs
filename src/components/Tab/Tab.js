@@ -1,15 +1,15 @@
 /* eslint-disable no-console */
 import React from 'react';
-import { shapeAllTab } from '../Shapes';
+import { shapeTab } from '../Shapes';
 
 export const Tab = props => (
   <button
     className="button"
-    type="submit"
-    onClick={() => props.change(props.index)}
+    type="button"
+    onClick={() => props.handleChange(props.index)}
   >
     {props.title}
   </button>
 );
 
-Tab.propTypes = shapeAllTab.isRequired;
+Tab.propTypes = shapeTab.isRequired;

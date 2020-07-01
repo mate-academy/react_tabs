@@ -5,13 +5,13 @@ const tabsFromServer = PropTypes.shape({
   content: PropTypes.string.isRequired,
 });
 
-export const shapeAllTab = PropTypes.shape({
+export const shapeTab = PropTypes.shape({
   tab: tabsFromServer,
   change: PropTypes.func.isRequired,
   index: PropTypes.number.isRequired,
 });
 
-export const shapeAllTabs = PropTypes.shape({
-  tabs: PropTypes.arrayOf(shapeAllTab).isRequired,
+export const shapeTabs = PropTypes.shape({
+  tabs: PropTypes.arrayOf(shapeTab).isRequired,
   onChange: PropTypes.func.isRequired,
 });
