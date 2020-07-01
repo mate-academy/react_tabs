@@ -8,11 +8,11 @@ class Tabs extends React.Component {
     selectedIndex: 0,
   }
 
-  onClickTab = (tab) => {
+  onClickTab = index => (
     this.setState({
-      selectedIndex: tab,
-    });
-  }
+      selectedIndex: index,
+    })
+  )
 
   render() {
     const { tabs } = this.props;
