@@ -20,28 +20,26 @@ export class Tabs extends React.Component {
     const { index } = this.state;
 
     return (
-      <>
-        <div className="center">
-          <ul className="nav nav-tabs">
-            {tabs.map((heading, indexTab) => (
-              <li key={tabs.title}>
-                <Tab
-                  title={heading.title}
-                  isActive={index === indexTab}
-                  click={this.onTabSelected(indexTab)}
-                />
-              </li>
-            ))}
-          </ul>
-          <div id="myTabContent" className="tab-content">
-            <div className="tab-pane fade show active" id="home">
-              <p>
-                {tabs[index].content}
-              </p>
-            </div>
+      <div className="center">
+        <ul className="nav nav-tabs">
+          {tabs.map((tab, indexTab) => (
+            <li key={this.props.title}>
+              <Tab
+                title={tab.title}
+                isActive={index === indexTab}
+                click={this.onTabSelected(indexTab)}
+              />
+            </li>
+          ))}
+        </ul>
+        <div id="myTabContent" className="tab-content">
+          <div className="tab-pane fade show active" id="home">
+            <p>
+              {tabs[index].content}
+            </p>
           </div>
         </div>
-      </>
+      </div>
     );
   }
 }
@@ -50,4 +48,5 @@ Tabs.propTypes = {
   tabs: PropTypes.arrayOf(
     TabsTypes,
   ).isRequired,
+  title: PropTypes.string.isRequired,
 };
