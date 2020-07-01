@@ -1,0 +1,64 @@
+:root {
+  --c-main: #0003c6;
+  --c-hovered-border: #23258ba9;
+  --c-hovered-bg: #0022e028;
+  --c-main-txt: #212529;
+}
+
+.tabs {
+  width: 50%;
+  min-width: 300px;
+  padding: 10px;
+  margin: 0 auto;
+
+  border-radius: 0.5rem;
+  border: 1px solid var(--c-main);
+}
+
+.content {
+  margin-top: 0;
+  margin-bottom: 0;
+  padding: 1rem;
+
+  border-radius: 0 0 0.25rem 0.25rem;
+  border-top: 1px solid var(--c-main);
+}
+
+.button {
+  color: var(--c-main-txt);
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 1.5;
+
+  display: inline-block;
+  padding: 0.38rem 0.75rem;
+  vertical-align: middle;
+  text-align: center;
+  margin-bottom: -1px;
+
+  border: 1px solid transparent;
+  border-bottom: 1px solid var(--c-main);
+  border-radius: 0.25rem 0.25rem 0 0;
+
+
+  transition: color 0.15s ease-in-out,
+    background-color 0.15s ease-in-out,
+    border-color 0.15s ease-in-out,
+    box-shadow 0.15s ease-in-out;
+}
+
+.button:hover,
+.button:focus {
+  color: var(--c-main-txt);
+  background-color: rgb(212, 221, 238);
+}
+
+.button:focus {
+  outline: 0;
+}
+
+.button--active {
+  color: #212529;
+  border: 1px solid var(--c-main);
+  border-bottom: 1px solid transparent;
+}
