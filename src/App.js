@@ -37,6 +37,7 @@ class Tabs extends React.Component {
             this.props.tabs.map((tab, index) => (
               <button
                 type="button"
+                key={tab.title}
                 onClick={() => this.changeActiveIndex(index)}
                 className={
                   this.state.activeTab === index
