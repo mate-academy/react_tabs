@@ -1,1 +1,4 @@
-
+.current > button {
+  color: red;
+  transform: translateY(-10px);
+}
