@@ -8,6 +8,7 @@ const Shapes = {
 
   ShapeTab: PropTypes.shape({
     tab: PropTypes.object.isRequired,
+    title: PropTypes.string.isRequired,
     onClickTab: PropTypes.func.isRequired,
   }),
 

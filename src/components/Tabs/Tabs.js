@@ -4,11 +4,8 @@ import Shapes from '../Shape';
 import './Tabs.css';
 
 export default class Tabs extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      currentTitle: this.props.tabs[0].title,
-    };
+  state = {
+    currentTitle: this.props.tabs[0].title,
   }
 
   clickTab = (tab) => {

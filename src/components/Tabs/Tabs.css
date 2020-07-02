@@ -3,4 +3,9 @@
   justify-content: space-between;
   width: 400px;
   margin: 0 auto 30px;
+  border-bottom: 1px solid gray;
+}
+
+.tab {
+  width: 133.33px;
 }
