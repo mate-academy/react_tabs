@@ -3,6 +3,17 @@
   
 }
 
+.tabs__button {
+  width: 80px;
+  border: none;
+  margin-left: 10px;
+}
+
+.tabs__button:hover,
+.tabs__button:focus {
+  border: 1px #cc1 solid;
+}
+
 .tabs__content {
   margin-top: 10px;
 }

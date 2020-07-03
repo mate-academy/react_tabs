@@ -21,6 +21,7 @@ export default class Tabs extends React.Component {
           {
             tabs.map((tab, index) => (
               <button
+                className="tabs__button"
                 type="button"
                 onClick={() => this.clickHandler(index)}
               >
