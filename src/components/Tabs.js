@@ -22,8 +22,8 @@ export class Tabs extends React.Component {
         {tabs.map((tab, index) => (
           <Tab
             tab={tab}
-            onFocus={() => this.changeTab(index)}
-            isFocused={this.state.tabNumber === index}
+            onSelect={() => this.changeTab(index)}
+            isSelected={this.state.tabNumber === index}
           />
         ))}
         <p>{tabs[this.state.tabNumber].content}</p>

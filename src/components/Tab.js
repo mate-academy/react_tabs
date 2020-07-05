@@ -2,11 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Shape } from './Shape';
 
-export const Tab = ({ tab, onFocus, isFocused }) => (
+export const Tab = ({ tab, onSelect, isSelected }) => (
   <button
     type="button"
-    className={isFocused ? 'selected tab' : 'tab'}
-    onClick={onFocus}
+    className={isSelected ? 'selected tab' : 'tab'}
+    onClick={onSelect}
   >
     {tab.title}
   </button>
@@ -14,8 +14,8 @@ export const Tab = ({ tab, onFocus, isFocused }) => (
 
 Tab.propTypes = {
   tab: Shape.isRequired,
-  onFocus: PropTypes.func.isRequired,
-  isFocused: PropTypes.bool.isRequired,
+  onSelect: PropTypes.func.isRequired,
+  isSelected: PropTypes.bool.isRequired,
 };
 
 export default Tab;

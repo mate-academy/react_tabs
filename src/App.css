@@ -18,3 +18,10 @@ button {
   color: #babcb3;
   background-color: red;
 }
+
+.tab:focus,
+.selected:focus {
+  outline-style: solid;
+  outline-width: 1px;
+  outline-color: #a5a89a;
+}
