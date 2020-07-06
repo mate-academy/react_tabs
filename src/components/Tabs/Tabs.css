@@ -1,0 +1,18 @@
+.button {
+  width: 80px;
+  height: 40px;
+  font-size: 18px;
+  color: #059b00;
+  background-color: #fff;
+  border: 1px solid transparent;
+  border-bottom-color: #ccc;
+  border-radius: 5px 5px 0 0;
+  cursor: pointer;
+  outline: none;
+}
+
+.activeButton {
+  color: black;
+  border: 1px solid #ccc;
+  border-bottom-color: #fff;
+}
