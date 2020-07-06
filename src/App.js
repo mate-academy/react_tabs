@@ -23,11 +23,13 @@ const tabs = [
 class App extends React.Component {
   state = {
     tabIndex: 0,
+    content: tabs[0].content,
   }
 
-  changeTabIndex = (index) => {
+  changeTabIndex = (index, content) => {
     this.setState({
       tabIndex: index,
+      content,
     });
   }
 
@@ -38,16 +40,17 @@ class App extends React.Component {
         <Tabs>
           {tabs.map((tab, index) => (
             <Tab
-              onTabSelected={() => this.changeTabIndex(index)}
               title={tab.title}
-              activeIndex={this.state.tabIndex === index}
+              activeIndex={this.state.tabIndex}
+              index={index}
+              onTabSelected={this.changeTabIndex}
               key={tab.title}
             >
               {tab.content}
             </Tab>
           ))}
         </Tabs>
-        <p className="App__text">{tabs[this.state.tabIndex].content}</p>
+        <p className="App__text">{this.state.content}</p>
       </>
     );
   }
