@@ -1,5 +1,5 @@
 import React from 'react';
-import './App.css';
+import './App.scss';
 import Tabs from './Components/Tabs';
 import Tab from './Components/Tab';
 
@@ -21,7 +21,6 @@ const tabs = [
 
 const App = () => (
   <>
-    <h1>React tabs</h1>
     <Tabs>
       <Tab title="Tab 2">
         It could be a text

@@ -1,0 +1,26 @@
+.tabs {
+  list-style: none;
+  border-bottom: 1px lightgrey solid;
+
+  &__tab {
+    display: inline;
+    border: none;
+
+  }
+
+  &__button {
+    padding: 5px;
+    font-size: 14px;
+    border: 1px white solid;
+    border-bottom: 3px white solid;
+    background-color: white;
+    border-radius: 2px;
+    outline: none;
+
+  }
+}
+
+.active {
+  border: 1px lightgrey solid;
+  border-top: 1px lightgrey solid;
+}

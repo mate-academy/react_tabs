@@ -12,6 +12,7 @@ export default class Tab extends Component {
       <button
         type="button"
         onClick={this.state.onTab}
+        className={this.props.active ? 'tabs__button active' : 'tabs__button'}
       >
         {this.state.title}
       </button>
@@ -22,6 +23,7 @@ export default class Tab extends Component {
 Tab.propTypes = {
   title: PropTypes.string.isRequired,
   onTabSelected: PropTypes.func,
+  active: PropTypes.bool.isRequired,
 };
 
 Tab.defaultProps = {

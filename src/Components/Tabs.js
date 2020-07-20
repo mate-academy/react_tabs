@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Tab from './Tab';
+import './Tabs.scss';
 
 export default class Tabs extends Component {
   state = {
@@ -19,11 +20,15 @@ export default class Tabs extends Component {
   render() {
     return (
       <>
-        <ul>
+        <ul className="tabs" activeIndex={this.state.tabIndex}>
           {this.state.tabs.map((tab, i) => (
-            <li key={tab.title}>
+            <li
+              key={tab.title}
+              className="tabs__tab"
+            >
               <Tab
                 title={tab.title}
+                active={this.state.tabIndex === i}
                 onTabSelected={() => this.onTabSelected(i)}
               >
                 {this.state.tabs[this.state.tabIndex].content}
