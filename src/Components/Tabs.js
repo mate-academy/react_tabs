@@ -5,10 +5,34 @@ import './Tabs.scss';
 
 export default class Tabs extends Component {
   state = {
-    tabIndex: this.props.index || 0,
-    tabs: this.props.tabs || this.props.children.map(child => ({
+    tabIndex: 0,
+    tabs: this.props.children.map(child => ({
       ...child.props, content: child.props.children,
     })),
+  }
+
+  componentDidMount() {
+    if (!this.props.index) {
+      this.setState({
+        tabIndex: 0,
+      });
+    } else {
+      this.setState({
+        tabIndex: this.props.index,
+      });
+    }
+
+    if (!this.props.tabs) {
+      this.setState({
+        tabs: this.props.children.map(child => ({
+          ...child.props, content: child.props.children,
+        })),
+      });
+    } else {
+      this.setState({
+        tabs: this.props.tabs,
+      });
+    }
   }
 
   onTabSelected = (i) => {
@@ -47,7 +71,11 @@ export default class Tabs extends Component {
 
 Tabs.propTypes = {
   index: PropTypes.number,
-  tabs: PropTypes.instanceOf(Array),
+  tabs: PropTypes.arrayOf({
+    title: PropTypes.string.isRequired,
+    onTabSelected: PropTypes.func,
+    active: PropTypes.bool.isRequired,
+  }),
   children: PropTypes.instanceOf(Object),
 };
 

@@ -1,24 +1,17 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 
-export default class Tab extends Component {
-  state = {
-    title: this.props.title,
-    onTab: this.props.onTabSelected,
-  }
+const Tab = props => (
+  <button
+    type="button"
+    onClick={props.onTabSelected}
+    className={props.active ? 'tabs__button active' : 'tabs__button'}
+  >
+    {props.title}
+  </button>
+);
 
-  render() {
-    return (
-      <button
-        type="button"
-        onClick={this.state.onTab}
-        className={this.props.active ? 'tabs__button active' : 'tabs__button'}
-      >
-        {this.state.title}
-      </button>
-    );
-  }
-}
+export default Tab;
 
 Tab.propTypes = {
   title: PropTypes.string.isRequired,
