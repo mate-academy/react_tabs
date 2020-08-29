@@ -37,5 +37,5 @@
 
 To implement the last point you'll need this theory
 - [JSX as prop](https://youtu.be/Pi-0DqoXVbc)
-- [Children](https://youtu.be/2dlvPZW_Bx8)
-- [Children](https://reactjs.org/docs/jsx-in-depth.html#children-in-jsx)
+- [Children (video)](https://youtu.be/2dlvPZW_Bx8)
+- [Children (docs)](https://reactjs.org/docs/jsx-in-depth.html#children-in-jsx)
