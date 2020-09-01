@@ -1,1 +1,40 @@
+.tabs {
+  position: relative;
+  margin-top: 20px;
+  margin-right: auto;
+  margin-left: auto;
+  width: 600px;
+}
 
+.tab {
+  padding-top: 20px;
+  width: 600px;
+  display: flex;
+  flex-direction: column;
+}
+
+.button {
+  padding: 10px;
+  width: 100px;
+  border: none;
+  background: none;
+  color: #5b97d3;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 400;
+}
+
+.button--active {
+  position: relative;
+  border: 1px solid grey;
+  border-radius: 5px;
+  border-bottom: 4px solid white;
+  color: black;
+}
+
+hr {
+  top: -3px;
+  margin: 0;
+  z-index: -1;
+  position: relative;
+}
