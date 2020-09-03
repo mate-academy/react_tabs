@@ -1,0 +1,36 @@
+.titles {
+  display: flex;
+  border-bottom: 1px solid #ecebec;
+  font-family: Helvetica, sans-serif;
+}
+
+.tab {
+  height: 40px;
+  width: 80px;
+  display: flex;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  box-sizing: border-box;
+  border-radius: 3px;
+  background: transparent;
+  border: none;
+  color: #547bb7;
+  font-size: 1em;
+}
+
+.tab--selected {
+  border-top: 1px solid #ecebec;
+  border-left: 1px solid #ecebec;
+  border-right: 1px solid #ecebec;
+}
+
+.tab--selected:after {
+  content: "";
+  height: 2px;
+  width: 100%;
+  position: absolute;
+  bottom: -2px;
+  background: white;
+}
