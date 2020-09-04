@@ -1,5 +1,6 @@
 import React from 'react';
 import './App.css';
+import { Tabs } from './Tabs';
 
 // eslint-disable-next-line no-unused-vars
 const tabs = [
@@ -17,8 +18,24 @@ const tabs = [
   },
 ];
 
-const App = () => (
-  <h1>React tabs</h1>
-);
+const preparedTabs = tabs.map((tab, index) => ({
+  ...tab, id: index,
+}));
+
+const App = () => {
+  const onTabChange = (title) => {
+    const p = document.querySelector('p');
+    const clickedTab = preparedTabs.find(tab => tab.title === title);
+
+    p.textContent = clickedTab.content;
+  };
+
+  return (
+    <div className="App">
+      <Tabs tabs={preparedTabs} onTabSelected={onTabChange} />
+      <p>{preparedTabs[0].content}</p>
+    </div>
+  );
+};
 
 export default App;
