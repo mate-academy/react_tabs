@@ -6,10 +6,8 @@ export class Tab extends React.Component {
     tabIndex: 0,
   }
 
-  changeIndex = (event, index) => {
-    if (event.keyCode === 9) {
-      this.setState({ tabIndex: index < 2 ? index + 1 : 0 });
-    }
+  changeIndex = (index) => {
+    this.setState({ tabIndex: index });
   }
 
   render() {
@@ -22,8 +20,8 @@ export class Tab extends React.Component {
             <button
               className="button"
               type="button"
-              onKeyDown={(event) => {
-                this.changeIndex(event, index);
+              onClick={() => {
+                this.changeIndex(index);
               }}
               key={tab.title}
             >
