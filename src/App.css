@@ -1,1 +1,12 @@
+.tab {
+  width: 100px;
+  height: 30px;
+  border: 1px solid lightgrey;
+  outline: none;
+  cursor: pointer;
+}
 
+.active {
+  background-color: #fff;
+  border-bottom: none;
+}
