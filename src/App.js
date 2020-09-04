@@ -22,20 +22,10 @@ const preparedTabs = tabs.map((tab, index) => ({
   ...tab, id: index,
 }));
 
-const App = () => {
-  const onTabChange = (title) => {
-    const p = document.querySelector('p');
-    const clickedTab = preparedTabs.find(tab => tab.title === title);
-
-    p.textContent = clickedTab.content;
-  };
-
-  return (
-    <div className="App">
-      <Tabs tabs={preparedTabs} onTabSelected={onTabChange} />
-      <p>{preparedTabs[0].content}</p>
-    </div>
-  );
-};
+const App = () => (
+  <div className="App">
+    <Tabs tabs={preparedTabs} />
+  </div>
+);
 
 export default App;
