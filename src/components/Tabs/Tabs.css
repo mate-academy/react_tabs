@@ -1,0 +1,31 @@
+.Tabs {
+  width: 50%;
+}
+
+.Tabs__header {
+  background-color: cadetblue;
+  width: 90px;
+  border: 1px solid silver;
+  outline: none;
+}
+
+.Tabs__selected {
+  position: relative;
+  background-color: #fff;
+}
+
+.Tabs__selected:after {
+  content: "";
+  height: 2px;
+  width: 88px;
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  background-color: #fff;
+}
+
+.Tabs__content {
+  margin: 0;
+  padding: 10px 5px;
+  border: 1px solid silver;
+}
