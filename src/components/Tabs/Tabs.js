@@ -1,7 +1,3 @@
-/* eslint-disable jsx-a11y/click-events-have-key-events */
-/* eslint-disable jsx-a11y/no-static-element-interactions */
-/* eslint-disable react/no-array-index-key */
-// I dont know what to do, so I just turned linter off
 import React from 'react';
 import ClassNames from 'classnames';
 import PropTypes from 'prop-types';
@@ -12,24 +8,27 @@ export const Tabs = (props) => {
 
   return (
     <div className="Tabs">
-      <div className="Tabs__list">
+      <div className="nav nav-tabs">
         {tabs.map((elem, index) => (
-          <div
-            key={index}
-            className={ClassNames({
-              Tabs__toggler: true,
-              'Tabs__toggler--active': index === indexOfActive,
-            })}
-            onClick={() => {
-              togglerHandler(index);
-            }}
-          >
-            {elem.title}
-          </div>
+          <li className="nav-item">
+            <a
+              href="#linterPlug"
+              type="button"
+              key={elem.title.split(' ').join('')} // word without spaces
+              className={ClassNames({
+                'nav-link': true,
+                active: index === indexOfActive,
+              })}
+              onClick={() => {
+                togglerHandler(index);
+              }}
+            >
+              {elem.title}
+            </a>
+          </li>
         ))}
-        <div className="Tabs__toggler Tabs__toggler--plug" />
       </div>
-      <p className="Tabs__content">
+      <p className="tab-content tab-pane fade active show">
         {tabs[indexOfActive].content}
       </p>
     </div>
