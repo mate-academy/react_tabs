@@ -9,16 +9,19 @@ export class Tabs extends React.Component {
   }
 
   render() {
+    const { tabs } = this.props;
+    const { selectedTab } = this.state;
+
     return (
       <div className="tabs">
         <nav className="titles">
-          {this.props.tabs.map(tab => (
+          {tabs.map(tab => (
             <button
               key={tab.id}
               type="button"
               className={ClassNames({
                 tab: true,
-                'tab--selected': tab.id === this.state.selectedTab,
+                'tab--selected': tab.id === selectedTab,
               })}
               onClick={() => {
                 this.setState({ selectedTab: tab.id });
@@ -30,7 +33,7 @@ export class Tabs extends React.Component {
         </nav>
         <p className="content">
           {this.props.tabs.find(
-            tab => tab.id === this.state.selectedTab,
+            tab => tab.id === selectedTab,
           ).content}
         </p>
       </div>
@@ -38,9 +41,6 @@ export class Tabs extends React.Component {
   }
 }
 
-/* .find(
-            tab => tab.id === this.setState.selectedTab
-          ).content */
 Tabs.propTypes = {
   tabs: PropTypes.arrayOf(
     PropTypes.shape(),
