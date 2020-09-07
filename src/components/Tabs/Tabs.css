@@ -1,0 +1,50 @@
+.tabs {
+  position: relative;
+  overflow: hidden;
+
+  margin: calc(var(--gap) * 3);
+}
+
+.buttons {
+  position: relative;
+  border-bottom: 1px solid var(--borderColor);
+}
+
+.button {
+  position: relative;
+  top: 1px;
+  padding: calc(var(--gap) / 2) var(--gap);
+
+  font-family: Roboto, sans-serif;
+  font-size: 16px;
+  color: #476593;
+  background-color: #fff;
+
+  border: 1px solid transparent;
+  border-bottom: none;
+  cursor: pointer;
+}
+
+.button:hover {
+  border: 1px solid var(--borderColor);
+  border-bottom: 1px solid transparent;
+  border-radius: 3px 3px 0 0;
+  color: var(--mainTextColor);
+}
+
+button:focus {
+  outline: none;
+}
+
+.button--active {
+  color: var(--mainTextColor);
+  border-radius: 3px 3px 0 0;
+  border: 1px solid var(--borderColor);
+  border-bottom: 1px solid transparent;
+}
+
+.hidden {
+  position: absolute;
+  visibility: hidden;
+  left: 10000px;
+}
