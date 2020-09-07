@@ -1,1 +1,8 @@
+button {
+  outline: none;
+}
 
+button:hover,
+button:focus {
+  border-bottom: none;
+}
