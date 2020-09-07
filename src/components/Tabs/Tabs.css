@@ -1,0 +1,25 @@
+.tabs {
+  list-style: none;
+  display: flex;
+  border-bottom: 1px solid #ddd;
+}
+
+.tab-link {
+  display: block;
+  text-decoration: none;
+  padding: 10px 15px;
+  margin-right: 2px;
+  border-radius: 4px 4px 0 0;
+}
+
+.selected {
+  color: #555;
+  border: 1px solid #ddd;
+  background-color: #fff;
+  border-bottom-color: transparent;
+  margin-bottom: -2px;
+}
+
+.tab-text {
+  margin-left: 40px;
+}
