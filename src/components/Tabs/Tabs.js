@@ -12,7 +12,7 @@ const Tabs = ({ tabs }) => {
         <button
           className={classes('tabs-btn', { btnCurrent: index === i })}
           type="button"
-          key={Math.random() * (tabs.length - 0) + 0}
+          key={tab}
           onClick={() => setIndex(i)}
         >
           {tab.title}
@@ -24,7 +24,10 @@ const Tabs = ({ tabs }) => {
 };
 
 Tabs.propTypes = {
-  tabs: PropTypes.arrayOf(PropTypes.object).isRequired,
+  tabs: PropTypes.arrayOf(PropTypes.shape({
+    title: PropTypes.string.isRequired,
+    content: PropTypes.string.isRequired,
+  })).isRequired,
 };
 
 export default Tabs;
