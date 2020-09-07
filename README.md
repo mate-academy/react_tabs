@@ -1,5 +1,5 @@
 # React Tabs
-- Replace `<your_account>` with your Github username in the [DEMO LINK](https://<your_account>.github.io/react_tabs/)
+- Replace `<your_account>` with your Github username in the [DEMO LINK](https://nanccyy.github.io/react_tabs/)
 - Follow the [React task guideline](https://github.com/mate-academy/react_task-guideline#react-tasks-guideline)
 
 ## Task
@@ -20,7 +20,7 @@
 4. (*) Add an ability to use Tabs like this:
     ```jsx harmony
     <Tabs>
-      <Tab title="Tab 2">
+                <Tab title="Tab 2">
         It could be a text
       </Tab>
 

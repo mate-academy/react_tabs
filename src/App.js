@@ -20,19 +20,19 @@ const tabs = [
 
 class App extends React.Component {
   state = {
-    number: 0,
+    currentTabIndex: 0,
     content: tabs[0].content,
   }
 
   onTabSelected = (index) => {
     this.setState({
       content: tabs[index].content,
-      number: index,
+      currentTabIndex: index,
     });
   }
 
   render() {
-    const { content, number } = this.state;
+    const { content, currentTabIndex } = this.state;
 
     return (
       <div>
@@ -42,7 +42,7 @@ class App extends React.Component {
           tabs={tabs}
           onSelected={this.onTabSelected}
           content={content}
-          activeNumber={number}
+          activeNumber={currentTabIndex}
         />
       </div>
     );
