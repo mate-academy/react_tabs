@@ -5,8 +5,7 @@ import PropTypes from 'prop-types';
 
 export class Tabs extends React.Component {
   state = {
-    selectedTab: this.props.tabs[0].title,
-    content: this.props.tabs[0].content,
+    selectedTab: 1,
   }
 
   render() {
@@ -15,28 +14,33 @@ export class Tabs extends React.Component {
         <nav className="titles">
           {this.props.tabs.map(tab => (
             <button
+              key={tab.id}
               type="button"
               className={ClassNames({
                 tab: true,
-                'tab--selected': tab.title === this.state.selectedTab,
+                'tab--selected': tab.id === this.state.selectedTab,
               })}
               onClick={() => {
-                this.setState({
-                  selectedTab: tab.title,
-                  content: tab.content,
-                });
+                this.setState({ selectedTab: tab.id });
               }}
             >
               {tab.title}
             </button>
           ))}
         </nav>
-        <p className="content">{this.state.content}</p>
+        <p className="content">
+          {this.props.tabs.find(
+            tab => tab.id === this.state.selectedTab,
+          ).content}
+        </p>
       </div>
     );
   }
 }
 
+/* .find(
+            tab => tab.id === this.setState.selectedTab
+          ).content */
 Tabs.propTypes = {
   tabs: PropTypes.arrayOf(
     PropTypes.shape(),
