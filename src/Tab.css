@@ -1,0 +1,18 @@
+.button {
+  width: 200px;
+  height: 30px;
+  background-color: #ffa69e;
+  border-color: #0081a7;
+  border-style: solid;
+}
+
+.button_active {
+  background-color: #eff7f6;
+  border-bottom: 3px solid #eff7f6;
+  outline: none;
+}
+
+.content {
+  padding: 20px;
+  background-color: #eff7f6;
+}
