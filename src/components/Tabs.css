@@ -1,0 +1,24 @@
+.tab {
+  height: 50px;
+  padding: 0 20px;
+  border: 1px solid black;
+  margin: 2px;
+  outline: 0;
+  margin-bottom: -1px;
+  background-color: rgb(255, 239, 169);
+}
+
+.tab--active {
+  border-bottom: 0;
+  background-color: rgb(228, 255, 177);
+}
+
+.content--none {
+  display: none;
+}
+
+.content {
+  padding: 20px;
+  border: 1px solid black;
+  background-color: rgb(228, 255, 177);
+}
