@@ -13,4 +13,5 @@
   background: linear-gradient(to bottom,
   rgba(201,222,150,1) 0%,rgba(138,182,107,1) 44%, rgba(102,201,82,1) 100%);
   border-color: rgb(54, 107, 43);
+  font-weight: bold;
 }

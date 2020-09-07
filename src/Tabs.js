@@ -28,7 +28,12 @@ export class Tabs extends React.PureComponent {
 }
 
 Tabs.propTypes = {
-  tabs: PropTypes.arrayOf(PropTypes.object).isRequired,
+  tabs: PropTypes.arrayOf(
+    PropTypes.shape({
+      title: PropTypes.string.isRequired,
+      content: PropTypes.string.isRequired,
+    }).isRequired,
+  ).isRequired,
   onSelected: PropTypes.func.isRequired,
   currentContent: PropTypes.string.isRequired,
 };
