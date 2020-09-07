@@ -1,1 +1,31 @@
+.container {
+  margin: 0 auto;
+  border: 1px solid grey;
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+}
 
+.tabs {
+  display: flex;
+  justify-content: space-between;
+}
+
+.button {
+  padding: 10px 50px;
+  cursor: pointer;
+  border: 1px solid transparent;
+  outline: none;
+}
+
+.button:hover {
+  border: 1px solid grey;
+}
+
+.content {
+  margin-left: 20px;
+}
+
+.select {
+  background-color: rgb(224, 194, 194);
+}
