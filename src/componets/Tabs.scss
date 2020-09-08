@@ -1,0 +1,48 @@
+.section {
+  width: 400px;
+  background-color: #a6dcef;
+  border-radius: 5px;
+  padding: 5px;
+
+  &__buttons {
+    //
+  }
+
+  &__button {
+    width: 100px;
+    height: 30px;
+    cursor: pointer;
+    background-color: #f2aaaa;
+    border: none;
+    font-weight: bold;
+    font-size: 15px;
+    text-transform: uppercase;
+    transition: background 250ms ease-in-out,
+      transform 150ms ease;
+
+    &:hover {
+      background-color: #ea5455;
+    }
+
+    &:focus {
+      outline: 1px solid #fff;
+      outline-style: dotted;
+      outline-offset: -4px;
+    }
+
+    &:active {
+      transform: scale(0.99);
+    }
+
+    &--tab {
+      background-color: #fff;
+    }
+  }
+
+  &__message {
+    width: 400px;
+    height: 200px;
+    background-color: #fff;
+
+  }
+}
