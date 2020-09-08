@@ -1,1 +1,15 @@
+.nav {
+  display: flex;
+  flex-wrap: wrap;
+  padding-left: 0;
+  list-style: none;
+}
 
+.nav-link {
+  border: none;
+  outline: none;
+}
+
+.active {
+  border: 1px solid blueviolet;
+}
