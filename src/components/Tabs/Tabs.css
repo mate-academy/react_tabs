@@ -1,0 +1,41 @@
+@import url("https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap");
+
+.tabs {
+  font-family: Indie Flower, cursive;
+}
+
+.tabs__btn {
+  font-family: Quicksand, sans-serif;
+
+  width: 100px;
+  height: 40px;
+  
+  background-color: #fff;
+  color: rgb(160, 160, 160);
+  
+  border: 2px solid rgb(255, 223, 175);
+  border-bottom: none;
+  border-radius: 5px;
+}
+
+.tabs__btn--active {
+  color: rgb(110, 139, 173);
+  border: 2px solid rgb(179, 214, 255);
+  border-bottom: #fff;
+  transform: translateY(3px);
+}
+
+.tabs__btn:active,
+.tabs__btn:focus {
+  outline: none;
+}
+
+.tabs__text {
+  width: 600px;
+
+  padding-top: 15px;
+  margin: 0;
+  
+  border-top: 2px solid rgb(179, 214, 255);
+}
