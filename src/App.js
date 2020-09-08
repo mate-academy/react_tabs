@@ -1,7 +1,6 @@
 import React from 'react';
-import './App.css';
+import { Tabs } from './Tabs';
 
-// eslint-disable-next-line no-unused-vars
 const tabs = [
   {
     title: 'Tab 1',
@@ -17,8 +16,33 @@ const tabs = [
   },
 ];
 
-const App = () => (
-  <h1>React tabs</h1>
-);
+class App extends React.Component {
+  state = {
+    index: 0,
+  }
+
+  onTabSelected = (index) => {
+    this.setState({
+      index,
+    });
+  }
+
+  render() {
+    const { index } = this.state;
+
+    return (
+      <div>
+        <Tabs
+          tabs={tabs}
+          tabIndex={index}
+          onChange={this.onTabSelected}
+        />
+        <div className="content">
+          {tabs[index].content}
+        </div>
+      </div>
+    );
+  }
+}
 
 export default App;
