@@ -1,0 +1,50 @@
+body {
+  background-color: rgb(27, 27, 27);
+}
+
+.App {
+  width: 60%;
+  margin: 0 auto;
+
+  &__title {
+    color: orange;
+    text-align: center;
+  }
+}
+
+.tabs-container {
+  width: 500px;
+  margin: 50px auto 0;
+
+  &__content {
+    margin: 0;
+    padding: 50px 0;
+    text-align: center;
+    color: #20232a;
+    font-size: 18px;
+    background-color: rgb(253, 236, 255);
+  }
+}
+
+.tabs {
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  grid-column-gap: 5px;
+  justify-content: start;
+
+  &__button {
+    padding: 10px 30px;
+    color: #fff;
+    background-color: rgb(136, 185, 37);
+    border: none;
+    cursor: pointer;
+
+    &--active {
+      background-color: pink;
+    }
+
+    &:focus {
+      outline: none;
+    }
+  }
+}
