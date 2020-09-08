@@ -1,0 +1,21 @@
+.tabs {
+  background-color: #f1f3f8;
+  height: 100px;
+
+  &__button {
+    background-color: #d6e0f0;
+    width: 33.3%;
+    height: 30px;
+    border: 0;
+    cursor: pointer;
+  }
+
+  &__content {
+    padding-left: 10px;
+  }
+}
+
+.selected {
+  background-color: #8d93ab;
+  color: #f1f3f8;
+}
