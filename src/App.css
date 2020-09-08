@@ -1,1 +1,30 @@
+.buttons {
+  margin: 0;
+  list-style: none;
+  display: flex;
+}
 
+.button {
+  background-color: #fff8f8;
+  padding: 10px;
+  width: 80px;
+  height: 80px;
+  border-bottom: none;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  outline: none;
+}
+
+.button-selected {
+  font-weight: bold;
+  background-color: rgb(220,220,220);
+}
+
+.content {
+  padding: 25px;
+  margin: 0;
+  width: 300px;
+  border-radius: 10px;
+  background-color: rgb(220,220,220);
+  height: 200px;
+}
