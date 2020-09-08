@@ -1,0 +1,13 @@
+.tab {
+  outline: none;
+  border: none;
+}
+
+.tab--active {
+  background-color: red;
+  border-bottom: none;
+}
+
+.tab__content {
+  background-color: red;
+}
