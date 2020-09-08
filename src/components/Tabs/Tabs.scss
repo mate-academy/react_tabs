@@ -1,0 +1,31 @@
+* {
+  box-sizing: border-box;
+}
+
+.tabs {
+  width: 300px;
+
+  &__item {
+    width: 75px;
+    height: 40px;
+    border: 1px solid #72d6ee;
+    outline: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+
+  &__content {
+    padding: 10px;
+    margin: 0;
+    width: 350px;
+    height: 100px;
+    background-color: beige;
+  }
+}
+
+.selected {
+  border-radius: 2px;
+  background-color: #a7d2de;
+  border-bottom-color: #a7d2de;
+  font-weight: bold;
+}
