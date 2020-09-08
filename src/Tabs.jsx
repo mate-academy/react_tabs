@@ -20,7 +20,9 @@ export class Tabs extends React.Component {
           {tabs.map((tab, index) => (
             <li>
               <button
-                className="buttons__button"
+                className={
+                  `button ${(index === tabIndex) ? 'button-selected' : ''}`
+                }
                 type="button"
                 onClick={() => {
                   this.onTabSelected(index);
