@@ -18,7 +18,43 @@ const tabs = [
 ];
 
 const App = () => (
-  <h1>React tabs</h1>
+  <Tabs tabs={tabs} />
 );
+
+class Tabs extends React.Component {
+  state = {
+    activeTabIndex: 0,
+  };
+
+  changeIndex = (index) => {
+    this.setState({ activeTabIndex: index });
+  };
+
+  render() {
+    return (
+      <div>
+        {tabs.map((tab, index) => (
+          <button
+            type="button"
+            className={
+              `button${
+                index === this.state.activeTabIndex
+                  ? ' button_active' : ''}`
+            }
+            key={tab.title}
+            onClick={() => this.changeIndex(index)}
+          >
+            {tab.title}
+          </button>
+        ))}
+        <div
+          className="content"
+        >
+          {tabs[this.state.activeTabIndex].content}
+        </div>
+      </div>
+    );
+  }
+}
 
 export default App;
