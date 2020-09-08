@@ -1,24 +1,28 @@
+/* eslint-disable max-len */
 import React from 'react';
-import './App.css';
+import Tabs from './Tabs';
+import './App.scss';
 
 // eslint-disable-next-line no-unused-vars
 const tabs = [
   {
-    title: 'Tab 1',
-    content: 'Some text 1',
+    title: 'Kiev',
+    content: 'Kiev is the capital and most populous city of Ukraine. It is in north-central Ukraine along the Dnieper River. Its population in July 2015 was 2,887,974 (though higher estimated numbers have been cited in the press),making Kiev the seventh-most populous city in Europe.',
   },
   {
-    title: 'Tab 2',
-    content: 'Some text 2',
+    title: 'Lviv',
+    content: 'Lviv is the largest city in western Ukraine and the seventh-largest city in the country overall, with a population of 755 800 as of 2020. Lviv is one of the main cultural centres of Ukraine.',
   },
   {
-    title: 'Tab 3',
-    content: 'Some text 3',
+    title: 'Odessa',
+    content: 'Odessa is the third most populous city of Ukraine and a major tourism center, seaport and transport hub located on the northwestern shore of the Black Sea. It is also the administrative center of the Odessa Oblast and a multiethnic cultural center. Odessa is sometimes called the "pearl of the Black Sea", the "South Capital", and "Southern Palmyra".',
   },
 ];
 
 const App = () => (
-  <h1>React tabs</h1>
+  <div className="App">
+    <Tabs tabs={tabs} />
+  </div>
 );
 
 export default App;
