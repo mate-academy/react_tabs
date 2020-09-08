@@ -12,13 +12,6 @@
     outline: none;
     cursor: pointer;
     transition: background-color 0.3s;
-
-    &:focus {
-      border-radius: 2px;
-      background-color: #a7d2de;
-      border-bottom-color: #a7d2de;
-      font-weight: bold;
-    }
   }
 
   &__content {
@@ -28,4 +21,11 @@
     height: 100px;
     background-color: beige;
   }
+}
+
+.selected {
+  border-radius: 2px;
+  background-color: #a7d2de;
+  border-bottom-color: #a7d2de;
+  font-weight: bold;
 }

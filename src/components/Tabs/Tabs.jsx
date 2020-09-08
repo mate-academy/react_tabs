@@ -20,7 +20,7 @@ export class Tabs extends React.Component {
         {tabs.map((tab, index) => (
           <button
             key={tab.title}
-            className="tabs__item"
+            className={`tabs__item ${index === tabIndex ? 'selected' : ''}`}
             value={tab.content}
             onClick={() => {
               this.changeTab(index);
