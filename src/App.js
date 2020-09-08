@@ -24,9 +24,9 @@ class App extends React.Component {
     activeTabId: 0,
   }
 
-  onClick = (i) => {
+  onTabSelected = (index) => {
     this.setState({
-      activeTabId: i,
+      activeTabId: index,
     });
   }
 
@@ -36,7 +36,7 @@ class App extends React.Component {
         <Tabs
           tabs={tabs}
           activeTabId={this.state.activeTabId}
-          onClick={this.onClick}
+          onTabSelected={this.onTabSelected}
           content={this.state.content}
         />
       </div>

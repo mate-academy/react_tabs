@@ -1,15 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Tabs = ({ tabs, activeTabId, onClick }) => (
+const Tabs = ({ tabs, activeTabId, onTabSelected }) => (
   <div className="tabs">
-    {tabs.map((tab, i) => (
+    {tabs.map((tab, index) => (
       <button
         className="tabs__buttons"
         type="button"
         key={tab.title}
         onClick={() => (
-          onClick(i))}
+          onTabSelected(index))}
       >
         {tab.title}
       </button>
@@ -27,7 +27,7 @@ Tabs.propTypes = {
     ).isRequired,
   ).isRequired,
   activeTabId: PropTypes.number.isRequired,
-  onClick: PropTypes.func.isRequired,
+  onTabSelected: PropTypes.func.isRequired,
 };
 
 export default Tabs;
