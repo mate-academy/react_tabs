@@ -1,1 +1,11 @@
+button:active,
+button:focus {
+  outline: none;
+}
 
+.App {
+  margin: 40px;
+  width: 300px;
+  padding-left: 20px;
+  color: #393b44;
+}
