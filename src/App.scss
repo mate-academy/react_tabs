@@ -1,0 +1,13 @@
+.tabs__button {
+  cursor: pointer;
+  outline: none;
+  border: none;
+  margin-bottom: 5px;
+  background-color: #fff;
+  color: rgb(31, 31, 252);
+
+  &--active {
+    color: gray;
+    border: 1px solid gray;
+  }
+}
