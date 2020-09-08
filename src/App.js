@@ -1,24 +1,29 @@
 import React from 'react';
-import './App.css';
+import './App.scss';
+import { Tabs } from './components/Tabs';
 
-// eslint-disable-next-line no-unused-vars
 const tabs = [
   {
-    title: 'Tab 1',
-    content: 'Some text 1',
+    title: 'HTML',
+    // eslint-disable-next-line max-len
+    content: 'HTML — це мова тегів, якою пишуться гіпертекстові документи для мережі Інтернет Веб-браузери отримують HTML-документи з веб-сервера або з локальної пам\'яті і передають документи в мультимедійні веб-сторінки. HTML описує структуру веб-сторінки семантично і спочатку включені сигнали для зовнішнього вигляду документа.',
   },
   {
-    title: 'Tab 2',
-    content: 'Some text 2',
+    title: 'CSS',
+    // eslint-disable-next-line max-len
+    content: 'CSS — це спеціальна мова стилю сторінок, що використовується для опису їхнього зовнішнього вигляду. Самі ж сторінки написані мовами розмітки даних. CSS є основною технологією всесвітньої павутини, поряд із HTML та JavaScript.',
   },
   {
-    title: 'Tab 3',
-    content: 'Some text 3',
+    title: 'React',
+    // eslint-disable-next-line max-len
+    content: 'React — відкрита JavaScript бібліотека для створення інтерфейсів користувача, яка покликана вирішувати проблеми часткового оновлення вмісту веб-сторінки, з якими стикаються в розробці односторінкових застосунків. Розробляється Facebook, Instagram і спільнотою індивідуальних розробників.',
   },
 ];
 
 const App = () => (
-  <h1>React tabs</h1>
+  <div className="App">
+    <Tabs tabs={tabs} />
+  </div>
 );
 
 export default App;
