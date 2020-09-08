@@ -19,10 +19,29 @@ const tabs = [
   },
 ];
 
-const App = () => (
-  <div className="App">
-    <Tabs tabs={tabs} />
-  </div>
-);
+class App extends React.Component {
+  state = {
+    activeTabId: 0,
+  }
+
+  onClick = (i) => {
+    this.setState({
+      activeTabId: i,
+    });
+  }
+
+  render() {
+    return (
+      <div className="App">
+        <Tabs
+          tabs={tabs}
+          activeTabId={this.state.activeTabId}
+          onClick={this.onClick}
+          content={this.state.content}
+        />
+      </div>
+    );
+  }
+}
 
 export default App;
