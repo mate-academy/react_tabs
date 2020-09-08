@@ -37,7 +37,6 @@ class App extends React.Component {
           tabs={tabs}
           activeTabId={this.state.activeTabId}
           onTabSelected={this.onTabSelected}
-          content={this.state.content}
         />
       </div>
     );

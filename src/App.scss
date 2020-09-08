@@ -2,7 +2,7 @@
   margin: 30px auto;
   width: 800px;
 
-  &__buttons {
+  &__button {
     margin-right: 20px;
     width: 100px;
     height: 30px;
@@ -12,7 +12,7 @@
     font-weight: 800;
     cursor: pointer;
 
-    &:hover {
+    &--selected {
       background-color: rgb(53, 11, 77);
     }
   }
@@ -24,3 +24,5 @@
     color: rgb(53, 11, 77);
   }
 }
+
+

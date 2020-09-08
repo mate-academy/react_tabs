@@ -1,11 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import ClassNames from 'classnames';
 
 const Tabs = ({ tabs, activeTabId, onTabSelected }) => (
   <div className="tabs">
     {tabs.map((tab, index) => (
       <button
-        className="tabs__buttons"
+        className={ClassNames(
+          'tabs__button',
+          { ' tabs__button--selected': activeTabId === index },
+        )}
         type="button"
         key={tab.title}
         onClick={() => (
