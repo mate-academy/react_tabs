@@ -17,7 +17,7 @@
     ```
 2. Implement `onTabSelected` callback triggered on tab change with tab data as an argument
 3. Add `index` prop (default `0`)  to set an index of tab active at the beginning
-4. (*) Add an ability to use Tabs like this: ([Children](https://youtu.be/2dlvPZW_Bx8) video will help)
+4. (*) Add an ability to use Tabs like this:
     ```jsx harmony
     <Tabs>
       <Tab title="Tab 2">
@@ -34,3 +34,8 @@
       </Tab>
     </Tabs>
     ```
+
+To implement the last point you'll need this theory
+- [JSX as prop](https://youtu.be/Pi-0DqoXVbc)
+- [Children (video)](https://youtu.be/2dlvPZW_Bx8)
+- [Children (docs)](https://reactjs.org/docs/jsx-in-depth.html#children-in-jsx)
