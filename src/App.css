@@ -1,1 +1,21 @@
+.tabs__button {
+  height: 50px;
+  width: 100px;
+  background-color: white;
+  border: none;
+  color: blue;
+  cursor: pointer;
+  font-weight: bold;
+}
 
+.selected {
+  border: 1px solid grey;
+  color: black;
+  border-bottom: none;
+  transform: translateY(1px);
+}
+
+.text {
+  padding: 20px;
+  border-top: 1px solid grey;
+}
