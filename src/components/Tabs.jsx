@@ -4,23 +4,23 @@ import PropTypes from 'prop-types';
 
 export class Tabs extends React.Component {
   state = {
-    index: 0,
+    tabIndex: 0,
   }
 
-  tabSelect = i => this.setState({ index: i });
+  tabSelect = index => this.setState({ tabIndex: index });
 
   render() {
-    const { index } = this.state;
+    const { tabIndex } = this.state;
     const { tabs } = this.props;
 
     return (
       <>
-        {tabs.map((tab, i) => (
+        {tabs.map((tab, index) => (
           <button
             type="button"
-            className={i === index ? 'tab tab--active' : 'tab'}
+            className={index === tabIndex ? 'tab tab--active' : 'tab'}
             key={tab.title}
-            onClick={() => this.tabSelect(i)}
+            onClick={() => this.tabSelect(index)}
           >
             {tab.title}
           </button>
@@ -28,7 +28,7 @@ export class Tabs extends React.Component {
         <div
           className="tab__content"
         >
-          {tabs[index].content}
+          {tabs[tabIndex].content}
         </div>
       </>
     );
@@ -36,5 +36,14 @@ export class Tabs extends React.Component {
 }
 
 Tabs.propTypes = {
-  tabs: PropTypes.arrayOf(PropTypes.object).isRequired,
+  tabs: PropTypes.arrayOf(
+    PropTypes.shape({
+      title: PropTypes.string.isRequired,
+      content: PropTypes.string.isRequired,
+    }),
+  ),
+};
+
+Tabs.defaultProps = {
+  tabs: [],
 };
