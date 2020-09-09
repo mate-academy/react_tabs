@@ -1,1 +1,21 @@
+button {
+  background-color: #fff;
+  border: none;
+  cursor: pointer;
+  margin: 0 5px;
+}
 
+button:active,
+button:focus,
+.active {
+  outline: none !important;
+  border-left: 1px solid black;
+  border-top: 1px solid black;
+  border-right: 1px solid black;
+  transform: scale(1.09);
+}
+
+.text {
+  border-top: 1px solid black;
+  margin: 0;
+}
