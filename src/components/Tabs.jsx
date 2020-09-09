@@ -20,13 +20,9 @@ export class Tabs extends React.Component {
               'tabs--active': currentIndex === index,
             })}
             type="button"
-            onClick={(event) => {
-              const pickedTab = event.target.textContent;
-
-              this.setState({
-                currentIndex: (pickedTab[pickedTab.length - 1]) - 1,
-              });
-            }}
+            onClick={(event) => this.setState({
+              currentIndex: index,
+            })}
           >
             {item.title}
           </button>
