@@ -1,1 +1,18 @@
+.tabs__wrapper {
+  width: 300px;
+}
 
+.tabs {
+  margin-right: 30px;
+}
+
+.tabs__text {
+  display: block;
+  height: 50px;
+  padding: 10px;
+  border: 1px solid black;
+}
+
+.tabs--active {
+  background-color: lightblue;
+}
