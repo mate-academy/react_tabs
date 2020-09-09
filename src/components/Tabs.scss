@@ -1,0 +1,45 @@
+.tabBox {
+  display: flex;
+  justify-content: center;
+}
+
+
+.horizontalLine {
+  background: rgba(26,90,76,.5);
+  height: 1px;
+  width: 100%;
+}
+
+.tab {
+  width: 100px;
+  height: 50px;
+  border: 1px solid rgba(26,90,76,.5);
+  cursor: pointer;
+  outline: none;
+  transition: .3s;
+  border-radius: 15px;
+  margin-right: 10px;
+}
+
+.chosenButton {
+  background-color: darkgreen;
+}
+
+.bodyContent {
+  background-color: #69777a;
+  height: 100vh;
+  font-size: 30px;
+}
+
+.bodyColor1 {
+  background-color: #69777a;
+}
+
+.bodyColor2 {
+  background-color: #8e37ad;
+}
+
+.bodyColor3 {
+  background-color: #5aad37;
+}
+
