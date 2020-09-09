@@ -1,1 +1,32 @@
+body {
+  background-color: burlywood;
+  box-sizing: content-box;
+}
 
+.container {
+  display: flex;
+}
+
+.tab {
+  color: blue;
+  background-color: yellow;
+  padding: 10px;
+  width: 100px;
+  cursor: pointer;
+}
+
+.tab_selected {
+  color: black;
+  outline: none;
+  border-bottom: none;
+  font-weight: bold;
+  background-color: whitesmoke;
+}
+
+.content {
+  padding: 25px;
+  margin: 0;
+  border: 2px solid gray;
+  border-top: none;
+  background-color: whitesmoke;
+}
