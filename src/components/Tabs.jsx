@@ -5,7 +5,6 @@ import './Tab.css';
 export class Tabs extends React.Component {
   state = {
     currentIndex: 0,
-    tabs: this.props.tabs,
   }
 
   changeIndex = (index) => {
@@ -13,7 +12,8 @@ export class Tabs extends React.Component {
   }
 
   render() {
-    const { tabs, currentIndex } = this.state;
+    const { currentIndex } = this.state;
+    const { tabs } = this.props;
 
     return (
       <div className="container">
