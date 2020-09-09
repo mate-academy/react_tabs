@@ -1,0 +1,18 @@
+.tabs {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  width: 400px;
+}
+
+.tabs__button {
+  background-color: grey;
+  height: 40px;
+  cursor: pointer;
+  border: none;
+  outline: none;
+}
+
+.tabs__button-selected {
+  background-color: white;
+
+}
