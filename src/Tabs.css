@@ -1,0 +1,40 @@
+.container {
+  margin: 20px;
+}
+
+.tabs__item {
+  width: 80px;
+  height: 30px;
+  outline: none;
+  border: 1px solid grey;
+  border-left: none;
+  border-radius: 0;
+  color: rgb(63, 62, 62);
+  background-color: rgb(221, 200, 241);
+  cursor: pointer;
+
+  transition: 0.2s;
+}
+
+.tabs__item:first-of-type {
+  border-left: 1px solid grey;
+}
+
+.tabs__item--active {
+  border-bottom: 1px solid #fff;
+  color: rgb(124, 70, 173);
+  background-color: #fff;
+}
+
+.tabs__content {
+  position: relative;
+  top: -1px;
+  width: 400px;
+  height: 300px;
+  padding: 20px;
+  border: 1px solid grey;
+  color: rgb(63, 62, 62);
+  background-color: #fff;
+
+  z-index: -1;
+}
