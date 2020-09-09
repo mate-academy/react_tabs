@@ -12,8 +12,7 @@ const Tabs = ({ tabs, activeTabId, onTabSelected }) => (
         )}
         type="button"
         key={tab.title}
-        onClick={() => (
-          onTabSelected(index))}
+        onClick={() => onTabSelected(index)}
       >
         {tab.title}
       </button>
