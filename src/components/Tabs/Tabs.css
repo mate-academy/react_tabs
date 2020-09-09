@@ -1,0 +1,20 @@
+.tabs__button {
+  cursor: pointer;
+  width: 60px;
+  height: 40px;
+  outline: none;
+  border: 1px solid dimgrey;
+  background-color: darkslategrey;
+}
+
+.active {
+  background-color: lightgreen;
+  border-bottom: none;
+}
+
+.tabs__content {
+  background-color: darkslategrey;
+  margin: 0;
+  height: 300px;
+  width: 50%;
+}
