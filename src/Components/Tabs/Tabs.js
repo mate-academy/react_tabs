@@ -25,7 +25,12 @@ export const Tabs = ({ tabs, activeTab, tabHandler }) => (
 );
 
 Tabs.propTypes = {
-  tabs: PropTypes.arrayOf(PropTypes.object).isRequired,
+  tabs: PropTypes.arrayOf(
+    PropTypes.shape({
+      title: PropTypes.string.isRequired,
+      content: PropTypes.string.isRequired,
+    }),
+  ).isRequired,
   activeTab: PropTypes.func.isRequired,
   tabHandler: PropTypes.func.isRequired,
 };
