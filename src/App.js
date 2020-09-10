@@ -1,5 +1,6 @@
 import React from 'react';
 import './App.css';
+import { Tabs } from './components/Tabs/Tabs';
 
 // eslint-disable-next-line no-unused-vars
 const tabs = [
@@ -17,8 +18,29 @@ const tabs = [
   },
 ];
 
-const App = () => (
-  <h1>React tabs</h1>
-);
+export class App extends React.Component {
+  state = {
+    tabs: tabs.map((tab, index) => ({
+      ...tab,
+      id: index,
+    })),
+    currentTab: 0,
+  }
 
-export default App;
+  onTabSelected = (currentTab) => {
+    this.setState({ currentTab });
+  }
+
+  render() {
+    return (
+      <>
+        <h1>React tabs</h1>
+        <Tabs
+          tabs={this.state.tabs}
+          currentTab={this.state.currentTab}
+          onSelected={this.onTabSelected}
+        />
+      </>
+    );
+  }
+}

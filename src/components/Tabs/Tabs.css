@@ -1,0 +1,12 @@
+.tab {
+  padding: 5px 10px;
+}
+
+.active {
+  border-bottom: none;
+  background-color: #fff;
+}
+
+.tab:focus {
+  outline: none;
+}
