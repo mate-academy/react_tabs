@@ -1,1 +1,23 @@
+.App {
+  width: 460px;
+  margin: 20px;
+  padding: 20px;
+  text-align: center;
+  background-color: #fcf9f5;
+  border-radius: 5px;
+  box-shadow: 0 0 8px 2px #c5c1ba;
+}
 
+button {
+  width: 150px;
+  height: 40px;
+  background-color: #fcf4d2;
+  border: none;
+  outline: none;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+button.active {
+  background-color: #f8ebb0;
+}
