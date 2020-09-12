@@ -1,0 +1,30 @@
+@import url("https://fonts.googleapis.com/css2?family=Fira+Sans&display=swap");
+
+.tabs__list {
+  font-family: "Fira Sans", sans-serif;
+}
+
+.tabs__button {
+  width: 80px;
+  height: 40px;
+  font-family: inherit;
+  text-transform: uppercase;
+  font-size: 18px;
+  color: #17abdf;
+  border: none;
+  background-color: white;
+  margin-right: 20px;
+  cursor: pointer;
+}
+
+.tabs__button--active {
+  color: #000;
+}
+
+.tabs__content {
+  margin: 5px;
+  width: 400px;
+  text-align: center;
+  padding-top: 20px;
+  border-top: 1px solid #6d6f6f;
+}
