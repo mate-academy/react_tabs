@@ -1,0 +1,21 @@
+.tabButton {
+  border: none;
+  outline: none;
+  background-color: white;
+}
+
+.tabButton__active {
+  background-color: aquamarine;
+  color: blue;
+  border: solid 1px grey;
+  border-bottom: none;
+  position: relative;
+  top: 1px;
+  border-radius: 5px 5px 0 0;
+}
+
+.tab-text {
+  margin: 0;
+  padding: 10px;
+  border: solid 1px grey;
+}
