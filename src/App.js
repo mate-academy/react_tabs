@@ -1,6 +1,9 @@
 import React from 'react';
 import './App.css';
 
+import { Tabs } from './components/Tabs';
+import { Tab } from './components/Tab';
+
 // eslint-disable-next-line no-unused-vars
 const tabs = [
   {
@@ -18,7 +21,26 @@ const tabs = [
 ];
 
 const App = () => (
-  <h1>React tabs</h1>
+  <div className="container">
+    <h1>React tabs</h1>
+
+    {/* <Tabs children={tabs} /> */}
+
+    <Tabs>
+      <Tab title="Tab 2">
+        It could be a text
+      </Tab>
+
+      <Tab title="Tab 3">
+        <div>1</div>
+        <div>2</div>
+      </Tab>
+
+      <Tab title="Tab 1">
+        Or even any JSX
+      </Tab>
+    </Tabs>
+  </div>
 );
 
 export default App;
