@@ -20,27 +20,55 @@ const tabs = [
   },
 ];
 
-const App = () => (
-  <div className="container">
-    <h1>React tabs</h1>
+class App extends React.Component {
+  state = {
+    activeTab: 'Tab 1',
+  }
 
-    {/* <Tabs children={tabs} /> */}
+  onTabSelected = (title) => {
+    this.setState(state => ({
+      activeTab: state.title,
+    }));
+  }
 
-    <Tabs>
-      <Tab title="Tab 2">
-        It could be a text
-      </Tab>
+  render() {
+    const { activeTab } = this.state;
 
-      <Tab title="Tab 3">
-        <div>1</div>
-        <div>2</div>
-      </Tab>
+    return (
+      <div className="container">
+        <h1>React tabs</h1>
 
-      <Tab title="Tab 1">
-        Or even any JSX
-      </Tab>
-    </Tabs>
-  </div>
-);
+        {/* <Tabs tabs={tabs} /> */}
+
+        <Tabs>
+          <Tab
+            title="Tab 2"
+            activeTab={activeTab}
+            onTabSelected={this.onTabSelected}
+          >
+            It could be a text
+          </Tab>
+
+          <Tab
+            title="Tab 3"
+            activeTab={activeTab}
+            onTabSelected={this.onTabSelected}
+          >
+            <div>1</div>
+            <div>2</div>
+          </Tab>
+
+          <Tab
+            title="Tab 1"
+            activeTab={activeTab}
+            onTabSelected={this.onTabSelected}
+          >
+            Or even any JSX
+          </Tab>
+        </Tabs>
+      </div>
+    );
+  }
+}
 
 export default App;

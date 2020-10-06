@@ -1,26 +1,25 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import classNames from 'classnames';
+import PropTypes from 'prop-types';
 
-export const Tab = ({ tab, activeTab, index, onTabSelected }) => (
+export const Tab = props => (
   <>
     <button
       type="button"
       className={classNames(
         'tab',
-        { active: activeTab === index },
+        { active: props.activeTab === props.title },
       )}
-      key={tab.title}
-      onClick={() => onTabSelected(index)}
+      key={props.title}
+      onClick={() => props.onTabSelected(props.title)}
     >
-      {tab.title}
+      {props.title}
     </button>
   </>
 );
 
 Tab.propTypes = {
-  tab: PropTypes.objectOf(PropTypes.any).isRequired,
-  activeTab: PropTypes.number.isRequired,
-  index: PropTypes.number.isRequired,
+  title: PropTypes.string.isRequired,
+  activeTab: PropTypes.string.isRequired,
   onTabSelected: PropTypes.func.isRequired,
 };
