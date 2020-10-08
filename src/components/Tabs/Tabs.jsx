@@ -9,12 +9,14 @@ export const Tabs = props => (
     </div>
 
     <div className="content">
-      {props.children.find(tab => tab.title === props.activeTab).props.children}
+      {
+        props.children
+          .find(tab => tab.props.title === tab.props.activeTab).props.children
+      }
     </div>
   </>
 );
 
 Tabs.propTypes = {
   children: PropTypes.arrayOf(PropTypes.object).isRequired,
-  activeTab: PropTypes.string.isRequired,
 };
