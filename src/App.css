@@ -1,1 +1,34 @@
 
+.container {
+  border: 1px solid #ccc;
+  background-color: #f1f1f1;
+}
+
+.tab {
+  background-color: inherit;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  transition: 0.3s;
+  font-size: 17px;
+}
+
+button:hover {
+  background-color: #ddd;
+}
+
+.tab_selected {
+  background-color: #ccc;
+}
+
+.tabContent {
+  display: block;
+  padding: 6px 12px;
+  text-align: left;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-top: none;
+  margin: 0;
+  font-size: 25px;
+}
