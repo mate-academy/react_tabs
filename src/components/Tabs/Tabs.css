@@ -1,0 +1,10 @@
+.text {
+  padding: 30px 20px;
+  font-size: 26px;
+  color: rgb(15, 31, 241);
+}
+
+.tab.active {
+  background-color: rgb(15, 31, 241);
+  color: #fff;
+}
