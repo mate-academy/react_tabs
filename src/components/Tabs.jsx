@@ -21,24 +21,18 @@ export class Tabs extends React.Component {
     const { tabs } = this.props;
 
     return (
-      <table>
-        <thead>
-          <tr onClick={this.onTabSelected}>
-            {tabs.map(tab => (
-              <th key={tab.title}>
-                {tab.title}
-              </th>
-            ))}
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>
-              {tabs[index].content}
-            </td>
-          </tr>
-        </tbody>
-      </table>
+      <>
+        {tabs.map(tab => (
+          <button
+            type="button"
+            key={tab.title}
+            onClick={this.onTabSelected}
+          >
+            {tab.title}
+          </button>
+        ))}
+        <p>{tabs[index].content}</p>
+      </>
     );
   }
 }
