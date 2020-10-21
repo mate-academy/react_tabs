@@ -1,0 +1,12 @@
+.tabs {
+  font-family: Arial, Helvetica, sans-serif;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.tabs__buttons {
+  list-style-type: none;
+  display: flex;
+  padding-left: 0;
+  border-bottom: 1px solid silver;
+}
