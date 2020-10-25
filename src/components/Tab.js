@@ -1,5 +1,6 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import React from 'react';
+import classNames from 'classnames';
 import PropTypes from 'prop-types';
 
 class Tab extends React.Component {
@@ -16,19 +17,18 @@ class Tab extends React.Component {
   }
 
   render() {
-    let className = 'tab-list-item';
-
-    if (this.props.activeTab === this.label) {
-      className += ' tab-list-active';
-    }
+    const { label, activeTab } = this.props;
 
     return (
       // eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions
       <li
         onClick={this.onClick}
-        className={className}
+        className={classNames(
+          'tab',
+          { activeTab: activeTab === label },
+        )}
       >
-        {this.props.label}
+        {label}
       </li>
     );
   }

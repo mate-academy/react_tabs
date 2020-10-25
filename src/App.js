@@ -23,15 +23,11 @@ function App() {
     <div>
       <h1>Tabs Demo</h1>
       <Tabs>
-        <div label={tabs[0].title}>
-          {tabs[0].content}
-        </div>
-        <div label={tabs[1].title}>
-          {tabs[1].content}
-        </div>
-        <div label={tabs[2].title}>
-          {tabs[2].content}
-        </div>
+        {tabs.map(tab => (
+          <div label={tab.title}>
+            {tab.content}
+          </div>
+        ))}
       </Tabs>
     </div>
   );
