@@ -1,0 +1,13 @@
+.tab {
+  padding: 15px 15px 5px;
+  border: none;
+  border-bottom: 1px solid #3326C3;
+  background-color: white;
+  outline: none;
+
+  &--active {
+    padding-top: 14px;
+    border-width: 2px;
+    color: #3326C3;
+  }
+}
