@@ -33,13 +33,13 @@ const preparedTabs = tabs.map((tab, index) => ({
 
 class App extends React.PureComponent {
   state = {
-    tabs: preparedTabs,
+    startIndex: 4,
   }
 
   render() {
     return (
       <div className="App">
-        <Tabs tabs={this.state.tabs} index={1} />
+        <Tabs index={this.state.startIndex} tabs={preparedTabs} />
       </div>
     );
   }

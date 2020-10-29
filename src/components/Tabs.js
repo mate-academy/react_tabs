@@ -2,12 +2,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Tab } from './Tab';
-import { tabShape } from '../shapes/TabShape';
+import { tabType } from '../types/TabType';
 
 export class Tabs extends React.PureComponent {
   state = {
     active: this.props.index,
-    content: this.props.tabs[this.props.index].content,
+    content: this.props.tabs[this.props.index]
+      ? this.props.tabs[this.props.index].content
+      : 'Ooops... Something went wrong',
   }
 
   onTabSelected = (chosen, child) => {
@@ -28,12 +30,10 @@ export class Tabs extends React.PureComponent {
             <li className="nav-item" key={tab.id}>
               <Tab
                 callback={this.onTabSelected}
-                tab={tab}
                 stateActive={active}
+                {...tab}
               >
-                {/* <div> */}
                 {tab.content}
-                {/* </div> */}
               </Tab>
             </li>
           ))}
@@ -48,8 +48,8 @@ export class Tabs extends React.PureComponent {
 }
 
 Tabs.propTypes = {
-  tabs: PropTypes.arrayOf(
-    tabShape.isRequired,
-  ).isRequired,
+  tabs: PropTypes.arrayOf(PropTypes.shape({
+    ...tabType,
+  })).isRequired,
   index: PropTypes.number.isRequired,
 };

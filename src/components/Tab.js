@@ -1,18 +1,23 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { contentType, tabShape } from '../shapes/TabShape';
+import { contentType, tabType } from '../types/TabType';
 
-export const Tab = ({ callback, tab, stateActive, children }) => (
+const classNames = require('classnames');
+
+export const Tab = ({ callback, stateActive, children, title, id }) => (
   <>
     <button
       type="button"
       href="#"
       onClick={() => {
-        callback(tab.id, children);
+        callback(id, children);
       }}
-      className={stateActive === tab.id ? 'nav-link active' : 'nav-link'}
+      className={classNames({
+        'nav-link': true,
+        active: stateActive === id,
+      })}
     >
-      {tab.title}
+      {title}
     </button>
 
   </>
@@ -20,7 +25,7 @@ export const Tab = ({ callback, tab, stateActive, children }) => (
 
 Tab.propTypes = {
   callback: PropTypes.func.isRequired,
-  tab: tabShape.isRequired,
   stateActive: PropTypes.number.isRequired,
   children: contentType.isRequired,
+  ...tabType,
 };
