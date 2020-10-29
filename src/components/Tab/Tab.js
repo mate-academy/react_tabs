@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 export const Tab = ({ title, onTabSelected }) => (
   <>
     <button
+      className="tab-button"
       type="button"
       onClick={onTabSelected}
     >

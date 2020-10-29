@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import { Tab } from '../Tab/Tab';
 import { TabShape } from '../../shapes/TabShape';
+import { Tab } from '../Tab/Tab';
 
 export class Tabs extends PureComponent {
   state = {
@@ -20,17 +20,21 @@ export class Tabs extends PureComponent {
 
     return (
       <div>
-        <ul>
-          {tabs.map(({ content, index, title }) => (
-            <li key={index}>
-              <Tab
-                title={title}
-                onTabSelected={() => this.onTabSelected(content)}
-              />
-            </li>
-          ))}
-        </ul>
-        <p className="content">{contentTab}</p>
+        <div className="tabs">
+          <ul>
+            {tabs.map(({ content, index, title }) => (
+              <li key={index}>
+                <Tab
+                  title={title}
+                  onTabSelected={() => this.onTabSelected(content)}
+                />
+              </li>
+            ))}
+          </ul>
+        </div>
+        <p className="content">
+          {contentTab}
+        </p>
       </div>
     );
   }

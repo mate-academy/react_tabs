@@ -1,1 +1,19 @@
+p {
+  font-size: 40px;
+  margin: 20px;
+}
 
+.tab-button {
+  font-size: 20px;
+  background: transparent;
+  border-top: none;
+  border-bottom: none;
+  border-left: none;
+  border-color: #f6f5f5;
+  padding: 20px;
+}
+
+.tab-button:focus {
+  outline: none;
+  color: blue;
+}
