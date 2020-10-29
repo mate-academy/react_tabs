@@ -1,0 +1,27 @@
+.tabs {
+  width: 50%;
+  height: 200px;
+  margin: 0 auto;
+}
+
+.button {
+  width: 80px;
+  height: 30px;
+  background-color: white;
+  color: lightskyblue;
+  border: none;
+  outline: none;
+}
+
+.active {
+  color: lightgray;
+  border: 1px solid lightgray;
+  border-bottom: none;
+  z-index: 2;
+  position: relative;
+  bottom: -2px;
+}
+
+.tabs__container {
+  border-top: 1px solid lightgray;
+}
