@@ -1,0 +1,12 @@
+.App__link {
+  width: 200px;
+  height: 30px;
+  background: #fff;
+  border: 0.3px outset rgb(255, 255, 255);
+  cursor: pointer;
+  outline: none;
+}
+
+.isActive {
+  background-color: #3ca7f9;
+}
