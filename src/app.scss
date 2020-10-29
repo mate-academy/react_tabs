@@ -1,0 +1,63 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: Verdana, sans-serif;
+}
+
+body {
+  margin: 0;
+  background-color: rgb(155, 190, 199);
+}
+
+.app {
+  &__tabs {
+    margin: 0 30px;
+  }
+
+  &__tab {
+    outline: thin;
+    position: relative;
+    font-size: 18px;
+    background-color: rgb(155, 190, 199);
+    border: rgb(155, 190, 199) solid 4px;
+    padding: 5px;
+    margin: 0 5px;
+    transition: background-color 400ms;
+
+    &.active {
+      z-index: 2;
+      background-color: rgb(226, 195, 145);
+      border: rgb(246, 226, 127) solid 4px;
+      border-bottom: none;
+      border-radius: 5px;
+
+      &:hover {
+        cursor: auto;
+      }
+    }
+
+    &:hover {
+      z-index: 2;
+      background-color: rgb(226, 195, 145);
+      border: rgb(246, 226, 127) solid 4px;
+      border-bottom: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+  }
+
+  &__content {
+    height: 400px;
+    position: relative;
+    z-index: 1;
+    margin: -8px 20px;
+    padding: 15px;
+    border-radius: 5px;
+    border: rgb(246, 226, 127) solid 4px;
+    background-color: rgb(226, 195, 145);
+  }
+}
