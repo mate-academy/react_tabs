@@ -1,38 +1,50 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { TabPropTypes } from '../propTypes/TabPropTypes';
-import { Tab } from '../Tab/Tab';
 
 export class Tabs extends React.PureComponent {
   state = {
-    currentTab: this.props.tabs[this.props.index],
+    index: this.props.startIndex,
+    activeContent: null,
+    activeTitle: null,
   }
 
-  onTabSelected = (tab) => {
+  componentDidMount() {
+    const { index } = this.state;
+    const { children } = this.props;
+
     this.setState({
-      currentTab: tab,
+      activeContent: children[index].props.children,
+      activeTitle: children[index].props.title,
+    });
+  }
+
+  selectTab = (content, title) => {
+    this.setState({
+      activeContent: content,
+      activeTitle: title,
     });
   }
 
   render() {
-    const { tabs } = this.props;
-    const { currentTab } = this.state;
+    const { children } = this.props;
+    const { activeContent, activeTitle } = this.state;
 
     return (
       <>
-        <ul>
+        <nav className="app__tabs">
           {
-            tabs.map(tab => (
-              <li key={tab.id}>
-                <Tab handleClick={this.onTabSelected} tab={tab}>
-                  {tab.content}
-                </Tab>
-              </li>
-            ))
+            children.map(child => ({
+              ...child,
+              props: {
+                ...child.props,
+                handleClick: this.selectTab,
+                isActive: activeTitle === child.props.title,
+              },
+            }))
           }
-        </ul>
-        <p>
-          {currentTab.content}
+        </nav>
+        <p className="app__content">
+          {activeContent}
         </p>
       </>
     );
@@ -40,12 +52,13 @@ export class Tabs extends React.PureComponent {
 }
 
 Tabs.propTypes = {
-  tabs: PropTypes.arrayOf(
-    PropTypes.shape(TabPropTypes).isRequired,
-  ).isRequired,
-  index: PropTypes.number,
+  children: PropTypes.arrayOf(
+    PropTypes.element.isRequired,
+  ),
+  startIndex: PropTypes.number,
 };
 
 Tabs.defaultProps = {
-  index: 0,
+  startIndex: 0,
+  children: [],
 };

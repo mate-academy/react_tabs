@@ -1,17 +1,27 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { TabPropTypes } from '../propTypes/TabPropTypes';
+import classNames from 'classnames';
 
-export const Tab = ({ handleClick, tab }) => (
+export const Tab = ({ handleClick, title, children, isActive }) => (
   <button
+    className={classNames({
+      app__tab: true,
+      active: isActive,
+    })}
     type="button"
-    onClick={() => handleClick(tab)}
+    onClick={() => handleClick(children, title)}
   >
-    {tab.title}
+    {title}
   </button>
 );
 
 Tab.propTypes = {
-  handleClick: PropTypes.func.isRequired,
-  tab: PropTypes.shape(TabPropTypes).isRequired,
+  handleClick: PropTypes.func,
+  title: PropTypes.string.isRequired,
+  children: PropTypes.string.isRequired,
+  isActive: PropTypes.bool.isRequired,
+};
+
+Tab.defaultProps = {
+  handleClick: () => {},
 };
