@@ -1,7 +1,8 @@
 import React from 'react';
 import './App.css';
 
-// eslint-disable-next-line no-unused-vars
+import { Tabs } from './components/Tabs';
+
 const tabs = [
   {
     title: 'Tab 1',
@@ -17,8 +18,29 @@ const tabs = [
   },
 ];
 
-const App = () => (
-  <h1>React tabs</h1>
-);
+const preparedTabs = tabs.map((tab, index) => ({
+  ...tab,
+  index,
+}));
+
+class App extends React.PureComponent {
+  state = {
+    defaultTabIndex: 0,
+  }
+
+  render() {
+    const { defaultTabIndex } = this.state;
+
+    return (
+      <div className="app">
+        <h1>React tabs</h1>
+        <Tabs
+          tabs={preparedTabs}
+          defaultTabIndex={defaultTabIndex}
+        />
+      </div>
+    );
+  }
+}
 
 export default App;
