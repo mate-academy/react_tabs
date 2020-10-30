@@ -6,15 +6,12 @@ import { TitleListProps } from '../../props/TitleListProps';
 export const TitleList = ({ index, tabs, onTabSelected }) => (
   <ul className="nav nav-tabs mb-3">
     {tabs.map(({ title, id }) => (
-      <li
-        className="nav-item"
-        key={id}
-      >
+      <li className="nav-item" key={id}>
         <button
+          type="button"
           className={classNames('nav-link', 'button', {
             active: index === id,
           })}
-          type="button"
           onClick={() => onTabSelected(id)}
         >
           {title}

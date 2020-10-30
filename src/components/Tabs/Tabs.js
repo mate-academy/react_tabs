@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { TabsProps } from '../../props/TabsProps';
 import { Tab } from '../Tab';
 import { TitleList } from '../TitleList';

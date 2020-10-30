@@ -20,19 +20,15 @@ const tabsFromServer = [
   },
 ];
 
-class App extends React.PureComponent {
-  tabs = tabsFromServer.map((tab, index) => ({
-    ...tab,
-    id: index,
-  }));
+const tabs = tabsFromServer.map((tab, index) => ({
+  ...tab,
+  id: index,
+}));
 
-  render() {
-    return (
-      <div className="App">
-        <Tabs tabs={this.tabs} />
-      </div>
-    );
-  }
-}
+const App = () => (
+  <div className="App">
+    <Tabs tabs={tabs} />
+  </div>
+);
 
 export default App;
