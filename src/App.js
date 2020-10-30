@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
+import Tabs from './components/Tabs/Tabs';
 
-// eslint-disable-next-line no-unused-vars
 const tabs = [
   {
     title: 'Tab 1',
@@ -17,8 +17,31 @@ const tabs = [
   },
 ];
 
-const App = () => (
-  <h1>React tabs</h1>
-);
+class App extends React.PureComponent {
+  state = {
+    defaultIndex: 0,
+  }
+
+  onTabSelect = (index) => {
+    this.setState({
+      defaultIndex: index,
+    });
+  }
+
+  render() {
+    const { defaultIndex } = this.state;
+
+    return (
+      <div className="w-25">
+        <h1>React tabs</h1>
+        <Tabs
+          tabs={tabs}
+          index={defaultIndex}
+          onSelect={this.onTabSelect}
+        />
+      </div>
+    );
+  }
+}
 
 export default App;
