@@ -19,22 +19,24 @@ const tabs = [
 
 class App extends React.PureComponent {
   state = {
-    index: 2,
+    defaultIndex: 0,
   }
 
   onTabSelect = (index) => {
     this.setState({
-      index,
+      defaultIndex: index,
     });
   }
 
   render() {
+    const { defaultIndex } = this.state;
+
     return (
       <div className="w-25">
         <h1>React tabs</h1>
         <Tabs
           tabs={tabs}
-          index={this.state.index}
+          index={defaultIndex}
           onSelect={this.onTabSelect}
         />
       </div>
