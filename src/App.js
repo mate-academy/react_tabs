@@ -1,8 +1,11 @@
 import React from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 import './App.css';
+import { Tabs } from './components/Tabs/Tabs';
 
 // eslint-disable-next-line no-unused-vars
-const tabs = [
+const tabsFromServer = [
   {
     title: 'Tab 1',
     content: 'Some text 1',
@@ -17,8 +20,19 @@ const tabs = [
   },
 ];
 
-const App = () => (
-  <h1>React tabs</h1>
-);
+class App extends React.PureComponent {
+  tabs = tabsFromServer.map((tab, index) => ({
+    ...tab,
+    id: index,
+  }));
+
+  render() {
+    return (
+      <div className="App">
+        <Tabs tabs={this.tabs} />
+      </div>
+    );
+  }
+}
 
 export default App;
