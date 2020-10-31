@@ -1,0 +1,15 @@
+button {
+  cursor: pointer;
+}
+
+button:active {
+  outline: none;
+}
+
+button:focus {
+  outline: none;
+}
+
+.content {
+  text-align: center;
+}
