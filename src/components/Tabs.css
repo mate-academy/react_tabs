@@ -1,0 +1,18 @@
+.tab {
+  height: 50px;
+  padding: 0 20px;
+  border: 1px solid black;
+}
+
+.tab--active {
+  border-bottom: 0;
+}
+
+.content--none {
+  display: none;
+}
+
+.content {
+  padding: 20px;
+  border: 1px solid black;
+}
