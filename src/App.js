@@ -1,5 +1,5 @@
 import React from 'react';
-import './App.scss';
+import './App.css';
 import { Tab } from './components/Tab';
 import { Tabs } from './components/Tabs';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -20,27 +20,22 @@ const tabs = [
   },
 ];
 
-const preparedTabs = tabs.map((tab,index) => ({
+const preparedTabs = tabs.map((tab, index) => ({
   ...tab,
   id: index,
-}))
+}));
 
-class App extends React.Component {
+const App = () => (
+  <div className="App">
+    <h1>First way</h1>
+    <Tabs tabs={preparedTabs} />
 
-  render() {
-    return(
-      <div className="App">
-        <h1>First way</h1>
-        <Tabs tabs={preparedTabs} />
-
-        <h1>Second way</h1>
-        <Tabs>
-          <Tab title="MyTab1">My text content1</Tab>
-          <Tab title="MyTab2">My text content2</Tab>
-        </Tabs>
-      </div>
-    )
-  }
-}
+    <h1>Second way</h1>
+    <Tabs>
+      <Tab title="MyTab1">My text content1</Tab>
+      <Tab title="MyTab2">My text content2</Tab>
+    </Tabs>
+  </div>
+);
 
 export default App;

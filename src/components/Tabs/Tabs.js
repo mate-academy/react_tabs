@@ -1,8 +1,9 @@
 import React from 'react';
-import { Tab } from '../Tab';
+import PropTypes from 'prop-types';
 import { Nav, Alert } from 'react-bootstrap';
 import cn from 'classnames';
-import './Tabs.scss'
+import { Tab } from '../Tab';
+import './Tabs.css';
 
 export class Tabs extends React.Component {
   state = {
@@ -10,59 +11,68 @@ export class Tabs extends React.Component {
   }
 
   selectTab = (tabId) => {
-    this.setState({currentTab: tabId,});
+    this.setState({ currentTab: tabId });
   }
 
   render() {
     const { tabs, children } = this.props;
-    console.log(children);
-    if(tabs){
-      return(
+
+    if (tabs) {
+      return (
         <>
           <Nav variant="tabs">
-            {tabs.map(tab =>
-                <Tab
-                  key={tab.id}
-                  {...tab}
-                  className= {
-                    cn(
-                      'tab',
-                      { 'tab--active': tab.id === this.state.currentTab},
-                    )
-                  }
-                  clickHandler={this.selectTab}
-                />
-                )
-              }
+            {tabs.map(tab => (
+              <Tab
+                key={tab.id}
+                {...tab}
+                className={
+                  cn(
+                    'tab',
+                    { 'tab--active': tab.id === this.state.currentTab },
+                  )
+                }
+                clickHandler={this.selectTab}
+              />
+            ))}
           </Nav>
           <Alert key={0} variant="danger">
             {tabs[this.state.currentTab].content}
           </Alert>
         </>
-      )
-    } else {
-      return (
-        <>
-          <Nav variant="tabs">
-            {children.map((child, index) =>
+      );
+    }
+
+    return (
+      <>
+        <Nav variant="tabs">
+          {children.map((child) => {
+            const id = children.indexOf(child);
+
+            return (
               <Tab
-                key={index}
+                key={id}
                 {...child.props}
-                id={index}
-                className= {
+                id={id}
+                className={
                   cn(
                     'tab',
-                    { 'tab--active': index === this.state.currentTab},
+                    { 'tab--active': id === this.state.currentTab },
                   )
                 }
                 clickHandler={this.selectTab}
-              />)}
-          </Nav>
-          <Alert key={0} variant="danger">
-            {children[this.state.currentTab].props.children}
-          </Alert>
-        </>
-      )
-    }
+              />
+            );
+          })}
+        </Nav>
+        <Alert key={0} variant="danger">
+          {children[this.state.currentTab].props.children}
+        </Alert>
+      </>
+    );
   }
 }
+
+Tabs.propTypes = {
+  tabs: PropTypes.arrayOf(PropTypes.object).isRequired,
+  children: PropTypes.arrayOf(PropTypes.object).isRequired,
+};
