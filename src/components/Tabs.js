@@ -38,5 +38,5 @@ export class Tabs extends React.Component {
 }
 
 Tabs.propTypes = {
-  tabs: PropTypes.arrayOf(TabShape).isRequired,
+  tabs: PropTypes.arrayOf(PropTypes.shape(TabShape)).isRequired,
 };

@@ -1,4 +1,5 @@
 import React from 'react';
+import ClassNames from 'classnames';
 import PropTypes from 'prop-types';
 import { TabShape } from './shapes/TabShape';
 
@@ -10,11 +11,9 @@ export const TabsHeader = ({ tabs, currentIndex, onSelect }) => (
           <li key={tab.index} className="nav-item">
             <button
               type="button"
-              className={
-                `nav-link cursor-p ${tab.index === currentIndex
-                  ? 'active'
-                  : ''}`
-              }
+              className={ClassNames('nav-link', 'cursor-p', {
+                active: tab.index === currentIndex,
+              })}
               style={{ outline: 'none' }}
               onClick={() => onSelect(tab.index)}
             >
@@ -28,7 +27,7 @@ export const TabsHeader = ({ tabs, currentIndex, onSelect }) => (
 );
 
 TabsHeader.propTypes = {
-  tabs: PropTypes.arrayOf(TabShape).isRequired,
+  tabs: PropTypes.arrayOf(PropTypes.shape(TabShape)).isRequired,
   currentIndex: PropTypes.number.isRequired,
   onSelect: PropTypes.func.isRequired,
 };

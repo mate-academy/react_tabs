@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { TabShape } from './shapes/TabShape';
 
 export const TabsBody = ({ tab }) => (
@@ -9,4 +10,4 @@ export const TabsBody = ({ tab }) => (
   </div>
 );
 
-TabsBody.propTypes = TabShape;
+TabsBody.propTypes = PropTypes.shape(TabShape).isRequired;
