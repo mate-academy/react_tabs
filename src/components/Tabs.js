@@ -1,4 +1,3 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Tab } from './Tab';
@@ -29,7 +28,7 @@ export class Tabs extends React.PureComponent {
           {tabs.map(tab => (
             <li className="nav-item" key={tab.id}>
               <Tab
-                callback={this.onTabSelected}
+                onClick={this.onTabSelected}
                 stateActive={active}
                 {...tab}
               >

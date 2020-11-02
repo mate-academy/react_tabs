@@ -4,13 +4,13 @@ import { contentType, tabType } from '../types/TabType';
 
 const classNames = require('classnames');
 
-export const Tab = ({ callback, stateActive, children, title, id }) => (
+export const Tab = ({ onClick, stateActive, children, title, id }) => (
   <>
     <button
       type="button"
       href="#"
       onClick={() => {
-        callback(id, children);
+        onClick(id, children);
       }}
       className={classNames({
         'nav-link': true,
@@ -24,7 +24,7 @@ export const Tab = ({ callback, stateActive, children, title, id }) => (
 );
 
 Tab.propTypes = {
-  callback: PropTypes.func.isRequired,
+  onClick: PropTypes.func.isRequired,
   stateActive: PropTypes.number.isRequired,
   children: contentType.isRequired,
   ...tabType,
