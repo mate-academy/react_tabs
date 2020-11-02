@@ -4,7 +4,7 @@ import { TabShape } from '../../shapes/TabShape';
 export const Tab = ({ title, onTabSelected }) => (
   <button
     type="button"
-    className="ui inverted green large button"
+    className="ui green active item"
     onClick={onTabSelected}
   >
     {title}

@@ -18,9 +18,9 @@ export class Tabs extends PureComponent {
     const { tabContent } = this.state;
 
     return (
-      <div className="">
-        <div className="ui attached tabular menu">
-          <ul className="ui item">
+      <div className="ui container">
+        <div>
+          <ul className="ui attached tabular menu">
             {
               tabs.map(({ title, content, index }) => (
                 <li key={index}>
