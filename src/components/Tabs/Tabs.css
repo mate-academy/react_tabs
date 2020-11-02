@@ -1,0 +1,39 @@
+.Tabs {
+  position: relative;
+  min-height: 200px;
+  clear: both;
+  margin: 50px 0;
+  display: flex;
+  justify-content: center;
+}
+
+.tab-title {
+  float: left;
+}
+
+.tab-title label {
+  color: #54a0ff;
+  padding: 10px 30px;
+  margin-left: -1px;
+  position: relative;
+  left: 1px;
+}
+
+.tab-title [type="radio"] {
+  display: none;
+}
+
+[type="radio"]:checked ~ label {
+  color: #576574;
+  border: 1px solid #ccc;
+  border-bottom: 1px solid rgb(245, 250, 249);
+  z-index: 2;
+}
+
+.Tab {
+  width: 100%;
+  text-align: center;
+  padding: 30px 0;
+  border-top: 1px solid #ccc;
+  transform: translateY(-200%);
+}
