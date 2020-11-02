@@ -1,24 +1,40 @@
 import React from 'react';
 import './App.css';
+import 'semantic-ui-css/semantic.min.css';
+import { tabs } from './api/tabs';
+import { Tabs } from './components/Tabs';
 
-// eslint-disable-next-line no-unused-vars
-const tabs = [
-  {
-    title: 'Tab 1',
-    content: 'Some text 1',
-  },
-  {
-    title: 'Tab 2',
-    content: 'Some text 2',
-  },
-  {
-    title: 'Tab 3',
-    content: 'Some text 3',
-  },
-];
+class App extends React.Component {
+  state = {
+    tabsList: tabs,
+    currentTab: tabs[1],
+  }
 
-const App = () => (
-  <h1>React tabs</h1>
-);
+  handleSelectTab = (tab) => {
+    this.setState({
+      currentTab: tab,
+    });
+  }
+
+  render() {
+    const { tabsList, currentTab } = this.state;
+
+    return (
+      <div>
+        <div>
+          <h1>React tabs</h1>
+          <Tabs
+            tabsList={tabsList}
+            currentTab={currentTab}
+            handleSelectTab={this.handleSelectTab}
+          />
+          <div className="ui bottom attached active tab segment">
+            {currentTab.content}
+          </div>
+        </div>
+      </div>
+    );
+  }
+}
 
 export default App;
