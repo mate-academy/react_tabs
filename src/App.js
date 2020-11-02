@@ -7,7 +7,7 @@ import { Tabs } from './components/Tabs';
 class App extends React.Component {
   state = {
     tabsList: tabs,
-    currentTab: tabs[1],
+    currentTab: tabs[0],
   }
 
   handleSelectTab = (tab) => {
