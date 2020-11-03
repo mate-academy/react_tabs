@@ -1,1 +1,11 @@
+body {
+  padding: 20px;
+}
 
+.nav-link {
+  background-color: #dee2e6;
+}
+
+button:focus {
+  outline: none;
+}
