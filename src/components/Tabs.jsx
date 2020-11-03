@@ -4,32 +4,31 @@ import { Tab } from './Tab';
 
 export class Tabs extends PureComponent {
   state = {
-    tabContent: this.props.tabs[this.props.index].content,
-    currTabId: 0,
+    activeTabContent: this.props.tabs[0].content,
+
   }
 
-  onTabSelected = (content, index) => {
+  onTabSelected = (content) => {
     this.setState({
-      tabContent: content,
-      currTabId: index,
+      activeTabContent: content,
     });
   }
 
   render() {
     const { tabs } = this.props;
-    const { tabContent } = this.state;
+    const { activeTabContent: tabContent } = this.state;
 
     return (
       <div className="ui container">
         <div className="ui top attached tabular menu">
           {
-            tabs.map(({ title, content, index }) => (
+            tabs.map(({ title, content }) => (
               <Tab
                 title={title}
-                onTabSelected={() => this.onTabSelected(content, index)}
-                key={index}
+                onTabSelected={() => this.onTabSelected(content)}
+                key={title}
                 currClass={
-                  index === this.state.currTabId
+                  content === tabContent
                     ? 'ui teal active button'
                     : 'ui active item'
                 }
