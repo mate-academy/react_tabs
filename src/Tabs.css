@@ -1,0 +1,25 @@
+.tabs__item {
+  width: 70px;
+  height: 30px;
+  margin-right: 2px;
+  color: rgb(245, 142, 8);
+  border: none;
+  outline: none;
+  background-color: rgb(247, 192, 121);
+  cursor: pointer;
+
+  transition: 0.3s;
+}
+
+.tabs__item--active {
+  color: #fff;
+  background-color: rgb(245, 142, 8);
+}
+
+.tabs__content {
+  width: 500px;
+  height: 300px;
+  padding: 20px;
+  color: #fff;
+  background-color: rgb(245, 142, 8);
+}

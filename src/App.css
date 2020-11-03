@@ -1,1 +1,20 @@
+* {
+  box-sizing: border-box;
+}
 
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: rgb(245, 142, 8);
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+  width: 800px;
+  margin: 80px auto;
+  padding: 50px 150px;
+
+  background-color: #fff;
+  border-radius: 80px;
+  box-shadow: 0 0 15px rgba(75, 74, 74, 0.3);
+}
