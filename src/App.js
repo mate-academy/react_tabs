@@ -17,15 +17,11 @@ const tabs = [
   },
 ];
 
-class App extends React.PureComponent {
-  render() {
-    return (
-      <div className="app">
-        <h1 className="app__title">React tabs</h1>
-        <Tabs tabs={tabs} />
-      </div>
-    );
-  }
-}
+const App = () => (
+  <div className="app">
+    <h1 className="app__title">React tabs</h1>
+    <Tabs tabs={tabs} />
+  </div>
+);
 
 export default App;
