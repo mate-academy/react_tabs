@@ -1,12 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Tab } from '../Tab';
 
 export class Tabs extends React.PureComponent {
   state = {
     indexOfTab: 0,
   };
 
-  selectedTab = (passedIndex, tab) => {
+  selectedTab = (passedIndex) => {
     this.setState({
       indexOfTab: passedIndex,
     });
@@ -32,7 +33,7 @@ export class Tabs extends React.PureComponent {
                 this.selectedTab(passedIndex);
               }}
             >
-              {tab.title}
+              <Tab tabTitle={tab.title} />
             </button>
           ))}
         </div>
