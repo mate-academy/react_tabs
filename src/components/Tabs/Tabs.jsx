@@ -1,6 +1,7 @@
 import React from 'react';
 import './Tabs.css';
 import propTypes from 'prop-types';
+import { Title } from '../Title';
 
 export class Tabs extends React.Component {
   state = {
@@ -17,16 +18,12 @@ export class Tabs extends React.Component {
     return (
       <>
         {this.props.tabs.map(tab => (
-          <button
-            className={
-              `button ${this.state.index === tab.index ? 'active' : ''}`
-            }
-            type="button"
-            key={this.props.tabs.index}
-            onClick={() => this.onSelect(tab.index)}
-          >
-            {tab.title}
-          </button>
+          <Title
+            tab={tab}
+            onSelect={this.onSelect}
+            index={this.props.tabs.index}
+            indexState={this.state.index}
+          />
         ))}
         <p className="content">
           {this.props.tabs[this.state.index].content}
