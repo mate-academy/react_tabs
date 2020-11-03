@@ -14,65 +14,47 @@ export class Tabs extends React.Component {
     this.setState({ currentTab: tabId });
   }
 
+  returnTab = (tab, id) => (
+    <Tab
+      key={tab.id}
+      id={id}
+      {...tab}
+      className={
+        cn(
+          'tab',
+          { 'tab--active': id === this.state.currentTab },
+        )
+      }
+      clickHandler={this.selectTab}
+    />
+  )
+
   render() {
     const { tabs, children } = this.props;
-
-    if (tabs) {
-      return (
-        <>
-          <Nav variant="tabs">
-            {tabs.map(tab => (
-              <Tab
-                key={tab.id}
-                {...tab}
-                className={
-                  cn(
-                    'tab',
-                    { 'tab--active': tab.id === this.state.currentTab },
-                  )
-                }
-                clickHandler={this.selectTab}
-              />
-            ))}
-          </Nav>
-          <Alert key={0} variant="danger">
-            {tabs[this.state.currentTab].content}
-          </Alert>
-        </>
-      );
-    }
-
+    console.log(children);
     return (
       <>
         <Nav variant="tabs">
-          {children.map((child) => {
-            const id = children.indexOf(child);
-
-            return (
-              <Tab
-                key={id}
-                {...child.props}
-                id={id}
-                className={
-                  cn(
-                    'tab',
-                    { 'tab--active': id === this.state.currentTab },
-                  )
-                }
-                clickHandler={this.selectTab}
-              />
-            );
-          })}
+          {tabs && tabs.map(tab => this.returnTab(tab, tab.id))}
+          {children &&
+            children.map(child =>
+              this.returnTab(child.props, children.indexOf(child)))}
         </Nav>
         <Alert key={0} variant="danger">
-          {children[this.state.currentTab].props.children}
+          {children && children[this.state.currentTab].props.children}
+          {tabs && tabs[this.state.currentTab].content}
         </Alert>
       </>
-    );
+    )
   }
 }
 
 Tabs.propTypes = {
-  tabs: PropTypes.arrayOf(PropTypes.object).isRequired,
-  children: PropTypes.arrayOf(PropTypes.object).isRequired,
+  tabs: PropTypes.arrayOf(PropTypes.object),
+  children: PropTypes.arrayOf(PropTypes.object),
+};
+
+Tabs.defaultProps = {
+  tabs: undefined,
+  children: undefined,
 };
