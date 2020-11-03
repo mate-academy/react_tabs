@@ -26,15 +26,14 @@ export class Tabs extends React.PureComponent {
       <div>
         <ul className="nav nav-tabs">
           {tabs.map(tab => (
-            <li className="nav-item" key={tab.id}>
-              <Tab
-                onClick={this.onTabSelected}
-                stateActive={active}
-                {...tab}
-              >
-                {tab.content}
-              </Tab>
-            </li>
+            <Tab
+              onClick={this.onTabSelected}
+              stateActive={active}
+              {...tab}
+              key={tab.id}
+            >
+              {tab.content}
+            </Tab>
           ))}
         </ul>
 

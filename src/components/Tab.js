@@ -5,7 +5,7 @@ import { contentType, tabType } from '../types/TabType';
 const classNames = require('classnames');
 
 export const Tab = ({ onClick, stateActive, children, title, id }) => (
-  <>
+  <li className="nav-item">
     <button
       type="button"
       href="#"
@@ -19,8 +19,7 @@ export const Tab = ({ onClick, stateActive, children, title, id }) => (
     >
       {title}
     </button>
-
-  </>
+  </li>
 );
 
 Tab.propTypes = {
