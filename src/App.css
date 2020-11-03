@@ -1,1 +1,11 @@
+.App {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
+.App__tabs {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
