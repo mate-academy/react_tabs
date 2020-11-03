@@ -31,21 +31,21 @@ export class Tabs extends React.Component {
 
   render() {
     const { tabs, children } = this.props;
-    console.log(children);
+
     return (
       <>
         <Nav variant="tabs">
           {tabs && tabs.map(tab => this.returnTab(tab, tab.id))}
-          {children &&
-            children.map(child =>
-              this.returnTab(child.props, children.indexOf(child)))}
+          {children && children.map(child => this
+            .returnTab(child.props, children.indexOf(child)))}
         </Nav>
+
         <Alert key={0} variant="danger">
           {children && children[this.state.currentTab].props.children}
           {tabs && tabs[this.state.currentTab].content}
         </Alert>
       </>
-    )
+    );
   }
 }
 
