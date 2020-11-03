@@ -1,0 +1,22 @@
+.button {
+  width: 120px;
+  margin: 5px;
+  outline: none;
+  background-color: #1d242a;
+  color: #849697;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 25px;
+  transition: 0.8s;
+  cursor: pointer;
+}
+
+.active {
+  background-color: #183a4e;
+}
+
+.content {
+  width: 250px;
+  margin: 30px auto;
+  font-size: 35px;
+  background-color: #849697;
+}
