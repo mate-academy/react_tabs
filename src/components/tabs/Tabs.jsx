@@ -5,7 +5,7 @@ import './Tabs.css';
 
 export class Tabs extends React.PureComponent {
   state = {
-    activeIndex: this.props.index,
+    activeIndex: 0,
   }
 
   onTabSelected = (index) => {
