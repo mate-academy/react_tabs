@@ -1,4 +1,5 @@
 import React from 'react';
+import classNames from 'classnames';
 
 export const Tabs = ({ tabs, selected, onChange }) => {
     const chosenTab = tabs.find(tab => tab.id === selected);
@@ -9,7 +10,9 @@ export const Tabs = ({ tabs, selected, onChange }) => {
           {
             tabs.map( tab=> (
             <li
-              className={`nav-item nav-link ${tab.id === selected && 'active font-weight-bold'}`}
+              className={classNames(`nav-item nav-link`, {
+                'active font-weight-bold': tab.id === selected,
+              })}
               onClick={()=>onChange(tab)}
             >
               {tab.title}
