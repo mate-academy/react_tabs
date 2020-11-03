@@ -7,9 +7,9 @@ export class Tabs extends React.PureComponent {
     indexOfTab: 0,
   };
 
-  selectedTab = (passedIndex) => {
+  selectedTab = (index) => {
     this.setState({
-      indexOfTab: passedIndex,
+      indexOfTab: index,
     });
   };
 
@@ -20,17 +20,15 @@ export class Tabs extends React.PureComponent {
     return (
       <div className="tabs">
         <div className="tabs__list">
-          {tabs.map(tab => (
+          {tabs.map((tab, index) => (
             <button
               key={tab.title}
-              className={tabs.indexOf(tab) === indexOfTab
+              className={index === indexOfTab
                 ? 'button button--active'
                 : 'button'}
               type="button"
               onClick={() => {
-                const passedIndex = tabs.indexOf(tab);
-
-                this.selectedTab(passedIndex);
+                this.selectedTab(index);
               }}
             >
               <Tab tabTitle={tab.title} />
