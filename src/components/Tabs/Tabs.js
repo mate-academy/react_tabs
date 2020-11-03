@@ -7,19 +7,19 @@ import { TitleList } from '../TitleList';
 export class Tabs extends React.PureComponent {
   state = {
     index: 0,
-    content: this.props.tabs[0].content,
+    activeTab: this.props.tabs[0],
   }
 
   onTabSelected = (index) => {
     this.setState({
       index,
-      content: this.props.tabs[index].content,
+      activeTab: this.props.tabs[index],
     });
   }
 
   render() {
     const {
-      state: { index, content },
+      state: { index, activeTab },
       props: { tabs },
       onTabSelected,
     } = this;
@@ -31,7 +31,7 @@ export class Tabs extends React.PureComponent {
           tabs={tabs}
           onTabSelected={onTabSelected}
         />
-        <Tab>{content}</Tab>
+        <Tab>{activeTab.content}</Tab>
       </div>
     );
   }
