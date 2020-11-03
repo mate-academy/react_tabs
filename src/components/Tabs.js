@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { Button } from './Button';
 
 export class Tabs extends Component {
   state = {
@@ -21,15 +22,12 @@ export class Tabs extends Component {
       <div>
         <div className="tabs">
           {tabs.map(({ title, index }) => (
-            <div key={index}>
-              <button
-                className="ui primary button"
-                type="button"
-                onClick={() => this.onTabSelected(index)}
-              >
-                {title}
-              </button>
-            </div>
+            <Button
+              key={index}
+              index={index}
+              title={title}
+              addChange={this.onTabSelected}
+            />
           ))}
         </div>
 
