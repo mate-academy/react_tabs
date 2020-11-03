@@ -1,7 +1,7 @@
 import React from 'react';
 import { TabsShape } from '../Shape/TabsShape';
+import { Tab } from '../Tab';
 import './Tabs.css';
-import 'semantic-ui-css/semantic.min.css';
 
 export const Tabs = ({ tabs, selected, onChange }) => {
   const selectedTab = tabs.find(tab => tab.index === selected);
@@ -11,15 +11,11 @@ export const Tabs = ({ tabs, selected, onChange }) => {
       <ul className="App__list">
         {
           tabs.map(tab => (
-            <li key={tab.index}>
-              <button
-                className="ui primary button"
-                type="button"
-                onClick={() => onChange(tab)}
-              >
-                {tab.title}
-              </button>
-            </li>
+            <Tab
+              key={tab.index}
+              onChange={onChange}
+              tab={tab}
+            />
           ))
         }
       </ul>
