@@ -1,1 +1,19 @@
+* {
+  box-sizing: border-box;
+}
 
+html {
+  background-color: black;
+}
+
+.App {
+  text-align: center;
+  margin-top: 10px;
+  background-color: black;
+  height: 100vh;
+}
+
+.App__title {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  color: orange;
+}
