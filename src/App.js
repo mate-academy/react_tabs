@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.css';
 import { Tabs } from './components/Tabs';
+import 'semantic-ui-css/semantic.min.css';
 
 // eslint-disable-next-line no-unused-vars
 const tabs = [
@@ -18,16 +19,11 @@ const tabs = [
   },
 ];
 
-const prepareTabs = tabs.map((tab, index) => ({
-  ...tab,
-  index,
-}));
-
 const App = () => (
   <div>
     <h1>React tabs</h1>
 
-    <Tabs tabs={prepareTabs} />
+    <Tabs tabs={tabs} />
   </div>
 
 );

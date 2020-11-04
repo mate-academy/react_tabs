@@ -4,27 +4,31 @@ import { Tab } from './Tab';
 
 export class Tabs extends React.Component {
   state = {
-    choosenTab: 0,
+    choosenTab: this.props.tabs[0],
+    tabsList: this.props.tabs,
   };
 
-  onTabSelected = (index) => {
+  onTabSelected = (tab) => {
     this.setState({
-      choosenTab: index,
+      choosenTab: tab,
     });
   };
 
   render() {
-    const { tabs } = this.props;
-    const { choosenTab } = this.state;
+    const { choosenTab, tabsList } = this.state;
 
     return (
-      <ul>
-        <Tab
-          tabs={tabs}
-          choosenTab={choosenTab}
-          onTabSelected={this.onTabSelected}
-        />
-      </ul>
+      <div>
+        <ul>
+          <Tab
+            tabs={tabsList}
+            onTabSelected={this.onTabSelected}
+          />
+        </ul>
+        <div className="ui content">
+          {choosenTab.content}
+        </div>
+      </div>
     );
   }
 }
