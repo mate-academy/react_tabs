@@ -1,8 +1,9 @@
 import React from 'react';
 import './App.css';
 
-// eslint-disable-next-line no-unused-vars
-const tabs = [
+import { Tabs } from './components/Tabs';
+
+const sourceTabs = [
   {
     title: 'Tab 1',
     content: 'Some text 1',
@@ -17,8 +18,25 @@ const tabs = [
   },
 ];
 
-const App = () => (
-  <h1>React tabs</h1>
-);
+const preparedTabs = sourceTabs.map((tab, index) => ({
+  ...tab,
+  index,
+}));
+
+class App extends React.Component {
+  state = {
+    tabs: preparedTabs,
+  }
+
+  render() {
+    const { tabs } = this.state;
+
+    return (
+      <div className="App">
+        <Tabs tabs={tabs} index={0} />
+      </div>
+    );
+  }
+}
 
 export default App;
