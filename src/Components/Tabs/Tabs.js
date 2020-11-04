@@ -21,18 +21,13 @@ export class Tabs extends React.PureComponent {
       <div className="tabs">
         <div className="tabs__list">
           {tabs.map((tab, index) => (
-            <button
+            <Tab
               key={tab.title}
-              className={index === indexOfTab
-                ? 'button button--active'
-                : 'button'}
-              type="button"
-              onClick={() => {
-                this.selectedTab(index);
-              }}
-            >
-              <Tab tabTitle={tab.title} />
-            </button>
+              tab={tab}
+              index={index}
+              indexOfTab={indexOfTab}
+              selectedTab={this.selectedTab}
+            />
           ))}
         </div>
         <div className="tabs__content">{tabs[indexOfTab].content}</div>
