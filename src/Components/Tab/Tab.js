@@ -7,19 +7,17 @@ export const Tab = ({
   indexOfTab,
   selectedTab,
 }) => (
-  <>
-    <button
-      className={index === indexOfTab
-        ? 'button button--active'
-        : 'button'}
-      type="button"
-      onClick={() => {
-        selectedTab(index);
-      }}
-    >
-      {tab.title}
-    </button>
-  </>
+  <button
+    className={index === indexOfTab
+      ? 'button button--active'
+      : 'button'}
+    type="button"
+    onClick={() => {
+      selectedTab(index);
+    }}
+  >
+    {tab.title}
+  </button>
 );
 
 Tab.propTypes = {
