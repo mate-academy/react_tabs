@@ -1,10 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { Tab } from '../Tab/Tab';
+import Tab from '../Tab/Tab';
 import { tabShape } from '../shapes/tabShape';
-
-// import './Tabs.scss';
 
 export class Tabs extends React.PureComponent {
   state = {
