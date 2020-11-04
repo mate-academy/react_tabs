@@ -1,23 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { TabItem } from '../TabItem/TabItem';
 
 export const Tabs = ({ tabs, selectedIndex, onClick }) => (
   <div className="box">
     <div className="tabs is-left is-boxed">
       <ul>
         {tabs.map((tab, index) => (
-          <li className={selectedIndex === index ? 'is-active' : ''}>
-            <a
-              href="#a"
-              key={tab.title}
-              onClick={(event) => {
-                event.preventDefault();
-                onClick(index);
-              }}
-            >
-              {tab.title}
-            </a>
-          </li>
+          <TabItem
+            isActive={selectedIndex === index}
+            title={tab.title}
+            onClick={() => onClick(index)}
+          />
         ))}
       </ul>
     </div>
