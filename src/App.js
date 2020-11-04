@@ -19,8 +19,13 @@ const tabs = [
   },
 ];
 
+const preparedTabs = tabs.map((tab, index) => ({
+  ...tab,
+  id: index,
+}));
+
 const App = () => (
-  <ContentTabs tabs={tabs} />
+  <ContentTabs tabs={preparedTabs} active={1} />
 );
 
 export default App;
