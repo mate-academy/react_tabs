@@ -1,7 +1,7 @@
 import React from 'react';
 import './Tabs.css';
 import propTypes from 'prop-types';
-import { Title } from '../Title';
+import { Tab } from '../Tab';
 
 export class Tabs extends React.Component {
   state = {
@@ -18,11 +18,10 @@ export class Tabs extends React.Component {
     return (
       <>
         {this.props.tabs.map(tab => (
-          <Title
+          <Tab
             tab={tab}
             onSelect={this.onSelect}
-            index={this.props.tabs.index}
-            indexState={this.state.index}
+            isActive={this.state.index === tab.index}
           />
         ))}
         <p className="content">
@@ -34,5 +33,9 @@ export class Tabs extends React.Component {
 }
 
 Tabs.propTypes = {
-  tabs: propTypes.arrayOf.isRequired,
+  tabs: propTypes.arrayOf(propTypes.shape({
+    title: propTypes.string.isRequired,
+    content: propTypes.string.isRequired,
+    index: propTypes.number.isRequired,
+  })).isRequired,
 };

@@ -1,22 +1,22 @@
 import React from 'react';
 import propTypes from 'prop-types';
 
-export const Title = ({ tab, onSelect, index, indexState }) => (
+export const Tab = ({ tab, onSelect, isActive }) => (
   <button
     className={
-      `button ${indexState === tab.index ? 'active' : ''}`
+      `button ${isActive ? 'active' : ''}`
     }
     type="button"
-    key={index}
+    key={tab.index}
     onClick={() => onSelect(tab.index)}
   >
     {tab.title}
   </button>
 );
 
-Title.propTypes = {
+Tab.propTypes = {
   tab: propTypes.arrayOf.isRequired,
   onSelect: propTypes.func.isRequired,
   index: propTypes.number.isRequired,
-  indexState: propTypes.number.isRequired,
+  isActive: propTypes.bool.isRequired,
 };
