@@ -15,20 +15,15 @@ const tabs = [
   },
   {
     title: 'Contact',
-    content: 'Some text 3',
+    content: '🐈',
   },
 ];
-
-const preparedTabs = tabs.map((tab, index) => ({
-  ...tab,
-  id: index,
-}));
 
 const App = () => (
   <div className="App">
     <h1>React Tabs</h1>
 
-    <Tabs tabs={preparedTabs} id={0} />
+    <Tabs tabs={tabs} />
   </div>
 );
 

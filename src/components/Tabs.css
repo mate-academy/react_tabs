@@ -1,15 +1,32 @@
-button {
+.Tabs {
+  display: flex;
+  justify-content: space-between;
+}
+
+.button {
+  background-color: white;
+  border: 1px solid grey;
+
+  width: 80px;
+  height: 30px;
   cursor: pointer;
 }
 
-button:active {
+.active {
+  background-color: rgb(175, 175, 175);
+}
+
+.button:active {
   outline: none;
 }
 
-button:focus {
+.button:focus {
   outline: none;
 }
 
 .content {
   text-align: center;
+  margin-top: 10px;
+
+  font-size: 18px;
 }

@@ -1,44 +1,37 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import PropTypes, { string } from 'prop-types';
 import './Tabs.css';
 
 export class Tabs extends React.Component {
   state = {
-    selectedTabIndex: this.props.id,
-    selectedTabContent: this.props.tabs[this.props.id].content,
+    selectedTab: 0,
   }
 
-  onTabSelected = (id, content) => (
-    this.setState(() => ({
-      selectedTabIndex: id,
-      selectedTabContent: content,
-    }))
-  );
+  selectTab = (index) => {
+    this.setState({ selectedTab: index });
+  }
 
   render() {
     const { tabs } = this.props;
-    const { selectedTabIndex } = this.state;
+    const { selectedTab } = this.state;
 
     return (
       <>
-        <div className="ui tabular menu">
-          {tabs.map(tab => (
+        <div className="Tabs">
+          {tabs.map((tab, index) => (
             <button
               type="button"
-              key={tab.id}
-              data-value={tab.title}
-              className={selectedTabIndex === tab.id ? 'item active' : 'item'}
-              onClick={() => {
-                this.onTabSelected(tab.id, tab.content);
-              }}
+              onClick={() => this.selectTab(index)}
+              className={index === selectedTab ? 'button active' : 'button'}
             >
               {tab.title}
             </button>
-          ))}
+          ))
+          }
         </div>
 
-        <div className="content">
-          {this.state.selectedTabContent}
+        <div className="App__content content">
+          {tabs[selectedTab].content}
         </div>
       </>
     );
@@ -49,9 +42,7 @@ Tabs.propTypes = {
   tabs: PropTypes.arrayOf(
     PropTypes.shape({
       title: PropTypes.string.isRequired,
-      content: PropTypes.string.isRequired,
-      id: PropTypes.number.isRequired,
+      content: PropTypes > string.isRequired,
     }).isRequired,
   ).isRequired,
-  id: PropTypes.number.isRequired,
 };
