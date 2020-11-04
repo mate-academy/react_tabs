@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { TabButton } from './TabButton';
 
 import './Tabs.css';
 
@@ -8,7 +9,7 @@ export default class Tabs extends React.Component {
     tabContent: this.props.tabs[this.props.index].content,
   }
 
-  onTabSelected = (content, index) => {
+  onTabSelected = (content) => {
     this.setState({
       tabContent: content,
     });
@@ -20,15 +21,12 @@ export default class Tabs extends React.Component {
     return (
       <>
         <div className="tab">
-          {tabs.map((tab, index) => (
-            <button
-              key={tab.title}
-              className="tablinks"
-              type="button"
-              onClick={() => this.onTabSelected(tab.content, tab.index)}
-            >
-              {tab.title}
-            </button>
+          {tabs.map(tab => (
+            <TabButton
+              tab={tab}
+              onTabSelected={this.onTabSelected}
+              key={tab.id}
+            />
           ))}
         </div>
         <div className="tabcontent">
