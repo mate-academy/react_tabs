@@ -1,37 +1,35 @@
 import React from 'react';
-import './Tab.css';
+import './Tabs.css';
 import PropTypes from 'prop-types';
+import { Button } from '../Button/Button';
 
-export class Tab extends React.Component {
+export class Tabs extends React.Component {
   state = {
-    contentActiveTab: this.props.tabs[this.props.index].content,
+    activeTabContent: this.props.tabs[this.props.index].content,
   }
 
   onTabSelected = (tabData) => {
     this.setState({
-      contentActiveTab: tabData,
+      activeTabContent: tabData,
     });
   }
 
   render() {
-    const { tabs, index } = this.props;
-    const { contentActiveTab } = this.state;
+    const { tabs } = this.props;
+    const { activeTabContent } = this.state;
 
     return (
       <div className="ui grid">
         <div className="four wide column">
           <div className="ui vertical fluid tabular menu">
             {
-              tabs.map(tab => (
-                <button
-                  className="button__text item"
-                  type="button"
-                  key={tab.index}
+              tabs.map((tab, index) => (
+                <Button
+                  key={this.props.index}
                   index={index}
-                  onClick={() => this.onTabSelected(tab.content)}
-                >
-                  {tab.title}
-                </button>
+                  title={tab.title}
+                  onSelected={() => this.onTabSelected(tab.content)}
+                />
               ))
             }
           </div>
@@ -39,7 +37,7 @@ export class Tab extends React.Component {
 
         <div className="twelve wide stretched column">
           <div className="ui segment">
-            {contentActiveTab}
+            {activeTabContent}
           </div>
         </div>
       </div>
@@ -47,7 +45,7 @@ export class Tab extends React.Component {
   }
 }
 
-Tab.propTypes = {
+Tabs.propTypes = {
   index: PropTypes.number.isRequired,
   tabs: PropTypes.arrayOf(
     PropTypes.shape({

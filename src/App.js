@@ -1,5 +1,5 @@
 import React from 'react';
-import { Tab } from './component/Tab';
+import { Tabs } from './component/Tabs/Tabs';
 // eslint-disable-next-line no-unused-vars
 const tabs = [
   {
@@ -22,7 +22,7 @@ const mappedTabs = tabs.map((tab, tabIndex) => ({
 }));
 
 const App = () => (
-  <Tab tabs={mappedTabs} index={0} />
+  <Tabs tabs={mappedTabs} index={0} />
 );
 
 export default App;
