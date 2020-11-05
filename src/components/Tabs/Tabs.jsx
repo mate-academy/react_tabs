@@ -1,44 +1,43 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Button } from '../Button';
 import './Tabs.css';
 
 export class Tabs extends React.Component {
   state = {
-    activeIndex: 0,
+    selectedIndex: 0,
   }
 
-  onTabSelected = (event) => {
+  selectTab = (selectedIndex) => {
     this.setState({
-      activeIndex: event.target.value,
+      selectedIndex,
     });
   }
 
   render() {
     const { tabs } = this.props;
-    const { activeIndex } = this.state;
+    const { selectedIndex } = this.state;
 
     return (
       <div className="tabs__container">
         <div className="tabs__tab tab">
           {tabs.map((tab, index) => (
-            <button
+            <Button
               key={tab.title}
-              type="button"
+              index={index}
+              title={tab.title}
+              selectTab={this.selectTab}
               className={
-                +activeIndex === index
+                +selectedIndex === index
                   ? 'tab__item tab__item--is-active'
                   : 'tab__item'
               }
-              onClick={this.onTabSelected}
-              value={index}
-            >
-              {tab.title}
-            </button>
+            />
           ))}
         </div>
 
         <div className="tabs__selected">
-          {tabs[activeIndex].content}
+          {tabs[selectedIndex].content}
         </div>
       </div>
     );
