@@ -1,5 +1,5 @@
 import React from 'react';
-import { ContentTabs } from './components/ContentTabs';
+import { Tabs } from './components/Tabs/Tabs';
 
 import './App.css';
 
@@ -19,13 +19,8 @@ const tabs = [
   },
 ];
 
-const preparedTabs = tabs.map((tab, index) => ({
-  ...tab,
-  id: index,
-}));
-
 const App = () => (
-  <ContentTabs tabs={preparedTabs} active={1} />
+  <Tabs tabs={tabs} activeTab={1} />
 );
 
 export default App;
