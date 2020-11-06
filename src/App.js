@@ -22,7 +22,7 @@ const App = () => (
     <h1>React tabs</h1>
     <Tabs>
       {tabs.map(tab => (
-        <div label={tab.title}>
+        <div key={tab.title} label={tab.title}>
           {tab.content}
         </div>
       ))}

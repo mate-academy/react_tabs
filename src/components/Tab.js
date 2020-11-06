@@ -8,12 +8,9 @@ function Tab({ activeTab, label, onClick }) {
     className += ' tab-list-active';
   }
 
-  // eslint-disable-next-line no-console
-  console.log(+label.slice(-1));
-
   return (
     <li
-      key={+label.slice(-1)}
+      key={label}
       className={className}
       onClick={() => onClick(label)}
       role="presentation"

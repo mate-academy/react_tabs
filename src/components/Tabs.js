@@ -37,8 +37,8 @@ class Tabs extends React.PureComponent {
 
             return (
               <Tab
-                activeTab={activeTab}
                 key={label}
+                activeTab={activeTab}
                 label={label}
                 onClick={onClickTabItem}
               />
@@ -46,12 +46,9 @@ class Tabs extends React.PureComponent {
           })}
         </ol>
         <div className="tab-content">
-          {children.map((child) => {
-            // eslint-disable-next-line curly
-            if (child.props.label !== activeTab) return undefined;
-
-            return child.props.children;
-          })}
+          {children.map(child => (
+            child.props.children
+          ))}
         </div>
       </div>
     );
