@@ -1,1 +1,34 @@
+.App {
+  text-align: center;
+  margin-top: 40px;
+}
 
+.active {
+  background-color: rgb(124, 9, 47);
+  color: white;
+  outline: none;
+}
+
+button {
+  font-size: 20px;
+  margin-right: 20px;
+  border: 2px solid rgb(124, 9, 47);
+  color: rgb(124, 9, 47);
+  border-radius: 5px;
+  font-weight: bold;
+  outline: none;
+  margin-top: 20px;
+}
+
+.content {
+  border: 3px solid rgb(124, 9, 47);
+  border-radius: 5px;
+  background-color: rgb(245, 248, 250);
+  color: rgb(124, 9, 47);
+  width: 400px;
+  margin: 0 auto;
+  margin-top: 20px;
+  font-size: 25px;
+  padding: 10px;
+  font-weight: bold;
+}
