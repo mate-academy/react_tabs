@@ -1,12 +1,13 @@
 {
   "name": "react_tabs",
-  "homepage": ".",
+  "homepage": "https://AntonChetverykMA.github.io/react_tabs/",
   "version": "0.1.0",
   "private": true,
   "keywords": [],
   "author": "Mate Academy",
   "license": "GPL-3.0",
   "dependencies": {
+    "classnames": "^2.2.6",
     "prop-types": "^15.7.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
