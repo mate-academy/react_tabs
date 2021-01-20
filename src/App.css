@@ -1,1 +1,15 @@
+button {
+  border: none;
+  outline: none;
+  background-color: transparent;
+}
 
+.active {
+  border: 1px solid black;
+  border-bottom: 2px solid wheat;
+  color: blue;
+}
+
+.text {
+  border-top: 1px solid black;
+}
