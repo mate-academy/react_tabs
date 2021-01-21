@@ -6,6 +6,12 @@ class Tabs extends React.Component {
     activeTitle: 'Tab 1',
   }
 
+  handleChange = (title) => {
+    this.setState({
+      activeTitle: title,
+    });
+  }
+
   render() {
     const { activeTitle } = this.state;
     const { tabs } = this.props;
@@ -14,18 +20,13 @@ class Tabs extends React.Component {
     return (
       <>
         <div>
-
           {tabs.map(item => (
             <button
-              className={`${activeTitle === item.title
-                ? 'active'
-                : ''} button`}
+              className="button"
               key={item.title}
               type="button"
               onClick={() => {
-                this.setState({
-                  activeTitle: item.title,
-                });
+                this.handleChange(item.title);
               }}
             >
               {item.title}

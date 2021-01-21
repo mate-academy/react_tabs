@@ -1,11 +1,11 @@
-.active {
-  border-bottom: transparent;
-  color: blue;
-}
-
 .button {
   background-color: white;
   border-radius: 1px;
+}
+
+.button:focus {
+  border-bottom: transparent;
+  color: blue;
 }
 
 .content {
