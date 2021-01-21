@@ -18,10 +18,6 @@ const tabs = [
   },
 ];
 
-// const App = () => (
-//   <h1>React tabs</h1>
-// );
-
 class App extends React.Component {
   state={
     tabs,

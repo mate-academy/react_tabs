@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import classNames from 'classnames';
 
 export class Tabs extends React.Component {
   state = {
@@ -18,30 +19,16 @@ export class Tabs extends React.Component {
 
     return (
       <>
-        <button
-          type="button"
-          value="0"
-          className={tabNumber === 0 ? 'active' : ''}
-          onClick={this.tabSwitcher}
-        >
-          Tab 1
-        </button>
-        <button
-          type="button"
-          value="1"
-          className={tabNumber === 1 ? 'active' : ''}
-          onClick={this.tabSwitcher}
-        >
-          Tab 2
-        </button>
-        <button
-          type="button"
-          value="2"
-          className={tabNumber === 2 ? 'active' : ''}
-          onClick={this.tabSwitcher}
-        >
-          Tab 3
-        </button>
+        {tabsR.map((tab, i) => (
+          <button
+            type="button"
+            value={`${i}`}
+            className={classNames({ active: tabNumber === i })}
+            onClick={this.tabSwitcher}
+          >
+            {tab.title}
+          </button>
+        ))}
         <div className="text">
           {tabsR[tabNumber].content}
         </div>
