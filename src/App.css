@@ -1,1 +1,12 @@
+.tabList {
+  margin: 0;
+}
 
+.tabList__item {
+  list-style-type: none;
+  display: inline-flex;
+  border: 1px solid black;
+  padding: 3px;
+  margin: 0 5px;
+  cursor: pointer;
+}
