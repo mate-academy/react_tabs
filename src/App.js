@@ -1,4 +1,5 @@
 import React from 'react';
+import { Tabs } from './components/Tabs';
 import './App.css';
 
 // eslint-disable-next-line no-unused-vars
@@ -17,8 +18,27 @@ const tabs = [
   },
 ];
 
-const App = () => (
-  <h1>React tabs</h1>
-);
+export class App extends React.Component {
+  state = {
+    titleToPrint: 0,
+  }
 
-export default App;
+  onTabSelected = (i) => {
+    this.setState({
+      titleToPrint: i,
+    });
+  }
+
+  render() {
+    return (
+      <>
+        <h1 className="head-title">React tabs:</h1>
+        <Tabs
+          tabs={tabs}
+          onTabSelected={this.onTabSelected}
+          titleToPrint={this.state.titleToPrint}
+        />
+      </>
+    );
+  }
+}
