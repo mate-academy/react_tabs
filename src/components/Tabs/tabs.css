@@ -1,0 +1,60 @@
+.tab-list {
+  display: flex;
+
+  width: max-content;
+
+  padding: 0;
+  margin: 0;
+}
+
+.tab-title {
+  position: relative;
+  display: block;
+
+  padding: 10px 20px;
+  margin: -5px;
+
+  border: none;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+
+  cursor: pointer;
+
+  background-color: rgb(139, 190, 73);
+  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+
+  outline: none;
+}
+
+.tab-title:hover {
+  background-color: rgb(139, 192, 139);
+}
+
+.text {
+  display: block;
+  position: absolute;
+  z-index: 2;
+
+  margin-left: 3px;
+
+  left: 0;
+  right: 0;
+
+  height: 50px;
+
+  padding: 10px;
+  margin-top: 5px;
+
+  background-color: rgb(139, 192, 139);
+
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+
+}
+
+.chosen {
+  background-color: rgb(139, 192, 139);
+  z-index: 1;
+  outline: none;
+}
