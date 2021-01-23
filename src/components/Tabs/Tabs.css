@@ -1,0 +1,15 @@
+.tabs__button {
+  background-color: #fff;
+  border: 0;
+  outline: none;
+}
+
+.selected {
+  border-top: 1px solid grey;
+  border-left: 1px solid grey;
+  border-right: 1px solid grey;
+}
+
+.tabs__content {
+  border: 1px solid grey;
+}
