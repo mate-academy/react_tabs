@@ -1,1 +1,15 @@
+.selected {
+  background-color: white;
+}
 
+.btn {
+  width: 80px;
+  height: 30px;
+}
+
+.text {
+  font-size: large;
+  border: 1px solid black;
+  width: 30%;
+  height: 200px;
+}
