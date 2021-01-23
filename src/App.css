@@ -1,1 +1,29 @@
+.content {
+  padding: 20px 40px;
+}
 
+.button {
+  padding: 10px 30px;
+  border: none;
+  color: rgb(92, 92, 158);
+  background: none;
+  border-bottom: 1px solid grey;
+  cursor: pointer;
+}
+
+.button:hover {
+  text-decoration: underline;
+}
+
+.button--active {
+  color: black;
+  background-color: rgb(221, 214, 214);
+  border-top: 1px solid grey;
+  border-bottom: none;
+  border-left: 1px solid grey;
+  border-right: 1px solid grey;
+}
+
+.button--active:focus {
+  outline: none;
+}
