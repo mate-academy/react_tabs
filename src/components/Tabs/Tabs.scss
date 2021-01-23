@@ -1,0 +1,18 @@
+.Tabs {
+
+  &__button {
+    position: relative;
+    height: 40px;
+    border: none;
+    background: rgb(184, 249, 252);
+    transition: all 0.3s;
+
+    &--selected {
+      color: rgb(254, 255, 255);
+      box-shadow: 3px 1px 5px rgb(129, 128, 128);
+      background: rgb(13, 151, 158);
+      z-index: 1;
+
+    }
+  }
+}
