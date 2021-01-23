@@ -1,1 +1,22 @@
+.tabs {
+  display: inline-block;
+  padding: 8px;
+  width: 70px;
+  background: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
 
+.active_tab {
+  background-color: rgb(233, 233, 248);
+  border: 1px solid black;
+  padding-bottom: 10px;
+  border-bottom: none;
+}
+
+.tab_content {
+  padding: 50px;
+  background-color: rgb(233, 233, 248);
+  border-top: 1px solid black;
+}
