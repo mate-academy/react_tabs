@@ -1,0 +1,15 @@
+.content {
+  width: 45%;
+  margin-left: 20px;
+  padding: 15px;
+  border: 2px solid rgb(62, 129, 114);
+  border-radius: 5px;
+}
+
+.tabs {
+  display: flex;
+}
+
+.tabs__buttons {
+  list-style-type: none;
+}
