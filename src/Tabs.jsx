@@ -1,36 +1,55 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import classNames from 'classnames';
+import { Tab } from './Tab';
 
 export class Tabs extends React.Component {
   static propTypes = {
-    tabs: PropTypes.arrayOf(PropTypes.shape({
-      title: PropTypes.string.isRequired,
-    })).isRequired,
-    index: PropTypes.number.isRequired,
+    children: PropTypes.arrayOf(PropTypes.shape({
+      props: PropTypes.shape({
+        children: PropTypes.arrayOf(PropTypes.shape()),
+      }),
+    })),
+    defaultIndex: PropTypes.number,
     onTabSelected: PropTypes.func.isRequired,
   }
 
-  tabSelectionHandler = (index) => {
-    this.props.onTabSelected(index);
+  static defaultProps = {
+    children: {},
+    defaultIndex: 0,
+  }
+
+  state = {
+    index: 0,
+  }
+
+  componentDidMount = () => {
+    const { children, defaultIndex } = this.props;
+
+    const content = children[defaultIndex].props.children;
+
+    this.onTabChange(content, defaultIndex);
+  }
+
+  onTabChange = (content, index) => {
+    this.setState({ index });
+
+    this.props.onTabSelected(content);
   }
 
   render() {
-    const { tabs, index } = this.props;
+    const { index } = this.state;
+    const { children } = this.props;
 
     return (
       <div>
-        {tabs.map(({ title }, tabIndex) => (
-          <button
-            className={classNames(['button', {
-              'button--active': tabIndex === index,
-            }])}
-            type="button"
-            key={title}
-            onClick={() => this.tabSelectionHandler(tabIndex)}
-          >
-            {title}
-          </button>
+        {children.map((child, tabIndex) => (
+          <Tab
+            {...child.props}
+            key={child.props.title}
+            isActive={index === tabIndex}
+            index={tabIndex}
+            onTabChange={this.onTabChange}
+          />
         ))}
       </div>
     );

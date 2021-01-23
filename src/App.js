@@ -1,46 +1,43 @@
 import React from 'react';
 import './App.css';
 import { Tabs } from './Tabs';
-
-// eslint-disable-next-line no-unused-vars
-const tabs = [
-  {
-    title: 'Tab 1',
-    content: 'Some text 1',
-  },
-  {
-    title: 'Tab 2',
-    content: 'Some text 2',
-  },
-  {
-    title: 'Tab 3',
-    content: 'Some text 3',
-  },
-];
+import { Tab } from './Tab';
 
 class App extends React.Component {
   state = {
-    index: 0,
+    content: '',
   }
 
-  onTabSelected = (index) => {
-    this.setState({ index });
+  onTabChange = (content) => {
+    this.setState({ content });
   }
 
   render() {
-    const { index } = this.state;
+    const { content } = this.state;
 
     return (
-      <main className="content">
-        <h1>React tabs</h1>
+      <main className="main">
+        <h1>React tabs (with children)</h1>
         <Tabs
-          tabs={tabs}
-          index={index}
-          onTabSelected={this.onTabSelected}
-        />
-        <p>
-          {tabs[index].content}
-        </p>
+          defaultIndex={0}
+          onTabSelected={this.onTabChange}
+        >
+          <Tab title="Tab 2">
+            It could be a text
+          </Tab>
+
+          <Tab title="Tab 3">
+            <div>1</div>
+            <div>2</div>
+          </Tab>
+
+          <Tab title="Tab 1">
+            Or even any JSX
+          </Tab>
+        </Tabs>
+        <div className="content">
+          {content}
+        </div>
       </main>
     );
   }

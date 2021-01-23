@@ -1,4 +1,4 @@
-.content {
+.main {
   padding: 20px 40px;
 }
 
@@ -26,4 +26,8 @@
 
 .button--active:focus {
   outline: none;
+}
+
+.content {
+  padding-top: 10px;
 }
