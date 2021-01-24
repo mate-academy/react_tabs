@@ -9,7 +9,7 @@ export class Tabs extends React.Component {
   }
 
   onTabSelected = (event) => {
-    const item = event.target.name;
+    const item = event.target.title;
 
     this.setState({
       selectedTab: item,
@@ -26,7 +26,6 @@ export class Tabs extends React.Component {
         {tabs.map(tab => (
           <Tab
             key={Math.random()}
-            tabName={tab.title}
             tabTitle={tab.title}
             tabClicker={this.onTabSelected}
             tabClass={tab.title === selectedTab ? 'tab active' : 'tab'}
