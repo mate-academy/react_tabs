@@ -1,5 +1,6 @@
 import React from 'react';
 import './App.css';
+import { Tabs } from './Tabs';
 
 // eslint-disable-next-line no-unused-vars
 const tabs = [
@@ -17,8 +18,37 @@ const tabs = [
   },
 ];
 
-const App = () => (
-  <h1>React tabs</h1>
-);
+const tabsFromServer = tabs.map((tab, index) => ({
+  ...tab,
+  id: index,
+}));
 
-export default App;
+export class App extends React.Component {
+  state = {
+    arrayTabs: tabsFromServer,
+    content: '',
+  };
+
+  onTabSelected = (id) => {
+    this.setState(state => ({
+      content: state.arrayTabs.find(tab => tab.id === id).content,
+    }));
+  }
+
+  render() {
+    const { arrayTabs, content } = this.state;
+
+    return (
+      <div className="container">
+        <h1>React tabs</h1>
+
+        <Tabs
+          tabs={arrayTabs}
+          onTabSelected={this.onTabSelected}
+        />
+
+        <p className="container__title">{content}</p>
+      </div>
+    );
+  }
+}
