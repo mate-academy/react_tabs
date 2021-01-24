@@ -21,7 +21,7 @@ const App = () => (
   <div className="app">
     <h1 className="app__title">Statistics of passed topics</h1>
 
-    <Tabs tabs={tabs} index={0} />
+    <Tabs tabs={tabs} />
   </div>
 );
 
