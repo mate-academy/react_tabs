@@ -1,0 +1,51 @@
+.tabs {
+  margin-top: 45px;
+
+  &__header {
+    border-bottom: 1px solid rgba(82, 78, 78, 0.29);
+  }
+
+  &__button {
+    position: relative;
+    width: 70px;
+    border-top: 1px solid transparent;
+    border-left: 1px solid transparent;
+    border-right: 1px solid transparent;
+    border-bottom: none;
+    
+    padding: 15px;
+    font-family: Tahoma, sans-serif;
+    font-weight: bold;
+    color: rgb(0, 119, 255);
+    background-color: rgb(247, 248, 248);
+    cursor: pointer;
+    
+    &--active {
+      border-top-color: rgba(82, 78, 78, 0.29);
+      border-left-color: rgba(82, 78, 78, 0.29);
+      border-right-color: rgba(82, 78, 78, 0.29);
+
+      &::after {
+        content: "";
+        position: absolute;
+        bottom: -1px;
+        left: 0;
+
+        display: block;
+        width: 68px;
+        height: 1px;
+        background-color: rgb(247, 248, 248);
+      }
+    }
+
+    &:active,
+    &:focus {
+      outline: none;
+    }
+  }
+
+  &__viewport {
+    padding: 20px 5px 15px;
+    background-color: rgb(247, 248, 248);
+  }
+}
