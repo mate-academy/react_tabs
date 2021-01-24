@@ -21,12 +21,16 @@
   transition: color 0.15s ease-in-out;
 }
 
-.buttom:focus {
+.active {
+  color: #363636;
   border-top: 1px solid #aaa;
   border-left: 1px solid #aaa;
   border-right: 1px solid #aaa;
+}
+
+.buttom:focus {
   outline: none;
-  color: #363636;
+
 }
 
 .buttom:hover {
