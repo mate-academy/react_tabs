@@ -1,1 +1,26 @@
+body {
+  margin-top: 20px;
+}
 
+.button {
+  width: 100px;
+  height: 40px;
+  background-color: #e4e4e7;
+  margin-right: 5px;
+  border: 1px solid #e4e4e7;
+  border-bottom: none;
+}
+
+.button:focus {
+  outline: none;
+}
+
+.active {
+  background-color: #fff;
+}
+
+.content {
+  border: 1px solid #e4e4e7;
+  height: 150px;
+  padding: 20px;
+}
