@@ -15,10 +15,6 @@ export class Tabs extends React.Component {
     });
   }
 
-  toggleClass = () => {
-
-  }
-
   render() {
     const { tabs } = this.props;
     const { tabIndex } = this.state;
