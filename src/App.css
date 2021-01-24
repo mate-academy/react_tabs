@@ -1,1 +1,33 @@
+html {
+  font-family: "Courier New", Courier, monospace;
+}
 
+.tab {
+  overflow: hidden;
+  border: 1px solid rgb(138, 135, 135);
+  background-color: #85f5c6;
+}
+
+.tab button {
+  background-color: inherit;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  transition: 0.3s;
+}
+
+.tab button:hover {
+  background-color: #5bf7b6;
+}
+
+.tab button.active {
+  background-color: #77dfb4;
+}
+
+.tab__content {
+  padding: 6px 12px;
+  border: 1px solid #ccc;
+  border-top: none;
+}
