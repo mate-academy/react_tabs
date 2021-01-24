@@ -1,1 +1,40 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 400px;
+  height: 230px;
+  margin: 0 auto;
+  background-color: rgb(212, 212, 212);
+  border-radius: 20px;
+  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5);
+}
 
+.container__title {
+  font-size: 25px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: 600;
+}
+
+.button {
+  width: 75px;
+  height: 35px;
+  margin: 10px;
+  border-radius: 10px;
+  border: 2px solid black;
+  background-color: white;
+  outline: none;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: 600;
+}
+
+.button:hover {
+  background-color: rgb(112, 255, 112);
+}
+
+.button:focus {
+  background-color: rgb(10, 231, 10);
+  transition-duration: 0.5s;
+  color: white;
+  border-radius: 30px;
+}
