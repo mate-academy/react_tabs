@@ -1,10 +1,10 @@
-# React Tabs
-- Replace `<your_account>` with your Github username in the [DEMO LINK](https://<your_account>.github.io/react_tabs/)
+# React TabsList
+- Replace `<your_account>` with your Github username in the [DEMO LINK](https://MarchD.github.io/react_tabs/)
 - Follow the [React task guideline](https://github.com/mate-academy/react_task-guideline#react-tasks-guideline)
 
 ## Task
 ![tabs](./description/tabs.gif)
-1. Implement `Tabs` component displaying tabs from a given array of objects
+1. Implement `TabsList` component displaying tabs from a given array of objects
     ```javascript
     let tabs = [
       { title: 'Tab 1', content: 'Some text 1' },
@@ -13,13 +13,13 @@
     ];
     ```
     ```jsx harmony
-    <Tabs tabs={tabs} />
+    <TabsList tabs={tabs} />
     ```
 2. Implement `onTabSelected` callback triggered on tab change with tab data as an argument
 3. Add `index` prop (default `0`)  to set an index of tab active at the beginning
-4. (*) Add an ability to use Tabs like this:
+4. (*) Add an ability to use TabsList like this:
     ```jsx harmony
-    <Tabs>
+    <TabsList>
       <Tab title="Tab 2">
         It could be a text
       </Tab>
@@ -32,7 +32,7 @@
       <Tab title="Tab 1">
         Or even any JSX
       </Tab>
-    </Tabs>
+    </TabsList>
     ```
 
 To implement the last point you'll need this theory
