@@ -1,7 +1,9 @@
 import React from 'react';
 import './App.css';
+import { Container } from 'react-bootstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Tabs from './components/Tabs';
 
-// eslint-disable-next-line no-unused-vars
 const tabs = [
   {
     title: 'Tab 1',
@@ -18,7 +20,10 @@ const tabs = [
 ];
 
 const App = () => (
-  <h1>React tabs</h1>
+  <Container>
+    <h1>React tabs</h1>
+    <Tabs tabs={tabs} />
+  </Container>
 );
 
 export default App;

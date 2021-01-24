@@ -1,0 +1,9 @@
+.content {
+  height: 75vh;
+  border: 1px solid black;
+}
+
+.tab {
+  border-bottom: none;
+  border-color: black;
+}
