@@ -1,0 +1,21 @@
+.tab {
+  background-color: white;
+  border: 1px solid gray;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  min-width: 48px;
+  height: 48px;
+  outline: none;
+  cursor: pointer;
+}
+
+.active {
+  border-bottom: transparent;
+  background-color: rgb(248, 245, 245);
+}
+
+.content {
+  height: 85vh;
+  border: 1px solid lightgrey;
+  background-color: rgb(248, 245, 245);
+}
