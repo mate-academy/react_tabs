@@ -1,1 +1,50 @@
+* {
+  box-sizing: border-box;
+}
 
+.App {
+  font-family: Arial, Helvetica, sans-serif;
+  color: #363636;
+}
+
+.button {
+  height: 40px;
+  padding: 10px;
+
+  color: #1d72aa;
+  font-size: 16px;
+
+  border: 1px solid transparent;
+  background-color: #fff;
+  cursor: pointer;
+  transition: color 0.15s ease-in-out;
+}
+
+.active {
+  color: #363636;
+  border: 1px solid #aaa;
+  border-bottom: 1px solid #fff;
+}
+
+.button:focus {
+  outline: none;
+
+}
+
+.button:hover {
+  color: #363636;
+}
+
+.tabs {
+  border-bottom: 1px solid #aaa;
+}
+
+.text {
+  min-height: 100px;
+  margin: 0;
+  padding-right: 10px;
+  line-height: 100px;
+
+  font-size: 18px;
+  font-weight: 700;
+}
