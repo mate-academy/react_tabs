@@ -1,1 +1,30 @@
+* {
+  box-sizing: border-box;
+}
 
+.tabs__tabrow {
+  display: flex;
+  border-bottom: 1px solid silver;
+}
+
+.tabs__btn {
+  position: relative;
+  top: 1px;
+  z-index: 4;
+  padding: 15px;
+  border: none;
+  background: none;
+  color: cornflowerblue;
+  outline: none;
+}
+
+.tabs__btn_active {
+  border: 1px solid silver;
+  border-bottom-color: #fff;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.tabs__contentrow {
+  padding: 15px 0;
+}
