@@ -1,1 +1,24 @@
+body {
+  padding: 10px 30px;
+  font-family: Roboto, sans-serif;
+}
 
+button {
+  margin: 0;
+  padding: 5px 10px;
+  background: white;
+  border: none;
+  outline: none;
+  font-size: 20px;
+}
+
+.selected-tab {
+  background: #d6efc7;
+}
+
+.tab-content {
+  width: 300px;
+  height: 100px;
+  padding: 10px;
+  background: #d6efc7;
+}
