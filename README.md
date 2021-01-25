@@ -1,6 +1,5 @@
 # React Tabs
-- Replace `<your_account>` with your Github username in the [DEMO LINK](https://<your_account>.github.io/react_tabs/)
-- Follow the [React task guideline](https://github.com/mate-academy/react_task-guideline#react-tasks-guideline)
+- [DEMO LINK](https://MaximZhuravlov.github.io/react_tabs/)
 
 ## Task
 ![tabs](./description/tabs.gif)
