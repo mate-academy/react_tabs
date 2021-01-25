@@ -1,0 +1,40 @@
+.tab-container {
+  display: flex;
+  position: relative;
+
+}
+
+.tab-container::after {
+  content: "";
+  width: 100%;
+  height: 1px;
+  background-color: grey;
+  position: absolute;
+  top: calc(100% - 1px);
+  z-index: -1;
+}
+
+.button {
+  outline: none;
+  border: 2px solid transparent;
+  border-bottom: gray;
+  color: blueviolet;
+  border-radius: 5px 5px 0 0 ;
+  height: 40px;
+  background-color: white;
+}
+
+.button__active {
+  position: relative;
+  box-sizing: border-box;
+  color: black;
+  border-color: grey;
+}
+
+.button:not(.button__active) {
+  border-bottom: 2px solid gray;
+}
+
+.content {
+  margin-top: 50px;
+}
