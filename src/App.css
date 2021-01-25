@@ -1,1 +1,8 @@
-
+.display-text {
+  border: 2px solid gray;
+  border-radius: 0 4px 4px;
+  padding: 10px;
+  transform: translate(0, -2px);
+  position: relative;
+  z-index: -1;
+}
