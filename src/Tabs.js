@@ -25,7 +25,7 @@ export class Tabs extends React.Component {
         <div className="tabs">
           {tabs.map((tab, indx) => (
             <button
-              className={classNames('buttom', { active: index === indx })}
+              className={classNames('button', { active: index === indx })}
               key={tab.title}
               type="button"
               onClick={() => this.onTabSelected(indx, tab.content)}

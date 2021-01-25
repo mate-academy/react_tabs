@@ -7,7 +7,7 @@
   color: #363636;
 }
 
-.buttom {
+.button {
   height: 40px;
   padding: 10px;
 
@@ -26,12 +26,12 @@
   border-bottom: 1px solid #fff;
 }
 
-.buttom:focus {
+.button:focus {
   outline: none;
 
 }
 
-.buttom:hover {
+.button:hover {
   color: #363636;
 }
 
