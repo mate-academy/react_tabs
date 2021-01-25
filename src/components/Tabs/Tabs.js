@@ -19,6 +19,7 @@ export class Tabs extends Component {
         <div className="tabs__tabrow">
           {tabs.map(tab => (
             <button
+              key={tab.title}
               className={classNames({
                 tabs__btn: true,
                 tabs__btn_active: tab.title === this.state.currentTab,
