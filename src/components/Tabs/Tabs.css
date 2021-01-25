@@ -1,0 +1,20 @@
+.table {
+  border-collapse: collapse;
+}
+
+.table-element {
+  border: 2px solid gray;
+  border-radius: 4px;
+  cursor: pointer;
+  padding: 5px;
+  z-index: 2;
+}
+
+.table-element:hover {
+  background-color: lightblue;
+}
+
+.active {
+  border-bottom: 2px solid white;
+  position: relative;
+}
