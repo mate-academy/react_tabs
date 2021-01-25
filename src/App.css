@@ -12,7 +12,6 @@
   padding: 10px;
 
   color: #1d72aa;
-  font-weight: 700;
   font-size: 16px;
 
   border: 1px solid transparent;
@@ -23,9 +22,8 @@
 
 .active {
   color: #363636;
-  border-top: 1px solid #aaa;
-  border-left: 1px solid #aaa;
-  border-right: 1px solid #aaa;
+  border: 1px solid #aaa;
+  border-bottom: 1px solid #fff;
 }
 
 .buttom:focus {
@@ -37,6 +35,10 @@
   color: #363636;
 }
 
+.tabs {
+  border-bottom: 1px solid #aaa;
+}
+
 .text {
   min-height: 100px;
   margin: 0;
@@ -45,5 +47,4 @@
 
   font-size: 18px;
   font-weight: 700;
-  border-top: 1px solid #aaa;
 }

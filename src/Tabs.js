@@ -6,7 +6,7 @@ const classNames = require('classnames');
 export class Tabs extends React.Component {
   state = {
     index: 0,
-    content: '',
+    content: this.props.tabs[0].content,
   }
 
   onTabSelected = (tabIndex, tabContent) => {
@@ -21,21 +21,23 @@ export class Tabs extends React.Component {
     const { content, index } = this.state;
 
     return (
-      <div>
-        {tabs.map((tab, indx) => (
-          <button
-            className={classNames('buttom', { active: index === indx })}
-            key={tab.title}
-            type="button"
-            onClick={() => this.onTabSelected(indx, tab.content)}
-          >
-            {tab.title}
-          </button>
-        ))}
+      <>
+        <div className="tabs">
+          {tabs.map((tab, indx) => (
+            <button
+              className={classNames('buttom', { active: index === indx })}
+              key={tab.title}
+              type="button"
+              onClick={() => this.onTabSelected(indx, tab.content)}
+            >
+              {tab.title}
+            </button>
+          ))}
+        </div>
         <p className="text">
           {content}
         </p>
-      </div>
+      </>
     );
   }
 }
