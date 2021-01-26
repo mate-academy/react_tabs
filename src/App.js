@@ -24,17 +24,8 @@ const tabs = [
 
 class App extends React.Component {
   state = {
-    // tabsCopy: [...tabs].map(tab => ({ ...tab })),
     activeTabIndex: 0,
   }
-
-  // onTabSelected = (toggler) => {
-  //   const togglerIndex = tabs.findIndex(tab => tab.title === toggler.title);
-
-  //   this.setState({
-  //     activeTabIndex: togglerIndex,
-  //   });
-  // }
 
   onTabSelected = (selectedTabId) => {
     this.setState({ activeTabIndex: selectedTabId });
