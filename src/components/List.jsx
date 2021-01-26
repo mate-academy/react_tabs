@@ -13,9 +13,7 @@ class List extends React.Component {
             <li
               className={`List__item List__item--${tab.index + 1}`}
               key={tab.index}
-              onClick={
-                onTabSelected
-              }
+              onClick={ () => onTabSelected(tab.index) }
             >
               {tab.title}
             </li>

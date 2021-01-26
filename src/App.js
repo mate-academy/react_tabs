@@ -20,21 +20,19 @@ const tabs = [
 
 class App extends React.Component {
   state = {
-    tabsArr: [...tabs],
+    tabs: [...tabs],
     index: 0,
   };
 
-  changeMaineContain = (event) => {
-    const { innerText } = event.target;
-
-    this.setState(state => ({
-      index: tabs.findIndex(tab => innerText === tab.title),
-    }));
+  selectTabIndex = (i) => {
+    this.setState({
+      index: i,
+    });
   };
 
   render() {
-    const { tabsArr, index } = this.state;
-    const tabsForRender = tabsArr.map((tab, i) => ({
+    const { index } = this.state;
+    const tabsForRender = this.state.tabs.map((tab, i) => ({
       ...tab,
       index: i,
     }));
@@ -42,7 +40,7 @@ class App extends React.Component {
     return (
       <div className="Tab">
         <h1 className="Tab__header">React tabs</h1>
-        <List tabs={tabsForRender} onTabSelected={this.changeMaineContain} />
+        <List tabs={tabsForRender} onTabSelected={this.selectTabIndex} />
         <div className="Tab__main-content">{tabs[index].content}</div>
       </div>
     );
