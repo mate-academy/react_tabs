@@ -14,6 +14,11 @@
   outline: none;
 }
 
+.active {
+  background-color: #bbb;
+  outline: none;
+}
+
 .content {
   border: solid 1px #f1f1f1;
   width: 300px;

@@ -1,36 +1,38 @@
 import React from 'react';
 import './App.css';
 import PropTypes from 'prop-types';
+import classNames from 'classnames';
 
 class Tabs extends React.Component {
   state = {
-    activTitle: 'Tab 1',
+    activeTabTitle: 'Tab 1',
   };
 
-  changeTitle = (value) => {
-    this.setState({ activTitle: value });
+  onTabSelected = (value) => {
+    this.setState({ activeTabTitle: value });
   }
 
   render() {
     const { tabs } = this.props;
-    const { activTitle } = this.state;
+    const { activeTabTitle } = this.state;
 
     return (
       <div>
         {tabs.map(tab => (
           <button
-            className="button"
+            className={classNames('button',
+              { active: activeTabTitle === tab.title })}
             key={tab.title}
             type="button"
             onClick={() => {
-              this.changeTitle(tab.title);
+              this.onTabSelected(tab.title);
             }}
           >
             {tab.title}
           </button>
         ))}
         <div className="content">
-          {tabs.find(tab => tab.title === activTitle).content}
+          {tabs.find(tab => tab.title === activeTabTitle).content}
         </div>
       </div>
     );
