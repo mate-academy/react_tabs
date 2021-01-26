@@ -20,12 +20,12 @@ const tabs = [
 
 export class App extends React.Component {
   state = {
-    titleToPrint: 0,
+    selectedTabIndex: 0,
   }
 
   onTabSelected = (i) => {
     this.setState({
-      titleToPrint: i,
+      selectedTabIndex: i,
     });
   }
 
@@ -36,7 +36,7 @@ export class App extends React.Component {
         <Tabs
           tabs={tabs}
           onTabSelected={this.onTabSelected}
-          titleToPrint={this.state.titleToPrint}
+          selectedTabIndex={this.state.selectedTabIndex}
         />
       </>
     );
