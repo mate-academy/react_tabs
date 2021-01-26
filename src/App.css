@@ -1,1 +1,17 @@
+.button {
+  padding: 10px 15px;
+  border: 1px solid transparent;
+  border-bottom-color: blue;
+  background-color: transparent;
+  outline: none;
+  cursor: pointer;
+}
 
+.button--active {
+  border-color: blue;
+  border-bottom-color: transparent;
+}
+
+.content {
+  padding-left: 10px;
+}
