@@ -1,20 +1,21 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import ClassNames from 'classnames/bind';
 
 class Tabs extends React.Component {
   state = {
-    buttonIndex: 0,
+    selectedTabIndex: 0,
   }
 
-  showContent = (event) => {
+  chooseSelectedTab = (event) => {
     this.setState({
-      buttonIndex: +event.target.value,
+      selectedTabIndex: +event.target.value,
     });
   }
 
   render() {
     const { tabs } = this.props;
-    const { buttonIndex } = this.state;
+    const { selectedTabIndex } = this.state;
 
     return (
       <div className="article">
@@ -23,15 +24,16 @@ class Tabs extends React.Component {
             key={tab.title}
             type="button"
             value={index}
-            className={buttonIndex === index ? 'active title' : 'title'}
-            onClick={this.showContent}
+            className={ClassNames({ active: selectedTabIndex === index },
+              'title')}
+            onClick={this.chooseSelectedTab}
           >
             {tab.title}
           </button>
         ))}
         {
           <div className="content">
-            {tabs[buttonIndex].content}
+            {tabs[selectedTabIndex].content}
           </div>
         }
       </div>
