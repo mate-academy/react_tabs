@@ -2,21 +2,9 @@ import React from 'react';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
 
-export default class Tabs extends React.Component {
-  state = {
-    selectedTab: this.props.index,
-  }
-
-  onTabSelected = (e) => {
-    this.setState({
-      selectedTab: this.props.tabs
-        .findIndex(tab => tab.title === e.target.textContent),
-    });
-  }
-
+export default class Tabs extends React.PureComponent {
   render() {
-    const { tabs } = this.props;
-    const { selectedTab } = this.state;
+    const { tabs, selectedTab, onTabSelected } = this.props;
 
     return (
       <div>
@@ -26,15 +14,12 @@ export default class Tabs extends React.Component {
               type="button"
               className={classNames('tabs', { active_tab: +selectedTab === i })}
               key={tab.title}
-              onClick={this.onTabSelected}
+              onClick={onTabSelected}
             >
               {tab.title}
             </button>
           ))
         }
-        <article className="tab_content">
-          { tabs[selectedTab].content }
-        </article>
       </div>
     );
   }
@@ -45,9 +30,6 @@ Tabs.propTypes = {
     title: PropTypes.string.isRequired,
     content: PropTypes.string.isRequired,
   })).isRequired,
-  index: PropTypes.number,
-};
-
-Tabs.defaultProps = {
-  index: 0,
+  selectedTab: PropTypes.number.isRequired,
+  onTabSelected: PropTypes.func.isRequired,
 };
