@@ -16,7 +16,7 @@ const tabs = [
     content: 'Some text 3',
   },
 ];
-const NewTabs = tabs.map((tab, index) => ({
+const preparedTabs = tabs.map((tab, index) => ({
   ...tab,
   id: index,
 }));
@@ -28,7 +28,7 @@ class App extends React.Component {
 
   onTabSelected = (id) => {
     this.setState(() => ({
-      content: NewTabs.find(tab => (tab.id === id)).content,
+      content: preparedTabs.find(tab => (tab.id === id)).content,
     }));
   }
 
@@ -36,7 +36,7 @@ class App extends React.Component {
     return (
       <>
         <Tabs
-          NewTabs={NewTabs}
+          preparedTabs={preparedTabs}
           onTabSelected={this.onTabSelected}
         />
         <p>
