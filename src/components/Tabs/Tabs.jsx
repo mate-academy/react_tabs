@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 export const Tabs = ({ tabs, onClick }) => (
   tabs.map(tab => (
@@ -14,3 +15,13 @@ export const Tabs = ({ tabs, onClick }) => (
     </button>
   ))
 );
+
+Tabs.propTypes = {
+  onClick: PropTypes.func.isRequired,
+  tabs: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      title: PropTypes.string.isRequired,
+    }).isRequired,
+  ).isRequired,
+};
