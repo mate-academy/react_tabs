@@ -17,12 +17,34 @@ const tabs = [
   },
 ];
 
-const App = () => (
-  <div>
-    <h1>React tabs</h1>
+class App extends React.Component {
+  state = {
+    currentIndex: 0,
+  }
 
-    <Tabs tabs={tabs} />
-  </div>
-);
+  selectTab = (index) => {
+    this.setState({
+      currentIndex: index,
+    });
+  }
+
+  render() {
+    const { currentIndex } = this.state;
+
+    return (
+      <div>
+        <h1>React tabs</h1>
+
+        <Tabs
+          tabs={tabs}
+          currentIndex={currentIndex}
+          selectTab={this.selectTab}
+        />
+
+        <p className="content">{tabs[currentIndex].content}</p>
+      </div>
+    );
+  }
+}
 
 export default App;
