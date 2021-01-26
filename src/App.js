@@ -25,26 +25,26 @@ const numeratedTabs = tabs.map((tab, index) => ({
 
 class App extends React.PureComponent {
   state = {
-    PageTabs: numeratedTabs,
-    content: '',
+    tabsArr: numeratedTabs,
+    selectedTabContent: '',
 
   }
 
   onTabSelected = (tab) => {
-    this.setState({ content: tab.content });
+    this.setState({ selectedTabContent: tab.content });
   }
 
   render() {
-    const { PageTabs, content } = this.state;
+    const { tabsArr, selectedTabContent } = this.state;
 
     return (
       <div className="container">
         <h1>React tabs</h1>
         <Tabs
-          tabsList={PageTabs}
-          getcontent={this.onTabSelected}
+          tabsList={tabsArr}
+          selectTab={this.onTabSelected}
         />
-        <p className="text">{content}</p>
+        <p className="text">{selectedTabContent}</p>
       </div>
     );
   }

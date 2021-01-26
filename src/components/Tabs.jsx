@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 export class Tabs extends React.PureComponent {
   render() {
-    const { tabsList, getcontent } = this.props;
+    const { tabsList, selectTab } = this.props;
 
     return (
       tabsList.map(tab => (
@@ -12,7 +12,7 @@ export class Tabs extends React.PureComponent {
           <button
             type="button"
             className="button"
-            onClick={() => getcontent(tab)}
+            onClick={() => selectTab(tab)}
           >
             {tab.title}
           </button>
