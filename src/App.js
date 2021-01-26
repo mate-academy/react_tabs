@@ -18,8 +18,36 @@ const tabs = [
   },
 ];
 
-const App = () => (
-  <Tabs tabs={tabs} />
-);
+class App extends React.Component {
+  state = {
+    index: null,
+    content: '',
+  }
+
+  onTabSelected = (idx, content) => {
+    this.setState({
+      index: idx,
+      content,
+    });
+  }
+
+  render() {
+    const { index } = this.state;
+
+    return (
+      <div>
+        <Tabs
+          tabs={tabs}
+          onTabSelected={this.onTabSelected}
+          index={index}
+        />
+        <div className="notification is-info is-light">
+          {this.state.content}
+        </div>
+      </div>
+
+    );
+  }
+}
 
 export default App;

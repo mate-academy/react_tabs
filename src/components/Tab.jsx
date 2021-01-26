@@ -1,47 +1,32 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-export class Tabs extends React.Component {
-  state = {
-    index: 0,
-    content: this.props.tabs[0].content,
-  }
+export const Tabs = ({ tabs, onTabSelected, index }) => (
+  <div className="m-5">
+    {tabs.map((tab, i) => (
+      <button
+        className={`button is-outlined ${
+          index === i ? 'is-focused' : ''}`
+        }
+        key={tab.title}
+        type="button"
+        onClick={() => onTabSelected(index, tab.content)}
+      >
+        {tab.title}
+      </button>
+    ))}
+  </div>
+);
 
-  static propTypes = {
-    tabs: PropTypes.arrayOf(PropTypes.shape({
-      title: PropTypes.string.isRequired,
-      content: PropTypes.string,
-    }).isRequired).isRequired,
-  }
+Tabs.propTypes = {
+  tabs: PropTypes.arrayOf(PropTypes.shape({
+    title: PropTypes.string.isRequired,
+    content: PropTypes.string,
+  }).isRequired).isRequired,
+  onTabSelected: PropTypes.func.isRequired,
+  index: PropTypes.number,
+};
 
-  onTabSelected = (idx, content) => {
-    this.setState({
-      index: idx,
-      content,
-    });
-  }
-
-  render() {
-    const { tabs } = this.props;
-
-    return (
-      <div className="m-5">
-        {tabs.map((tab, i) => (
-          <button
-            className={`button is-outlined ${
-              this.state.index === i ? 'is-focused' : ''}`
-            }
-            key={tab.title}
-            type="button"
-            onClick={() => this.onTabSelected(i, tab.content)}
-          >
-            {tab.title}
-          </button>
-        ))}
-        <div className="notification is-info is-light">
-          {this.state.content}
-        </div>
-      </div>
-    );
-  }
-}
+Tabs.defaultProps = {
+  index: null,
+};
