@@ -1,5 +1,4 @@
 import React from 'react';
-import './App.css';
 import { Tab } from './components/Tab/Tab';
 import 'bulma/css/bulma.css';
 
@@ -17,10 +16,10 @@ const tabs = [
 
 class App extends React.Component {
   state = {
-    active: 'Tab 1',
+    active: this.selectTab,
   }
 
-  handlerOnClick = (e) => {
+  selectTab = (e) => {
     this.setState({
       active: e,
     });
@@ -33,8 +32,12 @@ class App extends React.Component {
         <Tab
           tabs={tabs}
           active={this.state.active}
-          handlerOnClick={this.handlerOnClick}
+          handlerOnClick={this.selectTab}
         />
+        <div className="content">
+          {tabs.filter(tab => tab.title === this.state.active)
+            .map(tab => <p>{tab.content}</p>)}
+        </div>
       </div>
     );
   }
