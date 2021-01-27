@@ -52,7 +52,7 @@ class App extends React.Component {
 
   onTabSelected = (tab) => {
     const { tabsCopy } = this.state;
-    const findInd = tabsCopy.findIndex(el => el.title === tab.title);
+    const findSelectedTabIndex = tabsCopy.findIndex(el => el.title === tab.title);
 
     this.setState({
       selectIndex: findInd,
