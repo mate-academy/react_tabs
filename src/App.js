@@ -18,26 +18,30 @@ const tabs = [
   },
 ];
 
+const tabsWithIds = tabs.map(tab => ({
+  ...tab, id: +tab.title.split(' ')[1],
+}));
+
 class App extends React.Component {
   state = {
-    activeTitle: 'Tab 1',
+    allTabs: tabsWithIds,
+    content: '',
   }
 
-  changeHandler = (title) => {
-    this.setState({ activeTitle: title });
+  onTabSelected = (tabId) => {
+    this.setState(state => ({
+      content: state.allTabs.find(tab => tab.id === tabId).content,
+    }));
   }
 
   render() {
-    const { activeTitle } = this.state;
-    const activeText = tabs.find(el => el.title === activeTitle);
+    const { allTabs, content } = this.state;
 
     return (
       <div>
-        <Tabs tabs={tabs} onChange={this.changeHandler} />
+        <Tabs tabs={allTabs} onClick={this.onTabSelected} />
 
-        <p>
-          {activeText.content}
-        </p>
+        <p>{content}</p>
       </div>
     );
   }
