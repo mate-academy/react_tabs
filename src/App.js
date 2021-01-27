@@ -18,10 +18,29 @@ const tabs = [
   },
 ];
 
-const App = () => (
-  <>
-    <Tabs tabs={tabs} />
-  </>
-);
+class App extends React.Component {
+  state = {
+    activeTitle: 'Tab 1',
+  }
+
+  changeHandler = (title) => {
+    this.setState({ activeTitle: title });
+  }
+
+  render() {
+    const { activeTitle } = this.state;
+    const activeText = tabs.find(el => el.title === activeTitle);
+
+    return (
+      <div>
+        <Tabs tabs={tabs} onChange={this.changeHandler} />
+
+        <p>
+          {activeText.content}
+        </p>
+      </div>
+    );
+  }
+}
 
 export default App;
