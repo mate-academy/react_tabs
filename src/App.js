@@ -42,14 +42,7 @@ class App extends React.Component {
           onTabSelected={this.onTabSelected}
         />
 
-        {tabs
-          .filter((tab, index) => activeTabIndex === index)
-          .map(tab => (
-            <p key={tab.title}>
-              {tab.content}
-            </p>
-          ))
-        }
+        {tabs[activeTabIndex].content}
       </>
     );
   }
