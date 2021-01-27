@@ -16,12 +16,12 @@ const tabs = [
 
 class App extends React.Component {
   state = {
-    active: this.selectTab,
+    active: 0,
   }
 
-  selectTab = (e) => {
+  selectTab = (index) => {
     this.setState({
-      active: e,
+      active: index,
     });
   };
 
@@ -32,11 +32,10 @@ class App extends React.Component {
         <Tab
           tabs={tabs}
           active={this.state.active}
-          handlerOnClick={this.selectTab}
+          selectTab={this.selectTab}
         />
         <div className="content">
-          {tabs.filter(tab => tab.title === this.state.active)
-            .map(tab => <p>{tab.content}</p>)}
+          {tabs[this.state.active].content}
         </div>
       </div>
     );

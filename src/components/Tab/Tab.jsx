@@ -1,13 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-export const Tab = ({ tabs, active, handlerOnClick }) => (
+export const Tab = ({ tabs, active, selectTab }) => (
   <div className="container">
-    {tabs.map(tab => (
+    {tabs.map((tab, idx) => (
       <button
         type="button"
-        onClick={() => handlerOnClick(tab.title)}
-        className={active === tab.title ? 'active' : ''}
+        value={idx}
+        onClick={() => selectTab(idx)}
+        className={active === idx ? 'active' : ''}
       >
         {tab.title}
       </button>
@@ -22,6 +23,6 @@ Tab.propTypes = {
       content: PropTypes.string.isRequired,
     }),
   ).isRequired,
-  handlerOnClick: PropTypes.func.isRequired,
+  selectTab: PropTypes.func.isRequired,
   active: PropTypes.string.isRequired,
 };
