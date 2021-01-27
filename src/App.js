@@ -55,7 +55,7 @@ class App extends React.Component {
     const findSelectedTabIndex = tabsCopy.findIndex(el => el.title === tab.title);
 
     this.setState({
-      selectIndex: findInd,
+      selectedTabIndex: findInd,
     });
   }
 
