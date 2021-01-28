@@ -23,13 +23,14 @@ class App extends React.Component {
     index: 0,
   }
 
-  onTabSelected = (event) => {
-    const chosenTab = tabs.find(tab => (
-      tab.title === event.target.innerText
-    ));
+  onTabSelected = (index) => {
+    // const chosenTab = tabs.find(tab => (
+    //   tab.title === event.target.innerText
+    // ));
 
     this.setState({
-      index: tabs.indexOf(chosenTab),
+      // index: tabs.indexOf(chosenTab),
+      index,
     });
   }
 

@@ -3,36 +3,28 @@ import PropTypes from 'prop-types';
 import './Tabs.css';
 import classNames from 'classnames';
 
-export class Tabs extends React.Component {
-  state = {
-    tabs: this.props.tabs,
-  }
-
-  render() {
-    const { tabs } = this.state;
-
-    return (
-      <>
-        <table className="table">
-          <thead>
-            <tr>
-              {tabs.map((tab, index) => (
-                <th
-                  className={classNames('table-element', {
-                    active: this.props.index === index,
-                  })}
-                  key={tab.title}
-                  onClick={this.props.onTabSelected}
-                >
-                  {tab.title}
-                </th>
-              ))}
-            </tr>
-          </thead>
-        </table>
-      </>
-    );
-  }
+export function Tabs({ tabs, index, onTabSelected }) {
+  return (
+    <>
+      <table className="table">
+        <thead>
+          <tr>
+            {tabs.map((tab, i) => (
+              <th
+                className={classNames('table-element', {
+                  active: i === index,
+                })}
+                key={tab.title}
+                onClick={() => onTabSelected(i)}
+              >
+                {tab.title}
+              </th>
+            ))}
+          </tr>
+        </thead>
+      </table>
+    </>
+  );
 }
 
 Tabs.propTypes = {
