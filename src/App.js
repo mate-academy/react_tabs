@@ -46,28 +46,29 @@ const tabs = [
 
 class App extends React.Component {
   state = {
-    tabsCopy: [...tabs].map(tab => ({ ...tab })),
-    selectIndex: 0,
+    tabsCopy: tabs.map(tab => ({ ...tab })),
+    selectedTabIndex: 0,
   }
 
   onTabSelected = (tab) => {
     const { tabsCopy } = this.state;
-    const findInd = tabsCopy.findIndex(el => el.title === tab.title);
+    const findSelectedTabIndex = tabsCopy
+      .findIndex(el => el.title === tab.title);
 
     this.setState({
-      selectIndex: findInd,
+      selectedTabIndex: findSelectedTabIndex,
     });
   }
 
   render() {
-    const { tabsCopy, selectIndex } = this.state;
+    const { tabsCopy, selectedTabIndex } = this.state;
 
     return (
       <>
         <h1 className="title">React tabs</h1>
         <Tabs
           tabsCopy={tabsCopy}
-          selectIndex={selectIndex}
+          selectedTabIndex={selectedTabIndex}
           onTabSelected={this.onTabSelected}
         />
       </>

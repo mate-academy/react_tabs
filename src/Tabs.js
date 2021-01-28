@@ -8,7 +8,7 @@ export class Tabs extends React.Component {
   }
 
   render() {
-    const { tabsCopy, selectIndex, onTabSelected } = this.props;
+    const { tabsCopy, selectedTabIndex, onTabSelected } = this.props;
 
     return (
       <>
@@ -23,7 +23,7 @@ export class Tabs extends React.Component {
           </button>
         ))}
         <div className="content">
-          {tabsCopy.find((tab, i) => i === selectIndex).content}
+          {tabsCopy.find((tab, i) => i === selectedTabIndex).content}
         </div>
       </>
     );
@@ -35,6 +35,6 @@ Tabs.propTypes = {
     title: PropTypes.string.isRequired,
     content: PropTypes.string.isReqired,
   })).isRequired,
-  selectIndex: PropTypes.number.isRequired,
+  selectedTabIndex: PropTypes.number.isRequired,
   onTabSelected: PropTypes.func.isRequired,
 };
