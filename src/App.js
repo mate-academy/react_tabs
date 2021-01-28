@@ -1,6 +1,5 @@
 import React from 'react';
-
-import './App.scss';
+import Tabs from './components/Tabs';
 
 /* eslint-disable */
 const tabs = [
@@ -10,10 +9,36 @@ const tabs = [
 ];
 /* eslint-enable */
 
-const App = () => (
-  <div className="App">
-    <h1>Selected tab is&nbsp;Tab 1</h1>
-  </div>
-);
+const preparedTabs = tabs.map((tab, index) => ({
+  ...tab,
+  id: index,
+}));
+
+class App extends React.Component {
+  state = {
+    currentIndex: 0,
+  };
+
+  SelectTab = (index) => {
+    this.setState({
+      currentIndex: index,
+    });
+  }
+
+  render() {
+    const { currentIndex } = this.state;
+
+    return (
+      <div>
+        <h1>React tabs</h1>
+        <Tabs
+          tabs={preparedTabs}
+          index={currentIndex}
+          SelectedTab={this.SelectTab}
+        />
+      </div>
+    );
+  }
+}
 
 export default App;
