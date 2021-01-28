@@ -20,15 +20,15 @@ const tabs = [
 
 class App extends React.Component {
   state = {
-    index: 0,
+    selectedTabIndex: 0,
   }
 
-  onTabSelected = (i) => {
-    this.setState({ index: i });
+  onTabSelected = (index) => {
+    this.setState({ selectedTabIndex: index });
   }
 
   render() {
-    const { index } = this.state;
+    const { selectedTabIndex } = this.state;
 
     return (
       <>
@@ -36,8 +36,9 @@ class App extends React.Component {
         <Tabs
           tabs={tabs}
           onChange={this.onTabSelected}
-          index={index}
+          selectedTabIndex={selectedTabIndex}
         />
+        <p className="content">{tabs[selectedTabIndex].content}</p>
       </>
     );
   }
