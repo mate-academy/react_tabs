@@ -19,11 +19,33 @@ const tabs = [
   },
 ];
 
-const App = () => (
-  <>
-    <h1>React tabs</h1>
-    <Tabs tabs={tabs} />
-  </>
-);
+export class App extends React.Component {
+  state = {
+    activeTitleId: 0,
+  }
 
-export default App;
+  handleChange = (titleId) => {
+    this.setState({
+      activeTitleId: titleId,
+    });
+  }
+
+  render() {
+    const { activeTitleId } = this.state;
+
+    return (
+      <>
+        <h1>React tabs</h1>
+
+        <Tabs
+          tabs={tabs}
+          handleChange={this.handleChange}
+        />
+
+        <div className="content">
+          {tabs[activeTitleId].content}
+        </div>
+      </>
+    );
+  }
+}
