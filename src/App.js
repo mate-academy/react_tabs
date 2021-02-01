@@ -1,19 +1,28 @@
 import React from 'react';
-
 import './App.scss';
+import { Tab } from './components/Tab';
 
-/* eslint-disable */
+// eslint-disable-next-line no-unused-vars
 const tabs = [
-  { id: 'tab-1', title: 'Tab 1', content: 'Some text 1' },
-  { id: 'tab-2', title: 'Tab 2', content: 'Some text 2' },
-  { id: 'tab-3', title: 'Tab 3', content: 'Some text 3' },
+  {
+    title: 'Tab 1',
+    content: 'Some text 1',
+  },
+  {
+    title: 'Tab 2',
+    content: 'Some text 2',
+  },
+  {
+    title: 'Tab 3',
+    content: 'Some text 3',
+  },
 ];
-/* eslint-enable */
 
 const App = () => (
-  <div className="App">
-    <h1>Selected tab is&nbsp;Tab 1</h1>
-  </div>
+  <>
+    <h1>React tabs</h1>
+    <Tab tabs={tabs} />
+  </>
 );
 
 export default App;
