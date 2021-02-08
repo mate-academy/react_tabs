@@ -25,9 +25,6 @@ export const Tabs = ({ selectedTab, tabs, onSelect }) => (
         </li>
       ))}
     </ul>
-    <div className="text">
-      <p>{selectedTab.content}</p>
-    </div>
   </>
 );
 

@@ -41,6 +41,9 @@ class App extends React.Component {
           tabs={tabs}
           onSelect={this.onSelect}
         />
+        <div className="text">
+          <p>{selectedTab.content}</p>
+        </div>
       </div>
     );
   }
