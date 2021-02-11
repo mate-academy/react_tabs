@@ -1,1 +1,43 @@
-// Put styles here
+.tabs {
+  display: inline-block;
+  text-align: center;
+  position: relative;
+}
+
+.tab {
+  display: inline;
+  background-color: rgb(200, 200, 300);
+  text-align: center;
+  line-height: 0.5em;
+  font-size: 16px;
+  border: solid 1px;
+
+  padding: 0.5em;
+  margin: 0;
+  width: 101px;
+}
+
+.tab:hover {
+  cursor: pointer;
+  background-color: #ccc;
+}
+
+.selected {
+  display: inline;
+  background-color: rgb(200, 200, 100);
+  text-align: center;
+  line-height: 0.5em;
+  font-size: 16px;
+  border: solid 1px;
+  padding: 0.5em;
+  width: 101px;
+  border-bottom: none;
+}
+
+.content {
+  width: 301px;
+  background-color: rgb(200, 200, 100);
+  border: solid 1px;
+  text-align: center;
+  font-size: 16px;
+}
