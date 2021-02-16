@@ -1,0 +1,32 @@
+div {
+  list-style: none;
+  display: inline-block;
+}
+
+div button {
+  display: inline-block;
+  padding: 10px 20px;
+  cursor: pointer;
+  background-color: #eee;
+  font: 24px normal Arial, sans-serif;
+  color: #7b8585;
+  border: 0;
+  transition: 0.3s;
+}
+
+div button:hover {
+  background-color: #beecea;
+}
+
+div button.focused {
+  color: #fff;
+  background-color: #41c7c2;
+}
+
+.content {
+  padding: 15px;
+  font-size: 24px;
+  color: #fff;
+  display: block;
+  background-color: #7b8585;
+}
