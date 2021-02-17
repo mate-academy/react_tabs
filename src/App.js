@@ -12,31 +12,45 @@ const tabs = [
 
 class App extends React.Component {
   state = {
-    selectedTabIndex: 0,
+    selectedTabIndex: 'tab-1',
+    selectedTabTitle: 'Tab 1',
+    selectedTabContent: 'Some text 1',
   };
 
   selectTab = (tabIndex) => {
+    const focusedTab = tabs.find(tab => tabs.indexOf(tab) === tabIndex);
+
     this.setState({
       selectedTabIndex: tabIndex,
+      selectedTabTitle: focusedTab.title,
+      selectedTabContent: focusedTab.content,
     });
   }
 
   render() {
-    const { selectedTabIndex } = this.state;
+    const {
+      selectedTabIndex,
+      selectedTabTitle,
+      selectedTabContent,
+    } = this.state;
 
     return (
       <>
-        <h1 className="title">
-          Selected tab is
-          {' '}
-          {tabs[selectedTabIndex].title}
-        </h1>
 
-        <Tabs
-          tabs={tabs}
-          selectedTabId={selectedTabIndex}
-          onTabSelected={this.selectTab}
-        />
+        <div className="App">
+          <h1 className="title">
+            Selected tab is
+            {' '}
+            {selectedTabTitle}
+          </h1>
+
+          <Tabs
+            tabs={tabs}
+            selectedTabId={selectedTabIndex}
+            selectedTabInfo={selectedTabContent}
+            onTabSelected={this.selectTab}
+          />
+        </div>
       </>
     );
   }

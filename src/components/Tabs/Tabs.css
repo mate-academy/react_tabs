@@ -3,7 +3,7 @@ div {
   display: inline-block;
 }
 
-div button {
+div .button {
   display: inline-block;
   padding: 10px 20px;
   cursor: pointer;
@@ -14,11 +14,11 @@ div button {
   transition: 0.3s;
 }
 
-div button:hover {
+div .button:hover {
   background-color: #beecea;
 }
 
-div button.focused {
+div .button.focused {
   color: #fff;
   background-color: #41c7c2;
 }
