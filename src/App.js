@@ -14,9 +14,7 @@ const tabs = [
 
 class App extends React.Component {
   state = {
-    selectedTabId: '',
-    selectedTabTitle: '',
-    selectedTabContent: '',
+    selectedTabId: 'tab-1',
   }
 
   selectedTab = (tab) => {
@@ -28,12 +26,15 @@ class App extends React.Component {
   }
 
   render() {
+    const { selectedTabId } = this.state;
+    const selectedTab = tabs.find(tab => tab.id === selectedTabId);
+
     return (
       <div className="App">
         <h1>
           Selected tab is
           {' '}
-          {this.state.selectedTabTitle}
+          {selectedTab.title}
         </h1>
 
         <Tabs
@@ -43,7 +44,7 @@ class App extends React.Component {
         />
 
         <div className="content">
-          {this.state.selectedTabContent}
+          {selectedTab.content}
         </div>
       </div>
     );

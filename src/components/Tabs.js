@@ -10,6 +10,7 @@ export const Tabs = ({
     <div className="nav_buttons">
       {tabs.map(tab => (
         <button
+          key={tab.id}
           onClick={() => onTabSelected(tab)}
           type="button"
           className={selectedTabId === tab.id && 'active'}
@@ -23,6 +24,6 @@ export const Tabs = ({
 
 Tabs.propTypes = {
   tabs: PropTypes.arrayOf(PropTypes.object).isRequired,
-  onTabSelected: PropTypes.string.isRequired,
+  onTabSelected: PropTypes.func.isRequired,
   selectedTabId: PropTypes.string.isRequired,
 };
