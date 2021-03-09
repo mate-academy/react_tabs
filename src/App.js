@@ -14,9 +14,9 @@ const tabs = [
 
 class App extends React.Component {
   state = {
-    selectedTabId: 'tab-1',
-    selectedTabTitle: 'Tab 1',
-    selectedTabContent: 'Some text 1',
+    selectedTabId: '',
+    selectedTabTitle: '',
+    selectedTabContent: '',
   }
 
   selectedTab = (tab) => {
@@ -41,6 +41,10 @@ class App extends React.Component {
           onTabSelected={this.selectedTab}
           {...this.state}
         />
+
+        <div className="content">
+          {this.state.selectedTabContent}
+        </div>
       </div>
     );
   }

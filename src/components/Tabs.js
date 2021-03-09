@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 
 export const Tabs = ({
   tabs,
-  selectedTabContent,
   onTabSelected,
   selectedTabId,
 }) => (
@@ -19,16 +18,11 @@ export const Tabs = ({
         </button>
       ))}
     </div>
-
-    <div className="content">
-      {selectedTabContent}
-    </div>
   </>
 );
 
 Tabs.propTypes = {
   tabs: PropTypes.arrayOf(PropTypes.object).isRequired,
-  selectedTabContent: PropTypes.string.isRequired,
   onTabSelected: PropTypes.string.isRequired,
   selectedTabId: PropTypes.string.isRequired,
 };
