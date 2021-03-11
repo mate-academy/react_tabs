@@ -1,1 +1,14 @@
-// Put styles here
+.App {
+  display: grid;
+  margin: 0 3rem;
+}
+
+.content {
+  height: 150px;
+  background: aliceblue;
+  border: 1px solid black;
+
+  p {
+    margin-left: 1.25rem;
+  }
+}
