@@ -42,6 +42,11 @@ class App extends React.Component {
 
     return (
       <div className="App">
+        <h1>
+          {`Selected title is ${
+            currentTabs.find(tab => tab.id === activeId).title
+          }`}
+        </h1>
         <ButtonsList
           tabs={currentTabs}
           chooseContent={this.HandleChooseContent}
