@@ -1,1 +1,8 @@
-// Put styles here
+.App {
+  &__content {
+    padding-top: 10px;
+
+    border-top: rgb(190, 189, 189) 1px solid;
+    font-size: 15px;
+  }
+}
