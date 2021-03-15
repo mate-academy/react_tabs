@@ -13,31 +13,25 @@ const tabs = [
 
 class App extends React.Component {
   state = {
-    tabs,
     selectedTab: tabs[0],
-    tabContent: tabs[0].content,
-    active: tabs[0].id,
   }
 
   onContent = (tab) => {
     this.setState({
-      tabContent: tab.content,
       selectedTab: tab,
-      active: tab.id,
     });
   }
 
   render() {
-    const { selectedTab, tabContent, active } = this.state;
+    const { selectedTab } = this.state;
 
     return (
       <div className="App">
         <h1>{`Selected tab: ${selectedTab.title}`}</h1>
         <Tabs
-          tabs={this.state.tabs}
-          tabContent={tabContent}
+          tabs={tabs}
           onContent={this.onContent}
-          active={active}
+          selectedTab={selectedTab}
         />
       </div>
     );

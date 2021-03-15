@@ -6,7 +6,7 @@ export class Tabs extends React.Component {
   }
 
   render() {
-    const { tabs, active, onContent, tabContent } = this.props;
+    const { tabs, onContent, selectedTab } = this.props;
 
     return (
       <div>
@@ -14,7 +14,7 @@ export class Tabs extends React.Component {
           {tabs.map(tab => (
             <li key={tab.id}>
               <button
-                className={tab.id === active ? 'active' : ''}
+                className={tab.id === selectedTab.id ? 'active' : ''}
                 type="button"
                 onClick={() => (
                   onContent(tab)
@@ -25,7 +25,7 @@ export class Tabs extends React.Component {
             </li>
           ))}
         </ul>
-        <p>{tabContent}</p>
+        <p>{selectedTab.content}</p>
       </div>
     );
   }
@@ -39,7 +39,6 @@ Tabs.propTypes = {
       content: PropTypes.string.isRequired,
     }).isRequired,
   ).isRequired,
-  active: PropTypes.string.isRequired,
   onContent: PropTypes.func.isRequired,
-  tabContent: PropTypes.string.isRequired,
+  selectedTab: PropTypes.string.isRequired,
 };
