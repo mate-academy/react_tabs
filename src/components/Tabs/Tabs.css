@@ -1,0 +1,16 @@
+.list {
+  display: flex;
+  border-bottom: 1px solid #000;
+}
+
+.list__item {
+  list-style-type: none;
+  padding: 5px;
+  cursor: pointer;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+}
+
+.list__item:hover {
+  background-color: rgb(255, 183, 183);
+}
