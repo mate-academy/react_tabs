@@ -13,32 +13,31 @@ const tabs = [
 
 export class App extends Component {
   state = {
-    selectedTab: tabs[0].title,
-    selectedTabId: tabs[0].id,
+    selectedTab: tabs[0].id,
   }
 
-  onClickTab = (title, id) => {
+  onClickTab = (id) => {
     this.setState({
-      selectedTab: title,
-      selectedTabId: id,
+      selectedTab: id,
     });
   }
 
   render() {
     const { onClickTab } = this;
-    const { selectedTab, selectedTabId } = this.state;
+    const { selectedTab } = this.state;
 
     return (
       <div className="App">
         <h1>
           Selected tab is&nbsp;
-          {selectedTab || selectedTabId}
+          {tabs.find(
+            tab => tab.id === selectedTab,
+          ).title}
         </h1>
         <Tabs
           tabs={tabs}
           onClickTab={onClickTab}
           selectedTab={selectedTab}
-          selectedTabId={selectedTabId}
         />
       </div>
     );
