@@ -15,7 +15,7 @@ class App extends React.Component {
     currentTab: tabs[0],
   }
 
-  handleChooseContent = (tab) => {
+  handleChooseTab = (tab) => {
     this.setState({ currentTab: tab });
   }
 
@@ -35,7 +35,7 @@ class App extends React.Component {
             const tabId = event.target.id;
             const tab = tabs.find(tabCurrent => tabCurrent.id === tabId);
 
-            this.handleChooseContent(tab);
+            this.handleChooseTab(tab);
           })}
           activeId={currentTab.id}
         />
