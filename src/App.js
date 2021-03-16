@@ -15,14 +15,8 @@ class App extends React.Component {
     currentTab: tabs[0],
   }
 
-  handleChooseContent = (event) => {
-    const tabId = event.target.id;
-
-    this.setState(
-      {
-        currentTab: tabs.find(tab => tab.id === tabId),
-      },
-    );
+  handleChooseContent = (tab) => {
+    this.setState({ currentTab: tab });
   }
 
   render() {
@@ -37,7 +31,12 @@ class App extends React.Component {
         </h1>
         <ButtonsList
           tabs={tabs}
-          chooseContent={this.handleChooseContent}
+          chooseContent={((event) => {
+            const tabId = event.target.id;
+            const tab = tabs.find(tabCurrent => tabCurrent.id === tabId);
+
+            this.handleChooseContent(tab);
+          })}
           activeId={currentTab.id}
         />
         <div
