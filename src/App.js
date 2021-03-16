@@ -1,19 +1,52 @@
 import React from 'react';
-
+import { ButtonsList } from './components/ButtonsList';
 import './App.scss';
 
 /* eslint-disable */
 const tabs = [
-  { id: 'tab-1', title: 'Tab 1', content: 'Some text 1' },
-  { id: 'tab-2', title: 'Tab 2', content: 'Some text 2' },
-  { id: 'tab-3', title: 'Tab 3', content: 'Some text 3' },
+  { id: 'tab-1', title: 'Home', content: 'Some text 1' },
+  { id: 'tab-2', title: 'Profile', content: 'Some text 2' },
+  { id: 'tab-3', title: 'Contact', content: 'Some text 3' },
 ];
 /* eslint-enable */
 
-const App = () => (
-  <div className="App">
-    <h1>Selected tab is&nbsp;Tab 1</h1>
-  </div>
-);
+class App extends React.Component {
+  state = {
+    currentTab: tabs[0],
+  }
+
+  handleChooseTab = (tab) => {
+    this.setState({ currentTab: tab });
+  }
+
+  render() {
+    const { currentTab } = this.state;
+
+    return (
+      <div className="App">
+        <h1>
+          {`Selected title is ${
+            currentTab.title
+          }`}
+        </h1>
+        <ButtonsList
+          tabs={tabs}
+          chooseContent={((event) => {
+            const tabId = event.target.id;
+            const tab = tabs.find(tabCurrent => tabCurrent.id === tabId);
+
+            this.handleChooseTab(tab);
+          })}
+          activeId={currentTab.id}
+        />
+        <div
+          className="App__content"
+        >
+          {currentTab.content}
+        </div>
+      </div>
+    );
+  }
+}
 
 export default App;

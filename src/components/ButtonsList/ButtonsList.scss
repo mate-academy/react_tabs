@@ -1,0 +1,58 @@
+.ButtonsList {
+  display: flex;
+  margin: 0;
+  padding: 0;
+  padding-left: 10px;
+
+  list-style: none;
+
+  &__item {
+    position: relative;
+
+    background-color: white;
+  }
+
+  &__button {
+    height: 30px;
+    box-sizing: border-box;
+
+    color: rgb(69, 69, 233);
+
+    border-radius: 4px;
+    background-color: white;
+    border: 0;
+
+    font-family: sans-serif;
+
+    &:hover {
+      color: black;
+    }
+
+    &:focus {
+      outline: none;
+    }
+
+    &--active {
+
+      border: rgb(190, 189, 189) 1px solid;
+      border-bottom: 0;
+      color: black;
+
+      &::after {
+        content: "";
+        position: absolute;
+        top: calc(100% - 4px);
+        left: 0;
+        box-sizing: border-box;
+
+        display: block;
+        height: 5px;
+        width: calc(100%);
+
+        background-color: white;
+        border-right: rgb(190, 189, 189) 1px solid;
+        border-left: rgb(190, 189, 189) 1px solid;
+      }
+    }
+  }
+}
