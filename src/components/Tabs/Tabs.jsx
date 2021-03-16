@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import classNames from 'classnames';
 
-export const Tabs = ({ tabs, activeId, tabSelected }) => (
+export const Tabs = ({ tabs, activeId, chooseTab }) => (
   <>
     <div className="tab">
       {tabs.map(tab => (
@@ -10,7 +10,7 @@ export const Tabs = ({ tabs, activeId, tabSelected }) => (
           type="button"
           key={tab.id}
           onClick={() => {
-            tabSelected(tab.id);
+            chooseTab(tab.id);
           }}
           className={classNames(
             `button`,
@@ -36,5 +36,5 @@ Tabs.propTypes = {
     }).isRequired,
   ).isRequired,
   activeId: PropTypes.string.isRequired,
-  tabSelected: PropTypes.func.isRequired,
+  chooseTab: PropTypes.func.isRequired,
 };

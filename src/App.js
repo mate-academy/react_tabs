@@ -14,10 +14,10 @@ const tabs = [
 
 class App extends React.Component {
   state = {
-    activeId: 'tab-1',
+    activeId: tabs[0].id,
   }
 
-  tabSelected = (selectedId) => {
+  chooseTab = (selectedId) => {
     this.setState({
       activeId: selectedId,
     });
@@ -34,7 +34,7 @@ class App extends React.Component {
         <Tabs
           tabs={tabs}
           activeId={this.state.activeId}
-          tabSelected={this.tabSelected}
+          chooseTab={this.chooseTab}
         />
       </div>
     );
