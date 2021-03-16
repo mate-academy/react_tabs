@@ -12,50 +12,38 @@ const tabs = [
 
 class App extends React.Component {
   state = {
-    currentTabs: [...tabs],
-    activeId: 'tab-1',
-    currentContent: '',
+    currentTab: tabs[0],
   }
 
-  componentDidMount() {
-    this.setState((state) => {
-      const newContent = state.currentTabs
-        .find(tab => tab.id === state.activeId).content;
-
-      return ({ currentContent: newContent });
-    });
-  }
-
-  HandleChooseContent = (event) => {
+  handleChooseContent = (event) => {
     const tabId = event.target.id;
 
-    this.setState(state => (
+    this.setState(
       {
-        currentContent: state.currentTabs.find(tab => tab.id === tabId).content,
-        activeId: tabId,
-      }
-    ));
+        currentTab: tabs.find(tab => tab.id === tabId),
+      },
+    );
   }
 
   render() {
-    const { currentTabs, currentContent, activeId } = this.state;
+    const { currentTab } = this.state;
 
     return (
       <div className="App">
         <h1>
           {`Selected title is ${
-            currentTabs.find(tab => tab.id === activeId).title
+            currentTab.title
           }`}
         </h1>
         <ButtonsList
-          tabs={currentTabs}
-          chooseContent={this.HandleChooseContent}
-          activeId={activeId}
+          tabs={tabs}
+          chooseContent={this.handleChooseContent}
+          activeId={currentTab.id}
         />
         <div
           className="App__content"
         >
-          {currentContent}
+          {currentTab.content}
         </div>
       </div>
     );
