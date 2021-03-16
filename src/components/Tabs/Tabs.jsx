@@ -3,18 +3,18 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import './Tabs.scss';
 
-export const Tabs = ({ tabs, selectedTab, selectedId }) => (
+export const Tabs = ({ tabs, handleSelectedTab, selectedTabId }) => (
   <>
     <div className="container">
       {tabs.map(tab => (
         <button
           className={classNames(
             'container__tab',
-            { 'container__tab--active': selectedId === tab.id },
+            { 'container__tab--active': selectedTabId === tab.id },
           )}
           type="button"
           key={tab.id}
-          onClick={() => selectedTab(tab.id)}
+          onClick={() => handleSelectedTab(tab.id)}
         >
           {tab.title}
         </button>
@@ -32,6 +32,6 @@ Tabs.propTypes = {
       content: PropTypes.string.isRequired,
     }),
   ).isRequired,
-  selectedId: PropTypes.string.isRequired,
-  selectedTab: PropTypes.func.isRequired,
+  selectedTabId: PropTypes.string.isRequired,
+  handleSelectedTab: PropTypes.func.isRequired,
 };

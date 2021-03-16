@@ -14,31 +14,31 @@ const tabs = [
 
 class App extends React.Component {
   state = {
-    selectedId: '',
+    selectedTabId: tabs[0].id,
   }
 
-  selectedTab = (id) => {
+  handleSelectedTab = (id) => {
     this.setState({
-      selectedId: id,
+      selectedTabId: id,
     });
   }
 
   render() {
-    const { selectedId } = this.state;
+    const { selectedTabId } = this.state;
 
     return (
       <div className="App">
         <h1>
-          {`Selected tab is ${selectedId}`}
+          {`Selected tab is ${selectedTabId}`}
         </h1>
         <Tabs
           tabs={tabs}
-          selectedTab={this.selectedTab}
-          selectedId={selectedId}
+          handleSelectedTab={this.handleSelectedTab}
+          selectedTabId={selectedTabId}
         />
         <TabsContent
           tabs={tabs}
-          selectedId={selectedId}
+          selectedTabId={selectedTabId}
         />
       </div>
     );

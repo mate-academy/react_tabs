@@ -2,12 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './TabsContent.scss';
 
-export const TabsContent = ({ tabs, selectedId }) => {
-  const currentTab = tabs.find(tab => tab.id === selectedId);
+export const TabsContent = ({ tabs, selectedTabId }) => {
+  const currentTab = tabs.find(tab => tab.id === selectedTabId);
 
   return (
     <div className="content">
-      {selectedId && currentTab.content}
+      {selectedTabId && currentTab.content}
     </div>
   );
 };
@@ -20,5 +20,5 @@ TabsContent.propTypes = {
       content: PropTypes.string.isRequired,
     }),
   ).isRequired,
-  selectedId: PropTypes.string.isRequired,
+  selectedTabId: PropTypes.string.isRequired,
 };
