@@ -1,0 +1,31 @@
+.tab-list {
+  display: flex;
+  padding: 0;
+
+  border-bottom: 1px solid black;
+}
+
+.tab-list__item {
+  list-style: none;
+  padding: 10px;
+
+  font-size: 20px;
+  color: rgb(2, 139, 230);
+}
+
+.tab-list__button {
+  background-color: inherit;
+  border: none;
+  outline: none;
+
+  font-size: inherit;
+  color: inherit;
+  cursor: pointer;
+}
+
+.selected {
+  color: black;
+  border: 1px solid black;
+  border-radius: 5px 5px 0 0;
+  border-bottom: 1px solid white;
+}
