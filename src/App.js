@@ -25,6 +25,7 @@ class App extends React.Component {
 
   render() {
     const { selectedTabId } = this.state;
+    const selectedTab = tabs.find(tab => tab.id === selectedTabId);
 
     return (
       <div className="App">
@@ -37,8 +38,7 @@ class App extends React.Component {
           selectedTabId={selectedTabId}
         />
         <TabsContent
-          tabs={tabs}
-          selectedTabId={selectedTabId}
+          tab={selectedTab}
         />
       </div>
     );
