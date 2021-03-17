@@ -1,1 +1,18 @@
-// Put styles here
+.tab {
+  max-width: 300px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 15px;
+}
+
+.button {
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  &__active {
+    color: #f35a35;
+    &:hover {
+      background-color: white;
+    }
+  }
+}
