@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import classNames from 'classnames';
 
-export const Tabs = ({ tabs, activeId, chooseTab }) => (
+export const Tabs = ({ tabs, activeTabId, chooseTab }) => (
   <>
     <div className="tab">
       {tabs.map(tab => (
@@ -14,7 +14,7 @@ export const Tabs = ({ tabs, activeId, chooseTab }) => (
           }}
           className={classNames(
             `button`,
-            { button__active: activeId === tab.id },
+            { button__active: activeTabId === tab.id },
           )}
         >
           {tab.title}
@@ -22,7 +22,7 @@ export const Tabs = ({ tabs, activeId, chooseTab }) => (
       ))}
     </div>
     <div>
-      {tabs.find(tab => tab.id === activeId).content}
+      {tabs.find(tab => tab.id === activeTabId).content}
     </div>
   </>
 );
@@ -35,6 +35,6 @@ Tabs.propTypes = {
       content: PropTypes.string.isRequired,
     }).isRequired,
   ).isRequired,
-  activeId: PropTypes.string.isRequired,
+  activeTabId: PropTypes.string.isRequired,
   chooseTab: PropTypes.func.isRequired,
 };
