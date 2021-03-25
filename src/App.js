@@ -12,14 +12,14 @@ const tabs = [
 
 class App extends React.Component {
   state = {
-    selectedTabId: 1,
+    selectedTabId: '1',
   }
 
   render() {
     return (
       <div className="App">
         <h1>
-          Selected tab is &nbsp;Tab
+          Selected tab is Tab&nbsp;
           {this.state.selectedTabId}
         </h1>
         {
@@ -28,6 +28,9 @@ class App extends React.Component {
               type="button"
               key={tab.id}
               id={index + 1}
+              className={
+                (index + 1 === +this.state.selectedTabId) ? 'active' : ''
+              }
               onClick={
                 (event) => {
                   this.setState({
