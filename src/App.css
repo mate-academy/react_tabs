@@ -8,8 +8,10 @@
   border: 2px solid black;
   border-bottom: none;
   margin-bottom: 0;
+  margin-left: 5px;
   padding: 5px;
   font-size: 15px;
+  outline: none;
 }
 
 .tab__button__active {
@@ -24,5 +26,5 @@
 }
 
 .tab__text {
-  margin: 5px 15px;
+  margin: 5px 20px;
 }
