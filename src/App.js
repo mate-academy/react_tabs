@@ -1,7 +1,7 @@
 import React from 'react';
+import Tabs from './components/Tabs';
 
 import './App.scss';
-
 /* eslint-disable */
 const tabs = [
   { id: 'tab-1', title: 'Tab 1', content: 'Some text 1' },
@@ -10,10 +10,43 @@ const tabs = [
 ];
 /* eslint-enable */
 
-const App = () => (
-  <div className="App">
-    <h1>Selected tab is&nbsp;Tab 1</h1>
-  </div>
-);
+class App extends React.Component {
+  state = {
+    selectedTabId: 1,
+  }
+
+  render() {
+    return (
+      <div className="App">
+        <h1>
+          Selected tab is &nbsp;Tab
+          {this.state.selectedTabId}
+        </h1>
+        {
+          tabs.map((tab, index) => (
+            <button
+              type="button"
+              key={tab.id}
+              id={index + 1}
+              onClick={
+                (event) => {
+                  this.setState({
+                    selectedTabId: event.target.id,
+                  });
+                }
+              }
+            >
+              {tab.title}
+            </button>
+          ))
+        }
+        <Tabs
+          tabs={tabs}
+          selected={this.state.selectedTabId}
+        />
+      </div>
+    );
+  }
+}
 
 export default App;
