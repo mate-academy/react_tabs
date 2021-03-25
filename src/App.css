@@ -1,0 +1,30 @@
+.tab {
+  margin: 0 10px;
+}
+
+.tab__button {
+  background-color: white;
+  color: black;
+  border: 2px solid black;
+  border-bottom: none;
+  margin-bottom: 0;
+  margin-left: 5px;
+  padding: 5px;
+  font-size: 15px;
+  outline: none;
+}
+
+.tab__button__active {
+  background-color: grey;
+}
+
+.tab__horizontal__line {
+  margin: 0;
+  height: 1px;
+  background-color: black;
+  border-color: black;
+}
+
+.tab__text {
+  margin: 5px 20px;
+}
