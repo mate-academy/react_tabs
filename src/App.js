@@ -1,7 +1,8 @@
 import React from 'react';
-import Tabs from './components/Tabs';
+import { Tabs } from './components/Tabs/Tabs';
 
 import './App.scss';
+
 /* eslint-disable */
 const tabs = [
   { id: 'tab-1', title: 'Tab 1', content: 'Some text 1' },
@@ -12,40 +13,25 @@ const tabs = [
 
 class App extends React.Component {
   state = {
-    selectedTabId: '1',
+    selectedTab: tabs[0],
+  }
+
+  onContent = (tab) => {
+    this.setState({
+      selectedTab: tab,
+    });
   }
 
   render() {
+    const { selectedTab } = this.state;
+
     return (
       <div className="App">
-        <h1>
-          Selected tab is Tab&nbsp;
-          {this.state.selectedTabId}
-        </h1>
-        {
-          tabs.map((tab, index) => (
-            <button
-              type="button"
-              key={tab.id}
-              id={index + 1}
-              className={
-                (index + 1 === +this.state.selectedTabId) ? 'active' : ''
-              }
-              onClick={
-                (event) => {
-                  this.setState({
-                    selectedTabId: event.target.id,
-                  });
-                }
-              }
-            >
-              {tab.title}
-            </button>
-          ))
-        }
+        <h1>{`Selected tab: ${selectedTab.title}`}</h1>
         <Tabs
           tabs={tabs}
-          selected={this.state.selectedTabId}
+          onContent={this.onContent}
+          selectedTab={selectedTab}
         />
       </div>
     );
