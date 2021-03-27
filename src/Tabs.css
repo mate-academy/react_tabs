@@ -1,0 +1,23 @@
+.list {
+  border-bottom: 2px solid black;
+}
+
+.item {
+  margin-bottom: -1px;
+  display: inline-block;
+  list-style: none;
+}
+
+.button {
+  margin-bottom: -1px;
+  border: 2px solid transparent;
+  border-bottom: 0;
+  padding: 10px 20px;
+  border-radius: 5px;
+  color: green;
+}
+
+.button--active {
+  border: 2px solid black;
+  border-bottom: 2px solid transparent;
+}
