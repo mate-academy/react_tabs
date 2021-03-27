@@ -1,19 +1,50 @@
 import React from 'react';
 
 import './App.scss';
+import { Tabs } from './Components/Tabs';
 
-/* eslint-disable */
 const tabs = [
-  { id: 'tab-1', title: 'Tab 1', content: 'Some text 1' },
-  { id: 'tab-2', title: 'Tab 2', content: 'Some text 2' },
-  { id: 'tab-3', title: 'Tab 3', content: 'Some text 3' },
+  {
+    id: 'tab-1',
+    title: 'Home',
+    content: 'Some text 1',
+  },
+  {
+    id: 'tab-2',
+    title: 'Profile',
+    content: 'Some text 2',
+  },
+  {
+    id: 'tab-3',
+    title: 'Contact',
+    content: 'Some text 3',
+  },
 ];
-/* eslint-enable */
 
-const App = () => (
-  <div className="App">
-    <h1>Selected tab is&nbsp;Tab 1</h1>
-  </div>
-);
+class App extends React.Component {
+  state = {
+    selectedTabId: tabs[0].id,
+  }
+
+  onTabSelected = (id) => {
+    this.setState({
+      selectedTabId: id,
+    });
+  }
+
+  render() {
+    const { selectedTabId } = this.state;
+
+    return (
+      <div>
+        <Tabs
+          tabs={tabs}
+          onTabSelected={this.onTabSelected}
+        />
+        <h1>{tabs.find(tab => tab.id === selectedTabId).content}</h1>
+      </div>
+    );
+  }
+}
 
 export default App;
