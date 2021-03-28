@@ -1,1 +1,29 @@
-// Put styles here
+.Tabs {
+  display: flex;
+  justify-content: flex-start;
+
+  &__button {
+    margin: 20px 30px 0;
+    position: relative;
+    border: 2px solid black;
+
+    &__hover {
+      background-color: cadetblue;
+    }
+
+    &:focus {
+      background-color: chartreuse;
+      
+    }
+
+  }
+
+  &__line {
+    background-color: black;
+    height: 2px;
+    width: 100%;
+    position: absolute;
+    top: 49px;
+
+  }
+}

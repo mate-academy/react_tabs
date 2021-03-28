@@ -7,17 +7,17 @@ const tabs = [
   {
     id: 'tab-1',
     title: 'Home',
-    content: 'Some text 1',
+    content: 'Hello Vova)',
   },
   {
     id: 'tab-2',
     title: 'Profile',
-    content: 'Some text 2',
+    content: 'I m waiting for your approved',
   },
   {
     id: 'tab-3',
     title: 'Contact',
-    content: 'Some text 3',
+    content: 'Vova dankeschön',
   },
 ];
 
@@ -34,15 +34,19 @@ class App extends React.Component {
 
   render() {
     const { selectedTabId } = this.state;
+    const tabContent = tabs.find(tab => tab.id === selectedTabId).content;
 
     return (
-      <div>
-        <Tabs
-          tabs={tabs}
-          onTabSelected={this.onTabSelected}
-        />
-        <h1>{tabs.find(tab => tab.id === selectedTabId).content}</h1>
-      </div>
+      <>
+        <div className="Tabs">
+          <Tabs
+            tabs={tabs}
+            onTabSelected={this.onTabSelected}
+          />
+        </div>
+        <div className="Tabs__line" />
+        <h1>{tabContent}</h1>
+      </>
     );
   }
 }

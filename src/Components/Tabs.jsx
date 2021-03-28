@@ -1,11 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import './Tabs.scss';
 
 export function Tabs({ tabs, onTabSelected }) {
   return (
-    <div>
+    <>
       {tabs.map(tab => (
         <button
+          className="Tabs__button"
           type="button"
           key={tab.id}
           onClick={
@@ -16,7 +18,7 @@ export function Tabs({ tabs, onTabSelected }) {
         </button>
       ))
       }
-    </div>
+    </>
   );
 }
 
