@@ -1,1 +1,6 @@
-// Put styles here
+.App__title {
+  &--red {
+    color: red;
+    text-transform: uppercase;
+  }
+}
