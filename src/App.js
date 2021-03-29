@@ -34,15 +34,14 @@ class App extends React.Component {
 
   render() {
     const { selectedTabId } = this.state;
-    const selectedTitle = tabs.find(tab => tab.id === selectedTabId).title;
-    const tabContent = tabs.find(tab => tab.id === selectedTabId).content;
+    const selectedTab = tabs.find(tab => tab.id === selectedTabId);
 
     return (
       <>
         <h1>
           Selected
           {' '}
-          {selectedTitle}
+          {selectedTab.title}
         </h1>
         <div className="Tabs">
           <Tabs
@@ -51,7 +50,7 @@ class App extends React.Component {
           />
         </div>
         <div className="Tabs__line" />
-        <p>{tabContent}</p>
+        <p>{selectedTab.content}</p>
       </>
     );
   }
