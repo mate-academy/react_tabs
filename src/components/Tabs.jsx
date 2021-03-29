@@ -36,7 +36,6 @@ Tabs.propTypes = {
   tabs: PropTypes.arrayOf(PropTypes.shape({
     id: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
-    content: PropTypes.string.isRequired,
   })).isRequired,
   selectedTab: PropTypes.shape({
     id: PropTypes.string.isRequired,
