@@ -1,1 +1,10 @@
-// Put styles here
+.App {
+  &__list-tabs {
+    padding: 0;
+    display: flex;
+    list-style: none;
+    border-bottom: 3px solid #f0f0f1;
+
+  }
+
+}
