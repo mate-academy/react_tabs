@@ -1,0 +1,38 @@
+ul {
+  margin-bottom: 0;
+}
+
+hr {
+  margin: 0;
+}
+
+li {
+  list-style: none;
+  display: inline-block;
+}
+
+button {
+  border: 1px solid transparent;
+  background-color: inherit;
+  padding: 15px 15px 0;
+  font-size: 24px;
+  color: rgb(19, 136, 172);
+}
+
+button:active,
+button:focus,
+button:hover {
+  cursor: pointer;
+  color: black;
+  outline: none;
+  border-top: 1px black solid;
+  border-left: 1px black solid;
+  border-right: 1px black solid;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+button:focus {
+  color: black;
+  outline: none;
+}
