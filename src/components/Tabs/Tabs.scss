@@ -1,0 +1,33 @@
+.Tabs {
+  &_content {
+    display: flex;
+    max-width: 80vw;
+
+    background: whitesmoke;
+
+    border-radius: 0 20px 20px;
+  }
+
+  &_text {
+    font-size: 1.3rem;
+    line-height: 1.5rem;
+  }
+
+  &_img {
+    max-width: 40vw;
+  }
+}
+
+.button {
+  font-weight: 700;
+  font-size: 1.2rem;
+  padding: 1rem;
+
+  border: none;
+  outline: none;
+
+  &_active {
+    color: red;
+    background: whitesmoke;
+  }
+}
