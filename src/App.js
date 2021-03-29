@@ -34,8 +34,8 @@ class App extends React.Component {
 
   render() {
     const { selectedTabId } = this.state;
-    const tabContent = tabs.find(tab => tab.id === selectedTabId).content;
     const selectedTitle = tabs.find(tab => tab.id === selectedTabId).title;
+    const tabContent = tabs.find(tab => tab.id === selectedTabId).content;
 
     return (
       <>
