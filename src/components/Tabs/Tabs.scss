@@ -1,0 +1,38 @@
+.button {
+  margin-right: 20px;
+  background-color: #4caf50;
+  border: none;
+  border-radius: 20px;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+
+  &:focus {
+    outline: 0;
+  }
+
+  &__active {
+    margin-right: 20px;
+    background-color: darkgreen;
+    border: none;
+    border-radius: 20px;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+
+    &:focus {
+      outline: 0;
+    }
+  }
+}
+
+.text {
+  font-family: "Droid Sans", sans-serif;
+  font-size: 20px;
+}
