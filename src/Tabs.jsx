@@ -15,11 +15,9 @@ export const Tabs = ({ tabs, showSelectedTabContent, activeId }) => (
           type="button"
           id={tab.id}
           onClick={showSelectedTabContent}
-          className={classNames(`button`,
-            {
-              'button--active': tab.id === activeId,
-            })
-          }
+          className={classNames(`button`, {
+            'button--active': tab.id === activeId,
+          })}
         >
           {tab.title}
         </button>
