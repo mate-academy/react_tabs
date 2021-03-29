@@ -1,0 +1,28 @@
+.block {
+  display: flex;
+  list-style: none;
+  border-bottom: 1px solid black;
+}
+
+.block__button {
+  background-color: white;
+  outline: none;
+  border: none;
+  font-size: 18px;
+  color: #c2d1e5;
+}
+
+.block__item {
+  margin-right: 20px;
+  margin-bottom: -3px;
+  position: relative;
+}
+
+.active {
+  background-color: white;
+  outline: none;
+  border: 1px solid black;
+  cursor: pointer;
+  font-size: 18px;
+  border-bottom: 1px solid white;
+}
