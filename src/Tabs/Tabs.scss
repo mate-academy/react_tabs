@@ -1,0 +1,21 @@
+.list {
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
+
+  &__item {
+    list-style: none;
+  }
+
+  &__button {
+    padding: 10px 20px;
+    font-weight: 600;
+    text-transform: uppercase;
+    background-color: white;
+
+    &--active {
+      color: red;
+      border-color: black;
+    }
+  }
+}
