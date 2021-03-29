@@ -13,7 +13,7 @@ export const Tabs = ({ tabs, selectedTab, onTabSelected }) => (
         >
           <button
             type="submit"
-            onClick={() => onTabSelected(tab.id)}
+            onClick={() => onTabSelected(tab)}
           >
             {tab.title}
           </button>
@@ -21,7 +21,7 @@ export const Tabs = ({ tabs, selectedTab, onTabSelected }) => (
       ))}
 
       <div>
-        {tabs.find(tab => tab.id === selectedTab).content}
+        {tabs.find(tab => tab.id === selectedTab.id).content}
       </div>
     </div>
   </>

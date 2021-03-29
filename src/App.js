@@ -11,7 +11,7 @@ const tabs = [
 
 export class App extends React.Component {
   state = {
-    selectedTab: tabs[0].id,
+    selectedTab: tabs[0],
   };
 
   onTabSelected = (activeTab) => {
@@ -27,7 +27,8 @@ export class App extends React.Component {
       <div>
         <h1>
           Selected tab is
-          {selectedTab.content}
+          {' '}
+          {selectedTab.title}
         </h1>
 
         <Tabs
