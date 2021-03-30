@@ -31,7 +31,7 @@ class App extends React.Component {
           <Tabs
             tabs={tabs}
             selectedTab={selectedTab}
-            callback={this.onTabSelected}
+            onTabSelect={this.onTabSelected}
           />
         </h1>
         <p>{selectedTab.content}</p>
