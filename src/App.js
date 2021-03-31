@@ -27,7 +27,10 @@ class App extends React.Component {
   }
 
   render() {
-    const { tabsCopy, selectedTabIndex } = this.state;
+    const {
+      tabsCopy,
+      selectedTabIndex,
+    } = this.state;
 
     return (
       <section className="app">
