@@ -1,0 +1,37 @@
+// Mixins
+
+// Breakpoints
+// Extra small devices
+@mixin xs {
+  @media (min-width: #{$xs}) {
+    @content;
+  }
+}
+
+// Small devices
+@mixin sm {
+  @media (min-width: #{$sm}) {
+    @content;
+  }
+}
+
+// Medium devices
+@mixin md {
+  @media (min-width: #{$md}) {
+    @content;
+  }
+}
+
+// Tablets
+@mixin lg {
+  @media (min-width: #{$lg}) {
+    @content;
+  }
+}
+
+// Tablets and desktops
+@mixin xl {
+  @media (min-width: #{$xl}) {
+    @content;
+  }
+}
