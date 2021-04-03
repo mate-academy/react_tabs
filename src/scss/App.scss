@@ -1,0 +1,160 @@
+
+// Imports
+
+@import "config/variables";
+@import "config/mixins";
+
+// General styles
+
+html,
+body {
+  font-family: "Gill Sans",
+    "Gill Sans MT",
+    Calibri,
+    "Trebuchet MS",
+    sans-serif;
+  font-size: 16px;
+  color: map-get($color, dark-grey);
+}
+
+body {
+  background-color: map-get($color, beige);
+}
+
+a {
+  color: map-get($color, grey);
+  font-size: 1rem;
+  text-decoration: none;
+  transition: 0.3s color;
+  &:hover {
+    color: map-get($color, dark-grey);
+  }
+  &:after {
+    color: map-get($color, grey);
+  }
+}
+
+span,
+strong {
+  color: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+h1 {
+  margin-bottom: 40px;
+  color: map-get($color, dark-green);
+  font-size: 26px;
+  text-align: center;
+}
+
+p {
+  margin: 0;
+  margin-bottom: 1rem;
+  font-size: 18px;
+}
+
+// Theme styles
+
+.container {
+  padding: 25px 15px;
+}
+
+.tabs {
+  &-nav {
+    margin-bottom: 25px;
+  }
+  &-list {
+    padding: 0;
+    list-style: none;
+    &__item {
+      display: inline;
+      padding: 10px 0;
+      vertical-align: top;
+      line-height: 2.5;
+      border-bottom: 1px solid transparentize(map-get($color, dark-green), 0.5);
+      a {
+        display: inline-block;
+        padding: 0 18px;
+      }
+      &--active {
+        background-color: transparentize(map-get($color, dark-green), 0.5);
+        a {
+          color: map-get($color, white);
+        }
+        a:hover {
+          color: map-get($color, white);
+        }
+      }
+    }
+  }
+}
+
+@include xs {
+  h1 {
+    font-size: 30px;
+  }
+}
+
+@include md {
+  a {
+    font-size: 18px;
+  }
+
+  p {
+    font-size: 1.25rem;
+  }
+
+  h1 {
+    margin-bottom: 50px;
+    font-size: 36px;
+  }
+
+  .container {
+    padding: 50px 70px 100px;
+  }
+
+  .tabs {
+    &-nav {
+      margin-bottom: 30px;
+    }
+  }
+}
+
+@include lg {
+  a {
+    font-size: 1.25rem;
+  }
+
+  p {
+    font-size: 22px;
+  }
+
+  h1 {
+    margin-bottom: 50px;
+    font-size: 40px;
+  }
+
+  .container {
+    padding: 65px 90px 130px;
+  }
+}
+
+@include xl {
+  p {
+    font-size: 1.25rem;
+  }
+
+  h1 {
+    margin-bottom: 70px;
+    font-size: 48px;
+  }
+
+  .container {
+    padding: 100px 150px 200px;
+  }
+
+  .tabs-nav {
+    margin-bottom: 35px;
+  }
+}
