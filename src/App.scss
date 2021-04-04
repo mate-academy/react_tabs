@@ -1,1 +1,11 @@
-// Put styles here
+.App {
+  &__button {
+    background-color: grey;
+    color: white;
+
+    &--selected {
+      background-color: yellow;
+      color: blue;
+    }
+  }
+}
