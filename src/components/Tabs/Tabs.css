@@ -1,0 +1,16 @@
+.button {
+  padding: 10px 20px;
+  border-radius: 3px;
+  margin-left: 5px;
+  cursor: pointer;
+}
+
+.button__selected {
+  border-bottom: none;
+  background-color: #fff;
+}
+
+.tabs__content {
+  margin-top: 10px;
+  margin-left: 5px;
+}
