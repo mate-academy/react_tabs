@@ -16,14 +16,14 @@ export class App extends Component {
     selectedTab: tabs[0],
   };
 
-  onTabSelected = (event) => {
-    if (event.target.id === this.state.selectedTabId) {
+  onTabSelected = (tabId) => {
+    if (tabId === this.state.selectedTabId) {
       return;
     }
 
     this.setState({
-      selectedTab: tabs.find(tab => tab.id === event.target.id),
-      selectedTabId: event.target.id,
+      selectedTab: tabs.find(tab => tab.id === tabId),
+      selectedTabId: tabId,
     });
   };
 

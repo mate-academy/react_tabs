@@ -12,11 +12,10 @@ export const Tabs = ({
       <button
         type="button"
         key={tab.id}
-        id={tab.id}
         className={tab.id === selectedTabId
           ? ' App__button--selected'
           : 'App__button'}
-        onClick={onTabSelected}
+        onClick={() => onTabSelected(tab.id)}
       >
         {tab.title}
       </button>
