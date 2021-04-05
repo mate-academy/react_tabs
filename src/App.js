@@ -20,6 +20,10 @@ class App extends React.Component {
   };
 
   onTabSelected = (index) => {
+    if (index === this.state.currentIndex) {
+      return;
+    }
+
     this.setState({
       currentIndex: index,
     });
