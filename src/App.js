@@ -40,7 +40,7 @@ class App extends React.Component {
         </h1>
         <Tabs
           tabs={preparedTabs}
-          index={currentIndex}
+          currentIndex={currentIndex}
           onTabSelected={this.onTabSelected}
         />
       </div>

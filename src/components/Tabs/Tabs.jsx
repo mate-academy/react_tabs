@@ -1,15 +1,15 @@
 import React from 'react';
 import './Tabs.css';
 
-export const Tabs = ({ tabs, index, onTabSelected }) => (
+export const Tabs = ({ tabs, currentIndex, onTabSelected }) => (
   <>
     <div>
-      {tabs.map((tab, i) => (
+      {tabs.map((tab, index) => (
         <button
           key={tab.id}
           type="button"
-          className={i === index ? 'button button__selected' : 'button'}
-          onClick={() => onTabSelected(i)}
+          className={index === currentIndex ? 'button button__selected' : 'button'}
+          onClick={() => onTabSelected(index)}
         >
           {tab.title}
         </button>
@@ -17,7 +17,7 @@ export const Tabs = ({ tabs, index, onTabSelected }) => (
     </div>
 
     <div className="tabs__content">
-      {tabs[index].content}
+      {tabs[currentIndex].content}
     </div>
   </>
 );
