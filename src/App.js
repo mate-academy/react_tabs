@@ -34,7 +34,9 @@ class App extends React.Component {
 
     return (
       <section className="app">
-        <h1 className="title">React tabs</h1>
+        <h1 className="title">
+          {`Selected tab is: ${tabsCopy[selectedTabIndex].id}`}
+        </h1>
         <Tabs
           tabsCopy={tabsCopy}
           selectedTabIndex={selectedTabIndex}
