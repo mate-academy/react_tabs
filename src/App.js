@@ -1,19 +1,38 @@
 import React from 'react';
+import { Tabs } from './components/Tabs';
 
 import './App.scss';
 
 /* eslint-disable */
-const tabs = [
-  { id: 'tab-1', title: 'Tab 1', content: 'Some text 1' },
-  { id: 'tab-2', title: 'Tab 2', content: 'Some text 2' },
-  { id: 'tab-3', title: 'Tab 3', content: 'Some text 3' },
+const startTabs = [
+  { id: 'tab-1', title: 'Home', content: 'Some text 1' },
+  { id: 'tab-2', title: 'Profile', content: 'Some text 2' },
+  { id: 'tab-3', title: 'Contacts', content: 'Some text 3' },
 ];
 /* eslint-enable */
 
-const App = () => (
-  <div className="App">
-    <h1>Selected tab is&nbsp;Tab 1</h1>
-  </div>
-);
+export class App extends React.Component {
+  state = {
+    tabs: startTabs.map(tab => ({ ...tab })),
+    selectedTabId: 'tab-1',
+  }
 
-export default App;
+  onTabSelected = (tabId) => {
+    this.setState({ selectedTabId: tabId });
+  }
+
+  render() {
+    const { tabs, selectedTabId } = this.state;
+
+    return (
+      <div className="App">
+        <h1>{`Selected tab is: ${selectedTabId}`}</h1>
+        <Tabs
+          selectedTabId={selectedTabId}
+          tabs={tabs}
+          onTabSelected={this.onTabSelected}
+        />
+      </div>
+    );
+  }
+}
