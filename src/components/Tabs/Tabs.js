@@ -4,7 +4,6 @@ import { TabsType } from '../../types';
 export const Tabs = ({
   tabs,
   selectedTab,
-  selectedTabId,
   onTabSelected,
 }) => (
   <>
@@ -12,7 +11,7 @@ export const Tabs = ({
       <button
         type="button"
         key={tab.id}
-        className={tab.id === selectedTabId
+        className={tab.id === selectedTab.id
           ? ' App__button--selected'
           : 'App__button'}
         onClick={() => onTabSelected(tab.id)}
