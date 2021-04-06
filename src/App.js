@@ -18,7 +18,7 @@ const tabs = [
 ];
 
 const App = () => (
-  <h1>React tabs</h1>
+  <h1>here are my tabs</h1>
 );
 
 export default App;
