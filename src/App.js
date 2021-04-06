@@ -38,7 +38,7 @@ export class App extends Component {
         </h1>
         <Tabs
           tabs={tabs}
-          selectedTab={selectedTab}
+          selectedTabId={selectedTab.id}
           onTabSelected={this.onTabSelected}
         />
       </div>
