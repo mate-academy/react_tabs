@@ -1,6 +1,8 @@
 import React from 'react';
 
-import './App.scss';
+import './App.css';
+
+import { Tabs } from './Tabs';
 
 /* eslint-disable */
 const tabs = [
@@ -10,10 +12,37 @@ const tabs = [
 ];
 /* eslint-enable */
 
-const App = () => (
-  <div className="App">
-    <h1>Selected tab is&nbsp;Tab 1</h1>
-  </div>
-);
+export class App extends React.PureComponent {
+  state = {
+    selectedTabId: 'tab-1',
+  }
 
-export default App;
+  change = (id) => {
+    this.setState({
+      selectedTabId: id,
+    });
+  }
+
+  render() {
+    const { selectedTabId } = this.state;
+    const visibleTabs = [...tabs].map(tab => ({
+      ...tab,
+      visible: 'none',
+    }));
+
+    visibleTabs.find(tab => tab.id === selectedTabId).visible = 'inline';
+
+    return (
+      <div className="App">
+        <h1>
+          Selected tab is&nbsp;
+          {selectedTabId.slice(-1)}
+        </h1>
+        <Tabs
+          visibleTabs={visibleTabs}
+          change={this.change}
+        />
+      </div>
+    );
+  }
+}
