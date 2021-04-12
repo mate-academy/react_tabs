@@ -1,0 +1,20 @@
+.tabs {
+  display: flex;
+  justify-content: space-evenly;
+
+  &__button {
+    outline: none;
+    cursor: pointer;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #2b01e9;
+    text-transform: uppercase;
+    font-size: 20px;
+    margin-bottom: 30px;
+    color: #fff;
+  }
+
+  &__content {
+    font-size: 18px;
+  }
+}
