@@ -4,7 +4,7 @@ import './App.css';
 import { Tabs } from './components/Tabs';
 
 /* eslint-disable */
-const tabs = [
+const tabsFromServer = [
   { id: 'tab-1', title: 'Home', content: 'Some text 1' },
   { id: 'tab-2', title: 'About', content: 'Some text 2' },
   { id: 'tab-3', title: 'Contacts', content: 'Some text 3' },
@@ -13,8 +13,8 @@ const tabs = [
 
 class App extends React.Component {
   state = {
-    newTabs: [...tabs],
-    selectedTabId: 'tab-1',
+    tabs: [...tabsFromServer],
+    selectedTabId: tabsFromServer[0].id,
   }
 
   onTabSelected = (tabId) => {
@@ -24,14 +24,14 @@ class App extends React.Component {
   }
 
   render() {
-    const { newTabs, selectedTabId } = this.state;
+    const { tabs, selectedTabId } = this.state;
 
     return (
       <div className="app">
         <h1 className="app__title">{`Selected tab is: ${selectedTabId}`}</h1>
         <Tabs
-          newTabs={newTabs}
           selectedTabId={selectedTabId}
+          tabs={tabs}
           onTabSelected={this.onTabSelected}
         />
       </div>
