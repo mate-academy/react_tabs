@@ -3,7 +3,7 @@ import { Tabs } from './components/Tabs';
 import './App.scss';
 
 /* eslint-disable */
-const tabs = [
+const tabsFromServer = [
   { id: 'tab-1', title: 'Tab 1', content: 'Some text 1' },
   { id: 'tab-2', title: 'Tab 2', content: 'Some text 2' },
   { id: 'tab-3', title: 'Tab 3', content: 'Some text 3' },
@@ -12,7 +12,8 @@ const tabs = [
 
 class App extends React.Component {
   state = {
-    selectedTab: tabs[0],
+    tabs: tabsFromServer,
+    selectedTab: tabsFromServer[0],
   }
 
   onTabSelected = (tab) => {
@@ -22,7 +23,7 @@ class App extends React.Component {
   }
 
   render() {
-    const { selectedTab } = this.state;
+    const { tabs, selectedTab } = this.state;
 
     return (
       <div className="App">
