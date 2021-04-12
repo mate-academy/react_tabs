@@ -2,9 +2,9 @@ import React from 'react';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
 
-export const Tabs = ({ tabs, selectedTab, onTabSelected }) => (
+const Tabs = ({ tabs, selectedTab, onTabSelected }) => (
   <>
-    <div className="tabs">
+    <div className="tabs is-boxed">
       <ul>
         {
           tabs.map(tab => (
@@ -37,3 +37,5 @@ Tabs.propTypes = {
   selectedTab: PropTypes.string.isRequired,
   onTabSelected: PropTypes.func.isRequired,
 }
+
+export default Tabs;
