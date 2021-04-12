@@ -1,4 +1,6 @@
 import React from 'react';
+import classNames from 'classnames';
+import { LoremIpsum } from 'react-lorem-ipsum';
 
 import './App.scss';
 
@@ -10,10 +12,44 @@ const tabs = [
 ];
 /* eslint-enable */
 
-const App = () => (
-  <div className="App">
-    <h1>Selected tab is&nbsp;Tab 1</h1>
-  </div>
-);
+export class App extends React.PureComponent {
+  state = {
+    selectTabs: tabs[0],
+  }
 
-export default App;
+  onClickTab = (event) => {
+    this.setState({
+      selectTabs: tabs.find(ele => ele.title === event.target.textContent),
+    });
+  }
+
+  render() {
+    const { selectTabs } = this.state;
+
+    return (
+      <div className="App">
+        <h1>
+          Selected tab is&nbsp;
+          {selectTabs.title}
+        </h1>
+        <ul className="nav nav-tabs">
+          {tabs.map(tab => (
+            <lu key={tab.id}>
+              <button
+                type="button"
+                className={classNames(`nav-link`,
+                  { active: selectTabs.id === tab.id })}
+                onClick={this.onClickTab}
+              >
+                {tab.title}
+              </button>
+            </lu>
+          ))}
+        </ul>
+        <div>
+          <LoremIpsum p={selectTabs.id} />
+        </div>
+      </div>
+    );
+  }
+}
