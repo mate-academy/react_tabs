@@ -1,17 +1,16 @@
-import { v4 as uuidv4 } from 'uuid';
 import React from 'react';
 import PropTypes from 'prop-types';
+import classNames from 'classnames';
 
 export const TabsList = ({ tabs, selectedTab, onSelectedTab }) => (
   <>
     <ul className="tabs-list">
       {tabs.map(tab => (
-        <li key={uuidv4()}>
+        <li key={tab.id}>
           <button
             type="button"
-            className={selectedTab === tab.title
-              ? 'tabs-list__item tabs-list__item--active'
-              : 'tabs-list__item'}
+            className={classNames('tabs-list__item',
+              { 'tabs-list__item--active': selectedTab === tab.title })}
             onClick={() => onSelectedTab(tab.title)}
           >
             {tab.title}
@@ -26,13 +25,15 @@ export const TabsList = ({ tabs, selectedTab, onSelectedTab }) => (
 
 );
 
+const TabType = PropTypes.shape({
+  title: PropTypes.string.isRequired,
+  content: PropTypes.string.isRequired,
+}).isRequired;
+
 TabsList.propTypes = {
   selectedTab: PropTypes.string.isRequired,
   onSelectedTab: PropTypes.func.isRequired,
   tabs: PropTypes.arrayOf(
-    PropTypes.shape({
-      title: PropTypes.string.isRequired,
-      content: PropTypes.string.isRequired,
-    }).isRequired,
+    TabType,
   ).isRequired,
 };
