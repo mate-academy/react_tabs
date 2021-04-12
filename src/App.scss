@@ -1,1 +1,60 @@
-// Put styles here
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap");
+
+$borderHeight: 1px;
+
+* {
+  box-sizing: border-box;
+}
+
+ul {
+  padding: 0;
+  list-style: none;
+}
+
+button {
+  border: none;
+  background-color: transparent;
+}
+
+.App {
+  margin: 0 auto;
+  max-width: 1200px;
+  padding: 20px;
+  font-family: Roboto, sans-serif;
+  font-size: 28px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.tabs-list {
+  display: flex;
+  border-bottom: $borderHeight solid gray;
+  min-width: 700px;
+  padding: 0 40px;
+
+  &__item {
+    font-size: 18px;
+    padding: 10px 20px;
+    position: relative;
+    top: $borderHeight;
+    cursor: pointer;
+
+    &:hover {
+      background-color: #e0dede;
+    }
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  &__item--active {
+    border-left: $borderHeight solid;
+    border-right: $borderHeight solid;
+    border-top: $borderHeight solid;
+    border-color: gray;
+    border-bottom: $borderHeight solid white;
+
+  }
+}
