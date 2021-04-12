@@ -3,7 +3,7 @@ import { Tabs } from './components/Tabs/Tabs';
 import './App.scss';
 
 /* eslint-disable */
-const tabs = [
+const tabsFromServer  = [
   { id: 'tab-1', title: 'Home', content: 'Some text 1' },
   { id: 'tab-2', title: 'Profile', content: 'Some text 2' },
   { id: 'tab-3', title: 'Contact', content: 'Some text 3' },
@@ -12,34 +12,34 @@ const tabs = [
 
 class App extends React.Component {
   state = {
-    tabsCopy: tabs.map(tab => ({ ...tab })),
-    selectedTabIndex: 0,
+    tabs: tabsFromServer.map(tab => ({ ...tab })),
+    selectedTabId: 0,
   }
 
   onTabSelected = (tab) => {
-    const { tabsCopy } = this.state;
-    const findSelectedTabIndex = tabsCopy
-      .findIndex(el => el.title === tab.title);
+    const { tabs } = this.state;
+    const findSelectedId = tabs
+      .findIndex(el => el.id === tab.id);
 
     this.setState({
-      selectedTabIndex: findSelectedTabIndex,
+      selectedTabId: findSelectedId,
     });
   }
 
   render() {
     const {
-      tabsCopy,
-      selectedTabIndex,
+      tabs,
+      selectedTabId,
     } = this.state;
 
     return (
       <section className="app">
         <h1 className="title">
-          {`Selected tab is: ${tabsCopy[selectedTabIndex].id}`}
+          {`Selected tab is: ${tabs[selectedTabId].id}`}
         </h1>
         <Tabs
-          tabsCopy={tabsCopy}
-          selectedTabIndex={selectedTabIndex}
+          tabs={tabs}
+          selectedTabIndex={selectedTabId}
           onTabSelected={this.onTabSelected}
         />
       </section>
