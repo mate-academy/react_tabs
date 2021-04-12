@@ -1,19 +1,22 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
+import classNames from 'classnames';
 import './tabs.scss';
 
-export const Tabs = ({ tabs, selectedTabId = tabs[0].id, onTabSelected }) => (
+export const Tabs = ({
+  tabs,
+  selectedTabId = tabs[0].id,
+  onTabSelected,
+}) => (
   <div>
     <div className="tabs">
       {tabs.map((tab, index) => (
         <button
           type="button"
           key={tab.id}
-          className={`tab ${
-            (tab.id === selectedTabId)
-              ? 'selected'
-              : ''}`}
+          className={
+            classNames('tab', { selected: (tab.id === selectedTabId) })
+          }
           onClick={() => {
             onTabSelected(tab.id);
           }}
