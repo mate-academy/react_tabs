@@ -11,9 +11,11 @@ const tabsFromServer = [
 ];
 /* eslint-enable */
 
+const tabsCopy = tabsFromServer.map(tab => ({ ...tab }));
+
 export class App extends React.Component {
   state = {
-    tabs: tabsFromServer.map(tab => ({ ...tab })),
+    tabs: tabsCopy,
     selectedTabId: 'tab-1',
   }
 

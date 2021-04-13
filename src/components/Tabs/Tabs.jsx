@@ -1,5 +1,6 @@
 import React from 'react';
 import propTypes from 'prop-types';
+import { cardShape } from '../../types/shapes';
 
 import './Tabs.scss';
 
@@ -31,11 +32,7 @@ export const Tabs = ({ tabs, selectedTabId, selectTab }) => (
 
 Tabs.propTypes = {
   tabs: propTypes.arrayOf(
-    propTypes.shape({
-      id: propTypes.string.isRequired,
-      title: propTypes.string.isRequired,
-      content: propTypes.string.isRequired,
-    }).isRequired,
+    propTypes.shape(cardShape).isRequired,
   ).isRequired,
   selectedTabId: propTypes.string.isRequired,
   selectTab: propTypes.func.isRequired,
