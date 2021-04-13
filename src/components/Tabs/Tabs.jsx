@@ -2,7 +2,7 @@ import React from 'react';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
 
-const Tabs = ({ tabs, onTabSelected, selectedTabId }) => (
+const Tabs = ({ tabs, onTabSelected, selectedTabId, selectedTab }) => (
   <>
     <ul className="nav nav-tabs">
       {tabs.map(tab => (
@@ -20,8 +20,8 @@ const Tabs = ({ tabs, onTabSelected, selectedTabId }) => (
       ))}
     </ul>
 
-    <div className="tab-content">
-      {tabs.find(tab => (tab.id === selectedTabId)).content}
+    <div className="tab-content m-3">
+      {selectedTab.content}
     </div>
   </>
 );

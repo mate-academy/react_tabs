@@ -14,10 +14,8 @@ const tabsList = [
 class App extends React.PureComponent {
   state = {
     tabs: [...tabsList],
-    selectedTab: {
-      id: 'tab-1', title: 'Tab 1', content: 'Some text 1',
-    },
-    selectedTabId: 'tab-1',
+    selectedTab: tabsList[0],
+    selectedTabId: tabsList[0].id,
   }
 
   onTabSelected = (tabId) => {
@@ -43,6 +41,7 @@ class App extends React.PureComponent {
           tabs={tabs}
           onTabSelected={this.onTabSelected}
           selectedTabId={selectedTabId}
+          selectedTab={selectedTab}
         />
 
       </div>
