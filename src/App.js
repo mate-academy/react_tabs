@@ -2,7 +2,7 @@ import React from 'react';
 
 import './App.scss';
 
-import { Tabs } from './components/Tabs'
+import { Tabs } from './components/Tabs';
 
 /* eslint-disable */
 const tabs = [
@@ -23,18 +23,21 @@ export class App extends React.Component {
     });
   }
 
-  render () {
+  render() {
     const { selectedTab } = this.state;
 
     return (
       <div className="App">
-        <h1>Selected tab is {selectedTab.title}</h1>
+        <h1>
+          Selected tab is
+          {selectedTab.title}
+        </h1>
         <Tabs
           tabsList={tabs}
           tabHandleChange={this.tabHandleChange}
           selectedTab={selectedTab.id}
         />
       </div>
-    )
-  };
+    );
+  }
 }

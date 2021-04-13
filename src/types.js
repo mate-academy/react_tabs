@@ -10,5 +10,4 @@ export const propTypes = {
   ).isRequired,
   selectedTab: PropTypes.string.isRequired,
   tabHandleChange: PropTypes.func.isRequired,
-}
-
+};
