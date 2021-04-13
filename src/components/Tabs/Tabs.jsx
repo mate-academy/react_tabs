@@ -2,8 +2,6 @@ import React from 'react';
 
 import './Tabs.scss';
 
-import PropTypes from 'prop-types';
-
 import { propTypes } from '../../types';
 import classNames from 'classnames';
 
