@@ -1,1 +1,6 @@
-// Put styles here
+.App {
+  &__heading {
+    margin-bottom: 50px;
+    text-align: center;
+  }
+}
