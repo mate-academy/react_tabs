@@ -26,13 +26,15 @@ const Tabs = ({ tabs, selectedTab, onTabSelected }) => (
   </>
 )
 
+const Tab = PropTypes.shape({
+  id: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  content: PropTypes.string.isRequired,
+});
+
 Tabs.propTypes = {
   tabs: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.string.isRequired,
-      title: PropTypes.string.isRequired,
-      content: PropTypes.string.isRequired,
-    }).isRequired,
+    Tab.isRequired,
   ).isRequired,
   selectedTab: PropTypes.string.isRequired,
   onTabSelected: PropTypes.func.isRequired,
