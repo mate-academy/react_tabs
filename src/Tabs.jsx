@@ -4,16 +4,16 @@ import propTypes from 'prop-types';
 export const Tabs = ({ tabs, selectedTabId, selectTab }) => (
   <>
     {tabs.map(tab => (
-      <div key={tab.title}>
+      <div key={tab.id}>
         <button
           type="button"
-          onClick={() => selectTab(tab.title)}
+          onClick={() => selectTab(tab.id)}
         >
           {tab.title}
         </button>
         <article>
           {
-          selectedTabId === tab.title
+          selectedTabId === tab.id
             ? tab.content
             : null
           }
@@ -23,13 +23,15 @@ export const Tabs = ({ tabs, selectedTabId, selectTab }) => (
   </>
 );
 
+const Tab = propTypes.shape({
+  id: propTypes.string.isRequired,
+  title: propTypes.string.isRequired,
+  content: propTypes.string.isRequired,
+});
+
 Tabs.propTypes = {
   tabs: propTypes.arrayOf(
-    propTypes.shape({
-      id: propTypes.string.isRequired,
-      title: propTypes.string.isRequired,
-      content: propTypes.string.isRequired,
-    }).isRequired,
+    Tab.isRequired,
   ).isRequired,
   selectedTabId: propTypes.string.isRequired,
   selectTab: propTypes.func.isRequired,

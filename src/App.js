@@ -13,12 +13,12 @@ const tabsFromServer = [
 export class App extends React.Component {
   state = {
     tabs: tabsFromServer.map(tab => ({ ...tab })),
-    selectedTabId: 'Tab 1',
+    selectedTabId: tabsFromServer[0].id,
   }
 
-  selectTab = (title) => {
+  selectTab = (id) => {
     this.setState({
-      selectedTabId: title,
+      selectedTabId: id,
     });
   };
 
