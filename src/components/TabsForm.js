@@ -2,7 +2,7 @@ import React from 'react';
 import Proptypes from 'prop-types';
 
 export const TabsForm = ({
-  onChange,
+  selectTab,
   tabs,
   selectedTabId,
 }) => (
@@ -14,7 +14,7 @@ export const TabsForm = ({
           key={tab.id}
           onClick={() => {
             if (tab.id !== selectedTabId) {
-              onChange(tab);
+              selectTab(tab);
             }
           }}
         >
@@ -23,13 +23,7 @@ export const TabsForm = ({
       ))}
     </div>
     <div className="content">
-      {tabs.map((tab) => {
-        if (tab.id !== selectedTabId) {
-          return null;
-        }
-
-        return <p key={tab.id}>{tab.content}</p>;
-      })}
+      {tabs.find(tab => tab.id === selectedTabId).content}
     </div>
   </>
 );
@@ -42,6 +36,6 @@ TabsForm.propTypes = {
       content: Proptypes.string.isRequired,
     }),
   ).isRequired,
-  onChange: Proptypes.func.isRequired,
+  selectTab: Proptypes.func.isRequired,
   selectedTabId: Proptypes.string.isRequired,
 };
