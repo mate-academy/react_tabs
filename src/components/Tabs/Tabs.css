@@ -1,0 +1,13 @@
+.field {
+  display: flex;
+  justify-content: center;
+}
+
+.block {
+  width: 100px;
+}
+
+.button {
+  width: 70px;
+  height: 30px;
+}
