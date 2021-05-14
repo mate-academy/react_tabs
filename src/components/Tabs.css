@@ -1,0 +1,30 @@
+* {
+  box-sizing: border-box;
+}
+
+.Tabs {
+  display: flex;
+  list-style: none;
+  border-bottom: 1px solid lightgrey;
+}
+
+.Tabs__item {
+  margin-bottom: -1px;
+  padding: 0.5em 1em;
+  border-top-left-radius: 0.25em;
+  border-top-right-radius: 0.25em;
+}
+
+.Tabs__item--active {
+  border: 1px solid lightgrey;
+  border-bottom: 1px solid white;
+}
+
+.Tabs__link {
+  text-decoration: none;
+  color: lightskyblue;
+}
+
+.Tabs__link--active {
+  color: rgb(92, 92, 92);
+}
