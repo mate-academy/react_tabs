@@ -7,38 +7,33 @@ import './Tabs.css';
 export const Tabs = ({
   tabs, selectedTabId, onTabSelected,
 }) => (
-  <>
-    <ul className="Tabs">
-      {tabs.map(tab => (
-        <li
-          key={tab.id}
-          className={cn('Tabs__item',
-            selectedTabId === tab.id && 'Tabs__item--active')
-          }
-        >
-          <a
-            href={`#${tab.id}`}
-            id={tab.id}
-            className={cn('Tabs__link',
-              selectedTabId === tab.id && 'Tabs__link--active')
-            }
-            onClick={(e) => {
-              const tabId = e.target.id;
+  <ul className="Tabs">
+    {tabs.map(tab => (
+      <li
+        key={tab.id}
+        className={cn('Tabs__item', {
+          'Tabs__item--active': selectedTabId === tab.id,
+        })}
+      >
+        <a
+          href={`#${tab.id}`}
+          id={tab.id}
+          className={cn('Tabs__link', {
+            'Tabs__link--active': selectedTabId === tab.id,
+          })}
+          onClick={(e) => {
+            const tabId = e.target.id;
 
-              if (tabId !== selectedTabId) {
-                onTabSelected(tabId);
-              }
-            }}
-          >
-            {tab.title}
-          </a>
-        </li>
-      ))}
-    </ul>
-    <p>
-      {tabs.find(tab => tab.id === selectedTabId).content}
-    </p>
-  </>
+            if (tabId !== selectedTabId) {
+              onTabSelected(tabId);
+            }
+          }}
+        >
+          {tab.title}
+        </a>
+      </li>
+    ))}
+  </ul>
 );
 
 Tabs.propTypes = {
