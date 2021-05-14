@@ -1,6 +1,6 @@
 import React from 'react';
-
-import './App.scss';
+import Tabs from './Tabs';
+import './App.css';
 
 /* eslint-disable */
 const tabs = [
@@ -10,10 +10,34 @@ const tabs = [
 ];
 /* eslint-enable */
 
-const App = () => (
-  <div className="App">
-    <h1>Selected tab is&nbsp;Tab 1</h1>
-  </div>
-);
+class App extends React.Component {
+  state = {
+    tabs,
+    selectedTab: tabs[0],
+  }
+
+  handleSelectedTab = (value) => {
+    this.setState({ selectedTab: value });
+  }
+
+  render() {
+    // eslint-disable-next-line no-shadow
+    const { selectedTab, tabs } = this.state;
+
+    return (
+      <div className="App">
+        <h1>
+          Selected tab is:&nbsp;
+          {selectedTab.title}
+        </h1>
+        <Tabs
+          tabs={tabs}
+          onChange={this.handleSelectedTab}
+          selectedTab={selectedTab}
+        />
+      </div>
+    );
+  }
+}
 
 export default App;
