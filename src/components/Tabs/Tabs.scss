@@ -1,0 +1,33 @@
+.tab {
+  width: 50%;
+
+  @media (max-width: 1000px) {
+    width: 100%;
+  }
+
+  &__content {
+    padding: 0 25px 25px;
+  }
+}
+
+.controlMenu {
+  padding-left: 25px;
+  border-bottom: 1px solid silver;
+}
+
+.btn {
+  border: none;
+  outline: none;
+  background-color: transparent;
+  margin-bottom: -1px;
+  font-size: 18px;
+
+  &__active {
+    border: 1px solid silver;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border-bottom: 1px solid white;
+
+    font-weight: bold;
+  }
+}
