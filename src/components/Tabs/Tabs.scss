@@ -1,0 +1,42 @@
+$main-color: rgb(26, 47, 87);
+$border-width: 1px;
+$shift: 30px;
+
+.tabs {
+  display: flex;
+  padding: 0;
+  list-style: none;
+  color: $main-color;
+  border-bottom: $border-width solid $main-color;
+
+  &__switcher {
+    margin-bottom: -$border-width;
+    margin-left: -$border-width;
+    padding: 5px 20px;
+    font-weight: bold;
+    background-color: transparent;
+    border: $border-width solid transparent;
+    border-radius: 7px 7px 0 0;
+    cursor: pointer;
+  }
+
+  &__switcher:first-child {
+    margin-left: $shift
+  }
+
+  &__switcher:hover {
+    border: $border-width solid $main-color;
+  }
+
+  &__switcher_active,
+  &__switcher_active:hover {
+    color: rgb(66, 83, 156);
+    border: $border-width solid $main-color;
+    border-bottom: $border-width solid white;
+    transition: border 0.3s;
+  }
+}
+
+.content {
+  margin-left: $shift;
+}
