@@ -1,0 +1,26 @@
+.tabLinks {
+  position: relative;
+  z-index: 0;
+  border-bottom: 1px solid rgb(104, 102, 102);
+}
+
+.tabContent {
+  position: absolute;
+}
+
+.tabLink {
+  position: relative;
+  background-color: #fff;
+  height: 50px;
+  margin: 10px;
+  text-decoration: none;
+  color: rgb(101, 141, 155);
+}
+
+.tabLink--active {
+  top: 2px;
+  border-top: 1px solid rgb(104, 102, 102);
+  border-left: 1px solid rgb(104, 102, 102);
+  border-right: 1px solid rgb(104, 102, 102);
+  color: #000;
+}
