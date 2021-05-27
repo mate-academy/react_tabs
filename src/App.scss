@@ -1,1 +1,35 @@
 // Put styles here
+body {
+  background-color: white;
+}
+ul {
+  display: flex;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border-bottom: 2px solid yellowgreen;
+}
+
+li {
+  position: relative;
+  box-sizing: content-box;
+  padding: 10px;
+  border: 2px solid yellowgreen;
+}
+
+p {
+  margin: 0;
+  padding: 20px;
+  border-top: none;
+}
+
+.active::after {
+  content: '';
+  display: block;
+  position: absolute;
+  bottom: -4px;
+  right: 0;
+  height: 4px;
+  width: 100%;
+  background-color: #fff;
+}
