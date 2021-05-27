@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import classNames from 'classnames';
 
 import './Tabs.scss';
 
@@ -11,31 +12,21 @@ export const Tabs = React.memo(
   }) => (
     <>
       <ul className="tabs">
-        {tabsList.map((tab) => {
-          if (tab.id === selectedTab.id) {
-            return (
-              <li
-                className="tabs__switcher tabs__switcher_active"
-                key={tab.id}
-              >
-                {tab.title}
-              </li>
-            );
-          }
-
-          return (
-            // eslint-disable-next-line
-            <li
-              className="tabs__switcher"
-              key={tab.id}
-              onClick={() => {
-                onClick(tab.id);
-              }}
-            >
-              {tab.title}
-            </li>
-          );
-        })}
+        {tabsList.map(tab => (
+          // eslint-disable-next-line
+          <li
+            className={classNames(
+              'tabs__switcher',
+              { tabs__switcher_active: tab.id === selectedTab.id },
+            )}
+            key={tab.id}
+            onClick={() => {
+              onClick(tab.id);
+            }}
+          >
+            {tab.title}
+          </li>
+        ))}
       </ul>
 
       <p className="content">
