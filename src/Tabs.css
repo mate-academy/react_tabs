@@ -1,0 +1,40 @@
+.tabs {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+}
+
+.buttonTab {
+  border: 0;
+  width: 100px;
+  height: 50px;
+  background-color: #f27dfa;
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  position: relative;
+  z-index: 2;
+  top: 1px;
+  border-bottom: 1px solid #000;
+  
+  transition: 1s;
+}
+
+.buttonTab:hover {
+  background-color: #f22eff;
+}
+
+.buttonTab:focus {
+  
+  background-color: #de00ed;
+  box-sizing: border-box;
+  border-bottom: 0;
+}
+
+.content {
+  margin: 0;
+  border-top: 1px solid #000;
+  padding: 20px;
+  background-color: #de00ed;
+  font-family: Arial, Helvetica, sans-serif;
+}
