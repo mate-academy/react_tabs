@@ -1,0 +1,25 @@
+.Tabs__list {
+  display: flex;
+  padding: 0;
+  list-style: none;
+  color: blue;
+  border-bottom: 1px solid blue;
+}
+
+.Tabs__item {
+  margin-left: 1px;
+  padding: 5px 20px;
+  font-weight: bold;
+  background-color: transparent;
+  border: 1px solid transparent;
+  border-radius: 7px 7px 0 0;
+  cursor: pointer;
+}
+
+.Tabs__item_select,
+.Tabs__item_select:hover {
+  color: blue;
+  border: 1px solid blue;
+  border-bottom: 1px solid white;
+  transition: border 0.3s;
+}
