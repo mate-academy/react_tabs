@@ -1,0 +1,28 @@
+.Tabs {
+  &__titles {
+    display: flex;
+    padding: 0;
+    list-style-type: none;
+  }
+
+  &__title {
+    color: rgb(31, 88, 153);
+    cursor: pointer;
+    padding: 10px 40px;
+    border: transparent;
+    border-bottom: 1px solid rgb(214, 214, 214);
+    background-color: white;
+
+    &--selected {
+      border-radius: 6px 6px 0 0;
+      border: 1px solid rgb(214, 214, 214);
+      border-bottom: 1px solid white;
+      color: black;
+      cursor: default;
+    }
+
+    &:not(.Tabs__title--selected):hover {
+      color: black;
+    }
+  }
+}
