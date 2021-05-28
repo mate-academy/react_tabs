@@ -2,33 +2,33 @@ import React from 'react';
 
 class Tabs extends React.Component {
   state = {
-    selectedTabId: 'tab-1'
+    selectedTabId: 'tab-1',
   }
 
   render() {
     const { selectedTabId } = this.state;
     const { tabs, onTabSelected } = this.props;
 
-    return(
+    return (
       <div className="tabs">
         {tabs.map(tab => (
           <div
             key={tab.id}
             className={selectedTabId === tab.id
-              ? "block__select"
-              : "block"
+              ? 'block__select'
+              : 'block'
             }
             onClick={() => {
-              onTabSelected(tab.id)
+              onTabSelected(tab.id);
               this.setState({
-                selectedTabId: tab.id
-              })
+                selectedTabId: tab.id,
+              });
             }}
           >
             <h2
               className={selectedTabId === tab.id
-                ? "title__select"
-                : "title"
+                ? 'title__select'
+                : 'title'
               }
             >
               {tab.title}
@@ -46,6 +46,6 @@ class Tabs extends React.Component {
       </div>
     );
   }
-};
+}
 
 export default Tabs;

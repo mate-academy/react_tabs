@@ -1,7 +1,7 @@
 import React from 'react';
 import Tabs from './Tabs';
 
-import './App.css';
+import './App.scss';
 
 /* eslint-disable */
 const tabs = [
@@ -17,19 +17,18 @@ class App extends React.Component {
     selectedTab: 'Tab 1',
   }
 
+  findSelected = value => tabs.find(
+    tab => tab.id === value,
+  )
+
   onTabSelected = (id) => {
     if (this.state.tabSelected.id === id) {
       return;
     }
 
     this.setState({
-      tabSelected: tabs.find(
-        tab => tab.id === id,
-      ),
-
-      selectedTab: tabs.find(
-        tab => tab.id === id,
-      ).title,
+      tabSelected: this.findSelected(id),
+      selectedTab: this.findSelected(id).title,
     });
   }
 
