@@ -1,0 +1,31 @@
+.Tabs {
+  font-family: Arial, sans-serif;
+}
+
+.Tabs__list {
+  display: flex;
+  list-style: none;
+  margin: 0;
+}
+
+.Tab__item_active {
+  border: 1px solid #9b9b9b;
+  background-color: #e2e2e2;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  border-bottom: none;
+}
+
+.Tab__link {
+  display: block;
+  padding: 20px;
+  font-weight: bold;
+  text-decoration: none;
+  color: #333;
+}
+
+.Tab__content {
+  padding: 10px;
+  border-top: 1px solid #9b9b9b;
+  color: #333;
+}
