@@ -1,6 +1,5 @@
 $main-color: rgb(26, 47, 87);
 $border-width: 1px;
-$shift: 30px;
 
 .tabs {
   display: flex;
@@ -21,7 +20,7 @@ $shift: 30px;
   }
 
   &__switcher:first-child {
-    margin-left: $shift
+    margin-left: 30px
   }
 
   &__switcher:hover {
@@ -35,8 +34,4 @@ $shift: 30px;
     border-bottom: $border-width solid white;
     transition: border 0.3s;
   }
-}
-
-.content {
-  margin-left: $shift;
 }

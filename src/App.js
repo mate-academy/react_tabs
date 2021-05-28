@@ -35,9 +35,13 @@ class App extends React.PureComponent {
 
         <Tabs
           tabsList={tabs}
-          selectedTab={selectedTab}
+          selectedTabId={selectedTab.id}
           onClick={this.changeSelectedTab}
         />
+
+        <p className="content">
+          {selectedTab.content}
+        </p>
       </div>
     );
   }

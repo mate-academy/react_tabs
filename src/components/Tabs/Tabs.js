@@ -7,7 +7,7 @@ import './Tabs.scss';
 export const Tabs = React.memo(
   ({
     tabsList,
-    selectedTab,
+    selectedTabId,
     onClick,
   }) => (
     <>
@@ -17,35 +17,31 @@ export const Tabs = React.memo(
           <li
             className={classNames(
               'tabs__switcher',
-              { tabs__switcher_active: tab.id === selectedTab.id },
+              { tabs__switcher_active: tab.id === selectedTabId },
             )}
             key={tab.id}
             onClick={() => {
-              onClick(tab.id);
+              if (tab.id !== selectedTabId) {
+                onClick(tab.id);
+              }
             }}
           >
             {tab.title}
           </li>
         ))}
       </ul>
-
-      <p className="content">
-        {selectedTab.content}
-      </p>
     </>
   ),
 );
 
-const tabType = PropTypes.shape({
-  id: PropTypes.string.isRequired,
-  title: PropTypes.string.isRequired,
-  content: PropTypes.string.isRequired,
-});
-
 Tabs.propTypes = {
   tabsList: PropTypes.arrayOf(
-    tabType,
+    PropTypes.shape({
+      id: PropTypes.string.isRequired,
+      title: PropTypes.string.isRequired,
+      content: PropTypes.string.isRequired,
+    }),
   ).isRequired,
-  selectedTab: tabType.isRequired,
+  selectedTabId: PropTypes.string.isRequired,
   onClick: PropTypes.func.isRequired,
 };
