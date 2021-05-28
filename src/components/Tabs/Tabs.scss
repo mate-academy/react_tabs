@@ -1,0 +1,23 @@
+.tabs {
+  margin-right: 5px;
+  width: 90px;
+  border-radius: 4px 4px 0 0;
+  cursor: pointer;
+
+  &__section {
+    display: inline-block;
+  }
+
+  &__container {
+    width: 50%;
+    margin: 0 auto;
+  }
+
+  &__selected {
+    border-top: 1px solid #808080;
+    border-left: 1px solid #808080;
+    border-right: 1px solid #808080;
+    font-weight: 700;
+    color: #6a5acd;
+  }
+}
