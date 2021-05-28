@@ -26,14 +26,15 @@ class App extends React.Component {
     });
   }
 
+  findTitleById = tabId => tabs.find(tab => tab.id === tabId).title
+
   render() {
     const { selectedTabId } = this.state;
 
     return (
       <div className="App">
         <h1>
-          Selected tab is
-          {tabs.find(tab => tab.id === selectedTabId).title}
+          {`Selected tab is ${this.findTitleById(selectedTabId)}`}
         </h1>
         <Tabs
           tabs={tabs}
