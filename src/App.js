@@ -1,4 +1,5 @@
 import React from 'react';
+import { Tabs } from './components/Tabs';
 
 import './App.scss';
 
@@ -10,10 +11,40 @@ const tabs = [
 ];
 /* eslint-enable */
 
-const App = () => (
-  <div className="App">
-    <h1>Selected tab is&nbsp;Tab 1</h1>
-  </div>
-);
+class App extends React.Component {
+  state = {
+    selectedTab: tabs[0],
+  }
+
+  getTabById = id => tabs.find(tab => tab.id === id);
+
+  selectTab = (selectedTabId) => {
+    this.setState(prevState => (
+      prevState.selectedTab.id === selectedTabId
+        ? 0
+        : { selectedTab: this.getTabById(selectedTabId) }
+    ));
+  }
+
+  render() {
+    const { selectedTab } = this.state;
+
+    return (
+      <div className="App">
+        <Tabs
+          tabs={tabs}
+          selectedTabId={selectedTab.id}
+          onTabSelected={this.selectTab}
+        />
+        <div className="content">
+          <h1 className="h1">
+            Selected tab is&nbsp;
+            {selectedTab.title}
+          </h1>
+        </div>
+      </div>
+    );
+  }
+}
 
 export default App;
