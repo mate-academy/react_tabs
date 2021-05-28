@@ -1,0 +1,49 @@
+.tabs {
+  display: flex;
+  flex-direction: row;
+
+  column-gap: 15px;
+}
+
+.block,
+.block__select {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.block {
+  border: 1px solid darkblue;
+}
+
+.block__select {
+  border: 1px solid blue;
+}
+
+.block:hover {
+  border: 1px solid blue;
+}
+
+.title,
+.title__select {
+  margin: 0;
+  padding: 10px;
+}
+
+.title {
+  color: darkblue;
+}
+
+.title__select {
+  color: blue;
+}
+
+.title:hover {
+  cursor: pointer;
+  color: blue;
+}
+
+.paragraph {
+  position: absolute;
+  top: 40px;
+}
