@@ -1,0 +1,43 @@
+.tabs {
+  padding: 50px;
+  font-family: Roboto, sans-serif;
+
+  &__container {
+    max-width: 768px;
+    margin: 0 auto;
+    padding: 50px;
+    background-color: antiquewhite;
+  }
+
+  &__item {
+    display: inline-block;
+    padding: 10px;
+    font-size: 16px;
+    font-weight: 700;
+    text-decoration: none;
+    color: #033;
+    border: 1px solid transparent;
+
+    &:hover {
+      color: #055;
+      border: 1px solid gray;
+    }
+
+    &:active {
+      color: #800;
+    }
+
+    &--active {
+      border: 1px solid gray;
+
+      border-bottom: 1px solid antiquewhite;
+    }
+  }
+
+  &__content {
+    margin-top: -1px;
+    padding-top: 20px;
+    border-top: 1px solid gray;
+    color: #033;
+  }
+}

@@ -1,1 +1,10 @@
 // Put styles here
+* {
+  box-sizing: border-box;
+}
+
+.App {
+  &__title {
+    text-align: center;
+  }
+}
