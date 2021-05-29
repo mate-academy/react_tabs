@@ -33,7 +33,7 @@ class App extends React.Component {
         </h1>
         <Tabs
           tabs={tabs}
-          selectedTab={this.state.selectedTab.id}
+          selectedTabId={this.state.selectedTab.id}
           onTabSelected={this.onTabSelected}
         />
       </div>

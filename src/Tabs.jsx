@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './Tabs.css';
 
-export const Tabs = ({ tabs, onTabSelected, selectedTab }) => (
+export const Tabs = ({ tabs, onTabSelected, selectedTabId }) => (
   <>
     <div className="tabs">
       {tabs.map(tab => (
@@ -19,7 +19,7 @@ export const Tabs = ({ tabs, onTabSelected, selectedTab }) => (
       ))}
     </div>
     <p className="content">
-      {tabs.find(tab => tab.id === selectedTab).content}
+      {tabs.find(tab => tab.id === selectedTabId).content}
     </p>
   </>
 );
@@ -29,7 +29,5 @@ Tabs.propTypes = {
     PropTypes.shape().isRequired,
   ).isRequired,
   onTabSelected: PropTypes.func.isRequired,
-  selectedTab: PropTypes.shape({
-    content: PropTypes.string.isRequired,
-  }).isRequired,
+  selectedTabId: PropTypes.string.isRequired,
 };
