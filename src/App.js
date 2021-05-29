@@ -16,6 +16,10 @@ class App extends React.Component {
   }
 
   switchTabs = (tabId) => {
+    if (tabId === this.state.selectedTab.id) {
+      return;
+    }
+
     this.setState({
       selectedTab: tabs.find(tab => tab.id === tabId),
     });
@@ -31,7 +35,7 @@ class App extends React.Component {
         </h1>
         <Tab
           tabs={tabs}
-          selectedTab={selectedTab}
+          selectedTabId={selectedTab.id}
           switchTabs={this.switchTabs}
         />
       </div>

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import './Tab.scss';
 import classNames from 'classnames';
 
-export const Tab = ({ tabs, switchTabs, selectedTab }) => (
+export const Tab = ({ tabs, switchTabs, selectedTabId }) => (
   <>
     <div className="tabs">
       {tabs.map((tab) => {
@@ -13,7 +13,7 @@ export const Tab = ({ tabs, switchTabs, selectedTab }) => (
           <div key={id}>
             <button
               className={classNames('btn', {
-                active: selectedTab.id === id,
+                active: selectedTabId === id,
               })}
               type="button"
               onClick={() => switchTabs(id)}
@@ -25,7 +25,7 @@ export const Tab = ({ tabs, switchTabs, selectedTab }) => (
       })}
     </div>
     <p>
-      {selectedTab.content}
+      {tabs.find(tab => tab.id === selectedTabId).content}
     </p>
   </>
 );
@@ -35,8 +35,5 @@ Tab.propTypes = {
     id: PropTypes.string.isRequired,
   })).isRequired,
   switchTabs: PropTypes.func.isRequired,
-  selectedTab: PropTypes.shape({
-    id: PropTypes.string.isRequired,
-    content: PropTypes.string.isRequired,
-  }).isRequired,
+  selectedTabId: PropTypes.string.isRequired,
 };
