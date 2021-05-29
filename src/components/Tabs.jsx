@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-function Tabs({ tabs, selectedTab, onTabSelected }) {
+function Tabs({ tabs, selectedTabId, onTabSelected }) {
   return (
     <>
       <ul className="tabs">
@@ -18,7 +18,7 @@ function Tabs({ tabs, selectedTab, onTabSelected }) {
         ))}
       </ul>
       <p>
-        {selectedTab.content}
+        {tabs.find(tab => selectedTabId === tab.id).content}
       </p>
     </>
   )
@@ -28,10 +28,8 @@ Tabs.propTypes = {
   tabs: PropTypes.arrayOf(
     PropTypes.shape().isRequired,
   ).isRequired,
+  selectedTabId: PropTypes.string.isRequired,
   onTabSelected: PropTypes.func.isRequired,
-  selectedTab: PropTypes.shape({
-    content: PropTypes.string.isRequired,
-  }).isRequired,
 };
 
 export default Tabs;

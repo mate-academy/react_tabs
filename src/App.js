@@ -17,6 +17,10 @@ class App extends React.Component {
   }
 
   onTabSelected = (tabId) => {
+    if (tabId === this.state.selectedTab.id) {
+      return;
+    }
+
     const newTab = tabs.find(tab => tab.id === tabId);
 
     this.setState({
@@ -34,7 +38,7 @@ class App extends React.Component {
 
         <Tabs
           tabs={tabs}
-          selectedTab={this.state.selectedTab}
+          selectedTabId={this.state.selectedTab.id}
           onTabSelected={this.onTabSelected}
         />
       </div>
