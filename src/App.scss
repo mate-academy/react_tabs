@@ -1,1 +1,30 @@
-// Put styles here
+* {
+  box-sizing: border-box;
+}
+
+.tabslist {
+  display: flex;
+  padding: 0;
+  margin: 0;
+
+  &__tab {
+    background-color: rgb(234, 235, 231);
+    border: 2px solid rgb(133, 133, 133);
+  }
+
+  &__tab-content {
+    display: none;
+    padding: 15px;
+    color: rgb(13, 66, 13);
+  }
+}
+
+.activeTab {
+  border-bottom: none;
+}
+
+.show {
+  display: block;
+  border: 2px solid rgb(133, 133, 133);
+  margin-top: -2px;
+}
