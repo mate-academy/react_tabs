@@ -7,15 +7,15 @@ export const Tabs = ({ tabs, tabID, onTabSelected }) => (
   <div className="tabLinks">
     {tabs.map(tab => (
       <React.Fragment key={tab.id}>
-        <a
-          href="qwe"
+        <button
+          type="button"
           className={classNames('tabLink', {
             'tabLink--active': tabID === tab.id,
           })}
-          onClick={event => tabID !== tab.id && onTabSelected(event, tab.id)}
+          onClick={() => tabID !== tab.id && onTabSelected(tab.id)}
         >
           {tab.title}
-        </a>
+        </button>
         {tabID === tab.id && <p className="tabContent">{tab.content}</p>}
       </React.Fragment>
     ))}

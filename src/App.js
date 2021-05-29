@@ -16,8 +16,7 @@ class App extends Component {
     selectedTab: tabs[0],
   }
 
-  onTabSelected = (event, tabID) => {
-    event.preventDefault();
+  onTabSelected = (tabID) => {
     this.setState({
       selectedTab: tabs[tabs.findIndex(tab => tab.id === tabID)],
     });
