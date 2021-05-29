@@ -19,7 +19,7 @@ export const Tabs = ({ tabs, onTabSelected, selectedTab }) => (
       ))}
     </div>
     <p className="content">
-      {selectedTab.content}
+      {tabs.find(tab => tab.id === selectedTab).content}
     </p>
   </>
 );
