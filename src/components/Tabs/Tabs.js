@@ -12,7 +12,7 @@ export const Tabs = ({ tabs, tabID, onTabSelected }) => (
           className={classNames('tabLink', {
             'tabLink--active': tabID === tab.id,
           })}
-          onClick={event => onTabSelected(event, tab.id)}
+          onClick={event => tabID !== tab.id && onTabSelected(event, tab.id)}
         >
           {tab.title}
         </a>
