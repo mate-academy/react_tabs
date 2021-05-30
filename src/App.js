@@ -14,7 +14,6 @@ const tabs = [
 class App extends React.Component {
   state = {
     tabSelected: tabs[0],
-    selectedTab: 'Tab 1',
   }
 
   findSelected = value => tabs.find(
@@ -28,18 +27,17 @@ class App extends React.Component {
 
     this.setState({
       tabSelected: this.findSelected(id),
-      selectedTab: this.findSelected(id).title,
     });
   }
 
   render() {
-    const { selectedTab } = this.state;
+    const { tabSelected } = this.state;
 
     return (
       <div className="App">
         <h1>
           Selected tab is&nbsp;
-          {selectedTab}
+          {tabSelected.id}
         </h1>
 
         <Tabs
