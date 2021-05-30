@@ -37,7 +37,7 @@ class App extends React.Component {
       <div className="App">
         <h1>
           Selected tab is&nbsp;
-          {tabSelected.id}
+          {tabSelected.title}
         </h1>
 
         <Tabs
