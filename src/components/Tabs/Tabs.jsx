@@ -14,7 +14,7 @@ export const Tabs = ({ tabs, selectedTabId, selectTab }) => (
       className={classNames('Tabs__title', {
         'Tabs__title-selected': +id.slice(4) === selectedTabId,
       })}
-      onClick={(event) => {
+      onClick={() => {
         selectTab(+id.slice(4));
       }}
     >
