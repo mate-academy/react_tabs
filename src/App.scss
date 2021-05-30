@@ -1,1 +1,12 @@
 // Put styles here
+.tab {
+  margin-right: 10px;
+  border: none;
+  border-bottom: 1px dashed blue;
+  background-color: inherit;
+
+  &:hover {
+    cursor: pointer;
+    border-bottom: 1px solid blue;
+  }
+}
