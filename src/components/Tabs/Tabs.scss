@@ -1,0 +1,29 @@
+.Tabs {
+  margin: 20px 0;
+}
+
+.Tabs-list {
+  list-style-type: none;
+  display: flex;
+}
+
+.Tabs-item {
+  padding: 10px 20px;
+  border-radius: 8px;
+}
+
+.is-active {
+  background-color: beige;
+}
+
+.Tab-link {
+  text-decoration: none;
+}
+
+.Tab-text {
+  padding: 20px;
+  background-color: beige;
+  border-radius: 8px;
+}
+
+
