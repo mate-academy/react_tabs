@@ -1,0 +1,37 @@
+.tabs-button {
+  background: none;
+	color: inherit;
+	border: none;
+	padding: 0;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
+}
+
+.tabs-linck {
+  display: flex;
+  border-bottom: 1px solid black;
+
+  font-size: 18px;
+
+  &__item {
+    padding: 10px;
+
+    &:hover {
+      cursor: pointer;
+      background-color: lightgray;
+    }
+  }
+}
+
+.tab-selected {
+  border-top: 1px solid black;
+  border-left: 1px solid black;
+  border-right: 1px solid black;
+}
+
+.tabs-content {
+  padding: 10px;
+
+  font-size: 24px;
+}
