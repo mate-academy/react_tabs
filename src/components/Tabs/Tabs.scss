@@ -1,0 +1,25 @@
+.Tabs {
+  background-color: burlywood;
+  border: 1px solid black;
+  width: fit-content;
+  &__header {
+    display: flex;
+  }
+  &__title {
+    display: block;
+    background-color: burlywood;
+    cursor: pointer;
+    border: none;
+    border-right: 1px solid black;
+    &-selected {
+      transform: scale(1.2) translateX(3px);
+      margin-right: 7px;
+      border: 0.5px solid black;
+      border-bottom: none;
+      color: blueviolet;
+    }
+    &:hover {
+      background-color: cadetblue;
+    }
+  }
+}
