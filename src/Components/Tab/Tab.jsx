@@ -35,7 +35,7 @@ Tab.propTypes = {
     id: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
   })).isRequired,
-  onclick: PropTypes.func.isRequired,
+  handlerClick: PropTypes.func.isRequired,
   activeTab: PropTypes.shape({
     title: PropTypes.string.isRequired,
   }).isRequired,
