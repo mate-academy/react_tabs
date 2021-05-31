@@ -1,24 +1,22 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-export const Tabs = ({ tabs, onSelelect, selectedId }) => (
-  <>
+export const Tabs = ({ tabs, onSelelect, selectedContent}) => (
+  <div>
     {tabs.map(tab => (
-      <>
-        <button
-          type="button"
-          key={tab.id}
-          onClick={() => onSelelect(tab.id, tab.title)}
-        >
-          {tab.title}
-        </button>
-
-        <p>
-          {tab.id === selectedId && tab.content}
-        </p>
-      </>
+      <button
+        type="button"
+        key={tab.id}
+        onClick={() => onSelelect(tab)}
+      >
+        {tab.title}
+      </button>
     ))}
-  </>
+
+      <p>
+        {selectedContent}
+      </p>
+  </div>
 );
 
 Tabs.propTypes = {
@@ -30,5 +28,5 @@ Tabs.propTypes = {
     }),
   ).isRequired,
   onSelelect: PropTypes.func.isRequired,
-  selectedId: PropTypes.string.isRequired,
+  selectedContent: PropTypes.string.isRequired,
 };

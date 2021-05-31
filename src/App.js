@@ -13,29 +13,29 @@ const tabsFromServer = [
 
 class App extends React.Component {
   state = {
-    selectedId: tabsFromServer[0].id,
-    selectedTitle: tabsFromServer[0].title,
+    selectedTab: tabsFromServer[0],
   }
 
-  selectTab = (idToSelect, titleToSelect) => {
+  selectTab = (tab) => {
     this.setState({
-      selectedId: idToSelect,
-      selectedTitle: titleToSelect,
+      selectedTab: tab,
     });
   };
 
   render() {
+    const { selectedTab } = this.state;
+
     return (
       <div className="App">
         <h1>
           Selected tab is
-          {this.state.selectedTitle}
+          {selectedTab.title}
         </h1>
 
         <Tabs
           tabs={tabsFromServer}
           onSelelect={this.selectTab}
-          selectedId={this.state.selectedId}
+          selectedContent={selectedTab.content}
         />
       </div>
     );
