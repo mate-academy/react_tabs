@@ -1,0 +1,25 @@
+.tabs {
+  &__list {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+  }
+
+  &__item {
+    border: 2px solid forestgreen;
+    border-bottom: none;
+    border-radius: 5px 5px 0 0;
+  }
+
+  &__content {
+    text-align: center;
+    font-size: 1.5em;
+  }
+
+  &__link {
+    display: block;
+    padding: 10px;
+    color: forestgreen;
+    text-decoration: none;
+  }
+}
