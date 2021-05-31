@@ -14,7 +14,7 @@ const Tab = ({ tabs, handlerClick, activeTab }) => (
           className={classNames('btn', { active: activeTab.title === tab.title })}
           key={tab.id}
           type="button"
-          onClick={() => onclick(tab.id)}
+          onClick={() => handlerClick(tab.id)}
         >
           {tab.title}
         </button>
