@@ -1,9 +1,7 @@
 // import { ReactComponent } from '*.svg';
 import React from 'react';
-import classNames from 'classnames';
-import PropTypes from 'prop-types';
-
 import './App.scss';
+import Tabs from './Components/Tabs/Tabs';
 
 /* eslint-disable */
 const tabs = [
@@ -19,6 +17,10 @@ class App extends React.Component {
   }
 
   onTabSelected = (tab) => {
+    if (tab.id === this.state.selectedTab.id) {
+      return;
+    }
+
     this.setState({
       selectedTab: tab,
     });
@@ -43,39 +45,5 @@ class App extends React.Component {
     );
   }
 }
-
-const Tabs = ({ tabsList, selectedTab, onTabSelected }) => (
-  <div className="Tabs">
-    {tabsList.map(tab => (
-      <div className="Tab">
-        <button
-          className={classNames('button', {
-            active: selectedTab.id === tab.id,
-          })}
-          type="button"
-          key={tab.id}
-          onClick={() => onTabSelected(tab)}
-        >
-          {tab.title}
-        </button>
-      </div>
-    ))}
-    <p>
-      {tabs.find(tab => tab.id === selectedTab.id).content}
-    </p>
-  </div>
-);
-
-Tabs.propTypes = {
-  tabsList: PropTypes.arrayOf(PropTypes.shape({
-    id: PropTypes.string.isRequired,
-    title: PropTypes.string.isRequired,
-  })).isRequired,
-  selectedTab: PropTypes.shape({
-    id: PropTypes.string.isRequired,
-    title: PropTypes.string.isRequired,
-  }).isRequired,
-  onTabSelected: PropTypes.func.isRequired,
-};
 
 export default App;

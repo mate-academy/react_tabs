@@ -5,13 +5,15 @@ import PropTypes from 'prop-types';
 const Tabs = ({ tabsList, selectedTab, onTabSelected }) => (
   <div className="Tabs">
     {tabsList.map(tab => (
-      <div className="Tab">
+      <div
+        className="Tab"
+        key={tab.id}
+      >
         <button
           className={classNames('button', {
             active: selectedTab.id === tab.id,
           })}
           type="button"
-          key={tab.id}
           onClick={() => onTabSelected(tab)}
         >
           {tab.title}
