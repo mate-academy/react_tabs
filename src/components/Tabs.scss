@@ -1,0 +1,22 @@
+.tab {
+  display: flex;
+  gap: 20px;
+  list-style: none;
+
+  &__item {
+    font-size: 1em;
+    text-align: left; 
+    color: rgb(18, 18, 116);
+    background: none;
+    margin: 0;
+    padding: 40px;
+    border: none;
+    cursor: pointer;
+  }
+}
+
+.active {
+  color: rgb(67, 67, 67);
+  border: 1px solid gray;
+  border-bottom: 1px solid white;
+}
