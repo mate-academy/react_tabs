@@ -1,0 +1,15 @@
+.tabs {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.tabs-info {
+  font-size: 24px;
+  text-align: center;
+}
+
+.tabs-button {
+  width: 100px;
+  cursor: pointer;
+}
