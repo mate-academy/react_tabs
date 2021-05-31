@@ -1,6 +1,7 @@
 import React from 'react';
 
 import './App.scss';
+import { Tabs } from './components/Tabs';
 
 /* eslint-disable */
 const tabs = [
@@ -10,10 +11,35 @@ const tabs = [
 ];
 /* eslint-enable */
 
-const App = () => (
-  <div className="App">
-    <h1>Selected tab is&nbsp;Tab 1</h1>
-  </div>
-);
+export class App extends React.Component {
+  state = {
+    selectedTab: tabs[0],
+  }
 
-export default App;
+  onTabSelected = (selectedTabId) => {
+    if (selectedTabId === this.state.selectedTab.id) {
+      return;
+    }
+
+    this.setState(state => ({
+      selectedTab: tabs.find(tab => tab.id === selectedTabId),
+    }));
+  }
+
+  render() {
+    const { content } = this.state.selectedTab;
+
+    return (
+      <div className="App">
+        <h1>
+          Selected tab is&nbsp;
+          {content}
+        </h1>
+
+        <Tabs onTabSelected={this.onTabSelected} tabs={tabs} />
+
+        <p>{content}</p>
+      </div>
+    );
+  }
+}
