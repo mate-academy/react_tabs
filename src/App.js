@@ -17,9 +17,9 @@ class App extends React.Component {
   }
 
   handlerEvent = (id) => {
-    this.setState(() => ({
+    this.setState({
       activeTab: tabs.find(tab => tab.id === id),
-    }));
+    });
   }
 
   render() {
@@ -27,14 +27,11 @@ class App extends React.Component {
 
     return (
       <div className="App">
-        <h1>
-          Selected tab is
-          {activeTab.title}
-        </h1>
-        <Tab tabs={tabs} onclick={this.handlerEvent} activeTab={activeTab} />
-        <p>
-          {activeTab.content}
-        </p>
+        <Tab
+          tabs={tabs}
+          handlerClick={this.handlerEvent}
+          activeTab={activeTab}
+        />
       </div>
     );
   }
