@@ -4,30 +4,22 @@ import classNames from 'classnames';
 import './Tabs.scss';
 
 export const Tabs = ({ tabs, selectedTab, onTabSelected }) => (
-  <>
-    <div className="tabs__container">
-      {tabs.map(tab => (
-        <ul
-          className="tabs__section"
-          key={tab.id}
-        >
-          <li>
-            <button
-              type="button"
-              className={classNames('tabs', {
-                tabs__selected: tab.id === selectedTab.id,
-              })}
-              onClick={() => onTabSelected(tab)}
-            >
-              {tab.title}
-            </button>
-          </li>
-        </ul>
-      ))}
-      <hr />
-      <div>{tabs.find(tab => tab.id === selectedTab.id).content}</div>
-    </div>
-  </>
+  <div className="tabs__container">
+    {tabs.map(tab => (
+      <button
+        className={classNames('tabs', 'tabs__section', {
+          tabs__selected: tab.id === selectedTab.id,
+        })}
+        key={tab.id}
+        type="button"
+        onClick={() => onTabSelected(tab)}
+      >
+        {tab.title}
+      </button>
+    ))}
+    <hr />
+    <div>{tabs.find(tab => tab.id === selectedTab.id).content}</div>
+  </div>
 );
 
 export default Tabs;
