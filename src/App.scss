@@ -9,4 +9,8 @@
     cursor: pointer;
     border-bottom: 1px solid blue;
   }
+
+  &:focus {
+    color: blue;
+  }
 }

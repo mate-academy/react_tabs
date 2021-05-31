@@ -3,7 +3,6 @@ import PropTypes, { shape } from 'prop-types';
 
 export const Tabs = ({ onTabSelected, tabs }) => (
   tabs.map(tab => (
-
     <button
       type="button"
       onClick={onTabSelected}
