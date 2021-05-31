@@ -1,0 +1,35 @@
+.nav {
+  &__list {
+    display: flex;
+    list-style: none;
+ }
+
+  &__link {
+    cursor: pointer;
+    padding: 5px 10px;
+    border: 1px solid grey;
+    border-radius: 5px 5px  0 0;
+
+      &:hover {
+  background-color: #eee;
+    }
+
+
+
+  }
+}
+
+.active {
+  // border-bottom: none;
+  background-color: #eee;
+  color: rgb(13, 106, 109);
+
+}
+
+.title {
+  padding-left: 40px;
+}
+
+.content {
+  padding-left: 40px;
+}
