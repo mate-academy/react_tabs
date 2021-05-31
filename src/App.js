@@ -13,29 +13,33 @@ const tabs = [
 
 class App extends React.Component {
   state = {
-    defaultTab: tabs[0],
+    selectedTab: tabs[0],
   };
 
   selectedTab = (tabId) => {
+    if (tabId === this.state.selectedTab.id) {
+      return;
+    }
+
     const findTab = tabs.find(tab => tab.id === tabId);
 
     this.setState({
-      defaultTab: findTab,
+      selectedTab: findTab,
     });
   };
 
   render() {
-    const { defaultTab } = this.state;
+    const { selectedTab } = this.state;
 
     return (
       <div className="App">
         <h1>
           Selected tab is&nbsp;
-          {defaultTab.title}
+          {selectedTab.title}
         </h1>
         <Tabs
           tabs={tabs}
-          defaultTab={this.state.defaultTab}
+          selectedTab={this.state.selectedTab.id}
           onSelectedTab={this.selectedTab}
         />
       </div>

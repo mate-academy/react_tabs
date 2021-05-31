@@ -1,6 +1,6 @@
 import React from 'react';
 
-export const Tabs = ({ tabs, defaultTab, onSelectedTab }) => (
+export const Tabs = ({ tabs, selectedTab, onSelectedTab }) => (
   <div>
     <ul>
       {tabs.map(tab => 
@@ -8,6 +8,6 @@ export const Tabs = ({ tabs, defaultTab, onSelectedTab }) => (
         <button type="button" onClick={() => {onSelectedTab(tab.id)}}>{tab.title}</button>
       </li>)}
     </ul>
-    <p>{defaultTab.content}</p>
+    <p>{tabs.find(tab => selectedTab === tab.id).content}</p>
   </div>
 )
