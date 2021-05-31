@@ -1,0 +1,41 @@
+$color1: rgb(94, 2, 2);
+$color2: red;
+$colorHover: rgb(255, 146, 146);
+
+.table {
+  position: relative;
+  width: 33%;
+  color: $color1;
+}
+
+.title {
+  position: relative;
+  border: 3px solid $color1;
+  cursor: pointer;
+  transition: 0.3s;
+  border-bottom: none;
+  margin-bottom: 0;
+  
+  &:hover {
+    background-color: $colorHover;
+  }
+}
+
+.checked {
+  background: $color2;
+  color: white;
+  border-color: $color1;
+  border-top-left-radius: 45%;
+  transform: scale(1.2);
+  z-index: 1;
+
+  &:hover {
+    background-color: $color2;
+  }
+}
+
+.content {
+  position: absolute;
+  width: 100%;
+  top: 50px;
+}
