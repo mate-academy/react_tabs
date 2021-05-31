@@ -1,1 +1,51 @@
-// Put styles here
+.tabs {
+  display: flex;
+  flex-direction: row;
+
+  position: relative;
+
+  column-gap: 15px;
+}
+
+.block,
+.block__select {
+  display: flex;
+  flex-direction: column;
+}
+
+.block {
+  border: 1px solid darkblue;
+}
+
+.block:hover {
+  border: 1px solid blue;
+}
+
+.block__select {
+  border: 1px solid blue;
+}
+
+.title,
+.title__select {
+  margin: 0;
+  padding: 10px;
+}
+
+.title {
+  color: darkblue;
+}
+
+.title:hover {
+  cursor: pointer;
+  color: blue;
+}
+
+.title__select {
+  color: blue;
+}
+
+.paragraph {
+  position: absolute;
+  top: 40px;
+  left: 0;
+}
