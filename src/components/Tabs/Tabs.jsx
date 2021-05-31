@@ -18,19 +18,13 @@ const Tabs = ({ tabs, onChangeTab, selectedTab }) => (
   </div>
 );
 
-const tabsType = PropTypes.arrayOf(
-  PropTypes.shape({
-    id: PropTypes.string.isRequired,
-    title: PropTypes.string.isRequired,
-    content: PropTypes.string.isRequired,
-  }),
-);
-
 const selectedTabType = PropTypes.shape({
   id: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   content: PropTypes.string.isRequired,
 });
+
+const tabsType = PropTypes.arrayOf(selectedTabType);
 
 Tabs.propTypes = {
   tabs: tabsType.isRequired,
