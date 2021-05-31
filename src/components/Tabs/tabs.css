@@ -1,0 +1,36 @@
+.tabs {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 2px solid;
+}
+
+.tabs__list {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  padding-bottom: 20px;
+}
+
+.tabs__button {
+  width: 150px;
+  height: 30px;
+  background-color: rgb(121, 147, 148);
+  color: aliceblue;
+  border: 0 solid;
+  margin: 0 1px;
+  transition: 0.2s;
+}
+
+.tabs__button:hover {
+  background-color: rgb(148, 151, 151);
+}
+
+.tabs__button:focus {
+  background-color: rgb(156, 171, 172);
+}
+
+.tabs__content {
+  padding-bottom: 10px;
+}
