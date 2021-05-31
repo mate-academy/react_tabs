@@ -1,13 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import './Tabs.css';
 
 export const Tabs = ({ tabs, selectedTabId, onTabSelected }) => (
-  tabs.map(tab => (
-    <>
-      <div className="tab__list">
+  <>
+    <div className="tabs__list">
+      {tabs.map(tab => (
         <button
-          key={tab.id}
           type="button"
+          key={tab.id}
           className={selectedTabId === tab.id ? 'selected' : ''}
           onClick={() => {
             if (selectedTabId !== tab.id) {
@@ -17,12 +18,16 @@ export const Tabs = ({ tabs, selectedTabId, onTabSelected }) => (
         >
           {tab.title}
         </button>
-      </div>
-      <div className="tab__content">
-        {selectedTabId === tab.id && <p>{tab.content}</p>}
-      </div>
-    </>
-  ))
+      ))}
+    </div>
+    <div className="tabs__content">
+      {tabs.map(tab => (
+        <React.Fragment key={tab.id}>
+          {selectedTabId === tab.id && <p>{tab.content}</p>}
+        </React.Fragment>
+      ))}
+    </div>
+  </>
 );
 
 Tabs.propTypes = {
