@@ -14,7 +14,7 @@ const tabs = [
 
 class App extends React.Component {
   state = {
-    selectedTab: { id: 'tab-1', title: 'Tab 1', content: 'Some text 1' },
+    selectedTab: tabs[0],
   }
 
   tabSelect = (tab) => {
