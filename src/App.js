@@ -42,6 +42,7 @@ class App extends React.Component {
 
         <Tabs
           tabs={tabs}
+          selectedTabId={tabSelected}
           onTabSelected={this.onTabSelected}
         />
       </div>
