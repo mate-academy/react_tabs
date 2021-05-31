@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 import './Tabs.scss';
 
-const Tabs = ({ tabs, id, content, choiceTab }) => (
+const Tabs = ({ tabs, currentTab, choiceTab }) => (
   <div className="tabs">
     <div className="tabs__container">
       {tabs.map(tab => (
@@ -12,12 +12,12 @@ const Tabs = ({ tabs, id, content, choiceTab }) => (
         <a
           className={cn(
             'tabs__item',
-            { 'tabs__item--active': tab.id === id },
+            { 'tabs__item--active': tab.id === currentTab.id },
           )}
           key={tab.id}
           href="#"
           onClick={() => {
-            if (tab.id !== id) {
+            if (tab.id !== currentTab.id) {
               choiceTab(tab);
             }
           }}
@@ -26,20 +26,19 @@ const Tabs = ({ tabs, id, content, choiceTab }) => (
         </a>
         /* eslint-enable */
       ))}
-      <div className="tabs__content">{content}</div>
+      <div className="tabs__content">{currentTab.content}</div>
     </div>
   </div>
 );
 
 Tabs.propTypes = {
   tabs: PropTypes.arrayOf({}).isRequired,
-  id: PropTypes.number.isRequired,
-  content: PropTypes.string,
+  currentTab: PropTypes.shape({
+    id: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+    content: PropTypes.string.isRequired,
+  }).isRequired,
   choiceTab: PropTypes.func.isRequired,
-};
-
-Tabs.defaultProps = {
-  content: '',
 };
 
 export default Tabs;

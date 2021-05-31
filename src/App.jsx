@@ -14,38 +14,30 @@ const initialTabs = [
 class App extends React.Component {
   state = {
     tabs: [...initialTabs],
-    curetnId: initialTabs[0].id,
-    currentTitle: initialTabs[0].title,
-    currentContent: initialTabs[0].content,
+    currentTab: initialTabs.find(tab => (tab.id === 'tab-1')),
   };
 
-  setTab = (tab) => {
-    this.setState({
-      curetnId: tab.id,
-      currentTitle: tab.title,
-      currentContent: tab.content,
-    });
-  }
+  setTab = (choosedTab) => {
+    this.setState(state => ({
+      currentTab: state.tabs.find(
+        tab => tab.id === choosedTab.id,
+      ),
+    }));
+  };
 
   render() {
-    const {
-      tabs,
-      curetnId,
-      currentTitle,
-      currentContent,
-    } = this.state;
+    const { tabs, currentTab } = this.state;
 
     return (
       <div className="App">
         <h1 className="App__title">
           Selected tab is&nbsp;
-          {currentTitle}
+          {currentTab.title}
         </h1>
 
         <Tabs
           tabs={tabs}
-          id={curetnId}
-          content={currentContent}
+          currentTab={currentTab}
           choiceTab={(tab) => {
             this.setTab(tab);
           }}
