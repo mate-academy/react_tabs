@@ -1,1 +1,34 @@
 // Put styles here
+.buttons {
+  display: flex;
+  flex-direction: row;
+}
+
+.button {
+  height: 51px;
+  width: 200px;
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid black;
+
+  &:hover {
+    background-color: #eee;
+  }
+}
+
+.active {
+  border-top: 1px solid black;
+  border-left: 1px solid black;
+  border-right: 1px solid black;
+  border-bottom: transparent;
+}
+
+.bottom-line {
+  height: 50px;
+  width: 100%;
+  border-bottom: 1px solid black;
+}
+
+.content {
+  margin-top: 30px;
+}
