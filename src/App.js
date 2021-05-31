@@ -18,6 +18,10 @@ class App extends React.Component {
   }
 
   onTabSelect = (tab) => {
+    if (tab === this.state.selectedTab) {
+      return;
+    }
+
     this.setState({
       selectedTab: tab,
     });
@@ -35,7 +39,7 @@ class App extends React.Component {
         <Tabs
           tabs={tabs}
           onTabSelect={this.onTabSelect}
-          selectedTab={selectedTab}
+          selectedTab={selectedTab.id}
         />
       </div>
     );

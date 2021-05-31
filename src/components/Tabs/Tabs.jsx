@@ -6,7 +6,6 @@ export const Tabs = ({ tabs, onTabSelect, selectedTab }) => (
     <ul>
       {tabs.map(tab => (
         <button
-          className={tab.id === selectedTab.id ? 'active' : ''}
           type="button"
           onClick={() => (
             onTabSelect(tab)
@@ -16,7 +15,7 @@ export const Tabs = ({ tabs, onTabSelect, selectedTab }) => (
         </button>
       ))}
     </ul>
-    <p>{selectedTab.content}</p>
+    <p>{ tabs.find(tab => tab.id === selectedTab).content}</p>
   </div>
 );
 
