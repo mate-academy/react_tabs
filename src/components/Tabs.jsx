@@ -4,24 +4,20 @@ import PropTypes from 'prop-types';
 export const Tabs = ({ tabs, onSelelect, selectedId }) => (
   <>
     {tabs.map(tab => (
-      <button
-        type="button"
-        key={tab.id}
-        onClick={() => onSelelect(tab.id, tab.title)}
-      >
-        {tab.title}
-      </button>
+      <>
+        <button
+          type="button"
+          key={tab.id}
+          onClick={() => onSelelect(tab.id, tab.title)}
+        >
+          {tab.title}
+        </button>
+
+        <p>
+          {tab.id === selectedId && tab.content}
+        </p>
+      </>
     ))}
-
-    {tabs.map((tab) => {
-      if (tab.id === selectedId) {
-        return (
-          <p>{tab.content}</p>
-        );
-      }
-
-      return false;
-    })}
   </>
 );
 
