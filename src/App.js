@@ -13,26 +13,28 @@ const tabs = [
 
 class App extends React.Component {
   state = {
-    tabSelectedId: 1,
+    tabSelected: tabs[0],
   }
 
+  findTabById= tabId => (tabs.find(tab => tab.id === tabId));
+
   selectTab = (tabId) => {
-    this.setState({ tabSelectedId: tabId });
+    this.setState({ tabSelected: this.findTabById(tabId) });
   }
 
   render() {
-    const { tabSelectedId } = this.state;
+    const { tabSelected } = this.state;
 
     return (
       <div className="App">
         <h1>
-          Selected tab is&nbsp;Tab
-          {tabSelectedId}
+          Selected tab is&nbsp;
+          {tabSelected.title}
         </h1>
         <Tabs
           tabs={tabs}
-          selectedTabId={tabSelectedId}
           selectTab={this.selectTab}
+          selectedTabContent={this.state.tabSelected.content}
         />
       </div>
     );

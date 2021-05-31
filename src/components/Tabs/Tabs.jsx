@@ -3,27 +3,26 @@ import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import './Tabs.scss';
 
-export const Tabs = ({ tabs, selectedTabId, selectTab }) => (
+export const Tabs = ({ tabs, selectTab, selectedTabContent }) => (
   <div className="Tabs">
     <div className="Tabs__header">
-      {
-  tabs.map(({ title, id }) => (
-    <button
-      key={id}
-      type="button"
-      className={classNames('Tabs__title', {
-        'Tabs__title-selected': +id.slice(4) === selectedTabId,
-      })}
-      onClick={() => {
-        selectTab(+id.slice(4));
-      }}
-    >
-      {title}
-    </button>
-  ))
+      {tabs.map(({ title, id }) => (
+        <button
+          key={id}
+          type="button"
+          className={classNames('Tabs__title', {
+            'Tabs__title-selected': id === selectTab.id,
+          })}
+          onClick={() => {
+            selectTab(id);
+          }}
+        >
+          {title}
+        </button>
+      ))
     }
     </div>
-    <p>{tabs[selectedTabId - 1].content}</p>
+    <p>{selectedTabContent}</p>
   </div>
 
 );
@@ -38,6 +37,6 @@ Tabs.propTypes = {
       },
     ),
   ).isRequired,
-  selectedTabId: PropTypes.number.isRequired,
   selectTab: PropTypes.func.isRequired,
+  selectedTabContent: PropTypes.string.isRequired,
 };
