@@ -17,6 +17,10 @@ export class App extends React.Component {
   }
 
   onTabSelected = (selectedTabId) => {
+    if (selectedTabId === this.state.selectedTab.id) {
+      return;
+    }
+
     this.setState(state => ({
       selectedTab: tabs.find(tab => tab.id === selectedTabId),
     }));
