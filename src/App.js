@@ -17,9 +17,11 @@ class App extends React.Component {
   }
 
   onTabSelected = (tab) => {
-    this.setState({
-      selectedTab: tab,
-    });
+    if (this.state.selectedTab.id !== tab.id) {
+      this.setState({
+        selectedTab: tab,
+      });
+    }
   }
 
   render() {
