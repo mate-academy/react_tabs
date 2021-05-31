@@ -1,23 +1,33 @@
 import React from 'react';
+import propTypes from 'prop-types';
 
-export class Tabs extends React.Component {
-  render() {
-    return (
-      <div className="tabs-container">
-       {this.props.tabs.map(({id, title, content}) => {
-         return (
-          <div key={id} className="tab-item">
-            <h2 onClick={() => this.props.onTab(id, title)}>
+export function Tabs({ tabs, selectedTab, changeTab }) {
+  return (
+    <div className="tabs-container">
+      {tabs.map(({ id, title, content }) => (
+        <div key={id} className="tab-item">
+          <button
+            type="submit"
+            className="title-btn"
+            onClick={() => changeTab(id, title)}
+          >
+            <h2>
               {title}
             </h2>
-            <div>
-              {id === this.props.selectedTab && content}
-            </div>
+          </button>
+          <div className="text">
+            {id === selectedTab && content}
           </div>
-        )}
-          )
-       }
-      </div>
-    )
-  }
+        </div>
+      ))}
+    </div>
+  );
 }
+
+Tabs.propTypes = {
+  tabs: propTypes.arrayOf({
+    tab: propTypes.string.isRequired,
+  }).isRequired,
+  selectedTab: propTypes.string.isRequired,
+  changeTab: propTypes.func.isRequired,
+};
