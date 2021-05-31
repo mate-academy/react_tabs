@@ -16,13 +16,13 @@ class App extends React.Component {
     selectedTab: tabs[0],
   };
 
-  onTabSelected = (tabId) => {
-    if (tabId === this.state.selectedTab.id) {
+  onTabSelected = (newSelectedTab) => {
+    if (newSelectedTab.id === this.state.selectedTab.id) {
       return;
     }
 
     this.setState({
-      selectedTab: tabs.find(tab => tab.id === tabId),
+      selectedTab: newSelectedTab,
     });
   };
 
@@ -32,12 +32,12 @@ class App extends React.Component {
     return (
       <div className="App">
         <h1>
-          Selected tab is
+          Selected tab is&nbsp;
           {selectedTab.title}
         </h1>
         <Tabs
           tabs={tabs}
-          selectedTabId={selectedTab.id}
+          selectedTab={selectedTab}
           onTabSelected={this.onTabSelected}
         />
       </div>
