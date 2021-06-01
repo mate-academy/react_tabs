@@ -2,31 +2,24 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './Tabs.scss';
 
-class Tabs extends React.PureComponent {
-  render() {
-    const { tabs, onTabSelected, selectedTab } = this.props;
-
-    return (
-
-      <div className="container">
-        <div>
-          {tabs.map(tab => (
-            <button
-              className="button"
-              type="button"
-              key={tab.id}
-              value={tab}
-              onClick={() => onTabSelected(tab)}
-            >
-              {tab.title}
-            </button>
-          ))}
-        </div>
-        <p className="content">{selectedTab.content}</p>
-      </div>
-    );
-  }
-}
+const Tabs = ({ tabs, onTabSelected, selectedTab }) => (
+  <div className="container">
+    <div>
+      {tabs.map(tab => (
+        <button
+          className="button"
+          type="button"
+          key={tab.id}
+          value={tab}
+          onClick={() => onTabSelected(tab)}
+        >
+          {tab.title}
+        </button>
+      ))}
+    </div>
+    <p className="content">{selectedTab.content}</p>
+  </div>
+);
 
 const tabProps = {
   id: PropTypes.string.isRequired,
