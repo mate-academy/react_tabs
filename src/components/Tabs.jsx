@@ -8,14 +8,13 @@ const Tabs = ({ tabs, currentTab, choiceTab }) => (
   <div className="tabs">
     <div className="tabs__container">
       {tabs.map(tab => (
-        /* eslint-disable */
-        <a
+        <button
           className={cn(
             'tabs__item',
             { 'tabs__item--active': tab.id === currentTab.id },
           )}
           key={tab.id}
-          href="#"
+          type="button"
           onClick={() => {
             if (tab.id !== currentTab.id) {
               choiceTab(tab);
@@ -23,8 +22,7 @@ const Tabs = ({ tabs, currentTab, choiceTab }) => (
           }}
         >
           {tab.title}
-        </a>
-        /* eslint-enable */
+        </button>
       ))}
       <div className="tabs__content">{currentTab.content}</div>
     </div>
@@ -32,7 +30,7 @@ const Tabs = ({ tabs, currentTab, choiceTab }) => (
 );
 
 Tabs.propTypes = {
-  tabs: PropTypes.arrayOf({}).isRequired,
+  tabs: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
   currentTab: PropTypes.shape({
     id: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
