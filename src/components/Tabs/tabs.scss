@@ -1,0 +1,33 @@
+$duration: 0.5s;
+
+.tabs {
+
+  &__list {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+  }
+
+  &__list-item {
+    display: inline-block;
+    width: 100px;
+    text-align: center;
+    padding: 10px;
+    border: 1px solid red;
+    border-radius: 15px;
+    cursor: pointer;
+    background-color: rgb(241, 225, 133);
+    transition: $duration;
+
+    &:hover {
+      background-color: rgb(241, 133, 133);
+    }
+  }
+
+  &__list-content {
+    margin-top: 40px;
+    text-align: center;
+    font-size: 18px;
+    border-bottom: 3px solid rgb(38, 4, 236);
+  }
+}
