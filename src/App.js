@@ -17,9 +17,7 @@ class App extends React.Component {
     selectedTab: tabs[0],
   }
 
-  selectTab = tab => () => {
-    this.setState({ selectedTab: tab });
-  }
+  selectTab = tab => this.setState({ selectedTab: tab });
 
   render() {
     return (
@@ -27,7 +25,7 @@ class App extends React.Component {
         <Tabs
           tabs={tabs}
           selectedTabId={this.state.selectedTab.id}
-          selectTab={this.selectTab}
+          onTabSelected={this.selectTab}
         />
         <div className="content">
           <h1>
