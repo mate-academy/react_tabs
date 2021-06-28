@@ -1,1 +1,11 @@
 // Put styles here
+.link:hover {
+  color: blue;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.selected {
+  color: blue;
+  text-decoration: underline;
+}
