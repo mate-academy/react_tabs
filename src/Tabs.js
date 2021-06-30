@@ -16,7 +16,7 @@ export const Tabs = ({ tabs, selectedTabId, onTabSelected }) => (
         >
           {tab.title}
         </div>
-        <div>{tab.content}</div>
+        <div>{selectedTabId === tab.id ? tab.content : null}</div>
       </>
     ))}
   </>
