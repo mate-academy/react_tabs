@@ -1,0 +1,21 @@
+.Tabs {
+  z-index: 2;
+  margin-bottom: -1px;
+}
+
+button {
+  height: 40px;
+  width: 100px;
+  border: 0;
+  background-color: transparent;
+  outline: 0;
+  color: cornflowerblue;
+}
+
+.active {
+  color: black;
+  border: 1px solid gray;
+  border-bottom: 0;
+  border-radius: 5px 5px 0 0;
+  background-color: aliceblue;
+}
