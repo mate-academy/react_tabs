@@ -1,0 +1,4 @@
+.tabs__headers {
+  display: flex;
+  list-style-type: none;
+}
