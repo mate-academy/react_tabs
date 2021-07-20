@@ -29,14 +29,12 @@ export const Tabs = ({ tabs, selectedTabId, onTabSelected }) => {
   );
 };
 
-const TabType = {
-  id: PropTypes.string.isRequired,
-  title: PropTypes.string.isRequired,
-  content: PropTypes.string.isRequired,
-};
-
 Tabs.propTypes = {
-  tabs: PropTypes.arrayOf(PropTypes.shape(TabType)).isRequired,
+  tabs: PropTypes.arrayOf(PropTypes.shape({
+    id: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+    content: PropTypes.string.isRequired,
+  })).isRequired,
   selectedTabId: PropTypes.string.isRequired,
   onTabSelected: PropTypes.func.isRequired,
 };
