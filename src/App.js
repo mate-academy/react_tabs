@@ -8,7 +8,7 @@ import './App.scss';
 const tabs = [
   { 
     id: 'tab-1',
-    title: 'First interesting fact',
+    title: ' First interesting fact',
     content: 'В Гималаях (юго-западный Китай) живет малая панда(красная панда).\
     В английском языке её называют «Firefox».\
     Это слово вдохновило создателей популярного браузера…\
@@ -17,7 +17,7 @@ const tabs = [
   },
   {
     id: 'tab-2',
-    title: 'Second interesting fact',
+    title: ' Second interesting fact',
     content: '  В 2010 году ВВС США использовали\
       1 760 игровых приставок PlayStation 3 для создания суперкомпьютера.\
       Почему не компьютеры? Военные заявили, что PS3 – более экономичный и\
@@ -25,7 +25,7 @@ const tabs = [
   },
   {
     id: 'tab-3',
-    title: '  Third interesting fact',
+    title: ' Third interesting fact',
     content: 'В 2009 году корпорация Google арендовала\
       у компании California Grazing… коз! Зачем?\
       Они очень эффективны в борьбе с сорняками на\
@@ -37,8 +37,7 @@ const tabs = [
 class App extends React.Component {
   state = {
     selectedTabId: tabs[0].id,
-    title: tabs[0].title,
-    text: tabs[0].content,
+    selectedTab: tabs[0],
   }
 
   onTabSelected = (title) => {
@@ -50,19 +49,18 @@ class App extends React.Component {
 
     this.setState({
       selectedTabId: selectedTab.id,
-      title,
-      text: selectedTab.content,
+      selectedTab,
     });
   }
 
   render() {
-    const { title, text, selectedTabId } = this.state;
+    const { selectedTab, selectedTabId } = this.state;
 
     return (
       <div className="App">
         <h1>
           Selected tab is
-          {title}
+          {selectedTab.title}
         </h1>
         <TabsList
           tabs={tabs}
@@ -70,7 +68,7 @@ class App extends React.Component {
           id={selectedTabId}
         />
         <Text
-          text={text}
+          text={selectedTab.content}
         />
       </div>
     );
