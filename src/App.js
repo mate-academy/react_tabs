@@ -1,6 +1,6 @@
 import React from 'react';
-import TitleButton from './component/TitleButton/TitleButton';
 import TitleText from './component/TitleText/TitleText';
+import TabList from './component/TabsList/TabsList';
 import './App.scss';
 
 /* eslint-disable */
@@ -13,49 +13,35 @@ const tabs = [
 
 class App extends React.Component {
   state = {
-    tabs,
-    isActiveTabId: 'tab-1',
+    selectedTab: tabs[0],
+    selectedTabId: tabs[0].id,
   }
 
-  getIdChoosedTitle = (id) => {
-    this.setState({ isActiveTabId: id });
-  }
+  changeTab = (id) => {
+    const choosedTab = tabs.find(tab => tab.id === id);
 
-  findActiveTab = (value) => {
-    const selectedTab = tabs.find(tab => tab.id === this.state.isActiveTabId);
-
-    return selectedTab[value];
+    this.setState({
+      selectedTab: choosedTab,
+      selectedTabId: choosedTab.id,
+    });
   }
 
   render() {
-    const { isActiveTabId } = this.state;
+    const { selectedTab, selectedTabId } = this.state;
 
     return (
       <>
-        <h1
-          className="tabsHeader"
-        >
+        <h1 className="tabsHeader">
           Tab selected
-          {isActiveTabId}
+          {' '}
+          {this.state.selectedTab.title}
         </h1>
-        <ul className="tabsList">
-          {this.state.tabs.map(tab => (
-            <li
-              key={tab.id}
-            >
-              <TitleButton
-                id={tab.id}
-                title={tab.title}
-                getIdChoosedTitle={this.getIdChoosedTitle}
-                isActiveTabId={isActiveTabId}
-              />
-            </li>
-          ))}
-        </ul>
-        <TitleText
-          title={this.findActiveTab('title')}
-          content={this.findActiveTab('content')}
+        <TabList
+          tabs={tabs}
+          selectedTabId={selectedTabId}
+          onClick={this.changeTab}
         />
+        <TitleText selectedTab={selectedTab} />
       </>
     );
   }
