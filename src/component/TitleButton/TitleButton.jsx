@@ -7,7 +7,9 @@ const TitleButton = ({ onClick, className, selectedTabId, title }) => (
     <button
       className={className}
       type="button"
-      onClick={() => onClick(selectedTabId)}
+      onClick={(event) => {
+        onClick(selectedTabId);
+      }}
     >
       {title}
     </button>
