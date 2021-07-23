@@ -41,7 +41,7 @@ class App extends React.Component {
   }
 
   onTabSelected = (title) => {
-    if (title === this.state.selectedTab) {
+    if (title === this.state.selectedTab.title) {
       return;
     }
 
