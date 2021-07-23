@@ -1,0 +1,25 @@
+.app__tab {
+  width: 250px;
+  margin-left: 30px;
+  height: 30px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  font-style: italic;
+  background: #fff;
+  border: 2px solid grey;
+  border-radius: 10px 10px 0 0;
+  margin-bottom: -2px;
+  cursor: pointer;
+  transition: transform 0.5s;
+}
+
+.app__tab:hover {
+  transform: translateY(-5%) scale(1.1);
+}
+
+.app__tab--is-active {
+  border-bottom: none;
+  color: green;
+  transform: translateY(-5%) scale(1.1);
+}
