@@ -1,0 +1,17 @@
+.titleButton {
+  display: flex;
+}
+
+.btn {
+  border: none;
+  padding: 5px 40px;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background: rgb(221, 161, 161);
+}
+
+.btn:active {
+  background: rgb(173, 91, 91);
+}
