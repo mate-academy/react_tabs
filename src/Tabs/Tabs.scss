@@ -1,8 +1,15 @@
 .Nav {
-  margin-left: '20px';
-  display: 'flex';
-  gap: '0';
-  max-width: '600px';
+  border-width: 2px;
+  margin-left: 20px;
+  display: flex;
+  gap: 0;
+  max-width: 600px;
+  &__child:hover {
+    border: 20px solid red;
+  }
+}
+.nav-tabs .nav-link {
+  border-width: 1.55px;
 }
 
 .block {

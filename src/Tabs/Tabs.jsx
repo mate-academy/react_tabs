@@ -28,6 +28,7 @@ export class Tabs extends React.PureComponent {
           >
             {list.map(x => (
               <ChangeTabs
+                className="Nav__child"
                 key={x.id}
                 onClick={() => this.setState(
                   {
