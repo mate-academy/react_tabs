@@ -1,4 +1,5 @@
 import React from 'react';
+import { Tabs } from './Tabs/Tabs';
 
 import './App.scss';
 
@@ -12,7 +13,7 @@ const tabs = [
 
 const App = () => (
   <div className="App">
-    <h1>Selected tab is&nbsp;Tab 1</h1>
+    <Tabs list={tabs} />
   </div>
 );
 
