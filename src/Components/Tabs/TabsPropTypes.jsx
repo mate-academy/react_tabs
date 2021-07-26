@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 
-export const ChangeTabsPropTypes = {
+export const TabsPropTypes = {
   onClick: PropTypes.func.isRequired,
   stateId: PropTypes.string.isRequired,
   id: PropTypes.string.isRequired,
