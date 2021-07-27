@@ -34,7 +34,7 @@ class App extends React.Component {
         <Tab
           tabs={tabs}
           changeTab={this.changeTab}
-          content={this.state.selectedTab.content}
+          content={selectedTab.content}
         />
 
       </div>
