@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.scss';
-import { Buttons } from './components/Buttons/Buttons';
+import { Tab } from './components/Tab/Tab';
 
 /* eslint-disable */
 const tabs = [
@@ -26,7 +26,7 @@ class App extends React.Component {
         </h1>
 
         { tabs.map(tab => (
-          <Buttons
+          <Tab
             key={tab.id}
             tab={tab}
             onTabSelected={() => {
