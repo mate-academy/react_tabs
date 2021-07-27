@@ -1,1 +1,38 @@
-// Put styles here
+.App {
+  width: max-content;
+  padding: 20px;
+}
+
+.title {
+  text-align: center;
+}
+
+.tabs {
+  background-color: yellowgreen;
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.tab,
+.selectedTab {
+  font-size: 24px;
+  color: lightcyan;
+  padding: 10px;
+  width: 100px;
+  height: 50px;
+  background-color: blueviolet
+}
+
+.content {
+  padding: 10px;
+  height: 50px;
+  color: red;
+  background-color: yellowgreen;
+}
+
+.selectedTab {
+  color: red;
+  background-color: yellowgreen;
+  border-color: transparent;
+}
