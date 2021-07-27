@@ -1,16 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-export const Tab = ({ tab, onTabSelected }) => (
+export const Button = ({ tab, onTabSelected }) => (
   <button
     type="button"
-    onClick={onTabSelected}
+    onClick={() => onTabSelected(tab.id)}
   >
     { tab.content }
   </button>
 );
 
-Tab.propTypes = {
+Button.propTypes = {
   tab: PropTypes.shape({
     id: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,

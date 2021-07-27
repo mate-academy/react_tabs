@@ -6,13 +6,13 @@
 1. Your `App` component contains an array of `tabs`
     ```javascript
     const tabs = [
-      { id: 'tab-1', title: 'Tab 1', content: 'Some text 1' },
-      { id: 'tab-2', title: 'Tab 2', content: 'Some text 2' },
-      { id: 'tab-3', title: 'Tab 3', content: 'Some text 3' },
+      { id: 'tab-1', title: 'Button 1', content: 'Some text 1' },
+      { id: 'tab-2', title: 'Button 2', content: 'Some text 2' },
+      { id: 'tab-3', title: 'Button 3', content: 'Some text 3' },
     ];
     ```
 1. Save the `selectedTab` in the `App` (the first one by default)
-1. Implement the `Tabs` component accepting `tabs` as a prop 
+1. Implement the `Tabs` component accepting `tabs` as a prop
    and displaying a link per each `tab` and the content of the selected tab
 1. Pass the `selectedTabId` as a prop to the `Tabs`, the specified tab should be selected if possible
   (otherwise the first tab is selected)
