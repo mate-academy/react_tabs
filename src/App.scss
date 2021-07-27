@@ -1,1 +1,23 @@
-// Put styles here
+.list {
+  display: flex;
+  padding: 0;
+  margin: 0;
+}
+
+.list-item {
+  list-style: none;
+}
+
+.button {
+  padding: 10px;
+  border: none;
+}
+
+.content {
+  margin: 0;
+  background-color: lightgray;
+}
+
+.active {
+  background-color: lightgrey;
+}
