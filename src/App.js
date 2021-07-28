@@ -19,7 +19,7 @@ export class App extends React.Component {
 
   selectTab = (selectedTab) => {
     this.setState({
-      selectedTab: tabs.find(tab => tab.id === selectedTab.id),
+      selectedTab,
     });
   }
 
