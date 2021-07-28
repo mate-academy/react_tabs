@@ -15,9 +15,9 @@ export const Tabs = ({ tabs, selectedTabId, onTabSelected}) => {
           {tab.title}
         </button>
       ))}
-      <div>
+      <h4>
         {selectedTabId.content}
-      </div>
+      </h4>
     </>
   )
 }
