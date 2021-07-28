@@ -1,1 +1,20 @@
 // Put styles here
+button {
+  width: 80px;
+  height: 30px;
+  background-color: rgb(255, 195, 195);
+  margin-right: 10px;
+  color: rgb(82, 69, 69);
+  margin-bottom: 10px;
+  cursor: pointer;
+  transition: transform 0.4s;
+
+  &:hover {
+    transform: scale(1.1);
+  }
+}
+
+.App {
+  width: max-content;
+  margin: 10vh auto;
+}
