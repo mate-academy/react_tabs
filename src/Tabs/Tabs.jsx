@@ -10,7 +10,11 @@ export function Tabs({ tabs, onClick, selectedTabContent, selectedTabId }) {
           <button
             key={tab.id}
             type="button"
-            onClick={() => onClick(tab)}
+            onClick={() => {
+              if (tab.id !== selectedTabId) {
+                onClick(tab);
+              }
+            }}
             className={classNames('btn btn-primary', {
               active: tab.id === selectedTabId,
             })}
