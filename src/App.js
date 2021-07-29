@@ -13,24 +13,23 @@ const tabs = [
 
 class App extends React.PureComponent {
   state = {
-    listOfTabs: [...tabs],
     selectedTab: tabs[0],
   }
 
   changeSelectedTab = (tabId) => {
-    const { selectedTab, listOfTabs } = this.state;
+    const { selectedTab } = this.state;
 
     if (tabId === selectedTab.id) {
       return;
     }
 
     this.setState({
-      selectedTab: listOfTabs.find(tab => tab.id === tabId),
+      selectedTab: tabs.find(tab => tab.id === tabId),
     });
   }
 
   render() {
-    const { listOfTabs, selectedTab } = this.state;
+    const { selectedTab } = this.state;
 
     return (
       <div className="App">
@@ -39,7 +38,7 @@ class App extends React.PureComponent {
           { selectedTab.title }
         </h1>
         <Tabs
-          tabs={listOfTabs}
+          tabs={tabs}
           selectedTab={selectedTab}
           onChange={this.changeSelectedTab}
         />
