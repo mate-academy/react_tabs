@@ -22,7 +22,7 @@ export const Tabs = ({ tabs, selectedTabId, onTabSelected}) => {
   )
 }
 
-const tabTypes = PropTypes.shape({
+const TabType = PropTypes.shape({
   id: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   content: PropTypes.string.isRequired,
@@ -30,6 +30,6 @@ const tabTypes = PropTypes.shape({
 
 Tabs.propTypes = {
   onTabSelected: PropTypes.func.isRequired,
-  tabs: PropTypes.arrayOf(tabTypes).isRequired,
-  selectedTabId: tabTypes.isRequired,
+  tabs: PropTypes.arrayOf(TabType).isRequired,
+  selectedTabId: TabType.isRequired,
 };
