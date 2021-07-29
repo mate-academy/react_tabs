@@ -1,1 +1,21 @@
-// Put styles here
+@import "~bootstrap/scss/bootstrap";
+
+* {
+  box-sizing: border-box;
+  font-style: italic;
+}
+
+.body {
+  background-color: $yellow-200;
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.title {
+  font-size: 50px;
+  text-decoration: underline;
+}

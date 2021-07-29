@@ -1,0 +1,40 @@
+@import "~bootstrap/scss/bootstrap";
+
+.tabs {
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+
+  &__buttons {
+    width: 210px;
+    display: flex;
+    align-self: center;
+    justify-content: space-between;
+  }
+}
+
+.btn-danger {
+  color: black;
+  background-color: $red-500;
+  border-color: $red-500;
+
+  &:hover,
+  &:focus {
+    background-color: $red-500;
+    border-color: $red-500;
+    box-shadow: none;
+  }
+}
+
+.btn-primary {
+  color: black;
+  background-color: $indigo-200;
+  border-color: $indigo-200;
+
+  &:hover,
+  &:focus {
+    background-color: $indigo-200;
+    border-color: $indigo-200;
+    box-shadow: none;
+  }
+}
