@@ -17,10 +17,6 @@ class App extends React.Component {
   }
 
   changeTab = (newTab) => {
-    if (this.state.selectedTab === newTab) {
-      return;
-    }
-
     this.setState({ selectedTab: newTab });
   }
 
