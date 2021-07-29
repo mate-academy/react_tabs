@@ -8,6 +8,7 @@ export const Tabs = ({ tabs, choose, selectedTab }) => (
         tab !== selectedTab
           ? (
             <button
+              key={tab.id}
               className="tab"
               type="button"
               onClick={() => {

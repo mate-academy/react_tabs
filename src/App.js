@@ -23,15 +23,17 @@ class App extends React.Component {
   };
 
   render() {
+    const { selectedTab } = this.state;
+
     return (
       <div className="App">
         <h1 className="title">
-          {`Selected tab is ${this.state.selectedTab.id.replace(/-/g, ' ')}`}
+          {`Selected tab is ${selectedTab.id.replace(/-/g, ' ')}`}
         </h1>
         <Tabs
           tabs={tabs}
           choose={this.chooseTab}
-          selectedTab={this.state.selectedTab}
+          selectedTab={selectedTab}
         />
       </div>
     );
