@@ -1,1 +1,10 @@
 // Put styles here
+.App {
+  width: 500px;
+  margin: 50px auto;
+
+  &__title {
+    margin: 32px 0;
+    text-align: center;
+  }
+}
