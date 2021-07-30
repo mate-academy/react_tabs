@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { v4 as uuidv4 } from 'uuid';
 
 export const Tabs = ({ tabs, changeButton, textFromSelectedButton }) => (
   <>
@@ -8,6 +9,7 @@ export const Tabs = ({ tabs, changeButton, textFromSelectedButton }) => (
 
       return (
         <button
+          key={uuidv4()}
           className="App__button"
           type="button"
           value={title}
