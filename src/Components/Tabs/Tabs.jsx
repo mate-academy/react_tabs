@@ -1,31 +1,27 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-export const Tabs = ({ tabs, changeButton, state }) => {
-  const { textFromSelectedButton } = state;
+export const Tabs = ({ tabs, changeButton, textFromSelectedButton }) => (
+  <>
+    {tabs.map((tab) => {
+      const { title } = tab;
 
-  return (
-    <>
-      {tabs.map((tab) => {
-        const { title } = tab;
-
-        return (
-          <button
-            className="App__button"
-            type="button"
-            value={title}
-            onClick={() => changeButton(tab)}
-          >
-            {title}
-          </button>
-        );
-      })}
-      <p className="App__text-block">
-        {textFromSelectedButton}
-      </p>
-    </>
-  );
-};
+      return (
+        <button
+          className="App__button"
+          type="button"
+          value={title}
+          onClick={() => changeButton(tab)}
+        >
+          {title}
+        </button>
+      );
+    })}
+    <p className="App__text-block">
+      {textFromSelectedButton}
+    </p>
+  </>
+);
 
 Tabs.propTypes = {
   tabs: PropTypes.arrayOf(

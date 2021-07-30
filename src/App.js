@@ -28,7 +28,11 @@ class App extends React.Component {
     return (
       <div className="App">
         <h1>Selected tab is&nbsp;Tab 1</h1>
-        <Tabs changeButton={this.changeButton} tabs={tabs} state={this.state} />
+        <Tabs
+          changeButton={this.changeButton}
+          tabs={tabs}
+          textFromSelectedButton={this.state.textFromSelectedButton}
+        />
       </div>
     );
   }
