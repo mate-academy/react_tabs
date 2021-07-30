@@ -13,7 +13,7 @@ export const Tabs = React.memo(({ selectedTabId, tabs, onTabSelected }) => {
             style={{ display: 'inline' }}
           >
             <button
-              className="button"
+              style={tab.id === selectedTabId ? { color: 'red' } : {}}
               type="submit"
               onClick={() => onTabSelected(tab)}
             >
