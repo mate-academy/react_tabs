@@ -13,7 +13,6 @@ const tabs = [
 
 export class App extends React.PureComponent {
   state = {
-    tabsToShow: tabs,
     selectedTabId: 'tab-1',
   }
 
@@ -24,7 +23,7 @@ export class App extends React.PureComponent {
   }
 
   render() {
-    const { tabsToShow, selectedTabId } = this.state;
+    const { selectedTabId } = this.state;
     const selectedTab = tabs.find(tab => selectedTabId === tab.id);
 
     return (
@@ -32,7 +31,7 @@ export class App extends React.PureComponent {
         <h1>{`Selected tab is ${selectedTab.title}`}</h1>
         <ul>
           <Tabs
-            tabs={tabsToShow}
+            tabs={tabs}
             selectedTabId={selectedTabId}
             onTabSelected={this.onTabSelected}
           />

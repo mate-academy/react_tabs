@@ -16,7 +16,7 @@ export const Tabs = ({ tabs, onTabSelected, selectedTabId }) => (
             onTabSelected(event.target.value);
           }}
         >
-          {`${tab.title}`}
+          {tab.title}
         </button>
 
       </li>
