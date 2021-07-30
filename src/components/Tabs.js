@@ -1,11 +1,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import './Tabs.css';
 
 const Tabs = ({ tabs, selectedTab, changeTab }) => (
   <ul>
     {tabs.map(tab => (
-      <li key={tab.id}>
+      <li
+        className="list"
+        key={tab.id}
+      >
         <button
+          className={selectedTab.id === tab.id
+            ? 'btn active'
+            : 'btn'
+        }
           type="button"
           onClick={() => {
             changeTab(tab);
@@ -15,7 +23,11 @@ const Tabs = ({ tabs, selectedTab, changeTab }) => (
         </button>
       </li>
     ))}
-    <p>{selectedTab.content}</p>
+    <p
+      className="text"
+    >
+      {selectedTab.content}
+    </p>
   </ul>
 );
 
