@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { v4 as uuidv4 } from 'uuid';
 import PropTypes from 'prop-types';
 import './Tabs.css';
 
@@ -17,17 +16,12 @@ export default class Tabs extends Component {
   };
 
   render() {
-    const tabsWithKey = this.props.tabs.map(tab => ({
-      key: uuidv4(),
-      ...tab,
-    }));
-
     return (
       <div className="container">
         <div className="bloc-tabs">
-          {tabsWithKey.map(({ key, id, title, content }) => (
+          {this.props.tabs.map(({ id, title, content }) => (
             <button
-              key={key}
+              key={id}
               value={id}
               type="button"
               className={this.state.index === id ? 'tabs active-tabs' : 'tabs'}
@@ -39,7 +33,7 @@ export default class Tabs extends Component {
         </div>
 
         <div className="content-tabs">
-          {tabsWithKey.map(({ key, id, title, content }) => (
+          {this.props.tabs.map(({ id, title, content }) => (
             <div
               value={id}
               className={this.state.index === id

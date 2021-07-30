@@ -22,8 +22,7 @@ class App extends Component {
   onTabSelected = (id) => {
     this.setState(prevSate => ({
       selectedTab: id,
-    }), () => {
-    });
+    }));
   }
 
   render() {
