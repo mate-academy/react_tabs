@@ -1,7 +1,7 @@
 import React from 'react';
 
 import './App.scss';
-import { Tabs } from './Tabs';
+import { Tabs } from './components/Tabs';
 
 /* eslint-disable */
 const tabs = [
@@ -17,6 +17,10 @@ class App extends React.Component {
   };
 
   onTabSelected = (tab) => {
+    if (tab.id === this.state.selectedTab.id) {
+      return;
+    }
+
     this.setState({ selectedTab: tab });
   }
 
