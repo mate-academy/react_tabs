@@ -31,6 +31,10 @@ export const Tabs = React.memo(({ selectedTabId, tabs, onTabSelected }) => {
 
 Tabs.propTypes = {
   selectedTabId: PropTypes.string.isRequired,
-  tabs: PropTypes.arrayOf(PropTypes.string).isRequired,
   onTabSelected: PropTypes.func.isRequired,
+  tabs: PropTypes.arrayOf(PropTypes.shape({
+    id: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+    content: PropTypes.string.isRequired,
+  })).isRequired,
 };
