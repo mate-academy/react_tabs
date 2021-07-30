@@ -1,6 +1,9 @@
-import React from 'react';
-
+import React, { Component } from 'react';
 import './App.scss';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { Card } from 'react-bootstrap';
+
+import Tabs from './components/Tabs/Tabs';
 
 /* eslint-disable */
 const tabs = [
@@ -10,10 +13,41 @@ const tabs = [
 ];
 /* eslint-enable */
 
-const App = () => (
-  <div className="App">
-    <h1>Selected tab is&nbsp;Tab 1</h1>
-  </div>
-);
+class App extends Component {
+  state={
+    tabs: [...tabs],
+    selectedTab: 'tab-1',
+  }
+
+  onTabSelected = (id) => {
+    this.setState(prevSate => ({
+      selectedTab: id,
+    }), () => {
+    });
+  }
+
+  render() {
+    return (
+      <Card className="App">
+        <Card.Body>
+          <Card.Title>
+            <h1>
+              Selected tab is:
+              {' '}
+              {this.state.selectedTab}
+            </h1>
+          </Card.Title>
+          <Card.Text>
+            <Tabs
+              onTabSelectes={this.onTabSelected}
+              tabs={this.state.tabs}
+              selectedTab={this.state.selectedTab}
+            />
+          </Card.Text>
+        </Card.Body>
+      </Card>
+    );
+  }
+}
 
 export default App;
