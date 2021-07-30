@@ -24,12 +24,13 @@ class App extends React.Component {
 
   render() {
     const { selectedTabId } = this.state;
+    const selectedTab = tabs.find(tab => tab.id === selectedTabId);
 
     return (
       <div className="App">
         <h1 className="card w-50 p-2 m-2">
           Selected tab is&nbsp;
-          {tabs.find(tab => tab.id === selectedTabId).title}
+          {selectedTab.title}
         </h1>
         <Tabs
           tabs={tabs}

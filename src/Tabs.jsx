@@ -1,26 +1,30 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-export const Tabs = ({ tabs, selectedTabId, onTabSelected }) => (
-  <>
-    <div className="d-flex gap-2 m-2">
-      {tabs.map(tab => (
-        <div key={tab.id}>
-          <button
-            type="button"
-            onClick={() => onTabSelected(tab.id)}
-            className="btn btn-light"
-          >
-            {tab.title}
-          </button>
-        </div>
-      ))}
-    </div>
-    <p style={{ width: '13rem' }} className="card p-2 m-2">
-      {tabs.find(tab => tab.id === selectedTabId).content}
-    </p>
-  </>
-);
+export const Tabs = ({ tabs, selectedTabId, onTabSelected }) => {
+  const selectedTab = tabs.find(tab => tab.id === selectedTabId);
+
+  return (
+    <>
+      <div className="d-flex gap-2 m-2">
+        {tabs.map(tab => (
+          <div key={tab.id}>
+            <button
+              type="button"
+              onClick={() => onTabSelected(tab.id)}
+              className="btn btn-light"
+            >
+              {tab.title}
+            </button>
+          </div>
+        ))}
+      </div>
+      <p style={{ width: '13rem' }} className="card p-2 m-2">
+        {selectedTab.content}
+      </p>
+    </>
+  );
+};
 
 Tabs.propTypes = {
   tabs: PropTypes.arrayOf(
