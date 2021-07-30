@@ -1,4 +1,5 @@
 import React from 'react';
+import { LoremIpsum } from 'react-lorem-ipsum';
 import { Tabs } from './Components/Tabs';
 import './App.scss';
 
@@ -28,6 +29,9 @@ class App extends React.Component {
   render() {
     return (
       <>
+        <h1>
+          {`Selected tab is ${this.state.selectedTab.title}`}
+        </h1>
         <ul className="nav nav-tabs" id="myTab" role="tablist">
           <Tabs
             tabs={tabs}
@@ -37,7 +41,7 @@ class App extends React.Component {
         </ul>
         <div className="tab-content" id="myTabContent">
           <div className="tab-pane fade show active">
-            {this.state.selectedTab.content}
+            <LoremIpsum />
           </div>
         </div>
       </>
