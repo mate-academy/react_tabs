@@ -39,7 +39,7 @@ class App extends React.Component {
             selectedTab={this.state.selectedTab}
           />
         </ul>
-        <div className="tab-content" id="myTabContent">
+        <div className="tab-content">
           <div className="tab-pane fade show active">
             <LoremIpsum />
           </div>
