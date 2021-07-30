@@ -27,7 +27,7 @@ class App extends React.Component {
     return (
       <>
         <div className="App">
-          <h1>
+          <h1 className="text-center mb-5">
             Selected tab is
             {selectedTab.title}
           </h1>

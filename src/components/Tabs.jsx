@@ -5,7 +5,10 @@ export const Tabs = ({ tabs, selectedTabId, onTabSelected }) => (
   <>
     <ul className="nav nav-tabs nav-fill">
       {tabs.map(tab => (
-        <li className="nav-item">
+        <li
+          key={tab.id}
+          className="nav-item"
+        >
           <a
             onClick={() => onTabSelected(tab)}
             className="nav-link"
@@ -13,10 +16,12 @@ export const Tabs = ({ tabs, selectedTabId, onTabSelected }) => (
           >
             {tab.id}
           </a>
-          {(selectedTabId === tab.id) ? <p>{tab.content}</p> : ''}
         </li>
       ))}
     </ul>
+    <p className="text-center mt-5">
+      {tabs.find(tab => tab.id === selectedTabId).content}
+    </p>
   </>
 );
 
