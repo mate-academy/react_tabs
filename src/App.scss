@@ -1,1 +1,21 @@
-// Put styles here
+.App {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 22px;
+}
+
+.button {
+  padding: 14px 30px;
+  margin: 6px;
+
+  border: 2px solid #333;
+  border-radius: 10px;
+  background-color: #333;
+  color: #0c9;
+}
+
+.text {
+  width: max-content;
+  padding: 10px;
+  background-color: #eee;
+  border-radius: 10px;
+}
