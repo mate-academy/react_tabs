@@ -1,4 +1,5 @@
 import React from 'react';
+import { Button } from './Button';
 
 import './App.scss';
 
@@ -10,10 +11,37 @@ const tabs = [
 ];
 /* eslint-enable */
 
-const App = () => (
-  <div className="App">
-    <h1>Selected tab is&nbsp;Tab 1</h1>
-  </div>
-);
+class App extends React.Component {
+  state = {
+    table: tabs[0],
+  };
+
+  tableSelection = event => (
+    this.setState({
+      table: tabs.find(tab => tab.id === event.target.id),
+    })
+  );
+
+  render() {
+    const { table } = this.state;
+
+    return (
+      <div className="App">
+        <h1>
+          {`Selected tab is ${table.title}`}
+        </h1>
+        {tabs.map(tab => (
+          <Button
+            key={tab.id}
+            id={tab.id}
+            name={tab.title}
+            onClick={this.tableSelection}
+          />
+        ))}
+        <p>{table.content}</p>
+      </div>
+    );
+  }
+}
 
 export default App;
