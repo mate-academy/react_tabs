@@ -1,0 +1,29 @@
+.container {
+  display: flex;
+  position: relative;
+  gap: 10px;
+}
+
+.button {
+  background-color: tomato;
+  height: 40px;
+  width: 80px;
+  border-radius: 10px;
+  font-weight: bold;
+  color: #eee;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: color 0.4s, background-color 0.4s;
+
+  &:hover,
+  &:focus {
+    background-color: #eee;
+    color: tomato;
+  }
+}
+
+.paragraph {
+  position: absolute;
+  left: 0;
+  font-size: 2rem;
+}
