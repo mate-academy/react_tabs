@@ -2,20 +2,20 @@ import React from 'react';
 import './Tabs.scss';
 import PropTypes from 'prop-types';
 
-export const Tabs = ({ tabs, addTab, selectedTabId }) => (
+export const Tabs = ({ tabs, addTab, selectedTabTitle }) => (
   <div className="container">
     {tabs.map(tab => (
       <div key={tab.id}>
         <button
           type="button"
-          value={tab.id}
+          value={tab.title}
           onClick={addTab}
           className="button"
         >
           {tab.title}
         </button>
         <p className="paragraph">
-          {(selectedTabId === tab.id) && tab.content}
+          {(selectedTabTitle === tab.title) && tab.content}
         </p>
       </div>
 
@@ -32,6 +32,6 @@ Tabs.propTypes = {
     }).isRequired,
   ).isRequired,
   addTab: PropTypes.func.isRequired,
-  selectedTabId: PropTypes.string.isRequired,
+  selectedTabTitle: PropTypes.string.isRequired,
 
 };
