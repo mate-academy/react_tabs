@@ -1,0 +1,27 @@
+.list {
+  padding: 0;
+  list-style: none;
+  display: flex;
+}
+
+.container {
+  padding: 0;
+  border: 2px solid;
+  border-radius: 5%;
+  height: 200px;
+  background-color: #add8e6;
+  width: 304px;
+}
+
+.button {
+  width: 100px;
+  background-color: #cbcfed;
+  border-radius: 15%;
+  border: none;
+  border-bottom: black solid;
+}
+
+.button-active {
+  background-color: #add8e6;
+  border: none;
+}
