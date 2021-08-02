@@ -2,13 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 export class Tabs extends React.PureComponent {
-  state = {
-    tabs: this.props.tabs,
-  };
-
   render() {
-    const { onSelect } = this.props;
-    const { tabs } = this.state;
+    const { onSelect, tabs } = this.props;
 
     return (
       <div className="tabs">
