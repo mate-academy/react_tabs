@@ -10,10 +10,43 @@ const tabs = [
 ];
 /* eslint-enable */
 
-const App = () => (
-  <div className="App">
-    <h1>Selected tab is&nbsp;Tab 1</h1>
-  </div>
-);
+class App extends React.Component {
+  state = {
+    selectedTab: tabs[0],
+  }
+
+  onChange(clickedTab) {
+    if (this.state.selectedTab.id !== clickedTab.id) {
+      this.setState({
+        selectedTab: clickedTab,
+      });
+    }
+  }
+
+  render() {
+    return (
+      <div className="App">
+        <ul className="list-group list-group-horizontal">
+          {tabs.map(tab => (
+            <button
+              key={tab.id}
+              className="list-group-item list-group-item-action"
+              type="button"
+              onClick={() => this.onChange(tab)}
+            >
+              <h1>
+                {tab.title}
+              </h1>
+            </button>
+          ))}
+        </ul>
+
+        <p>
+          {this.state.selectedTab.content}
+        </p>
+      </div>
+    );
+  }
+}
 
 export default App;
