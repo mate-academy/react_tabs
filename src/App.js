@@ -13,25 +13,32 @@ const tabs = [
 
 class App extends React.Component {
   state = {
-    idSelectedButton: '',
+    idSelectedButton: 'button is not selected',
     textFromSelectedButton: '',
   }
 
   changeButton = (tab) => {
-    this.setState(({ idSelectedButton, textFromSelectedButton }) => ({
-      idSelectedButton: tabs.id,
+    this.setState(() => ({
+      idSelectedButton: tab.id,
       textFromSelectedButton: tab.content,
     }));
   }
 
   render() {
+    const { idSelectedButton, textFromSelectedButton } = this.state;
+
     return (
       <div className="App">
-        <h1>Selected tab is&nbsp;Tab 1</h1>
+        <h1>
+          Selected tab is&nbsp;
+          {
+            idSelectedButton
+          }
+        </h1>
         <Tabs
           changeButton={this.changeButton}
           tabs={tabs}
-          textFromSelectedButton={this.state.textFromSelectedButton}
+          textFromSelectedButton={textFromSelectedButton}
         />
       </div>
     );
