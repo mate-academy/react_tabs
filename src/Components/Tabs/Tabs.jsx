@@ -1,19 +1,27 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { v4 as uuidv4 } from 'uuid';
 
-export const Tabs = ({ tabs, changeButton, textFromSelectedButton }) => (
+export const Tabs = (
+  {
+    tabs,
+    idSelectedButton,
+    onTabSelected,
+    textFromSelectedButton,
+  },
+) => (
   <>
     {tabs.map((tab) => {
       const { title } = tab;
 
       return (
         <button
-          key={uuidv4()}
-          className="App__button"
+          className={idSelectedButton === tab.id
+            ? 'App__button App__button--is-selected'
+            : 'App__button'
+          }
           type="button"
           value={title}
-          onClick={() => changeButton(tab)}
+          onClick={() => onTabSelected(tab)}
         >
           {title}
         </button>
@@ -33,6 +41,7 @@ Tabs.propTypes = {
       content: PropTypes.string,
     }).isRequired,
   ).isRequired,
-  changeButton: PropTypes.func.isRequired,
+  onTabSelected: PropTypes.func.isRequired,
+  idSelectedButton: PropTypes.string.isRequired,
   textFromSelectedButton: PropTypes.string.isRequired,
 };
