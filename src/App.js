@@ -16,20 +16,24 @@ export class App extends React.Component {
      selectedTabTitle: 'Tab 1',
    }
 
-   addTab = (event) => {
+   onTabSelected = (event) => {
+     if (event.target.value === this.state.selectedTabTitle) {
+       return;
+     }
+
      this.setState({ selectedTabTitle: event.target.value });
    }
 
    render() {
      const { selectedTabTitle } = this.state;
-     const { addTab } = this;
+     const { onTabSelected } = this;
 
      return (
        <div className="App">
          <h1>{`Selected tab is ${selectedTabTitle}`}</h1>
          <Tabs
            tabs={tabs}
-           addTab={addTab}
+           addTab={onTabSelected}
            selectedTabTitle={selectedTabTitle}
          />
        </div>
