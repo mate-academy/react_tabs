@@ -7,7 +7,7 @@ export const Tabs = React.memo(({
   selectedTabId,
   onTabSelected,
 }) => {
-  const selected = tabs.find(
+  const selectedTab = tabs.find(
     tab => tab.id === selectedTabId,
   );
 
@@ -34,7 +34,7 @@ export const Tabs = React.memo(({
         ))}
       </ul>
       <p>
-        {`${selected.content}`}
+        {`${selectedTab.content}`}
       </p>
     </div>
   );
