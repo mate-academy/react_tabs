@@ -1,14 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-export const Tabs = React.memo(({ selectedTabId, tabs, onTabSelected }) => {
-  const { content } = tabs.find(tab => tab.id === selectedTabId);
+export const Tabs = React.memo(({ selectedTab, tabs, onTabSelected }) => {
+  const { content } = selectedTab;
 
   return (
     <>
       {tabs.map(tab => (
         <button
-          style={tab.id === selectedTabId ? { color: 'red' } : {}}
+          style={tab === selectedTab ? { color: 'red' } : {}}
           type="submit"
           onClick={() => onTabSelected(tab)}
         >
@@ -22,12 +22,14 @@ export const Tabs = React.memo(({ selectedTabId, tabs, onTabSelected }) => {
   );
 });
 
+const tabType = PropTypes.shape({
+  id: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  content: PropTypes.string.isRequired,
+});
+
 Tabs.propTypes = {
-  selectedTabId: PropTypes.string.isRequired,
+  selectedTab: tabType.isRequired,
   onTabSelected: PropTypes.func.isRequired,
-  tabs: PropTypes.arrayOf(PropTypes.shape({
-    id: PropTypes.string.isRequired,
-    title: PropTypes.string.isRequired,
-    content: PropTypes.string.isRequired,
-  })).isRequired,
+  tabs: PropTypes.arrayOf(tabType).isRequired,
 };
