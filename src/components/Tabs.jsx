@@ -6,22 +6,15 @@ export const Tabs = React.memo(({ selectedTabId, tabs, onTabSelected }) => {
 
   return (
     <>
-      <ul style={{ listStyle: 'none' }}>
-        {tabs.map(tab => (
-          <li
-            key={tab.id}
-            style={{ display: 'inline' }}
-          >
-            <button
-              style={tab.id === selectedTabId ? { color: 'red' } : {}}
-              type="submit"
-              onClick={() => onTabSelected(tab)}
-            >
-              {tab.title}
-            </button>
-          </li>
-        ))}
-      </ul>
+      {tabs.map(tab => (
+        <button
+          style={tab.id === selectedTabId ? { color: 'red' } : {}}
+          type="submit"
+          onClick={() => onTabSelected(tab)}
+        >
+          {tab.title}
+        </button>
+      ))}
       <p>
         {content}
       </p>
