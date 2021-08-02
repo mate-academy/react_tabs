@@ -1,4 +1,5 @@
 import React from 'react';
+import Tabs from './components/Tabs';
 
 import './App.scss';
 
@@ -15,7 +16,7 @@ class App extends React.Component {
     selectedTab: tabs[0],
   }
 
-  onChange(clickedTab) {
+  onChange = (clickedTab) => {
     if (this.state.selectedTab.id !== clickedTab.id) {
       this.setState({
         selectedTab: clickedTab,
@@ -26,24 +27,11 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-        <ul className="list-group list-group-horizontal">
-          {tabs.map(tab => (
-            <button
-              key={tab.id}
-              className="list-group-item list-group-item-action"
-              type="button"
-              onClick={() => this.onChange(tab)}
-            >
-              <h1>
-                {tab.title}
-              </h1>
-            </button>
-          ))}
-        </ul>
-
-        <p>
-          {this.state.selectedTab.content}
-        </p>
+        <Tabs
+          tabs={tabs}
+          selectedTab={this.state.selectedTab}
+          onChange={this.onChange}
+        />
       </div>
     );
   }
