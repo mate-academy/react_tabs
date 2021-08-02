@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-export const Tabs = ({
+const Tabs = ({
   tabs,
   selectedTab,
   changeTab,
@@ -19,7 +19,8 @@ export const Tabs = ({
     <h3>{selectedTab.content}</h3>
   </>
 );
-export default Tabs;
+
+export default React.memo(Tabs);
 
 const PropTabs = PropTypes.shape({
   id: PropTypes.string.isRequired,

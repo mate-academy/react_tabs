@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.scss';
-import { Tabs } from './components/Tabs';
+import Tabs from './components/Tabs';
 /* eslint-disable */
 const tabs = [
   { id: 'tab-1', title: 'Tab 1', content: 'Some text 1' },
