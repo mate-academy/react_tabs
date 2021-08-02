@@ -13,32 +13,32 @@ const tabs = [
 
 class App extends React.Component {
   state = {
-    table: tabs[0],
+    currentTab: tabs[0],
   };
 
-  tableSelection = event => (
+  onTabSelect = event => (
     this.setState({
-      table: tabs.find(tab => tab.id === event.target.id),
+      currentTab: tabs.find(tab => tab.id === event.target.id),
     })
   );
 
   render() {
-    const { table } = this.state;
+    const { currentTab } = this.state;
 
     return (
       <div className="App">
         <h1>
-          {`Selected tab is ${table.title}`}
+          {`Selected tab is ${currentTab.title}`}
         </h1>
         {tabs.map(tab => (
           <Button
             key={tab.id}
             id={tab.id}
             name={tab.title}
-            onClick={this.tableSelection}
+            onClick={this.onTabSelect}
           />
         ))}
-        <p>{table.content}</p>
+        <p>{currentTab.content}</p>
       </div>
     );
   }
