@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button } from './Button';
+import { Tabs } from './Tabs';
 
 import './App.scss';
 
@@ -31,7 +31,7 @@ class App extends React.Component {
           {`Selected tab is ${currentTab.title}`}
         </h1>
         {tabs.map(tab => (
-          <Button
+          <Tabs
             key={tab.id}
             id={tab.id}
             name={tab.title}
