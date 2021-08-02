@@ -25,18 +25,18 @@ class App extends React.Component {
   }
 
   render() {
-    const { selectedTab } = this.state;
+    const { title, id } = this.state.selectedTab;
 
     return (
       <div>
         <h1>
           Selected tab is&nbsp;
-          {selectedTab.title}
+          {title}
         </h1>
         <Tabs
           tabs={tabs}
           onTabSelected={this.onTabSelected}
-          selectedTabId={selectedTab.id}
+          selectedTabId={id}
         />
       </div>
     );
