@@ -13,26 +13,17 @@ const tabs = [
 
 class App extends React.Component {
   state = {
-    idSelectedButton: tabs[0].id,
-    textFromSelectedButton: '',
     selectedTab: tabs[0],
   }
 
   onTabSelected = (tab) => {
     this.setState(() => ({
-      idSelectedButton: tab.id,
-      textFromSelectedButton: tab.content,
       selectedTab: tab,
     }));
   }
 
   render() {
-    const
-      {
-        selectedTab,
-        idSelectedButton,
-        textFromSelectedButton,
-      } = this.state;
+    const { selectedTab } = this.state;
 
     return (
       <div className="App">
@@ -44,9 +35,8 @@ class App extends React.Component {
         </h1>
         <Tabs
           onTabSelected={this.onTabSelected}
-          idSelectedButton={idSelectedButton}
+          selectedTab={selectedTab}
           tabs={tabs}
-          textFromSelectedButton={textFromSelectedButton}
         />
       </div>
     );
