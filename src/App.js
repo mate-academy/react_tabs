@@ -14,9 +14,13 @@ class App extends React.Component {
     selectedTab: tabs[0],
   }
 
-  changeTab = (newTab) => {
+  onTabSelected = (event) => {
+    if (event.target.value === this.state.selectedTabTitle) {
+      return;
+    }
+
     this.setState({
-      selectedTab: newTab,
+      selectedTab: event.target.value,
     });
   }
 
