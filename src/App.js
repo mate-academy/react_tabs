@@ -14,13 +14,13 @@ class App extends React.Component {
     selectedTab: tabs[0],
   }
 
-  onTabSelected = (event) => {
-    if (event.target.value === this.state.selectedTabTitle) {
+  onTabSelected = (tab) => {
+    if (this.state.selectedTab.id === tab.id) {
       return;
     }
 
     this.setState({
-      selectedTab: event.target.value,
+      selectedTab: tab,
     });
   }
 
@@ -31,7 +31,7 @@ class App extends React.Component {
         <Tabs
           tabs={tabs}
           selectedTab={this.state.selectedTab}
-          changeTab={this.onTabSelected}
+          onTabSelected={this.onTabSelected}
         />
       </div>
     );
