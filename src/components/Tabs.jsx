@@ -4,14 +4,14 @@ import PropTypes from 'prop-types';
 const Tabs = ({
   tabs,
   selectedTab,
-  changeTab,
+  onTabSelected,
 }) => (
   <>
     {tabs.map(tab => (
       <button
         type="button"
         key={tab.id}
-        onClick={() => changeTab(tab)}
+        onClick={() => onTabSelected(tab)}
       >
         {tab.title}
       </button>
@@ -31,5 +31,5 @@ const PropTabs = PropTypes.shape({
 Tabs.propTypes = {
   tabs: PropTypes.arrayOf(PropTabs).isRequired,
   selectedTab: PropTabs.isRequired,
-  changeTab: PropTypes.func.isRequired,
+  onTabSelected: PropTypes.func.isRequired,
 };
