@@ -19,19 +19,17 @@ export class App extends React.PureComponent {
   onTabSelected = (tab) => {
     this.setState({
       selectedTab: tab,
-      selectedTabId: tab.id,
     });
   }
 
   render() {
-    const { selectedTab, selectedTabId } = this.state;
+    const { selectedTab } = this.state;
 
     return (
       <div className="App">
         <Tabs
           tabs={tabs}
           selectedTab={selectedTab}
-          selectedTabId={selectedTabId}
           onTabSelected={this.onTabSelected}
         />
         <div className="App__content">

@@ -2,17 +2,18 @@ import React from 'react';
 import './Tabs.css';
 import PropTypes from 'prop-types';
 
-export const Tabs = ({ tabs, selectedTabId, onTabSelected }) => (
+export const Tabs = ({ tabs, selectedTab, onTabSelected }) => (
   <div className="App__buttons tab">
     {tabs.map(tab => (
       <button
         className="tab__button"
         type="button"
+        key={tab.id}
         value={tab}
         onClick={() => (
-          selectedTabId !== tab.id
+          selectedTab !== tab
             ? onTabSelected(tab)
-            : tab.id
+            : tab
         )}
       >
         {tab.title}
@@ -30,6 +31,10 @@ Tabs.propTypes = {
       content: PropTypes.string.isRequired,
     }).isRequired,
   ).isRequired,
-  selectedTabId: PropTypes.string.isRequired,
   onTabSelected: PropTypes.func.isRequired,
+  selectedTab: PropTypes.shape({
+    id: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+    content: PropTypes.string.isRequired,
+  }).isRequired,
 };
