@@ -1,6 +1,7 @@
 # React Tabs
 - Replace `<your_account>` with your Github username in the [DEMO LINK](https://<your_account>.github.io/react_tabs/)
 - Follow the [React task guideline](https://github.com/mate-academy/react_task-guideline#react-tasks-guideline)
+- Use [React TypeScript cheat sheet](https://mate-academy.github.io/fe-program/js/extra/react-typescript)
 
 ## Task
 1. Your `App` component contains an array of `tabs`
@@ -12,7 +13,7 @@
     ];
     ```
 1. Save the `selectedTab` in the `App` (the first one by default)
-1. Implement the `Tabs` component accepting `tabs` as a prop 
+1. Implement the `Tabs` component accepting `tabs` as a prop
    and displaying a link per each `tab` and the content of the selected tab
 1. Pass the `selectedTabId` as a prop to the `Tabs`, the specified tab should be selected if possible
   (otherwise the first tab is selected)
