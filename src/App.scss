@@ -1,1 +1,33 @@
-// Put styles here
+body {
+  border-collapse: collapse;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.tabs {
+  border-bottom: 1px solid rgb(196, 194, 194);
+}
+
+.tabs_choice {
+  cursor: pointer;
+  padding: 5px 30px;
+  color: rgb(92, 80, 158);
+  font-size: 19px;
+  background-color: #fff;
+  border: none;
+  border-radius: 3px 3px 0 0 ;
+}
+
+.is_active {
+  margin: 0;
+  padding: 5px 30px;
+  border: 1px solid rgb(196, 194, 194);
+  border-radius: 3px 3px 0 0 ;
+}
+
+.tabs_choice:hover {
+  margin: 0;
+  padding: 5px 30px;
+  box-sizing: border-box;
+  border: 1px solid rgb(196, 194, 194);
+  border-radius: 3px 3px 0 0 ;
+}
