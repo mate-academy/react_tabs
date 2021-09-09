@@ -13,7 +13,7 @@ type State = {
 };
 
 class App extends React.Component<{}, State> {
-  state = {
+  state: State = {
     selectedTab: tabs[0],
   };
 
@@ -30,7 +30,11 @@ class App extends React.Component<{}, State> {
           <h1>
             {`Selected tab is ${selectedTab.title}`}
           </h1>
-          <Tabs tabs={tabs} selectedTabId={selectedTab.id} selectTab={this.onTabSelected} />
+          <Tabs
+            tabs={tabs}
+            selectedTabId={selectedTab.id}
+            selectTab={this.onTabSelected}
+          />
         </div>
       </div>
     );
