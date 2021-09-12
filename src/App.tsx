@@ -1,6 +1,7 @@
 import React from 'react';
 
 import './App.scss';
+import { TabsList } from './components/TabsList';
 
 const tabs: Tab[] = [
   { id: 'tab-1', title: 'Tab 1', content: 'Some text 1' },
@@ -8,11 +9,36 @@ const tabs: Tab[] = [
   { id: 'tab-3', title: 'Tab 3', content: 'Some text 3' },
 ];
 
-const App: React.FC = () => (
-  <div className="App">
-    <h1>Selected tab is&nbsp;Tab 1</h1>
-    <div>{tabs.length}</div>
-  </div>
-);
+class App extends React.Component<{}, State> {
+  state = {
+    tabsCopy: [...tabs],
+    selectedTab: 'tab-1',
+  };
+
+  changeSelect = (tab: any) => {
+    this.setState({
+      selectedTab: tab,
+    });
+  };
+
+  render() {
+    const { tabsCopy, selectedTab } = this.state;
+
+    return (
+      <div className="App">
+        <h1>{`Selected tab is ${tabs.find(tab => tab.id === selectedTab)?.title}`}</h1>
+        <div>
+          <TabsList
+            tabs={tabsCopy}
+            selectedTab={selectedTab}
+            onChange={event => {
+              this.changeSelect(event.target.name);
+            }}
+          />
+        </div>
+      </div>
+    );
+  }
+}
 
 export default App;
