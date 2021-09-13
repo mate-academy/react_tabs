@@ -1,0 +1,33 @@
+.tabs {
+  display: flex;
+  justify-content: start;
+  padding-left: 5px;
+  border-bottom: 1px solid #000;
+
+  &__item {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    list-style: none;
+
+    border: 1px solid transparent;
+    margin-bottom: -1px;
+
+    &_active {
+      border: 1px solid #000;
+      border-bottom: 1px solid #fff;
+    }
+  }
+
+  &__button {
+    width: 100px;
+    height: 40px;
+    padding: 0;
+    border: none;
+    background-color: #fff;
+  }
+}
+
+.content {
+  padding-left: 5px;
+}
