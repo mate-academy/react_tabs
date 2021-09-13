@@ -1,1 +1,11 @@
-// Put styles here
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.App {
+  &__title {
+    margin: 20px 0;
+    padding-left: 5px;
+  }
+}

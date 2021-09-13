@@ -1,6 +1,7 @@
 import React from 'react';
 
 import './App.scss';
+import { Tabs } from './components/Tabs';
 
 const tabs: Tab[] = [
   { id: 'tab-1', title: 'Tab 1', content: 'Some text 1' },
@@ -8,11 +9,37 @@ const tabs: Tab[] = [
   { id: 'tab-3', title: 'Tab 3', content: 'Some text 3' },
 ];
 
-const App: React.FC = () => (
-  <div className="App">
-    <h1>Selected tab is&nbsp;Tab 1</h1>
-    <div>{tabs.length}</div>
-  </div>
-);
+type State = {
+  selectedTab: Tab;
+};
+
+class App extends React.Component<{}, State> {
+  state = {
+    selectedTab: tabs[0],
+  };
+
+  changeTab = (newSelectedTab: Tab) => {
+    this.setState({
+      selectedTab: newSelectedTab,
+    });
+  };
+
+  render() {
+    const { selectedTab } = this.state;
+
+    return (
+      <div className="App">
+        <h1 className="App__title">{`Selected tab is ${this.state.selectedTab.title}`}</h1>
+        <div>
+          <Tabs
+            tabs={tabs}
+            selectedTabId={selectedTab.id}
+            changeTab={this.changeTab}
+          />
+        </div>
+      </div>
+    );
+  }
+}
 
 export default App;
