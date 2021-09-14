@@ -15,13 +15,11 @@ interface State {
 }
 
 class App extends React.Component<{}, State> {
-  state = {
+  state: State = {
     selectedTab: tabs[0],
   };
 
-  chooseTab = (id: string) => {
-    const chosenTab = tabs.find(tab => tab.id === id) || tabs[0];
-
+  chooseTab = (chosenTab: Tab) => {
     this.setState({ selectedTab: chosenTab });
   };
 

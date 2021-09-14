@@ -5,7 +5,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 interface Props {
   tabs: Tab[];
   selectedTabId: string;
-  onTabSelected: (index: string) => void;
+  onTabSelected: (chosenTab: Tab) => void;
 }
 
 export const Tabs: React.FC<Props> = (props) => {
@@ -16,9 +16,12 @@ export const Tabs: React.FC<Props> = (props) => {
       <ul className="nav nav-tabs">
         {tabs.map(tab => (
           <li key={tab.id}>
-            <button
-              type="button"
-              onClick={() => onTabSelected(tab.id)}
+            <a
+              href={tab.id}
+              onClick={(event) => {
+                event.preventDefault();
+                onTabSelected(tab);
+              }}
               className={classNames(
                 'nav-link',
                 {
@@ -27,7 +30,7 @@ export const Tabs: React.FC<Props> = (props) => {
               )}
             >
               {tab.title}
-            </button>
+            </a>
           </li>
         ))}
       </ul>
