@@ -38,11 +38,4 @@ class App extends React.Component<{}, State> {
   }
 }
 
-// const App: React.FC = () => (
-//   <div className="App">
-//     <h1>Selected tab is&nbsp;Tab 1</h1>
-//     <div>{tabs.length}</div>
-//   </div>
-// );
-
 export default App;
