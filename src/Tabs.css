@@ -1,0 +1,19 @@
+.tabs-list {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  border-bottom: 1px solid gray;
+}
+
+.tabs-button {
+  text-align: center;
+  padding-top: 10px;
+  margin-right: 25px;
+  height: 35px;
+  width: 60px;
+  border: 1px solid rgb(247, 244, 244);
+}
+
+.button-active {
+  border: 1px solid grey;
+}
