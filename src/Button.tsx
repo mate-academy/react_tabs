@@ -15,23 +15,25 @@ class Button extends React.Component<Props, {}> {
     const { tabs, selectedTab, handleSelect } = this.props;
 
     return (
-      <ul className="nav nav-tabs">
-        {tabs.map(tab => {
-          return (
-            <li className="nav-item">
-              <button
-                type="button"
-                className="nav-link"
-                key={tab.id}
-                onClick={() => handleSelect(tab.id)}
-              >
-                {tab.title}
-              </button>
-              {selectedTab.id === tab.id ? tab.content : null }
-            </li>
-          );
-        })}
-      </ul>
+      <>
+        <ul className="nav nav-tabs">
+          {tabs.map(tab => {
+            return (
+              <li className="nav-item">
+                <button
+                  type="button"
+                  className="nav-link"
+                  key={tab.id}
+                  onClick={() => handleSelect(tab.id)}
+                >
+                  {tab.title}
+                </button>
+              </li>
+            );
+          })}
+        </ul>
+        {selectedTab.content}
+      </>
     );
   }
 }
