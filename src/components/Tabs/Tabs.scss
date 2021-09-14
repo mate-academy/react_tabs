@@ -1,0 +1,30 @@
+.nav {
+  border-bottom: 1px solid blue;
+  margin-bottom: 10px;
+
+  &__tab {
+    display: inline-block;
+  }
+
+  &__content {
+    display: block;
+    font-size: 20px;
+  }
+
+  &__button {
+    margin-left: 5px;
+    padding: 5px;
+    background-color: transparent;
+    border: none;
+
+    font-size: 20px;
+
+    &--active {
+      border-top: 1px solid blue;
+      border-left: 1px solid blue;
+      border-right: 1px solid blue;
+      border-top-left-radius: 10px;
+      border-top-right-radius: 10px;
+    }
+  }
+}
