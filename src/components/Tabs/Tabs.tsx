@@ -2,35 +2,38 @@ import classNames from 'classnames';
 import React from 'react';
 
 interface Props {
-  selectedTabId: string;
+  selectedTab: Tab;
   tabs: Tab[];
   changeTab: (value: string) => void;
 }
 
 export const Tabs: React.FC<Props> = (props) => {
-  const { selectedTabId, tabs, changeTab } = props;
+  const { selectedTab, tabs, changeTab } = props;
 
   return (
     <>
       <ul className="nav nav-tabs">
         {tabs.map(tab => (
           <li key={tab.id}>
-            <button
-              type="button"
-              onClick={() => changeTab(tab.id)}
+            <a
+              href={tab.id}
+              onClick={(event) => {
+                event.preventDefault();
+                changeTab(tab.id);
+              }}
               className={classNames({
                 'nav-link': true,
-                active: tab.id === selectedTabId,
+                active: tab.id === selectedTab.id,
               })}
             >
               {tab.title}
-            </button>
+            </a>
           </li>
         ))}
       </ul>
 
       <p>
-        {tabs.find(tab => tab.id === selectedTabId)?.content}
+        {selectedTab.content}
       </p>
     </>
   );

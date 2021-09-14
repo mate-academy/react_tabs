@@ -20,20 +20,20 @@ class App extends React.Component<{}, State> {
   };
 
   changeTab = (tabId: string) => {
-    const currentTab = tabs.find(tab => tab.id === tabId) || tabs[0];
+    const currentTab = tabs.findIndex(tab => tab.id === tabId) || 0;
 
-    this.setState({ selectedTab: currentTab });
+    this.setState({ selectedTab: tabs[currentTab] });
   };
 
   render() {
     const { selectedTab } = this.state;
-    const { id, title } = selectedTab;
+    const { title } = selectedTab;
 
     return (
       <div className="App">
         <h1>{`Selected tab is ${title}`}</h1>
         <Tabs
-          selectedTabId={id}
+          selectedTab={selectedTab}
           tabs={tabs}
           changeTab={this.changeTab}
         />
