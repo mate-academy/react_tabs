@@ -18,9 +18,9 @@ class App extends React.Component<{}, State> {
     selectedTab: tabs[0],
   };
 
-  onTabSelected = (tabId: string) => {
+  onTabSelected = (tab: Tab) => {
     this.setState({
-      selectedTab: tabs.find(tab => tab.id === tabId) || tabs[0],
+      selectedTab: tab || tabs[0],
     });
   };
 
@@ -29,7 +29,11 @@ class App extends React.Component<{}, State> {
 
     return (
       <div className="App">
-        <Tabs selectedTabId={selectedTab.id} onTabSelected={this.onTabSelected} tabs={tabs} />
+        <Tabs
+          selectedTabId={selectedTab.id}
+          onTabSelected={this.onTabSelected}
+          tabs={tabs}
+        />
       </div>
     );
   }

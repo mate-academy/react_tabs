@@ -1,9 +1,9 @@
 import React from 'react';
-import './Tabs.scss';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 interface Props {
   selectedTabId: string;
-  onTabSelected: (tabId: string) => void;
+  onTabSelected: (tab: Tab) => void;
   tabs: Tab[];
 }
 
@@ -14,29 +14,22 @@ export const Tabs: React.FC<Props> = (props) => {
     <>
       <h1>{`Selected tab is ${selectedTabId}`}</h1>
 
-      <div className="nav">
+      <div className="nav nav-tabs">
         {tabs.map(tab => (
-          <div key={tab.id} className="nav__tab">
-            <button
-              type="button"
-              onClick={() => onTabSelected(tab.id)}
-              className={`nav__button ${tab.id === selectedTabId ? 'nav__button--active' : ''}`}
-            >
-              {tab.title}
-            </button>
-          </div>
+          <button
+            key={tab.id}
+            type="button"
+            onClick={() => onTabSelected(tab)}
+            className={`nav-link ${tab.id === selectedTabId ? 'active' : ''}`}
+          >
+            {tab.title}
+          </button>
         ))}
       </div>
 
-      <div>
-        {tabs.map(tab => (
-          <div key={tab.id} className="nav__content">
-            {selectedTabId === tab.id && (
-              tab.content
-            )}
-          </div>
-        ))}
-      </div>
+      <p className="nav__content">
+        {tabs.find(tab => tab.id === selectedTabId)?.content}
+      </p>
     </>
   );
 };
