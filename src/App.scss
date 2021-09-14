@@ -1,1 +1,10 @@
 // Put styles here
+
+.app {
+  padding: 30px;
+
+  &__content {
+    margin-top: 20px;
+    font-size: 24px;
+  }
+}
