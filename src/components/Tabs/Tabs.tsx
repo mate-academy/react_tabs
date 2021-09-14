@@ -19,7 +19,9 @@ export const Tabs: React.FC<Props> = (props) => {
               href={tab.content}
               onClick={(event) => {
                 event.preventDefault();
-                onTabSelected(tab);
+                if (selectedTabId !== tab.id) {
+                  onTabSelected(tab);
+                }
               }}
             >
               {tab.title}
