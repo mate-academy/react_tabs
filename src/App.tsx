@@ -33,10 +33,15 @@ class App extends React.Component<{}, State> {
     return (
       <div className="App">
 
-        <h1>
-          {'Selected tab is '}
-          {selectedTab.title}
-        </h1>
+        <div className="text-center">
+          <h1>
+            {'Selected tab is '}
+          </h1>
+
+          <p className="h3 text-primary">
+            {selectedTab.title}
+          </p>
+        </div>
 
         <Tabs
           tabs={tabs}
