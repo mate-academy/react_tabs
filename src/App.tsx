@@ -27,11 +27,6 @@ class App extends React.Component<{}, State> {
 
     return (
       <div className="App">
-        <h1>
-          {'Selected tab is '}
-          {selectedTab.title}
-        </h1>
-
         <Tabs
           selectedTab={selectedTab}
           tabs={tabs}

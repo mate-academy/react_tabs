@@ -12,6 +12,11 @@ export const Tabs: React.FC<Props> = (props) => {
 
   return (
     <>
+      <h1>
+        {'Selected tab is '}
+        {selectedTab.title}
+      </h1>
+
       <ul className="nav nav-tabs">
         {tabs.map(tab => (
           <li key={tab.id} className="nav-item">
