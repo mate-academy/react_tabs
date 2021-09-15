@@ -33,7 +33,11 @@ class App extends React.Component<{}, State> {
           Selected tab is
           {`  ${selectedTab && selectedTab.title}`}
         </h1>
-        <Tabs tabs={tabs} selectedTab={selectedTab} onTabSelected={this.onTabSelected} />
+        <Tabs
+          tabs={tabs}
+          selectedTab={selectedTab}
+          onTabSelected={this.onTabSelected}
+        />
       </div>
     );
   }

@@ -12,7 +12,11 @@ export const Tabs: React.FC<Props> = (props) => {
   return (
     <>
       <nav>
-        <div className="nav nav-tabs" id="nav-tab" role="tablist">
+        <div
+          className="nav nav-tabs"
+          id="nav-tab"
+          role="tablist"
+        >
           {tabs.map(tab => (
             <button
               className={`nav-link ${selectedTab && tab.id === selectedTab.id && 'active'}`}
