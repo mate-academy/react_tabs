@@ -2,13 +2,12 @@ import React from 'react';
 
 interface Props {
   tabs: Tab[];
-  selectedTabId: string | null;
   onTabSelected: (tab: string) => void;
+  selectedTab: Tab | undefined;
 }
 
 export const Tabs: React.FC<Props> = (props) => {
-  const { tabs, selectedTabId, onTabSelected } = props;
-  const selectedTab = tabs.find(tab => tab.id === selectedTabId);
+  const { tabs, onTabSelected, selectedTab } = props;
 
   return (
     <>
@@ -16,7 +15,7 @@ export const Tabs: React.FC<Props> = (props) => {
         <div className="nav nav-tabs" id="nav-tab" role="tablist">
           {tabs.map(tab => (
             <button
-              className={`nav-link ${tab.id === selectedTabId && 'active'}`}
+              className={`nav-link ${selectedTab && tab.id === selectedTab.id && 'active'}`}
               data-bs-toggle="tab"
               type="submit"
               onClick={() => onTabSelected(tab.id)}

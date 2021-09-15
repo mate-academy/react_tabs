@@ -10,33 +10,30 @@ const tabs: Tab[] = [
 ];
 
 interface State {
-  selectedTabId: string;
-  selectedTitleItem: Tab | undefined;
+  selectedTab: Tab | undefined;
 }
 
 class App extends React.Component<{}, State> {
   state: State = {
-    selectedTabId: tabs[0].id,
-    selectedTitleItem: tabs[0],
+    selectedTab: tabs[0],
   };
 
   onTabSelected = (tab: string): void => {
     this.setState({
-      selectedTabId: tab,
-      selectedTitleItem: tabs.find(tabItem => tabItem.id === tab),
+      selectedTab: tabs.find(tabItem => tabItem.id === tab),
     });
   };
 
   render() {
-    const { selectedTabId, selectedTitleItem } = this.state;
+    const { selectedTab } = this.state;
 
     return (
       <div className="App">
         <h1>
           Selected tab is
-          {`  ${selectedTitleItem && selectedTitleItem.title}`}
+          {`  ${selectedTab && selectedTab.title}`}
         </h1>
-        <Tabs tabs={tabs} selectedTabId={selectedTabId} onTabSelected={this.onTabSelected} />
+        <Tabs tabs={tabs} selectedTab={selectedTab} onTabSelected={this.onTabSelected} />
       </div>
     );
   }
