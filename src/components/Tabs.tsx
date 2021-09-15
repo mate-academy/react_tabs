@@ -42,27 +42,15 @@ export const Tabs: React.FC<Props> = (props) => {
               })}
             </ul>
             <div className="tab-content tabs__content-container">
-              {tabs.map((tab: Tab) => {
-                return (
-                  <div
-                    key={tab.id}
-                    className={
-                      classNames(
-                        'tab-pane fade',
-                        {
-                          active: tab === selectedTab,
-                          show: tab === selectedTab,
-                        },
-                      )
-                    }
-                  >
-                    <strong>{tab.content}</strong>
-                    Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                    <br />
-                    Dignissimos ullam ut quas ab tempore nemo nulla delectus magnam, id labore!
-                  </div>
-                );
-              })}
+              <div
+                key={selectedTab.id}
+                className="tab-pane
+                fade
+                active
+                show"
+              >
+                <strong>{selectedTab.content}</strong>
+              </div>
             </div>
           </div>
         </div>
