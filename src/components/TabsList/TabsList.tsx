@@ -14,7 +14,7 @@ export const TabsList: React.FC<Props> = ({ tabs, selectedTab, onChange }) => {
       <div className="buttons">
         {tabs.map(tab => (
           <button
-            className={classNames('button', selectedTab && 'selected')}
+            className={classNames('button', selectedTab === tab && 'selected')}
             type="button"
             name={tab.id}
             onClick={() => onChange(tab.id)}
