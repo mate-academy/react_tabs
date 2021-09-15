@@ -1,3 +1,4 @@
+import classNames from 'classnames';
 import React from 'react';
 
 interface Props {
@@ -14,16 +15,18 @@ export const Tabs: React.FC<Props> = (props) => {
       <ul className="nav nav-tabs">
         {tabs.map(tab => (
           <li className="nav-item" key={tab.id}>
-            <button
-              type="button"
-              className="nav-link"
+            <a
+              href={tab.id}
+              className={classNames('nav-link', {
+                active: tab.id === selectedTabId,
+              })}
               onClick={(event) => {
                 event.preventDefault();
                 selectTab(tab);
               }}
             >
               {tab.title}
-            </button>
+            </a>
           </li>
         ))}
       </ul>
