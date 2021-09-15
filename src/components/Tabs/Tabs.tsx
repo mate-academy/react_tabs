@@ -29,13 +29,12 @@ export const Tabs: React.FC<Props> = (props) => {
             >
               {tab.title}
             </a>
-
-            {selectedTabId === tab.id && (
-              <p className="text-center border border-top-0 rounded py-5 text-secondary">{tab.content}</p>
-            )}
           </li>
         ))}
       </ul>
+      <p className="text-center border border-top-0 rounded py-5 text-secondary">
+        {tabs.find(tab => tab.id === selectedTabId)?.content}
+      </p>
     </>
   );
 };
