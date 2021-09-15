@@ -5,7 +5,6 @@ import './Tabs.scss';
 interface Props {
   tabs: Tab[];
   selectedTab: Tab;
-  // selectedTabId: string;
   onTabSelected: (index: string) => void;
 }
 
@@ -13,7 +12,6 @@ export const Tabs: React.FC<Props> = (props: Props) => {
   const {
     tabs,
     selectedTab,
-    // selectedTabId,
     onTabSelected,
   } = props;
 

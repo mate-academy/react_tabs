@@ -10,13 +10,11 @@ const tabs: Tab[] = [
 
 type State = {
   selectedTab: Tab;
-  // selectedTabId: string;
 };
 
 class App extends React.Component<{}, State> {
   state: State = {
     selectedTab: tabs[0],
-    // selectedTabId: tabs[0].id,
   };
 
   onTabSelected = (index: string) => {
@@ -40,7 +38,6 @@ class App extends React.Component<{}, State> {
         <Tabs
           tabs={tabs}
           selectedTab={selectedTab}
-          // selectedTabId={selectedTabId}
           onTabSelected={this.onTabSelected}
         />
       </div>
