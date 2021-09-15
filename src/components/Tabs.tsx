@@ -17,8 +17,12 @@ export const Tabs: React.FC<Props> = (props) => {
         {tabs.map(tab => (
           <li key={tab.id} className="Tabs__items">
             <button
-              type="submit"
-              onClick={() => onTabSelected(tab)}
+              type="button"
+              onClick={() => {
+                if (selectedTab.id !== tab.id) {
+                  onTabSelected(tab);
+                }
+              }}
               className={classNames(
                 'Tabs__link',
                 {
