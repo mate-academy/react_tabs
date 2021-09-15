@@ -17,7 +17,10 @@ export const Tabs: React.FC<Props> = (props) => {
             <button
               type="button"
               className="nav-link"
-              onClick={() => selectTab(tab)}
+              onClick={(event) => {
+                event.preventDefault();
+                selectTab(tab);
+              }}
             >
               {tab.title}
             </button>
