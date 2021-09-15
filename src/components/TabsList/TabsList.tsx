@@ -17,7 +17,7 @@ export const TabsList: React.FC<Props> = ({ tabs, selectedTab, onChange }) => {
             className={classNames('button', selectedTab === tab && 'selected')}
             type="button"
             name={tab.id}
-            onClick={() => onChange(tab.id)}
+            onClick={() => selectedTab.id !== tab.id && onChange(tab.id)}
             key={tab.id}
           >
             {tab.title}

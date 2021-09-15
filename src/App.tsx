@@ -36,9 +36,7 @@ class App extends React.Component<{}, State> {
           <TabsList
             tabs={tabs}
             selectedTab={selectedTab}
-            onChange={tabId => {
-              this.changeSelect(tabId);
-            }}
+            onChange={this.changeSelect}
           />
         </div>
       </div>
