@@ -1,0 +1,31 @@
+.Tabs {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+
+  &__item {
+    list-style: none;
+  }
+
+  &__tab {
+    width: 100px;
+    height: 40px;
+    margin-right: 20px;
+    text-align: center;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+
+  &__content {
+    width: 400px;
+    height: 100px;
+    line-height: 100px;
+    border: 2px solid #0b5ed7;
+    border-radius: 8px;
+    font-size: 20px;
+    font-weight: 600;
+    color: #0b5ed7;
+    text-align: center;
+  }
+}

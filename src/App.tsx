@@ -1,5 +1,5 @@
 import React from 'react';
-
+import { Tabs } from './components/Tabs';
 import './App.scss';
 
 const tabs: Tab[] = [
@@ -8,11 +8,44 @@ const tabs: Tab[] = [
   { id: 'tab-3', title: 'Tab 3', content: 'Some text 3' },
 ];
 
-const App: React.FC = () => (
-  <div className="App">
-    <h1>Selected tab is&nbsp;Tab 1</h1>
-    <div>{tabs.length}</div>
-  </div>
-);
+type State = {
+  selectedTab: Tab;
+  // selectedTabId: string;
+};
+
+class App extends React.Component<{}, State> {
+  state: State = {
+    selectedTab: tabs[0],
+    // selectedTabId: tabs[0].id,
+  };
+
+  onTabSelected = (index: string) => {
+    const newSelectedTab = tabs.find(tab => tab.id === index) || tabs[0];
+
+    this.setState({
+      selectedTab: newSelectedTab,
+    });
+  };
+
+  render() {
+    const { selectedTab } = this.state;
+
+    return (
+      <div className="App">
+        <h1 className="App__title">
+          Selected tab is&nbsp;
+          {selectedTab.title}
+        </h1>
+
+        <Tabs
+          tabs={tabs}
+          selectedTab={selectedTab}
+          // selectedTabId={selectedTabId}
+          onTabSelected={this.onTabSelected}
+        />
+      </div>
+    );
+  }
+}
 
 export default App;
