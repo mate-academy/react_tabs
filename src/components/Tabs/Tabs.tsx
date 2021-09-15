@@ -20,7 +20,9 @@ export const Tabs: React.FC<Props> = (props) => {
               href="tab.id"
               onClick={(event) => {
                 event.preventDefault();
-                onTabSelected(tab);
+                if (selectedTabId !== tab.id) {
+                  onTabSelected(tab);
+                }
               }}
               className={classNames('nav-link', {
                 active: tab.id === selectedTabId,
