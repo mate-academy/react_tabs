@@ -5,7 +5,7 @@ import './tabs.scss';
 
 type Props = {
   tabs: Tab[];
-  selectedTab: string;
+  selectedTab: Tab;
   onTabSelected: (tab: Tab) => void;
 };
 
@@ -26,10 +26,14 @@ export const Tabs: React.FC<Props> = (props) => {
                       className={
                         classNames(
                           'nav-link',
-                          { active: tab.id === selectedTab },
+                          { active: tab === selectedTab },
                         )
                       }
-                      onClick={() => onTabSelected(tab)}
+                      onClick={() => {
+                        if (selectedTab !== tab) {
+                          onTabSelected(tab);
+                        }
+                      }}
                     >
                       {tab.title}
                     </button>
@@ -46,8 +50,8 @@ export const Tabs: React.FC<Props> = (props) => {
                       classNames(
                         'tab-pane fade',
                         {
-                          active: tab.id === selectedTab,
-                          show: tab.id === selectedTab,
+                          active: tab === selectedTab,
+                          show: tab === selectedTab,
                         },
                       )
                     }
