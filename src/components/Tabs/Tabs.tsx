@@ -10,6 +10,12 @@ interface Props {
 export const Tabs: React.FC<Props> = (props) => {
   const { selectedTabId, onTabSelected, tabs } = props;
 
+  const handleClick = (tab: Tab) => {
+    if (selectedTabId !== tab.id) {
+      onTabSelected(tab);
+    }
+  };
+
   return (
     <>
       <h1>{`Selected tab is ${selectedTabId}`}</h1>
@@ -19,7 +25,7 @@ export const Tabs: React.FC<Props> = (props) => {
           <button
             key={tab.id}
             type="button"
-            onClick={() => onTabSelected(tab)}
+            onClick={() => handleClick(tab)}
             className={`nav-link ${tab.id === selectedTabId ? 'active' : ''}`}
           >
             {tab.title}
