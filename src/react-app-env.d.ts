@@ -5,8 +5,3 @@ interface Tab {
   title: string;
   content: string;
 }
-
-interface State {
-  tabsCopy: Tab[];
-  selectedTab: string;
-}

@@ -4,8 +4,8 @@ import classNames from 'classnames';
 
 interface Props {
   tabs: Tab[];
-  selectedTab: string;
-  onChange: (event: any) => void;
+  selectedTab: Tab;
+  onChange: (tabId: string) => void;
 }
 
 export const TabsList: React.FC<Props> = ({ tabs, selectedTab, onChange }) => {
@@ -14,10 +14,10 @@ export const TabsList: React.FC<Props> = ({ tabs, selectedTab, onChange }) => {
       <div className="buttons">
         {tabs.map(tab => (
           <button
-            className={classNames('button', tab.id === selectedTab && 'selected')}
+            className={classNames('button', selectedTab && 'selected')}
             type="button"
             name={tab.id}
-            onClick={onChange}
+            onClick={() => onChange(tab.id)}
             key={tab.id}
           >
             {tab.title}
@@ -25,7 +25,7 @@ export const TabsList: React.FC<Props> = ({ tabs, selectedTab, onChange }) => {
         ))}
       </div>
       <div className="tab-content">
-        {tabs.find(tab => tab.id === selectedTab)?.content}
+        {selectedTab.content}
       </div>
     </>
   );
