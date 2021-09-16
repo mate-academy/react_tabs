@@ -4,20 +4,20 @@ import React from 'react';
 interface Props {
   tabs: Tab[];
   selectedTabId: string;
-  tabId: number;
-  onTabSelected: (event: React.MouseEvent<HTMLButtonElement>) => void;
+  tabIndex: number;
+  onTabSelected: (tabId: string) => void;
 }
 
 export const Tabs: React.FC<Props> = ({
   tabs,
   selectedTabId,
-  tabId,
+  tabIndex,
   onTabSelected,
 }) => {
   return (
     <>
       <div className="app__title">
-        <h1>{`Selected tab is ${tabs[tabId].title}`}</h1>
+        <h1>{`Selected tab is ${tabs[tabIndex].title}`}</h1>
       </div>
 
       <div className="app__tabs">
@@ -29,7 +29,7 @@ export const Tabs: React.FC<Props> = ({
                 className={classNames('nav-link', { active: tab.id === selectedTabId })}
                 aria-current="page"
                 value={tab.id}
-                onClick={onTabSelected}
+                onClick={() => onTabSelected(tab.id)}
               >
                 {tab.title}
               </button>
@@ -39,7 +39,7 @@ export const Tabs: React.FC<Props> = ({
       </div>
 
       <div className="app__content">
-        {tabs[tabId].content}
+        {tabs[tabIndex].content}
       </div>
     </>
   );

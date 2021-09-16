@@ -11,19 +11,23 @@ const tabs: Tab[] = [
 
 interface State {
   selectedTabId: string;
-  tabId: number;
+  tabIndex: number;
 }
 
 class App extends React.PureComponent<{}, State> {
   state: State = {
     selectedTabId: tabs[0].id,
-    tabId: 0,
+    tabIndex: 0,
   };
 
-  onTabSelected = (event: React.MouseEvent<HTMLButtonElement>) => {
+  onTabSelected = (tabId: string) => {
+    if (tabId === this.state.selectedTabId) {
+      return;
+    }
+
     this.setState({
-      selectedTabId: event.currentTarget.value,
-      tabId: tabs.findIndex(tab => tab.id === event.currentTarget.value),
+      selectedTabId: tabId,
+      tabIndex: tabs.findIndex(tab => tab.id === tabId),
     });
   };
 
@@ -33,7 +37,7 @@ class App extends React.PureComponent<{}, State> {
         <Tabs
           tabs={tabs}
           selectedTabId={this.state.selectedTabId}
-          tabId={this.state.tabId}
+          tabIndex={this.state.tabIndex}
           onTabSelected={this.onTabSelected}
         />
       </div>
