@@ -1,5 +1,4 @@
 import React from 'react';
-
 import './App.scss';
 import { Tabs } from './components/Tabs';
 
@@ -19,7 +18,12 @@ export class App extends React.Component<{}, State> {
   };
 
   changeSelectedTab = (value: string) => {
+    const { selectedTab } = this.state;
     const newTab = tabs.find(({ id }) => id === value) || tabs[0];
+
+    if (selectedTab.id === newTab.id) {
+      return;
+    }
 
     this.setState({
       selectedTab: newTab,
@@ -32,8 +36,6 @@ export class App extends React.Component<{}, State> {
     return (
       <div className="App">
         <h1>{`Selected tab is ${selectedTab.title}`}</h1>
-        <div>{tabs.length}</div>
-
         <Tabs
           tabs={tabs}
           selectedTab={selectedTab}
