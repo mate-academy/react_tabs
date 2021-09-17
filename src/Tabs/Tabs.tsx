@@ -4,36 +4,38 @@ import classNames from 'classnames';
 
 type Props = {
   tabs: Tab[];
-  selectedTabId: number;
-  onTabSelected: (event: React.MouseEvent<HTMLElement>) => void
+  selectedTabId: string;
+  onTabSelected: (tab: Tab) => void;
 };
 
-export class Tabs extends React.PureComponent<Props, {}> {
-  render() {
-    const { tabs, selectedTabId, onTabSelected } = this.props;
+export const Tabs:React.FC<Props> = (props) => {
+  const { tabs, selectedTabId, onTabSelected } = props;
 
-    return (
-      <nav>
-        <ul className="nav nav-tabs">
-          {tabs.map((tab, i) => {
-            const { id, title } = tab;
+  const selectedTab = (tabId: string) => {
+    return props.tabs.find(tab => tab.id === tabId);
+  };
 
-            return (
-              <li key={id} className="nav-item">
-                <a
-                  href="./"
-                  className={classNames('nav-link', { active: selectedTabId === i })}
-                  onClick={onTabSelected}
-                >
-                  {title}
-                </a>
-                {' '}
-              </li>
-            );
-          })}
-        </ul>
-        {tabs[selectedTabId].content}
-      </nav>
-    );
-  }
-}
+  return (
+    <nav>
+      <ul className="nav nav-tabs">
+        {tabs.map(tab => {
+          const { id, title } = tab;
+
+          return (
+            <li key={id} className="nav-item">
+              <button
+                type="button"
+                className={classNames('nav-link', { active: selectedTabId === id })}
+                onClick={() => onTabSelected(tab)}
+              >
+                {title}
+              </button>
+              {' '}
+            </li>
+          );
+        })}
+      </ul>
+      {selectedTab(selectedTabId)?.title ? selectedTab(selectedTabId)?.title : 'Sorry, wrong info'}
+    </nav>
+  );
+};

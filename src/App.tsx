@@ -10,29 +10,25 @@ const tabs: Tab[] = [
 ];
 
 type State = {
-  selectedTab: string
-  selectedTabId: number;
+  selectedTab: Tab
+  selectedTabId: string;
 };
 
 class App extends React.PureComponent<{}, State> {
   state = {
-    selectedTabId: 0,
-    selectedTab: tabs[0].title,
+    selectedTabId: tabs[0].id,
+    selectedTab: {
+      id: 'tab-1',
+      title: 'Tab 1',
+      content: 'Some text 1',
+    },
   };
 
-  onTabSelected = (event: React.MouseEvent<HTMLElement>) => {
-    event.preventDefault();
-
-    const { textContent } = event.currentTarget;
-
-    const selectedTabId = tabs.findIndex(tab => tab.title === textContent);
-
-    if (selectedTabId !== undefined) {
-      this.setState({
-        selectedTabId,
-        selectedTab: tabs[selectedTabId].title,
-      });
-    }
+  onTabSelected = (tab: Tab) => {
+    this.setState({
+      selectedTabId: tab.id,
+      selectedTab: tab,
+    });
   };
 
   render() {
@@ -40,7 +36,7 @@ class App extends React.PureComponent<{}, State> {
 
     return (
       <div className="App">
-        <h1>{`Selected tab is ${selectedTab}`}</h1>
+        <h1>{`Selected tab is ${selectedTab.title}`}</h1>
         <Tabs
           tabs={tabs}
           selectedTabId={selectedTabId}
