@@ -28,14 +28,13 @@ class App extends React.Component<{}, State> {
     return currentTab;
   };
 
-  onTabSelected = (event: React.MouseEvent<HTMLButtonElement>) => {
-    event.preventDefault();
-    if (this.state.selectedTabId === event.currentTarget.id) {
+  onTabSelected = (id: string) => {
+    if (this.state.selectedTabId === id) {
       return;
     }
 
     this.setState(({
-      selectedTabId: event.currentTarget.id,
+      selectedTabId: id,
     }));
   };
 
@@ -51,13 +50,9 @@ class App extends React.Component<{}, State> {
 
         <Tabs
           tabs={tabs}
-          selectedTabId={selectedTabId}
           onTabSelected={this.onTabSelected}
+          selectedTabId={selectedTabId}
         />
-
-        <p>
-          {this.getCurrentTab().content}
-        </p>
       </div>
     );
   }
