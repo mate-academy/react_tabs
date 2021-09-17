@@ -17,11 +17,7 @@ type State = {
 class App extends React.PureComponent<{}, State> {
   state = {
     selectedTabId: tabs[0].id,
-    selectedTab: {
-      id: 'tab-1',
-      title: 'Tab 1',
-      content: 'Some text 1',
-    },
+    selectedTab: tabs[0],
   };
 
   onTabSelected = (tab: Tab) => {
