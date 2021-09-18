@@ -1,4 +1,6 @@
 import React from 'react';
+import './Tabs.scss';
+import classNames from 'classnames';
 
 type Props = {
   tabs: Tab[];
@@ -9,8 +11,13 @@ type Props = {
 export const Tabs: React.FC<Props> = (props) => {
   const { tabs, onTableSelected, selectedTabId } = props;
 
-  return (
+  // let selectedButton = 'btn';
 
+  // if (selectedTabId.id !== 'tab-1') {
+  //   selectedButton += ' select';
+  // }
+
+  return (
     <>
       <div className="card-link">
 
@@ -19,7 +26,14 @@ export const Tabs: React.FC<Props> = (props) => {
             <div key={tab.id}>
               <button
                 type="submit"
-                className="btn btn-link"
+                className={classNames(
+                  'nav-link',
+                  'btn',
+                  {
+                    active: tab.id === selectedTabId.id,
+                  },
+                )}
+                // className={selectedButton}
                 onClick={() => onTableSelected(tab.id)}
               >
                 {tab.title}

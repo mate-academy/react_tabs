@@ -4,7 +4,7 @@ import './App.scss';
 import { Tabs } from './components/Tab/Tabs';
 
 const tabs: Tab[] = [
-  { id: 'tab-1', title: 'Tab 1', content: 'Intrusting facts' },
+  { id: 'tab-1', title: 'Tab 1', content: 'interesting facts' },
   { id: 'tab-2', title: 'Tab 2', content: 'are waiting us ...' },
   { id: 'tab-3', title: 'Tab 3', content: 'Just put the button' },
 ];
@@ -35,7 +35,7 @@ export class App extends React.Component<{}, State> {
         </h1>
 
         <Tabs
-          tabs={[...tabs]}
+          tabs={tabs}
           selectedTabId={selectedTab}
           onTableSelected={this.onSelected}
         />
