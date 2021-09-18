@@ -19,9 +19,9 @@ export const Tabs:React.FC<Props> = (props) => {
   };
 
   const tabs = [...props.tabs];
-  let content:Tab | string = tabs.find(tab => tab.id === props.selectedTabId) || tabs[0];
+  const displayedTab:Tab = tabs.find(tab => tab.id === props.selectedTabId) || tabs[0];
 
-  content = content.content;
+  const { content } = displayedTab;
 
   return (
     <>

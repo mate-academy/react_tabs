@@ -8,20 +8,16 @@ const tabs: Tab[] = [
   { id: 'tab-3', title: 'Tab 3', content: 'Some text 3' },
 ];
 
-type Props = {
-
-};
-
 type State = {
-  selectedTab:Tab;
+  selectedTab: Tab;
 };
 
-class App extends React.Component<Props, State> {
+class App extends React.Component<{}, State> {
   state = {
     selectedTab: tabs[0],
   };
 
-  onTabSelect = (tab:Tab) => {
+  onTabSelect = (tab: Tab) => {
     this.setState({
       selectedTab: tab,
     });
@@ -34,13 +30,11 @@ class App extends React.Component<Props, State> {
           Current tab is:
           {' '}
           <b>
-            {
-              this.state.selectedTab.id
-            }
+            {this.state.selectedTab.id}
           </b>
         </h3>
         <Tabs
-          tabs={tabs}
+          tabs={[...tabs]}
           selectedTabId={this.state.selectedTab.id}
           onTabSelect={this.onTabSelect}
         />
