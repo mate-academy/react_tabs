@@ -4,15 +4,13 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import classNames from 'classnames';
 
 type Props = {
-  tabs:Tab[]
-  selectedTabId:string
-  onTabSelect:(tabId:Tab) => void
+  tabs: Tab[];
+  selectedTabId: string;
+  onTabSelect: (tab: Tab) => void;
 };
 
 export const Tabs:React.FC<Props> = (props) => {
-  const handleTabChange = (event:React.MouseEvent<HTMLButtonElement>, tab:Tab) => {
-    event.preventDefault();
-
+  const handleTabChange = (tab:Tab) => {
     if (tab.id !== props.selectedTabId) {
       props.onTabSelect(tab);
     }
@@ -33,11 +31,7 @@ export const Tabs:React.FC<Props> = (props) => {
               className={classNames('nav-link', {
                 active: tab.id === props.selectedTabId,
               })}
-              onClick={
-                (event) => {
-                  handleTabChange(event, tab);
-                }
-              }
+              onClick={() => handleTabChange(tab)}
             >
               {tab.title}
             </button>
