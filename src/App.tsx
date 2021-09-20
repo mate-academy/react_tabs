@@ -5,7 +5,7 @@ import { Buttons } from './components/Buttons';
 import { Content } from './components/Content';
 
 const tabs: Tab[] = [
-  { id: 'tab-1', title: 'Tab 1', content: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Officia hic quod similique iusto error doloremque amet quos, labore nulla, voluptatibus possimus repellat aperiam eius numquam asperiores tempora culpa eveniet dicta nemo pariatur, aspernatur minus deserunt. Sed animi rem illum saepe, ducimus ipsam iusto dignissimos numquam!' },
+  { id: 'tab-1', title: 'Tab 1', content: 'Some text 1' },
   { id: 'tab-2', title: 'Tab 2', content: 'Some text 2' },
   { id: 'tab-3', title: 'Tab 3', content: 'Some text 3' },
 ];
@@ -15,8 +15,8 @@ type State = {
 };
 
 class App extends React.Component<{}, State> {
-  state = {
-    selectedTab: 'tab-1',
+  state: State = {
+    selectedTab: tabs[0].id,
   };
 
   changeTab = (id: string) => {

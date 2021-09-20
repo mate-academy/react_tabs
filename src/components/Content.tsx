@@ -12,7 +12,7 @@ export const Content: React.FC<Props> = (props) => {
 
   return (
     <>
-      {currentTab === undefined ? '' : currentTab.content}
+      {currentTab && currentTab.content}
     </>
   );
 };

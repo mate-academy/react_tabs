@@ -10,17 +10,15 @@ export const Buttons: React.FC<Props> = (props) => {
 
   return (
     <div>
-      {tabButtons.map(tab => {
-        return (
-          <button
-            type="button"
-            key={tab.id}
-            onClick={() => changeTab(tab.id)}
-          >
-            {tab.title}
-          </button>
-        );
-      })}
+      {tabButtons.map(tab => (
+        <button
+          type="button"
+          key={tab.id}
+          onClick={() => changeTab(tab.id)}
+        >
+          {tab.title}
+        </button>
+      ))}
     </div>
   );
 };
