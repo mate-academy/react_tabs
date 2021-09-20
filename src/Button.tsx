@@ -17,20 +17,22 @@ class Button extends React.Component<Props, {}> {
     return (
       <>
         <ul className="nav nav-tabs">
-          {tabs.map(tab => {
-            return (
-              <li className="nav-item">
-                <button
-                  type="button"
-                  className="nav-link"
-                  key={tab.id}
-                  onClick={() => handleSelect(tab.id)}
-                >
-                  {tab.title}
-                </button>
-              </li>
-            );
-          })}
+          {tabs.map(tab => (
+            <li className="nav-item">
+              <button
+                type="button"
+                className="nav-link"
+                key={tab.id}
+                onClick={() => {
+                  if (selectedTab.id !== tab.id) {
+                    handleSelect(tab.id);
+                  }
+                }}
+              >
+                {tab.title}
+              </button>
+            </li>
+          ))}
         </ul>
         {selectedTab.content}
       </>

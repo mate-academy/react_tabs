@@ -19,23 +19,25 @@ class App extends React.Component<{}, State> {
   };
 
   handleSelect = (id: string) => {
-    const idx = tabs.findIndex(tab => tab.id === id);
+    const tab = tabs.find(item => item.id === id) || tabs[0];
 
     this.setState({
-      selectedTab: tabs[idx],
+      selectedTab: tab,
     });
   };
 
   render() {
+    const { selectedTab } = this.state;
+
     return (
       <div className="App">
         <h1>
           Selected tab is&nbsp;
-          {this.state.selectedTab.id}
+          {selectedTab.id}
         </h1>
         <Button
           tabs={tabs}
-          selectedTab={this.state.selectedTab}
+          selectedTab={selectedTab}
           handleSelect={this.handleSelect}
         />
       </div>
