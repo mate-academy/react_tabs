@@ -18,18 +18,17 @@ export class App extends React.Component<{}, State> {
     selectedTab: tabs[0],
   };
 
-  chooseTab = (tab: Tab) => (
+  chooseTab = (tab: Tab) => {
     this.setState({
       selectedTab: tab,
-    })
-  );
+    });
+  };
 
   render() {
     return (
       <div className="App">
         <h1>
-          {'Selected tab is '}
-          {this.state.selectedTab.title}
+          {`Selected tab is ${this.state.selectedTab.title}`}
         </h1>
 
         <Tabs
