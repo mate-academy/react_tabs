@@ -11,6 +11,7 @@ const tabs: Tab[] = [
 ];
 
 type Props = {};
+
 type State = {
   selectedTab: Tab;
 };
@@ -21,10 +22,14 @@ class App extends React.Component<Props, State> {
   };
 
   onTabSelected = (id: string) => {
-    const chooseTab = tabs.findIndex(tab => tab.id === id);
+    const tabIndex = tabs.findIndex(tab => tab.id === id);
+
+    if (id === this.state.selectedTab.id) {
+      return;
+    }
 
     this.setState({
-      selectedTab: tabs[chooseTab],
+      selectedTab: tabs[tabIndex],
     });
   };
 
