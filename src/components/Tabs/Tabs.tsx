@@ -27,7 +27,10 @@ export const Tabs : React.FC<Props> = (props) => {
             color: 'rgb(60, 104, 143)',
           }}
           onClick={() => {
+            // eslint-disable-next-line no-console
+            console.log(selectedTabId);
             onTabSelected(selectedTabId);
+
             setContent(tabs[0].content);
             setFocus(true);
           }}
@@ -41,7 +44,7 @@ export const Tabs : React.FC<Props> = (props) => {
               id={tab.id}
               className="Tabs__button"
               onClick={() => {
-                onTabSelected(selectedTabId);
+                onTabSelected(tab.id);
                 setContent(tab.content);
                 setFocus(false);
               }}

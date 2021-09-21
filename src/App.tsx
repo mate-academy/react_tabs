@@ -12,40 +12,47 @@ const preparedTabs: Tab[] = [
 type State = {
   tabs: Tab[];
   selectedTabId: string;
+  tabTitle: string;
 };
 
 class App extends React.Component<{}, State> {
   state: State = {
     tabs: preparedTabs,
     selectedTabId: preparedTabs[0].id,
+    tabTitle: preparedTabs[0].title,
   };
 
-  getCurrentTab = () => {
-    const currentTab: Tab = this.state.tabs.find((tab) => (
-      tab.id === this.state.selectedTabId
-    )) || this.state.tabs[0];
-
-    return currentTab;
-  };
+  getSelectedTab = (id: string) => (
+    this.state.tabs.find((tab) => (
+      tab.id === id
+    )));
 
   onTabSelected = (id: string) => {
     if (this.state.selectedTabId === id) {
       return;
     }
 
+    const { tabTitle } = this.state;
+
+    const selectedTab = this.getSelectedTab(id);
+
+    const selectedTabTitle = selectedTab ? selectedTab.title : tabTitle;
+
     this.setState(({
       selectedTabId: id,
+      tabTitle: selectedTabTitle,
     }));
   };
 
   render() {
-    const { tabs, selectedTabId } = this.state;
+    const { tabs, selectedTabId, tabTitle } = this.state;
 
     return (
       <div className="App container">
         <div className="h1">
           Selected tab is&nbsp;
-          {this.getCurrentTab().title}
+
+          {tabTitle}
         </div>
 
         <Tabs
