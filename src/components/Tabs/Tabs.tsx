@@ -27,17 +27,14 @@ export const Tabs : React.FC<Props> = (props) => {
             color: 'rgb(60, 104, 143)',
           }}
           onClick={() => {
-            // eslint-disable-next-line no-console
-            console.log(selectedTabId);
             onTabSelected(selectedTabId);
-
             setContent(tabs[0].content);
             setFocus(true);
           }}
         >
           {tabs[0].title}
         </button>
-        {tabs.filter(tab => tab.id !== tabs[0].id).map(tab => (
+        {tabs.slice(1).map(tab => (
           <div key={tab.id}>
             <button
               type="button"

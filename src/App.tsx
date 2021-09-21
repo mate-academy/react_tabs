@@ -51,7 +51,6 @@ class App extends React.Component<{}, State> {
       <div className="App container">
         <div className="h1">
           Selected tab is&nbsp;
-
           {tabTitle}
         </div>
 
