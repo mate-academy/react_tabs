@@ -11,12 +11,6 @@ type Props = {
 export const Tabs: React.FC<Props> = (props) => {
   const { tabs, onTableSelected, selectedTabId } = props;
 
-  // let selectedButton = 'btn';
-
-  // if (selectedTabId.id !== 'tab-1') {
-  //   selectedButton += ' select';
-  // }
-
   return (
     <>
       <div className="card-link">
@@ -33,8 +27,11 @@ export const Tabs: React.FC<Props> = (props) => {
                     active: tab.id === selectedTabId.id,
                   },
                 )}
-                // className={selectedButton}
-                onClick={() => onTableSelected(tab.id)}
+                onClick={() => {
+                  if (tab.id) {
+                    onTableSelected(tab.id);
+                  }
+                }}
               >
                 {tab.title}
               </button>
