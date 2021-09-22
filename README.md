@@ -1,5 +1,5 @@
 # React Tabs
-- Replace `<your_account>` with your Github username in the [DEMO LINK](https://<your_account>.github.io/react_tabs/)
+- Replace `<your_account>` with your Github username in the [DEMO LINK](https://SashaRudenko.github.io/react_tabs/)
 - Follow the [React task guideline](https://github.com/mate-academy/react_task-guideline#react-tasks-guideline)
 - Use [React TypeScript cheat sheet](https://mate-academy.github.io/fe-program/js/extra/react-typescript)
 
@@ -7,9 +7,9 @@
 1. Your `App` component contains an array of `tabs`
     ```javascript
     const tabs = [
-      { id: 'tab-1', title: 'Tab 1', content: 'Some text 1' },
-      { id: 'tab-2', title: 'Tab 2', content: 'Some text 2' },
-      { id: 'tab-3', title: 'Tab 3', content: 'Some text 3' },
+      { id: 'tab-1', title: 'Home', content: 'Some text 1' },
+      { id: 'tab-2', title: 'Profile', content: 'Some text 2' },
+      { id: 'tab-3', title: 'Contact', content: 'Some text 3' },
     ];
     ```
 1. Save the `selectedTab` in the `App` (the first one by default)
