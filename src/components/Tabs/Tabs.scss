@@ -1,0 +1,18 @@
+.Tabs {
+  &__button {
+    height: 48px;
+    width: 72px;
+    background-color: #fff;
+    border:rgb(27, 40, 51) solid 1px;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    
+    color: rgb(60, 104, 143);
+
+    &:focus {
+      outline: transparent;
+      border-bottom: none;
+      color: black;
+    }
+  }
+}
