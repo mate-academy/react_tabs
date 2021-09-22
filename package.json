@@ -35,9 +35,11 @@
     "start": "mate-scripts start",
     "build": "mate-scripts build",
     "test": "mate-scripts test",
-    "lint-js": "eslint --ext .ts,.tsx,.js,.jsx ./src/ --fix",
-    "lint-css": "stylelint src/**/*.css src/**/*.scss --fix",
+    "lint-js": "mate-scripts lint -j",
+    "lint-css": "mate-scripts lint -s",
     "lint": "npm run lint-js && npm run lint-css",
+    "update": "mate-scripts update",
+    "postinstall": "npm run update",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build"
   },
