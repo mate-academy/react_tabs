@@ -1,1 +1,22 @@
-// Put styles here
+.App {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.tab {
+  background: rgb(119,119,119);
+  color: white;
+  display: inline-block;
+  font: bold 15px/1.4 Arial, Helvetica, sans-serif;
+  padding: 5px 15px;
+
+  &__active {
+    background-color: rgba(245, 245, 220, 0.76);
+    color: brown;
+    border-bottom: rgba(255, 255, 255, 0);
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: row;
+  }
+}
