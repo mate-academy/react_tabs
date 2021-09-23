@@ -1,0 +1,28 @@
+.Tabs {
+  &__list {
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  &__link {
+    width: 80px;
+    height: 40px;
+    border: 1px solid transparent;
+    background-color: #fff;
+    border-radius: 10px 10px 0 0;
+  }
+
+  &__choose {
+    margin: 0;
+    padding: 30px;
+    background-color: rgb(204, 204, 204);
+    height: 100vh;
+  }
+}
+
+.active {
+  background-color: rgb(204, 204, 204);
+}
