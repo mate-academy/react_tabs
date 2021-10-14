@@ -1,0 +1,12 @@
+.tab {
+  background: linear-gradient(to bottom, #91eae4, #86a8e7, #7f7fd5);
+  border: none;
+  padding: 5px 10px;
+  margin: 10px;
+  border-radius: 7px;
+}
+
+.tab--active {
+  background: #fff;
+  border: 1px solid black;
+}
