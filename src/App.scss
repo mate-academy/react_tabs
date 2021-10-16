@@ -1,1 +1,9 @@
-// Put styles here
+.App {
+  &__title {
+    margin: 20px 10px;
+  }
+}
+
+.tab-content {
+  padding: 2px 10px;
+}
