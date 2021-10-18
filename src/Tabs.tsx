@@ -3,7 +3,7 @@ import classNames from 'classnames';
 
 interface Props {
   tabs: Tab[]
-  onTabSelected: any,
+  onTabSelected: (id: string) => void,
   selectedTabId: string,
 }
 
