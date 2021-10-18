@@ -13,7 +13,7 @@ export const Tabs: React.FC<Props> = ({ tabs, selectedTabId, selectCurrentTab })
 
   return (
     <nav>
-      <ul className="nav nav-pills">
+      <ul className="nav nav-tabs">
         {tabs.map(tab => (
           <li key={tab.id} className="nav-item">
             <button
