@@ -1,1 +1,39 @@
-// Put styles here
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.tab {
+  &__title {
+    margin: 20px;
+  }
+
+  &__content {
+    padding: 15px;
+  }
+
+  &__list {
+    list-style: none;
+    display: flex;
+    border-bottom: 2px solid black;
+    box-sizing: border-box;
+    height: 40px;
+
+    &-item {
+      &-active {
+        border: 2px solid black;
+        border-radius: 5px 5px 0 0;
+      }
+    }
+  }
+  
+  &__button {
+    border: 0;
+    padding: 10px 20px;
+    background-color: #fff;
+  }
+}
