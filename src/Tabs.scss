@@ -1,0 +1,35 @@
+.tabs-list {
+  display: flex;
+  justify-content: space-between;
+  padding: 0;
+  list-style-type: none;
+  border-bottom: 1px solid rgb(206, 198, 198);
+  margin: 0;
+  width: 500px;
+}
+
+.button {
+  height: 30px;
+  width: 70px;
+  padding: 0;
+  outline: none;
+  border: none;
+  color: #fff;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  cursor: pointer;
+}
+
+.tab-button-active {
+  background-color: rgb(206, 198, 198);
+  color: black;
+  font-weight: bold;
+}
+
+.show-tabs {
+  background-color: rgba(155, 153, 153, 0.57);
+  height: 300px;
+  border: 1px solid rgb(206, 198, 198);
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
