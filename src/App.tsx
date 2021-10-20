@@ -1,4 +1,5 @@
 import React from 'react';
+import Button from './Button';
 
 import './App.scss';
 
@@ -8,11 +9,40 @@ const tabs: Tab[] = [
   { id: 'tab-3', title: 'Tab 3', content: 'Some text 3' },
 ];
 
-const App: React.FC = () => (
-  <div className="App">
-    <h1>Selected tab is&nbsp;Tab 1</h1>
-    <div>{tabs.length}</div>
-  </div>
-);
+interface State {
+  selectedTab: Tab;
+}
+
+class App extends React.Component<{}, State> {
+  state: State = {
+    selectedTab: tabs[0],
+  };
+
+  handleSelect = (id: string) => {
+    const tab = tabs.find(item => item.id === id) || tabs[0];
+
+    this.setState({
+      selectedTab: tab,
+    });
+  };
+
+  render() {
+    const { selectedTab } = this.state;
+
+    return (
+      <div className="App">
+        <h1>
+          Selected tab is&nbsp;
+          {selectedTab.id}
+        </h1>
+        <Button
+          tabs={tabs}
+          selectedTab={selectedTab}
+          handleSelect={this.handleSelect}
+        />
+      </div>
+    );
+  }
+}
 
 export default App;
