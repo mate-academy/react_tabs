@@ -1,1 +1,57 @@
-// Put styles here
+body {
+  padding: 0;
+  margin: 0;
+}
+
+.App {
+  display: block;
+  max-width: 600px;
+  min-height: 280px;
+  background-color: rgb(231, 241, 241);
+  margin: 0 auto;
+  padding: 10px;
+
+  &__title {
+    display: block;
+    padding: 6px 0;
+    margin: 0;
+    color: rgb(69, 85, 155);
+    text-align: center;
+    background-color: rgb(185, 216, 255);
+  }
+}
+
+.tabs {
+  margin: 8px;
+
+  &__nav {
+    display: flex;
+    position: relative;
+    margin-left: 20%;
+  }
+
+  &__content {
+    display: block;
+    height: 250px;
+    font-size: 18px;
+    color: rgb(65, 76, 124);
+    background-color: rgb(232, 227, 243);
+    padding: 10px;
+  }
+}
+
+.tab-button {
+  height: 32px;
+  width: 85px;
+  color: rgb(69, 85, 155);
+  font-weight: bold;
+  border: 1px solid rgb(156, 141, 190);
+  background-color: rgb(210, 194, 243);
+  transition: background-color 0.3s;
+
+  &__active {
+    border: 1px solid rgb(156, 141, 190);
+    border-bottom: none;
+    background-color: rgb(232, 227, 243);
+  }
+}
