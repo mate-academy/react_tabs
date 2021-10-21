@@ -1,1 +1,19 @@
-// Put styles here
+.App {
+  text-align: center;
+  font-size: 20px;
+}
+
+.tabs_button {
+  margin-right: 10px;
+  width: 80px;
+  height: 30px;
+
+  &:hover {
+    background-color: yellowgreen;
+    border-color: transparent;
+  }
+}
+
+.some_text {
+  margin-top: 20px;
+}
