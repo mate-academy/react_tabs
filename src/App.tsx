@@ -21,6 +21,8 @@ export class App extends React.Component<{}, {}> {
 
   render() {
     const activeTab = tabs.find(tab => tab.id === this.state.selectedTabId) || tabs[0];
+    const { onTabSelected } = this;
+    const { selectedTabId } = this.state;
 
     return (
       <div className="App">
@@ -32,8 +34,8 @@ export class App extends React.Component<{}, {}> {
         <div className="tabs-container">
           <Tabs
             tabs={tabs}
-            onTabSelected={this.onTabSelected}
-            selectedTabId={this.state.selectedTabId}
+            onTabSelected={onTabSelected}
+            selectedTabId={selectedTabId}
           />
         </div>
 
