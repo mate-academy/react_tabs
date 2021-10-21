@@ -18,9 +18,7 @@ export const Tabs: React.FC<Props> = ({ tabs, onTabSelected, selectedTabId }) =>
             key={id}
             type="button"
             className={classNames('tab', { 'tab--is-active': selectedTabId === id })}
-            onClick={() => {
-              onTabSelected(id);
-            }}
+            onClick={() => onTabSelected(id)}
           >
             {title}
           </button>
