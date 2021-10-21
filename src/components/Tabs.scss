@@ -1,0 +1,10 @@
+.nav {
+  &__button {
+    width: 90px;
+    height: 30px;
+    background-color: #fff;
+    border: 1px solid grey;
+    border-top-right-radius: 10%;
+    border-top-left-radius: 10%;
+  }
+}
