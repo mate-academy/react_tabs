@@ -1,7 +1,7 @@
 import React from 'react';
 
 import './App.scss';
-import { Tab, Props, State } from './types/Type';
+import { Tab, State } from './types/Type';
 import { Tabs } from './components/Tabs/index';
 
 const tabsFromServer: Tab[] = [
@@ -10,7 +10,7 @@ const tabsFromServer: Tab[] = [
   { id: 'tab-3', title: 'Tab 3', content: 'Some text 3' },
 ];
 
-class App extends React.Component<Props, State> {
+class App extends React.Component<{}, State> {
   state: State = {
     tabs: tabsFromServer,
     selectedTabId: 'tab-1',
