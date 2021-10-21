@@ -32,15 +32,17 @@ class App extends React.PureComponent<{}, State> {
   };
 
   render() {
+    const { selectedTab, selectedTabId } = this.state;
+
     return (
       <div className="App">
         <h1>
           Selected tab is&nbsp;
-          {this.state.selectedTabId}
+          {selectedTabId}
         </h1>
         <Tabs
           tabs={tabs}
-          selectedTab={this.state.selectedTab}
+          selectedTab={selectedTab}
           onTabSelected={this.handleTabSelect}
         />
       </div>
