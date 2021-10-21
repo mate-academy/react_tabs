@@ -1,1 +1,26 @@
-// Put styles here
+.list {
+  list-style: none;
+  display: flex;
+}
+
+.tab {
+  width: 100px;
+  background-color: #fff;
+  border: none;
+  cursor: pointer;
+  border-bottom: 1px solid #eee;
+  font-size: large;
+  font-weight: 500;
+}
+
+.tab:hover {
+  color: blue;
+  background-color: #eee;
+
+  transition: 0.3s;
+}
+
+.content {
+  font-size: 20px;
+  font-weight: 500;
+}
