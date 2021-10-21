@@ -1,1 +1,18 @@
-// Put styles here
+.content {
+  border-top: 1px solid black;
+  margin-top: -1px;
+}
+
+.button {
+  border: none;
+  border-left: 1px solid black;
+  background-color: transparent;
+
+  &:last-child {
+    border-right: 1px solid black;
+  }
+
+  &--active {
+    background-color: white;
+  }
+}
