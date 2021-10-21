@@ -1,1 +1,16 @@
-// Put styles here
+.App {
+  color: #574b60;
+}
+
+.tab {
+  width: 60px;
+  height: 30px;
+  background-color: #c0c5c1;
+
+  &--is-active {
+    color: #eaf0ce;
+    border: none;
+    background-color: #574b60;
+    transition: 0.2s;
+  }
+}
