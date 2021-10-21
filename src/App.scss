@@ -1,1 +1,25 @@
-// Put styles here
+.App {
+  width: 300px;
+}
+
+.tab {
+  width: 60px;
+  height: 30px;
+  border: 1px solid black;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  background-color: lightgray;
+
+  &--is-active {
+    border: 1px solid rgb(245, 247, 154);
+    background-color: rgb(245, 247, 154);
+    transition: 0.2s;
+  }
+
+  &__content {
+    padding: 15px;
+    height: 300px;
+    background-color: rgb(245, 247, 154);
+    border-radius: 0 5px 5px;
+  }
+}
