@@ -3,21 +3,19 @@ import classNames from 'classnames';
 import './Tabs.scss';
 
 interface Props {
-  selectedTab: Tab,
+  selectedTabId: string,
   tabs: Tab[],
   onTitle: (tab: Tab) => void,
 }
 
-export const Tabs: React.FC<Props> = ({ selectedTab, tabs, onTitle }) => {
-  const { id: selectedId, content } = selectedTab;
-
+export const Tabs: React.FC<Props> = ({ selectedTabId, tabs, onTitle }) => {
   return (
     <div className="Tabs">
       <ul className="Tabs-Titles">
         {tabs.map(tab => (
           <li
             key={tab.id}
-            className={classNames('Tabs-Title', { 'Tabs-Title_Selected': selectedId === tab.id })}
+            className={classNames('Tabs-Title', { 'Tabs-Title_Selected': selectedTabId === tab.id })}
           >
             <button
               type="button"
@@ -29,7 +27,7 @@ export const Tabs: React.FC<Props> = ({ selectedTab, tabs, onTitle }) => {
           </li>
         ))}
       </ul>
-      <p className="Tabs-Content">{content}</p>
+      <p className="Tabs-Content">{tabs.find(tab => tab.id === selectedTabId)?.content}</p>
     </div>
   );
 };

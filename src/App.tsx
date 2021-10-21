@@ -34,7 +34,7 @@ class App extends React.PureComponent {
           {`Selected method of Array is: ${this.state.selectedTab.title}`}
         </h1>
         <Tabs
-          selectedTab={selectedTab}
+          selectedTabId={selectedTab.id}
           tabs={tabs}
           onTitle={this.changeTab}
         />
