@@ -1,1 +1,15 @@
-// Put styles here
+.App {
+  width: 80vw;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  &-Title {
+    color: #fb4a4a;
+    letter-spacing: 2px;
+    font-size: 48px;
+    margin: 0 0 16px;
+  }
+}
