@@ -13,7 +13,7 @@ export class Tabs extends React.PureComponent<Props, {}> {
     return (
       <>
         <ul className="list">
-          {[...tabs].map(tab => (
+          {tabs.map(tab => (
             <li>
               <button
                 className="tab"
