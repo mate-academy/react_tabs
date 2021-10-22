@@ -1,5 +1,5 @@
 # React Tabs
-- Replace `<your_account>` with your Github username in the [DEMO LINK](https://<your_account>.github.io/react_tabs/)
+- Replace `<your_account>` with your Github username in the [DEMO LINK](https://s-person27.github.io/react_tabs/)
 - Follow the [React task guideline](https://github.com/mate-academy/react_task-guideline#react-tasks-guideline)
 - Use [React TypeScript cheat sheet](https://mate-academy.github.io/fe-program/js/extra/react-typescript)
 
@@ -25,4 +25,4 @@
 1. When the user selects another tab the `h1` should be updated accordingly
 1. The `Tabs` component should be stateless
 
-![tabs](./description/tabs.gif)
+![tabs](./description/ tabs.gif)
