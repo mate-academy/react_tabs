@@ -11,17 +11,15 @@ const tabs: Tab[] = [
 
 type State = {
   selectedTab: Tab;
-  selectedTabId: string;
 };
 
 class App extends React.PureComponent<{}, State> {
   state: State = {
     selectedTab: tabs[0],
-    selectedTabId: 'tab-1',
   };
 
   handleTabSelect = (tab: Tab) => {
-    if (tab.id === this.state.selectedTabId) {
+    if (tab.id === this.state.selectedTab.id) {
       return 0;
     }
 
