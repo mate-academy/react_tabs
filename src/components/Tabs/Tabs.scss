@@ -1,0 +1,42 @@
+.tab {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 10px;
+  background-color: #fedcba;
+
+  &__title {
+    box-sizing: border-box;
+    margin: 0;
+    margin-bottom: 2px;
+    padding: 5px;
+    font-size: 20px;
+    font-weight: 600;
+    bottom: unset;
+    background-color: #fedcba;
+    border: none;
+
+    &:hover {
+      box-sizing: border-box;
+      cursor: pointer;
+      background-color: #dcba98;
+    }
+
+    &--selected {
+      box-sizing: border-box;
+      border: 2px solid #987654;
+      border-bottom: 3px solid #fedcba;
+    }
+  }
+
+  &__content {
+    // display: none;
+    box-sizing: border-box;
+    margin: 0;
+    margin-top: -4px;
+    padding: 5px;
+    font-size: 14px;
+    font-weight: 400;
+    border: 2px solid #987654;
+    border-bottom: none;
+  }
+}
