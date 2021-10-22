@@ -1,1 +1,14 @@
-// Put styles here
+.App {
+width: max-content;
+padding: 10px;
+
+background-color: #565;
+box-shadow: 10px 10px 0 #000;
+
+  &__heading {
+    margin: 0 0 5px;
+    color: #cdc;
+    font-family: Arial;
+    text-align: center;
+  }
+}
