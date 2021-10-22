@@ -22,11 +22,9 @@ export const Tabs: React.FC<TabsPropsType> = ({
               type="button"
               className={classNames('Tabslist__button', { 'Tabslist__button--active': tab.id === selectedTabId })}
               onClick={() => {
-                if (tab.id === selectedTabId) {
-                  return {};
+                if (tab.id !== selectedTabId) {
+                  onTabSelected(tab);
                 }
-
-                return onTabSelected(tab);
               }}
             >
               {tab.title}
@@ -34,14 +32,7 @@ export const Tabs: React.FC<TabsPropsType> = ({
           </li>
         ))}
       </ul>
-      {tabs.filter(tab => tab.id === selectedTabId)
-        .map(tab => (
-          <article
-            key={tab.id}
-          >
-            {tab.content}
-          </article>
-        ))}
+      {(tabs.find(({ id }) => id === selectedTabId))?.content}
     </>
   );
 };
