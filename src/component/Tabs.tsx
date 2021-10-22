@@ -21,7 +21,7 @@ export const Tabs: React.FC<Props> = ({ tabs, selectedTab, onTabClick }) => {
                 type="button"
                 className={classNames(
                   'tab__button',
-                  { tab__button__active: tab === selectedTab },
+                  { tab__button__active: tab.id === selectedTab.id },
                 )}
                 onClick={() => {
                   if (tab !== selectedTab) {
