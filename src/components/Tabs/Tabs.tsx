@@ -30,20 +30,8 @@ export const Tabs: React.FC<Props> = ({
         </>
       ))
     }
-    {
-      tabs.map(tab => (
-        <>
-          <div
-            key={tab.id}
-            className={classnames(
-              'tab__content',
-              { 'tab__content--selected': tab.id === selectedTabId },
-            )}
-          >
-            {tab.content}
-          </div>
-        </>
-      ))
-    }
+    <div className="tab__content">
+      {tabs.find(tab => tab.id === selectedTabId)?.content}
+    </div>
   </div>
 );
