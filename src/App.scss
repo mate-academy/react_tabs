@@ -1,1 +1,8 @@
-// Put styles here
+.btn {
+  cursor: pointer;
+
+  &:active {
+    background-color: rgb(168, 31, 116);
+  }
+
+}
