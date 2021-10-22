@@ -1,1 +1,14 @@
-// Put styles here
+.button {
+  cursor: pointer;
+
+  &__list {
+    display: flex;
+    flex: row;
+    gap: 20px;
+    list-style-type: none;
+  }
+}
+
+.selectedtab__content {
+  font-size: 20px;
+}
