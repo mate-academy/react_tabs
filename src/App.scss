@@ -1,1 +1,17 @@
 // Put styles here
+.App {
+  width: 300px;
+  padding: 20px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.tab-btn {
+  list-style: none;
+  padding: 10px;
+  border: 1px solid black;
+  border-radius: 10px;
+  background-color: rgb(234, 234, 248);
+}
