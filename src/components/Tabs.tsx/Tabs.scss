@@ -1,0 +1,26 @@
+.button {
+  background-color: white;
+  border: none;
+  padding: 10px;
+}
+
+.tabs-list {
+  max-width: 300px;
+  list-style: none;
+  display: flex;
+  border-bottom: 1px solid black;
+
+  &__item {
+    margin-right: 5px;
+    margin-bottom: -1px;
+
+    &-button {
+
+      &-active {
+        border: solid black;
+        border-width: 1px 1px 0 1px;
+        color: turquoise;
+      }
+    }
+  }
+}
