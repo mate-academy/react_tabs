@@ -10,7 +10,7 @@ const tabs: Tab[] = [
 ];
 
 interface State {
-  selectedTab: Tab
+  selectedTab?: Tab
 }
 
 export class App extends React.Component<{}, State> {
