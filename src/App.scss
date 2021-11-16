@@ -1,1 +1,13 @@
-// Put styles here
+ul {
+  display: flex;
+  list-style-type: none;
+}
+
+.button {
+  border-radius: 15px;
+  margin-right: 30px;
+  cursor: pointer;
+  &--active {
+    background: red;
+  }
+}
