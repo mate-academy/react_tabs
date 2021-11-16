@@ -29,7 +29,7 @@ class App extends React.Component {
           {this.state.activeTab.title}
         </h1>
         <Tabs
-          tabs={[...tabs]}
+          tabs={tabs}
           selectedTabId={this.state.activeTab.id}
           onTabSelected={this.ontabSelected}
         />
