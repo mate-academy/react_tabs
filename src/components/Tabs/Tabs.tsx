@@ -1,4 +1,6 @@
+/* eslint-disable quote-props */
 import React from 'react';
+import classNames from 'classnames';
 import { Tab } from '../../react-app-env';
 import './tab.scss';
 
@@ -17,6 +19,10 @@ export const Tabs: React.FC<Props> = ({ tabs, selectedTabId, onSelect }) => {
         {tabs.map(tab => {
           return (
             <button
+              className={classNames({
+                'tabs__item': true,
+                'tabs__item--selected': tab.id === selectedTabId,
+              })}
               type="button"
               id={tab.id}
               onClick={() => (onSelect(tab))}
@@ -25,10 +31,9 @@ export const Tabs: React.FC<Props> = ({ tabs, selectedTabId, onSelect }) => {
             </button>
           );
         })}
-      </div>
-
-      <div>
-        {selectedTab?.content}
+        <div className="tabs__content">
+          {selectedTab?.content}
+        </div>
       </div>
     </>
   );

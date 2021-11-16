@@ -38,6 +38,7 @@ export class App extends React.Component<{}, State> {
   render() {
     return (
       <div className="App">
+        <h1>{`Selected tab is ${this.state.selectedTab.title}`}</h1>
         <Tabs
           tabs={tabs}
           selectedTabId={this.state.selectedTab.id}
@@ -45,5 +46,5 @@ export class App extends React.Component<{}, State> {
         />
       </div>
     );
-  };
-};
+  }
+}
