@@ -1,1 +1,26 @@
-// Put styles here
+.tabs {
+  display: flex;
+
+  &__container {
+    display: grid;
+    gap: 20px;
+    justify-content: center;
+    align-content: center;
+  }
+
+  &__tab {
+    width: 100px;
+    background-color: white;
+    border-left-color: transparent;
+    border-right-color: transparent;
+    border-top-color: transparent;
+    border-bottom-color: violet;
+  }
+
+  &__selected {
+    border-left-color: violet;
+    border-right-color: violet;
+    border-top-color: violet;
+    border-bottom-color: transparent;
+  }
+}
