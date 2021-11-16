@@ -16,7 +16,9 @@ export const Tabs: React.FC<Props> = ({ tabs, selectedTabId, onTabSelected }) =>
         {tabs.map(tab => (
           <li
             key={tab.id}
-            className="tabs__list-item"
+            className={tab.id === selectedTabId
+              ? 'tabs__list-item tabs__list-item--active'
+              : 'tabs__list-item'}
           >
             <button
               type="button"

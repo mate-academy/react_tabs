@@ -6,12 +6,12 @@
   
   &__list-item {
     display: inline-block;
+    position: relative;
     list-style: none;
   }
 
   &__list-button {
     padding: 0.5rem 0.75rem;
-    margin-bottom: -1px;
     border: transparent;
     background-color: white;
   }
@@ -20,5 +20,15 @@
     background-color: white;
     border: solid #ccc;
     border-width: 1px 1px 0;
+
+    &::after {
+      position: absolute;
+      content: "";
+      height: 1px;
+      bottom: -1px;
+      left: 0%;
+      right: 0%;
+      background-color: #fff;
+    }
   }
 }
