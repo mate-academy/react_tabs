@@ -4,20 +4,21 @@
 
   &__item {
     width: 6em;
-    height: 3em;
+    padding: 15px;
     border: 1px solid black;
     background-color: white;
-    margin:-1px 0 0 -1px;
+    margin: -1px 0 0 -1px;
 
     &--selected {
       border-bottom: none;
-      transform: scaleY(1.05);
       transform-origin: bottom center;
+      padding-top: 20px;
     }
   }
 
   &__content {
     margin-left: -1px;
+    margin-top: -2px;
     padding: 1em;
     border: 1px solid black;
     border-top: none;

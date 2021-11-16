@@ -2,7 +2,7 @@
 import React from 'react';
 import classNames from 'classnames';
 import { Tab } from '../../react-app-env';
-import './tab.scss';
+import './Tabs.scss';
 
 type Props = {
   tabs: Tab[];
@@ -27,7 +27,9 @@ export const Tabs: React.FC<Props> = ({ tabs, selectedTabId, onSelect }) => {
               id={tab.id}
               onClick={() => (onSelect(tab))}
             >
-              {tab.title}
+              <span className="tabs__title">
+                {tab.title}
+              </span>
             </button>
           );
         })}
