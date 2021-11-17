@@ -14,10 +14,10 @@ class App extends React.Component {
     selectedTab: tabs[0],
   };
 
-  chooseSelectedTab = (tab: Tab) => {
-    if (this.state.selectedTab.id !== tab.id) {
+  chooseSelectedTab = (tabId: string) => {
+    if (this.state.selectedTab.id !== tabId) {
       this.setState({
-        selectedTab: tabs.find(item => item.id === tab.id),
+        selectedTab: tabs.find(item => item.id === tabId),
       });
     }
   };

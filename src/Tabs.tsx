@@ -1,11 +1,12 @@
 import React from 'react';
+import classNames from 'classnames';
 
 import './Tabs.scss';
 
 interface Props {
   tabs: Tab[],
   selectedTabId: string,
-  chooseSelectedTab: (tab: Tab) => void
+  chooseSelectedTab: (tabId: string) => void
 }
 
 export const Tabs: React.FC<Props> = ({
@@ -22,10 +23,11 @@ export const Tabs: React.FC<Props> = ({
           <li key={tab.id}>
             <button
               type="button"
-              className={(selectedTabId === tab.id)
-                ? 'Tabs__button Tabs__button--active'
-                : 'Tabs__button'}
-              onClick={() => chooseSelectedTab(tab)}
+              className={classNames(
+                'Tabs__button',
+                { 'Tabs__button--active': (selectedTabId === tab.id) },
+              )}
+              onClick={() => chooseSelectedTab(tab.id)}
             >
               {tab.title}
             </button>
