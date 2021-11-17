@@ -37,7 +37,9 @@ export class App extends React.Component<{}, State> {
           tabs={tabs}
           selectedTabId={selectedTab.id}
           onTabSelected={this.selectTab}
-        />
+        >
+          <p>{selectedTab.content}</p>
+        </Tabs>
       </div>
     );
   }

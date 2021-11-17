@@ -12,9 +12,8 @@ export const Tabs: React.FC<Props> = ({
   tabs,
   selectedTabId,
   onTabSelected,
+  children,
 }) => {
-  const selectedTab = tabs.find(item => item.id === selectedTabId);
-
   return (
     <div className="container">
       <div className="tabs">
@@ -33,9 +32,7 @@ export const Tabs: React.FC<Props> = ({
         ))}
       </div>
 
-      <p>
-        {selectedTab?.content}
-      </p>
+      {children}
     </div>
   );
 };
