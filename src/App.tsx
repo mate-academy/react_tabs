@@ -1,4 +1,6 @@
+/* eslint-disable react/no-unused-state */
 import React from 'react';
+import Tabs from './components/Tabs/Tabs';
 
 import './App.scss';
 
@@ -8,11 +10,41 @@ const tabs: Tab[] = [
   { id: 'tab-3', title: 'Tab 3', content: 'Some text 3' },
 ];
 
-const App: React.FC = () => (
-  <div className="App">
-    <h1>Selected tab is&nbsp;Tab 1</h1>
-    <div>{tabs.length}</div>
-  </div>
-);
+type Props = {};
+
+type State = {
+  selectedTab: Tab
+};
+
+class App extends React.Component<Props, State> {
+  state = {
+    selectedTab: tabs[0],
+  };
+
+  selectTab = (tab: Tab) => {
+    const { selectedTab } = this.state;
+
+    if (tab.id !== selectedTab.id) {
+      this.setState({ selectedTab: tab });
+    }
+  };
+
+  render() {
+    const { selectedTab } = this.state;
+
+    return (
+      <div className="App">
+        <h1>
+          {`Selected tab is: ${selectedTab.title}`}
+        </h1>
+        <Tabs
+          tabs={tabs}
+          selectedTabId={selectedTab.id}
+          onTabSelected={this.selectTab}
+        />
+      </div>
+    );
+  }
+}
 
 export default App;
