@@ -1,4 +1,5 @@
 import React from 'react';
+import './Tabs.scss';
 
 import { Tab } from '../types';
 
@@ -14,15 +15,17 @@ export const Tabs: React.FC<Props> = ({
   onTabSelected,
 }) => {
   return (
-    <ul className="Tabs">
+    <ul className="tabs">
       {tabs.map(tab => {
         const { id } = tab;
 
         return (
-          <li key={id}>
+          <li key={id} className="tabs__item">
             <button
               type="button"
-              className={id === selectedTabId.id ? 'selected' : ''}
+              className={id === selectedTabId.id
+                ? 'tabs__btn tabs__btn--active'
+                : 'tabs__btn '}
               onClick={() => {
                 if (selectedTabId.id !== id) {
                   onTabSelected(tab);
