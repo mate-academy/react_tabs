@@ -1,4 +1,5 @@
 import React from 'react';
+import classNames from 'classnames';
 import './Tabs.scss';
 
 interface Props {
@@ -19,9 +20,12 @@ export const Tabs: React.FC<Props> = ({ tabs, selectedTabId, onTabSelected }) =>
             className="tabs-list__item"
           >
             <button
-              className={selectedTabId === tab.id
-                ? 'button tabs-list__item-button-active'
-                : 'button tabs-list__item-button'}
+              className={classNames(
+                'button tabs-list__item-button',
+                {
+                  'button tabs-list__item-button-active': selectedTabId === tab.id,
+                },
+              )}
               type="button"
               onClick={() => onTabSelected(tab)}
             >
@@ -31,10 +35,8 @@ export const Tabs: React.FC<Props> = ({ tabs, selectedTabId, onTabSelected }) =>
         ))}
       </ul>
       <div className="content">
-        {selectedTab ? selectedTab.content : null}
+        {selectedTab && selectedTab.content}
       </div>
     </div>
   );
 };
-
-//  Line 17:11:  Non-interactive elements should not be assigned mouse or keyboard event listeners
