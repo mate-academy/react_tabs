@@ -1,1 +1,47 @@
-// Put styles here
+body {
+  margin: 0;
+  font-family: "Roboto", sans-serif;
+  font-size: 20px;
+  box-sizing: border-box;
+}
+
+.tabs {
+  &__list {
+    display: flex;
+    list-style: none;
+    margin: 0;
+  }
+
+  &__button {
+    &-active {
+      border: 1px solid lightgray;
+      background-color: lightgray;
+      font-size: 16px;
+      transition: all 0.2s;
+
+      &:hover {
+        transform: translateY(-4px);
+        cursor: pointer;
+      }
+    }
+
+    &-false {
+      background-color: #fff;
+      border: 1px solid black;
+      transition: all 0.2s;
+      font-size: 16px;
+
+      &:hover {
+        transform: translateY(-4px);
+        cursor: pointer;
+        background-color: rgb(170, 215, 243);
+      }
+    }
+  }
+
+  &__description {
+    margin: 0;
+    padding: 10px;
+    background-color: lightgray;
+  }
+}
