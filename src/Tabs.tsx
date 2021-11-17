@@ -16,7 +16,7 @@ export const Tabs: React.FC<Props> = ({ tabs, onContent, selectedId }) => {
         {tabs.map((tab) => (
           <li
             key={tab.id}
-            style={{ listStyle: 'none' }}
+            className="tab__element"
           >
             <button
               className={classNames({
