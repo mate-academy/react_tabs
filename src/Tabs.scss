@@ -1,0 +1,32 @@
+.Tabs {
+  &__TabsList {
+    display: flex;
+    gap: 10px;
+
+    list-style: none;
+
+    width: 300px;
+
+    border-bottom: 1px solid grey;
+  }
+
+  &__button {
+    border: none;
+    background-color: burlywood;
+    padding: 5px;
+
+    margin-bottom: -1px;
+
+    &--active {
+      background-color: rgb(230, 160, 69);
+
+      border: 1px solid grey;
+      border-bottom: none;
+      border-radius: 5px 5px 0 0;
+    }
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
