@@ -1,0 +1,25 @@
+.tabs {
+  &__list {
+    display: flex;
+    list-style-type: none;
+
+    gap: 10px;
+    width: 200px;
+    border-bottom: 2px solid grey;
+  }
+
+  &__button {
+    border-color: gray;
+    background-color: white;
+    margin-bottom: -2px;
+    box-shadow: none;
+
+    &--active {
+      border-color: yellowgreen;
+    }
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
