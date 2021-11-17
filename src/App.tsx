@@ -36,6 +36,7 @@ export class App extends React.Component<{}, State> {
           selectedTabId={selectedTab.id}
           onTabSelected={this.changeTab}
         />
+        <p className="tabs__content">{selectedTab?.content}</p>
       </div>
     );
   }

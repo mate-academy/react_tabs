@@ -8,8 +8,6 @@ type Props = {
 };
 
 export const Tabs: React.FC<Props> = ({ selectedTabId, tabs, onTabSelected }) => {
-  const selectedTab = tabs.find(tab => tab.id === selectedTabId);
-
   return (
     <div className="tabs">
       <ul className="tabs__list">
@@ -28,7 +26,6 @@ export const Tabs: React.FC<Props> = ({ selectedTabId, tabs, onTabSelected }) =>
           </li>
         ))}
       </ul>
-      <p className="tabs__content">{selectedTab?.content}</p>
     </div>
   );
 };
