@@ -18,7 +18,7 @@ export class App extends React.Component<{}, State> {
     selectedTab: tabs[0],
   };
 
-  handleSelect = (tab: Tab) => {
+  setSelectedTab = (tab: Tab) => {
     this.setState({ selectedTab: tab });
   };
 
@@ -32,7 +32,7 @@ export class App extends React.Component<{}, State> {
         <Tabs
           tabs={tabs}
           selectedTabId={this.state.selectedTab.id}
-          onTabSelected={this.handleSelect}
+          onTabSelected={this.setSelectedTab}
         />
       </div>
     );

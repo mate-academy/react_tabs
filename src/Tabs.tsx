@@ -11,13 +11,7 @@ export const Tabs: React.FC<Props> = ({ tabs, selectedTabId, onTabSelected }) =>
   const selectedTab: Tab | undefined = tabs
     .find(tab => tab.id === selectedTabId);
 
-  let selectedContent;
-
-  if (selectedTab) {
-    selectedContent = selectedTab.content;
-  } else {
-    selectedContent = tabs[0].content;
-  }
+  const selectedContent = selectedTab ? selectedTab.content : tabs[0].content;
 
   return (
     <>
