@@ -40,6 +40,7 @@ export class App extends React.Component<Props, State> {
         <h1>
           {' '}
           Selected tab is&nbsp;
+          {' : '}
           {selectedTab.title}
         </h1>
         <Tabs

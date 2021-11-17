@@ -1,4 +1,5 @@
 import React from 'react';
+import classNames from 'classnames';
 
 type Props = {
   tabs: Tab[],
@@ -11,13 +12,16 @@ export const Tabs: React.FC<Props> = ({ tabs, onContent, selectedId }) => {
 
   return (
     <>
-      <ul>
+      <ul className="tab">
         {tabs.map((tab) => (
           <li
             key={tab.id}
             style={{ listStyle: 'none' }}
           >
             <button
+              className={classNames({
+                tab__item: findSelectedTab?.id === tab.id,
+              })}
               type="submit"
               onClick={() => onContent(tab.id)}
             >
@@ -26,7 +30,11 @@ export const Tabs: React.FC<Props> = ({ tabs, onContent, selectedId }) => {
           </li>
         ))}
       </ul>
-      <p>{findSelectedTab?.content}</p>
+      <p
+        className="content"
+      >
+        {findSelectedTab?.content}
+      </p>
     </>
   );
 };
