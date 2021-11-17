@@ -34,6 +34,7 @@ class App extends React.Component<{}, State> {
           Selected tab is&nbsp;
           {selectedTab.title}
         </h1>
+
         <Tabs
           tabs={tabs}
           selectedTabId={selectedTab}
