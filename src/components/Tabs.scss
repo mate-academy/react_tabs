@@ -1,0 +1,14 @@
+.tabs {
+  text-align: center;
+
+  &__tab {
+    padding: 10px 30px;
+
+    &--active {
+      padding: 12px 45px;
+      background-color: rgb(112, 112, 112);
+      color: white;
+      border-bottom: none;
+    }
+  }
+}
