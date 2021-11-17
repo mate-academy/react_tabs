@@ -1,0 +1,25 @@
+.tabs {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border-bottom: 1px solid #000;
+
+  &__btn {
+    font-size: 40px;
+    background-color: #eee;
+    border: 1px solid transparent;
+    border-bottom: 1px solid #000;
+    padding: 10px 20px;
+    margin-bottom: -1px;
+
+    &--active {
+      background-color: rgb(235, 123, 123);
+      border: 1px solid #000;
+      border-bottom: 1px solid rgb(235, 123, 123);
+
+    }
+  }
+}
