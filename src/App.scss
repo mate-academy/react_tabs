@@ -1,1 +1,23 @@
-// Put styles here
+.Tabs {
+  margin: -1px 0;
+  list-style-type: none;
+  display: flex;
+  gap: 10px;
+}
+
+.button {
+  border: none;
+  background-color: white;
+  border-radius: 5px 5px 0 0;
+  cursor: pointer;
+}
+
+.active {
+  color: rgb(40, 8, 99);
+  border-bottom: 3px solid rgb(226, 21, 21);
+}
+
+.content {
+  padding-top: 20px;
+  min-height: 100px;
+}
