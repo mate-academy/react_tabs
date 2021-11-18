@@ -18,9 +18,10 @@ export const Tabs: React.FC<Props> = ({ tabs, selectTab, chooseTab }) => {
           <li key={tab.id} className="tabs__item">
             <button
               type="button"
-              className={classNames(selectedTab?.id === tab.id)
-                ? 'tabs__button tabs__button--active'
-                : 'tabs__button'}
+              className={classNames(
+                'tabs__button',
+                { 'tabs__button--active': (selectTab.id === tab.id) },
+              )}
               onClick={() => chooseTab(tab)}
             >
               {tab.id}
