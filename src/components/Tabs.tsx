@@ -1,5 +1,6 @@
 import React from 'react';
 import './Tabs.scss';
+import classNames from 'classnames';
 
 interface Props {
   tabs: Tab[],
@@ -17,7 +18,7 @@ export const Tabs: React.FC<Props> = ({ tabs, selectTab, chooseTab }) => {
           <li key={tab.id} className="tabs__item">
             <button
               type="button"
-              className={(selectedTab?.id === tab.id)
+              className={classNames(selectedTab?.id === tab.id)
                 ? 'tabs__button tabs__button--active'
                 : 'tabs__button'}
               onClick={() => chooseTab(tab)}
