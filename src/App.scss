@@ -1,1 +1,33 @@
-// Put styles here
+.tabList {
+  list-style-type: none;
+  border-bottom: 1px solid gray;
+  display: flex;
+  gap: 10px;
+}
+
+.button {
+  background-color: transparent;
+  border: none;
+  font-size: 20px;
+  color: rgb(0, 110, 135);
+  padding: 5px;
+  margin-bottom: -1px;
+  border-radius: 5px 5px 0 0;
+  cursor: pointer;
+}
+
+.active {
+  color: black;
+  border: 1px solid gray;
+  border-bottom: 1px solid white;
+}
+
+.text {
+  border-width: 1px 0;
+  border-style: solid;
+  border-color: gray;
+  min-height: 100px;
+  font-family: sans-serif;
+  padding: 15px;
+  font-size: 18px;
+}
