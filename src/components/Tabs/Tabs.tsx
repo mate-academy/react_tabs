@@ -1,5 +1,3 @@
-/* eslint-disable jsx-a11y/no-static-element-interactions */
-/* eslint-disable jsx-a11y/click-events-have-key-events */
 import React, { Fragment } from 'react';
 import './Tabs.scss';
 
@@ -14,7 +12,8 @@ export const Tabs: React.FC<Props> = ({ tabs, isSelected, activeTab }) => {
     <div>
       <div className="tabs_wrap">
         {tabs.map(({ title }) => (
-          <div
+          <button
+            type="button"
             onClick={() => {
               activeTab(title);
             }}
@@ -22,7 +21,7 @@ export const Tabs: React.FC<Props> = ({ tabs, isSelected, activeTab }) => {
             key={title}
           >
             {title}
-          </div>
+          </button>
         ))}
       </div>
       <div className="content">
