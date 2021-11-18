@@ -1,4 +1,5 @@
 import React from 'react';
+import classNames from 'classnames';
 import { Tab } from '../../types/types';
 
 interface Props {
@@ -16,15 +17,17 @@ export const Tabs: React.FC<Props> = ({ tabs, selectedTabId, onTabSelected }) =>
         {tabs.map(tab => (
           <li
             key={tab.id}
-            className={tab.id === selectedTabId
-              ? 'tabs__list-item tabs__list-item--active'
-              : 'tabs__list-item'}
+            className={classNames(
+              'tabs__list-item',
+              { 'tabs__list-item--active': tab.id === selectedTabId },
+            )}
           >
             <button
               type="button"
-              className={tab.id === selectedTabId
-                ? 'tabs__list-button tabs__list-button--active'
-                : 'tabs__list-button'}
+              className={classNames(
+                'tabs__list-button',
+                { 'tabs__list-button--active': tab.id === selectedTabId },
+              )}
               onClick={() => onTabSelected(tab)}
             >
               {tab.title}
