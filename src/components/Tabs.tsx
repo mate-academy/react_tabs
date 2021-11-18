@@ -1,4 +1,5 @@
 import React from 'react';
+import classNames from 'classnames';
 import './Tabs.scss';
 
 interface Props {
@@ -13,7 +14,10 @@ export const Tabs: React.FC<Props> = ({ tabsAll, selectedTabId, onSelectedTabId 
       {tabsAll.map(tab => (
         <button
           type="button"
-          className={tab.id === selectedTabId ? 'tabs__tab--active' : 'tabs__tab'}
+          className={classNames(
+            'tabs__tab',
+            { 'tabs__tab--active': tab.id === selectedTabId },
+          )}
           key={tab.id}
           onClick={() => {
             if (tab.id !== selectedTabId) {
