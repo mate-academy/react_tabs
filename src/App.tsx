@@ -19,7 +19,7 @@ const tabs: Tab[] = [
   {
     id: 'tab-3',
     title: 'Paradise city',
-    content: 'Take me down to the paradise city, where the grass is green and the girls are pretty, oh wont you please take ne home...',
+    content: 'Take me down to the paradise city, where the grass is green and the girls are pretty, oh wont you please take me home...',
   },
 ];
 
@@ -41,15 +41,13 @@ class App extends React.Component {
   };
 
   render() {
-    const { activeTab } = this.state;
-
     return (
       <div>
-        <h1 className="tabs__header">{`Selected tab is: ${activeTab.title}`}</h1>
+        <h1 className="tabs__header">{`Selected tab is: ${this.state.activeTab.title}`}</h1>
         <Tabs
           tabs={tabs}
-          content={activeTab.content}
-          tabId={activeTab.id}
+          content={this.state.activeTab.content}
+          tabId={this.state.activeTab.id}
           onSelect={this.tabSelected}
         />
       </div>

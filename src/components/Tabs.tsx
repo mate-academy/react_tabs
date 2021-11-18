@@ -1,3 +1,4 @@
+import classNames from 'classnames';
 import React from 'react';
 
 interface Props {
@@ -22,7 +23,10 @@ export const Tabs: React.FC<Props> = ({
           return (
             <li key="tab.id" className="tabs__item">
               <button
-                className={`tabs__button-${isActive && 'active'}`}
+                className={classNames(
+                  'tabs__button-unactive',
+                  { 'tabs__button-active': isActive },
+                )}
                 type="button"
                 onClick={() => onSelect(tab)}
               >

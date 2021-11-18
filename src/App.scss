@@ -13,6 +13,20 @@ body {
   }
 
   &__button {
+    &-unactive {
+      background-color: #fff;
+      border: 1px solid black;
+      transition: all 0.2s;
+      font-size: 16px;
+
+      &:hover {
+        transform: translateY(-4px);
+        cursor: pointer;
+        background-color: lightgray;
+        border: 1px solid lightgray;
+      }
+    }
+
     &-active {
       border: 1px solid lightgray;
       background-color: lightgray;
@@ -22,19 +36,6 @@ body {
       &:hover {
         transform: translateY(-4px);
         cursor: pointer;
-      }
-    }
-
-    &-false {
-      background-color: #fff;
-      border: 1px solid black;
-      transition: all 0.2s;
-      font-size: 16px;
-
-      &:hover {
-        transform: translateY(-4px);
-        cursor: pointer;
-        background-color: rgb(170, 215, 243);
       }
     }
   }
