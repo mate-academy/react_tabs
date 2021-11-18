@@ -4,11 +4,11 @@ import './App.scss';
 import { Tabs } from './components/Tabs';
 
 const tabs: Tab[] = [
-  { id: 'tab-1', title: 'Home', content: 'Home text and bla bla bla' },
-  { id: 'tab-2', title: 'Profile', content: 'Profile text and bla bla bla' },
-  { id: 'tab-3', title: 'Contact', content: 'Contact text and bla bla bla' },
-  { id: 'tab-4', title: 'About', content: 'About text and bla bla bla' },
-  { id: 'tab-5', title: 'Features', content: 'Features text and bla bla bla' },
+  { id: 'tab-1', title: 'Home', content: 'Home text' },
+  { id: 'tab-2', title: 'Profile', content: 'Profile text' },
+  { id: 'tab-3', title: 'Contact', content: 'Contact text' },
+  { id: 'tab-4', title: 'About', content: 'About text' },
+  { id: 'tab-5', title: 'Features', content: 'Features text' },
 ];
 
 interface State {

@@ -1,4 +1,5 @@
 import React from 'react';
+import classnames from 'classnames';
 
 interface Props {
   tabs: Tab[];
@@ -22,7 +23,7 @@ export const Tabs: React.FC<Props> = ({
           return (
             <li key={tab.id}>
               <button
-                className={`button ${isActive && 'active'}`}
+                className={classnames('button', { active: isActive })}
                 type="button"
                 onClick={() => onSelect(tab)}
               >
