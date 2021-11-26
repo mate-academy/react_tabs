@@ -10,16 +10,16 @@ const tabs: Tab[] = [
 ];
 
 interface State {
-  activeTab: string,
+  activeTabId: string,
 }
 
 class App extends React.Component <{}, State> {
   state = {
-    activeTab: tabs[0].id,
+    activeTabId: tabs[0].id,
   };
 
   changeTab = (tabId: string) => {
-    this.setState({ activeTab: tabId });
+    this.setState({ activeTabId: tabId });
   };
 
   render() {
@@ -27,7 +27,7 @@ class App extends React.Component <{}, State> {
       <div className="App">
         <h1>
           Selected tab is&nbsp;
-          {this.state.activeTab}
+          {this.state.activeTabId}
         </h1>
         <Tabs
           tabs={tabs}

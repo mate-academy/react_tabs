@@ -27,16 +27,18 @@ export class Tabs extends React.Component <Props, {}> {
               type="button"
               key={tab.id}
               onClick={() => this.changeTab(tab.id)}
-              className="tabs__button"
+              className={
+                selectedTab
+                  ? 'tabs__button'
+                  : 'tabs__button--selected'
+              }
             >
               {tab.title}
             </button>
           ))}
         </div>
         <div className="tabs__content">
-          <p>
-            {selectedTab?.content}
-          </p>
+          {selectedTab && <p>{selectedTab.content}</p>}
         </div>
       </div>
     );

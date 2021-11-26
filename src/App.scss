@@ -31,5 +31,9 @@ p {
     width: 70px;
     background-color: rgb(190, 141, 141);
     border-bottom: none;
+
+    &--selected {
+      background-color: rgb(158, 211, 12);
+    }
   }
 }
