@@ -32,6 +32,7 @@ class App extends React.Component <{}, State> {
         <Tabs
           tabs={tabs}
           onChangeTab={this.changeTab}
+          activeTabId={this.state.activeTabId}
         />
       </div>
     );

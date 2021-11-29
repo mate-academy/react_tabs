@@ -1,23 +1,20 @@
 import React from 'react';
+import classNames from 'classnames';
 
 interface Props {
   tabs: Tab[],
   onChangeTab: any,
+  activeTabId: string,
 }
 
 export class Tabs extends React.Component <Props, {}> {
-  state = {
-    activeTab: this.props.tabs[0].id,
-  };
-
   changeTab = (tabId: string) => {
-    this.setState({ activeTab: tabId });
     this.props.onChangeTab(tabId);
   };
 
   render() {
     const { tabs } = this.props;
-    const selectedTab = tabs.find(tab => tab.id === this.state.activeTab);
+    const selectedTab = tabs.find(tab => tab.id === this.props.activeTabId);
 
     return (
       <div className="tabs">
@@ -27,11 +24,7 @@ export class Tabs extends React.Component <Props, {}> {
               type="button"
               key={tab.id}
               onClick={() => this.changeTab(tab.id)}
-              className={
-                selectedTab
-                  ? 'tabs__button'
-                  : 'tabs__button--selected'
-              }
+              className={classNames('tabs__button', { 'tabs__button--selected': tab.id === this.props.activeTabId })}
             >
               {tab.title}
             </button>

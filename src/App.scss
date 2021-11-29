@@ -2,6 +2,8 @@ body {
   display: flex;
   justify-content: center;
   margin-top: 50px;
+
+  background-color: rgb(138, 138, 138);
 }
 
 p {
@@ -12,16 +14,17 @@ p {
 .App {
   height: 500px;
   width: 600px;
-  background-color: rgb(124, 89, 89);
+  background-color: rgb(133, 213, 202);
   padding: 30px;
 
   text-align: center;
+  border-radius: 10px;
 
 }
 
 .tabs {
   &__content {
-    background-color: rgb(190, 141, 141);
+    background-color: rgb(101, 175, 165);
     height: 300px;
     padding: 30px;
   }
@@ -29,11 +32,11 @@ p {
   &__button {
     height: 30px;
     width: 70px;
-    background-color: rgb(190, 141, 141);
+    background-color: rgba(101, 175, 165, 0.439);
     border-bottom: none;
 
     &--selected {
-      background-color: rgb(158, 211, 12);
+      background-color: rgb(101, 175, 165);
     }
   }
 }
