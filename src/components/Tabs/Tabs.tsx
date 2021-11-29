@@ -7,35 +7,36 @@ import './Tabs.scss';
 
 type Props = {
   tabs: Tab[];
-  selectedTab: Tab;
+  selectedTabId: Tab['id'];
   onTabSelected: (newSelectedTab: Tab) => void;
 };
 
-export const Tabs: React.FC<Props> = ({ tabs, selectedTab, onTabSelected }) => {
+export const Tabs: React.FC<Props> = ({
+  tabs,
+  selectedTabId,
+  onTabSelected,
+}) => {
   return (
-    <section className="Tabs">
-      <ul className="Tabs__nav">
-        {tabs.map((tab) => (
-          <li
-            key={tab.id}
-            className={classNames('Tabs__tab-title', {
-              'Tabs__tab-title--active': tab.id === selectedTab.id,
-            })}
+    <ul className="Tabs">
+      {tabs.map((tab) => (
+        <li
+          key={tab.id}
+          className={classNames('Tabs__tab-title', {
+            'Tabs__tab-title--active': tab.id === selectedTabId,
+          })}
+        >
+          <a
+            href="/#"
+            className="Tabs__tab-link"
+            onClick={(event) => {
+              onTabSelected(tab);
+              event.preventDefault();
+            }}
           >
-            <a
-              href="/#"
-              className="Tabs__tab-link"
-              onClick={(event) => {
-                onTabSelected(tab);
-                event.preventDefault();
-              }}
-            >
-              {tab.title}
-            </a>
-          </li>
-        ))}
-      </ul>
-      {selectedTab.content}
-    </section>
+            {tab.title}
+          </a>
+        </li>
+      ))}
+    </ul>
   );
 };

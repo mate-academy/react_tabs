@@ -36,11 +36,14 @@ class App extends React.Component<{}, State> {
           {selectedTab.title}
         </h1>
 
-        <Tabs
-          tabs={tabs}
-          selectedTab={selectedTab}
-          onTabSelected={this.selectTab}
-        />
+        <section className="App__tabs">
+          <Tabs
+            tabs={tabs}
+            selectedTabId={selectedTab.id}
+            onTabSelected={this.selectTab}
+          />
+          {selectedTab.content}
+        </section>
       </div>
     );
   }
