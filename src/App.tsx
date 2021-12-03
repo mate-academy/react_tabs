@@ -33,7 +33,11 @@ class App extends React.Component<{}, State> {
           {' '}
           {currentTab?.title}
         </h1>
-        <Buttons tabButtons={tabs} changeTab={this.changeTab} />
+        <Buttons
+          tabButtons={tabs}
+          changeTab={this.changeTab}
+          selectedTabId={this.state.selectedTab}
+        />
         <Content selectedTab={this.state.selectedTab} tabButtons={tabs} />
       </div>
     );
