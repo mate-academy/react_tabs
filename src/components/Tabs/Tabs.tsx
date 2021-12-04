@@ -1,5 +1,5 @@
 import React from 'react';
-import { ChangeTabSelected } from '../../types/changeTabSelected';
+import { ChangeTabSelected } from '../../types/ChangeTabSelected';
 import './Tabs.scss';
 
 type Props = {

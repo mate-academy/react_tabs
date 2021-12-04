@@ -1,1 +1,1 @@
-export type ChangeTabSelected = (title: string) => undefined | Tab;
+export type ChangeTabSelected = (id: string) => Tab | undefined;

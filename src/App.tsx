@@ -2,7 +2,7 @@ import React from 'react';
 
 import './App.scss';
 import { Tabs } from './components/Tabs';
-import { ChangeTabSelected } from './types/changeTabSelected';
+import { ChangeTabSelected } from './types/ChangeTabSelected';
 
 type State = {
   selectedTab: Tab;
