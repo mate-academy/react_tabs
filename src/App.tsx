@@ -25,8 +25,6 @@ class App extends React.Component<{}, State> {
     if (currectTab) {
       this.setState({ selectedTab: currectTab });
     }
-
-    return currectTab;
   };
 
   render() {

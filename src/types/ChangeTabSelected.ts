@@ -1,1 +1,1 @@
-export type ChangeTabSelected = (id: string) => Tab | undefined;
+export type ChangeTabSelected = (id: string) => void;

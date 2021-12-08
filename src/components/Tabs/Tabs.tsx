@@ -32,7 +32,7 @@ export class Tabs extends React.PureComponent<Props> {
           ))}
         </div>
         <p>
-          {onTabSelected(selectedTabId)?.content}
+          {tabs.find(tab => tab.id === selectedTabId)?.content}
         </p>
       </>
     );
