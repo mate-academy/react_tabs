@@ -5,19 +5,19 @@ import './App.scss';
 import { Tabs } from './components/Tabs';
 
 type State = {
-  selectedTab: string,
+  selectedTab: Tab,
 };
 
 export class App extends React.Component<{}, State> {
   state = {
-    selectedTab: 'tab-1',
+    selectedTab: tabs[0],
   };
 
   onTabSelected = (selectedTab: Tab) => {
     this.setState({
       selectedTab: tabs.find(
         tab => tab.id === selectedTab.id,
-      )?.id || 'tab-1',
+      ) || tabs[0],
     });
   };
 
@@ -26,15 +26,16 @@ export class App extends React.Component<{}, State> {
 
     return (
       <div className="App">
-        <h1>{`Selected tab is ${tabs.find(tab => selectedTab === tab.id)?.title}`}</h1>
+        <h1>{`Selected tab is ${selectedTab.title}`}</h1>
 
         <Tabs
           tabs={tabs}
+          selectedTab={selectedTab}
           onTabSelected={this.onTabSelected}
         />
 
         <p>
-          {tabs.find(tab => selectedTab === tab.id)?.content}
+          {selectedTab.content}
         </p>
       </div>
     );
