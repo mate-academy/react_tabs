@@ -1,0 +1,31 @@
+.Tabs {
+  &__nav {
+    display: inline-block;
+    list-style: none;
+  }
+}
+
+.Tab {
+  display: inline-block;
+
+  &__link {
+    padding: 5px 10px;
+    border: 1px solid transparent;
+    border-bottom: 1px solid #000;
+    text-decoration: none;
+    color: blue;
+
+    transition: color, border-color, 0.4s;
+
+    &:hover {
+      color: #000;
+      border-color: #000;
+    }
+
+    &:focus {
+      border-color: #000;
+      border-bottom-color: transparent;
+      color: #000;
+    }
+  }
+}
