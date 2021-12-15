@@ -26,6 +26,10 @@
       border-color: #000;
       border-bottom-color: transparent;
       color: #000;
+
+      &:hover {
+        border-bottom-color: transparent;
+      }
     }
   }
 }
