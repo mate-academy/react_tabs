@@ -1,1 +1,57 @@
-// Put styles here
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Arial Narrow', Arial, sans-serif;
+  background-color: #f2f2f2;
+}
+
+.App {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.tabs {
+  &__header {
+    display: flex;
+  }
+
+  &__btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    height: 60px;
+    padding: 0 16px;
+    cursor: pointer;
+
+    font-size: 18px;
+    color: #7f7f7f;
+    font-weight: bold;
+    text-transform: uppercase;
+
+    background-color:  #e5e5e5;
+    border: none;
+    transition: background-color 0.3s, color 0.3s;
+
+    &:hover{
+      background-color: #d8d8d8;
+    }
+
+    &--active {
+      background-color: #fff;
+      color: #000;
+
+      &:hover{
+        background-color: #fff;
+      }
+    }
+  }
+
+  &__content {
+    background-color: #fff;
+    padding: 16px;
+    font-size: 18px;
+  }
+}
