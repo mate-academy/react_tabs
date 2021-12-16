@@ -1,1 +1,18 @@
-// Put styles here
+.App {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.Nav {
+  display: flex;
+  flex-direction: row;
+  list-style: none;
+
+  &__link {
+    text-decoration: none;
+    color: #000;
+    margin-left: 10px;
+  }
+}
