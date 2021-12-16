@@ -1,0 +1,23 @@
+.Tabs {
+  display: flex;
+  width: 400px;
+  justify-content: space-between;
+
+  &__tab {
+    width: 450px;
+  }
+
+  &__button {
+    padding: 10px;
+    width: 150px;
+    background-color: rgba(210, 163, 128, 0.15);
+    border-color: rgba(187, 147, 117, 0.15);
+    color: rgb(49, 84, 13);
+    font-size: 18px;
+    font-weight: bold;
+  }
+}
+
+.active {
+  border: transparent solid 2px;
+}
