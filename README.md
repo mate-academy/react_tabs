@@ -14,7 +14,7 @@
     ```
 1. Save the `selectedTab` in the `App` (the first one by default)
 1. Implement the `Tabs` component accepting `tabs` as a prop
-   and displaying a link per each `tab` and the content of the selected tab
+   and displaying a button per each `tab` and the content of the selected tab
 1. Pass the `selectedTabId` as a prop to the `Tabs`, the specified tab should be selected if possible
   (otherwise the first tab is selected)
 1. Pass the `onTabSelected` callback to the `Tabs`
