@@ -1,4 +1,6 @@
 import React from 'react';
+import { Tabs } from './components/Tabs/Tabs';
+import { Tab } from './types/types';
 
 import './App.scss';
 
@@ -8,11 +10,32 @@ const tabs: Tab[] = [
   { id: 'tab-3', title: 'Tab 3', content: 'Some text 3' },
 ];
 
-const App: React.FC = () => (
-  <div className="App">
-    <h1>Selected tab is&nbsp;Tab 1</h1>
-    <div>{tabs.length}</div>
-  </div>
-);
+class App extends React.Component {
+  state = {
+    activeTab: tabs[0],
+  };
+
+  ontabSelected = (tab: Tab) => (
+    this.setState({
+      activeTab: tab,
+    })
+  );
+
+  render() {
+    return (
+      <div className="App">
+        <h1>
+          Selected tab is&nbsp;
+          {this.state.activeTab.title}
+        </h1>
+        <Tabs
+          tabs={tabs}
+          selectedTabId={this.state.activeTab.id}
+          onTabSelected={this.ontabSelected}
+        />
+      </div>
+    );
+  }
+}
 
 export default App;
