@@ -1,28 +1,31 @@
 .tabs-container {
   display: flex;
   gap: 10px;
-
-  &__tab {
-    min-width: 100px;
-  }
+  border-bottom: 1px solid #bdbdbd;
 }
 
 .tab-title {
+  border: 1px solid transparent;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  border-bottom: none;
   &:hover {
-    color: rgb(33, 13, 145);
+    color: #000;
+  }
+
+  &__link {
+    padding: 13px 20px;
+    display: inline-block;
   }
 }
 
 .tab-title--active {
-  position: relative;
-
+  border-color: #bdbdbd;
   &::after {
     content: "";
-    width: 100%;
+    display: block;
     height: 1px;
-    background-color: black;
-    position: absolute;
-    bottom: 0;
-    left: 0;
+    margin-bottom: -1px;
+    background-color: #fff;
   }
 }

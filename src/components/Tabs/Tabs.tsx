@@ -10,11 +10,14 @@ type Props = {
 
 export const Tabs: React.FC<Props> = ({ tabs, selectedTabId, onTabSelected }) => {
   return (
-    <section className="tabs-container">
+    <ul className="tabs-container">
       {tabs.map(tab => (
-        <div key={tab.id} className="tabs-container__tab">
+        <li
+          key={tab.id}
+          className={classNames('tab-title', { 'tab-title--active': tab.id === selectedTabId })}
+        >
           <a
-            className={classNames('tab-title', { 'tab-title--active': tab.id === selectedTabId })}
+            className="tab-title__link"
             href="/#"
             onClick={(event) => {
               onTabSelected(tab);
@@ -23,8 +26,8 @@ export const Tabs: React.FC<Props> = ({ tabs, selectedTabId, onTabSelected }) =>
           >
             {tab.title}
           </a>
-        </div>
+        </li>
       ))}
-    </section>
+    </ul>
   );
 };
