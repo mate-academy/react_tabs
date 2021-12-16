@@ -1,1 +1,20 @@
-// Put styles here
+@import "./utils/variables";
+
+html {
+  font-family: serif;
+  background-color: #fffbfb;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.App {
+  margin-left: 30px;
+
+  &__title {
+    padding: 10px 30px;
+    color: $c-hunter;
+  }
+}

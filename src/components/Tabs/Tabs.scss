@@ -1,0 +1,34 @@
+@import "../../utils/variables";
+
+.Tabs {
+  width: 800px;
+
+  &__list {
+    width: 300px;
+    display: flex;
+    gap: 20px;
+    list-style: none;
+  }
+
+  &__task {
+    font-size: 20px;
+    text-transform: $text-uppercase;
+  }
+
+  &__button {
+    padding: 15px 25px;
+    border: none;
+    text-transform: $text-uppercase;
+    color: $c-hunter;
+    background-color: $c-cream;
+
+    &--active {
+      color: $c-cream;
+      background-color: $c-hunter;
+    }
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
