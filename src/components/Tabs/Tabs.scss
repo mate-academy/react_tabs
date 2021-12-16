@@ -1,0 +1,41 @@
+.Tabs {
+  $border-size: 1px;
+
+  display: flex;
+  margin-bottom: 24px;
+  border-bottom: 1px solid #d5d5db;
+
+  &__tab-title {
+    border: $border-size solid transparent;
+    border-radius: 4px 4px 0 0;
+    border-bottom: none;
+
+    color: #2572aa;
+
+    &:hover,
+    &--active {
+      color: #124061;
+    }
+
+    &--active {
+      border-color: #d5d5db;
+
+      &::after {
+        content: '';
+
+        display: block;
+        height: 1px;
+        margin-bottom: -$border-size;
+
+        background-color: #fff;
+      }
+    }
+  }
+
+  &__tab-link {
+    display: inline-block;
+    padding: 12px 20px;
+
+    color: inherit;
+  }
+}
