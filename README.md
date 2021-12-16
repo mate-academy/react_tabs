@@ -1,5 +1,5 @@
 # React Tabs
-- Replace `<your_account>` with your Github username in the [DEMO LINK](https://<your_account>.github.io/react_tabs/)
+- Replace `<your_account>` with your Github username in the [DEMO LINK](https://misharosa.github.io/react_tabs/)
 - Follow the [React task guideline](https://github.com/mate-academy/react_task-guideline#react-tasks-guideline)
 - Use [React TypeScript cheat sheet](https://mate-academy.github.io/fe-program/js/extra/react-typescript)
 
@@ -26,3 +26,25 @@
 1. The `Tabs` component should be stateless
 
 ![tabs](./description/tabs.gif)
+
+## Завдання
+1. Компонент "Додаток" містить масив "вкладок".
+    ```javascript
+    const tabs = [
+      { id: 'tab-1', title: 'Tab 1', content: 'Деякий текст 1' },
+      { id: 'tab-2', title: 'Tab 2', content: 'Деякий текст 2' },
+      { id: 'tab-3', title: 'Tab 3', content: 'Деякий текст 3' },
+    ];
+    ```
+1. Збережіть `selectedTab` у `App` (першу за замовчуванням)
+1. Реалізуйте компонент Tabs, приймаючи вкладки як опору
+   і відображення посилання для кожної "вкладки" та вмісту вибраної вкладки
+1. Передайте `selectedTabId` як опору до `Tabs`, якщо можливо, слід вибрати вказану вкладку
+   (інакше вибирається перша вкладка)
+1. Передайте зворотний виклик `onTabSelected` до вкладок
+   його слід викликати щоразу, коли користувач вибирає іншу вкладку.
+   (Не викликайте зворотний дзвінок, якщо вкладка не була змінена)
+1. Зворотний виклик повинен отримати дані вибраної вкладки (об'єкт з масиву)
+1. Створіть `h1` всередині `App` із вказівкою `Вибрана вкладка – це вкладка 1` (показати назву вибраної вкладки)
+1. Коли користувач вибирає іншу вкладку, `h1` слід відповідно оновити
+1. Компонент `Tabs` повинен бути без стану

@@ -1,1 +1,17 @@
-// Put styles here
+.tab {
+  display: flex;
+}
+
+.tab__item {
+  border: none;
+  color: green;
+}
+
+.content {
+  display: inline-block;
+  background-color: aqua;
+}
+
+.tab__element {
+  list-style: none;
+}
