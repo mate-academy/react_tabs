@@ -1,0 +1,45 @@
+.buttons {
+  display: flex;
+}
+
+.tabs {
+  &__btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    height: 50px;
+    padding: 0 20px;
+    cursor: pointer;
+
+    font-size: 18px;
+    color: #7f7f7f;
+    font-weight: bold;
+    text-transform: uppercase;
+
+    background-color: #e5e5e5;
+    border: none;
+    transition: background-color 0.3s;
+
+    &:hover{
+      background-color: #d6d6d6;
+    }
+
+    &--active {
+      background-color: #fff;
+      color: #000;
+
+      &:hover{
+        background-color: #fff;
+      }
+    }
+  }
+
+  &__content {
+    margin: 0;
+    font-weight: normal;
+    background-color: #fff;
+    padding: 20px;
+    font-size: 18px;
+  }
+}
