@@ -1,1 +1,11 @@
-// Put styles here
+@import './normalize.scss';
+@import './utils/variables';
+
+.App {
+  padding: 10px 50px;
+
+  &__title {
+    margin-bottom: 30px;
+    color: $text-color;
+  }
+}
