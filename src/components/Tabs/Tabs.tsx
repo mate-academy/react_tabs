@@ -1,4 +1,5 @@
 import React from 'react';
+import classNames from 'classnames';
 
 type Props = {
   tabs: Tab[],
@@ -14,15 +15,14 @@ export const Tabs: React.FC<Props> = ({
       {tabs.map((tab) => {
         return (
           <button
-            onClick={(event) => {
-              event.preventDefault();
+            onClick={() => {
               onTabSelected(tab);
             }}
             type="submit"
             key={tab.id}
-            className={selectedTabId === tab.id
-              ? 'App__buttons-item App__buttons-item--selected'
-              : 'App__buttons-item'}
+            className={classNames('App__buttons-item', {
+              'App__buttons-item--selected': selectedTabId === tab.id,
+            })}
           >
             {tab.title}
           </button>
