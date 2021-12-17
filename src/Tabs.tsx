@@ -1,6 +1,6 @@
 import React from 'react';
 import './Tabs.scss';
-import { Tab }  from './Tab';
+import { Content } from './Content';
 
 interface Tab {
   id: string;
@@ -10,26 +10,31 @@ interface Tab {
 
 type Props = {
   tabs: Tab[],
-  selectedId: number
+  selectedId: string,
+  onTabSelected: any,
 };
 
-export class Tabs extends React.Component<Props, any> {
-  state = {
-    name: '',
-  };
-
-  render() {
-    const { tabs, selectedId } = this.props;
-
-    return (
-      <div className="tabs">
+export const Tabs: React.FC<Props> = ({ tabs, selectedId, onTabSelected }) => {
+  return (
+    <>
+      <div
+        className="tabs"
+        onClick={onTabSelected}
+        onKeyDown={onTabSelected}
+        role="button"
+        tabIndex={0}
+      >
         {tabs.map(tab => (
-          <div key={tab.id}>
+          <span
+            id={tab.id}
+            key={tab.id}
+            className={tab.id === selectedId ? 'isActive tab' : 'tab'}
+          >
             {tab.title}
-            {this.state.name}
-          </div>
+          </span>
         ))}
       </div>
-    );
-  }
-}
+      <Content content={tabs.find(tab => tab.id === selectedId)!.content} />
+    </>
+  );
+};
