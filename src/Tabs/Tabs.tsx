@@ -14,7 +14,7 @@ export const Tabs: React.FC<Props> = ({ tabs, selectedTabId, onTabSelected }) =>
           id={tab.id}
           type="button"
           onClick={() => {
-            if (tab.id === selectedTabId) {
+            if (tab.id !== selectedTabId) {
               onTabSelected(tab);
             }
           }}
