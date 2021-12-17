@@ -13,7 +13,6 @@ interface State {
   isSelected: string;
 }
 
-// eslint-disable-next-line react/prefer-stateless-function
 class App extends React.Component {
   state: State = {
     isSelected: 'tab-1',
@@ -38,7 +37,7 @@ class App extends React.Component {
         </h1>
 
         <Tabs
-          tabs={tabs && tabs}
+          tabs={tabs}
           onSelect={this.selectButton}
         />
 
