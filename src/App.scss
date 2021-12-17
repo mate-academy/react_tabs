@@ -10,6 +10,10 @@ $line-color: rgb(146, 146, 146);
   width: 60px;
   background-color: #fff;
   margin: 1px;
+
+  &:hover {
+    background-color: $line-color;
+  }
 }
 
 .app__content {
