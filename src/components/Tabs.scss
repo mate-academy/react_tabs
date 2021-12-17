@@ -7,7 +7,7 @@
     padding: 10px 30px;
     border: transparent;
     background-color: #fff;
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid #aaaaaa;
     cursor: pointer;
 
     &:hover {
@@ -15,7 +15,7 @@
     }
 
     &--active {
-      border: 1px solid black;
+      border: 1px solid #aaaaaa;
       border-bottom: transparent;
 
       &:hover {
