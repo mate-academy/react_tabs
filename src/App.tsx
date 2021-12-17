@@ -21,6 +21,10 @@ class App extends React.Component<{}, State> {
   };
 
   onTabSelected = (currentlySelectedTab: Tab) => {
+    if (currentlySelectedTab === this.state.selectedTab) {
+      return;
+    }
+
     this.setState({ selectedTab: currentlySelectedTab });
   };
 
