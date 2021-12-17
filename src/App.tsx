@@ -1,5 +1,5 @@
 import React from 'react';
-import { Tabs } from './components/Tabs';
+import { TabsButtons } from './components/TabsButtons';
 
 import './App.scss';
 
@@ -12,32 +12,42 @@ const tabs: Tab[] = [
 type State = {
   title: string,
   selectedTab: string,
+  content: string;
 };
 
 class App extends React.Component<{}, State> {
   state = {
     title: `Selected tab is ${tabs[0].title}`,
     selectedTab: tabs[0].id,
+    content: tabs[0].content,
   };
 
-  onTabSelected = (title: string, id: string) => {
+  onTabSelected = (title: string, id: string, content: string) => {
     this.setState({
       title: `Selected tab is ${title}`,
       selectedTab: id,
+      content,
     });
   };
 
   render() {
     return (
       <div className="App">
-        <h1 className="App__title">
-          {this.state.title}
-        </h1>
-        <Tabs
-          tabs={tabs}
-          selectedTab={this.state.selectedTab}
-          onClick={this.onTabSelected}
-        />
+        <div className="App__tabs">
+          <h1 className="App__title">
+            {this.state.title}
+          </h1>
+
+          <TabsButtons
+            tabs={tabs}
+            selectedTab={this.state.selectedTab}
+            onClick={this.onTabSelected}
+          />
+
+          <p className="App__tab-content">
+            {this.state.content}
+          </p>
+        </div>
       </div>
     );
   }

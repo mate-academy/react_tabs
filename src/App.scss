@@ -4,8 +4,19 @@
 .App {
   padding: 10px 50px;
 
+  &__tabs {
+    width: 500px;
+  }
+
   &__title {
     margin-bottom: 30px;
     color: $text-color;
+  }
+
+  &__tab-content {
+    padding: 10px;
+    height: 100px;
+    border: 1px solid $border-color;
+    border-radius: 8px;
   }
 }
