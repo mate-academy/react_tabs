@@ -1,0 +1,30 @@
+.tabs-container {
+  display: flex;
+  gap: 5px;
+  border-bottom: 1px solid #bdbdbd;
+  padding: 0;
+}
+
+.tab-title {
+  border: 1px solid transparent;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  border-bottom: none;
+
+  list-style: none;
+
+  &:hover {
+    background-color: #bdbdbd;
+  }
+
+  &__button {
+    padding: 15px 20px;
+    display: inline-block;
+    color: inherit;
+    text-decoration: none;
+  }
+}
+
+.tab-title--selected {
+  box-shadow: turquoise -2px -2px 5px;
+}
