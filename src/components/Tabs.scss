@@ -1,0 +1,22 @@
+.Tabs {
+  margin-bottom: -1px;
+
+  &__tab {
+    height: 31px;
+    border: 0;
+    border-bottom: 1px solid darkgrey;
+    background-color: #fff;
+    color: blue;
+  }
+
+  &__tab:hover {
+    background-color: whitesmoke;
+  }
+
+  &__tab--selected {
+    height: 32px;
+    border: 1px solid darkgrey;
+    border-bottom: none;
+    background-color: lightgrey;
+  }
+}
