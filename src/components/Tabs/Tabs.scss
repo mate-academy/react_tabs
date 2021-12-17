@@ -1,0 +1,24 @@
+.button {
+  padding: 10px 25px;
+  box-sizing: border-box;
+  background-color: #fff;
+  outline: none;
+  border: none;
+  font-size: 16px;
+  border-bottom: 1px solid gray;
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  &-active {
+    border: 1px solid grey;
+    font-weight: bold;
+    border-bottom: none;
+  }
+}
+
+.content {
+  padding-top: 10px;
+  font-size: 20px;
+}
