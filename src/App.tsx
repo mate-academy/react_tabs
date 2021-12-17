@@ -32,9 +32,7 @@ class App extends React.PureComponent<{}, State> {
       <>
         <div className="App">
           <h1>
-            Selected tab is
-            {' '}
-            {selectedTab.title}
+            {`Select tab is ${selectedTab.title}`}
           </h1>
           <Tabs tabs={tabs} selectedTabId={selectedTab.id} onTabSelected={this.onTabSelected} />
           <p className="tab-content">{selectedTab.content}</p>
