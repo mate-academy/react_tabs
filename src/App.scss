@@ -1,1 +1,10 @@
-// Put styles here
+.App {
+  &__buttons-item {
+    border: none;
+  }
+
+  &__buttons-item--selected {
+    color: red;
+    background-color: gold;
+  }
+}
