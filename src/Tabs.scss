@@ -1,0 +1,19 @@
+.tabs {
+  display: flex;
+  gap: 25px;
+  font-size: 30px;
+}
+
+.tab {
+  padding-bottom: 5px;
+  border-bottom: 1px solid transparent;
+
+  &:hover {
+    border-bottom: 1px solid black;
+    cursor: pointer;
+  }
+}
+
+.isActive {
+  border-bottom: 1px solid black;
+}
