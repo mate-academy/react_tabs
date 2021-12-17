@@ -13,9 +13,11 @@ export const Tabs: React.FC<Props> = ({ tabs, selectedTabId, onTabSelected }) =>
         <button
           id={tab.id}
           type="button"
-          onClick={tab.id !== selectedTabId
-            ? () => onTabSelected(tab)
-            : (event) => event.preventDefault()}
+          onClick={() => {
+            if (tab.id === selectedTabId) {
+              onTabSelected(tab);
+            }
+          }}
         >
           {tab.title}
         </button>
