@@ -1,1 +1,17 @@
-// Put styles here
+$line-color: rgb(146, 146, 146);
+
+* {
+  box-sizing: border-box;
+}
+
+.Tabs__button-item {
+  border: 1px solid $line-color;
+  height: 25px;
+  width: 60px;
+  background-color: #fff;
+  margin: 1px;
+}
+
+.app__content {
+  padding: 30px 0;
+}
