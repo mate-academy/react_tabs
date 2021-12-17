@@ -14,18 +14,18 @@ export const Tabs: React.FC<Props> = ({ tabs, selectedTabId, onTabSelected }) =>
       {tabs.map(tab => (
         <li
           key={tab.id}
-          className={classNames('tab-title', { 'tab-title--active': tab.id === selectedTabId })}
+          className={classNames(
+            'tab-title',
+            { 'tab-title--active': tab.id === selectedTabId },
+          )}
         >
-          <a
-            className="tab-title__link"
-            href="/#"
-            onClick={(event) => {
-              onTabSelected(tab);
-              event.preventDefault();
-            }}
+          <button
+            type="button"
+            className="tab-title__button"
+            onClick={() => onTabSelected(tab)}
           >
             {tab.title}
-          </a>
+          </button>
         </li>
       ))}
     </ul>

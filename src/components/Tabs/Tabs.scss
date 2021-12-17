@@ -13,7 +13,9 @@
     color: #000;
   }
 
-  &__link {
+  &__button {
+    background-color: transparent;
+    border: none;
     padding: 13px 20px;
     display: inline-block;
   }
