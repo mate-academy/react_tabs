@@ -1,0 +1,17 @@
+.tab {
+  &__button {
+    margin-right: 20px;
+    width: 100px;
+    height: 30px;
+    background-color: rgb(85, 131, 216);
+    color: rgb(255, 255, 255);
+    border-style: none;
+    border-radius: 2px;
+    transition: background-color 0.3s, color 0.3s;
+
+    &:hover {
+      background-color: rgb(126, 199, 199);
+      color: rgb(255, 255, 255);
+    }
+  }
+}
