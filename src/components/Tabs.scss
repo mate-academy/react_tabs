@@ -1,0 +1,32 @@
+.Tabs {
+  display: flex;
+  margin-bottom: 24px;
+  border-bottom: 2px solid rgba(240,246,252,0.1);
+
+  &__tab-title {
+    color: #58a6ff;
+
+    &--active {
+      border-color: #ff7b72;
+    }
+
+    &--active {
+      &::after {
+        content: '';
+
+        display: block;
+        height: 2px;
+        margin-bottom: -1px;
+
+        background-color: #ff7b72;
+      }
+    }
+  }
+
+  &__tab-link {
+    display: inline-block;
+    padding: 8px 16px;
+
+    color: #58a6ff;
+  }
+}
