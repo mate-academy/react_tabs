@@ -29,7 +29,7 @@ export const Tabs: React.FC<Props> = ({ tabs, selectedTab, onTabSelected }) => {
             {tab.title}
           </li>
         ))}
-        <div className="options__option--line" />
+        <div className="line" />
       </ul>
       <p>
         {selectedTabById && selectedTabById.content}

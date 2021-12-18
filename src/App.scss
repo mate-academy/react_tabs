@@ -19,7 +19,6 @@ body {
 
   display: flex;
 
-  height: 100vh;
   background-size: cover;
   background-repeat: no-repeat;
 }
@@ -41,6 +40,8 @@ body {
   display: flex;
   flex-shrink: none;
   margin-bottom: 30px;
+
+  font-weight: 700;
 
   &__option {
     width: 75px;
@@ -64,10 +65,10 @@ body {
 
       padding: 9px;
     }
-
-    &--line {
-      width: 100%;
-      border-bottom: 1px solid #000;
-    }
   }
+}
+
+.line {
+  width: 100%;
+  border-bottom: 1px solid #000;
 }
