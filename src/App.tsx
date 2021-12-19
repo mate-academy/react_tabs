@@ -1,4 +1,5 @@
 import React from 'react';
+import { Tabs } from './components/Tabs/Tabs';
 
 import './App.scss';
 
@@ -8,11 +9,40 @@ const tabs: Tab[] = [
   { id: 'tab-3', title: 'Tab 3', content: 'Some text 3' },
 ];
 
-const App: React.FC = () => (
-  <div className="App">
-    <h1>Selected tab is&nbsp;Tab 1</h1>
-    <div>{tabs.length}</div>
-  </div>
-);
+type State = {
+  selectedTab: Tab,
+};
+
+class App extends React.PureComponent<{}, State> {
+  state: State = {
+    selectedTab: tabs[0],
+  };
+
+  onTabSelected = (tab: Tab) => {
+    this.setState({ selectedTab: tab });
+  };
+
+  render() {
+    const { selectedTab } = this.state;
+
+    return (
+      <div className="App">
+        <h1>
+          {`Selected tab is ${selectedTab.title}`}
+        </h1>
+
+        <Tabs
+          tabs={tabs}
+          selectedTabId={selectedTab.id}
+          onTabSelected={this.onTabSelected}
+        />
+
+        <p className="App__content">
+          {selectedTab.content}
+        </p>
+      </div>
+    );
+  }
+}
 
 export default App;
