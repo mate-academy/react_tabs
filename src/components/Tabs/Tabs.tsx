@@ -1,5 +1,6 @@
 import React from 'react';
 import './Tabs.scss';
+import cn from 'classnames';
 
 type Props = {
   tabs: Tab[],
@@ -14,7 +15,9 @@ export const Tabs: React.FC<Props> = ({ tabs, selectedTabId, onTabSelected }) =>
         {tabs.map(tab => (
           <button
             key={tab.id}
-            className={`Tabs__tab ${tab.id === selectedTabId.id && 'Tabs__tab--selected'}`}
+            className={cn('Tabs__tab', {
+              'Tabs__tab--selected': tab.id === selectedTabId.id,
+            })}
             type="button"
             onClick={() => onTabSelected(tab)}
           >
