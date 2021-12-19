@@ -1,0 +1,23 @@
+.Tabs {
+  display: flex;
+
+  &__tab--selected {
+    color: #d692a0;
+    background-color: #fff;
+
+    border-radius: 8px 8px 0 0;
+  }
+
+  &__button {
+    padding: 8px;
+
+    font-size: inherit;
+    font-family: inherit;
+    color: inherit;
+
+    background-color: transparent;
+    border-color: transparent;
+
+    cursor: pointer;
+  }
+}
