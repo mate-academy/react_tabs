@@ -1,5 +1,5 @@
 import React from 'react';
-
+import classNames from 'classnames';
 import './Tabs.scss';
 
 interface Props {
@@ -22,9 +22,7 @@ export const Tabs: React.FC<Props> = ({
           <li key={currentTab.id} className="Tabs__element">
             <button
               type="button"
-              className={(tabId === currentTab.id)
-                ? 'Tabs__button Tabs__button--active'
-                : 'Tabs__button'}
+              className={classNames('Tabs__button', { 'Tabs__button--active': tabId === currentTab.id })}
               onClick={() => chooseSelectedTab(currentTab)}
             >
               {currentTab.title}
