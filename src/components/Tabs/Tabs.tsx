@@ -20,6 +20,7 @@ export const Tabs: React.FC<Props> = ({ tabs, selectedTabId, onTabSelected }) =>
           )}
         >
           <button
+            disabled={selectedTabId === tab.id}
             type="button"
             className="tab-title__button"
             onClick={() => onTabSelected(tab)}

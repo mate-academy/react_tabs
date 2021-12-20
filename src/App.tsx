@@ -30,7 +30,11 @@ class App extends React.Component<{}, State> {
     return (
       <div className="App">
         <h1>{`Selected tab: ${selectedTab.id}`}</h1>
-        <Tabs tabs={tabs} selectedTabId={selectedTab.id} onTabSelected={this.onTabSelected} />
+        <Tabs
+          tabs={tabs}
+          selectedTabId={selectedTab.id}
+          onTabSelected={this.onTabSelected}
+        />
         <p className="tab-content">{selectedTab.content}</p>
       </div>
     );

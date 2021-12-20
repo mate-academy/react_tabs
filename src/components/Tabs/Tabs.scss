@@ -18,11 +18,17 @@
     border: none;
     padding: 13px 20px;
     display: inline-block;
+
+    &:disabled {
+      color: rgb(189, 7, 7);
+    }
+  
   }
 }
 
 .tab-title--active {
   border-color: #bdbdbd;
+
   &::after {
     content: "";
     display: block;
