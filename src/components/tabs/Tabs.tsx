@@ -12,6 +12,7 @@ export const Tabs: React.FC<Props> = ({ tabs, selectedTabId, onTabSelected }) =>
     <nav>
       {tabs.map(tab => (
         <button
+          disabled={tab.id === selectedTabId}
           className={tab.id === selectedTabId ? 'tab--selected' : 'tab'}
           type="button"
           onClick={() => onTabSelected(tab)}
