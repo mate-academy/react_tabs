@@ -1,11 +1,7 @@
 .Tabs {
   display: flex;
-  width: 400px;
+  width: 450px;
   justify-content: space-between;
-
-  &__tab {
-    width: 450px;
-  }
 
   &__button {
     padding: 10px;
@@ -15,6 +11,7 @@
     color: rgb(49, 84, 13);
     font-size: 18px;
     font-weight: bold;
+    outline: none;
   }
 }
 

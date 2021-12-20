@@ -15,18 +15,16 @@ export const Tabs: React.FC<Props> = ({
 }) => (
   <section className="Tabs">
     {tabs.map(tab => (
-      <div className="Tabs__tab">
-        <button
-          className={classNames('Tabs__button', { active: selectedTabId === tab.id })}
-          type="submit"
-          onClick={(event: { preventDefault: () => void; }) => {
-            event.preventDefault();
-            onTabSelected(tab);
-          }}
-        >
-          {tab.title}
-        </button>
-      </div>
+      <button
+        key={tab.id}
+        className={classNames('Tabs__button', { active: selectedTabId === tab.id })}
+        type="button"
+        onClick={() => {
+          onTabSelected(tab);
+        }}
+      >
+        {tab.title}
+      </button>
     ))}
   </section>
 );
