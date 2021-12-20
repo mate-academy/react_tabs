@@ -15,9 +15,7 @@ export class App extends React.Component<{}, State> {
 
   onTabSelected = (selectedTab: Tab) => {
     this.setState({
-      selectedTab: tabs.find(
-        tab => tab.id === selectedTab.id,
-      ) || tabs[0],
+      selectedTab: selectedTab || tabs[0],
     });
   };
 

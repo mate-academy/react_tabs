@@ -14,18 +14,18 @@ export const Tabs: React.FC<Props> = ({ tabs, selectedTab, onTabSelected }) => (
     <nav className="Tabs__nav">
       {tabs.map(tab => (
         <div className="Tab" key={tab.id}>
-          <a
-            className={classNames('Tab__link',
-              { 'Tab__link--selected': selectedTab.id === tab.id })}
-            href="/"
-            onClick={(event) => {
-              event.preventDefault();
-
-              onTabSelected(tab);
+          <button
+            type="button"
+            className={classNames('Tab__button',
+              { 'Tab__button--selected': selectedTab.id === tab.id })}
+            onClick={() => {
+              if (tab.id !== selectedTab.id) {
+                onTabSelected(tab);
+              }
             }}
           >
             {tab.title}
-          </a>
+          </button>
         </div>
       ))}
     </nav>

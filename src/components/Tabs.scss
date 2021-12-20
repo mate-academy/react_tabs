@@ -8,16 +8,19 @@
 .Tab {
   display: inline-block;
 
-  &__link {
+  &__button {
     padding: 5px 10px;
+
     border: 1px solid transparent;
     border-bottom: 1px solid #000;
     text-decoration: none;
     color: blue;
+    background-color: #fff;
 
     transition: color, border-color, 0.4s;
 
     &:hover {
+      cursor: pointer;
       color: #000;
       border-color: #000;
     }
