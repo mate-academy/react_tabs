@@ -4,6 +4,8 @@
 
   &__link {
     font-weight: normal;
+    border: none;
+    background-color: transparent;
     border-bottom: 3px solid transparent;
     padding: 16px 24px;
     display: block;
@@ -13,6 +15,7 @@
     transition: color 0.3s;
 
     &:hover {
+      cursor: pointer;
       color: #717aec;
     }
 

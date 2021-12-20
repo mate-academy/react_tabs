@@ -19,23 +19,22 @@ class App extends React.Component<{}, State> {
     selectedTab: tabs[0],
   };
 
-  setSelectedTab = (tabId: string) => {
-    this.setState({ selectedTab: tabs.find(tab => tab.id === tabId) || tabs[0] });
+  setSelectedTab = (tab: Tab) => {
+    this.setState({ selectedTab: tab });
   };
 
   render() {
     return (
       <div className="app">
         <h1 className="app__title">
-          Selected tab is&nbsp;
-          {this.state.selectedTab.title}
+          {`Selected tab is ${this.state.selectedTab.title}`}
         </h1>
         <section className="app__content">
           <Tabs
             tabs={tabs}
             selectedTabId={this.state.selectedTab.id}
-            onTabSelected={tabId => {
-              this.setSelectedTab(tabId);
+            onTabSelected={tab => {
+              this.setSelectedTab(tab);
             }}
           />
           <p className="app__text">

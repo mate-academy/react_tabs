@@ -5,7 +5,7 @@ import { Tab } from '../../types/Tab';
 type Props = {
   tabs: Tab[],
   selectedTabId: string,
-  onTabSelected: (tabId: string) => void,
+  onTabSelected: (tab: Tab) => void,
 };
 
 export const Tabs: React.FC<Props> = ({ tabs, selectedTabId, onTabSelected }) => {
@@ -13,16 +13,20 @@ export const Tabs: React.FC<Props> = ({ tabs, selectedTabId, onTabSelected }) =>
     <ul className="tabs">
       {tabs.map(tab => (
         <li key={tab.id} className="tabs__tab">
-          <a
-            href="/"
-            className={classNames('tabs__link', { 'tabs__link--selected': selectedTabId === tab.id })}
-            onClick={(event) => {
-              event.preventDefault();
-              onTabSelected(tab.id);
+          <button
+            type="button"
+            className={classNames(
+              'tabs__link',
+              { 'tabs__link--selected': selectedTabId === tab.id },
+            )}
+            onClick={() => {
+              if (tab.id !== selectedTabId) {
+                onTabSelected(tab);
+              }
             }}
           >
             {tab.title}
-          </a>
+          </button>
         </li>
       ))}
     </ul>
