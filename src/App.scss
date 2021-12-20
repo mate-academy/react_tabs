@@ -1,1 +1,78 @@
-// Put styles here
+@import url("https://fonts.googleapis.com/css2?family=Barlow&display=swap");
+
+* {
+  box-sizing: border-box;
+}
+
+h1,
+p {
+  margin: 0;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+button {
+  all: unset;
+}
+
+body {
+  font-family: "Barlow", sans-serif;
+
+  display: flex;
+
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.App {
+  padding: 30px;
+  box-shadow: rgba(149, 157, 165, 0.2) 0 8px 24px;
+  background-color: #eee;
+  border-radius: 3px;
+
+  min-width: 370px;
+}
+
+.title {
+  margin-bottom: 20px;
+}
+
+.options {
+  display: flex;
+  flex-shrink: none;
+  margin-bottom: 30px;
+
+  font-weight: 700;
+
+  &__option {
+    width: 75px;
+    padding: 10px;
+
+    border-bottom: 1px solid #000;
+
+    flex-shrink: 0;
+
+    text-align: center;
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    &--selected {
+      border: 1px solid #000;
+      border-top-left-radius: 3px;
+      border-top-right-radius: 3px;
+      border-bottom: none;
+
+      padding: 9px;
+    }
+  }
+}
+
+.line {
+  width: 100%;
+  border-bottom: 1px solid #000;
+}
