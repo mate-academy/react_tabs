@@ -1,1 +1,31 @@
-// Put styles here
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+.App {
+  &__title {
+    margin-bottom: 40px;
+    text-align: center;
+    color: rgb(62, 69, 20);
+  }
+
+  &__content{
+    margin: 0 auto;
+    width: 450px;
+    border-radius: 10px;
+  }
+
+  &__info {
+    margin: 0;
+    padding: 20px;
+    display: block;
+    height: 350px;
+    background-color: rgba(210, 163, 128, 0.15);
+    border-radius: 0 0 15px 15px;
+    color: rgb(45, 34, 0);
+  }
+}
