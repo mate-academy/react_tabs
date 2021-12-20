@@ -1,0 +1,39 @@
+.tabs-container {
+  display: flex;
+  gap: 10px;
+  border-bottom: 1px solid #bdbdbd;
+}
+
+.tab-title {
+  border: 1px solid transparent;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  border-bottom: none;
+  &:hover {
+    color: #000;
+  }
+
+  &__button {
+    background-color: transparent;
+    border: none;
+    padding: 13px 20px;
+    display: inline-block;
+
+    &:disabled {
+      color: rgb(189, 7, 7);
+    }
+  
+  }
+}
+
+.tab-title--active {
+  border-color: #bdbdbd;
+
+  &::after {
+    content: "";
+    display: block;
+    height: 1px;
+    margin-bottom: -1px;
+    background-color: #fff;
+  }
+}
