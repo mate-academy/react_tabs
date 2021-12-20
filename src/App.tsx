@@ -26,12 +26,12 @@ class App extends React.Component<{}, State> {
     return (
       <div className="App">
         <h1 className="title">
-          Selected tab is&nbsp;
+          {'Selected tab is '}
           {this.state.selectedTab.title}
         </h1>
         <Tabs
           tabs={tabs}
-          selectedTab={this.state.selectedTab.id}
+          selectedTabId={this.state.selectedTab.id}
           onTabSelected={this.onTabSelected}
         />
       </div>
