@@ -1,1 +1,28 @@
-// Put styles here
+.tabs {
+  &__list {
+    padding-left: 0;
+  }
+
+  &__list-item {
+    display: block;
+    position: relative;
+    list-style: none;
+  }
+
+  &__list-button {
+    padding: 0.5rem 0.75rem;
+    margin-top: 5px;
+    border: transparent;
+    border-radius: 10px;
+    background-color: white;
+
+    &:hover {
+      background-color:#bbfada;
+    }
+  }
+
+  &__list-button--active {
+    background-color:#9FE2BF;
+    border: none;
+  }
+}
