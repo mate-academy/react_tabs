@@ -9,8 +9,6 @@ interface Props {
 }
 
 export const Tabs: React.FC<Props> = ({ tabs, selectedTabId, onTabSelected }) => {
-  const findContent = tabs.find(tab => tab.id === selectedTabId)?.content;
-
   return (
     <div className="tabs">
       <ul className="tabs__list">
@@ -24,21 +22,20 @@ export const Tabs: React.FC<Props> = ({ tabs, selectedTabId, onTabSelected }) =>
           >
             <button
               type="button"
+              onClick={() => onTabSelected(tab)}
               className={classNames(
                 'tabs__list-button',
                 { 'tabs__list-button--active': tab.id === selectedTabId },
               )}
-              onClick={() => onTabSelected(tab)}
             >
               {tab.title}
             </button>
+            {tab.id === selectedTabId && (
+              tab.content
+            )}
           </li>
         ))}
       </ul>
-
-      <p>
-        {findContent}
-      </p>
     </div>
   );
 };

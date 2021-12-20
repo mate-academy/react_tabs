@@ -1,34 +1,28 @@
 .tabs {
   &__list {
-    border-bottom: 1px solid #ccc;
     padding-left: 0;
   }
 
   &__list-item {
-    display: inline-block;
+    display: block;
     position: relative;
     list-style: none;
   }
 
   &__list-button {
     padding: 0.5rem 0.75rem;
+    margin-top: 5px;
     border: transparent;
+    border-radius: 10px;
     background-color: white;
+
+    &:hover {
+      background-color:#bbfada;
+    }
   }
 
   &__list-button--active {
-    background-color: white;
-    border: solid #ccc;
-    border-width: 1px 1px 0;
-
-    &::after {
-      position: absolute;
-      content: "";
-      height: 1px;
-      bottom: -1px;
-      left: 0%;
-      right: 0%;
-      background-color: #fff;
-    }
+    background-color:#9FE2BF;
+    border: none;
   }
 }
