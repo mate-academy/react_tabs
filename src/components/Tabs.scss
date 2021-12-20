@@ -1,0 +1,44 @@
+$c-black: #000;
+$c-gray: #989898;
+$c-gray-dark: #777;
+$c-gray-light: #cbcbcb;
+
+.Tabs {
+  &__content {
+    margin: 0;
+    padding: 20px;
+    border: 2px solid;
+  }
+
+  &__nav {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+  }
+}
+
+.Tab {
+  width: 90px;
+  height: 60px;
+  padding: 0;
+  border: 2px solid transparent;
+  border-bottom-color: $c-black;
+  background-color: $c-gray-dark;
+  font-size: 26px;
+
+  &:hover {
+    background-color: $c-gray;
+  }
+
+  &--selected {
+    background-color: $c-gray-light;
+    border-color: $c-black;
+    border-bottom-color: transparent;
+    height: 65px;
+    border-radius: 8px 8px 0 0;
+
+    &:hover {
+      background-color: $c-gray-light;
+    }
+  }
+}

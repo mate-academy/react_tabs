@@ -23,20 +23,22 @@ class App extends React.Component<{}, State> {
   };
 
   render(): React.ReactNode {
+    const { title, id, content } = this.state.selectedTab;
+
     return (
-      <>
-        <div className="App">
-          <h1>{`Selected tab is: ${this.state.selectedTab.title}`}</h1>
+      <div className="App">
+        <h1 className="App__title">{`Selected tab is: ${title}`}</h1>
+        <div className="Tabs">
           <Tabs
             tabs={tabs}
-            selectedTabId={this.state.selectedTab.id}
+            selectedTabId={id}
             onTabSelected={this.onTabSelected}
           />
+          <p className="Tabs__content">
+            {content}
+          </p>
         </div>
-        <p className="App__content">
-          {this.state.selectedTab.content}
-        </p>
-      </>
+      </div>
     );
   }
 }

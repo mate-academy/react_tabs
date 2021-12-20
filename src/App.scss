@@ -3,41 +3,7 @@
 }
 
 .App {
-  &__tabs {
-    display: flex;
-    flex-direction: row;
-    align-items: end;
-  }
-
-  &__content {
-    margin: 0;
-    padding: 20px;
-    border: 2px solid;
-  }
-}
-
-.Tab {
-  width: 90px;
-  height: 60px;
-  padding: 0;
-  border: 2px solid transparent;
-  border-bottom-color: black;
-  background-color: #777;
-  font-size: 26px;
-
-  &:hover {
-    background-color: #989898;
-  }
-
-  &--selected {
-    background-color: #cbcbcb;
-    border-color: black;
-    border-bottom-color: transparent;
-    height: 65px;
-    border-radius: 8px 8px 0 0;
-
-    &:hover {
-      background-color: #cbcbcb;
-    }
+  &__title {
+    text-decoration: underline;
   }
 }

@@ -1,6 +1,8 @@
 import React from 'react';
 import classNames from 'classnames';
 
+import './Tabs.scss';
+
 type Props = {
   tabs: Tab[];
   selectedTabId: string;
@@ -9,18 +11,17 @@ type Props = {
 
 export const Tabs: React.FC<Props> = ({ tabs, selectedTabId, onTabSelected }) => {
   return (
-    <>
-      <nav className="App__tabs">
-        {tabs.map(tab => (
-          <button
-            className={classNames('Tab', { 'Tab--selected': tab.id === selectedTabId })}
-            type="button"
-            onClick={() => onTabSelected(tab)}
-          >
-            {tab.title}
-          </button>
-        ))}
-      </nav>
-    </>
+    <nav className="Tabs__nav">
+      {tabs.map(tab => (
+        <button
+          className={classNames('Tab', { 'Tab--selected': tab.id === selectedTabId })}
+          key={tab.id}
+          type="button"
+          onClick={() => tab.id !== selectedTabId && onTabSelected(tab)}
+        >
+          {tab.title}
+        </button>
+      ))}
+    </nav>
   );
 };
