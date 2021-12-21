@@ -22,7 +22,10 @@ export const Tabs: React.FC<Props> = ({
           <li key={tab.id} className="Tabs__item">
             <button
               type="button"
-              className={classnames('Tabs__button', { 'Tabs__button--active': tab.id === selectedTabId })}
+              className={classnames(
+                'Tabs__button',
+                { 'Tabs__button--active': tab.id === selectedTabId }
+              )}
               onClick={() => onTabSelected(tab.id)}
             >
               {tab.title}
