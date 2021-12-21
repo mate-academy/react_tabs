@@ -9,32 +9,30 @@ const tabs: Tab[] = [
   { id: 'tab-3', title: 'Tab 3', content: 'Some text 3' },
 ];
 
-type Props = {
-};
-
 type State = {
-  selectedTabId: string,
+  selectedTab: Tab,
 };
 
-export class App extends React.PureComponent<Props, State> {
+export class App extends React.PureComponent<{}, State> {
   state: State = {
-    selectedTabId: 'tab-1',
+    selectedTab: tabs[0],
   };
 
   selectTab = (tab: Tab) => {
     this.setState({
-      selectedTabId: tab.id,
+      selectedTab: tab,
     });
   };
 
   render() {
     return (
       <div className="App">
-        <h1 className="App__title">
-          Selected tab is&nbsp;
-          {tabs.find((tab) => this.state.selectedTabId === tab.id)?.title }
-        </h1>
-        <Tabs tabs={tabs} onTabSelected={this.selectTab} selectedTabId={this.state.selectedTabId} />
+        <h1 className="App__title">{`Selected tab is: ${this.state.selectedTab.title}`}</h1>
+        <Tabs
+          tabs={tabs}
+          onTabSelected={this.selectTab}
+          selectedTabId={this.state.selectedTab.id}
+        />
       </div>
     );
   }
