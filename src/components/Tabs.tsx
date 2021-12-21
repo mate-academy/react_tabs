@@ -22,10 +22,11 @@ export const Tabs: FC<Props> = ({
             <button
               type="button"
               className="Tab__button"
-              onClick={() => (tab !== selectedTab
-                ? onTabSelected(tab)
-                : null
-              )}
+              onClick={() => {
+                if (tab !== selectedTab) {
+                  onTabSelected(tab)
+                }
+              }}
             >
               {tab.title}
             </button>
