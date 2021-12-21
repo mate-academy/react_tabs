@@ -20,8 +20,9 @@ class App extends React.Component<{}, State> {
 
   onTabSelected = (id: string) => {
     const newValue = tabs.find(tab => tab.id === id);
+    const isChanged = newValue && newValue.id !== this.state.selectedTab;
 
-    if (newValue) {
+    if (isChanged) {
       this.setState({
         selectedTab: newValue.id,
       });
@@ -36,8 +37,7 @@ class App extends React.Component<{}, State> {
       <>
         <div className="App">
           <h1>
-            Selected tab is&nbsp;
-            {title}
+            {`Selected tab is ${title}`}
           </h1>
         </div>
         <Tabs
