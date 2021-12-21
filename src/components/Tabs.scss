@@ -1,0 +1,23 @@
+.tabs {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+
+  &__button {
+    height: 30px;
+    border-radius: 8px;
+    font-weight: bold;
+    border: 1px solid #7c2923;
+    background-color: #cf3f34;
+    color: #fff;
+    transition: 0.3s;
+
+    &:hover {
+      background-color: #f57d75;
+    }
+  }
+}
+
+.active {
+  background-color: #a5140a;
+}
