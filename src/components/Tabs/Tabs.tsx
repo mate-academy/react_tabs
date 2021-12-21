@@ -5,7 +5,7 @@ import classNames from 'classnames';
 interface Props {
   tabs: Tab[],
   selectedTabId: string,
-  onTabSelected: (tabId: string) => void,
+  onTabSelected: (tabId: Tab) => void,
 }
 
 class Tabs extends React.PureComponent<Props, {}> {
@@ -20,7 +20,8 @@ class Tabs extends React.PureComponent<Props, {}> {
           tabs.map((tab: Tab) => (
             <button
               type="button"
-              onClick={() => onTabSelected(tab.id)}
+              key={tab.id}
+              onClick={() => onTabSelected(tab)}
               className={classNames('button', { 'button-active': selectedTabId === tab.id })}
             >
               {tab.title}
