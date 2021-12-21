@@ -10,30 +10,26 @@ const tabs: Tab[] = [
 ];
 
 interface State {
-  isSelected: string;
+  isSelected: Tab | null;
 }
 
 class App extends React.Component {
   state: State = {
-    isSelected: 'tab-1',
+    isSelected: null,
   };
 
-  selectButton = (buttonId: string) => {
+  selectButton = (buttonId: Tab) => {
     this.setState({ isSelected: buttonId });
   };
 
-  selectedTubs = () => {
-    const tab = tabs.find(item => item.id === this.state.isSelected);
-
-    return tab;
-  };
-
   render() {
+    const { isSelected } = this.state;
+
     return (
       <div className="App">
         <h1>
           {'Selected tab is '}
-          {this.selectedTubs()?.title}
+          {isSelected?.title}
         </h1>
 
         <Tabs
@@ -42,7 +38,7 @@ class App extends React.Component {
         />
 
         <div className="app__content">
-          {this.selectedTubs()?.content}
+          {isSelected?.content}
         </div>
       </div>
     );

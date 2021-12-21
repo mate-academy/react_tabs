@@ -8,7 +8,7 @@ interface Tab {
 
 interface Props {
   tabs: Tab[];
-  onSelect(ards: string): void;
+  onSelect(ards: Tab): void;
 }
 
 export const Tabs: React.FC<Props> = ({
@@ -24,7 +24,7 @@ export const Tabs: React.FC<Props> = ({
             key={tab.id}
             type="button"
             onClick={() => {
-              onSelect(tab.id);
+              onSelect(tab);
             }}
           >
             {tab.title}
