@@ -31,21 +31,23 @@ class App extends React.Component<{}, State> {
   };
 
   render() {
+    const { title, selectedTab, content } = this.state;
+
     return (
       <div className="App">
         <div className="App__tabs">
           <h1 className="App__title">
-            {this.state.title}
+            {title}
           </h1>
 
           <TabsButtons
             tabs={tabs}
-            selectedTab={this.state.selectedTab}
+            selectedTab={selectedTab}
             onClick={this.onTabSelected}
           />
 
           <p className="App__tab-content">
-            {this.state.content}
+            {content}
           </p>
         </div>
       </div>

@@ -14,7 +14,6 @@ export const TabsButtons: React.FC<Props> = ({ tabs, selectedTab, onClick }) => 
       tabs.map(tab => (
         <button
           key={tab.id}
-          id={tab.id}
           className={classNames(
             'tabs__button',
             {
@@ -22,7 +21,11 @@ export const TabsButtons: React.FC<Props> = ({ tabs, selectedTab, onClick }) => 
             },
           )}
           type="button"
-          onClick={() => onClick(tab.title, tab.id, tab.content)}
+          onClick={
+            tab.id !== selectedTab
+              ? () => onClick(tab.title, tab.id, tab.content)
+              : () => 0
+          }
         >
           {tab.title}
         </button>
