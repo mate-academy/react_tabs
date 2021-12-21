@@ -23,23 +23,23 @@ class App extends React.PureComponent<{}, State> {
   };
 
   render() {
-    const { selectedTab } = this.state;
+    const { title, id, content } = this.state.selectedTab;
 
     return (
       <>
         <div className="App">
           <h1 className="App__title">
-            {`Selected tab is ${selectedTab.title}`}
+            {`Selected tab is ${title}`}
           </h1>
 
           <Tabs
             tabs={tabs}
-            selectedTabId={selectedTab.id}
+            selectedTabId={id}
             onTabSelected={this.onTabSelected}
           />
 
           <p className="App__content">
-            {selectedTab.content}
+            {content}
           </p>
         </div>
       </>
