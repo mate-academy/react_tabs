@@ -1,0 +1,31 @@
+.Tabs {
+  margin-left: 40px;
+  font-family: Roboto, sans-serif;
+
+  &__list {
+    display: flex;
+    list-style: none;
+    gap: 8px;
+    padding: 0;
+    margin-bottom: 20px;
+  }
+
+  &__button {
+    width: 80px;
+    height: 40px;
+    border: none;
+    outline: none;
+    color: #fff9fb;
+    cursor: pointer;
+    border-radius: 4px;
+    background-color: #748292;
+
+    &--active {
+      background-color: #ce7c7c;
+    }
+  }
+
+  &__content {
+    color: #454545;
+  }
+}
