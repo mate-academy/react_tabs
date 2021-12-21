@@ -1,0 +1,39 @@
+.nav__tabs {
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  background-color: rgb(215, 240, 241);
+  border: 1px solid rgb(221, 255, 255);
+  border-bottom: none;
+  border-radius: 8px;
+}
+
+.tab-button {
+  width: 200px;
+  padding: 20px;
+  font-size: 18px;
+  background-color: rgb(255, 253, 253);
+  border: 1px solid rgb(221, 255, 255);
+  border-radius: 8px;
+  transition: background-color 0.3s;
+
+  &:hover {
+    box-shadow: 5px 5px 5px  rgb(112, 114, 114);
+  }
+
+  &--active{
+    border: none;
+    background-color: rgb(215, 240, 241);
+    transition: background-color 0.3s;
+
+    &:hover {
+      background-color: rgb(208, 246, 164);
+      box-shadow: none;
+    }
+
+    &:active {
+      background-color: rgb(181, 238, 128);
+    }
+  }
+}
