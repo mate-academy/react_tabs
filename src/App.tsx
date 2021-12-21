@@ -10,12 +10,12 @@ const tabs: Tab[] = [
 ];
 
 interface State {
-  isSelected: Tab | null;
+  isSelected: Tab;
 }
 
 class App extends React.Component {
   state: State = {
-    isSelected: null,
+    isSelected: tabs[0],
   };
 
   selectButton = (buttonId: Tab) => {
@@ -35,6 +35,7 @@ class App extends React.Component {
         <Tabs
           tabs={tabs}
           onSelect={this.selectButton}
+          selectedTabId={isSelected.id}
         />
 
         <div className="app__content">
