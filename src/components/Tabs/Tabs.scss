@@ -1,0 +1,21 @@
+.button {
+  width: 100px;
+  height: 36px;
+  margin-left: 8px;
+  border-radius: 4px;
+}
+
+.Tab__button-regular {
+  background-color: rgb(247, 178, 154);
+  font-size: 16px;
+
+  &:hover {
+    background-color: rgb(252, 218, 126);
+    box-shadow: 5px 5px 16px -5px rgba(34, 60, 80, 0.6);
+  }
+}
+
+.Tab__button-selected {
+  background-color: rgb(247, 142, 107);
+  font-size: 18px;
+}
