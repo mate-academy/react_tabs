@@ -3,28 +3,25 @@ import './Tabs.scss';
 
 type Props = {
   tabs: Tab[];
-  selectedTab: Tab;
-  onTabSelected: (id: string) => void;
+  selectedTabId: string;
+  onTabSelected: (tab: Tab) => void;
 };
 
-export const Tabs: React.FC<Props> = ({ tabs, selectedTab, onTabSelected }) => (
+export const Tabs: React.FC<Props> = ({ tabs, selectedTabId, onTabSelected }) => (
   <div className="tab">
     <div className="tab__buttons">
       {tabs.map((tab) => (
         <button
           className="tab__button"
           type="button"
+          disabled={selectedTabId === tab.id}
           onClick={() => {
-            onTabSelected(tab.id);
+            onTabSelected(tab);
           }}
         >
           {tab.title}
         </button>
       ))}
-    </div>
-
-    <div className="tab__body">
-      {selectedTab.content}
     </div>
   </div>
 );
