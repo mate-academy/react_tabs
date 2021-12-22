@@ -31,8 +31,7 @@ class App extends React.Component<{}, State> {
     return (
       <div className="App">
         <h3 className="selected-title mb-5">
-          {'Selected tab: '}
-          {selectedTab.title}
+          {`Selected tab: ${selectedTab.title}`}
         </h3>
 
         <section className="App__tabs">

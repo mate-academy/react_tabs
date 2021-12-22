@@ -28,9 +28,10 @@ export const Tabs: React.FC<Props> = ({
           <a
             href="/#"
             className="Tabs__tab-link text-decoration-none"
-            onClick={(event) => {
-              onTabSelected(tab);
-              event.preventDefault();
+            onClick={() => {
+              if (tab.id !== selectedTabId) {
+                onTabSelected(tab);
+              }
             }}
           >
             {tab.title}
