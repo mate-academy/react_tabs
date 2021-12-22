@@ -12,6 +12,7 @@ export const Tabs: React.FC<Props> = ({ tabs, selectedTabId, onTabSelected }) =>
     <div className="tab__buttons">
       {tabs.map((tab) => (
         <button
+          key={tab.id}
           className="tab__button"
           type="button"
           disabled={selectedTabId === tab.id}
