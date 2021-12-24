@@ -1,0 +1,19 @@
+.tab {
+  &__buttons {
+    border-bottom: 1px solid #222;
+  }
+
+  &__button {
+    outline: none;
+    border: none;
+    background: none;
+    cursor: pointer;
+    font-size: 20px;
+    transform: translateY(2px);
+
+    &--active {
+      border: 1px solid #222;
+      border-bottom: 2px solid #fff;
+    }
+  }
+}
