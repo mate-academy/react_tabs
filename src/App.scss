@@ -1,1 +1,52 @@
-// Put styles here
+body {
+  background: #2c3e50;
+  color: #ecf0f1;
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+  max-width: 50rem;
+  width: 100%;
+  margin: 20px auto;
+}
+
+.App__title {
+  text-align: center;
+}
+
+.tabs__list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  background: #1abc9c;
+  justify-content: flex-start;
+}
+
+.tabs__button {
+  cursor: pointer;
+  width: 100px;
+  height: 3em;
+  padding: 5px 15px;
+  border: none;
+  outline: none;
+  color: #ecf0f1;
+  background: #1abc9c;
+  border-right: 0.13rem solid #16a085;
+
+  &--active {
+    border-bottom: none;
+    background-color: #ecf0f1;
+    color: #2c3e50;
+  }
+}
+
+.tabs__content {
+  margin: 0;
+  height: 400px;
+  padding: 20px 15px;
+  color: #2c3e50;
+  background-color: #ecf0f1;
+  border-bottom: 0.25rem solid #bdc3c7;
+}
