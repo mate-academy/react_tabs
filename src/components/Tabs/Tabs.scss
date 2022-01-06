@@ -1,0 +1,22 @@
+.Tabs {
+  &__content {
+    border-top: 1px solid black;
+    font-size: 18px;
+    padding-top: 10px;
+  }
+
+  &__button {
+    background: none;
+    border: none;
+    outline: none;
+    transform: translateY(1px);
+    font-size: 24px;
+    
+    &--selected {
+      background-color: #fff;
+      border: 1px solid black;
+      border-bottom: none;
+    }
+  }
+
+}
