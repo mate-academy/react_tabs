@@ -1,0 +1,47 @@
+.Tabs {
+  display: flex;
+  justify-content: flex-start;
+
+  .button {
+    height: 50px;
+    width: 80px;
+    color: rgb(73, 73, 73);
+    font-size: 16px;
+    font-weight: bold;
+    background-color: inherit;
+    border: none;
+  }
+
+  .button-active {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: 80px;
+    color: black;
+    font-size: 16px;
+    font-weight: bold;
+    background-color: inherit;
+    border: 1px dotted black;
+    border-bottom: 1px dotted antiquewhite;
+
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: 5px;
+      height: 1px;
+      width: 40px;
+      background-color: darkorange;
+      border: 2px solid black;
+      border-radius: 20px;
+    }
+  }
+}
+
+.Tab__Content {
+  padding: 20px 0;
+  border: none;
+  border-top: 1px dotted black;
+  margin-top: -1px;
+}

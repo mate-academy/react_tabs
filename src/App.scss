@@ -1,1 +1,25 @@
-// Put styles here
+body {
+  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+  background-color: antiquewhite;
+}
+
+.App {
+  max-width: 800px;
+  align-self: center;
+  margin: 0 auto;
+  
+  h1 {
+    text-align: center;
+    font-weight: normal;
+    
+    span {
+      font-weight: 700;
+    }
+  }
+
+  .active {
+    border-top: 1px dotted black;
+    border-left: 1px dotted black;
+    border-right: 1px dotted black;
+  }
+}
