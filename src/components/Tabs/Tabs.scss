@@ -1,0 +1,40 @@
+$greyColor: rgb(161, 161, 161);
+
+.tabs {
+  width: 100%;
+}
+
+.tabs-btn {
+  position: relative;
+}
+
+.tab-btn {
+  width: 100px;
+  background-color: #fff;
+  font-size: 18px;
+  padding: 10px 15px;
+  border: none;
+  border-bottom: 0;
+  color: rgb(102, 125, 230);
+  font-weight: bold;
+
+  &--selected {
+    color: #000;
+    border: 1px solid black;
+    border-bottom: 1px solid white;
+  }
+  
+  &:hover {
+    cursor: pointer;
+    box-sizing: border-box;
+    border: 1px solid black;
+    border-bottom: 0;
+    color: rgb(72, 79, 112);
+  }
+}
+
+.tabs-content {
+  border-top: 1px solid $greyColor;
+  margin: -1px;
+  padding: 20px;
+}
