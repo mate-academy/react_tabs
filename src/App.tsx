@@ -27,9 +27,13 @@ export class App extends React.Component<{}, State> {
   };
 
   render() {
+    const selectedTitle = this.state.tabs.find(tab => tab.id === this.state.selectedTabId)?.title;
+
     return (
-      <div className="App">
-        <h1 className="title">Selected tab is&nbsp;Tab 1</h1>
+      <div className="app">
+        <h1 className="title">
+          {`Selected tab is ${selectedTitle} `}
+        </h1>
         <div className="wrapper">
           <Tabs
             tabs={this.state.tabs}

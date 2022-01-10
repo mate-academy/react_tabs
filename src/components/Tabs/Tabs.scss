@@ -1,11 +1,5 @@
-$greyColor: rgb(161, 161, 161);
-
 .tabs {
   width: 100%;
-}
-
-.tabs-btn {
-  position: relative;
 }
 
 .tab-btn {
@@ -21,20 +15,23 @@ $greyColor: rgb(161, 161, 161);
   &--selected {
     color: #000;
     border: 1px solid black;
-    border-bottom: 1px solid white;
+    border-bottom: 1px solid transparent;
+    border-radius: 5px 5px 0 0;
+    background-color: #f3f3f3;
   }
   
   &:hover {
     cursor: pointer;
-    box-sizing: border-box;
-    border: 1px solid black;
-    border-bottom: 0;
     color: rgb(72, 79, 112);
+    border: 1px solid black;
+    border-bottom-color: rgb(161, 161, 161);
+    border-radius: 5px 5px 0 0;
   }
 }
 
 .tabs-content {
-  border-top: 1px solid $greyColor;
+  border-top: 1px solid rgb(161, 161, 161);
   margin: -1px;
   padding: 20px;
+  background-color: #f3f3f3;
 }
