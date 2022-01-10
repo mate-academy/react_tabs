@@ -1,0 +1,22 @@
+.tabs-container {
+  display: flex;
+  list-style: none;
+  border-bottom: 1px solid #ccc;
+
+  &__item {
+    margin-bottom: -1px;
+
+    &--active {
+      background-color: white;
+      border: solid #ccc;
+      border-width: 1px 1px 0;
+    }
+  }
+
+  &__button {
+    background-color: transparent;
+    border: none;
+    font-size: 16px;
+    padding: 12px 24px;
+  }
+}
