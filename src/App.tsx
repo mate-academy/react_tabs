@@ -21,9 +21,9 @@ export class App extends React.Component<{}, State> {
   };
 
   select = (id: string) => {
-    this.setState(() => ({
+    this.setState({
       selectedTabId: id,
-    }));
+    });
   };
 
   render() {
