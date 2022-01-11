@@ -27,7 +27,9 @@ class App extends React.Component<{}, State> {
   render() {
     return (
       <div className="App">
-        <h1 className="App-title">{`Selected tab is ${this.state.selectedTab}`}</h1>
+        <h1 className="App-title">
+          {`Selected tab is ${tabs.find((tab) => tab.id === this.state.selectedTab)?.title}`}
+        </h1>
         <Tabs
           propTabs={tabs}
           selectedTabId={this.state.selectedTab}
