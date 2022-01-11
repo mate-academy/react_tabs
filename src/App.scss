@@ -1,1 +1,8 @@
-// Put styles here
+.App {
+  margin-top: 30px;
+  margin-left: 50px;
+
+  &-title {
+    margin-bottom: 40px;
+  }
+}
