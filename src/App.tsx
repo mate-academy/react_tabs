@@ -1,4 +1,5 @@
 import React from 'react';
+import { Tabs } from './components/Tabs';
 
 import './App.scss';
 
@@ -8,11 +9,42 @@ const tabs: Tab[] = [
   { id: 'tab-3', title: 'Tab 3', content: 'Some text 3' },
 ];
 
-const App: React.FC = () => (
-  <div className="App">
-    <h1>Selected tab is&nbsp;Tab 1</h1>
-    <div>{tabs.length}</div>
-  </div>
-);
+interface State {
+  selectedTab: Tab | undefined,
+}
+
+class App extends React.Component<{}, State> {
+  state = {
+    selectedTab: tabs[0],
+  };
+
+  onTabSelected = (tabId: string) => {
+    const { selectedTab } = this.state;
+
+    if (selectedTab.id !== tabId) {
+      this.setState({
+        selectedTab: tabs.find(item => item.id === tabId),
+      });
+    }
+  };
+
+  render() {
+    const { selectedTab } = this.state;
+
+    return (
+      <>
+        <h1>
+          {`${selectedTab.title} is selected`}
+        </h1>
+
+        <Tabs
+          tabs={tabs}
+          selectedTabId={selectedTab.id}
+          onTabSelected={this.onTabSelected}
+        />
+      </>
+    );
+  }
+}
 
 export default App;
