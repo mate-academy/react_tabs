@@ -1,0 +1,60 @@
+.tabs {
+  display: flex;
+  flex-direction: row;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  width: 300px;
+
+  &__tab {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    color: rgb(32, 32, 32);
+
+    &--selectedTab {
+      color: rgb(0, 0, 172);
+    }
+  }
+
+  &__paragraph {
+    color: rgb(48, 48, 48);
+    visibility: hidden;
+    position: absolute;
+
+    &--selectedTab {
+      color: rgb(48, 48, 48);
+      visibility: visible;
+      position: absolute;
+      padding-top: 10px;
+      left: 0;
+      width: 50%;
+    }
+  }
+
+  &__button {
+    border: none;
+    outline: none;
+    width: 100px;
+    background-color: #fff;
+    border-radius: 2px;
+    cursor: pointer;
+
+    &--selectedTab {
+      border: 1px solid rgb(196, 196, 196);
+      border-bottom: 0;
+      z-index: 1000;
+
+      &::after {
+        content: "";
+        display: block;
+        position: absolute;
+        height: 1px;
+        width: 50%;
+        left: 0;
+        background-color: rgb(196, 196, 196);
+      }
+    }
+  }
+}
