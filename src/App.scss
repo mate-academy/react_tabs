@@ -1,1 +1,7 @@
-// Put styles here
+$base-color: #0a3566;
+
+.app {
+  min-width: 376px;
+  font-family: Arial, Helvetica, sans-serif;
+  color: $base-color;
+}

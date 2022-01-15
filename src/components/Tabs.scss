@@ -1,0 +1,26 @@
+$base-color: #0a3566;
+$secondary-color: #0075ff;
+$white-color: #fff;
+
+.tabs {
+  box-sizing: border-box;
+  border-bottom: 2px solid $base-color;
+
+  &__item {
+    padding: 10px 20px;
+    color: $white-color;
+    background-color: $secondary-color;
+    border: 2px solid $secondary-color;
+    transition: background-color 0.3s, border 0.3s;
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    &--selected {
+      background-color: $base-color;
+      border: 2px solid $base-color;
+      border-bottom: 2px solid $base-color;
+    }
+  }
+}
