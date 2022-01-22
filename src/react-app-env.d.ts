@@ -5,3 +5,5 @@ interface Tab {
   title: string;
   content: string;
 }
+
+type Callback = (a: string) => void;
