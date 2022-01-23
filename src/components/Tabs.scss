@@ -1,0 +1,22 @@
+.tabs {
+  max-width: 500px;
+  border: 1px solid #000;
+  border-bottom: none;
+  &__list {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+  }
+  .tab {
+    line-height: 30px;
+    padding: 10px 20px;
+    border: none;
+    background-color: #fff;
+    cursor: pointer;
+  }
+  .tab--active {
+    color: blue;
+    background-color: rgb(160, 160, 160);
+  }
+}
