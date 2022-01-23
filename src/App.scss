@@ -1,1 +1,10 @@
-// Put styles here
+.App {
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.tab-content {
+  border: 1px solid #000;
+  min-height: 300px;
+  padding: 20px;
+}
