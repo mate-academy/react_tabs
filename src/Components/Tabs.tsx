@@ -22,6 +22,7 @@ export const Tabs: React.FC<Props> = ({
       <ul className="Tabs__list">
         {tabs.map(tab => (
           <button
+            key={tab.id}
             className="Tabs__button"
             type="button"
             value={tab.id}
