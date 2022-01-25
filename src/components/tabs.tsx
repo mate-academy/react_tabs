@@ -8,9 +8,11 @@ type Props = {
   onTabSelected: HandleSelected;
 };
 
-export const Tabs:React.FC<Props> = (props) => {
-  const { tabs, selectedTabId, onTabSelected } = props;
-
+export const Tabs:React.FC<Props> = ({
+  tabs,
+  selectedTabId,
+  onTabSelected,
+}) => {
   return (
     <form>
       {tabs.map(tab => (

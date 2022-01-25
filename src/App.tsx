@@ -34,7 +34,7 @@ class App extends React.Component<{}, State> {
     return (
       <div className="App">
         <h1>
-          {this.state.selectedTab ? (`${this.state.selectedTab.title} is selected`) : ('')}
+          {this.state.selectedTab && (`${this.state.selectedTab.title} is selected`)}
         </h1>
 
         <Tabs
@@ -42,6 +42,8 @@ class App extends React.Component<{}, State> {
           selectedTabId={this.state.selectedTabId}
           onTabSelected={this.onTabSelected}
         />
+
+        <p>{this.state.selectedTab && this.state.selectedTab.content}</p>
       </div>
     );
   }
