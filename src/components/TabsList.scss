@@ -1,0 +1,18 @@
+.tab__list {
+  display: flex;
+  font-size: 30px;
+  gap: 10px;
+  list-style: none;
+  padding: 0;
+}
+
+.button {
+  display: inline-block;
+  border-radius: 10px;
+  padding: 20px;
+  background-color: orange;
+}
+
+.selected__button {
+  background-color: orchid;
+}
