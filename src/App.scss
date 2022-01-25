@@ -1,1 +1,18 @@
-// Put styles here
+.App {
+  padding: 44px;
+
+  &__tabs-list {
+    display: flex;
+    margin-bottom: 2px;
+    gap: 2px;
+  }
+}
+
+.box.title {
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.box.content {
+  font-style: italic;
+}
