@@ -13,7 +13,7 @@ type State = {
   selectedTab: Tab;
 };
 
-class App extends React.Component {
+class App extends React.Component<{}, State> {
   state: State = {
     selectedTab: tabs[0],
   };
