@@ -1,7 +1,5 @@
 import React from 'react';
 
-import { MyTab } from './MyTab';
-
 interface Props {
   tabs: Tab[],
   selectedTabId: string,
@@ -10,15 +8,20 @@ interface Props {
 
 export const Tabs: React.FC<Props> = ({ tabs, selectedTabId, onTabSelected }) => {
   return (
-    <ul>
-      {tabs.map(tab => (
-        <MyTab
-          tab={tab}
-          key={tab.id}
-          onTabSelected={onTabSelected}
-          showContent={selectedTabId === tab.id}
-        />
-      ))}
-    </ul>
+    <div className="App__wrapper">
+      <ul className="App__list">
+        {tabs.map(tab => (
+          <li key={tab.id}>
+            <button
+              type="button"
+              onClick={() => onTabSelected(tab.id)}
+            >
+              {tab.title}
+            </button>
+          </li>
+        ))}
+      </ul>
+      <p>{tabs.find(tab => tab.id === selectedTabId)?.content}</p>
+    </div>
   );
 };

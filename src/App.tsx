@@ -27,9 +27,6 @@ class App extends React.Component<{}, State> {
   render() {
     const { myTabs, selectedTabId } = this.state;
 
-    // eslint-disable-next-line
-    console.log(selectedTabId);
-
     return (
       <>
         <div className="App">

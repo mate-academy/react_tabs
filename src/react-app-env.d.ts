@@ -6,4 +6,4 @@ interface Tab {
   content: string;
 }
 
-type Callback = (a: string) => void;
+type Callback = (id: string) => void;
