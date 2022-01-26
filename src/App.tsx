@@ -35,7 +35,6 @@ class App extends React.Component<{}, State> {
           selectedTab={selectedTab}
           onChange={this.changeTab}
         />
-        <div className="content">{selectedTab.content}</div>
       </div>
     );
   }
