@@ -1,0 +1,29 @@
+.tabs {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+
+  &__buttons {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+  }
+
+  &__main {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: large;
+  }
+}
+
+.button {
+  background-color: rgb(233, 91, 39);
+  height: 50px;
+  width: 50px;
+  border-radius: 5px;
+  border: 1 px solde orange;
+
+  &--selected {
+    background-color: rgb(77, 233, 15);
+  }
+}
