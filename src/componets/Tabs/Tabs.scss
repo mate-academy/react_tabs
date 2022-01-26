@@ -1,0 +1,25 @@
+.container {
+  width: 800px;
+  margin: 0 auto;
+}
+
+.tabs {
+  border-bottom: 1px solid grey;
+
+  &__button {
+    border: none;
+    background-color: inherit;
+    cursor: pointer;
+    padding: 15px 40px;
+    color: #0075ff;
+    margin-bottom: -1px;
+
+    &--active {
+      border: solid grey;
+      border-width: 1px 1px 0;
+      border-radius: 5px 5px 0 0;
+      color: grey;
+      background-color: #fff;
+    }
+  }
+}
