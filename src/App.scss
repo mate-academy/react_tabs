@@ -1,1 +1,9 @@
-// Put styles here
+.tab {
+  display: inline-block;
+
+  &__content {
+    position: absolute;
+    top: 100px;
+    left: 50px;
+  }
+}
