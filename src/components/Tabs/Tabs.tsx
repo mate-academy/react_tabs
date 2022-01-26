@@ -12,8 +12,20 @@ export class Tabs extends React.Component<Props, {}> {
     return tabs.find(tab => tab.id === selectedTabId) || tabs[0];
   };
 
+  handleTabSelected = (
+    event: React.MouseEvent<HTMLAnchorElement>,
+    selectedTabId: string,
+    tab: Tab,
+  ) => {
+    event.preventDefault();
+
+    if (selectedTabId !== tab.id) {
+      this.props.onTabSelected(tab);
+    }
+  };
+
   render() {
-    const { tabs, selectedTabId, onTabSelected } = this.props;
+    const { tabs, selectedTabId } = this.props;
 
     return (
       <>
@@ -26,10 +38,7 @@ export class Tabs extends React.Component<Props, {}> {
               >
                 <a
                   href="/"
-                  onClick={(event) => {
-                    event.preventDefault();
-                    onTabSelected(tab);
-                  }}
+                  onClick={(event) => this.handleTabSelected(event, selectedTabId, tab)}
                 >
                   {tab.title}
                 </a>
