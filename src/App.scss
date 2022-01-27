@@ -1,1 +1,32 @@
 // Put styles here
+body {
+  box-sizing: border-box;
+}
+
+.App {
+  padding: 10px;
+}
+
+.button {
+  border: none;
+  background-color: #fff;
+
+  padding: 20px;
+  font-size: 36px;
+  border-bottom: 2px solid #ddd;
+
+  &-active {
+    color: #00f;
+    border-bottom: 2px solid #00f;
+  }
+
+  &:hover {
+    border-color: #008;
+    color: #008;
+    cursor: pointer;
+  }
+}
+
+.content {
+  font-size: 24px;
+}
