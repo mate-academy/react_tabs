@@ -11,6 +11,14 @@ export const Tabs: React.FC<Props> = ({ tabs, selectedTabId, onTabSelected }) =>
     tabs.find(tab => tab.id === selectedTabId)?.content
   );
 
+  const selectTab = (id: string) => {
+    if (id !== selectedTabId) {
+      return () => onTabSelected(id);
+    }
+
+    return () => {};
+  };
+
   return (
     <div className="App__wrapper">
       <ul className="App__list">
@@ -18,9 +26,7 @@ export const Tabs: React.FC<Props> = ({ tabs, selectedTabId, onTabSelected }) =>
           <li key={tab.id}>
             <button
               type="button"
-              onClick={tab.id !== selectedTabId
-                ? () => onTabSelected(tab.id)
-                : () => {}}
+              onClick={selectTab(tab.id)}
             >
               {tab.title}
             </button>
