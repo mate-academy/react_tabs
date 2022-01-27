@@ -10,25 +10,19 @@ const tabs: Tab[] = [
 ];
 
 type State = {
-  selectedTab: string,
+  selectedTab: Tab,
   selectedTabId: string,
 };
 
 export class App extends React.Component<{}, State> {
   state: State = {
-    selectedTab: 'Tab 1',
-    selectedTabId: 'tab-1',
-  };
-
-  getContent = () => {
-    const content = tabs.find(tab => tab.id === this.state.selectedTabId)?.content || null;
-
-    return content;
+    selectedTab: tabs[0],
+    selectedTabId: tabs[0].id,
   };
 
   handleTabChange = (tab: Tab) => {
     this.setState({
-      selectedTab: tab.title,
+      selectedTab: tab,
       selectedTabId: tab.id,
     });
   };
@@ -43,12 +37,12 @@ export class App extends React.Component<{}, State> {
           onTabSelected={(tab) => {
             this.handleTabChange(tab);
           }}
+          selectedTab={selectedTab}
           selectedTabId={selectedTabId}
-          content={this.getContent()}
         />
         <h1>
           Selected tab is&nbsp;
-          {selectedTab}
+          {selectedTab.title}
         </h1>
       </div>
     );

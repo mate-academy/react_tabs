@@ -1,20 +1,18 @@
 import classNames from 'classnames';
 import React from 'react';
 
-type HandleTabChange = (tab: Tab) => void;
-
 type Props = {
   tabs: Tab[];
   selectedTabId: string,
-  content: string | null,
-  onTabSelected: HandleTabChange;
+  selectedTab: Tab,
+  onTabSelected: (tab: Tab) => void;
 };
 
 export const Tabs: React.FC<Props> = (props) => {
   const {
     tabs,
-    content,
     selectedTabId,
+    selectedTab,
     onTabSelected,
   } = props;
 
@@ -37,7 +35,7 @@ export const Tabs: React.FC<Props> = (props) => {
           ))}
         </ul>
       </div>
-      <p>{content}</p>
+      <p>{selectedTab.content}</p>
     </>
   );
 };
