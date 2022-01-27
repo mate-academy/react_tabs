@@ -11,34 +11,29 @@ const tabs: Tab[] = [
 
 type State = {
   selectedTab: Tab,
-  selectedTabId: string,
 };
 
 export class App extends React.Component<{}, State> {
   state: State = {
     selectedTab: tabs[0],
-    selectedTabId: tabs[0].id,
   };
 
   handleTabChange = (tab: Tab) => {
     this.setState({
       selectedTab: tab,
-      selectedTabId: tab.id,
     });
   };
 
   render() {
-    const { selectedTab, selectedTabId } = this.state;
+    const { selectedTab } = this.state;
 
     return (
       <div className="App">
         <Tabs
           tabs={tabs}
-          onTabSelected={(tab) => {
-            this.handleTabChange(tab);
-          }}
           selectedTab={selectedTab}
-          selectedTabId={selectedTabId}
+          selectedTabId={selectedTab.id}
+          onTabSelected={this.handleTabChange}
         />
         <h1>
           Selected tab is&nbsp;
