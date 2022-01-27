@@ -8,7 +8,7 @@ type Props = {
 };
 
 export class Tabs extends React.Component<Props, {}> {
-  findSelectedTab = (tabs: Tab[], selectedTabId: string) => {
+  static findSelectedTab = (tabs: Tab[], selectedTabId: string) => {
     return tabs.find(tab => tab.id === selectedTabId) || tabs[0];
   };
 
@@ -46,7 +46,7 @@ export class Tabs extends React.Component<Props, {}> {
             ))}
           </ul>
         </div>
-        <p className="box">{this.findSelectedTab(tabs, selectedTabId).content}</p>
+        <p className="box">{Tabs.findSelectedTab(tabs, selectedTabId).content}</p>
       </>
     );
   }

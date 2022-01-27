@@ -8,12 +8,14 @@ const tabsFromServer: Tab[] = [
   { id: 'tab-3', title: 'Tab 3', content: 'Some text 3' },
 ];
 
+type Props = {};
+
 type State = {
   tabs: Tab[],
   selectedTab: Tab,
 };
 
-class App extends React.Component<{}, State> {
+class App extends React.Component<Props, State> {
   state: State = {
     tabs: tabsFromServer,
     selectedTab: tabsFromServer[0],
