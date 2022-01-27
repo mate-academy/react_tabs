@@ -7,6 +7,10 @@ interface Props {
 }
 
 export const Tabs: React.FC<Props> = ({ tabs, selectedTabId, onTabSelected }) => {
+  const insertContent = () => (
+    tabs.find(tab => tab.id === selectedTabId)?.content
+  );
+
   return (
     <div className="App__wrapper">
       <ul className="App__list">
@@ -14,14 +18,16 @@ export const Tabs: React.FC<Props> = ({ tabs, selectedTabId, onTabSelected }) =>
           <li key={tab.id}>
             <button
               type="button"
-              onClick={() => onTabSelected(tab.id)}
+              onClick={tab.id !== selectedTabId
+                ? () => onTabSelected(tab.id)
+                : () => {}}
             >
               {tab.title}
             </button>
           </li>
         ))}
       </ul>
-      <p>{tabs.find(tab => tab.id === selectedTabId)?.content}</p>
+      <p>{insertContent()}</p>
     </div>
   );
 };

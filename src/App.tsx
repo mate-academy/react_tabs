@@ -9,12 +9,14 @@ const tabs: Tab[] = [
   { id: 'tab-3', title: 'Tab 3', content: 'Some text 3' },
 ];
 
-interface State {
+type Props = {};
+
+type State = {
   myTabs: Tab[],
   selectedTabId: string,
-}
+};
 
-class App extends React.Component<{}, State> {
+class App extends React.Component<Props, State> {
   state: State = {
     myTabs: tabs.map(tab => ({ ...tab })),
     selectedTabId: 'tab-1',
@@ -28,20 +30,18 @@ class App extends React.Component<{}, State> {
     const { myTabs, selectedTabId } = this.state;
 
     return (
-      <>
-        <div className="App">
-          <h1>
-            Selected tab is
-            &nbsp;
-            {selectedTabId}
-          </h1>
-          <Tabs
-            tabs={myTabs}
-            selectedTabId={selectedTabId}
-            onTabSelected={this.onTabSelected}
-          />
-        </div>
-      </>
+      <div className="App">
+        <h1>
+          Selected tab is
+          &nbsp;
+          {selectedTabId}
+        </h1>
+        <Tabs
+          tabs={myTabs}
+          selectedTabId={selectedTabId}
+          onTabSelected={this.onTabSelected}
+        />
+      </div>
     );
   }
 }
