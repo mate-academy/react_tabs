@@ -20,11 +20,7 @@ export class App extends React.Component<Props, State> {
     selectedTab: tabs[0],
   };
 
-  selectTab = (tab: Tab) => {
-    if (this.state.selectedTab.id !== tab.id) {
-      this.setState({ selectedTab: tab });
-    }
-  };
+  selectTab = (tab: Tab) => this.setState({ selectedTab: tab });
 
   render() {
     return (
@@ -33,7 +29,7 @@ export class App extends React.Component<Props, State> {
           {`Selected Tab is: ${this.state.selectedTab.title}`}
         </h1>
         <Tabs
-          selectedTab={this.state.selectedTab}
+          selectedTabId={this.state.selectedTab.id}
           tabs={tabs}
           selectTab={this.selectTab}
         />
