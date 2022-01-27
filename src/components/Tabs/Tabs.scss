@@ -1,0 +1,15 @@
+.tabs-menu {
+  display: flex;
+}
+
+.button {
+  border-radius: 0;
+  box-shadow: none;
+  outline: none !important;
+
+  &-selected {
+    border-bottom: 0;
+  }
+
+
+}
