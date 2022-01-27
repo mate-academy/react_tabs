@@ -24,7 +24,7 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-        <h1>{`Selected tab is ${this.state.selectedTab.title}`}</h1>
+        <h1 className="App__title">{`Selected tab is ${this.state.selectedTab.title}`}</h1>
 
         <Tabs
           tabs={this.state.tabs}
