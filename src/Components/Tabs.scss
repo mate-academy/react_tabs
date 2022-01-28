@@ -1,0 +1,43 @@
+.tabs {
+  display: block;
+
+  &__button-container {
+    display: flex;
+    gap: 20px;
+    flex-direction: row;
+    justify-content: center;
+    margin: 0;
+  }
+
+  &__button {
+    padding: 10px 30px;
+    background-color: rgb(255, 188, 188);
+    font-weight: 700;
+    border: 1px black solid;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 8px 5px 5px rgba(182, 182, 182, 0.644);
+    color: rgb(49, 49, 48);
+
+    &-active {
+      background-color: rgb(188, 255, 208);
+    }
+
+    &:hover {
+      background-color: rgb(213, 255, 226);
+    }
+  }
+
+  &__content {
+    box-sizing: border-box;
+    width: 600px;
+    min-height: 200px;
+    margin: 20px auto;
+    padding: 10px;
+    background-color: rgb(188, 255, 208);
+    border: 1px black solid;
+    border-radius: 10px;
+    box-shadow: 12px 8px 8px rgba(182, 182, 182, 0.644);
+    color: rgb(49, 49, 48);
+  }
+}
