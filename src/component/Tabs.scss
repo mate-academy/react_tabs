@@ -1,0 +1,39 @@
+.tabs-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.button {
+  height: 60px;
+  width: 80px;
+  padding-bottom: 10px;
+  font-weight: bold;
+  text-align: center;
+  background: #343436;
+  color: #fff;
+  border: none;
+  outline: none;
+  border-radius: 15px;
+}
+
+.active {
+  background: rgb(161, 223, 182);
+  color: #000;
+}
+
+.content {
+  position: absolute;
+  width: 181px;
+  height: auto;
+  margin-top: 148px;
+  background: rgb(161, 223, 182);
+  color: #000;
+  border-radius: 15px;
+  z-index: 1000;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.4);
+  padding: 30px;
+  margin-bottom: 50px;
+}
