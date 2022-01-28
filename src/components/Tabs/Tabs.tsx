@@ -4,11 +4,11 @@ import classNames from 'classnames';
 type Props = {
   tabs: Tab[];
   selectedTabId: string;
-  selectTabHandler: (tabId: string) => void;
+  onSelectTab: (tabId: string) => void;
 };
 
 export const Tabs: React.FC<Props> = (props) => {
-  const { tabs, selectedTabId, selectTabHandler } = props;
+  const { tabs, selectedTabId, onSelectTab } = props;
 
   const tabToRender = tabs.find(tab => tab.id === selectedTabId);
 
@@ -19,7 +19,7 @@ export const Tabs: React.FC<Props> = (props) => {
           className={classNames('button', { 'button-active': tab.id === selectedTabId })}
           type="button"
           key={tab.id}
-          onClick={() => selectTabHandler(tab.id)}
+          onClick={() => onSelectTab(tab.id)}
         >
           {tab.title}
         </button>

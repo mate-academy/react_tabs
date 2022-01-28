@@ -18,7 +18,7 @@ class App extends React.PureComponent<{}, State> {
     selectedTabId: 'tab-1',
   };
 
-  selectTabHandler = (tabId: string) => {
+  handleSelectTab = (tabId: string) => {
     this.setState({
       selectedTabId: tabId,
     });
@@ -35,7 +35,7 @@ class App extends React.PureComponent<{}, State> {
           {selectedTab?.title}
 
         </h1>
-        <Tabs tabs={tabs} selectedTabId={selectedTabId} selectTabHandler={this.selectTabHandler} />
+        <Tabs tabs={tabs} selectedTabId={selectedTabId} onSelectTab={this.handleSelectTab} />
       </div>
     );
   }
