@@ -16,11 +16,11 @@
     border: 1px black solid;
     border-radius: 5px;
     cursor: pointer;
-    box-shadow: 8px 5px 5px rgba(182, 182, 182, 0.644);
     color: rgb(49, 49, 48);
 
     &-active {
       background-color: rgb(188, 255, 208);
+      box-shadow: 6px 5px 4px rgba(185, 185, 185, 0.527);
     }
 
     &:hover {
@@ -37,7 +37,7 @@
     background-color: rgb(188, 255, 208);
     border: 1px black solid;
     border-radius: 10px;
-    box-shadow: 12px 8px 8px rgba(182, 182, 182, 0.644);
+    box-shadow: 12px 8px 30px rgba(182, 182, 182, 0.521);
     color: rgb(49, 49, 48);
   }
 }
