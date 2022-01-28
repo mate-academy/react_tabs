@@ -17,7 +17,7 @@ class App extends React.PureComponent<{}, State> {
     tab: tabs[0],
   };
 
-  changeTab = (id: string) => {
+  onTabSelected = (id: string) => {
     this.setState(() => ({
       tab: tabs.find(el => el.id === id) || tabs[0],
     }));
@@ -28,10 +28,10 @@ class App extends React.PureComponent<{}, State> {
 
     return (
       <div className="App">
-        <Tabs tabs={tabs} changeContent={this.changeTab} />
         <h1>{ `Selected tab is ${tab.title}` }</h1>
-        <div>{tab.content}</div>
-
+        <Tabs tabs={tabs} selectedTabId={this.state.tab.id} changeContent={this.onTabSelected}>
+          <div>{tab.content}</div>
+        </Tabs>
       </div>
     );
   }
