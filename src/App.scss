@@ -1,1 +1,20 @@
-// Put styles here
+.app {
+  padding: 50px;
+  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+
+  &__title {
+    background-color: rgb(224, 238, 255);
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 3px 3px 5px 2px rgba(0, 17, 255, 0.226);
+  }
+
+  &__text {
+    background-color: rgb(224, 238, 255);
+    padding: 10px 20px 70px;
+    font-size: 20px;
+    margin: 0;
+    box-shadow: 3px 3px 5px 2px rgba(0, 17, 255, 0.226);
+    border-left: 2px solid lightskyblue;
+  }
+}

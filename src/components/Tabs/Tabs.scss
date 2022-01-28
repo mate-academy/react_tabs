@@ -1,0 +1,39 @@
+button {
+  padding: 0;
+  border: none;
+  font: inherit;
+  color: inherit;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.tabs {
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+
+  &__button {
+    padding: 12px 30px;
+    border: 2px solid lightskyblue;
+    background-color: white;
+    box-shadow: inset 3px 3px 5px 2px rgba(0, 17, 255, 0.226);
+    transition: background-color 0.3s, box-shadow 0.3s;
+
+    &:hover {
+      background-color: rgba(224, 238, 255, 0.247);
+      box-shadow: inset 1px 1px 3px 1px rgba(0, 17, 255, 0.226);
+    }
+
+    &--active {
+      border-bottom: 2px solid transparent;
+      background-color: rgb(224, 238, 255);
+      box-shadow: none;
+
+      &:hover {
+        background-color: rgb(224, 238, 255);
+        box-shadow: none;
+      }
+    }
+  }
+}
