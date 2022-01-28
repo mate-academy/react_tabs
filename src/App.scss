@@ -1,1 +1,15 @@
-// Put styles here
+.tabs {
+  display: flex;
+  gap: 20px;
+}
+
+.nav-link {
+  border: 1px solid black;
+  padding: 5px 10px;
+  text-decoration: none;
+  color: black;
+}
+
+.active {
+  border-color: red;
+}
