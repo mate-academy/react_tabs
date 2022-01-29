@@ -1,0 +1,27 @@
+.tab__list {
+  display: flex;
+  font-size: 30px;
+  gap: 10px;
+  list-style: none;
+  padding: 0;
+}
+
+.button {
+  display: inline-block;
+  border-radius: 10px;
+  padding: 20px;
+  background-color: orange;
+}
+
+.button-active {
+  background-color: orchid;
+}
+
+.content {
+  display: inline-block;
+  width: 220px;
+  font-size: 30px;
+  padding: 10px;
+  border: 2px solid orange;
+  border-radius: 10px;
+}
