@@ -10,30 +10,28 @@ const tabs: Tab[] = [
 ];
 
 type State = {
-  ourTabs: Tab[],
   selectedTab: Tab,
 };
 
 class App extends React.Component<{}, State> {
   state: State = {
-    ourTabs: [...tabs],
     selectedTab: tabs[0],
   };
 
-  changeTab = (tab: Tab) => {
+  handleTabChange = (tab: Tab) => {
     this.setState({ selectedTab: tab });
   };
 
   render() {
-    const { selectedTab, ourTabs } = this.state;
+    const { selectedTab } = this.state;
 
     return (
       <div className="App">
         <h1>{`Selected tab is ${selectedTab.title}`}</h1>
         <TabsList
-          ourTabs={ourTabs}
+          ourTabs={tabs}
           selectedTab={selectedTab}
-          onChange={this.changeTab}
+          onTabChange={this.handleTabChange}
         />
       </div>
     );
