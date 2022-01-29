@@ -18,10 +18,12 @@ class App extends React.Component<{}, State> {
     selectedTab: tabs[0],
   };
 
-  changeTab = (tab: Tab) => {
-    this.setState({
-      selectedTab: tab,
-    });
+  handleTabChange = (tab: Tab) => {
+    if (tab.id !== this.state.selectedTab.id) {
+      this.setState({
+        selectedTab: tab,
+      });
+    }
   };
 
   render() {
@@ -33,7 +35,7 @@ class App extends React.Component<{}, State> {
         <Tabs
           tabs={tabs}
           selectedTabId={selectedTab.id}
-          onTabSelected={this.changeTab}
+          onTabSelected={this.handleTabChange}
         />
       </div>
     );

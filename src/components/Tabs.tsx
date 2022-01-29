@@ -6,41 +6,27 @@ type Props = {
   onTabSelected: (tab: Tab) => void;
 };
 
-class Tabs extends React.Component<Props> {
-  handleTabClick = (tab: Tab) => {
-    const { selectedTabId, onTabSelected } = this.props;
-
-    if (selectedTabId !== tab.id) {
-      onTabSelected(tab);
+const Tabs: React.FC<Props> = ({ tabs, selectedTabId, onTabSelected }) => (
+  <ul>
+    {
+      tabs.map(tab => (
+        <li key={tab.id} className="tab">
+          <button
+            type="button"
+            onClick={() => onTabSelected(tab)}
+          >
+            {tab.title}
+          </button>
+          {selectedTabId === tab.id
+            && (
+              <p className="tab__content">
+                {tab.content}
+              </p>
+            )}
+        </li>
+      ))
     }
-  };
-
-  render() {
-    const { tabs, selectedTabId } = this.props;
-
-    return (
-      <ul>
-        {
-          tabs.map(tab => (
-            <li key={tab.id} className="tab">
-              <button
-                type="button"
-                onClick={() => this.handleTabClick(tab)}
-              >
-                {tab.title}
-              </button>
-              {selectedTabId === tab.id
-                && (
-                  <p className="tab__content">
-                    {tab.content}
-                  </p>
-                )}
-            </li>
-          ))
-        }
-      </ul>
-    );
-  }
-}
+  </ul>
+);
 
 export default Tabs;
