@@ -8,15 +8,18 @@ type Props = {
   onTabSelected: (tab: Tab) => void;
 };
 
-export const Tabs: React.FC<Props> = ({ tabs, selectedTabId, onTabSelected }) => (
+export const Tabs: React.FC<Props> = ({
+  tabs,
+  selectedTabId,
+  onTabSelected,
+}) => (
   <>
     <div className="tabs is-boxed">
       <ul>
         {tabs.map(tab => (
-          <li>
+          <li key={tab.id}>
             <button
               type="button"
-              key={tab.id}
               className={classNames('button is-white', {
                 'is-dark': selectedTabId === tab.id,
               })}

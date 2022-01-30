@@ -3,7 +3,7 @@ import { Tabs } from './Tabs';
 
 import './App.scss';
 
-const tabs: Tab[] = [
+const tabsFromServer: Tab[] = [
   { id: 'tab-1', title: 'Tab 1', content: 'Some text 1' },
   { id: 'tab-2', title: 'Tab 2', content: 'Some text 2' },
   { id: 'tab-3', title: 'Tab 3', content: 'Some text 3' },
@@ -16,8 +16,8 @@ type State = {
 
 class App extends React.Component <{}, State> {
   state = {
-    tabs,
-    selectedTabId: tabs[0].id,
+    tabs: tabsFromServer,
+    selectedTabId: tabsFromServer[0].id,
   };
 
   onTabSelected = (tab: Tab) => {
@@ -27,12 +27,16 @@ class App extends React.Component <{}, State> {
   };
 
   selectedTabTitle = () => {
-    const selectTab = tabs.find(tab => tab.id === this.state.selectedTabId);
+    const { tabs, selectedTabId } = this.state;
+
+    const selectTab = tabs.find(tab => tab.id === selectedTabId);
 
     return selectTab?.title;
   };
 
   render() {
+    const { tabs, selectedTabId } = this.state;
+
     return (
       <div className="App">
         <h1 className="title">
@@ -40,8 +44,8 @@ class App extends React.Component <{}, State> {
           {this.selectedTabTitle()}
         </h1>
         <Tabs
-          tabs={this.state.tabs}
-          selectedTabId={this.state.selectedTabId}
+          tabs={tabs}
+          selectedTabId={selectedTabId}
           onTabSelected={this.onTabSelected}
         />
       </div>
