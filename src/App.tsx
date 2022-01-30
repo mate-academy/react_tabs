@@ -10,15 +10,13 @@ const tabs: Tab[] = [
   { id: 'tab-3', title: 'Tab 3', content: 'Some text 3' },
 ];
 
-type Props = {};
-
 type State = {
   selectedTab: string,
 };
 
 const findTabTitle = (id: string) => tabs.find(tab => tab.id === id) || tabs[0];
 
-export class App extends React.Component<Props, State> {
+export class App extends React.Component<{}, State> {
   state: State = {
     selectedTab: 'tab-1',
   };
