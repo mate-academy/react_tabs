@@ -1,4 +1,5 @@
 import React from 'react';
+import { Tabs } from './components/Tabs/Tabs';
 
 import './App.scss';
 
@@ -8,11 +9,44 @@ const tabs: Tab[] = [
   { id: 'tab-3', title: 'Tab 3', content: 'Some text 3' },
 ];
 
-const App: React.FC = () => (
-  <div className="App">
-    <h1>Selected tab is&nbsp;Tab 1</h1>
-    <div>{tabs.length}</div>
-  </div>
-);
+interface State {
+  selectedTab: string;
+  content: string;
+}
+
+class App extends React.Component<{}, State> {
+  state = {
+    selectedTab: tabs[0].title,
+    content: tabs[0].content,
+  };
+
+  HendlerTabSelected = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+    const { value } = event.currentTarget;
+    const newSelectetTab = tabs.find(tab => (value === tab.id));
+
+    this.setState((state) => ({
+      content: newSelectetTab?.content || state.content,
+      selectedTab: newSelectetTab?.title || state.selectedTab,
+    }));
+  };
+
+  render() {
+    const { selectedTab, content } = this.state;
+
+    return (
+      <div className="App">
+        <h1 className="App__title title is-1">
+          Selected tab is&nbsp;
+          {selectedTab}
+        </h1>
+        <Tabs
+          tabs={tabs}
+          content={content}
+          onTabSelected={this.HendlerTabSelected}
+        />
+      </div>
+    );
+  }
+}
 
 export default App;
