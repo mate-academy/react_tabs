@@ -1,0 +1,30 @@
+.Tabs {
+  &__tab {
+    width: 300px;
+    padding:10px 20px;
+    margin:0px 2px;
+    display:inline-block;
+    border-radius:3px 3px 0px 0px;
+    box-shadow: 0 0.5rem 0.8rem #00000080;
+  }
+
+  &__button {
+    background-color: lightgray;
+    border: none;
+    padding: 15px;
+    border-radius: 5px;
+    font-weight: bold;
+
+    &--active {
+      background-color: white;
+      color: red;
+      transition: 0.5s;
+      text-shadow: 0 0 15px red, 0 0 25px red;
+    }
+  }
+
+  &__text {
+    padding: 10px;
+    background-color: white;
+  }
+}
