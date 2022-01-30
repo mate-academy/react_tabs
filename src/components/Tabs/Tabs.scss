@@ -1,0 +1,103 @@
+$thickness: 1px;
+$paddings: 20px;
+$line-color: #b9babd;
+
+.tab {
+  position: relative;
+  color: #b9babd;
+  background-color: white;
+  border: transparent;
+  border-left: $thickness solid transparent;
+  border-top: $thickness solid transparent;
+  border-right: $thickness solid transparent;
+  border-radius: 6px;
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 24px;
+  padding: $paddings;
+
+  &:hover:not(.tab__active) {
+    background-image: linear-gradient(75deg, #d4d7db, white);
+  }
+
+  &::after {
+    content: '';
+    display: block;
+    height: $thickness;
+    background-color: $line-color;
+  }
+
+  &__active {
+    border-left: $thickness solid $line-color;
+    border-top: $thickness solid $line-color;
+    border-right: $thickness solid $line-color;
+
+    color: #9999ff;
+
+    &::after {
+      height: 0;
+      width: 0;
+    }
+  }
+}
+
+.tabs__bottom {
+  height: $paddings;
+  background-color: #fff;
+
+  transform: translateY(-#{$paddings});
+
+  z-index: 1;
+}
+
+.right {
+  display: block;
+  height: $thickness;
+  width: #{$paddings + $thickness};
+  background-color: $line-color;
+
+  position: absolute;
+  right: 0;
+
+  transform: translateX(#{$thickness});
+}
+
+.left {
+  display: block;
+  height: $thickness;
+  width: #{$paddings + $thickness};
+  background-color: $line-color;
+
+  position: absolute;
+  left: 0;
+
+  transform: translateX(-#{$thickness});
+}
+
+.container {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  justify-content: end;
+}
+
+.buttons {
+  width: max-content;
+}
+
+.right__side {
+  display: flex;
+  background-color: $line-color;
+  align-self: end;
+  height: $thickness;
+  transform: translateY(-#{$paddings});
+}
+
+.tab__active .tab:hover {
+  background-image: none;
+}
+
+.text {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 20px;
+  transform: translateY(-#{$paddings});
+}
