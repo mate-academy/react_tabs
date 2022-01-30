@@ -1,0 +1,14 @@
+.list {
+  list-style-type: none;
+  padding: 0;
+
+  display: flex;
+  gap: 10px;
+}
+
+.button {
+  background-color: yellow;
+  cursor: pointer;
+  width: 70px;
+  height: 30px;
+}
