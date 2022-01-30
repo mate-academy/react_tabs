@@ -31,19 +31,21 @@ class App extends React.Component<{}, State> {
   };
 
   render() {
+    const { selectedTab, selectedTabId } = this.state;
+
     return (
       <div className="App">
         <h1>
-          {this.state.selectedTab && (`${this.state.selectedTab.title} is selected`)}
+          {selectedTab && (`${selectedTab.title} is selected`)}
         </h1>
 
         <Tabs
           tabs={tabs}
-          selectedTabId={this.state.selectedTabId}
+          selectedTabId={selectedTabId}
           onTabSelected={this.onTabSelected}
         />
 
-        <p>{this.state.selectedTab && this.state.selectedTab.content}</p>
+        <p>{selectedTab && selectedTab.content}</p>
       </div>
     );
   }
