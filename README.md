@@ -1,5 +1,5 @@
 # React Tabs
-- (https://Toros-Zz.github.io/react_tabs/)
+- [demo](https://Toros-Zz.github.io/react_tabs/)
 - Follow the [React task guideline](https://github.com/mate-academy/react_task-guideline#react-tasks-guideline)
 - Use [React TypeScript cheat sheet](https://mate-academy.github.io/fe-program/js/extra/react-typescript)
 

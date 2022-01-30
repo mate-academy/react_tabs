@@ -20,9 +20,7 @@ class App extends React.Component<{}, State> {
     content: tabs[0].content,
   };
 
-  TabSelected = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
-    // eslint-disable-next-line no-console
-    console.log(event.currentTarget.value);
+  HendlerTabSelected = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     const { value } = event.currentTarget;
     const newSelectetTab = tabs.find(tab => (value === tab.id));
 
@@ -44,7 +42,7 @@ class App extends React.Component<{}, State> {
         <Tabs
           tabs={tabs}
           content={content}
-          onTabSelected={this.TabSelected}
+          onTabSelected={this.HendlerTabSelected}
         />
       </div>
     );
