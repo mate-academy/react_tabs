@@ -8,7 +8,11 @@ type Props = {
   handleClick: (id: string) => void,
 };
 
-export const Tabs: React.FC<Props> = ({ allTabs, tabId, handleClick }) => (
+export const Tabs: React.FC<Props> = ({
+  allTabs,
+  tabId,
+  handleClick,
+}) => (
   <>
     <div className="tabs__button-container">
       {allTabs.map(tab => (

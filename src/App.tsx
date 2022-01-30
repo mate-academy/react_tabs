@@ -45,7 +45,11 @@ class App extends React.PureComponent<Props, State> {
           Selected tab is&nbsp;
           {title}
         </h1>
-        <Tabs allTabs={tabs} tabId={tabId} handleClick={this.handlerButtonClick} />
+        <Tabs
+          allTabs={tabs}
+          tabId={tabId}
+          handleClick={this.handlerButtonClick}
+        />
       </div>
     );
   }
