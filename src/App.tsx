@@ -17,18 +17,14 @@ type State = {
 
 class App extends React.PureComponent<Props, State> {
   state: State = {
-    tabId: 'tab-1',
-    title: 'Tab 1',
+    tabId: tabs[0].id,
+    title: tabs[0].title,
   };
 
   handlerButtonClick = (id: string) => {
-    let tabTitle;
+    const tabTitle = (tabs.find(tab => tab.id === id));
 
-    if (tabs.find(tab => tab.id === id)) {
-      tabTitle = (tabs.find(tab => tab.id === id));
-    }
-
-    if (tabTitle !== undefined) {
+    if (tabTitle) {
       this.setState({
         tabId: id,
         title: tabTitle.title || null,
