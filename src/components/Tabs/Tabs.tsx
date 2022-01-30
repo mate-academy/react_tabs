@@ -10,31 +10,24 @@ type Props = {
 };
 
 export const Tabs: React.FC<Props> = ({ tabs, selectedTab, onTabSelected }) => (
-  <div>
-    <div className="container">
-      <div className="buttons">
+  <div className="tabs">
+    <div className="tabs__container">
+      <div className="tabs__buttons">
         {tabs.map(tab => (
           <button
             type="button"
             key={tab.id}
             value={tab.id}
             onClick={() => onTabSelected(tab)}
-            className={cn('tab', { tab__active: tab.id === selectedTab.id })}
+            className={cn('tabs__tab', { tabs__active: tab.id === selectedTab.id })}
           >
             {tab.title}
-            {tab.id !== selectedTab.id && (
-              <>
-                <div className="left">{}</div>
-                <div className="right">{}</div>
-              </>
-            )}
           </button>
         ))}
       </div>
-      <div className="right__side">{}</div>
+      <div className="tabs__line">{}</div>
     </div>
-    <div className="tabs__bottom">{}</div>
-    <p className="text">
+    <p className="tabs__text">
       {selectedTab.content}
     </p>
   </div>

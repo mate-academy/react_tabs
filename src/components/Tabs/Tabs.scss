@@ -1,37 +1,35 @@
-$thickness: 1px;
-$paddings: 20px;
-$line-color: #b9babd;
+.tabs {
+  $thickness: 2px;
+  $paddings: 20px;
+  $line-color: #b9babd;
 
-.tab {
-  position: relative;
-  color: #b9babd;
-  background-color: white;
-  border: transparent;
-  border-left: $thickness solid transparent;
-  border-top: $thickness solid transparent;
-  border-right: $thickness solid transparent;
-  border-radius: 6px;
+  &__tab {
+    color: #b9babd;
+    background-color: white;
+    border: transparent;
+    border-bottom: $thickness solid $line-color;
+    border-radius: 6px 6px 0 0;
 
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 24px;
-  padding: $paddings;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 24px;
+    padding: $paddings;
 
-  &:hover:not(.tab__active) {
-    background-image: linear-gradient(75deg, #d4d7db, white);
-  }
+    &:not(.tabs__active) {
+      padding-bottom: #{$paddings - $thickness};
+      padding-left: #{$paddings + $thickness};
+      padding-right: #{$paddings + $thickness};
 
-  &::after {
-    content: '';
-    display: block;
-    height: $thickness;
-    background-color: $line-color;
+      &:hover {
+        background-image: linear-gradient(75deg, #e2e2e2, white);
+      }
+    }
   }
 
   &__active {
+    border: transparent;
     border-left: $thickness solid $line-color;
     border-top: $thickness solid $line-color;
     border-right: $thickness solid $line-color;
-
     color: #9999ff;
 
     &::after {
@@ -39,65 +37,24 @@ $line-color: #b9babd;
       width: 0;
     }
   }
-}
 
-.tabs__bottom {
-  height: $paddings;
-  background-color: #fff;
+  &__container {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    justify-content: end;
+    margin-bottom: 40px;
+  }
 
-  transform: translateY(-#{$paddings});
+  &__buttons {
+    width: max-content;
+  }
 
-  z-index: 1;
-}
+  &__line {
+    border-bottom: $thickness solid $line-color;
+  }
 
-.right {
-  display: block;
-  height: $thickness;
-  width: #{$paddings + $thickness};
-  background-color: $line-color;
-
-  position: absolute;
-  right: 0;
-
-  transform: translateX(#{$thickness});
-}
-
-.left {
-  display: block;
-  height: $thickness;
-  width: #{$paddings + $thickness};
-  background-color: $line-color;
-
-  position: absolute;
-  left: 0;
-
-  transform: translateX(-#{$thickness});
-}
-
-.container {
-  display: grid;
-  grid-template-columns: auto 1fr;
-  justify-content: end;
-}
-
-.buttons {
-  width: max-content;
-}
-
-.right__side {
-  display: flex;
-  background-color: $line-color;
-  align-self: end;
-  height: $thickness;
-  transform: translateY(-#{$paddings});
-}
-
-.tab__active .tab:hover {
-  background-image: none;
-}
-
-.text {
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 20px;
-  transform: translateY(-#{$paddings});
+  &__text {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+  }
 }
