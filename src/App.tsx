@@ -18,8 +18,8 @@ type State = {
 
 class App extends React.Component<Props, State> {
   state: State = {
-    myTabs: tabs.map(tab => ({ ...tab })),
-    selectedTabId: 'tab-1',
+    myTabs: tabs,
+    selectedTabId: tabs[0].id,
   };
 
   onTabSelected = (id: string) => {

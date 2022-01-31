@@ -13,10 +13,10 @@ export const Tabs: React.FC<Props> = ({ tabs, selectedTabId, onTabSelected }) =>
 
   const selectTab = (id: string) => {
     if (id !== selectedTabId) {
-      return () => onTabSelected(id);
+      return onTabSelected(id);
     }
 
-    return () => {};
+    return {};
   };
 
   return (
@@ -26,7 +26,7 @@ export const Tabs: React.FC<Props> = ({ tabs, selectedTabId, onTabSelected }) =>
           <li key={tab.id}>
             <button
               type="button"
-              onClick={selectTab(tab.id)}
+              onClick={() => selectTab(tab.id)}
             >
               {tab.title}
             </button>
