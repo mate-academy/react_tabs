@@ -1,5 +1,5 @@
 # React Tabs
-- Replace `<your_account>` with your Github username in the [DEMO LINK](https://<your_account>.github.io/react_tabs/)
+- Replace `<your_account>` with your Github username in the [DEMO LINK](https://Rom911.github.io/react_tabs/)
 - Follow the [React task guideline](https://github.com/mate-academy/react_task-guideline#react-tasks-guideline)
 - Use [React TypeScript cheat sheet](https://mate-academy.github.io/fe-program/js/extra/react-typescript)
 
@@ -26,3 +26,15 @@
 1. The `Tabs` component should be stateless
 
 ![tabs](./description/tabs.gif)
+
+1. Сохраните `selectedTab` в `App` (первый по умолчанию)
+1. Реализуйте компонент `Tabs`, принимающий `tabs` в качестве реквизита.
+    и отображение кнопки для каждой `tabs` и содержимого выбранной вкладки
+1. Передайте `selectedTabId` в качестве опоры для `Tabs`, указанная вкладка должна быть выбрана, если это возможно (в противном случае будет выбрана первая вкладка)
+1. Передайте обратный вызов `onTabSelected` в `Tabs`.
+    он должен вызываться всякий раз, когда пользователь выбирает другую вкладку.
+    (Не вызывать обратный вызов, если вкладка не была изменена)
+1. Callback должен получить данные выбранной вкладки (объект из массива)
+1. Создайте `h1` внутри `App`, говоря: `Selected tab is Tab 1` (показать заголовок выбранной вкладки)
+1. Когда пользователь выбирает другую вкладку, `h1` должен обновляться соответствующим образом.
+1. Компонент `Tabs` должен быть без состояния
