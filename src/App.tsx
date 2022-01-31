@@ -22,9 +22,9 @@ class App extends React.Component<{}, State> {
   };
 
   onTabSelected = (tab: Tab) => {
-    this.setState({
-      selectedTab: tab,
-    });
+    if (this.state.selectedTab !== tab) {
+      this.setState({ selectedTab: tab });
+    }
   };
 
   render() {
