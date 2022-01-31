@@ -1,0 +1,28 @@
+.tabs {
+  background-color: lightblue;
+  padding: 10px;
+  border: 1px solid #000;
+  border-radius: 10px;
+  box-sizing: border-box;
+
+  &-list {
+    display: flex;
+    list-style: none;
+
+    &__item {
+      margin-right: 20px;
+    }
+
+    &__button {
+      height: 30px;
+      width: 80px;
+    }
+  }
+
+  &-content {
+    border-radius: 10px;
+    background-color: #fff;
+    padding: 5px;
+    font-size: 20px;
+  }
+}
