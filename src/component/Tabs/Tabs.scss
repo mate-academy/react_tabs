@@ -1,0 +1,47 @@
+.Tabs {
+
+  &__list {
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+  }
+
+  &__item {
+    display: inline-block;
+    list-style-type: none;
+  }
+
+  &__button {
+    position: relative;
+    border: none;
+    height: 40px;
+    width: 100px;
+    border-radius: 10px 10px 0 0;
+    border: 1px solid #222;
+
+    &:hover {
+      background: #555;
+      color: #fff;
+    }
+  }
+
+  &__title {
+    display: block;
+    height: 30px;
+    line-height: 30px;
+  }
+
+  &__content {
+    position: relative;
+    top: -21px;
+    margin: 0 auto;
+    height: 60vh;
+    width: 60vw;
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid #222;
+    border-radius: 10px;
+  }
+}
