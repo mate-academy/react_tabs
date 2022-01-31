@@ -26,6 +26,7 @@ export const Tabs: React.FC<Props> = ({
           key={tab.id}
           type="button"
           onClick={() => handleClick(tab.id)}
+          disabled={tabId === tab.id}
         >
           {tab.title}
         </button>

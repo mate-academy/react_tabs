@@ -22,12 +22,12 @@ class App extends React.PureComponent<Props, State> {
   };
 
   handlerButtonClick = (id: string) => {
-    const tabTitle = (tabs.find(tab => tab.id === id));
+    const currentTab = (tabs.find(tab => tab.id === id));
 
-    if (tabTitle) {
+    if (currentTab) {
       this.setState({
         tabId: id,
-        title: tabTitle.title || null,
+        title: currentTab.title,
       });
     }
   };
