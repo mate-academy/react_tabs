@@ -23,7 +23,6 @@ export const Tabs: React.FC<Props> = ({ tabs, selectedTabId, handleSelector }) =
           >
             {tab.title}
           </button>
-          {' '}
         </>
       ))}
       <p className="Tabs__text">

@@ -12,8 +12,10 @@
     background-color: lightgray;
     border: none;
     padding: 15px;
+    margin: 3px;
     border-radius: 5px;
     font-weight: bold;
+    cursor: pointer;
 
     &--active {
       background-color: white;
