@@ -1,1 +1,19 @@
-// Put styles here
+.app {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  display: block;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+  &__title {
+    box-sizing: border-box;
+    color: rgb(68, 68, 68);
+    background-color: rgb(255, 188, 188);
+    padding: 20px;
+    margin: 20px auto;
+    width: 600px;
+    border: 1px black solid;
+    border-radius: 10px;
+    box-shadow: 12px 8px 30px rgba(182, 182, 182, 0.521);
+  }
+}
