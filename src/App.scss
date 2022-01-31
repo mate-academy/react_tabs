@@ -1,1 +1,48 @@
-// Put styles here
+html {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #daf7f7;
+}
+
+.selected-tab {
+  padding-left: 40px;
+  color: #6b6b6b;
+}
+
+.nav {
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  gap: 2px;
+
+  &__item {
+    text-align: center;
+    padding: 4px 20px 0;
+    width: 100%;
+    height: 50px;
+    font-size: 30px;
+    color: white;
+    background-color: #03c7c7;
+    border-radius: 4px;
+
+    &:hover {
+      background-color: #069191;
+    }
+
+    &:focus {
+      background-color: #069191;
+    }
+  }
+}
+
+.content-hidden {
+  visibility: collapse;
+  display: block;
+  margin-top: 10px;
+  padding-left: 4px;
+  font-size: 18px;
+  color: #505353;
+}
+
+.content-visible {
+  visibility: visible;
+}
