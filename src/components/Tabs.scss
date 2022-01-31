@@ -1,0 +1,22 @@
+$c-grey: rgba(106, 107, 107, 0.774);
+
+.tabs {
+  display: flex;
+  padding: 0 0 5px;
+  border-bottom: 1px solid $c-grey;
+
+  &__item {
+    list-style: none;
+  }
+
+  &__button {
+    background-color: #fff;
+    border: none;
+    cursor: pointer;
+    margin-right: 20px;
+    padding: 10px;
+  }
+}
+.container {
+  padding: 0 30px;
+}
