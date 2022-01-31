@@ -19,13 +19,14 @@ export const Tabs: React.FC<Props> = ({ tabs, selectedTab, onTabSelected }) => (
             key={tab.id}
             value={tab.id}
             onClick={() => onTabSelected(tab)}
+            disabled={tab === selectedTab}
             className={cn('tabs__tab', { tabs__active: tab.id === selectedTab.id })}
           >
             {tab.title}
           </button>
         ))}
       </div>
-      <div className="tabs__line">{}</div>
+      <div className="tabs__line" />
     </div>
     <p className="tabs__text">
       {selectedTab.content}

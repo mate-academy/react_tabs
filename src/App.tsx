@@ -28,7 +28,11 @@ export class App extends React.PureComponent<{}, State> {
     return (
       <div className="App">
         <h1>{`Selected tab is ${selectedTab.title}`}</h1>
-        <Tabs tabs={tabs} selectedTab={selectedTab} onTabSelected={this.selectTabHandler} />
+        <Tabs
+          tabs={tabs}
+          selectedTab={selectedTab}
+          onTabSelected={this.selectTabHandler}
+        />
       </div>
     );
   }
