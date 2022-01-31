@@ -15,7 +15,7 @@ class App extends React.Component {
     tabs: serverTabs,
   };
 
-  changeTab = (tab: Tab) => {
+  handleTabChange = (tab: Tab) => {
     if (this.state.selectedTab !== tab) {
       this.setState({ selectedTab: tab });
     }
@@ -29,7 +29,7 @@ class App extends React.Component {
         <Tabs
           tabs={this.state.tabs}
           selectedTabId={this.state.selectedTab.id}
-          onTabSelected={this.changeTab}
+          onTabSelected={this.handleTabChange}
         />
       </div>
     );
