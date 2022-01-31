@@ -1,0 +1,32 @@
+@import "../styles/variables.scss";
+
+.tabs {
+  margin: 0;
+  padding: 0;
+  display: flex;
+
+  &__item {
+    list-style: none;
+  }
+
+  &__button {
+    position: relative;
+    top: $borderSize;
+    padding: 12px;
+    letter-spacing: 1px;
+    font-weight: 600;
+    background-color: #fef9e7;
+    border: transparent;
+    cursor: pointer;
+    color: #2874a6;
+    transition: color 300ms, border 700ms;
+
+    &--active {
+      z-index: 1;
+      border: $borderSize solid #ddd;
+      border-bottom: $borderSize solid #fef9e7;
+      border-radius: 3px;
+      color: black;
+    }
+  }
+}
