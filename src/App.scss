@@ -1,1 +1,15 @@
-// Put styles here
+@import "./styles/variables.scss";
+
+body {
+  margin: 3%;
+  font-family: Helvetica, sans-serif;
+  background-color: #fef9e7;
+}
+
+.app {
+  &__content {
+    padding-top: 20px;
+    margin: 0;
+    border-top: $borderSize solid #ddd;
+  }
+}
