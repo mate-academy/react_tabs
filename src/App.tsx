@@ -9,31 +9,30 @@ const tabs: Tab[] = [
   { id: 'tab-3', title: 'Tab 3', content: 'Some text 3' },
 ];
 
-type Props = {};
 type State = {
-  selectedTabId: Tab,
+  selectedTab: Tab,
 };
 
-export class App extends React.Component<Props, State> {
+export class App extends React.Component<{}, State> {
   state: State = {
-    selectedTabId: tabs[0],
+    selectedTab: tabs[0],
   };
 
-  onTabSelected = (tabId: Tab) => {
+  onTabSelected = (tab: Tab) => {
     this.setState({
-      selectedTabId: tabId,
+      selectedTab: tab,
     });
   };
 
   render() {
-    const { selectedTabId } = this.state;
+    const { selectedTab } = this.state;
 
     return (
       <div className="App box">
-        <h1 className="title is-3 has-text-centered">{`Selected tab is: ${selectedTabId.title}`}</h1>
+        <h1 className="title is-3 has-text-centered">{`Selected tab is: ${selectedTab.title}`}</h1>
         <Tabs
           tabs={tabs}
-          selectedTabId={selectedTabId}
+          selectedTab={selectedTab}
           onTabSelected={this.onTabSelected}
         />
       </div>

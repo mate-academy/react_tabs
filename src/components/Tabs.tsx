@@ -2,11 +2,11 @@ import React from 'react';
 
 type Props = {
   tabs: Tab[],
-  onTabSelected: (tabId: Tab) => void,
-  selectedTabId: Tab,
+  onTabSelected: (tab: Tab) => void,
+  selectedTab: Tab,
 };
 
-export const Tabs: React.FC<Props> = ({ tabs, onTabSelected, selectedTabId }) => (
+export const Tabs: React.FC<Props> = ({ tabs, onTabSelected, selectedTab }) => (
   <div className="has-text-centered">
     <ul className="buttons">
       {tabs.map(tab => (
@@ -21,6 +21,6 @@ export const Tabs: React.FC<Props> = ({ tabs, onTabSelected, selectedTabId }) =>
         </li>
       ))}
     </ul>
-    <p className="content is-medium">{selectedTabId.content}</p>
+    <p className="content is-medium">{selectedTab.content}</p>
   </div>
 );
