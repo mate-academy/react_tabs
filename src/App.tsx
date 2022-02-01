@@ -19,7 +19,7 @@ export class App extends React.Component<{}, State> {
   };
 
   onTabSelected = (tab: Tab): void => {
-    if (this.state.selectedTab !== tab) {
+    if (this.state.selectedTab.id !== tab.id) {
       this.setState({ selectedTab: tab });
     }
   };
