@@ -10,13 +10,11 @@ const tabs: Tab[] = [
 
 type State = {
   selectedTab: Tab | null;
-  selectedTabId: string;
 };
 
 class App extends React.Component<{}, State> {
   state: State = {
     selectedTab: tabs[0],
-    selectedTabId: tabs[0].id,
   };
 
   onTabSelected = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -26,12 +24,19 @@ class App extends React.Component<{}, State> {
 
     this.setState({
       selectedTab: currentTab,
-      selectedTabId: id,
     });
   };
 
+  getTabId = () => {
+    if (this.state.selectedTab !== null) {
+      return this.state.selectedTab.id;
+    }
+
+    return '0';
+  };
+
   render() {
-    const { selectedTab, selectedTabId } = this.state;
+    const { selectedTab } = this.state;
 
     return (
       <div className="App">
@@ -41,7 +46,7 @@ class App extends React.Component<{}, State> {
 
         <Tabs
           tabs={tabs}
-          selectedTabId={selectedTabId}
+          selectedTabId={this.getTabId()}
           onTabSelected={this.onTabSelected}
         />
 

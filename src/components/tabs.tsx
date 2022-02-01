@@ -15,7 +15,7 @@ export const Tabs:React.FC<Props> = ({
 }) => (
   <form>
     {tabs.map(tab => (
-      <React.Fragment key={tab.id + 22}>
+      <React.Fragment key={tab.id}>
         <label htmlFor={tab.id}>{tab.title}</label>
         <input
           type="radio"
