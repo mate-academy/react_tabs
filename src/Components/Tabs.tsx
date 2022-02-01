@@ -14,24 +14,26 @@ export const Tabs: React.FC<Props> = ({
   selectedTab,
   onTabSelected,
 }) => (
-  <>
+  <div>
     <div className="tabs is-boxed">
       <ul>
         {tabs.map(tab => (
-          <li key={tab.id} className={classNames({ 'is-active': selectedTabId === tab.id })}>
-            <a
-              href="#preventReload"
-              onClick={() => {
-                onTabSelected(tab);
-              }}
+          <li
+            key={tab.id}
+            className={classNames({ 'is-active': selectedTabId === tab.id })}
+          >
+            <button
+              type="button"
+              className="button"
+              onClick={() => selectedTabId !== tab.id && onTabSelected(tab)}
             >
               <span className="icon is-small"><i className="fas fa-image" aria-hidden="true" /></span>
               <span>{tab.title}</span>
-            </a>
+            </button>
           </li>
         ))}
       </ul>
     </div>
     <p>{selectedTab.content}</p>
-  </>
+  </div>
 );

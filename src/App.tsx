@@ -29,16 +29,16 @@ export class App extends React.Component<{}, State> {
 
     return (
       <div className="App">
+        <h1 className="title">
+          Selected tab is&nbsp;
+          {selectedTab.title}
+        </h1>
         <Tabs
           tabs={tabs}
           selectedTab={selectedTab}
           selectedTabId={selectedTab.id}
           onTabSelected={this.handleTabChange}
         />
-        <h1>
-          Selected tab is&nbsp;
-          {selectedTab.title}
-        </h1>
       </div>
     );
   }
