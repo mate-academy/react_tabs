@@ -11,17 +11,15 @@ const tabs: Tab[] = [
 ];
 
 type State = {
-  selectedTab: string,
+  selectedTab: Tab,
 };
-
-const findTabTitle = (id: string) => tabs.find(tab => tab.id === id) || tabs[0];
 
 export class App extends React.Component<{}, State> {
   state: State = {
-    selectedTab: 'tab-1',
+    selectedTab: tabs[0],
   };
 
-  handleSelector = (tab: string) => {
+  handleSelector = (tab: Tab) => {
     this.setState((
       { selectedTab: tab }
     ));
@@ -33,9 +31,8 @@ export class App extends React.Component<{}, State> {
     return (
       <div className="App">
         <h1 className="App__title">
-          Selected tab is
-          {' '}
-          {findTabTitle(selectedTab).title}
+          Selected tab is&thinsp;
+          {selectedTab.title}
         </h1>
         <Tabs
           tabs={tabs}
