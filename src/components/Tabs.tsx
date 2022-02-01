@@ -14,11 +14,11 @@ export const Tabs: React.FC<Props> = (props) => {
       return selectTab(tab);
     }
 
-    return 'null';
+    return 0;
   };
 
   const findTab = (id: string) => (
-    tabs.find(tab => tab.id === id) || null
+    tabs.find(tab => tab.id === id)
   );
 
   return (

@@ -15,7 +15,7 @@ type State = {
 };
 
 class App extends React.Component<{}, State> {
-  state = {
+  state: State = {
     selectedTab: tabs[0],
   };
 
@@ -29,9 +29,7 @@ class App extends React.Component<{}, State> {
         <h1>
           Selected tab is
           {' '}
-          <span
-            className="tag is-info is-light"
-          >
+          <span className="tag is-info is-light">
             {this.state.selectedTab.title}
           </span>
         </h1>
