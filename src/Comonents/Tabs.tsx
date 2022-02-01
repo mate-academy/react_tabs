@@ -21,7 +21,11 @@ export const Tabs: React.FC<Props> = ({
           className="ui grey button"
           value={selectedId}
           type="button"
-          onClick={() => onSelectedTab(tab)}
+          onClick={() => {
+            if (selectedId !== tab.id) {
+              onSelectedTab(tab);
+            }
+          }}
         >
           <span
             className="list_content"
