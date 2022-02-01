@@ -10,11 +10,11 @@ export const Tabs: React.FC<Props> = (props) => {
   const { tabs, selectTab, selectedTabId } = props;
 
   const onTabSelected = (tab: Tab) => {
-    if (tab.id !== selectedTabId) {
-      return selectTab(tab);
+    if (tab.id === selectedTabId) {
+      return null;
     }
 
-    return 0;
+    return selectTab(tab);
   };
 
   const findTab = (id: string) => (
