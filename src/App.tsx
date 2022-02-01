@@ -1,4 +1,5 @@
 import React from 'react';
+import { TabsList } from './components/TabsList';
 
 import './App.scss';
 
@@ -8,11 +9,33 @@ const tabs: Tab[] = [
   { id: 'tab-3', title: 'Tab 3', content: 'Some text 3' },
 ];
 
-const App: React.FC = () => (
-  <div className="App">
-    <h1>Selected tab is&nbsp;Tab 1</h1>
-    <div>{tabs.length}</div>
-  </div>
-);
+type State = {
+  selectedTab: Tab;
+};
 
-export default App;
+export class App extends React.Component<{}, State> {
+  state: State = {
+    selectedTab: tabs[0],
+  };
+
+  onTabSelected = (tab: Tab): void => {
+    if (this.state.selectedTab.id !== tab.id) {
+      this.setState({ selectedTab: tab });
+    }
+  };
+
+  render(): React.ReactNode {
+    const { selectedTab } = this.state;
+
+    return (
+      <div className="border border-4">
+        <h1>{`Selected tab is: ${selectedTab.title}`}</h1>
+        <TabsList
+          tabs={tabs}
+          onTabSelected={this.onTabSelected}
+          content={selectedTab.content}
+        />
+      </div>
+    );
+  }
+}
