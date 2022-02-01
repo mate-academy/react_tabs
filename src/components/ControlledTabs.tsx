@@ -3,19 +3,21 @@ import { Tab, Tabs } from 'react-bootstrap';
 
 type Props = {
   tabs: Tab[],
-  onSelectTab: (tabId: string) => void,
+  onSelectTab: (tab: Tab) => void,
 };
 
 export const ControlledTabs: React.FC<Props> = ({ tabs, onSelectTab }) => {
   return (
     <Tabs
       id="controlled-tab-example"
-      onSelect={(tabId) => {
-        if (tabId !== null) {
-          onSelectTab(tabId);
-        }
-      }}
       className="mb-3"
+      onSelect={(tabId) => {
+        const selectedTab = tabs.find((tab) => (
+          tabId === tab.id
+        ));
+
+        onSelectTab(selectedTab || tabs[0]);
+      }}
     >
       {
         tabs.map((tab) => (
@@ -23,9 +25,7 @@ export const ControlledTabs: React.FC<Props> = ({ tabs, onSelectTab }) => {
             title={tab.title}
             key={tab.id}
             eventKey={tab.id}
-          >
-            {tab.content}
-          </Tab>
+          />
         ))
       }
     </Tabs>

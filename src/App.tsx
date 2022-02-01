@@ -19,11 +19,13 @@ export class App extends React.Component<Props, State> {
     selectedTab: tabs[0],
   };
 
-  onSelectTab(k: string) {
-    this.setState({
-      selectedTab: tabs.find(tab => tab.id === k) || tabs[0],
-    });
-  }
+  onSelectTab = (selectedTab: Tab) => {
+    if (selectedTab !== this.state.selectedTab) {
+      this.setState({
+        selectedTab,
+      });
+    }
+  };
 
   render() {
     return (
@@ -31,13 +33,13 @@ export class App extends React.Component<Props, State> {
         <h1>
           Selected tab is
           {' '}
-          {this.state.selectedTab.id}
+          {this.state.selectedTab.title}
         </h1>
         <ControlledTabs
           tabs={tabs}
-          // eslint-disable-next-line react/jsx-no-bind
-          onSelectTab={this.onSelectTab.bind(this)}
+          onSelectTab={this.onSelectTab}
         />
+        {this.state.selectedTab.content}
       </>
     );
   }
