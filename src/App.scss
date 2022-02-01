@@ -1,1 +1,13 @@
-// Put styles here
+body {
+  text-align: center;
+  background-color: bisque;
+}
+
+.App {
+  text-align: center;
+
+  &__title {
+    text-shadow: 0 0 5px rgb(116, 7, 241);
+  }
+
+}
