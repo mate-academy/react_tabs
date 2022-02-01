@@ -36,12 +36,13 @@ class App extends React.Component <{}, State> {
 
   render() {
     const { tabs, selectedTabId } = this.state;
+    const selectedTabTitle = this.selectedTabTitle();
 
     return (
       <div className="App">
         <h1 className="title">
           Selected tab is&nbsp;
-          {this.selectedTabTitle()}
+          {selectedTabTitle}
         </h1>
         <Tabs
           tabs={tabs}
