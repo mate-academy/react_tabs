@@ -19,7 +19,7 @@ export const Tabs: React.FC<Props> = ({ tabs, selectedTab, onTabSelected }) => (
             key={tab.id}
             value={tab.id}
             onClick={() => onTabSelected(tab)}
-            disabled={tab === selectedTab}
+            disabled={tab.id === selectedTab.id}
             className={cn(
               'tabs__tab',
               { tabs__active: tab.id === selectedTab.id },
