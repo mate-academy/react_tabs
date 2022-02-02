@@ -17,31 +17,31 @@ export class App extends React.Component<{}, State> {
     selectedTabId: tabs[0].id,
   };
 
-  onTabSelected = (tab: Tab) => {
+  onTabSelected = (tabId: string) => {
     this.setState({
-      selectedTabId: tab.id,
+      selectedTabId: tabId,
     });
+  };
+
+  findTab = (tabId: string) => {
+    return tabs.find(tab => tab.id === tabId) || tabs[0];
   };
 
   render() {
     const { selectedTabId } = this.state;
-
-    const tab: Tab = tabs.find(selectedTab => selectedTab.id === selectedTabId) || tabs[0];
+    const selectedTab = this.findTab(selectedTabId);
 
     return (
       <div className="App">
         <h1 className="App__title">
           {'Selected tab is: '}
-          <span style={{
-            color: '#ff9100',
-          }}
-          >
-            {tab.title}
+          <span className="currentTabs">
+            {selectedTab.title}
           </span>
         </h1>
         <Tabs
           tabs={tabs}
-          selectedTab={tab}
+          selectedTab={selectedTab}
           onTabSelected={this.onTabSelected}
         />
       </div>

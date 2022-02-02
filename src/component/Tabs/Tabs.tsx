@@ -5,19 +5,11 @@ import './Tabs.scss';
 type Props = {
   tabs: Tab[],
   selectedTab: Tab,
-  onTabSelected: (tab: Tab) => void,
+  onTabSelected: (tabId: string) => void,
 };
 
-enum ColorTabs {
-  '#000',
-  '#1b1b1b',
-  '#ff9100',
-}
-
 export const Tabs: React.FC<Props> = ({ tabs, selectedTab, onTabSelected }) => (
-  <div
-    style={{ backgroundColor: ColorTabs[0] }}
-  >
+  <div>
     <ul className="Tab__list">
       {tabs.map(tab => (
         <li
@@ -30,7 +22,7 @@ export const Tabs: React.FC<Props> = ({ tabs, selectedTab, onTabSelected }) => (
               'Tabs__button',
               (selectedTab.id === tab.id) && 'Tabs__button--selected',
             )}
-            onClick={() => (selectedTab.id !== tab.id) && onTabSelected(tab)}
+            onClick={() => (selectedTab.id !== tab.id) && onTabSelected(tab.id)}
           >
             <div className="Tabs__title">{tab.title}</div>
           </button>
