@@ -9,29 +9,39 @@ const tabs: Tab[] = [
 ];
 
 type State = {
-  selectedTabId: Tab,
+  selectedTabId: string,
 };
 
 export class App extends React.Component<{}, State> {
   state: State = {
-    selectedTabId: tabs[0],
+    selectedTabId: tabs[0].id,
   };
 
-  onTabSelected = (tabId: Tab) => {
+  onTabSelected = (tab: Tab) => {
     this.setState({
-      selectedTabId: tabId,
+      selectedTabId: tab.id,
     });
   };
 
   render() {
     const { selectedTabId } = this.state;
 
+    const tab: Tab = tabs.find(selectedTab => selectedTab.id === selectedTabId) || tabs[0];
+
     return (
       <div className="App">
-        <h1 className="App__title">{`Selected tab is: ${selectedTabId.title}`}</h1>
+        <h1 className="App__title">
+          {'Selected tab is: '}
+          <span style={{
+            color: '#ff9100',
+          }}
+          >
+            {tab.title}
+          </span>
+        </h1>
         <Tabs
           tabs={tabs}
-          selectedTabId={selectedTabId}
+          selectedTab={tab}
           onTabSelected={this.onTabSelected}
         />
       </div>

@@ -1,14 +1,23 @@
+import classNames from 'classnames';
 import React from 'react';
 import './Tabs.scss';
 
 type Props = {
   tabs: Tab[],
-  onTabSelected: (tabId: Tab) => void,
-  selectedTabId: Tab,
+  selectedTab: Tab,
+  onTabSelected: (tab: Tab) => void,
 };
 
-export const Tabs: React.FC<Props> = ({ tabs, onTabSelected, selectedTabId }) => (
-  <div className="">
+enum ColorTabs {
+  '#000',
+  '#1b1b1b',
+  '#ff9100',
+}
+
+export const Tabs: React.FC<Props> = ({ tabs, selectedTab, onTabSelected }) => (
+  <div
+    style={{ backgroundColor: ColorTabs[0] }}
+  >
     <ul className="Tab__list">
       {tabs.map(tab => (
         <li
@@ -17,8 +26,11 @@ export const Tabs: React.FC<Props> = ({ tabs, onTabSelected, selectedTabId }) =>
         >
           <button
             type="button"
-            className="Tabs__button"
-            onClick={() => onTabSelected(tab)}
+            className={classNames(
+              'Tabs__button',
+              (selectedTab.id === tab.id) && 'Tabs__button--selected',
+            )}
+            onClick={() => (selectedTab.id !== tab.id) && onTabSelected(tab)}
           >
             <div className="Tabs__title">{tab.title}</div>
           </button>
@@ -26,7 +38,7 @@ export const Tabs: React.FC<Props> = ({ tabs, onTabSelected, selectedTabId }) =>
       ))}
     </ul>
     <p className="Tabs__content">
-      {selectedTabId.content}
+      {selectedTab.content}
     </p>
   </div>
 );

@@ -12,16 +12,21 @@
   }
 
   &__button {
+    z-index: 2;
     position: relative;
-    border: none;
     height: 40px;
     width: 100px;
     border-radius: 10px 10px 0 0;
-    border: 1px solid #222;
+    border-bottom: 2px solid transparent;
+    background-color: #999;
 
     &:hover {
-      background: #555;
+      background-color: #555;
       color: #fff;
+    }
+
+    &--selected {
+      background-color: #fff;
     }
   }
 
@@ -38,6 +43,7 @@
     height: 60vh;
     width: 60vw;
     background-color: #fff;
+    color: #000;
     display: flex;
     align-items: center;
     justify-content: center;
