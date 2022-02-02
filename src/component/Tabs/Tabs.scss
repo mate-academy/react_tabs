@@ -17,7 +17,7 @@
     height: 40px;
     width: 100px;
     border-radius: 10px 10px 0 0;
-    border-bottom: 2px solid transparent;
+    border-bottom: 1px solid #fff;
     background-color: #999;
 
     &:hover {
@@ -38,7 +38,7 @@
 
   &__content {
     position: relative;
-    top: -21px;
+    top: -22px;
     margin: 0 auto;
     height: 60vh;
     width: 60vw;
