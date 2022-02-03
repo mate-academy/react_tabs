@@ -39,6 +39,7 @@ export class App extends React.Component<{}, State> {
             {selectedTab.title}
           </span>
         </h1>
+
         <Tabs
           tabs={tabs}
           selectedTab={selectedTab}
