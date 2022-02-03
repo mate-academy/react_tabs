@@ -1,0 +1,55 @@
+.Tabs {
+  background-color: #000;
+
+  &__list {
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+  }
+
+  &__item {
+    display: inline-block;
+    list-style-type: none;
+  }
+
+  &__button {
+    z-index: 2;
+    position: relative;
+    height: 40px;
+    width: 100px;
+    border-radius: 10px 10px 0 0;
+    border-bottom: 1px solid #fff;
+    background-color: #999;
+
+    &:hover {
+      background-color: #555;
+      color: #fff;
+    }
+
+    &--selected {
+      background-color: #fff;
+    }
+  }
+
+  &__title {
+    display: block;
+    height: 30px;
+    line-height: 30px;
+  }
+
+  &__content {
+    position: relative;
+    top: -22px;
+    margin: 0 auto;
+    height: 60vh;
+    width: 60vw;
+    min-width: 400px;
+    background-color: #fff;
+    color: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid #222;
+    border-radius: 10px;
+  }
+}
