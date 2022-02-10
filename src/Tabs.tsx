@@ -17,12 +17,15 @@ export const Tabs: React.FC<Props> = (props) => {
         {tabs.map(tab => (
           <a
             href={tab.id}
-            className={classNames('nav-link', {
-              active: tab.id === selectedTabId,
-            })}
+            className={classNames(
+              'nav-link',
+              { active: tab.id === selectedTabId },
+            )}
             onClick={event => {
               event.preventDefault();
-              choosingTab(tab);
+              if (selectedTabId !== tab.id) {
+                choosingTab(tab);
+              }
             }}
           >
             {tab.title}
