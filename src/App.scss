@@ -1,1 +1,24 @@
 // Put styles here
+
+.App {
+  padding: 0 50px;
+}
+
+.list {
+  width: 400px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+
+.list__item {
+  position: relative;
+  width: 100px
+};
+
+.content {
+  position: absolute;
+  display: flex;
+}
