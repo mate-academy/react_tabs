@@ -2,29 +2,23 @@ import React from 'react';
 
 type Props = {
   tabs: Tab[];
-  selectedTabId: string;
-  changeTabId: (value: string) => void;
+  setSelectedTabId: (value: string) => void;
 };
 
-export const Tabs: React.FC<Props> = ({ tabs, selectedTabId, changeTabId }) => {
-  const filteredTabs = tabs.filter((tab: Tab) => tab.id === selectedTabId);
-
+export const Tabs: React.FC<Props> = ({ tabs, setSelectedTabId }) => {
   return (
-    <div>
-      {tabs.map((tab: Tab) => {
-        const { id, title } = tab;
-
-        return (
-          <button key={id} type="button" onClick={() => changeTabId(id)}>
-            {title}
-          </button>
-        );
-      })}
-      {filteredTabs.map((tab: Tab) => {
-        const { id, content } = tab;
-
-        return <div key={id}>{content}</div>;
-      })}
-    </div>
+    <>
+      {tabs.map((tab: Tab) => (
+        <button
+          type="button"
+          key={tab.id}
+          onClick={() => {
+            setSelectedTabId(tab.id);
+          }}
+        >
+          {tab.title}
+        </button>
+      ))}
+    </>
   );
 };

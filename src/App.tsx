@@ -10,28 +10,23 @@ const tabs: Tab[] = [
 ];
 
 const App: React.FC = () => {
-  const [selectedTabId, setTabId] = useState('tab-1');
-
-  const changeTabId = (value: string) => {
-    if (selectedTabId !== value) {
-      setTabId(value);
-    }
-  };
-
-  const currentTab = tabs.find((tab: Tab) => tab.id === selectedTabId);
+  const [selectedTabId, setSelectedTabId] = useState('tab-1');
+  const selectedTab = tabs.find((tab: Tab) => tab.id === selectedTabId);
 
   return (
     <div className="App">
       <h1>
-        {currentTab
-          ? `Selected tab is ${currentTab.title}`
+        {selectedTab
+          ? `Selected tab is ${selectedTab.title}`
           : 'There no tabs selected curently'}
       </h1>
       <Tabs
         tabs={tabs}
-        selectedTabId={selectedTabId}
-        changeTabId={changeTabId}
+        setSelectedTabId={setSelectedTabId}
       />
+      <div>
+        {selectedTab?.content}
+      </div>
     </div>
   );
 };
