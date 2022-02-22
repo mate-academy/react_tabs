@@ -16,7 +16,7 @@ interface Tab {
 }
 
 const App: React.FC = () => {
-  const [selectedTab, changeTab] = useState(tabs[0].id);
+  const [selectedTabId, setSelectedTabId] = useState(tabs[0].id);
 
   const changer = (value: Tab | null) => {
     if (value !== null) {
