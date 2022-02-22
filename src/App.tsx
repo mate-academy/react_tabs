@@ -28,7 +28,7 @@ const App: React.FC = () => {
     <div className="App">
       <h1>{`Selected tab is: ${selectedTab}`}</h1>
       <Tabs
-        select={selectedTab}
+        selectedTab={selectedTab}
         tabs={tabs}
         changer={changer}
       />
