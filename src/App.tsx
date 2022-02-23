@@ -16,22 +16,19 @@ interface Tab {
 }
 
 const App: React.FC = () => {
-  const [selectedTab, changeTab] = useState(tabs[0].id);
-
-  const changer = (value: Tab | null) => {
-    if (value !== null) {
-      changeTab(value.id);
-    }
-  };
+  const [selectedTab, setSelectedTab] = useState(tabs[0]);
 
   return (
     <div className="App">
-      <h1>{`Selected tab is: ${selectedTab}`}</h1>
+      <h1>{`Selected tab is: ${selectedTab.title}`}</h1>
       <Tabs
-        select={selectedTab}
+        selectedTab={selectedTab}
         tabs={tabs}
-        changer={changer}
+        changer={(value) => setSelectedTab(value)}
       />
+      <p className="content">
+        {selectedTab.content}
+      </p>
     </div>
   );
 };

@@ -2,16 +2,16 @@ import React from 'react';
 
 interface ITabs {
   tabs: Tab[],
-  select: string,
+  selectedTab: Tab,
   changer: (tab: Tab) => void,
 }
 
-export const Tabs: React.FC<ITabs> = ({ tabs, changer, select }) => {
+export const Tabs: React.FC<ITabs> = ({ tabs, changer, selectedTab }) => {
   return (
     <ul className="list">
       {tabs.map((tab: Tab) => {
         const clicker = () => {
-          if (select !== tab.id) {
+          if (selectedTab.id !== tab.id) {
             return changer(tab);
           }
 
@@ -27,7 +27,6 @@ export const Tabs: React.FC<ITabs> = ({ tabs, changer, select }) => {
             >
               {tab.title}
             </button>
-            {select === tab.id && <p className="content">{tab.content}</p>}
           </li>
         );
       })}
