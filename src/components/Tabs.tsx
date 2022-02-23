@@ -2,40 +2,36 @@ import React from 'react';
 
 type Props = {
   tabs: Tab[];
-  selectedTabId: string;
+  selectedTab: Tab;
   onTabSelected: (tab: Tab) => void;
 };
 
 export const Tabs: React.FC<Props> = ({
   tabs,
-  selectedTabId,
+  selectedTab,
   onTabSelected,
-}) => {
-  const selectedTab = tabs.find(tab => tab.id === selectedTabId);
+}) => (
+  <div>
+    {tabs.map(tab => {
+      const { id, title } = tab;
 
-  return (
-    <div>
-      {tabs.map(tab => {
-        const { id, title } = tab;
+      return (
+        <button
+          type="button"
+          key={id}
+          onClick={() => {
+            if (selectedTab.id !== id) {
+              onTabSelected(tab);
+            }
+          }}
+        >
+          {title}
+        </button>
+      );
+    })}
 
-        return (
-          <button
-            type="button"
-            key={id}
-            onClick={() => {
-              if (selectedTabId !== id) {
-                onTabSelected(tab);
-              }
-            }}
-          >
-            {title}
-          </button>
-        );
-      })}
+    <br />
 
-      <br />
-
-      {selectedTab?.content}
-    </div>
-  );
-};
+    {selectedTab?.content}
+  </div>
+);
