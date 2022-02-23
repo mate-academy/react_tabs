@@ -1,1 +1,35 @@
 // Put styles here
+.row {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  max-width: 150px;
+}
+
+.column {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  max-width: 180px;
+}
+
+.text {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: antiquewhite;
+  height: 75px;
+  border: 2px black solid;
+  border-left: 0;
+  box-sizing: border-box;
+}
+
+.button {
+  border-right: 0;
+  background-color: antiquewhite;
+  height: 25px;
+  box-sizing: border-box;
+  &:hover {
+    background-color: #faebd785;
+  }
+}

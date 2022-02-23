@@ -10,21 +10,27 @@ export const Tab: React.FC = () => {
         Selected tab is
         {` ${selectedTab.title}`}
       </h1>
-      <ul>
-        {tabs.map(tab => (
-          <li
-            key={tab.id}
-          >
-            {selectedTab.title === tab.title && (selectedTab.content)}
-            <button
-              type="button"
-              onClick={() => (setSelectedTab(tabs[+tab.id.slice(-1) - 1]))}
+      <div className="column">
+        <div className="text">
+          {selectedTab.content}
+        </div>
+        <ul>
+          {tabs.map(tab => (
+            <li
+              className="row"
+              key={tab.id}
             >
-              {tab.title}
-            </button>
-          </li>
-        ))}
-      </ul>
+              <button
+                type="button"
+                className="button"
+                onClick={() => (setSelectedTab(tabs[+tab.id.slice(-1) - 1]))}
+              >
+                {tab.title}
+              </button>
+            </li>
+          ))}
+        </ul>
+      </div>
     </div>
   );
 };
