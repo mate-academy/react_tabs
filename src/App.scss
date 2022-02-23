@@ -1,1 +1,42 @@
-// Put styles here
+body {
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+
+  background-color: rgb(138, 138, 138);
+}
+
+p {
+  margin: 0;
+  font-size: 20px;
+}
+
+.App {
+  height: 500px;
+  width: 600px;
+  background-color: rgb(133, 213, 202);
+  padding: 30px;
+
+  text-align: center;
+  border-radius: 10px;
+
+}
+
+.tabs {
+  &__content {
+    background-color: rgb(101, 175, 165);
+    height: 300px;
+    padding: 30px;
+  }
+
+  &__button {
+    height: 30px;
+    width: 70px;
+    background-color: rgba(101, 175, 165, 0.439);
+    border-bottom: none;
+
+    &--selected {
+      background-color: rgb(101, 175, 165);
+    }
+  }
+}
