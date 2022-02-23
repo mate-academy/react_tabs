@@ -1,1 +1,27 @@
-// Put styles here
+.tabs {
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+
+
+  &__content {
+    margin: 0;
+    border: 1px solid black;
+    width: 200px;
+  }
+
+  &__button {
+    border: none;
+    color: blue;
+    margin-bottom: 0;
+    background: #fff;
+
+    &--active {
+      color: black;
+      border: 1px solid black;
+      border-bottom: 1px solid white;
+      margin-bottom: -2px;
+    }
+  }
+}
