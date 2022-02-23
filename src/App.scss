@@ -1,1 +1,17 @@
-// Put styles here
+.list {
+  display: flex;
+  list-style: none;
+  gap: 20px;
+}
+
+.text {
+  margin: 0 40px;
+  padding: 20px;
+  background-color: greenyellow;
+  border-radius: 20px;
+}
+
+.title {
+  margin: 0 40px;
+  border-bottom: 5px solid greenyellow;
+}
