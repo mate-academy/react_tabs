@@ -27,7 +27,6 @@ h1 {
 }
 
 .button {
-  border-right: 0;
   background-color: antiquewhite;
   height: 150px;
   width: 70px;
@@ -36,4 +35,5 @@ h1 {
 
 .active {
   background-color: #faebd785;
+  border-right: 0;
 }
