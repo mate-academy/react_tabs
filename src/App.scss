@@ -1,1 +1,39 @@
-// Put styles here
+h1 {
+  padding-left: 40px;
+}
+.row {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+}
+
+.column {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  width: 450px;
+}
+
+.text {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #faebd785;
+  height: 450px;
+  width: 450px;
+  border: 2px black solid;
+  border-left: 0;
+  box-sizing: border-box;
+}
+
+.button {
+  background-color: antiquewhite;
+  height: 150px;
+  width: 70px;
+  box-sizing: border-box;
+}
+
+.active {
+  background-color: #faebd785;
+  border-right: 0;
+}
