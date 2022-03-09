@@ -12,17 +12,13 @@ const tabs: Tab[] = [
 const App: React.FC = () => {
   const [selectedTab, setSelectedTab] = useState(tabs[0]);
 
-  const tabSelected = (tab: Tab) => {
-    setSelectedTab(tab);
-  };
-
   return (
     <div className="App">
       <h1>{`Selected ${selectedTab.title}`}</h1>
       <Tabs
         tabs={tabs}
         selectedTabId={selectedTab.id}
-        tabSelected={tabSelected}
+        tabSelected={setSelectedTab}
       />
     </div>
   );

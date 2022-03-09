@@ -1,4 +1,10 @@
-import React, { useEffect } from 'react';
+import React from 'react';
+
+interface Tab {
+  id: string,
+  title: string,
+  content: string,
+}
 
 type Props = {
   tabs: Tab[],
@@ -7,11 +13,7 @@ type Props = {
 };
 
 export const Tabs:React.FC<Props> = ({ tabs, selectedTabId, tabSelected }) => {
-  let selectedTab = tabs.find(tab => tab.id === selectedTabId);
-
-  useEffect(() => {
-    selectedTab = tabs.find(tab => tab.id === selectedTabId);
-  }, [selectedTabId]);
+  const selectedContent = tabs.find(tab => tab.id === selectedTabId)?.content;
 
   return (
     <>
@@ -28,7 +30,7 @@ export const Tabs:React.FC<Props> = ({ tabs, selectedTabId, tabSelected }) => {
           </li>
         ))}
       </ul>
-      <p>{selectedTab?.content}</p>
+      <p>{selectedContent}</p>
     </>
   );
 };
