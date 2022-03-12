@@ -1,0 +1,18 @@
+button {
+  padding: 5px;
+  border: none;
+}
+
+button:hover {
+  border: 1px solid black;
+  border-bottom: none;
+}
+
+.list {
+  display: flex;
+  gap: 3px;
+}
+
+.content {
+  width: 200px;
+}
