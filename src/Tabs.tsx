@@ -27,7 +27,7 @@ export const Tabs: React.FC<Props> = ({ tabs, selectedTabId, onTabSelected }) =>
         ))}
       </div>
       <p>
-        {selectedTab?.content}
+        {selectedTab.content}
       </p>
     </>
   );
