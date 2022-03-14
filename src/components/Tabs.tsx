@@ -3,12 +3,12 @@ import React from 'react';
 type Props = {
   tabs: Tab[];
   selectedTab: Tab | undefined;
-  setSelectedTabId: (value: string) => void;
+  setSelectedTab: (tab: Tab) => void;
 };
 
 export const Tabs: React.FC<Props> = ({
   tabs,
-  setSelectedTabId,
+  setSelectedTab,
   selectedTab,
 }) => {
   return (
@@ -18,7 +18,7 @@ export const Tabs: React.FC<Props> = ({
           type="button"
           key={tab.id}
           onClick={() => {
-            setSelectedTabId(tab.id);
+            setSelectedTab(tab);
           }}
         >
           {tab.title}
