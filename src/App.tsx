@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 import React, { useState } from 'react';
 
 import './App.scss';
@@ -19,10 +18,9 @@ const App: React.FC = () => {
 
   return (
     <div className="App">
-      <h1>Selected tab is&nbsp;Tab 1</h1>
-      Selected Tab is
-      {' '}
       {selectedTab.title}
+      {' '}
+      are selected
       <Tabs
         tabs={tabs}
         selectedTabId={selectedTab.id}

@@ -5,29 +5,30 @@ type Props = {
   selectedTabId: string;
   onTabSelected: (tab: Tab) => void;
 };
+
 export const Tabs: React.FC<Props> = ({ tabs, selectedTabId, onTabSelected }) => {
-  const selectedTab = tabs.find(tab => tab.id === selectedTabId);
+  const selectedTab = tabs.find(tab => tab.id === selectedTabId) || tabs[0];
 
   return (
     <>
       <div className="App__butons">
-        {tabs.map(el => (
+        {tabs.map(tab => (
           <button
-            key={el.id}
+            key={tab.id}
             type="button"
             onClick={() => {
-              if (el !== selectedTab) {
-                onTabSelected(el);
+              if (tab.id !== selectedTab.id) {
+                onTabSelected(tab);
               }
             }}
           >
-            {el.title}
+            {tab.title}
           </button>
         ))}
       </div>
-      <span>
+      <p>
         {selectedTab?.content}
-      </span>
+      </p>
     </>
   );
 };
