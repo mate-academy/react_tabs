@@ -22,11 +22,9 @@ const App: React.FC = () => {
       </h1>
       <Tabs
         tabs={tabs}
+        selectedTab={selectedTab}
         setSelectedTabId={setSelectedTabId}
       />
-      <div>
-        {selectedTab?.content}
-      </div>
     </div>
   );
 };

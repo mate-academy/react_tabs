@@ -2,10 +2,15 @@ import React from 'react';
 
 type Props = {
   tabs: Tab[];
+  selectedTab: Tab | undefined;
   setSelectedTabId: (value: string) => void;
 };
 
-export const Tabs: React.FC<Props> = ({ tabs, setSelectedTabId }) => {
+export const Tabs: React.FC<Props> = ({
+  tabs,
+  setSelectedTabId,
+  selectedTab,
+}) => {
   return (
     <>
       {tabs.map((tab: Tab) => (
@@ -19,6 +24,9 @@ export const Tabs: React.FC<Props> = ({ tabs, setSelectedTabId }) => {
           {tab.title}
         </button>
       ))}
+      <div>
+        {selectedTab?.content}
+      </div>
     </>
   );
 };
