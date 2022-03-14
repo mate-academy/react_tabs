@@ -13,9 +13,12 @@ export const Tabs: React.FC<Props> = ({ tabs, selectedTabId, onTabSelected }) =>
       <div className="App__butons">
         {tabs.map(el => (
           <button
+            key={el.id}
             type="button"
             onClick={() => {
-              onTabSelected(el);
+              if (el !== selectedTab) {
+                onTabSelected(el);
+              }
             }}
           >
             {el.title}
