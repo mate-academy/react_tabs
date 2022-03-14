@@ -1,1 +1,10 @@
 // Put styles here
+.App {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+
+  &__buttons {
+    display: flex;
+  }
+}
