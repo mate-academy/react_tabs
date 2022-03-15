@@ -3,11 +3,11 @@ import { Tabs } from './Components/Tabs/Tabs';
 
 import './App.scss';
 
-interface Tab {
-  id: string,
-  title: string,
-  content: string,
-}
+// interface Tab {
+//   id: string,
+//   title: string,
+//   content: string,
+// }
 
 const tabs: Tab[] = [
   { id: 'tab-1', title: 'Tab 1', content: 'Some text 1' },
@@ -23,8 +23,8 @@ const App: React.FC = () => {
       <h1>{`Selected tab is ${selectedTab.title}`}</h1>
       <Tabs
         tabs={tabs}
-        tabsId={selectedTab.id}
-        tabsContent={selectedTab.content}
+        selectedTabsId={selectedTab.id}
+        selectedTabsContent={selectedTab.content}
         onTabSelected={setSelectedTab}
       />
     </div>

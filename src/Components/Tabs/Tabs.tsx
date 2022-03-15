@@ -1,3 +1,4 @@
+import classNames from 'classnames';
 import React from 'react';
 
 import './Tabs.scss';
@@ -10,15 +11,15 @@ interface Tab {
 
 type Props = {
   tabs: Tab[],
-  tabsId: string,
-  tabsContent: string,
+  selectedTabsId: string,
+  selectedTabsContent: string,
   onTabSelected: (tab: Tab) => void,
 };
 
 export const Tabs: React.FC<Props> = ({
   tabs,
-  tabsId,
-  tabsContent,
+  selectedTabsId,
+  selectedTabsContent,
   onTabSelected,
 }) => {
   return (
@@ -31,13 +32,13 @@ export const Tabs: React.FC<Props> = ({
           >
             <button
               type="submit"
-              className={
-                (tabsId !== tab.id)
-                  ? 'tabs__item-button'
-                  : 'tabs__item-button--active'
-              }
+              className={classNames({
+                button: true,
+                'tabs__item-button': selectedTabsId !== tab.id,
+                'tabs__item-button--active': selectedTabsId === tab.id,
+              })}
               onClick={() => {
-                if (tabsId !== tab.id) {
+                if (selectedTabsId !== tab.id) {
                   onTabSelected(tab);
                 }
               }}
@@ -47,7 +48,7 @@ export const Tabs: React.FC<Props> = ({
           </li>
         ))}
       </ul>
-      <p>{tabsContent}</p>
+      <p>{selectedTabsContent}</p>
     </div>
   );
 };
