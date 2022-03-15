@@ -11,7 +11,7 @@ export const Tabs: React.FC<Props> = ({ tabs, selectedTabId, onTabSelected }) =>
 
   useEffect(() => {
     selectedTab = tabs.find((tab) => tab.id === selectedTabId);
-  }, []);
+  }, [selectedTabId]);
 
   return (
     <>
