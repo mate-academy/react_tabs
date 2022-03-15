@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { Tabs } from './components/Tabs';
 
 import './App.scss';
@@ -11,9 +11,6 @@ const tabs: Tab[] = [
 
 const App: React.FC = () => {
   const [selectedTab, setSelectedTab] = useState(tabs[0]);
-
-  useEffect(() => {
-  }, [selectedTab]);
 
   return (
     <div className="App">

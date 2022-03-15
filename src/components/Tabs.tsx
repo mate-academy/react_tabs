@@ -10,25 +10,23 @@ export const Tabs: React.FC<Props> = ({
   tabs,
   setSelectedTab,
   selectedTab,
-}) => {
-  return (
-    <>
-      {tabs.map((tab: Tab) => (
-        <button
-          type="button"
-          key={tab.id}
-          onClick={() => {
-            if (tab !== selectedTab) {
-              setSelectedTab(tab);
-            }
-          }}
-        >
-          {tab.title}
-        </button>
-      ))}
-      <div>
-        {selectedTab?.content}
-      </div>
-    </>
-  );
-};
+}) => (
+  <>
+    {tabs.map((tab: Tab) => (
+      <button
+        type="button"
+        key={tab.id}
+        onClick={() => {
+          if (tab.id !== selectedTab?.id) {
+            setSelectedTab(tab);
+          }
+        }}
+      >
+        {tab.title}
+      </button>
+    ))}
+    <div>
+      {selectedTab?.content}
+    </div>
+  </>
+);
