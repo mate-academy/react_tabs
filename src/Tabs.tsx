@@ -3,17 +3,17 @@ import { Tab } from './Types/Tab';
 import './Tabs.scss';
 
 type Props = {
-  tabsArr: Tab[];
+  tabs: Tab[];
   changeTab: (tab: Tab) => void,
   selectedTab: Tab,
 };
 
 export const Tabs: React.FC<Props> = ({
-  tabsArr,
+  tabs,
   changeTab,
   selectedTab,
 }) => {
-  const clicker = (tab: Tab) => {
+  const handleClick = (tab: Tab) => {
     if (tab.id !== selectedTab.id) {
       return changeTab(tab);
     }
@@ -23,17 +23,15 @@ export const Tabs: React.FC<Props> = ({
 
   return (
     <ul className="list">
-      {tabsArr.map(tab => (
-        <>
-          <li key={tab.id} className="list__item">
-            <button
-              type="button"
-              onClick={() => clicker(tab)}
-            >
-              {tab.title}
-            </button>
-          </li>
-        </>
+      {tabs.map(tab => (
+        <li key={tab.id} className="list__item">
+          <button
+            type="button"
+            onClick={() => handleClick(tab)}
+          >
+            {tab.title}
+          </button>
+        </li>
       ))}
     </ul>
   );

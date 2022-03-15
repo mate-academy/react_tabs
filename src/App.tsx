@@ -26,7 +26,7 @@ const App: React.FC = () => {
         {selectedTab.title}
       </h1>
       <Tabs
-        tabsArr={tabsArr}
+        tabs={tabsArr}
         changeTab={changeTab}
         selectedTab={selectedTab}
       />
