@@ -17,8 +17,8 @@ const App: React.FC = () => {
       <h1>{`Selected tab is ${selectedTab.title}`}</h1>
       <Tabs
         tabs={tabs}
-        selectedTabsId={selectedTab.id}
-        selectedTabsContent={selectedTab.content}
+        selectedTabId={selectedTab.id}
+        selectedTabContent={selectedTab.content}
         onTabSelected={setSelectedTab}
       />
     </div>
