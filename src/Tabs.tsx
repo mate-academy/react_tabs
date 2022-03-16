@@ -2,21 +2,22 @@ import React from 'react';
 import { Tab } from './react-app-env';
 
 type Props = {
-  tabs: Tab[]
-  selected: Tab
-  onChanger: (target: Tab) => void
+  tabs: Tab[],
+  selected: Tab,
+  onTabSelect: (target: Tab) => void,
 };
 
-export const Tabs: React.FC<Props> = ({ tabs, selected, onChanger }) => {
+export const Tabs: React.FC<Props> = ({ tabs, selected, onTabSelect }) => {
   return (
     <>
       <div>
         {tabs.map(tab => (
           <button
             type="button"
+            key={tab.id}
             onClick={() => {
               if (tab.id !== selected.id) {
-                onChanger(tab);
+                onTabSelect(tab);
               }
             }}
           >

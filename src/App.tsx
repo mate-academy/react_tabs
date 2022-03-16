@@ -13,7 +13,7 @@ const tabs: Tab[] = [
 const App: React.FC = () => {
   const [selectedTab, setSelectedTab] = useState(tabs[0]);
 
-  const changer = (target: Tab) => {
+  const onTabSelect = (target: Tab) => {
     setSelectedTab(target);
   };
 
@@ -23,7 +23,7 @@ const App: React.FC = () => {
       <Tabs
         tabs={tabs}
         selected={selectedTab}
-        onChanger={changer}
+        onTabSelect={onTabSelect}
       />
     </div>
   );
