@@ -23,7 +23,7 @@ const App: React.FC = () => {
       <Tabs
         tabs={tabs}
         selectedTab={selectedTab}
-        onChanger={changer}
+        onTabSelect={onTabSelect}
       />
     </div>
   );
