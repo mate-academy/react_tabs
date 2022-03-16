@@ -13,7 +13,7 @@ const App: React.FC = () => {
 
   return (
     <div className="App">
-      <h1>
+      <h1 className="title has-text-centered mb-5 mt-3">
         Selected tab is
         {' '}
         {selectedTab.title}
