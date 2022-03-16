@@ -7,8 +7,7 @@ type Props = {
   onChanger: (target: Tab) => void
 };
 
-export const Tabs: React.FC<Props> = ({ tabs, selected, onChanger }) => {
-  return (
+export const Tabs: React.FC<Props> = ({ tabs, selected, onChanger }) => (
     <>
       <div>
         {tabs.map(tab => (
