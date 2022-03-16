@@ -1,4 +1,4 @@
-import React from 'react';
+import { useState } from 'react';
 import './App.scss';
 import { Tabs } from './components/Tabs/Tabs';
 
@@ -8,34 +8,23 @@ const tabs: Tab[] = [
   { id: 'tab-3', title: 'Fact', content: 'Впервые твёрдый шоколад был получен в 19-м веке. До этого момента он был только жидким.' },
 ];
 
-type State = {
-  selectedTab: Tab;
+const App: React.FC = () => {
+  const [selectedTab, setSelectedTab] = useState(tabs[0]);
+
+  return (
+    <div className="App">
+      <h1>
+        Selected tab is
+        {' '}
+        {selectedTab.title}
+      </h1>
+      <Tabs
+        tabs={tabs}
+        selectedTabId={selectedTab.id}
+        onTabSelected={setSelectedTab}
+      />
+    </div>
+  );
 };
-
-class App extends React.Component<{}, State> {
-  state = {
-    selectedTab: tabs[0],
-  };
-
-  onTabSelected = (event: Tab) => {
-    this.setState({ selectedTab: event });
-  };
-
-  render() {
-    return (
-      <div className="App">
-        <h1 className="title has-text-centered mb-5 mt-3">
-          Selected tab is
-          {` ${this.state.selectedTab.title}`}
-        </h1>
-        <Tabs
-          tabs={tabs}
-          selectedTabId={this.state.selectedTab.id}
-          onTabSelected={this.onTabSelected}
-        />
-      </div>
-    );
-  }
-}
 
 export default App;
