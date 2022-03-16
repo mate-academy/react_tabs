@@ -22,7 +22,7 @@ const App: React.FC = () => {
       <h1>{`Selected tab is ${selectedTab.title}`}</h1>
       <Tabs
         tabs={tabs}
-        selected={selectedTab}
+        selectedTab={selectedTab}
         onChanger={changer}
       />
     </div>
