@@ -21,8 +21,7 @@ export const Tabs: React.FC<Props> = ({
   selectedTabsId,
   selectedTabsContent,
   onTabSelected,
-}) => {
-  return (
+}) => (
     <div className="tabs">
       <ul className="tabs__list">
         {tabs.map(tab => (
