@@ -2,8 +2,8 @@ import React from 'react';
 import { Tab } from './react-app-env';
 
 type Props = {
-  tabs: Tab[]
-  selected: Tab
+  tabs: Tab[],
+  selected: Tab,
   onChanger: (target: Tab) => void
 };
 
