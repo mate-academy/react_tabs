@@ -1,5 +1,6 @@
 import React from 'react';
 import './Tabs.scss';
+import classNames from 'classnames';
 
 type Props = {
   tabs: Tab[];
@@ -22,12 +23,14 @@ export const Tabs: React.FC<Props> = ({
             <li key={item.id}>
               <button
                 type="button"
-                className={selectedTabId === item.id
+                className={classNames(selectedTabId === item.id
                   ? 'button my-active'
-                  : 'button is-success'}
-                onClick={() => (
-                  item !== selectedTab ? onTabSelected(item) : null
-                )}
+                  : 'button is-success')}
+                onClick={() => {
+                  if (selectedTabId !== item.id) {
+                    onTabSelected(item);
+                  }
+                }}
               >
                 {item.title}
               </button>
