@@ -7,27 +7,25 @@ type Props = {
   onTabSelect: (target: Tab) => void,
 };
 
-export const Tabs: React.FC<Props> = ({ tabs, selected, onTabSelect }) => {
-  return (
-    <>
-      <div>
-        {tabs.map(tab => (
-          <button
-            type="button"
-            key={tab.id}
-            onClick={() => {
-              if (tab.id !== selected.id) {
-                onTabSelect(tab);
-              }
-            }}
-          >
-            {tab.title}
-          </button>
-        ))}
-      </div>
-      <p>
-        {selected.content}
-      </p>
-    </>
-  );
-};
+export const Tabs: React.FC<Props> = ({ tabs, selected, onTabSelect }) => (
+  <>
+    <div>
+      {tabs.map(tab => (
+        <button
+          type="button"
+          key={tab.id}
+          onClick={() => {
+            if (tab.id !== selected.id) {
+              onTabSelect(tab);
+            }
+          }}
+        >
+          {tab.title}
+        </button>
+      ))}
+    </div>
+    <p>
+      {selected.content}
+    </p>
+  </>
+);
