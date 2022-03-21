@@ -1,16 +1,15 @@
-import { useState } from 'react';
-import { tabs } from '../tabs';
 import '../App.scss';
+import React from 'react';
 
-export const Tabs = () => {
-  const [selectTab, setSelectTab] = useState(tabs[0]);
+type Props = {
+  selectTab: Tab,
+  setSelectTab: (tab: Tab) => void,
+  tabs: Tab[],
+};
 
+export const Tabs:React.FC<Props> = ({ selectTab, setSelectTab, tabs }) => {
   return (
     <div className="menu">
-      <h1>
-        Selected tab is
-        {` ${selectTab.title}`}
-      </h1>
       <ul>
         {tabs.map(tab => (
           <li className="list">
@@ -18,7 +17,7 @@ export const Tabs = () => {
               className="button"
               key={tab.id}
               type="button"
-              onClick={() => (setSelectTab(tabs[+tab.id.slice(-1) - 1]))}
+              onClick={() => (setSelectTab(tab))}
             >
               {tab.title}
             </button>
