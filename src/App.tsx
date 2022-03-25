@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useCallback, useState } from 'react';
 
 import './App.scss';
+import Tabs from './components/Tabs/Tabs';
 
 const tabs: Tab[] = [
   { id: 'tab-1', title: 'Tab 1', content: 'Some text 1' },
@@ -8,11 +9,28 @@ const tabs: Tab[] = [
   { id: 'tab-3', title: 'Tab 3', content: 'Some text 3' },
 ];
 
-const App: React.FC = () => (
-  <div className="App">
-    <h1>Selected tab is&nbsp;Tab 1</h1>
-    <div>{tabs.length}</div>
-  </div>
-);
+const App: React.FC = () => {
+  const [selectedTab, setSelectedTab] = useState(tabs[0]);
+
+  const onTabSelected = useCallback((tab: Tab) => {
+    setSelectedTab(tab || tabs[0]);
+  }, []);
+
+  return (
+    <div className="App">
+      <h1>
+        Selected tab is&nbsp;
+        {selectedTab.title}
+      </h1>
+
+      <div className="App__tabs">
+        <div className="App__tabs-swicher">
+          <Tabs tabs={tabs} selectedTabId={selectedTab.id} onTabSelected={onTabSelected} />
+        </div>
+        <p className="App__content">{selectedTab.content}</p>
+      </div>
+    </div>
+  );
+};
 
 export default App;
