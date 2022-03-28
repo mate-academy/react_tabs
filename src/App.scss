@@ -1,1 +1,36 @@
-// Put styles here
+.tabs {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: max-content;
+  &__list {
+  list-style: none;
+  padding: 0 0 5px;
+  margin: 10px;
+
+  display: flex;
+  }
+  &__button {
+    width: 80px;
+    height: 50px;
+    background-color: black;
+    color: white;
+    border: none;
+
+    &--selected {
+      color: green;
+      transform: scale(1.03);
+    }
+  }
+
+  &__content {
+    height: 100px;
+    width: 100%;
+    text-align: center;
+    line-height: 100px;
+    display: block;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    margin: 0;
+  }
+}
