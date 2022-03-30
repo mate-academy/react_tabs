@@ -3,9 +3,9 @@ import { FC, memo } from 'react';
 import './Tabs.scss';
 
 type Props = {
-  tabs: Tab[],
-  selectedTabId: string,
-  onTabSelected: CallableFunction,
+  tabs: Tab[];
+  selectedTabId: string;
+  onTabSelected: CallableFunction;
 };
 
 const Tabs: FC<Props> = memo(({ tabs, selectedTabId, onTabSelected }) => {
@@ -15,7 +15,9 @@ const Tabs: FC<Props> = memo(({ tabs, selectedTabId, onTabSelected }) => {
         {tabs.map((tab) => (
           <li
             key={tab.id}
-            className={`tabs__tab ${selectedTabId === tab.id ? 'tabs__tab--active' : ''}`}
+            className={`tabs__tab ${
+              selectedTabId === tab.id ? 'tabs__tab--active' : ''
+            }`}
           >
             <button
               className="tabs__button"
