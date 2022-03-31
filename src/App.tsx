@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useCallback, useState } from 'react';
 
 import './App.scss';
 import { Tabs } from './components/Tabs';
@@ -9,13 +9,13 @@ const tabs: Tab[] = [
   { id: 'tab-3', title: 'Tab 3', content: 'Some text 3' },
 ];
 
-const App: React.FC = () => {
+const App: React.FC = React.memo(() => {
   const firstTab = tabs[0];
   const [selectedTab, setSelectedTab] = useState(firstTab);
 
-  const onTabSelected = (data:Tab):void => {
+  const onTabSelected = useCallback((data:Tab):void => {
     setSelectedTab(data);
-  };
+  }, []);
 
   return (
     <div className="App">
@@ -25,11 +25,11 @@ const App: React.FC = () => {
       </h1>
       <Tabs
         tabs={tabs}
-        selected={selectedTab}
+        selectedTab={selectedTab}
         onTabSelected={onTabSelected}
       />
     </div>
   );
-};
+});
 
 export default App;

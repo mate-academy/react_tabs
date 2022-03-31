@@ -1,6 +1,7 @@
 import classNames from 'classnames';
+import React from 'react';
 
-export const Tabs: React.FC<Props> = ({ tabs, selected, onTabSelected }) => {
+export const Tabs: React.FC<Props> = React.memo(({ tabs, selectedTab, onTabSelected }) => {
   return (
     <div className="tabs">
       <ul className="tabs__list">
@@ -9,10 +10,10 @@ export const Tabs: React.FC<Props> = ({ tabs, selected, onTabSelected }) => {
             key={tab.id}
             type="button"
             className={classNames('tabs__button', {
-              'tabs__button--selected': tab === selected,
+              'tabs__button--selected': tab === selectedTab,
             })}
             onClick={() => {
-              if (tab !== selected) {
+              if (tab !== selectedTab) {
                 onTabSelected(tab);
               }
             }}
@@ -21,13 +22,13 @@ export const Tabs: React.FC<Props> = ({ tabs, selected, onTabSelected }) => {
           </button>
         ))}
       </ul>
-      <p className="tabs__content">{tabs.find(tab => tab === selected)?.content}</p>
+      <p className="tabs__content">{tabs.find(tab => tab === selectedTab)?.content}</p>
     </div>
   );
-};
+});
 
 interface Props {
   tabs: Tab[],
-  selected: Tab,
+  selectedTab: Tab,
   onTabSelected: (data: Tab) => void
 }
