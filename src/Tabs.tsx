@@ -19,7 +19,7 @@ export const Tabs: React.FC<Props> = ({ tabs, selectedTabId, onSelect }) => {
     <>
       <div className="tabs">
         <ul>
-          {tabs.map((tab) => (
+          {tabs.map(tab => (
             <li
               key={tab.id}
             >
