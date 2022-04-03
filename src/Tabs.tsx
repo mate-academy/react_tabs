@@ -19,21 +19,19 @@ export const Tabs: React.FC<Props> = ({ tabs, selectedTabId, onSelect }) => {
     <>
       <div className="tabs">
         <ul>
-          {tabs.map((tab) => {
-            return (
-              <li
-                key={tab.id}
+          {tabs.map((tab) => (
+            <li
+              key={tab.id}
+            >
+              <button
+                className={classNames('button', { 'is-info': selectedTabId === tab.id })}
+                type="button"
+                onClick={() => selectTab(tab)}
               >
-                <button
-                  className={classNames('button', { 'is-info': selectedTabId === tab.id })}
-                  type="button"
-                  onClick={() => selectTab(tab)}
-                >
-                  {tab.title}
-                </button>
-              </li>
-            );
-          })}
+                {tab.title}
+              </button>
+            </li>
+          ))}
         </ul>
       </div>
 
