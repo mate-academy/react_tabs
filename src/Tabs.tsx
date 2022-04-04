@@ -8,12 +8,6 @@ interface Props {
 }
 
 export const Tabs: React.FC<Props> = memo(({ tabs, selectedTabId, onSelect }) => {
-  const selectTab = (tab: Tab) => {
-    if (tab.id !== selectedTabId) {
-      onSelect(tab);
-    }
-  };
-
   return (
     <>
       <div className="tabs">
@@ -25,7 +19,7 @@ export const Tabs: React.FC<Props> = memo(({ tabs, selectedTabId, onSelect }) =>
               <button
                 className={classNames('button', { 'is-info': selectedTabId === tab.id })}
                 type="button"
-                onClick={() => selectTab(tab)}
+                onClick={() => onSelect(tab)}
               >
                 {tab.title}
               </button>
