@@ -1,5 +1,7 @@
 .App {
-  width: 600px;
-  margin: 0 auto;
-  padding-top: 60px;
+  &__wrapper {
+    width: 600px;
+    margin: 0 auto;
+    padding-top: 60px;
+  }
 }
