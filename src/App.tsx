@@ -24,7 +24,7 @@ const App: React.FC = () => {
         onTabSelected={setSelectedTab}
       />
 
-      <div>{selectedTab.content}</div>
+      <div className="text">{selectedTab.content}</div>
     </div>
   );
 };

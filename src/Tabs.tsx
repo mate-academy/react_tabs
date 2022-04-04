@@ -1,13 +1,16 @@
 import React from 'react';
 
-const Tabs: React.FC<Tabs> = ({
+const Tabs: React.FC<Props> = ({
   tabs,
   onTabSelected,
 }) => {
   return (
     <div className="Container">
       {tabs.map((tab, index) => (
-        <div className="Tab">
+        <div
+          key={tab.title}
+          className="Tab"
+        >
           <button
             key={tab.id}
             type="button"

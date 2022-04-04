@@ -16,10 +16,11 @@
   &__button {
     width: 100px;
   }
+}
 
-  &__text {
-    display: flex;
-    justify-content: center;
-    width: inherit;
-  }
+.text {
+  border: 1px solid black;
+  border-radius: 5px;
+
+  background-color: lightgray;
 }

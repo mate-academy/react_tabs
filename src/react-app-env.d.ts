@@ -1,6 +1,6 @@
 /// <reference types="react-scripts" />
 
-type Tabs = {
+type Props = {
   tabs: Tab[],
   onTabSelected: (tab: Tab) => void,
 };
