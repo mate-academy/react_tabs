@@ -1,0 +1,26 @@
+.Tab {
+  &__title {
+    padding: 10px 25px 15px 25px;
+
+    font-size: 18px;
+    font-weight: 600;
+    border: 1px solid lightgrey;
+    border-radius: 5px
+  }
+
+  &__content {
+    position: absolute;
+
+    margin: 0;
+    padding: 10px;
+    max-width: 30vw;
+    height: max-content;
+
+    background-color: white;
+    border-radius: 0 5px 5px 5px;
+
+    border: 1px solid lightgrey;
+
+    transform: translateY(-10px);
+  }
+}

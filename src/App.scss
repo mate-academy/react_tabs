@@ -1,1 +1,10 @@
-// Put styles here
+@import "./components/Tab/Tab";
+@import './components/Tabs/Tabs';
+
+.App {
+  padding: 10px;
+
+  &__selectedTab {
+    margin: 0;
+  }
+}
