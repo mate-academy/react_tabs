@@ -1,1 +1,45 @@
-// Put styles here
+html {
+  font-family: Helvetica, Arial, sans-serif;
+}
+
+body {
+  margin-left: 2rem;
+}
+
+ul {
+  display: flex;
+  padding: 0;
+  list-style: none;
+}
+
+.selected-tab {
+  color: gray;
+}
+
+.tab {
+  margin-right: 4px;
+
+  button {
+    padding: 10px 20px;
+    background-color: transparent;
+    border: 2px solid gray;
+    cursor: pointer;
+
+    &:hover {
+      background-color: lightgray;
+    }
+  }
+
+  &--active {
+    background-color: gray;
+
+    button {
+      color: white;
+
+      &:hover {
+        background-color: gray;
+        cursor: auto;
+      }
+    }
+  }
+}
