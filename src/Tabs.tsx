@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import classNames from 'classnames';
 
 interface Props {
@@ -7,8 +7,7 @@ interface Props {
   onSelect: (tab: Tab) => void,
 }
 
-export const Tabs: React.FC<Props> = ({ tabs, selectedTabId, onSelect }) => {
-  const selectedTab = tabs.find(tab => tab.id === selectedTabId);
+export const Tabs: React.FC<Props> = memo(({ tabs, selectedTabId, onSelect }) => {
   const selectTab = (tab: Tab) => {
     if (tab.id !== selectedTabId) {
       onSelect(tab);
@@ -34,10 +33,6 @@ export const Tabs: React.FC<Props> = ({ tabs, selectedTabId, onSelect }) => {
           ))}
         </ul>
       </div>
-
-      <div className="content">
-        {selectedTab?.content}
-      </div>
     </>
   );
-};
+});
