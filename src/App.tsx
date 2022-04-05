@@ -10,7 +10,7 @@ export const App: React.FC = React.memo(() => {
   return (
     <div className="app">
       <h1 className="app__title">
-        {`Selected tab is ${activeTab.title}`}
+        {`Selected brand is ${activeTab.title}`}
       </h1>
 
       <Tabs
