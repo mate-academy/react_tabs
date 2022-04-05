@@ -1,14 +1,12 @@
 import './App.scss';
 import {
-  FC, memo, useCallback, useState,
+  FC, memo, useState,
 } from 'react';
 import { tabs } from './api/tabs';
 import { Tabs } from './components/Tabs';
 
 export const App: FC = memo(() => {
   const [selectedTab, setTab] = useState(tabs[0]);
-
-  const handleTabSelected = useCallback(setTab, []);
 
   return (
     <div className="App">
@@ -19,7 +17,7 @@ export const App: FC = memo(() => {
       <Tabs
         tabs={tabs}
         selectedTabId={selectedTab.id}
-        onTabSelected={handleTabSelected}
+        onTabSelected={setTab}
       />
     </div>
   );

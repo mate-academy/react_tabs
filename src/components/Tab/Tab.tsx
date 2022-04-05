@@ -1,5 +1,5 @@
 import {
-  FC, memo, useCallback, useMemo,
+  FC, memo, useMemo,
 } from 'react';
 
 interface Props {
@@ -8,38 +8,36 @@ interface Props {
   onTabSelected: (tab: Tab) => void;
 }
 
-export const Tab: FC<Props> = memo(
-  ({ tab, selectedTabId, onTabSelected }) => {
-    const { id, title, content } = useMemo(() => tab, []);
+export const Tab: FC<Props> = memo(({
+  tab, selectedTabId, onTabSelected,
+}) => {
+  const { id, title, content } = tab;
 
-    const isSelected = useMemo(
-      () => selectedTabId === id,
-      [selectedTabId],
-    );
+  const isSelected = useMemo(
+    () => selectedTabId === id,
+    [selectedTabId],
+  );
 
-    const handleButtonClick = useCallback(() => {
-      if (!isSelected) {
-        onTabSelected(tab);
-      }
-    }, [selectedTabId]);
+  return (
+    <>
+      <button
+        className="Tab__title"
+        type="button"
+        disabled={isSelected}
+        onClick={() => {
+          if (!isSelected) {
+            onTabSelected(tab);
+          }
+        }}
+      >
+        {title}
+      </button>
 
-    return (
-      <>
-        <button
-          className="Tab__title"
-          type="button"
-          disabled={isSelected}
-          onClick={handleButtonClick}
-        >
-          {title}
-        </button>
-
-        {isSelected && (
-          <p className="Tab__content">
-            {content}
-          </p>
-        )}
-      </>
-    );
-  },
-);
+      {isSelected && (
+        <p className="Tab__content">
+          {content}
+        </p>
+      )}
+    </>
+  );
+});
