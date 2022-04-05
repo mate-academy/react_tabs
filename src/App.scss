@@ -33,5 +33,9 @@ switch {
     text-align: center;
     margin-bottom: 24px;
     color: #fff;
+
+    &--big {
+      color: #ff3232;
+    }
   }
 }
