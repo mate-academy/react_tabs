@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 
 import './Tabs.scss';
 
@@ -8,7 +8,11 @@ interface Props {
   onSelectTab: (tabId: string) => void,
 }
 
-export const Tabs: React.FC<Props> = ({ tabs, selectedTabId, onSelectTab }) => {
+export const Tabs: React.FC<Props> = memo(({
+  tabs,
+  selectedTabId,
+  onSelectTab,
+}) => {
   return (
     <div className="tabs">
       <ul className="tabs__list">
@@ -39,4 +43,4 @@ export const Tabs: React.FC<Props> = ({ tabs, selectedTabId, onSelectTab }) => {
       </div>
     </div>
   );
-};
+});

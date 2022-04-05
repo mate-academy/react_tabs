@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
+import React, { memo, useState } from 'react';
 
 import './App.scss';
 
 import { Tabs } from './components/Tabs';
 import { tabs } from './api/tabs';
 
-const App: React.FC = () => {
+const App: React.FC = memo(() => {
   const [selectedTab, setSelectedTab] = useState(tabs[0]);
 
   const selectTab = (tabId: string) => {
@@ -27,6 +27,6 @@ const App: React.FC = () => {
       </div>
     </div>
   );
-};
+});
 
 export default App;
