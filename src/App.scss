@@ -1,1 +1,35 @@
-// Put styles here
+.App {
+  padding: 50px;
+  font-family: sans-serif;
+}
+
+.Tab-btn {
+  margin-right: 20px;
+  padding: 10px 20px;
+  background-color: #0a2135;
+  color: #fff;
+  border: 2px solid transparent;
+  font-size: 18px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: color 300ms, background-color 300ms, border 300ms;
+
+  &:active {
+    transform: scale(1.02);
+  }
+
+  &:focus {
+    transform: scale(1.02);
+  }
+}
+
+.active {
+  background-color: transparent;
+  color: #0a2135;
+  border: 2px solid #0a2135;
+}
+
+p {
+  font-size: 18px;
+  font-family: sans-serif;
+}
