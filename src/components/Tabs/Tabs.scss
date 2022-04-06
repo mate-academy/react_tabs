@@ -1,0 +1,14 @@
+.tabs {
+  &__list {
+    padding: 0;
+    width: 40vw;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+
+    list-style: none;
+  }
+
+  &__button {
+    width: 10vw;
+  }
+}
