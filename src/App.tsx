@@ -10,24 +10,23 @@ const tabs: Tab[] = [
 ];
 
 export const App: React.FC = () => {
-  const [selectedTab, setSelectedTab] = useState(tabs[0]);
+  const [selectedTabId, setSelectedTabId] = useState(tabs[0].id);
 
-  const selectTab = useCallback((tab: Tab) => (
-    setSelectedTab(tab)
+  const selectTab = useCallback((newTabId: string) => (
+    setSelectedTabId(newTabId)
   ), []);
 
   return (
     <div className="App">
       <h1>
         Selected tab is&nbsp;
-        {selectedTab.title}
+        {tabs.find(tab => tab.id === selectedTabId)?.content}
       </h1>
       <Tabs
         tabs={tabs}
-        selectedId={selectedTab.id}
+        selectedId={selectedTabId}
         selectTab={selectTab}
       />
-      <p className="text">{selectedTab.content}</p>
     </div>
   );
 };
