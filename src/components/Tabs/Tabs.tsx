@@ -1,38 +1,30 @@
 import React from 'react';
+import { TabControl } from '../TabControl';
 
 type Props = {
   tabs: Tab[],
-  selectedTab: Tab,
+  selectedTabId: string,
   onTabSelected: (tab: Tab) => void,
 };
 
 export const Tabs: React.FC<Props> = React.memo(({
-  tabs, selectedTab, onTabSelected,
+  tabs, selectedTabId, onTabSelected,
 }) => {
   return (
     <div className="tabs">
       <div className="tabs__list" style={{ marginBottom: '10px' }}>
         {tabs.map(tab => (
-          <button
+          <TabControl
             key={tab.id}
-            type="button"
-            style={{
-              marginRight: '10px',
-              backgroundColor: tab === selectedTab ? 'green' : 'red',
-            }}
-            onClick={() => {
-              if (tab !== selectedTab) {
-                onTabSelected(tab);
-              }
-            }}
-          >
-            {tab.title}
-          </button>
+            tab={tab}
+            selectedTabId={selectedTabId}
+            onTabSelected={onTabSelected}
+          />
         ))}
       </div>
 
       <div className="tabs__content">
-        {selectedTab.content}
+        {tabs.find(tab => tab.id === selectedTabId)?.content}
       </div>
     </div>
   );

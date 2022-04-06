@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from 'react';
+import React, { useState } from 'react';
 
 import './App.scss';
 import { Tabs } from './components/Tabs';
@@ -13,9 +13,9 @@ const App: React.FC = React.memo(() => {
   const selectedTabDefault = tabs[0];
   const [selectedTab, setSelectedTab] = useState(selectedTabDefault);
 
-  const onTabSelected = useCallback((tab: Tab) => {
-    setSelectedTab(tab);
-  }, []);
+  const onTabSelected = (tab: Tab) => {
+    return setSelectedTab(tab);
+  };
 
   return (
     <div className="App">
@@ -25,7 +25,7 @@ const App: React.FC = React.memo(() => {
 
       <Tabs
         tabs={tabs}
-        selectedTab={selectedTab}
+        selectedTabId={selectedTab.id}
         onTabSelected={onTabSelected}
       />
     </div>
