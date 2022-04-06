@@ -9,7 +9,7 @@ type Props = {
   selected: Tab,
 };
 
-export const Tabs: React.FC<Props> = ({
+export const Tabs: React.FC<Props> = React.memo(({
   tabs, onSelect, selected,
 }) => (
   <div className="Tabs">
@@ -29,4 +29,4 @@ export const Tabs: React.FC<Props> = ({
       </button>
     ))}
   </div>
-);
+));
