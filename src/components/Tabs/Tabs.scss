@@ -1,0 +1,33 @@
+.Tabs {
+  &__button {
+    display: inline-block;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+
+    width: auto;
+    outline: none;
+    padding: 13px;
+    margin: 0 20px 0 0;
+    cursor: pointer;
+
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 10px;
+
+    background-color: aquamarine;
+    border: 2px solid aquamarine;
+    border-radius: 10px;
+    box-sizing: border-box;
+    color: #222;
+
+    touch-action: manipulation;
+    user-select: none;
+    -webkit-user-select: none;
+
+    &--selected {
+      background-color: black;
+      color: aquamarine;
+    }
+  }
+}
