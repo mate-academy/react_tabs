@@ -6,22 +6,26 @@ import { Tabs } from './components/Tabs';
 import { tabs } from './api/tabs';
 
 const App: React.FC = memo(() => {
-  const [selectedTab, setSelectedTab] = useState(tabs[0]);
+  const [selectedTabId, setSelectedTabId] = useState(tabs[0].id);
 
   const selectTab = (tabId: string) => {
-    setSelectedTab(tabs.find(tab => tab.id === tabId) || tabs[0]);
+    setSelectedTabId((tabs.find(tab => tab.id === tabId) || tabs[0]).id);
   };
+
+  const getTabTitle = (id: string) => (
+    tabs.find(tab => tab.id === id)?.title || ''
+  );
 
   return (
     <div className="App">
       <div className="container">
         <h1 className="App__title">
-          {`Selected tab is: ${selectedTab.title}`}
+          {`Selected tab is: ${getTabTitle(selectedTabId)}`}
         </h1>
 
         <Tabs
           tabs={tabs}
-          selectedTabId={selectedTab.id}
+          selectedTabId={selectedTabId}
           onSelectTab={selectTab}
         />
       </div>

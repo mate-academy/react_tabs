@@ -1,6 +1,7 @@
 import React, { memo } from 'react';
 
 import './Tabs.scss';
+import { TabsControll } from '../TabsControl';
 
 interface Props {
   tabs: Tab[],
@@ -21,19 +22,11 @@ export const Tabs: React.FC<Props> = memo(({
             key={tab.id}
             className="tabs__item"
           >
-            <button
-              type="button"
-              className={`tabs__button ${
-                selectedTabId === tab.id
-                  ? 'tabs__button--active'
-                  : ''
-              }`}
-              onClick={() => {
-                onSelectTab(tab.id);
-              }}
-            >
-              {tab.title}
-            </button>
+            <TabsControll
+              tab={tab}
+              selectedTabId={selectedTabId}
+              onSelectTab={onSelectTab}
+            />
           </li>
         ))}
       </ul>
