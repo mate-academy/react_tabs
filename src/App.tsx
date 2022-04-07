@@ -9,18 +9,18 @@ const App: React.FC = memo(() => {
   const [selectedTabId, setSelectedTabId] = useState(tabs[0].id);
 
   const selectTab = (tabId: string) => {
-    setSelectedTabId((tabs.find(tab => tab.id === tabId) || tabs[0]).id);
+    setSelectedTabId(tabId);
   };
 
-  const getTabTitle = (id: string) => (
-    tabs.find(tab => tab.id === id)?.title || ''
+  const getSelectedTab = (id: string) => (
+    tabs.find(tab => tab.id === id)
   );
 
   return (
     <div className="App">
       <div className="container">
         <h1 className="App__title">
-          {`Selected tab is: ${getTabTitle(selectedTabId)}`}
+          {`Selected tab is: ${getSelectedTab(selectedTabId)?.title || ''}`}
         </h1>
 
         <Tabs
