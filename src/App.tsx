@@ -1,7 +1,7 @@
 import React, { useCallback, useState } from 'react';
 
 import './App.scss';
-import { Tabs } from './tabs';
+import { Tabs } from './component/tabs';
 
 interface Tab {
   id: string,
@@ -16,21 +16,21 @@ const tabs: Tab[] = [
 ];
 
 const App: React.FC = () => {
-  const [selectTab, setSelectTab] = useState(tabs[0]);
+  const [selectTab, setSelectTab] = useState(tabs[0].id);
   const onTabSelected = useCallback((tab: Tab) => {
-    setSelectTab(tab || tabs[0]);
+    setSelectTab(tab.id || tabs[0].id);
   }, []);
 
   return (
     <>
       <h1>
         Selected tab is&nbsp;
-        {selectTab.title}
+        {selectTab}
       </h1>
       <Tabs
         tabs={tabs}
         onTabSelected={onTabSelected}
-        selectedTabId={selectTab.id}
+        selectedTabId={selectTab}
       />
     </>
   );

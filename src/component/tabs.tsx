@@ -27,11 +27,9 @@ export const Tabs: React.FC<Props> = ({
           </li>
         ))}
       </ul>
-
       <div className="tab_content">
         {tabs.find(tab => selectedTabId === tab.id)?.content}
       </div>
     </div>
-
   );
 };
