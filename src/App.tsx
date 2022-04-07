@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo, useCallback } from 'react';
 import { Tabs } from './components/Tabs';
 import { tabs } from './source/tabs';
 
@@ -7,8 +7,12 @@ import './App.scss';
 export const App: React.FC = React.memo(() => {
   const [activeTabId, setActiveTabId] = useState(tabs[0].id);
 
-  const activeTab = tabs.find(tab => tab.id === activeTabId) || tabs[0];
-  const selectTab = (tabId: string) => setActiveTabId(tabId);
+  const activeTab = useMemo(() => tabs.find(tab => tab.id === activeTabId) || tabs[0],
+    [activeTabId]);
+
+  const selectTab = useCallback((tabId: string) => (
+    setActiveTabId(tabId)
+  ), []);
 
   return (
     <div className="app">
