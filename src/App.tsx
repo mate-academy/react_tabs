@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from 'react';
+import React, { useCallback, useMemo, useState } from 'react';
 import { Tabs } from './components/Tab';
 
 import './App.scss';
@@ -10,25 +10,35 @@ const tabs: Tab[] = [
 ];
 
 const App: React.FC = React.memo(() => {
-  const [selectedTab, setSelectedTab] = useState(tabs[0]);
+  const [selectedTabId, setSelectedTabId] = useState(tabs[0].id);
 
-  const onTabSelected = useCallback((tab: Tab) => {
-    setSelectedTab(tab);
+  const onTabSelected = useCallback((tabId: string) => {
+    setSelectedTabId(tabId);
   }, []);
+
+  const findSelectedTab = useMemo(() => {
+    const result = tabs.find(tab => tab.id === selectedTabId);
+
+    if (!result) {
+      return tabs[0];
+    }
+
+    return result;
+  }, [selectedTabId]);
 
   return (
     <div className="App">
       <h1>
         Selected tab is&nbsp;
-        {selectedTab.title}
+        {findSelectedTab.title}
       </h1>
       <Tabs
         tabs={tabs}
         onTabSelected={onTabSelected}
-        selectedTabId={selectedTab.id}
+        selectedTabId={selectedTabId}
       />
       <p>
-        {selectedTab.content}
+        {findSelectedTab.content}
       </p>
     </div>
   );

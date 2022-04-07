@@ -2,7 +2,7 @@ import React from 'react';
 
 type Props = {
   tabs: Tab[],
-  onTabSelected: (tab: Tab) => void,
+  onTabSelected: (tab: string) => void,
   selectedTabId: string,
 };
 
@@ -16,7 +16,7 @@ export const Tabs: React.FC<Props> = React.memo(({
           key={tab.id}
           type="button"
           onClick={() => {
-            onTabSelected(tab);
+            onTabSelected(tab.id);
           }}
           style={{
             backgroundColor: selectedTabId === tab.id ? 'blue' : 'yellow',
