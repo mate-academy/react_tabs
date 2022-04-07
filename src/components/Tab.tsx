@@ -3,11 +3,11 @@ import React from 'react';
 type Props = {
   tabs: Tab[],
   onTabSelected: (tab: Tab) => void,
-  selectedTab: Tab
+  selectedTabId: string,
 };
 
 export const Tabs: React.FC<Props> = React.memo(({
-  tabs, onTabSelected, selectedTab,
+  tabs, onTabSelected, selectedTabId,
 }) => {
   return (
     <div>
@@ -19,7 +19,7 @@ export const Tabs: React.FC<Props> = React.memo(({
             onTabSelected(tab);
           }}
           style={{
-            backgroundColor: selectedTab === tab ? 'blue' : 'yellow',
+            backgroundColor: selectedTabId === tab.id ? 'blue' : 'yellow',
           }}
         >
           {tab.title}

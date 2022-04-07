@@ -25,7 +25,7 @@ const App: React.FC = React.memo(() => {
       <Tabs
         tabs={tabs}
         onTabSelected={onTabSelected}
-        selectedTab={selectedTab}
+        selectedTabId={selectedTab.id}
       />
       <p>
         {selectedTab.content}
