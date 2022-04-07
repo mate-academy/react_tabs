@@ -1,1 +1,15 @@
-// Put styles here
+.tab {
+  &_list {
+    display: flex;
+    flex-direction: row;
+  }
+
+  &_item {
+    list-style: none;
+  }
+}
+
+.button_active {
+  color: #fff;
+  background-color: rgb(5, 206, 86);
+}
