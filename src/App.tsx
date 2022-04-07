@@ -1,18 +1,36 @@
-import React from 'react';
+import React, { memo, useState } from 'react';
 
 import './App.scss';
 
-const tabs: Tab[] = [
-  { id: 'tab-1', title: 'Tab 1', content: 'Some text 1' },
-  { id: 'tab-2', title: 'Tab 2', content: 'Some text 2' },
-  { id: 'tab-3', title: 'Tab 3', content: 'Some text 3' },
-];
+import { Tabs } from './components/Tabs';
+import { tabs } from './api/tabs';
 
-const App: React.FC = () => (
-  <div className="App">
-    <h1>Selected tab is&nbsp;Tab 1</h1>
-    <div>{tabs.length}</div>
-  </div>
-);
+const App: React.FC = memo(() => {
+  const [selectedTabId, setSelectedTabId] = useState(tabs[0].id);
+
+  const selectTab = (tabId: string) => {
+    setSelectedTabId(tabId);
+  };
+
+  const getSelectedTab = (id: string) => (
+    tabs.find(tab => tab.id === id)
+  );
+
+  return (
+    <div className="App">
+      <div className="container">
+        <h1 className="App__title">
+          {`Selected tab is: ${getSelectedTab(selectedTabId)?.title || ''}`}
+        </h1>
+
+        <Tabs
+          tabs={tabs}
+          selectedTabId={selectedTabId}
+          onSelectTab={selectTab}
+        />
+      </div>
+    </div>
+  );
+});
 
 export default App;
