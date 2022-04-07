@@ -16,21 +16,21 @@ const tabs: Tab[] = [
 ];
 
 const App: React.FC = () => {
-  const [selectTab, setSelectTab] = useState(tabs[0].id);
+  const [selectTabId, setSelectTabId] = useState(tabs[0].id);
   const onTabSelected = useCallback((tab: Tab) => {
-    setSelectTab(tab.id || tabs[0].id);
+    setSelectTabId(tab.id || tabs[0].id);
   }, []);
 
   return (
     <>
       <h1>
         Selected tab is&nbsp;
-        {selectTab}
+        {selectTabId}
       </h1>
       <Tabs
         tabs={tabs}
         onTabSelected={onTabSelected}
-        selectedTabId={selectTab}
+        selectedTabId={selectTabId}
       />
     </>
   );
