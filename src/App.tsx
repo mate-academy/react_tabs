@@ -1,18 +1,34 @@
-import React from 'react';
+import React, { useState, useMemo, useCallback } from 'react';
+import { Tabs } from './components/Tabs';
+import { tabs } from './source/tabs';
 
 import './App.scss';
 
-const tabs: Tab[] = [
-  { id: 'tab-1', title: 'Tab 1', content: 'Some text 1' },
-  { id: 'tab-2', title: 'Tab 2', content: 'Some text 2' },
-  { id: 'tab-3', title: 'Tab 3', content: 'Some text 3' },
-];
+export const App: React.FC = React.memo(() => {
+  const [activeTabId, setActiveTabId] = useState(tabs[0].id);
 
-const App: React.FC = () => (
-  <div className="App">
-    <h1>Selected tab is&nbsp;Tab 1</h1>
-    <div>{tabs.length}</div>
-  </div>
-);
+  const activeTab = useMemo(() => tabs.find(tab => tab.id === activeTabId) || tabs[0],
+    [activeTabId]);
 
-export default App;
+  const selectTab = useCallback((tabId: string) => (
+    setActiveTabId(tabId)
+  ), []);
+
+  return (
+    <div className="app">
+      <h1 className="app__title">
+        Selected brand is&nbsp;
+        <big className="app__title--big">
+          {activeTab.title}
+        </big>
+      </h1>
+
+      <Tabs
+        tabs={tabs}
+        activeTab={activeTab}
+        activeTabId={activeTabId}
+        onActiveTab={selectTab}
+      />
+    </div>
+  );
+});
