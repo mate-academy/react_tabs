@@ -5,12 +5,13 @@ import './Tabs.scss';
 
 interface Props {
   tabs: Tab[];
+  activeTab: Tab;
   activeTabId: string;
-  onActiveTab: (tab: Tab) => void;
+  onActiveTab: (tabId: string) => void;
 }
 
 export const Tabs: React.FC<Props> = React.memo(({
-  tabs, activeTabId, onActiveTab,
+  tabs, activeTab, activeTabId, onActiveTab,
 }) => (
   <div className="tabs">
     <menu className="tabs__menu">
@@ -18,7 +19,7 @@ export const Tabs: React.FC<Props> = React.memo(({
         {tabs.map(tab => (
           <switch
             key={tab.id}
-            onClick={() => onActiveTab(tab)}
+            onClick={() => onActiveTab(tab.id)}
             className={classNames('tabs__item',
               { 'tabs__item--active': tab.id === activeTabId })}
           >
@@ -29,7 +30,7 @@ export const Tabs: React.FC<Props> = React.memo(({
     </menu>
 
     <p className="tabs__text">
-      {tabs.find(tab => tab.id === activeTabId)?.content}
+      {activeTab.content}
     </p>
   </div>
 ));

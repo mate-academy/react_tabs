@@ -5,7 +5,10 @@ import { tabs } from './source/tabs';
 import './App.scss';
 
 export const App: React.FC = React.memo(() => {
-  const [activeTab, setActiveTab] = useState(tabs[0]);
+  const [activeTabId, setActiveTabId] = useState(tabs[0].id);
+
+  const activeTab = tabs.find(tab => tab.id === activeTabId) || tabs[0];
+  const selectTab = (tabId: string) => setActiveTabId(tabId);
 
   return (
     <div className="app">
@@ -18,8 +21,9 @@ export const App: React.FC = React.memo(() => {
 
       <Tabs
         tabs={tabs}
-        activeTabId={activeTab.id}
-        onActiveTab={setActiveTab}
+        activeTab={activeTab}
+        activeTabId={activeTabId}
+        onActiveTab={selectTab}
       />
     </div>
   );
