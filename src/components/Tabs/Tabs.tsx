@@ -1,15 +1,15 @@
-import React from 'react';
+import React, { memo } from 'react';
 import classNames from 'classnames';
 
 import './Tabs.scss';
 
 type Props = {
   tabs: Tab[],
-  onSelect: (tab: Tab) => void,
+  onSelect: (tabId: string) => void,
   selected: Tab,
 };
 
-export const Tabs: React.FC<Props> = React.memo(({
+export const Tabs: React.FC<Props> = memo(({
   tabs, onSelect, selected,
 }) => (
   <div className="Tabs">
@@ -23,7 +23,7 @@ export const Tabs: React.FC<Props> = React.memo(({
           )
         }
         key={tab.id}
-        onClick={() => onSelect(tab)}
+        onClick={() => onSelect(tab.id)}
       >
         {tab.title}
       </button>

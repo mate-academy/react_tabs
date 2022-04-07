@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { memo, useMemo, useState } from 'react';
 import { Tabs } from './components/Tabs/Tabs';
 import { Content } from './components/Content/Content';
 
@@ -10,10 +10,11 @@ const tabs: Tab[] = [
   { id: 'tab-3', title: 'Tab 3', content: 'Additional text for the 3st Tab' },
 ];
 
-const App: React.FC = () => {
-  const [selectedTab, setSelectedTab] = useState(tabs[0]);
-
-  const selectTab = (tab: Tab) => setSelectedTab(tab);
+const App: React.FC = memo(() => {
+  const [selectedTabId, setSelectedTabId] = useState(tabs[0].id);
+  const selectTab = (tabId: string) => setSelectedTabId(tabId);
+  const selectedTab = useMemo(() => tabs.find(tab => tab.id === selectedTabId) || tabs[0],
+    [selectedTabId]);
 
   return (
     <div className="App">
@@ -27,6 +28,6 @@ const App: React.FC = () => {
       <Content content={selectedTab.content} />
     </div>
   );
-};
+});
 
 export default App;
