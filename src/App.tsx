@@ -11,7 +11,9 @@ export const App: React.FC = () => {
   const [selectedTab, setTab] = useState(tabs[0]);
   const [selectedTabId, setTabId] = useState(tabs[0].id);
 
-  const onTabSelected = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+  const onTabSelected = (
+    event: React.MouseEvent<HTMLButtonElement, MouseEvent>
+  ) => {
     const newTab = tabs.find(tab => (
       tab.id === event.currentTarget.value
     ));
