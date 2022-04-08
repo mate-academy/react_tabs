@@ -1,6 +1,7 @@
-import { useState } from 'react';
+import { useCallback, useState } from 'react';
 import './App.scss';
 import { Tabs } from './components/Tabs/Tabs';
+import { Tab } from './types';
 
 const tabs: Tab[] = [
   { id: 'tab-1', title: 'Statistic', content: 'Ежегодно люди на Земле покупают шоколад примерно на сумму в семь миллиардов долларов США.' },
@@ -8,8 +9,11 @@ const tabs: Tab[] = [
   { id: 'tab-3', title: 'Fact', content: 'Впервые твёрдый шоколад был получен в 19-м веке. До этого момента он был только жидким.' },
 ];
 
-const App: React.FC = () => {
-  const [selectedTab, setSelectedTab] = useState(tabs[0]);
+export const App: React.FC = () => {
+  const [selectedTab, setSelectedTab] = useState<Tab>(tabs[0]);
+  const selectTab = useCallback((tab: Tab) => {
+    setSelectedTab(tab || tabs[0]);
+  }, []);
 
   return (
     <div className="App">
@@ -21,7 +25,7 @@ const App: React.FC = () => {
       <Tabs
         tabs={tabs}
         selectedTabId={selectedTab.id}
-        onTabSelected={setSelectedTab}
+        onTabSelected={selectTab}
       />
     </div>
   );

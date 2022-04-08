@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { memo, useMemo } from 'react';
 import './Tabs.scss';
 import classNames from 'classnames';
+import { Tab } from '../../types';
 
 type Props = {
   tabs: Tab[];
@@ -8,12 +9,13 @@ type Props = {
   onTabSelected: (event: Tab) => void;
 };
 
-export const Tabs: React.FC<Props> = ({
+export const Tabs: React.FC<Props> = memo(({
   tabs,
   selectedTabId,
   onTabSelected,
 }) => {
-  const selectedTab = tabs.find(({ id }) => id === selectedTabId) || tabs[0];
+  const selectedTab = useMemo(() => tabs.find(({ id }) => id === selectedTabId) || tabs[0],
+    [selectedTabId]);
 
   return (
     <div className="container is-max-desktop">
@@ -43,4 +45,4 @@ export const Tabs: React.FC<Props> = ({
       </p>
     </div>
   );
-};
+});
