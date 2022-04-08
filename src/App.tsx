@@ -9,7 +9,6 @@ const tabs: Tab[] = [
 
 export const App: React.FC = () => {
   const [selectedTab, setTab] = useState(tabs[0]);
-  const [selectedTabId, setTabId] = useState(tabs[0].id);
 
   const onTabSelected = (
     event: React.MouseEvent<HTMLButtonElement, MouseEvent>
@@ -33,7 +32,7 @@ export const App: React.FC = () => {
 
       <Tabs
         tabs={tabs}
-        selectedTabId={selectedTabId}
+        selectedTabId={selectedTab.id}
         callback={onTabSelected}
       />
     </div>
