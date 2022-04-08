@@ -11,21 +11,25 @@ const tabsFromServer: Tab[] = [
 ];
 
 const App: React.FC = () => {
-  const [selectedTab, setSelectedTab] = useState(tabsFromServer[0]);
+  const [selectedTabId, setSelectedTabId] = useState(tabsFromServer[0].id);
 
-  const onSelectTab = (tab: Tab) => {
-    setSelectedTab(tab);
+  const onSelectTab = (id: string) => {
+    setSelectedTabId(id);
   };
+
+  const selectedTab = (id: string) => (
+    tabsFromServer.find(tab => tab.id === id)
+  );
 
   return (
     <div className="App">
-      <h1>{`Selected tab is ${selectedTab.title}`}</h1>
+      <h1>{`Selected tab is ${selectedTab(selectedTabId)?.title || ''}`}</h1>
       <Tabs
         tabs={tabsFromServer}
         selectTab={onSelectTab}
       />
       <p>
-        {selectedTab.content}
+        {selectedTab(selectedTabId)?.content}
       </p>
     </div>
   );

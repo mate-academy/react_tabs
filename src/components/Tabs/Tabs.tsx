@@ -4,7 +4,7 @@ import './Tabs.scss';
 
 interface Props {
   tabs: Tab[];
-  selectTab: (tab: Tab) => void;
+  selectTab: (tab: string) => void;
 }
 
 export const Tabs: React.FC<Props> = ({ tabs, selectTab }) => {
@@ -19,7 +19,7 @@ export const Tabs: React.FC<Props> = ({ tabs, selectTab }) => {
             <button
               type="button"
               className="tabs__button"
-              onClick={() => selectTab(tab)}
+              onClick={() => selectTab(tab.id)}
             >
               <p className="tabs__title">
                 {tab.title}
