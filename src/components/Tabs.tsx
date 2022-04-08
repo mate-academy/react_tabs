@@ -1,4 +1,5 @@
 import React from 'react';
+import classNames from 'classnames';
 
 import './Tabs.scss';
 
@@ -24,14 +25,25 @@ export class Tabs extends React.PureComponent<Props> {
           >
             <button
               type="button"
-              className={tab.id !== selectedId ? 'item__button' : 'item__button item__button--choosed'}
+              className={classNames(
+                'item__button',
+                {
+                  'item__button--choosed': tab.id === selectedId,
+                },
+              )}
               onClick={() => {
                 onTabSelected(tab.id, tab.title);
               }}
             >
               {tab.title}
             </button>
-            <span className={tab.id !== selectedId ? 'item__content' : 'item__content item__content--visible'}>
+            <span className={classNames(
+              'item__content',
+              {
+                'item__content--visible': tab.id === selectedId,
+              },
+            )}
+            >
               {tab.content}
             </span>
           </li>
