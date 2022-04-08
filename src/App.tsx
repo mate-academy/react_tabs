@@ -19,7 +19,6 @@ export const App: React.FC = () => {
 
     if (newTab) {
       setTab(newTab);
-      setTabId(newTab.id);
     }
   };
 
