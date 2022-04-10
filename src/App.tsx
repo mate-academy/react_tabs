@@ -17,20 +17,13 @@ const App: React.FC = () => {
     setSelectedTabId(id);
   };
 
-  const selectedTab = (id: string) => (
-    tabsFromServer.find(tab => tab.id === id)
-  );
-
   return (
     <div className="App">
-      <h1>{`Selected tab is ${selectedTab(selectedTabId)?.title || ''}`}</h1>
       <Tabs
         tabs={tabsFromServer}
         selectTab={onSelectTab}
+        selectedTabId={selectedTabId}
       />
-      <p>
-        {selectedTab(selectedTabId)?.content}
-      </p>
     </div>
   );
 };
