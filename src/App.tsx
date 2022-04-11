@@ -10,22 +10,21 @@ const tabs: Tab[] = [
 ];
 
 const App: React.FC = React.memo(() => {
-  const firstTab = tabs[0];
-  const [selectedTab, setSelectedTab] = useState(firstTab);
+  const [selectedTabId, setSelectedTabId] = useState(tabs[0]);
 
   const onSelect = useCallback((data:Tab):void => {
-    setSelectedTab(data);
+    setSelectedTabId(data);
   }, []);
 
   return (
     <div className="App">
       <h1>
         Selected&nbsp;
-        {selectedTab.title}
+        {selectedTabId.title}
       </h1>
       <Tabs
         tabs={tabs}
-        selected={selectedTab}
+        selected={selectedTabId}
         onSelect={onSelect}
       />
     </div>
