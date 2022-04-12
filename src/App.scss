@@ -1,1 +1,30 @@
-// Put styles here
+body{
+  background:#CDDC39;
+  font-family: 'Arimo', sans-serif;
+  font-size: 20px;
+}
+
+.App{
+  &__title{
+    color: #000;
+    text-align: center;
+    font-size: 2em;
+  }
+}
+
+.container {
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.content {
+  background:#fffffff6;
+  box-shadow: 0 2rem 2rem #00000080;
+  min-height:200px;
+  width: 100%;
+  max-width: 500px;
+  border-radius: 3px;
+  overflow: hidden;
+  padding: 20px;
+}
