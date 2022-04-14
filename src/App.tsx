@@ -10,17 +10,17 @@ const tabs: Tab[] = [
 ];
 
 const App: React.FC = () => {
-  const [selectedTab, setSelectedTab] = useState(tabs[0]);
+  const [selectedTabId, setSelectedTabId] = useState(tabs[0].id);
 
   const onSelected = (tab: Tab) => {
-    setSelectedTab(tab);
+    setSelectedTabId(tab.id);
   };
 
   return (
     <div className="App">
       <Tabs
         tabs={tabs}
-        selectedTab={selectedTab}
+        selectedTabId={selectedTabId}
         onSelected={onSelected}
       />
     </div>

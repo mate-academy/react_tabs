@@ -3,15 +3,17 @@ import './Tabs.scss';
 
 type Props = {
   tabs: Tab[],
-  selectedTab: Tab,
+  selectedTabId: string,
   onSelected: (tab:Tab) => void;
 };
 
 export const Tabs: React.FC<Props> = ({
   tabs,
-  selectedTab,
+  selectedTabId,
   onSelected,
 }) => {
+  const selectedContent = tabs.find(tab => tab.id === selectedTabId)?.content;
+
   return (
     <div className="App">
       <ul className="tabList">
@@ -32,9 +34,9 @@ export const Tabs: React.FC<Props> = ({
       <h2>
         Selected type is
         {' '}
-        {selectedTab.id}
+        {selectedTabId}
       </h2>
-      <p>{selectedTab.content}</p>
+      <p>{selectedContent}</p>
     </div>
   );
 };
