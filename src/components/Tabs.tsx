@@ -14,12 +14,8 @@ export const Tabs: React.FC<Props> = ({
   onTabSelected,
 }) => {
   return (
-    <div
-      className="tables"
-    >
-      <div
-        className="tables__buttons"
-      >
+    <div className="tables">
+      <div className="tables__buttons">
         {tabs.map(tab => (
           <button
             type="button"
@@ -35,12 +31,8 @@ export const Tabs: React.FC<Props> = ({
         ))}
       </div>
 
-      <div
-        className="tables__content"
-      >
-        <p
-          className="tables__content__description"
-        >
+      <div className="tables__content">
+        <p className="tables__content__description">
           {tabs.find(tab => tab.id === selectedTabId)?.content}
         </p>
       </div>
