@@ -1,0 +1,35 @@
+.Tabs {
+  &__list {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    padding: 0;
+  }
+
+  &__list-item {
+    text-align: center;
+  }
+
+  &__button {
+    width: 100px;
+    height: 30px;
+    font-weight: bold;
+    background-color: lightgoldenrodyellow;
+    border: 2px solid orange;
+    border-radius: 5px;
+    margin: 0 0 10px;
+    font-size: 18px;
+
+    &--active {
+      transform: translateY(-3px);
+      background-color: lightgreen;
+      border: 2px solid green;
+      transition: all 0.3s;
+    }
+  }
+
+  &__content {
+    font-weight: bold;
+    margin: 0;
+  }
+}

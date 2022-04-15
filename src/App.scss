@@ -1,1 +1,11 @@
-// Put styles here
+.App {
+  &__title {
+    text-align: center;
+
+    &--active {
+      text-decoration: underline;
+      text-decoration-color: green;
+      color: green;
+    }
+  }
+}
