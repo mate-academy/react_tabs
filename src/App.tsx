@@ -16,11 +16,11 @@ const tabs: Tab[] = [
 ];
 
 const App: React.FC<Tab[]> = () => {
-  const [selectedTabId, setSelectedTabId] = useState(tabs[0].content);
+  const [selectedTabId, setSelectedTabId] = useState(tabs[0]);
   const [title, setTitle] = useState('Tab 1');
 
   const onTabSelected = (tab:Tab) => {
-    setSelectedTabId(tab.content);
+    setSelectedTabId(tab);
     setTitle(tab.title);
   };
 
@@ -33,7 +33,7 @@ const App: React.FC<Tab[]> = () => {
       <Tabs
         tabs={tabs}
         onTabSelected={onTabSelected}
-        selectedTabId={selectedTabId}
+        selectedTabId={selectedTabId.id}
       />
     </div>
   );

@@ -7,6 +7,10 @@ type Props = {
 };
 
 const Tabs: React.FC<Props> = ({ tabs, onTabSelected, selectedTabId }) => {
+  const selectedTabContent = tabs.find(
+    (tab) => tab.id === selectedTabId,
+  )?.content;
+
   return (
     <>
       {tabs.map((tab) => (
@@ -19,7 +23,7 @@ const Tabs: React.FC<Props> = ({ tabs, onTabSelected, selectedTabId }) => {
           {tab.title}
         </button>
       ))}
-      <div>{selectedTabId}</div>
+      <div>{selectedTabContent}</div>
     </>
   );
 };
