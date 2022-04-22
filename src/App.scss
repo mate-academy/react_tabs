@@ -1,1 +1,41 @@
-// Put styles here
+html {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+ul {
+  display: flex;
+  padding: 0;
+  list-style: none;
+  border-bottom: 2px solid gray;
+}
+
+.App {
+  margin-left: 2rem;
+  margin-right: 50%;
+}
+
+.selected-tab {
+  color: gray;
+}
+
+.tab {
+  margin-right: 2px;
+
+  button {
+    padding: 10px 20px;
+    background-color: white;
+    border: 2px solid gray;
+    border-bottom: white;
+    cursor: pointer;
+
+  }
+
+  &--active {
+    border: 2px solid white;
+
+    button {
+      color: black;
+      font-weight: bold;
+    }
+  }
+}
