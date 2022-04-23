@@ -14,7 +14,7 @@ const App: React.FC = () => {
   const onTabSelected = (tab:Tab): void => {
     const nextTab = tabs.find((next) => next.id === tab.id);
 
-    if (nextTab) {
+    if (nextTab && selectedTab !== nextTab) {
       return newTab(nextTab);
     }
 
