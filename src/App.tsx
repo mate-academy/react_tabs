@@ -11,8 +11,8 @@ const tabs: Tab[] = [
 const App: React.FC = () => {
   const [selectedTab, newTab] = useState(tabs[0]);
 
-  const onTabSelected = (tab:Tab): void => {
-    const nextTab = tabs.find((next) => next.id === tab.id);
+  const onTabSelected = (id: string): void => {
+    const nextTab = tabs.find((next) => next.id === id);
 
     if (nextTab && selectedTab !== nextTab) {
       return newTab(nextTab);

@@ -11,6 +11,11 @@ export const Tabs: React.FC<Props> = ({
 }) => {
   const tabContent = tabs.find(tab => tab.id === selectedTabId);
 
+  const handleClick = (event:any) => {
+    event.preventDefault();
+    onSelect(event.target.value);
+  };
+
   return (
     <div>
       {tabs.map((tab) => (
@@ -18,7 +23,7 @@ export const Tabs: React.FC<Props> = ({
           type="button"
           key={tab.id}
           value={tab.id}
-          onClick={() => onSelect(tab)}
+          onClick={handleClick}
         >
           {tab.title}
         </button>
