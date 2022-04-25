@@ -28,7 +28,6 @@ const App: React.FC = () => {
         Selected tab is
         {` ${selectedTab.id}`}
       </h1>
-      <div>{tabs.length}</div>
       <Tabs
         tabs={tabs}
         selectedTabId={selectedTab.id}

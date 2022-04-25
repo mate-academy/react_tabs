@@ -1,7 +1,7 @@
 type Props = {
   tabs: Tab[],
   selectedTabId: string,
-  onSelect: any,
+  onSelect: (id: string) => void,
 };
 
 export const Tabs: React.FC<Props> = ({
@@ -11,9 +11,9 @@ export const Tabs: React.FC<Props> = ({
 }) => {
   const tabContent = tabs.find(tab => tab.id === selectedTabId);
 
-  const handleClick = (event:any) => {
+  const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
     event.preventDefault();
-    onSelect(event.target.value);
+    onSelect(event.currentTarget.value);
   };
 
   return (
