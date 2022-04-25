@@ -1,0 +1,61 @@
+@import '../../utils/variables';
+
+.tabs {
+
+  &__tab {
+    position: relative;
+  }
+
+  &__buttons {
+    margin-bottom: -1px;
+    display: flex;
+    padding-left: $button-width;
+  }
+
+  &__button {
+    position: relative;
+
+    height: 40px;
+    width: $button-width;
+
+    border: 1px solid $white-color;
+    border-radius: 5px 5px 0 0;
+    background-color: $white-color;
+    cursor: pointer;
+
+    color: $button-text-color;
+
+    transition: border-color $transition-duration;
+
+    &:hover {
+      border-color: $border-color;
+    }
+
+    &::after {
+      content: '';
+      display: block;
+
+      position: absolute;
+      bottom: -1px;
+      left: -1px;
+
+      width: $button-width;
+      height: 1px;
+      background-color: $border-color;
+    }
+
+    &--active {
+      border-color: $border-color;
+      border-bottom-color: $white-color;
+      color: $text-color;
+
+      &:hover {
+        border-bottom-color: $white-color;
+      }
+
+      &::after {
+        display: none;
+      }
+    }
+  }
+}
