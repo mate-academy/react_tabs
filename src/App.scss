@@ -1,1 +1,7 @@
-// Put styles here
+.app {
+  background-color: beige;
+  
+  &__content {
+    font-size: large;
+  }
+}
