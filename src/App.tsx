@@ -21,13 +21,14 @@ const App: React.FC = () => {
         {selectedTab.title}
       </h1>
 
-      <div>{tabs.length}</div>
+      <div>
+        <Tabs
+          tabs={tabs}
+          selectedTabId={selectedTab.id}
+          onTabSelected={selectTab}
+        />
+      </div>
 
-      <Tabs
-        tabs={tabs}
-        selectedTabId={selectedTab.id}
-        onTabSelected={selectTab}
-      />
     </div>
   );
 };
