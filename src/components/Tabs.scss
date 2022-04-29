@@ -1,0 +1,21 @@
+
+.container {
+  display: flex;
+}
+
+.tabs {
+  
+
+  &_button {
+    width: 70px;
+    height: 30px;
+    border: 1px solid purple;
+    border-radius: 3px;
+    background-color: #fff;
+
+    &:hover {
+      border: 3px solid purple;
+      border-bottom: none;
+    }
+  }
+}
