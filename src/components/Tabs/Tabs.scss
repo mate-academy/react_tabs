@@ -1,0 +1,28 @@
+.ButtonsContainer {
+  display: flex;
+}
+
+.TabButton {
+  display: block;
+  box-sizing: border-box;
+  width: 100px;
+  border: none;
+  border-bottom: 1px solid #eee;
+  background-color: #fff;
+  font-size: 20px;
+  font-family: Arial, Helvetica, sans-serif;
+  color: grey;
+}
+
+.Clicked {
+  border: 1px solid #eee;
+  border-bottom: none;
+  border-radius: 3px;
+  color: lightblue;
+}
+
+.FreeSpace {
+  height: 30px;
+  flex-grow: 1;
+  border-bottom: 1px solid #eee;
+}
