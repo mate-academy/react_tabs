@@ -1,4 +1,3 @@
-/* eslint-disable react/self-closing-comp */
 import React from 'react';
 import './Tabs.scss';
 
@@ -24,10 +23,9 @@ const Tabs: React.FC<Props> = ({ tabs, selectedTabId, onTabSelected }) => {
       >
         {
           tabs.map(tab => (
-            <>
+            <React.Fragment key={tab.id}>
               <button
                 type="button"
-                key={tab.id}
                 className={
                   selectedTabId === tab.id ? 'TabButton Clicked' : 'TabButton'
                 }
@@ -35,10 +33,11 @@ const Tabs: React.FC<Props> = ({ tabs, selectedTabId, onTabSelected }) => {
               >
                 {tab.title}
               </button>
-            </>
+            </React.Fragment>
           ))
         }
         <div className="FreeSpace">
+          Some text
         </div>
       </div>
 
