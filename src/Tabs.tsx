@@ -1,12 +1,6 @@
 import classNames from 'classnames';
 import React from 'react';
 
-type Tab = {
-  id: string;
-  title: string;
-  content: string;
-};
-
 type Props = {
   allTabs: Tab[];
   tabSelected: Tab;
