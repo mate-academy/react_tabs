@@ -1,0 +1,29 @@
+.tabs {
+  margin: 0 15px;
+  &__item {
+    background-color: #fadad7;
+    border-radius: 10px;
+    border: 2px transparent solid;
+    transition: transform 0.3s;
+    &:hover {
+      transform: scale(1.1);
+      border: 2px #ebd7fa solid;
+    }
+    &--active {
+      background-color: #ebd7fa;
+    }
+  }
+  &__title {
+    font-weight: 400;
+  }
+  &__content {
+    height: 50vh;
+    width: 80%;
+    margin: 0 auto;
+    border-radius: 10px;
+    background-color: #ebd7fa;
+  }
+  &__text {
+    text-align: center;
+  }
+}

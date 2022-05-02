@@ -1,1 +1,16 @@
-// Put styles here
+body {
+  background-color: #fadad7;
+}
+
+.App {
+  width: 80%;
+  height: 80vh;
+  margin: 50px auto;
+  background-color: #faebd7;
+  border-radius: 10px;
+  &__title {
+    color: #051428;
+    text-align: center;
+    font-weight: 400;
+  }
+}
