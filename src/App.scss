@@ -1,1 +1,36 @@
-// Put styles here
+.App {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.tabs {
+  overflow: hidden;
+  background-color: whitesmoke;
+
+  &__item {
+    font-size: 18px;
+    color: rgb(98, 134, 206);
+    background-color: whitesmoke;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;
+
+    &__active {
+      color: grey;
+      background-color: white;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+    }
+
+    &:hover {
+      background-color: white;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+    }
+  }
+}
+
+.tab__content {
+  padding: 6px 12px;
+}
