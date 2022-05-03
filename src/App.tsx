@@ -15,9 +15,7 @@ const App: React.FC = () => {
   return (
     <div className="App">
       <h1>
-        Selected tab:
-        {' '}
-        {selectedTab.title}
+        {`Selected tab: ${selectedTab.title}`}
       </h1>
 
       <Tabs
