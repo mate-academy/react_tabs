@@ -1,14 +1,9 @@
 import classNames from 'classnames';
+import { Tab } from '../Types/Tab';
 import './Tabs.scss';
 
-type Tab = {
-  id: string;
-  title: string;
-  content: string;
-};
-
 type Props = {
-  tabs: Tab [],
+  tabs: Tab[],
   selectedTab: Tab;
   onTabSelected: (tab: Tab) => void;
 };
