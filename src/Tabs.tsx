@@ -7,6 +7,8 @@ type Props = {
 };
 
 const Tabs: React.FC<Props> = ({ tabs, selectedTabId, onTabSelected }) => {
+
+  const findTab = tabs.find(tab => tab.id === selectedTabId);
   return (
     <>
       {tabs.map(tab => (
@@ -14,11 +16,11 @@ const Tabs: React.FC<Props> = ({ tabs, selectedTabId, onTabSelected }) => {
           {tab.title}
         </button>
       ))}
-      {tabs.filter(tab => tab.id === selectedTabId).map(tab => (
+      {findTab && (
         <p>
-          {tab.content}
+          {findTab.content}
         </p>
-      ))}
+      )}
     </>
   );
 };

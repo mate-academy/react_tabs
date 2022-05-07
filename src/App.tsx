@@ -27,7 +27,6 @@ const App: React.FC = () => {
         selectedTabId={selectedTabId}
         onTabSelected={onTabSelected}
       />
-      <div>{tabs.length}</div>
     </div>
   );
 };
