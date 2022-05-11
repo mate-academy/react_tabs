@@ -1,0 +1,40 @@
+.tabs-list {
+  box-sizing: border-box;
+  position: relative;
+  display: flex;
+  width: max-content;
+  height: 300px;
+  margin: auto;
+  padding: 20px;
+
+  background-color: #e8c7de;
+  border-radius: 20px;
+}
+
+.tab {
+  &__button {
+    padding: 20px;
+
+    color: #69626d;
+    border: none;
+    border-bottom: 1px #bcaf9c solid;
+    background-color: transparent;
+    transition: background-color 0.5s;
+
+    &:hover {
+      background-color: #d9bdc5;
+    }
+  }
+
+  & .activated {
+    border: 1px #bcaf9c solid;
+    border-bottom: none;
+  }
+
+  &__content {
+    position: absolute;
+    left: 20px;
+
+    color: #69626d;
+  }
+}
