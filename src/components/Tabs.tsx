@@ -31,7 +31,7 @@ export const Tabs: React.FC<Props> = ({
       </ul>
 
       <div className="tab__content">
-        {tabs.map(tab => (tab.id === selectedTabId && tab.content))}
+        {tabs.find(tab => tab.id === selectedTabId)?.content}
       </div>
     </>
   );
