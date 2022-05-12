@@ -17,7 +17,7 @@ export const Tabs: React.FC<Props> = ({
   return (
     <ul className="Tabs__list">
       {tabs.map((tab) => (
-        <li>
+        <li key={tab.id}>
           <button
             type="button"
             className="Tabs__button"
