@@ -42,7 +42,6 @@ const App: React.FC = () => {
         selectedTabId={selectedTabId}
         onTabSelect={handleTabSelect}
       />
-
     </div>
   );
 };
