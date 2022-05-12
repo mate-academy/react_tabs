@@ -1,1 +1,10 @@
 // Put styles here
+html {
+  font-family: Arial, sans-serif;
+}
+
+.App {
+  &__title {
+    margin: 30px 0 30px 150px;
+  }
+}
