@@ -6,7 +6,7 @@ import './Tabs.scss';
 type Props = {
   tabs: Tab[];
   selectedTabId: string;
-  setSelectedTab: (id: string) => void;
+  setSelectedTab: (tab: Tab) => void;
 };
 
 export const Tabs: React.FC<Props> = ({
@@ -23,7 +23,7 @@ export const Tabs: React.FC<Props> = ({
         >
           <button
             type="button"
-            onClick={() => setSelectedTab(tab.id)}
+            onClick={() => setSelectedTab(tab)}
             className={`tab__button ${selectedTabId === tab.id ? 'activated' : 'deactivated'}`}
           >
             {tab.title}

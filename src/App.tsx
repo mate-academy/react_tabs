@@ -10,13 +10,13 @@ const tabs: Tab[] = [
 ];
 
 const App: React.FC = () => {
-  const [selectedTabId, setSelectedTab] = useState(tabs[0].id);
+  const [selectedTab, setSelectedTab] = useState(tabs[0]);
 
   return (
     <div className="App">
       <h1 className="App__title">
         Selected tab is&nbsp;
-        {tabs.find(tab => tab.id === selectedTabId)?.title}
+        {selectedTab.title}
       </h1>
 
       <div className="App__counter">
@@ -25,7 +25,7 @@ const App: React.FC = () => {
 
       <Tabs
         tabs={tabs}
-        selectedTabId={selectedTabId}
+        selectedTabId={selectedTab.id}
         setSelectedTab={setSelectedTab}
       />
     </div>
