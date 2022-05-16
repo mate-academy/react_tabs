@@ -9,14 +9,12 @@ const tabs: Tab[] = [
 ];
 
 const App: React.FC = () => {
-  const [selectedTab, setSelectedTab] = useState(tabs[0]);
+  const [selectedTab, setSelectedTab] = useState(tabs[0] || null);
 
   return (
     <div className="App">
       <h1>
-        Selected tab is
-        {' '}
-        {selectedTab.title}
+        {`Selected tab is ${selectedTab.title}`}
       </h1>
       <Tabs
         tabs={tabs}

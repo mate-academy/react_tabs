@@ -14,18 +14,18 @@ export const Tabs: React.FC<Props> = ({
   return (
     <ul className="list">
       {
-        tabs.map(tabchild => (
-          <li key={tabchild.id} className="list__item">
+        tabs.map(tab => (
+          <li key={tab.id} className="list__item">
             <button
               type="button"
               className="list__button"
-              onClick={() => setSelectedTab(tabchild)}
+              onClick={() => setSelectedTab(tab)}
             >
-              {tabchild.title}
+              {tab.title}
             </button>
-            {selectedTabId === tabchild.id && (
+            {selectedTabId === tab.id && (
               <p className="list__content">
-                {tabchild.content}
+                {tab.content}
               </p>
             )}
           </li>
