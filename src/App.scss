@@ -1,1 +1,20 @@
 // Put styles here
+.App {
+  width: 500px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.tabs {
+  &__list {
+    display: flex;
+    justify-content: space-between;
+    padding: 0;
+    list-style: none;
+  }
+
+  &__item {
+    display: inline-block;
+    width: 100px;
+  }
+}
