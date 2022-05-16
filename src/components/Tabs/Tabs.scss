@@ -1,0 +1,46 @@
+$buttonRadius: 5px;
+$borderThiknes: 1px;
+$borderColor: #636364;
+$backgroundColor: #c8f2e6;
+$mainFontColor: black;
+$secondFontColor: #777;
+
+.tabs {
+  &__tab {
+    box-sizing: border-box;
+    border: $borderThiknes solid transparent;
+    border-top-left-radius: $buttonRadius;
+    border-top-right-radius: $buttonRadius;
+    padding: 8px 20px;
+    margin-bottom: -$borderThiknes;
+    background-color: transparent;
+    transition: 0.3s;
+    font-family: inherit;
+    font-size: 15px;
+    color: $secondFontColor;
+
+    &:hover {
+      border-color: #939394;
+      border-bottom: $borderColor;
+    }
+
+    &--selected,
+    &--selected:hover {
+      color: $mainFontColor;
+      border-color: $borderColor;
+      border-bottom: $borderThiknes solid $backgroundColor;
+      background-color: $backgroundColor;
+    }
+  }
+
+  &__content {
+    color: $mainFontColor;
+    border: $borderThiknes solid $borderColor;
+    background-color: $backgroundColor;
+    margin: 0;
+    padding: 15px 10px;
+    min-height: 300px;
+    font-size: 15px;
+
+  }
+}
