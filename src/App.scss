@@ -1,1 +1,17 @@
-// Put styles here
+body {
+  margin: 0;
+  padding: 0;
+  color: rgb(226, 225, 225);
+  background-color: crimson;
+  font-family: "Open Sans", "Helvetica", sans-serif;
+}
+
+.App {
+  max-width: 800px;
+  margin: 0 auto;
+
+  &__title {
+    text-align: center;
+    font-size: 40px;
+  }
+}
