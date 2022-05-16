@@ -1,7 +1,5 @@
 # React Tabs
-- Replace `<your_account>` with your Github username in the [DEMO LINK](https://<your_account>.github.io/react_tabs/)
-- Follow the [React task guideline](https://github.com/mate-academy/react_task-guideline#react-tasks-guideline)
-- Use [React TypeScript cheat sheet](https://mate-academy.github.io/fe-program/js/extra/react-typescript)
+[DEMO LINK](https://misha200119.github.io/react_tabs/)
 
 ## Task
 1. Your `App` component contains an array of `tabs`
@@ -24,5 +22,3 @@
 1. Create an `h1` inside the `App` saying `Selected tab is Tab 1` (show the title of the selected tab)
 1. When the user selects another tab the `h1` should be updated accordingly
 1. The `Tabs` component should be stateless
-
-![tabs](./description/tabs.gif)
