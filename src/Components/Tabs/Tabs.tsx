@@ -1,26 +1,29 @@
 import React from 'react';
+import './Tabs.scss';
 
 type Props = {
-  tabChangeMethod: (tabId: string) => void,
+  tabChangeMethod: (tabId: Tab) => void,
   tabs: Tab[],
-  selectTabId: string,
+  selectedTabId: string,
 };
 
 export const Tabs:React.FC<Props> = ({
   tabChangeMethod,
   tabs,
-  selectTabId,
+  selectedTabId,
 }) => {
+  const selectedObj = tabs.find(tab => tab.id === selectedTabId);
+
   const classNameMetod = (currentTabId: string) => {
-    if (currentTabId === selectTabId) {
-      return 'button active';
+    if (currentTabId === selectedTabId) {
+      return 'tabs__button active';
     }
 
-    return 'button';
+    return 'tabs__button';
   };
 
   return (
-    <>
+    <div className="tabs">
       <div>
         {tabs.map(tab => (
           <button
@@ -28,18 +31,15 @@ export const Tabs:React.FC<Props> = ({
             className={classNameMetod(tab.id)}
             type="button"
             name={tab.title}
-            id={tab.id}
-            onClick={() => tabChangeMethod(tab.id)}
+            onClick={() => tabChangeMethod(tab)}
           >
             {tab.title}
           </button>
         ))}
       </div>
-      <div>
-        <h2>
-          {tabs.find(tab => tab.id === selectTabId)?.title}
-        </h2>
-      </div>
-    </>
+      <h2 className="tabs__title">
+        {selectedObj?.content || tabs[0].content}
+      </h2>
+    </div>
   );
 };

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Tabs } from './Tabs';
+import { Tabs } from './Components/Tabs/Tabs';
 
 import './App.scss';
 
@@ -10,25 +10,27 @@ const tabs: Tab[] = [
 ];
 
 const App: React.FC = () => {
-  const [selectTabId, setSelectTabId] = useState('tab-1');
+  const [selectedTab, setSelectedTab] = useState(tabs[0]);
 
-  const onTabSelected = (tabId: string) => {
-    setSelectTabId(tabId);
+  const onTabSelected = (newTab: Tab) => {
+    if (newTab.id !== selectedTab.id) {
+      setSelectedTab(newTab);
+    }
   };
 
   return (
-    <div className="App">
-      <h1>
-        Selected tab is &nbsp;
-        {tabs.find(tab => tab.id === selectTabId)}
+    <div className="app">
+      <h1 className="app__header">
+        Selected tab is:
+        {' '}
+        {selectedTab.title}
       </h1>
-      <div>
-        <Tabs
-          tabChangeMethod={onTabSelected}
-          tabs={tabs}
-          selectTabId={selectTabId}
-        />
-      </div>
+
+      <Tabs
+        tabs={tabs}
+        selectedTabId={selectedTab.id}
+        tabChangeMethod={onTabSelected}
+      />
     </div>
   );
 };

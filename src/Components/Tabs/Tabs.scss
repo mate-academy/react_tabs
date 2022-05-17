@@ -1,0 +1,25 @@
+.tabs {
+  position: relative;
+
+  &__button {
+    width: 100px;
+    font-weight: 700;
+  }
+
+  &__title {
+    width: 296px;
+    position: absolute;
+    top: 17px;
+    z-index: -1;
+    margin: 0;
+    padding: 0;
+    border: 2px solid black;
+    line-height: 40px;
+  }
+
+}
+
+.active {
+  border-bottom: none;
+  background-color: white;
+}
