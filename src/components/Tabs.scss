@@ -1,0 +1,48 @@
+ul {
+  list-style: none;
+}
+
+li {
+  list-style: none;
+}
+
+.Tabs {
+  display: flex;
+
+  &__item {
+    &:not(:last-child) {
+      margin-right: 10px;
+    }
+  }
+
+  &__button {
+    border: none;
+    background-color: #fff;
+
+    padding: 20px;
+    font-size: 28px;
+    border-top: 2px solid #ddd;
+    border-bottom: 2px solid #ddd;
+    transition: border-color 1s, transform 1s;
+
+    &:hover {
+      border-color: rgb(0, 136, 136);
+      color: rgb(25, 148, 170);
+      cursor: pointer;
+      transform: scale(1.2);
+    }
+
+    &:active {
+      color: rgba(223, 35, 122, 0.87);
+      border-top: 2px solid #ddd;
+      border-bottom: 2px solid rgb(202, 24, 172);
+    }
+  }
+
+  &__content {
+    padding: 15px 50px;
+    border: 1px solid grey;
+    font-size: 20px;
+    width: max-content;
+  }
+}
