@@ -1,0 +1,28 @@
+.Tabs {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+}
+
+.Tab {
+  padding: 16px 24px;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: all 0.3s;
+
+  &__selected {
+    border-bottom: 1px solid grey;
+  }
+
+  &:hover {
+    box-shadow: 0 0 3px 5px green;
+  }
+
+  &Title {
+    color: rgb(15, 255, 15);
+
+    &__selected {
+      color: rgb(0, 129, 22);
+    }
+  }
+}
