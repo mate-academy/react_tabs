@@ -1,1 +1,7 @@
-// Put styles here
+.App {
+  text-align: center;
+
+  &__text {
+    font-style: italic;
+  }
+}
