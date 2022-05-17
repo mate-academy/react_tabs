@@ -1,0 +1,35 @@
+.tabs {
+  display: flex;
+  list-style: none;
+  justify-content: center;
+
+  &__tab {
+    margin-right: 15px;
+  }
+
+  &__button {
+    background-color: #4caf50;
+    color: white;
+    padding: 16px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    border-radius: 8px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+
+    &:hover {
+      background-color: white;
+      color: black;
+      border: 2px solid #4caf50;
+    }
+  }
+}
+
+.content {
+  text-align: center;
+  font-size: 2rem;
+  color:rgb(72, 18, 72)
+}
