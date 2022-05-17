@@ -1,0 +1,18 @@
+.tabs {
+
+  &__item {
+    margin: 0 20px 50px;
+    background-color: #bbb;
+
+    &--selected {
+      background-color: rgb(50, 150, 100);
+    }
+  }
+  &__content {
+    margin: 0 auto;
+    height: 200px;
+    line-height: 200px;
+    max-width: 500px;
+    border: 2px solid black;
+  }
+}
