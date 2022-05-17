@@ -1,0 +1,39 @@
+.Tabs {
+  &__list {
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    width: 500px;
+    height: 300px;
+    margin: 100px auto;
+    padding: 20px;
+    box-shadow: 1px 0 2px 2px #dadada;
+  }
+
+  &__button {
+    outline: none;
+    display: block;
+    width: 100%;
+    padding: 10px 15px;
+    margin: 15px 0 0;
+    border: 1px solid rgb(158, 39, 2);
+    border-radius: 20px;
+    background-color: rgb(158, 39, 2);
+    color: #fff;
+    cursor: pointer;
+
+    transition: color, background-color, border-color, 0.3s ease;
+
+    &:hover {
+      background-color: #fff;
+      color: rgb(158, 39, 2);
+      border-color: rgb(158, 39, 2);
+    }
+
+    &:active {
+      background-color: rgb(158, 39, 2);
+      color: #fff;
+      border-color: rgb(158, 39, 2);
+    }
+  }
+}
