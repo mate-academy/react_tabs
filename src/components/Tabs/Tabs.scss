@@ -1,0 +1,43 @@
+.tabs {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  width: 400px;
+  margin: auto;
+  padding: 40px;
+
+  background-color: #fcc;
+  border-radius: 20px;
+
+  &__button {
+    padding: 15px;
+    background-color: transparent;
+    border: 1px solid #000;
+    border-radius: 10px;
+
+    transition: 0.3s;
+
+    &:hover {
+      transform: scale(1.05);
+
+      background-image: linear-gradient(120deg, #40e0d0, #ff8c00, #ff0080);
+      background-size: 300px 300px;
+      background-position: 0 0;
+
+      animation: buttonGradiant 5s infinite linear;
+    }
+  }
+
+  &__description {
+    font-size: 20px;
+  }
+}
+
+@keyframes buttonGradiant {
+  from {
+    background-position-x: 0;
+  }
+  to {
+    background-position-x: 300px;
+  }
+}
