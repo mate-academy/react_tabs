@@ -1,0 +1,25 @@
+.tabs-list {
+  display: flex;
+  position: relative;
+
+  list-style: none;
+
+  &__item {
+    margin: 20px;
+  }
+}
+
+.item-content {
+  margin-top: 10px;
+  position: absolute;
+  left: 30px;
+
+  font-size: 20px;
+}
+
+.btn {
+  font-weight: bold;
+  font-size: 15px;
+
+  padding: 10px;
+}
