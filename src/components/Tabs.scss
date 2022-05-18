@@ -1,0 +1,41 @@
+$active-background: #e2a9ac;
+$content-border-radius: 30px;
+$button-border-radius: 10px;
+
+.tabs {
+  width: 50%;
+  font-size: 25px;
+
+  &__button {
+    width: 100px;
+    height: 50px;
+    border: 0;
+    border-top-left-radius: $button-border-radius;
+    border-top-right-radius: $button-border-radius;
+    border-bottom: 0;
+    background-color: #a05a7d;
+    color: #fff;
+    font-size: 20px;
+    text-transform: uppercase;
+    transition: 0.3s;
+
+    &--active {
+      background-color: $active-background;
+    }
+
+    &--not-active {
+      &:hover {
+        background-color: #6a4364;
+      }
+    }
+  }
+
+  &__content {
+    min-height: 400px;
+    padding: 20px;
+    background-color: $active-background;
+    border-bottom-left-radius: $content-border-radius;
+    border-bottom-right-radius: $content-border-radius;
+    border-top-right-radius: $content-border-radius;
+  }
+}
