@@ -5,10 +5,10 @@ html {
 
 h1 {
   font-family: "Orbitron", sans-serif;
+  font-size: 30px;
 }
 
 body {
-  margin: 0;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -24,7 +24,7 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 30px;
+  gap: 50px;
 
   background: lightblue;
   border: 1px solid black;

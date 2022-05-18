@@ -1,4 +1,5 @@
 import React from 'react';
+import '../../reset.scss';
 import './Tabs.scss';
 
 type Callback = (obj: Tab) => void;
@@ -28,9 +29,11 @@ export const Tabs: React.FC<Props> = ({
           >
             {tab.title}
           </button>
-          <p className="Tabs__content">
-            {selectedTabId === tab.id ? tab.content : ''}
-          </p>
+          {selectedTabId === tab.id && tab.content && (
+            <p className="Tabs__content">
+              {tab.content}
+            </p>
+          )}
         </li>
       ))}
     </ul>
