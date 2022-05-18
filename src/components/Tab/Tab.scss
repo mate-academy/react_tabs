@@ -1,0 +1,28 @@
+.tabs-list {
+  display: flex;
+  list-style-type: none;
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__button {
+    width: 70px;
+    padding: 10px 0;
+    border: none;
+    outline: none;
+    background-color: #46bd95;
+    cursor: pointer;
+
+    &--active {
+      background-color: aquamarine;
+    }
+  }
+}
+
+.tabs-content {
+  padding: 20px;
+  min-height: 100px;
+  background-color: aquamarine;
+}
