@@ -1,0 +1,23 @@
+.tab {
+  width: 600px;
+
+  border-radius: 5px;
+
+  &__button {
+    width: 100px;
+    height: 40px;
+
+    color: white;
+
+    border: 1px solid black;
+    border-radius: 5px;
+
+    background: none;
+
+    transition: transform 0.5s;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+}
