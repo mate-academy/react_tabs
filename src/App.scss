@@ -1,1 +1,10 @@
-// Put styles here
+body {
+  background-color: rgb(102,205,170);
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.App {
+  &__title {
+    text-align: center;
+  }
+}

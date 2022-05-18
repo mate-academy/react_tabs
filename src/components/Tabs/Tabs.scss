@@ -1,0 +1,36 @@
+.tabs__list {
+  margin: 0 auto;
+  padding: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 300px;
+  height: 150px;
+  border: 1px solid black;
+  border-radius: 15px;
+  background-color: rgb(221, 211, 98);
+}
+
+.tab {
+  &__button {
+    padding: 16px;
+    text-align: center;
+    line-height: 12px;
+    font-size: medium;
+    font-weight: bold;
+    background-color: rgb(102,205,170);
+    cursor: pointer;
+    transition: 0.3s;
+    border: 0 solid white;
+    border-radius: 10px;
+
+    &:hover {
+      transform: scale(1.05);
+    }
+  }
+
+  &__content {
+    padding-top: 20px;
+    font-size: 24px;
+  }
+}
