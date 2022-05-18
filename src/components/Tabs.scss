@@ -1,0 +1,33 @@
+.tabs {
+  display: flex;
+  gap: 10px;
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 120px;
+  }
+
+  &__button {
+    width: 100px;
+    height: 34px;
+    border-radius: 20px;
+    font-size: 17px;
+    font-family: cursive;
+    transition: all 0.3s;
+
+    &--active {
+      border-color: aqua;
+      width: 120px;
+    }
+
+    &--noactive {
+      &:hover {
+        border-radius: 15px;
+        transform: scale(1.2);
+        color: #786565;
+      }
+    }
+  }
+}
