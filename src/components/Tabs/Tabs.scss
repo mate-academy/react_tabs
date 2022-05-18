@@ -1,0 +1,26 @@
+.tabs {
+  display: grid;
+  grid-template-columns: repeat(3,auto);
+  gap: 30px;
+  justify-content: center;
+  list-style: none;
+  padding: 0;
+}
+
+.tabs__item {
+  width: max-content;
+  padding: 0;
+}
+
+.tabs__button {
+  width: 200px;
+  font-size: 20px;
+  font-family: "Koulen", cursive;
+  color: white;
+  background-color: #d93f25;
+  border: #d93f25;
+}
+
+.tabs__content {
+  text-align: center;
+}
