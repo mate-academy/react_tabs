@@ -5,7 +5,8 @@ const page = {
     return cy.get('h1');
   },
   clickTab(index) {
-    return cy.contains('button', tabs[index].title).click();
+    return cy.contains('button', tabs[index].title)
+      .click();
   }
 };
 

@@ -32,9 +32,12 @@ describe('Tabs component', () => {
       />
     ));
 
-    cy.get('button').eq(1).click().then(() => {
-      expect(methods.handleClick).to.be.called;
-    });
+    cy.get('button')
+      .eq(1)
+      .click()
+      .then(() => {
+        expect(methods.handleClick).to.be.called;
+      });
   });
 
   it('should not invoke the callback if the current tab is clicked', () => {
@@ -52,8 +55,11 @@ describe('Tabs component', () => {
       />
     ));
 
-    cy.get('button').eq(0).click().then(() => {
-      expect(methods.handleClick).not.to.be.called;
-    });
+    cy.get('button')
+      .eq(0)
+      .click()
+      .then(() => {
+        expect(methods.handleClick).not.to.be.called;
+      });
   });
 });
