@@ -1,1 +1,11 @@
-// Put styles here
+.app {
+  font-family: Arial, Helvetica, sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  &__title {
+    font-size: 35px;
+    margin-left: 20px;
+  }
+}

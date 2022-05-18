@@ -1,4 +1,5 @@
 import React from 'react';
+import './Tabs.scss';
 
 type Props = {
   tabs: Tab[],
@@ -13,7 +14,7 @@ export const Tabs: React.FC<Props> = ({
 }) => {
   return (
     <>
-      <ul>
+      <ul className="tabs__list">
         {tabs.map(tab => (
           <li
             key={tab.id}
@@ -26,9 +27,9 @@ export const Tabs: React.FC<Props> = ({
             >
               {tab.title}
             </button>
-            <p>
+            <span className="tabs__content">
               {tab.id === selectedTabId && tab.content}
-            </p>
+            </span>
           </li>
         ))}
       </ul>
