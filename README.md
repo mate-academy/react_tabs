@@ -13,12 +13,12 @@
     ];
     ```
 1. Save the `selectedTab` in the `App` (the first one by default)
-1. Implement the `Tabs` component accepting `tabs` as a prop
-   and displaying a button per each `tab` and the content of the selected tab
+1. Implement the `Tabs` component accepting `tabs` as a prop and displaying a button per each `tab` and the content of the selected tab. 
+   
+   Note: the content should have an attribute `data-cy="tab-content"`
 1. Pass the `selectedTabId` as a prop to the `Tabs`, the specified tab should be selected if possible
   (otherwise the first tab is selected)
-1. Pass the `onTabSelected` callback to the `Tabs`
-   it should be called whenever the user selects another tab.
+1. Pass the `onTabSelected` callback to the `Tabs`, it should be called whenever the user selects another tab.
    (Don't call the callback if the tab was not changed)
 1. The callback should receive the data of the selected tab (an object from the array)
 1. Create an `h1` inside the `App` saying `Selected tab is Tab 1` (show the title of the selected tab)
