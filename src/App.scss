@@ -1,1 +1,15 @@
-// Put styles here
+body {
+  background-color: rgb(255, 255, 219);
+}
+
+.app {
+  display: grid;
+  place-items: center;
+  margin: 100px;
+  border: 1px solid rgb(255, 255, 234);
+  box-shadow: 0 0 4px 4px rgb(192, 192, 108);
+
+  &__title {
+    color: rgb(105, 255, 150);
+  }
+}
