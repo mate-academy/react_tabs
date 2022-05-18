@@ -24,11 +24,9 @@ export const Tabs: React.FC<Props> = ({
             {tab.title}
           </button>
 
-          {selectedTabId === tab.id && tab.content && (
-            <p className="tab__content">
-              {tab.content}
-            </p>
-          )}
+          <p className="tab__content">
+            {selectedTabId === tab.id ? tab.content : ''}
+          </p>
         </div>
       ))}
     </div>
