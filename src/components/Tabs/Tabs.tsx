@@ -27,9 +27,11 @@ export const Tabs: React.FC<Props> = (props) => {
             {tab.title}
           </button>
 
-          <h3 className="tabs__description">
-            {selectedTabId === tab.id ? tab.content : ''}
-          </h3>
+          {selectedTabId === tab.id && (
+            <h3 className="tabs__description">
+              {tab.content}
+            </h3>
+          )}
         </div>
       ))}
     </div>

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 
 import './App.scss';
+import './reset.scss';
 
 import { Tabs } from './components/Tabs/Tabs';
 
@@ -11,13 +12,12 @@ const tabs: Tab[] = [
 ];
 
 const App: React.FC = () => {
-  const [selectedTab, setSelectedTab] = useState(tabs[0]);
+  const [selectedTab, setSelectedTab] = useState(tabs[0] || null);
 
   return (
     <div className="app">
       <h1 className="app__title">
         Selected tab is
-        {' '}
         <span className="app__title--state">{selectedTab.title}</span>
       </h1>
 
