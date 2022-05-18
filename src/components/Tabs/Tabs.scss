@@ -1,0 +1,31 @@
+.Tabs {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 25px;
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    list-style: none;
+    gap: 20px;
+  }
+
+  &__button {
+    cursor: pointer;
+    width: 100px;
+    height: 50px;
+    font-family: "Press Start 2P", cursive;
+    transition: all 0.3s;
+
+    &:hover {
+      background-color: rgb(31, 31, 109);
+      color: lightblue;
+    }
+  }
+
+  &__content {
+    font-family: "Share Tech Mono", monospace;
+  }
+}

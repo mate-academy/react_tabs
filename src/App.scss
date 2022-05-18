@@ -1,1 +1,32 @@
-// Put styles here
+html {
+  background-image: url(./background.jpg);
+  background-size: cover;
+}
+
+h1 {
+  font-family: "Orbitron", sans-serif;
+  font-size: 30px;
+}
+
+body {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
+}
+
+.App {
+  width: 450px;
+  height: 300px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+
+  background: lightblue;
+  border: 1px solid black;
+  border-radius: 25px;
+}
