@@ -28,23 +28,6 @@ const App: React.FC = () => {
         tabs={tabs}
         onTabSelected={handleTabClick}
       />
-      <div>
-        {selectedTabId === tabs[0].id && (
-          <p className="app__text">
-            {tabs[0].content}
-          </p>
-        )}
-        {selectedTabId === tabs[1].id && (
-          <p className="app__text">
-            {tabs[1].content}
-          </p>
-        )}
-        {selectedTabId === tabs[2].id && (
-          <p className="app__text">
-            {tabs[2].content}
-          </p>
-        )}
-      </div>
     </div>
   );
 };

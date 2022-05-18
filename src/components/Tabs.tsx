@@ -31,6 +31,13 @@ export const Tabs: React.FC<ItabProps> = ({
           >
             {tab.title}
           </h2>
+
+          <div className={classNames('TabText', {
+            TabText__selected: tab.id === selectedId,
+          })}
+          >
+            {selectedId === tab.id ? tab.content : ''}
+          </div>
         </div>
       ))}
     </div>

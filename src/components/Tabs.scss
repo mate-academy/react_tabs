@@ -25,4 +25,13 @@
       color: rgb(0, 129, 22);
     }
   }
+
+  &Text {
+    font-size: 24px;
+    color: rgb(0, 78, 0);
+
+    &__selected {
+      color: rgb(0, 129, 22);
+    }
+  }
 }
