@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 import './App.scss';
-import { Tab } from './Tabs';
+import { Tabs } from './Tabs';
 
 export const tabs: Tab[] = [
   { id: 'tab-1', title: 'Tab 1', content: 'Some text 1' },
@@ -15,7 +15,7 @@ const App: React.FC = () => {
   return (
     <div className="App">
       <h1>{`Selected tab is Tab ${selectedTab.title}`}</h1>
-      <Tab
+      <Tabs
         tabs={tabs}
         selectedTabId={selectedTab.id}
         onTabSelected={setSelectedTab}

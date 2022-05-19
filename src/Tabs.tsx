@@ -8,7 +8,7 @@ type Props = {
   onTabSelected: Callback,
 };
 
-export const Tab: React.FC<Props> = ({
+export const Tabs: React.FC<Props> = ({
   tabs,
   selectedTabId,
   onTabSelected,
