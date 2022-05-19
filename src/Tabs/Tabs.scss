@@ -1,0 +1,42 @@
+.Tabs {
+  border: 1px solid black;
+  border-radius: 5px;
+  background-color: aliceblue;
+  padding-top: 20px;
+  padding-left: 0;
+  width: 400px;
+  margin: 15px auto 0;
+
+  &__item {
+    margin-bottom: 20px;
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    &--text {
+      width: 150px;
+      font-size: 25px;
+      text-align: left;
+    }
+
+    &--button {
+
+      width: 100px;
+      height: 45px;
+      border-radius: 7px;
+      color: purple;
+      font-weight: bold;
+      transition: transform 0.3s;
+
+      &:hover {
+        background-color: beige;
+        transform: scale(1.05);
+      }
+
+      &:active {
+        border: 1px solid red;
+      }
+    }
+  }
+}
