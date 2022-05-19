@@ -16,8 +16,8 @@ type State = {
 
 class App extends React.Component<{}, State> {
   state: State = {
-    selectedTab: 'Tab 1',
-    contentOfSelectedTab: 'Some text 1',
+    selectedTab: tabs[0].title,
+    contentOfSelectedTab: tabs[0].content,
   };
 
   handleTabChange = (tab: Tab) => {
@@ -36,7 +36,7 @@ class App extends React.Component<{}, State> {
           {`Selected tab is ${selectedTab}`}
         </h1>
         <Tabs
-          copyTabs={[...tabs]}
+          tabs={tabs}
           handleTabChange={this.handleTabChange}
           content={contentOfSelectedTab}
         />

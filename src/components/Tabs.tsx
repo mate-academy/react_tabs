@@ -4,18 +4,18 @@ import './Tabs.scss';
 type Props = {
   handleTabChange: (tab: Tab) => void;
   content: string;
-  copyTabs: Tab[];
+  tabs: Tab[];
 };
 
 export const Tabs: React.FC<Props> = ({
-  copyTabs,
+  tabs,
   handleTabChange,
   content,
 }) => {
   return (
     <>
       <ul className="Tabs">
-        {copyTabs.map(tab => (
+        {tabs.map(tab => (
           <li className="Tabs__item">
             <button
               type="button"
