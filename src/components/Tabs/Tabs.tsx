@@ -5,7 +5,7 @@ import './Tabs.scss';
 type Props = {
   tabs: Tab[];
   selectedTabId: string;
-  onTabSelected: (tab: Tab) => void;
+  onTabSelected: (tab: number) => void;
 };
 
 export const Tabs: FC<Props> = ({
@@ -16,7 +16,7 @@ export const Tabs: FC<Props> = ({
   return (
     <section className="tabs">
       {
-        tabs.map((tab) => (
+        tabs.map((tab, index) => (
           <article key={tab.id} className="tabs__tab">
             <button
               type="button"
@@ -24,18 +24,20 @@ export const Tabs: FC<Props> = ({
                 'tabs__tab-title',
                 { 'tabs__tab-title--active': selectedTabId === tab.id },
               )}
-              onClick={() => onTabSelected(tab)}
+              onClick={() => onTabSelected(index)}
               disabled={selectedTabId === tab.id}
             >
               {tab.title}
             </button>
-            <p className="tabs__tab-content">
-              {
-                selectedTabId === tab.id
-                  ? tab.content
-                  : null
-              }
-            </p>
+            {tab.content && (
+              <p className="tabs__tab-content">
+                {
+                  selectedTabId === tab.id
+                    ? tab.content
+                    : null
+                }
+              </p>
+            )}
           </article>
         ))
       }
