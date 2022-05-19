@@ -14,7 +14,7 @@ const App: React.FC = () => {
 
   return (
     <div className="App">
-      <h1>{`Selected tab is Tab ${selectedTab.title}`}</h1>
+      <h1>{`Selected tab is ${selectedTab.title}`}</h1>
       <Tabs
         tabs={tabs}
         selectedTabId={selectedTab.id}
