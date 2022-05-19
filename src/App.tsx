@@ -9,27 +9,37 @@ const tabs: Tab[] = [
   { id: 'tab-3', title: 'Tab 3', content: 'Some text 3' },
 ];
 
+const initialTab = tabs.length > 0 ? tabs[0] : null;
+
 const App: FC = () => {
-  const [selectedTab, setSelectedTab] = useState(tabs[0]);
+  const [selectedTab, setSelectedTab] = useState(initialTab);
 
   const onTabSelected = (newTab: Tab) => {
-    if (newTab.id !== selectedTab.id) {
+    if (selectedTab !== null && newTab.id !== selectedTab.id) {
       setSelectedTab(newTab);
     }
   };
 
   return (
     <div className="app">
-      <h1 className="app__header">
-        Selected tab is &nbsp;
-        {selectedTab.title}
-      </h1>
+      {
+        selectedTab !== null
+          ? (
+            <>
+              <h1 className="app__header">
+                Selected tab is &nbsp;
+                {selectedTab.title}
+              </h1>
 
-      <Tabs
-        tabs={tabs}
-        selectedTabId={selectedTab.id}
-        handleTab={onTabSelected}
-      />
+              <Tabs
+                tabs={tabs}
+                selectedTabId={selectedTab.id}
+                handleTab={onTabSelected}
+              />
+            </>
+          )
+          : <p>Invalid array from server</p>
+      }
     </div>
   );
 };

@@ -1,4 +1,5 @@
 import { FC } from 'react';
+import cs from 'classnames';
 import './Tabs.scss';
 
 type Props = {
@@ -8,7 +9,7 @@ type Props = {
 };
 
 export const Tabs: FC<Props> = ({ tabs, selectedTabId, handleTab }) => {
-  const selectedObj = tabs.find(tab => tab.id === selectedTabId);
+  const selectedTab = tabs.find(tab => tab.id === selectedTabId);
 
   return (
     <div className="tabs">
@@ -17,17 +18,23 @@ export const Tabs: FC<Props> = ({ tabs, selectedTabId, handleTab }) => {
           <button
             type="button"
             key={tab.id}
-            className={`tabs__tab
-                ${tab.id === selectedTabId && 'tabs__tab--selected'}`}
+            className={cs(
+              'tabs__tab',
+              {
+                'tabs__tab--selected': tab.id === selectedTabId,
+              },
+            )}
             onClick={() => handleTab(tab)}
           >
             {tab.title}
           </button>
         ))}
       </div>
-      <p className="tabs__content">
-        {selectedObj?.content || tabs[0].content}
-      </p>
+      {selectedTab && (
+        <p className="tabs__content">
+          {selectedTab.content}
+        </p>
+      )}
     </div>
   );
 };

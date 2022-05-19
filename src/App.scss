@@ -1,28 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap");
-
-* {
-  box-sizing: border-box;
-}
-
-html {
-  margin: 0;
-  padding: 0;
-  background: linear-gradient(90deg, #b7f8db 0%, #50a7c2 100%);
-  font-family: "Poppins", sans-serif;
-}
-
-body {
-  margin: 0;
-  padding: 10px;
-}
-
-h1,
-h2,
-h3,
-p {
-  margin: 0;
-  padding: 0;
-}
+@import "./styles/normalize.scss";
 
 .app {
   max-width: 800px;
