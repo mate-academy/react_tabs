@@ -8,7 +8,7 @@ type Props = {
 };
 
 export const Tabs: React.FC<Props> = React.memo(({
-  tabs,
+  tabs = [],
   selectedTabId,
   onTabSelected,
 }) => {
@@ -36,7 +36,11 @@ export const Tabs: React.FC<Props> = React.memo(({
           </li>
         ))}
       </ul>
-      <p className="content">{selectedTab}</p>
+      {selectedTab ? (
+        <p className="content">{selectedTab}</p>
+      ) : (
+        <h2>Content is not found</h2>
+      )}
     </>
   );
 });
