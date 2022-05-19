@@ -5,11 +5,17 @@
   font-family: Arial, Helvetica, sans-serif;
 }
 
-.button {
+.tab__checed {
   width: 100px;
   height: 50px;
   background-color: rgb(185, 180, 180);
   cursor: pointer;
+  border: 0;
+}
+
+.tab__checed--select {
+  background-color: #fff;
+  border: 0;
 }
 
 .tab__item {
@@ -18,8 +24,6 @@
 }
 
 .tab__p {
-  margin: 0;
-  padding: 0;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -27,9 +31,13 @@
 }
 
 .tab__items {
-  height: 200px;
   width: 300px;
   display: flex;
-  flex-direction: column;
   justify-content: space-around;
+  box-sizing: border-box;
+}
+
+.tab {
+  border: 2px solid;
+  box-sizing: border-box;
 }

@@ -10,24 +10,24 @@ const tabs: Tab[] = [
 ];
 
 const App: React.FC = () => {
-  const [tab, setTab] = useState(tabs[0]);
+  const [selectedTab, setSelectedTab] = useState(tabs[0]);
 
-  const tabSelect = (newTabs: Tab) => {
-    setTab(newTabs);
+  const onTabSelected = (newTabs: Tab) => {
+    setSelectedTab(newTabs);
   };
 
   return (
     <div className="app">
-      <h1 className="app__h1r">
+      <h1 className="app__h1">
         Selected tab is:
         {' '}
-        {tab.title}
+        {selectedTab.title}
       </h1>
 
       <Tabs
         tabs={tabs}
-        chooseId={tab.id}
-        tabChoose={tabSelect}
+        chooseId={selectedTab.id}
+        tabChoose={onTabSelected}
       />
     </div>
   );

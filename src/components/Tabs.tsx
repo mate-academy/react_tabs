@@ -12,6 +12,8 @@ export const Tabs: React.FC<Props> = ({
   tabs,
   tabChoose,
 }) => {
+  const selectTab = tabs.find(item => item.id === chooseId);
+
   return (
     <div className="tab">
       <div className="tab__items">
@@ -19,7 +21,8 @@ export const Tabs: React.FC<Props> = ({
           <div className="tab__item">
             <>
               <button
-                className="button"
+                className={`tab__checed
+                ${item.id === chooseId && 'tab__checed--select'}`}
                 type="button"
                 key={item.id}
                 name={item.title}
@@ -27,13 +30,13 @@ export const Tabs: React.FC<Props> = ({
               >
                 {item.title}
               </button>
-              <p className="tab__p">
-                {chooseId === item.id ? item.content : null}
-              </p>
             </>
           </div>
         ))}
       </div>
+      <p className="tab__p">
+        {selectTab?.content || tabs[0].content}
+      </p>
     </div>
   );
 };
