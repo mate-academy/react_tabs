@@ -15,7 +15,7 @@ const App: FC = () => {
   const [selectedTab, setSelectedTab] = useState(initialTab);
 
   const onTabSelected = (newTab: Tab) => {
-    if (selectedTab !== null && newTab.id !== selectedTab.id) {
+    if (selectedTab && newTab.id !== selectedTab.id) {
       setSelectedTab(newTab);
     }
   };
@@ -23,7 +23,7 @@ const App: FC = () => {
   return (
     <div className="app">
       {
-        selectedTab !== null
+        selectedTab
           ? (
             <>
               <h1 className="app__header">
