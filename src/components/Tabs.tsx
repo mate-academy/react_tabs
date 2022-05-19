@@ -21,7 +21,7 @@ export const Tabs: React.FC<Props> = ({
           type="button"
           className={classNames(
             'tabs__item',
-            { 'tabs__item--selected': selectedTab === tab }
+            { 'tabs__item--selected': selectedTab === tab },
           )}
           onClick={() => onTabSelected(tab)}
         >

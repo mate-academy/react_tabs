@@ -10,24 +10,28 @@ const tabs: Tab[] = [
 ];
 
 const App: React.FC = () => {
-  const [selectedTab, setSelectedTab] = useState(tabs[0]);
+  const [selectedTab, setSelectedTab] = useState(
+    {id: '', title: '', content: ''}
+  );
 
   const onTabSelected = (tab: Tab) => {
     setSelectedTab(tab);
   };
-
+ 
   return (
-    <div className="App">
-      <h1>
-        Selected tab is:
-        { selectedTab.title }
-      </h1>
-      <Tabs
-        tabs={tabs}
-        selectedTab={selectedTab}
-        onTabSelected={onTabSelected}
-      />
-    </div>
+      <div className="App">
+        <h1>
+          Selected tab is:
+          { selectedTab.title }
+        </h1>
+        {tabs.length > 0 && (
+          <Tabs
+          tabs={tabs}
+          selectedTab={selectedTab}
+          onTabSelected={onTabSelected}
+        />
+        )}
+      </div>
   );
 };
 
