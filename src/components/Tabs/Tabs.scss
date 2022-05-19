@@ -5,8 +5,11 @@
     padding: 0;
     margin: 0;
 
+    height: 200px;
+
     display: flex;
     list-style: none;
+    position: relative;
   }
 
   &__tab_btn {
@@ -25,6 +28,8 @@
   }
 
   &__selected-tab-content {
+    position: absolute;
+    left: 0;
     margin: 15px 0;
   }
 }

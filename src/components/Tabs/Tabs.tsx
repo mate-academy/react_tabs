@@ -6,7 +6,7 @@ import './Tabs.scss';
 type Props = {
   tabs: Array<Tab>,
   selectedTabId: string,
-  setSelectedTab: (tabId:string) => void,
+  setSelectedTab: (tab: Tab) => void,
 };
 
 export const Tabs: React.FC<Props> = (props) => {
@@ -14,9 +14,9 @@ export const Tabs: React.FC<Props> = (props) => {
 
   return (
     <div className="tabs">
-      <ul className="tabs__list">
+      <div className="tabs__list">
         {tabs.map(tab => (
-          <li
+          <div
             key={tab.id}
           >
             <button
@@ -26,17 +26,21 @@ export const Tabs: React.FC<Props> = (props) => {
                 })}
               type="button"
               onClick={() => {
-                setSelectedTab(tab.id);
+                setSelectedTab(tab);
               }}
             >
               {tab.title}
             </button>
-          </li>
-        ))}
-      </ul>
+            <div className="tabs__selected-tab-content">
 
-      <div className="tabs__selected-tab-content">
-        {tabs.find(tab => tab.id === selectedTabId)?.content}
+              {selectedTabId === tab.id && (
+                <p className="tab__content">
+                  {tab.content}
+                </p>
+              )}
+            </div>
+          </div>
+        ))}
       </div>
     </div>
   );

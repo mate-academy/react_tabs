@@ -12,24 +12,26 @@ const tabs: Tab[] = [
 const App: React.FC = () => {
   const [selectedTab, setSelectedTab] = useState(tabs[0]);
 
-  const setTab = (tabId: string) => {
-    const newSelectedTab = tabs.find(tab => tab.id === tabId) || tabs[0];
-
-    setSelectedTab(newSelectedTab);
-  };
-
   return (
     <div className="app">
-      <h1>
-        Selected tab is&nbsp;
-        {selectedTab.id}
-      </h1>
+      {selectedTab ? (
+        <>
+          <h1>
+            Selected tab is&nbsp;
+            {selectedTab.id}
+          </h1>
 
-      <Tabs
-        tabs={tabs}
-        selectedTabId={selectedTab.id}
-        setSelectedTab={setTab}
-      />
+          <Tabs
+            tabs={tabs}
+            selectedTabId={selectedTab.id}
+            setSelectedTab={setSelectedTab}
+          />
+        </>
+      ) : (
+        <h1>
+          Tabs array is empty
+        </h1>
+      )}
     </div>
   );
 };
