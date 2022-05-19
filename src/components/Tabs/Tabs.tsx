@@ -14,7 +14,11 @@ export const Tabs: React.FC<Props> = ({
   return (
     <div>
       {tabs.map(tab => (
-        <button type="button" onClick={() => onTabSelected(tab.id)}>
+        <button
+          type="button"
+          key={tab.id}
+          onClick={() => onTabSelected(tab.id)}
+        >
           {tab.title}
         </button>
       ))}
