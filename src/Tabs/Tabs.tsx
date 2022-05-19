@@ -15,23 +15,20 @@ export const Tabs: React.FC<Props> = ({
   return (
     <ul className="Tabs">
       {allTabs.map((tab) => (
-        <>
-          <li className="Tabs__item" key={tab.id}>
-            <div className="Tabs__item--text">
-              {selectedTabId === tab.id
-                ? tab.content
-                : null}
-            </div>
-            <button
-              className="Tabs__item--button"
-              type="button"
-              onClick={() => onTabSelected(tab)}
-            >
-              TAB
-            </button>
-          </li>
-        </>
-
+        <li className="Tabs__item" key={tab.id}>
+          <div className="Tabs__item--text">
+            {selectedTabId === tab.id
+              ? tab.content
+              : null}
+          </div>
+          <button
+            className="Tabs__item--button"
+            type="button"
+            onClick={() => onTabSelected(tab)}
+          >
+            TAB
+          </button>
+        </li>
       )) }
     </ul>
   );

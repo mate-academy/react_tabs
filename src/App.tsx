@@ -16,8 +16,8 @@ const App: React.FC = () => {
   return (
     <div className="App">
       <h1>
-        Selected tab is&nbsp;Tab&nbsp;
-        {incomeTabs.indexOf(selectedTab) + 1}
+        Selected tab is&nbsp;
+        {selectedTab.title}
       </h1>
       <div className="App__text">
         There are&nbsp;
