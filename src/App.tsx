@@ -10,7 +10,8 @@ const tabs: Tab[] = [
 ];
 
 const App: React.FC = () => {
-  const [selectedTab, setSelectedTab] = useState(tabs[0]);
+  const initialValue = tabs[0] || null;
+  const [selectedTab, setSelectedTab] = useState(initialValue);
 
   return (
     <div className="app">
