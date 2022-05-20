@@ -9,26 +9,35 @@ const tabs: Tab[] = [
   { id: 'tab-3', title: 'Tab 3', content: 'Some text 3' },
 ];
 
+const startTab = tabs.length > 0 ? tabs[0] : null;
+
 const App: React.FC = () => {
-  const [selectedTab, setSelectedTab] = useState(tabs[0]);
+  const [selectedTab, setSelectedTab] = useState(startTab);
 
   const onTabSelected = (newTabs: Tab) => {
-    setSelectedTab(newTabs);
+    if (selectedTab && newTabs.id !== selectedTab.id) {
+      setSelectedTab(newTabs);
+    }
   };
 
   return (
     <div className="app">
-      <h1 className="app__h1">
-        Selected tab is:
-        {' '}
-        {selectedTab.title}
-      </h1>
+      {
+        selectedTab ? (
+          <>
+            <h1 className="app__h1">
+              Selected tab is:&nbsp;
+              {selectedTab.title}
+            </h1>
 
-      <Tabs
-        tabs={tabs}
-        chooseId={selectedTab.id}
-        tabChoose={onTabSelected}
-      />
+            <Tabs
+              tabs={tabs}
+              chooseId={selectedTab.id}
+              tabChoose={onTabSelected}
+            />
+          </>
+        ) : <p>Error</p>
+      }
     </div>
   );
 };
