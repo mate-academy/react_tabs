@@ -1,0 +1,43 @@
+.app {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.tab__checed {
+  width: 100px;
+  height: 50px;
+  background-color: rgb(185, 180, 180);
+  cursor: pointer;
+  border: 0;
+}
+
+.tab__checed--select {
+  background-color: #fff;
+  border: 0;
+}
+
+.tab__item {
+  display: flex;
+  justify-content: space-between;
+}
+
+.tab__p {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+}
+
+.tab__items {
+  width: 300px;
+  display: flex;
+  justify-content: space-around;
+  box-sizing: border-box;
+}
+
+.tab {
+  border: 2px solid;
+  box-sizing: border-box;
+}

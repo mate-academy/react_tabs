@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { Tabs } from './components/Tabs';
 
 import './App.scss';
 
@@ -8,11 +9,37 @@ export const tabs: Tab[] = [
   { id: 'tab-3', title: 'Tab 3', content: 'Some text 3' },
 ];
 
-const App: React.FC = () => (
-  <div className="App">
-    <h1>Selected tab is&nbsp;Tab 1</h1>
-    <div>{tabs.length}</div>
-  </div>
-);
+const startTab = tabs.length > 0 ? tabs[0] : null;
+
+const App: React.FC = () => {
+  const [selectedTab, setSelectedTab] = useState(startTab);
+
+  const onTabSelected = (newTabs: Tab) => {
+    if (selectedTab && newTabs.id !== selectedTab.id) {
+      setSelectedTab(newTabs);
+    }
+  };
+
+  return (
+    <div className="app">
+      {
+        selectedTab ? (
+          <>
+            <h1 className="app__h1">
+              Selected tab is:&nbsp;
+              {selectedTab.title}
+            </h1>
+
+            <Tabs
+              tabs={tabs}
+              chooseId={selectedTab.id}
+              tabChoose={onTabSelected}
+            />
+          </>
+        ) : <p>Error</p>
+      }
+    </div>
+  );
+};
 
 export default App;
