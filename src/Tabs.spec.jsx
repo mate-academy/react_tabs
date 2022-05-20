@@ -7,6 +7,7 @@ import { tabs } from './App';
 describe('Tabs component', () => {
   it('should have a \'tabs\' prop', () => {
     mount((
+      // eslint-disable-next-line react/jsx-filename-extension
       <Tabs
         tabs={tabs}
         selectedTabId={tabs[0].id}
