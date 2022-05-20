@@ -1,4 +1,5 @@
 import React from 'react';
+import classNames from 'classnames';
 import './Tabs.scss';
 
 type Props = {
@@ -14,21 +15,15 @@ export const Tabs:React.FC<Props> = ({
 }) => {
   const selectedObj = tabs.find(tab => tab.id === selectedTabId);
 
-  const classNameMetod = (currentTabId: string) => {
-    if (currentTabId === selectedTabId) {
-      return 'tabs__button active';
-    }
-
-    return 'tabs__button';
-  };
-
   return (
     <div className="tabs">
       <div>
         {tabs.map(tab => (
           <button
             key={tab.id}
-            className={classNameMetod(tab.id)}
+            className={classNames(
+              'tabs__button', { active: tab.id === selectedTabId },
+            )}
             type="button"
             name={tab.title}
             onClick={() => tabChangeMethod(tab)}
