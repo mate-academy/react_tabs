@@ -1,3 +1,9 @@
 .app {
   font-family: Arial, Helvetica, sans-serif;
+
+  &__header {
+    display: inline-block;
+    margin-bottom: 20px;
+    font-size: 30px;
+  }
 }

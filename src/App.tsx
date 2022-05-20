@@ -10,7 +10,7 @@ const tabs: Tab[] = [
 ];
 
 const App: React.FC = () => {
-  const [selectedTab, setSelectedTab] = useState(tabs[0]);
+  const [selectedTab, setSelectedTab] = useState(tabs[0] || {});
 
   const onTabSelected = (newTab: Tab) => {
     if (newTab.id !== selectedTab.id) {
@@ -26,11 +26,17 @@ const App: React.FC = () => {
         {selectedTab.title}
       </h1>
 
-      <Tabs
-        tabs={tabs}
-        selectedTabId={selectedTab.id}
-        tabChangeMethod={onTabSelected}
-      />
+      { tabs.length > 0
+        ? (
+          <Tabs
+            tabs={tabs}
+            selectedTabId={selectedTab.id}
+            tabChangeMethod={onTabSelected}
+          />
+        )
+
+        : <p>Do not acsept correct tabs</p>}
+
     </div>
   );
 };
