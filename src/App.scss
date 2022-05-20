@@ -1,1 +1,10 @@
-// Put styles here
+.app {
+  font-family: Arial, Helvetica, sans-serif;
+
+  &__header {
+    color: rgb(62, 62, 62);
+    display: inline-block;
+    margin-bottom: 20px;
+    font-size: 30px;
+  }
+}
