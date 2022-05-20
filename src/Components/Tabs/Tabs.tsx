@@ -33,7 +33,7 @@ export const Tabs:React.FC<Props> = ({
         ))}
       </div>
       <h2 className="tabs__title">
-        {selectedObj?.content || tabs[0].content}
+        {selectedObj?.content || 'No content'}
       </h2>
     </div>
   );
