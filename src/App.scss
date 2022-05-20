@@ -1,1 +1,24 @@
-// Put styles here
+body {
+  background-image: url("./img/19c6f7473f127cd97f7f504515e51ce0.jpg");
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+  width: 500px;
+  background-color: rgba($color: #2c5ab1, $alpha: 0.2);
+  box-shadow: 1px 1px 15px white;
+  border-radius: 5px;
+  padding: 20px;
+
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  color: rgb(16, 8, 67);
+  margin: 40px auto;
+
+  &__title {
+    text-transform: uppercase;
+    text-shadow: 1px 1px 15px white;
+  }
+}

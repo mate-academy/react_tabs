@@ -1,0 +1,44 @@
+.Tabs {
+  display: flex;
+  flex-direction: column;
+
+  &__buttons {
+    padding: 0;
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+  }
+
+  &__list {
+    list-style-type: none;
+  }
+
+  &__content {
+    max-width: 400px;
+    font-size: 24px;
+    text-shadow: 1px 1px 15px white;
+  }
+
+  &__button {
+    position: relative;
+    padding: calc(8px + 3px - 1px) calc(15px + 10px - 1px);
+    background-color: rgba($color: #2c5ab1, $alpha: 0.01);
+    border: 1px solid #2c5ab1;
+    border-radius: 5px;
+    box-shadow: 1px 1px 15px white;
+
+    &:hover {
+      -webkit-transform: scale(1.1, 1.1);
+      transform: scale(1.1, 1.1);
+    }
+
+    &:focus,
+    &:active {
+      -webkit-transform: scale(2, 2);
+      transform: scale(2, 2);
+      opacity: 0;
+      visibility: hidden;
+      transition: 0.4s;
+    }
+  }
+}
