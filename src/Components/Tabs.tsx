@@ -32,7 +32,10 @@ export const Tabs: React.FC<Props> = ({
       ))}
     </div>
 
-    <h2 className="tabs__content">
+    <h2
+      className="tabs__content"
+      data-cy="tab-content"
+    >
       {tabs.find(tab => tab.id === selectedTabId)?.content}
     </h2>
   </div>
