@@ -1,0 +1,40 @@
+$tab-active-color: rgb(167, 167, 58);
+$border-radius: 30px;
+
+.tabs {
+  width: 50%;
+
+  &__button {
+    background-color: goldenrod;
+    width: 100px;
+    height: 50px;
+    border: 0;
+    border-top-left-radius: $border-radius;
+    border-top-right-radius: $border-radius;
+    font-size: 20px;
+    text-transform: uppercase;
+    transition: 0.3s;
+
+    &:hover {
+      background-color: darkgoldenrod;
+    }
+  }
+
+  &__button--active {
+    background-color: $tab-active-color;
+
+    &:hover {
+      background-color: $tab-active-color;
+    }
+  }
+
+  &__content {
+    padding: 20px;
+    min-height: 400px;
+    background-color: $tab-active-color;
+    border: 0;
+    border-bottom-left-radius: $border-radius;
+    border-bottom-right-radius: $border-radius;
+    border-top-right-radius: $border-radius;
+  }
+}
