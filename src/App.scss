@@ -1,1 +1,14 @@
-// Put styles here
+body {
+  background-color: #232b2b;
+  margin: 0;
+}
+
+.App {
+  font-family: cursive;
+  font-size: 20px;
+  color: white;
+
+  &__title {
+    text-align: center;
+  }
+}
