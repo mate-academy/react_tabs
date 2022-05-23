@@ -4,11 +4,11 @@ body {
 }
 
 .App {
-  font-family: "Koulen", cursive;
+  font-family: cursive;
   font-size: 20px;
   color: white;
-}
 
-.App__title {
-  text-align: center;
+  &__title {
+    text-align: center;
+  }
 }
