@@ -1,1 +1,49 @@
-// Put styles here
+@font-face {
+  font-family: "Gotham Pro";
+  src: url("./fonts/GothamPro-Light.ttf");
+}
+
+html {
+  font-family: "Gotham Pro", sans-serif;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  background-color: #fcffe7;
+}
+
+.app {
+  &__title {
+    color: #e0d8b0;
+  }
+}
+
+.list {
+  list-style: none;
+  padding: 0;
+
+  &__item {
+    margin-bottom: 10px;
+  }
+
+  &__button {
+    color: #fff;
+    background-color: #ce9461;
+    border: none;
+    padding: 5px 20px;
+
+    transition: 0.3s all;
+
+    &:hover {
+      cursor: pointer;
+      background-color: #dea057;
+      border-radius: 3px;
+      transform: scale(110%);
+    }
+  }
+
+  &__content {
+    color: rgb(145, 145, 145);
+  }
+}
