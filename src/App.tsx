@@ -14,12 +14,19 @@ const App: React.FC = () => {
 
   return (
     <div className="app">
-      <h1 className="app__title">{`Selected tab is: ${selectedTab.title}`}</h1>
-      <Tabs
-        tabs={tabs}
-        selectedTabId={selectedTab.id}
-        setSelectedTab={setSelectedTab}
-      />
+      {
+        selectedTab && (
+          <>
+            <h1 className="app__title">{`Selected tab is: ${selectedTab.title}`}</h1>
+
+            <Tabs
+              tabs={tabs}
+              selectedTabId={selectedTab.id}
+              setSelectedTab={setSelectedTab}
+            />
+          </>
+        )
+      }
     </div>
   );
 };
