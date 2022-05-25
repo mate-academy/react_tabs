@@ -13,10 +13,12 @@ const Tabs: React.FC<PropsForTabs> = (
           <li
             data-cy="tab-content"
             key={tab.id}
-            className={Class({ 'is-active': selectedTabId === tab.id })}
           >
             <button
               type="button"
+              className={
+                Class('button', { 'is-primary': selectedTabId === tab.id })
+              }
               onClick={() => selectedTabId !== tab.id && (onTabSelected(tab))}
             >
               {tab.title}
