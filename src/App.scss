@@ -1,1 +1,12 @@
-// Put styles here
+.App {
+  margin: 50px auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 500px;
+  height: 500px;
+  background-color: antiquewhite;
+  border-radius: 50px;
+  padding: 20px;
+  border: 2px solid black;
+}
