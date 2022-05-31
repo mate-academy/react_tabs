@@ -1,1 +1,41 @@
 // Put styles here
+
+.wrapper {
+  display: flex;
+}
+
+.tabs__wrapper {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+}
+
+.tab {
+  text-align: center;
+  padding: 10px 30px;
+  background-color: #0a53be;
+  border: 1px solid #0a53be;
+  color: #fff;
+  border-radius: 10px;
+  cursor: pointer;
+  margin-top: 20px;
+  &:hover {
+    background-color: #fff;
+    color: #0a53be;
+  }
+}
+
+.isSelectedTab {
+  padding: 10px 30px;
+  border-radius: 10px;
+  margin-top: 20px;
+  background-color: #fff;
+  color: #0a53be;
+  border: 1px solid #0a53be;
+}
+
+.content {
+  margin: auto;
+  font-size: 22px;
+}
