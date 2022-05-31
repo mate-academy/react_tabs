@@ -1,1 +1,45 @@
-// Put styles here
+body {
+  background: #cddc39;
+  font-family: "Arimo", sans-serif;
+}
+
+.App {
+  max-width: 600px;
+  margin: 0 auto;
+
+  &__title {
+    text-align: center;
+    font-size: 60px;
+  }
+}
+
+.Tab {
+  background: #fffffff6;
+  box-shadow: 0 2rem 2rem #00000080;
+  min-height: 200px;
+  width: 100%;
+  max-width: 500px;
+  border-radius: 3px;
+  overflow: hidden;
+  padding: 20px;
+
+  &__list {
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+  }
+
+  &__button {
+    cursor: pointer;
+    padding: 10px 20px;
+    margin: 20px 15px;
+    background: #000;
+    color: #fff;
+    border-radius: 3px 3px 0px 0px;
+    box-shadow: 0 0.5rem 0.8rem #00000080;
+  }
+
+  &__content {
+    text-align: center;
+  }
+}
