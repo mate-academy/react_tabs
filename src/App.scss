@@ -1,1 +1,56 @@
-// Put styles here
+body {
+  background-color: #ecf0f1;
+  font-family: sans-serif;
+}
+
+.title {
+  text-align: center;
+  font-weight: 100;
+  font-size: 60px;
+  color: #e74c3c;
+}
+
+
+.tabs {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+
+  &__tab {
+    cursor: pointer;
+    max-width: 100px;
+    margin: 0;
+    padding: 15px 25px;
+    border: 1px solid #ddd;
+    border-bottom: 0;
+    background: #eeeeee;
+    color: #444;
+
+    &:hover {
+      background: #dddddd;
+    }
+
+    &--active {
+      background: #ffffff;
+    }
+
+    &:not(:last-child) {
+      border-right: 0;
+    }
+  }
+}
+
+
+.content {
+  padding: 20px;
+  width: 500px;
+  height: 300px;
+  border: 1px solid #ddd;
+  background: #fff;
+  color: #444;
+
+  &__text {
+    margin: 0;
+  }
+}

@@ -1,5 +1,5 @@
 # React Tabs
-- Replace `<your_account>` with your Github username in the [DEMO LINK](https://<your_account>.github.io/react_tabs/)
+- Replace `<your_account>` with your Github username in the [DEMO LINK](https://Bohdan-Dubravin.github.io/react_tabs/)
 - Follow the [React task guideline](https://github.com/mate-academy/react_task-guideline#react-tasks-guideline)
 - Use [React TypeScript cheat sheet](https://mate-academy.github.io/fe-program/js/extra/react-typescript)
 
@@ -13,8 +13,8 @@
     ];
     ```
 1. Save the `selectedTab` in the `App` (the first one by default)
-1. Implement the `Tabs` component accepting `tabs` as a prop and displaying a button per each `tab` and the content of the selected tab. 
-   
+1. Implement the `Tabs` component accepting `tabs` as a prop and displaying a button per each `tab` and the content of the selected tab.
+
    Note: the content should have an attribute `data-cy="tab-content"`
 1. Pass the `selectedTabId` as a prop to the `Tabs`, the specified tab should be selected if possible
   (otherwise the first tab is selected)
