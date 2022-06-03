@@ -1,0 +1,48 @@
+.Tabs {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  position: relative;
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+    flex: 1 0 33.3%;
+  }
+
+  &__button {
+    height: 60px;
+    font-size: 22px;
+    color: #05386b;
+    cursor: pointer;
+    background-color: #edf5e1;
+    border: 1px solid #05386b;
+
+    &:hover {
+      background-color: #5cdb95;
+    }
+
+    &--active {
+      background-color: #8ee4af;
+    }
+  }
+
+  &__content {
+    display: none;
+
+    &--active {
+      display: block;
+      position: absolute;
+      top: 60px;
+      left: 0;
+      right: 0;
+      background-color: #edf5e1;
+      min-height: 100px;
+      max-height: max-content;
+      padding: 20px;
+      font-size: 22px;
+      color: #05386b;
+      border: 1px solid #05386b;
+    }
+  }
+}
