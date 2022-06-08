@@ -2,7 +2,7 @@
 import React from 'react';
 import { mount } from '@cypress/react';
 import { Tabs } from './Tabs';
-import { tabs } from './App';
+import { tabs } from '../App';
 
 describe('Tabs component', () => {
   it('should have a \'tabs\' prop', () => {
