@@ -1,0 +1,32 @@
+.Tabs {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  margin: 20px 0;
+}
+
+.Tab {
+  padding: 16px 24px;
+  border: 1px, solid, transparent;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 150ms;
+  background-color: #fff;
+
+  &__selected {
+    border-color: lightblue;
+  }
+
+  &:hover {
+    background-color: lightblue;
+  }
+
+  &Title {
+    color: #055;
+
+    &__selected {
+      color: blue;
+    }
+  }
+}
