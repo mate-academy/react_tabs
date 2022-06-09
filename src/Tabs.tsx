@@ -4,21 +4,21 @@ import classname from 'classnames';
 
 interface Prop {
   tabs:Tab[],
-  content: string,
-  setContent: (content:string) => void;
+  selectedTabId: Tab | undefined,
+  onTabSelected: (content:string) => void;
 }
 
-export const Tabs:React.FC<Prop> = ({ tabs, content, setContent }) => {
+export const Tabs:React.FC<Prop> = ({ tabs, selectedTabId, onTabSelected }) => {
   return (
     <>
       <div className="tabs">
         {tabs.map(tab => (
           <button
             className={classname('button',
-              { 'button chose': content === tab.content })}
+              { 'button chose': selectedTabId?.id === tab.id })}
             type="button"
             key={tab.id}
-            onClick={() => setContent(tab.content)}
+            onClick={() => onTabSelected(tab.id)}
           >
             {tab.title}
           </button>
@@ -28,7 +28,7 @@ export const Tabs:React.FC<Prop> = ({ tabs, content, setContent }) => {
         data-cy="tab-content"
         className="title"
       >
-        {content}
+        {selectedTabId?.content}
       </p>
     </>
   );

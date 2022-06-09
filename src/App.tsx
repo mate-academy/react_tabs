@@ -10,23 +10,19 @@ export const tabs: Tab[] = [
 ];
 
 const App: React.FC = () => {
-  const [content, setContent] = useState(tabs[0].content);
+  const [selectedTabId, setContent] = useState(tabs[0].id);
 
-  const selectedTab = () => {
-    const choseTab = tabs.find(tab => tab.content === content);
-
-    return choseTab?.title;
-  };
+  const choseTab = tabs.find(tab => tab.id === selectedTabId);
 
   return (
     <div className="App">
       <h1>
-        {`Select tab is ${selectedTab()}`}
+        {`Select tab is ${choseTab?.title}`}
       </h1>
       <Tabs
         tabs={tabs}
-        content={content}
-        setContent={setContent}
+        selectedTabId={choseTab}
+        onTabSelected={setContent}
       />
     </div>
   );
