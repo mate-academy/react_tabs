@@ -1,1 +1,13 @@
-// Put styles here
+.App {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 400px;
+  margin: 0 auto;
+
+  &__content {
+    box-sizing: border-box;
+    margin: 0;
+    font-size: 24px;
+  }
+}
