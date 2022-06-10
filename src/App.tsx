@@ -16,9 +16,6 @@ const App: React.FC = () => {
     setSelectedTabId(tabId)
   );
 
-  // eslint-disable-next-line no-console
-  console.log('click');
-
   return (
     <div className="App">
       <h1>
