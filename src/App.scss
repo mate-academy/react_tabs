@@ -21,7 +21,7 @@ body {
     left: 0;
     z-index: -10;
 
-    background-color: #ededed;
+    background-color: #d4d4d4;
   }
 }
 
@@ -31,9 +31,10 @@ body {
   background-color: transparent;
   border: 1px solid transparent;
   cursor: pointer;
+  color: rgb(16, 113, 223);
 
   &-active {
-    border: 1px solid #ededed;
+    border: 1px solid #d4d4d4;
     border-radius: 5px;
     background-color: #fff;
   }

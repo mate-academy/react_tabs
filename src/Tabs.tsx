@@ -7,9 +7,6 @@ interface Props {
 }
 
 export const Tabs: React.FC<Props> = ({ tabs, makingTabId, selectedTabId }) => {
-  // eslint-disable-next-line no-console
-  // console.log(buttonIsActive);
-
   return (
     <div
       className="description-card"
@@ -23,9 +20,11 @@ export const Tabs: React.FC<Props> = ({ tabs, makingTabId, selectedTabId }) => {
               <button
                 type="button"
                 className={`tab-btn ${tab.id === selectedTabId && 'tab-btn-active'}`}
-                onClick={() => (
-                  makingTabId(tab.id)
-                )}
+                onClick={() => {
+                  if (tab.id !== selectedTabId) {
+                    makingTabId(tab.id);
+                  }
+                }}
               >
                 {tab.title}
               </button>
