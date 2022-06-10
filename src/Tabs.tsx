@@ -3,8 +3,7 @@ import React from 'react';
 interface Props {
   tabs: Tab[],
   selectedTabId: string,
-  onTabSelected: React.Dispatch<React.SetStateAction<string>>,
-  onTitleSelected: React.Dispatch<React.SetStateAction<string>>
+  onTabSelected: (id: string) => void,
 }
 
 export const Tabs: React.FC<Props>
@@ -12,7 +11,6 @@ export const Tabs: React.FC<Props>
   tabs,
   selectedTabId,
   onTabSelected,
-  onTitleSelected,
 }) => {
   const currentTab = tabs.find(tab => selectedTabId === tab.id);
 
@@ -28,8 +26,9 @@ export const Tabs: React.FC<Props>
               className="button is-primary is-outlined"
               type="button"
               onClick={() => {
-                onTabSelected(tab.id);
-                onTitleSelected(tab.title);
+                if (selectedTabId !== tab.id) {
+                  onTabSelected(tab.id);
+                }
               }}
             >
               {tab.title}
