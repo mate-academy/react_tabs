@@ -1,1 +1,52 @@
-// Put styles here
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: sans-serif;
+}
+
+.btn-container {
+  // position: relative;
+  height: 46px;
+  overflow: hidden;
+  display: inline-block;
+
+  &::after {
+    content: "";
+    height: 1px;
+    width: 100%;
+    position: absolute;
+    top: 65px;
+    left: 0;
+    z-index: -10;
+
+    background-color: #ededed;
+  }
+}
+
+.tab-btn {
+  font-size: 24px;
+  padding: 10px 30px;
+  background-color: transparent;
+  border: 1px solid transparent;
+  cursor: pointer;
+
+  &-active {
+    border: 1px solid #ededed;
+    border-radius: 5px;
+    background-color: #fff;
+  }
+}
+
+.description-card {
+  position: relative;
+  height: 300px;
+  min-width: 420px;
+  padding: 20px;
+
+  &-content {
+    position: absolute;
+    top: 95px;
+  }
+}
