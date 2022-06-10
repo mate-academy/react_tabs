@@ -10,18 +10,20 @@ export const tabs: Tab[] = [
 ];
 
 const App: React.FC = () => {
-  const [arrayTabs] = useState([...tabs]);
-  const [selectedTabId, setSelectedTabId] = useState('tab-1');
-  const [selectedContent, setSelectedContent] = useState('Some text 1');
+  const [selectedTabId, setSelectedTabId] = useState(tabs[0].id);
+  const title = tabs.find(tab => tab.id === selectedTabId)?.title;
 
   return (
     <div className="App">
+      <h1 className="box title">
+        Selected tab is&nbsp;
+        {title}
+      </h1>
+
       <Tabs
-        arrTabs={arrayTabs}
+        arrTabs={tabs}
         selTabId={selectedTabId}
-        selContent={selectedContent}
         onChangeButton={setSelectedTabId}
-        onChangeContent={setSelectedContent}
       />
     </div>
   );
