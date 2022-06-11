@@ -1,1 +1,32 @@
-// Put styles here
+.tabs-components__content {
+  visibility: hidden;
+  position: absolute;
+  width: 200px;
+  margin: 0;
+  padding: 10px;
+  border: brown 1px solid;
+}
+
+.active {
+  visibility: visible;
+}
+
+.tab-title {
+  position: relative;
+  margin: 0;
+  color: rgb(0, 168, 112);
+  border: #fff 1px solid;
+}
+
+.tab-title__active {
+  color: #000;
+  border-color: brown;
+  border-bottom: 1px solid #fff;
+  z-index: 5;
+
+}
+
+.tabs-components {
+  position: relative;
+  margin-top: -1px;
+}
