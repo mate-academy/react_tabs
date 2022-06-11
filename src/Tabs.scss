@@ -1,0 +1,15 @@
+.container {
+  display: flex;
+  justify-content: space-between;
+  background-color: wheat;
+}
+
+.tab {
+  background-color: white;
+  border: 1px solid black;
+
+  &__content {
+    font-size: 20px;
+    font-style: italic;
+  }
+}

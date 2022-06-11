@@ -1,5 +1,5 @@
-// implement a component here
 import React from 'react';
+import './Tabs.scss';
 
 type Props = {
   tabsList : Tab[];
@@ -13,20 +13,24 @@ export const Tabs : React.FC<Props> = ({
   onTabSelected,
 }) => {
   return (
-    <div>
-      {tabsList.map(singleTab => (
-        <div key={singleTab.id}>
+    <div className="container">
+      {tabsList.map((singleTab, index) => (
+        <div
+          key={singleTab.id}
+          className="tab"
+        >
           <button
             type="button"
+            className="tab__pick"
             onClick={() => {
               onTabSelected(singleTab);
             }}
           >
-            {singleTab.id}
+            {`Tab ${index + 1}`}
           </button>
           {selectedTabId === singleTab.id
           && (
-            <p>
+            <p className="tab__content">
               {singleTab.content}
             </p>
           )}
