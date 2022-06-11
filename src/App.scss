@@ -1,1 +1,13 @@
-// Put styles here
+.App {
+  margin: 10px auto;
+  max-width: 400px;
+
+  font-family: sans-serif;
+  border: 3px solid #48c78e;
+  border-radius: 10px;
+}
+
+.title {
+  margin: 20px;
+  text-align: center;
+}
