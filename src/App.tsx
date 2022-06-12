@@ -11,6 +11,13 @@ export const tabs: Tab[] = [
 
 const App: React.FC = () => {
   const [titleId, setTitleId] = useState(tabs[0].id);
+  const [content, setContent] = useState(tabs[0].content);
+
+  const onTabSelected = (tabId: string) => {
+    const tabContent = tabs.filter(tab => tab.id === tabId);
+
+    setContent(tabContent[0].content);
+  };
 
   const selectedTabId = (tabId: string) => (
     setTitleId(tabId)
@@ -19,7 +26,12 @@ const App: React.FC = () => {
   return (
     <div className="tab">
       <h1 className="tab__title title m-6">{`Selected tab is ${(tabs.filter(tab => tab.id === titleId))[0].title}`}</h1>
-      <Tabs tabs={tabs} selectedTabId={selectedTabId} />
+      <Tabs
+        tabs={tabs}
+        selectedTabId={selectedTabId}
+        content={content}
+        onTabSelected={onTabSelected}
+      />
     </div>
   );
 };

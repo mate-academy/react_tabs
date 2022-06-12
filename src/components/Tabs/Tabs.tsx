@@ -1,23 +1,21 @@
 // implement a component here
 import classNames from 'classnames';
-import React, { useState } from 'react';
 import './Tabs.scss';
 import { Tab } from '../../react-app-env';
 
 interface Props {
   tabs: Tab[];
+  content: string;
   selectedTabId: (tabid: string) => void;
+  onTabSelected: (tabid: string) => void;
 }
 
-export const Tabs: React.FC<Props> = ({ tabs, selectedTabId }) => {
-  const [content, setContent] = useState(tabs[0].content);
-
-  const onTabSelected = (tabId: string) => {
-    const tabContent = tabs.filter(tab => tab.id === tabId);
-
-    setContent(tabContent[0].content);
-  };
-
+export const Tabs: React.FC<Props> = ({
+  tabs,
+  selectedTabId,
+  content,
+  onTabSelected,
+}) => {
   return (
     <div className="tab__box m-6">
       <div className="tab__buttons-box is-flex-direction-column">
