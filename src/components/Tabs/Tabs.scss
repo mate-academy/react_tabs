@@ -1,0 +1,27 @@
+.tab {
+  &__buttons {
+    display: inline-block;
+  }
+
+}
+
+.active {
+  border: 1px solid black;
+  border-top-right-radius: 4px;
+  border-top-left-radius: 4px;
+  border-bottom: 2px solid white;
+  height: 101%;
+  background-color: white;
+  z-index: 1;
+
+  &::after {
+    content: "";
+    height: 1px;
+    width: 100%;
+    position: absolute;
+    top: 173px;
+    left: 0;
+    background-color: black;
+    z-index: -1;
+  }
+}
