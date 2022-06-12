@@ -1,1 +1,53 @@
-// Put styles here
+ul {
+  list-style: none;
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &__title {
+    color: rgb(42, 40, 40);
+  }
+}
+
+.list {
+  display: flex;
+
+  &__item {
+    margin-right: 15px;
+  }
+
+  &__btn {
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    color: whitesmoke;
+
+    border: 2px solid coral;
+    border-radius: 5px;
+    background-color: coral;
+  }
+}
+
+.card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &__app {
+    width: 400px;
+    height: 200px;
+    margin-top: 40px;
+
+    box-shadow: 0 0 10px 5px coral;
+  }
+
+  &__content {
+    font-size: 24px;
+    font-weight: bold;
+    color: rgb(42, 40, 40);
+    text-align: center;
+  }
+}
