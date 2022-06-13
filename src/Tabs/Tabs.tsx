@@ -1,4 +1,5 @@
 // implement a component here
+import React from 'react';
 import { Tab } from '../react-app-env';
 import './Tabs.scss';
 
