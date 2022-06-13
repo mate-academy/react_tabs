@@ -1,1 +1,48 @@
 // Put styles here
+html {
+  font-family: Verdana, Tahoma, sans-serif;
+}
+
+.App {
+  margin: auto;
+  width: 425px;
+}
+
+.title {
+  text-align: center;
+}
+
+.container {
+  &__button {
+    font-size: 18px;
+    font-weight: bold;
+    padding: 8px 12px;
+    background-color: #fff;
+    border: 1px solid #fff;
+    border-bottom: 1px solid gray;
+
+    &:hover {
+      border: 1px solid gray;
+    }
+
+    &--focus {
+      color: cornflowerblue;
+      border: 1px solid gray;
+      border-bottom: none;
+    }
+  }
+
+  &__border {
+    width: 200px;
+    height: 31px;
+    background-color: #fff;
+    border: none;
+    border-bottom: 1px solid gray;
+  }
+}
+
+.content {
+  font-size: 24px;
+  padding: 10px;
+  margin: 0;
+}
