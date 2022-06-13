@@ -15,27 +15,26 @@ export const Tabs : React.FC<Props> = ({
   return (
     <div className="container">
       {tabsList.map((singleTab) => (
-        <div
-          key={singleTab.id}
-          className="tab"
-        >
-          <button
-            type="button"
-            className="tab__pick"
-            onClick={() => {
-              onTabSelected(singleTab);
-            }}
+        <>
+          <div
+            key={singleTab.id}
+            className="tab"
           >
-            {singleTab.title}
-          </button>
-          {selectedTabId === singleTab.id
-          && (
-            <p className="tab__content">
-              {singleTab.content}
-            </p>
-          )}
-        </div>
+            <button
+              type="button"
+              className="tab__pick"
+              onClick={() => {
+                onTabSelected(singleTab);
+              }}
+            >
+              {singleTab.title}
+            </button>
+          </div>
+        </>
       ))}
+      <p className="tab__content">
+        {tabsList.find(tab => selectedTabId === tab.id)?.content}
+      </p>
     </div>
   );
 };

@@ -1,12 +1,10 @@
 .container {
-  display: flex;
-  justify-content: space-between;
   background-color: wheat;
 }
 
 .tab {
   background-color: white;
-  border: 1px solid black;
+  display: inline-block;
 
   &__content {
     font-size: 20px;
