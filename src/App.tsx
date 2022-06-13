@@ -18,6 +18,9 @@ const App: React.FC = () => {
 
   return (
     <div className="App">
+      <h1>
+        {`Selected tab is ${currentSelectedTab.title}`}
+      </h1>
       <Tabs
         tabsList={tabs}
         selectedTabId={currentSelectedTab.id}
