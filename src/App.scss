@@ -1,1 +1,28 @@
-// Put styles here
+.button {
+  width: 100px;
+  height: 40px;
+  border-radius: 10px;
+  background-color: rgb(175, 218, 255);
+  border-color: aliceblue;
+  color: rgb(72, 95, 92);
+
+  margin-right: 10px;
+}
+
+.message {
+  box-sizing: border-box;
+  width: 330px;
+  height: 100px;
+  border-radius: 10px;
+  background-color: beige;
+  padding: 20px;
+}
+
+.App {
+  box-sizing: border-box;
+  background-color: bisque;
+  width: 350px;
+  height: 300px;
+  padding: 10px;
+  border-radius: 20px;
+}

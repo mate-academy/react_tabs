@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unused-expressions */
 import React from 'react';
 import { mount } from '@cypress/react';
-import { Tabs } from './Tabs';
+import { Tabs } from './components/Tabs/Tabs';
 import { tabs } from './App';
 
 describe('Tabs component', () => {
