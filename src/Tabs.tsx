@@ -15,7 +15,7 @@ export const Tabs:React.FC<Props> = ({ tabs, selectedTabId, onTabSelected }) => 
   }, [selectedTabId]);
 
   return (
-    <div className="box is-large is-centered">
+    <div className="box is-large is-centered" data-cy="tab-content">
       <ul className="tabs">
         {tabs.map(tab => (
           <li key={tab.id}>
