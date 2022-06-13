@@ -14,7 +14,7 @@ export const Tabs : React.FC<Props> = ({
 }) => {
   return (
     <div className="container">
-      {tabsList.map((singleTab, index) => (
+      {tabsList.map((singleTab) => (
         <div
           key={singleTab.id}
           className="tab"
@@ -26,7 +26,7 @@ export const Tabs : React.FC<Props> = ({
               onTabSelected(singleTab);
             }}
           >
-            {`Tab ${index + 1}`}
+            {singleTab.title}
           </button>
           {selectedTabId === singleTab.id
           && (
