@@ -1,30 +1,29 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Tab } from './react-app-env';
 
 interface Props {
   tabs: Tab[];
   selectedTabId: string;
-  selectedTab: Tab;
   onTabSelected: (tab: Tab) => void;
-  findTabById: (id: string) => void;
 }
 
 export const Tabs: React.FC<Props> = ({
   tabs,
   selectedTabId,
-  selectedTab,
   onTabSelected,
-  findTabById,
 }) => {
-  useEffect(() => {
-    findTabById(selectedTabId);
-  }, [selectedTabId]);
+  const findTabById = (tabId: string): Tab | undefined => {
+    return tabs.find(tab => tab.id === tabId);
+  };
+
+  const currentTab = findTabById(selectedTabId) || tabs[0];
 
   return (
     <>
       <div className="tabs">
         {tabs.map(tab => (
           <button
+            key={tab.id}
             type="button"
             onClick={() => onTabSelected(tab)}
           >
@@ -33,7 +32,7 @@ export const Tabs: React.FC<Props> = ({
         ))}
       </div>
       <div className="tab-content" data-cy="tab-content">
-        {selectedTab.content}
+        {currentTab.content}
       </div>
     </>
   );
