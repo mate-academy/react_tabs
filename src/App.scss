@@ -1,1 +1,71 @@
-// Put styles here
+$fontFamily: "arial", sans-serif;
+$fontSize: 16px;
+$colorGrey: #404041;
+$colorGreyLight: #40404186;
+$backgroundColor: #e0ffcd;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.App {
+  padding: 20px;
+  font-family: $fontFamily;
+  font-size: $fontSize;
+  color: $colorGrey;
+  background-color: $backgroundColor;
+  height: 100vh;
+  width: 100vw;
+
+  &__tabsTitles {
+    padding: 10px 10px 0;
+  }
+
+  &__tabContent {
+    padding: 10px;
+  }
+
+  &__line {
+    margin-left: 10px;
+    border-top: 0.5px solid $colorGreyLight;
+  }
+}
+
+.tabs {
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  align-items: center;
+  list-style: none;
+  gap: 10px;
+}
+
+.button {
+  padding: 10px;
+  font-family: $fontFamily;
+  font-size: $fontSize;
+  background-color: transparent;
+  border: none;
+  color: #5f8aad;
+
+  &-active {
+    color: $colorGrey;
+    border: 0.5px solid $colorGreyLight;
+    border-bottom: 0;
+    border-radius: 3px 3px 0 0;
+    position: relative;
+
+    &::after {
+      content: "";
+      height: 1px;
+      width: 100%;
+      background-color: $backgroundColor;
+      position: absolute;
+      z-index: 1;
+      bottom: -1px;
+      left: 0;
+    }
+  }
+}
