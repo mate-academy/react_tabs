@@ -2,7 +2,7 @@ import React from 'react';
 
 type Props = {
   tabs: Tab[],
-  selectedTabId: Tab | undefined
+  selectedTabId: Tab | undefined,
   onTabSelected: (tab: string) => void,
 };
 
