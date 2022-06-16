@@ -12,18 +12,17 @@ export const tabs: Tab[] = [
   {
     id: 'tab-2',
     title: 'Tab 2',
-    content: '--Some text 2-- Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia, molestiae quas vel sint commodi repudiandae'
+    content: '--Some text 2-- Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia, molestiae quas vel sint commodi repudiandae',
   },
   {
     id: 'tab-3',
     title: 'Tab 3',
-    content: '--Some text 3-- Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia, eaque rerum!'
+    content: '--Some text 3-- Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia, eaque rerum!',
   },
 ];
 
 const App: React.FC = () => {
   const [selectedTab, setSelectedTab] = useState(tabs[0]);
-  const [selectedId, setSelectedId] = useState(tabs[0].id);
 
   return (
     <div className="App">
@@ -32,9 +31,7 @@ const App: React.FC = () => {
       </h1>
       <Tabs
         tabs={tabs}
-        selectedId={selectedId}
         selectedTab={selectedTab}
-        setSelectedId={setSelectedId}
         setSelectedTab={setSelectedTab}
         data-cy="tab-content"
       />

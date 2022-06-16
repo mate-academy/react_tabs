@@ -1,4 +1,4 @@
-$fontFamily: "arial", sans-serif;
+$fontFamily: "Arial", sans-serif;
 $fontSize: 16px;
 $colorGrey: #404041;
 $colorGreyLight: #40404186;
@@ -49,6 +49,10 @@ $backgroundColor: #e0ffcd;
   background-color: transparent;
   border: none;
   color: #5f8aad;
+
+  &:hover {
+    cursor: pointer;
+  }
 
   &-active {
     color: $colorGrey;
