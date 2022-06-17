@@ -1,6 +1,7 @@
 // implement a component here
 import classNames from 'classnames';
 import './Tabs.scss';
+import { useState } from 'react';
 import { Tab } from '../../react-app-env';
 
 interface Props {
@@ -15,11 +16,19 @@ export const Tabs: React.FC<Props> = ({
   selectedTabId,
   content,
   onTabSelected,
-}) => (
-  <div className="tab__box m-6">
-    <div className="tab__buttons-box is-flex-direction-column">
-      {tabs.map((tab: Tab) => {
-        return (
+}) => {
+  const [currentTab, setCurrentTub] = useState('tab-1');
+
+  const getCurretnTub = (tab: Tab) => {
+    selectedTabId(tab.id);
+    onTabSelected(tab.id);
+    setCurrentTub(tab.id);
+  };
+
+  return (
+    <div className="tab__box m-6">
+      <div className="tab__buttons-box is-flex-direction-column">
+        {tabs.map(tab => (
           <div
             key={tab.id}
             data-cy="tab-content"
@@ -32,18 +41,22 @@ export const Tabs: React.FC<Props> = ({
           >
             <button
               type="button"
-              className="has-text-info button is-white"
+              className={classNames(
+                'has-text-info button is-white',
+                {
+                  'is-static': tab.id === currentTab,
+                },
+              )}
               onClick={() => {
-                selectedTabId(tab.id);
-                onTabSelected(tab.id);
+                getCurretnTub(tab);
               }}
             >
               {tab.title}
             </button>
           </div>
-        );
-      })}
+        ))}
+      </div>
+      <div className="tab__subtitle subtitle">{content}</div>
     </div>
-    <div className="tab__subtitle subtitle">{content}</div>
-  </div>
-);
+  );
+};
