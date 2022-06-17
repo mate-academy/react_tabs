@@ -10,13 +10,9 @@ export const tabs: Tab[] = [
 
 const App: React.FC = () => {
   const [selectedTabId, setSelectedTabId] = useState(tabs[0].id);
-  const [selectedTab, setSelectedTab] = useState(tabs[0]);
 
-  const onTabSelect = (tabId: string) => {
-    const currentSelectedTab = tabs.find(tab => tab.id === tabId);
-
-    setSelectedTabId(tabId);
-    setSelectedTab(currentSelectedTab || tabs[0]);
+  const getContent = () => {
+    return tabs.find(tab => tab.id === selectedTabId)?.content;
   };
 
   return (
@@ -27,10 +23,11 @@ const App: React.FC = () => {
       </h1>
       <Tabs
         tabs={tabs}
-        onTabSelect={onTabSelect}
+        onTabSelect={setSelectedTabId}
+        selectedTabId={selectedTabId}
       />
       <div>
-        {selectedTab.content}
+        {getContent()}
       </div>
     </div>
   );
