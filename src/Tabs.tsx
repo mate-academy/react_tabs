@@ -6,7 +6,8 @@ type Props = {
   selectedTabId: string,
 };
 
-const Tabs: React.FC<Props> = ({ tabs, onTabSelected, selectedTabId }) => {
+export const Tabs: React.FC<Props>
+= ({ tabs, onTabSelected, selectedTabId }) => {
   return (
     <>
       {tabs.map((tab:Tab) => (
@@ -28,5 +29,3 @@ const Tabs: React.FC<Props> = ({ tabs, onTabSelected, selectedTabId }) => {
     </>
   );
 };
-
-export default Tabs;
