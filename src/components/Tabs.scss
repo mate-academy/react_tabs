@@ -1,0 +1,21 @@
+.tabs {
+  &__list {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+  }
+
+  &__item {
+    border: 1px solid aquamarine;
+    padding: 8px;
+
+    &--selected {
+      background-color: aquamarine;
+    }
+  }
+
+  &__content {
+    margin-top: 20px;
+    text-align: center;
+  }
+}
