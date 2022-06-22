@@ -14,8 +14,8 @@ const App: React.FC = () => {
   const [selectedTab, setSelectedTab] = useState(tabs[0]);
 
   return (
-    <div className="App">
-      <h1>{`Selected tab is ${selectedTab.title}`}</h1>
+    <div className="App container">
+      <h1 className="title">{`Selected tab is ${selectedTab.title}`}</h1>
 
       <Tabs
         tabs={tabs}
