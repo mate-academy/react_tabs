@@ -16,10 +16,6 @@ const App: React.FC = () => {
     setSelectedTab(tab);
   };
 
-  // const selectedTitle = (tabId: string) => (
-  //   tabs.find(tab => tabId === tab.id)?.title
-  // );
-
   return (
     <div className="App">
       <h1>

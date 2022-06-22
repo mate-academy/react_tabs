@@ -10,28 +10,26 @@ export const Tabs: FC<Props> = ({
   selectedTabId,
   onTabSelected,
 
-}) => {
-  return (
-    <div>
-      {tabs.map(tab => (
-        <button
-          type="button"
-          key={tab.id}
-          onClick={() => {
-            if (selectedTabId !== tab.id) {
-              onTabSelected(tab);
-            }
-          }}
-        >
-          {tab.title}
-        </button>
-      ))}
-      <div
-        data-cy="tab-content"
+}) => (
+  <div>
+    {tabs.map(tab => (
+      <button
+        type="button"
+        key={tab.id}
+        onClick={() => {
+          if (selectedTabId !== tab.id) {
+            onTabSelected(tab);
+          }
+        }}
       >
-        <p>{tabs.find(tab => selectedTabId === tab.id)?.content}</p>
-      </div>
-
+        {tab.title}
+      </button>
+    ))}
+    <div
+      data-cy="tab-content"
+    >
+      <p>{tabs.find(tab => selectedTabId === tab.id)?.content}</p>
     </div>
-  );
-};
+
+  </div>
+);
