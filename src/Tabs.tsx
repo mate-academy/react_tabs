@@ -1,5 +1,5 @@
+import cn from 'classnames';
 import { Tab } from './react-app-env';
-import './Tabs.scss';
 import 'bulma/css/bulma.min.css';
 
 interface Props {
@@ -20,7 +20,10 @@ export const Tabs: React.FC<Props> = ({ tabs, onSelect, selectedTabId }) => {
           <li key={tab.id}>
             <button
               type="button"
-              className="button is-info is-large"
+              className={cn(
+                'button is-info is-large',
+                { 'is-light': tab.id === selectedTabId },
+              )}
               onClick={() => onSelect(tab)}
             >
               {tab.title}
