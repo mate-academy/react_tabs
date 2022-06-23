@@ -1,5 +1,6 @@
 import React from 'react';
-
+import { Tabs } from './Tabs';
+import 'bulma/css/bulma.min.css';
 import './App.scss';
 
 export const tabs: Tab[] = [
@@ -9,9 +10,8 @@ export const tabs: Tab[] = [
 ];
 
 const App: React.FC = () => (
-  <div className="App">
-    <h1>Selected tab is&nbsp;Tab 1</h1>
-    <div>{tabs.length}</div>
+  <div className="App level-item has-text-centered">
+    <Tabs tabs={tabs} />
   </div>
 );
 
