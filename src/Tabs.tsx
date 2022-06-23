@@ -36,7 +36,7 @@ export const Tabs: FC<TabsProps> = ({ tabs }) => {
         </ul>
       </div>
       <section className="App__Content">
-        <p>{selectedContent}</p>
+        <p data-cy="tab-content">{selectedContent}</p>
       </section>
     </>
   );
