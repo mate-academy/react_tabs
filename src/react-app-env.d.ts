@@ -5,3 +5,7 @@ interface Tab {
   title: string;
   content: string;
 }
+
+interface OnTabSelected {
+  (tabId: string): void;
+}
