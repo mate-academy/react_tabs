@@ -1,0 +1,7 @@
+/* eslint-disable */
+
+export const tabs: Tab[] = [
+  { id: 'tab-1', title: 'Kyiv', content: 'Kyiv is an important industrial, scientific, educational, and cultural center in Eastern Europe. It is home to many high-tech industries, higher education institutions, and historical landmarks. The city has an extensive system of public transport and infrastructure, including the Kyiv Metro.' },
+  { id: 'tab-2', title: 'Kharkiv', content: 'Kharkiv was founded in 1654 as Kharkiv fortress, and after these humble beginnings, it grew to be a major centre of industry, trade and Ukrainian culture in the Russian Empire. At the beginning of the 20th century, the city was predominantly Russian in population, but after the Soviet government\'s policy of Ukrainization the city became populated mainly by Ukrainians with a significant number of Russians. Kharkiv was the first capital of the Ukrainian Soviet Socialist Republic, from December 1919 to January 1934, after which the capital relocated to Kyiv.' },
+  { id: 'tab-3', title: 'Odessa', content: 'In antiquity an ancient Greek settlement existed at its location. A more recent Tatar settlement was also founded at the location by Hacı I Giray, the Khan of Crimea, in 1440 and was named Hacibey (or Khadjibey) after him. After a period of Lithuanian Grand Duchy control, Hacibey and surroundings became part of the domain of the Ottomans in 1529 and remained there until the empire\'s defeat in the Russo-Turkish War of 1792.' },
+];
