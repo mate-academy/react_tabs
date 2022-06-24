@@ -1,0 +1,17 @@
+.list {
+  display: flex;
+  list-style: none;
+}
+
+button {
+  padding: 10px;
+  font-size: 1.2rem;
+  border: none;
+  background-color: white;
+  cursor: pointer;
+}
+
+.active {
+  background-color: gray;
+  color: white;
+}
