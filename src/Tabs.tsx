@@ -1,5 +1,6 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react';
+import classnames from 'classnames';
 import { Tab } from './react-app-env';
 
 interface Props {
@@ -20,11 +21,7 @@ export const Tabs: React.FC<Props> = ({
           {tabs.map(tab => (
             <li
               key={tab.id}
-              className={
-                selectedTabId === tab.id
-                  ? 'is-active'
-                  : ''
-              }
+              className={classnames({ 'is-active': selectedTabId === tab.id })}
             >
               <a
                 href="#"
@@ -43,12 +40,9 @@ export const Tabs: React.FC<Props> = ({
           ))}
         </ul>
       </div>
-      {tabs.map(tab => (
-        <React.Fragment key={tab.id}>
-          {tab.id === selectedTabId
-          && <p data-cy="tab-content">{tab.content}</p>}
-        </React.Fragment>
-      ))}
+      <p data-cy="tab-content">
+        {tabs.find(tab => tab.id === selectedTabId)?.content}
+      </p>
     </>
   );
 };
