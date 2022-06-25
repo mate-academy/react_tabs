@@ -1,0 +1,42 @@
+$main-white: #edffec;
+$golden: #f7b32b;
+$main-shadow: 0 0 15px 0 $golden;
+
+.tabs {
+  display: flex;
+}
+
+.button {
+  background-color: #141b41;
+  border: 1px solid transparent;
+  transition: box-shadow 0.5s, border-color 0.5s;
+
+  &:hover {
+    box-shadow: $main-shadow;
+  }
+
+  &:focus {
+    border-color: $golden;
+    outline: none;
+    color: $main-white;
+  }
+
+  &__is-active {
+    box-shadow: $main-shadow;
+    color: $main-white;
+    border-color: $golden;
+  }
+}
+
+.container-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: inset 0 0 15px 7px $golden;
+  height: 300px;
+  border: 4px solid $golden;
+  border-bottom: 0;
+  border-radius: 12px;
+  color: $main-white;
+  font-size: 18px;
+}
