@@ -12,9 +12,7 @@ export const tabs: Tab[] = [
 const App: React.FC = () => {
   const [selectedTab, setSelectedTab] = useState(tabs[0]);
 
-  const selectTab = (tab: Tab) => {
-    return setSelectedTab(tab);
-  };
+  const selectTab = (tab: Tab) => setSelectedTab(tab);
 
   return (
     <div className="App level-item has-text-centered">
