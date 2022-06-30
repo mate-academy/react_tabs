@@ -1,15 +1,17 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Tab } from './react-app-env';
 
 interface Props {
-  tabs: Tab[]
+  tabs: Tab[],
+  selected: Tab,
+  setSelected: (tad: Tab) => void,
 }
 
 export const Tabs: React.FC<Props> = ({
   tabs,
+  selected,
+  setSelected,
 }) => {
-  const [selected, setSelected] = useState(tabs[0]);
-
   return (
     <div className="container">
       <h1 className="title">

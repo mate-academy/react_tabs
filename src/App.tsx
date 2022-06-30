@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import './App.scss';
 import { Tab } from './react-app-env';
@@ -11,12 +11,14 @@ export const tabs: Tab[] = [
 ];
 
 const App: React.FC = () => {
-  const tabsCopy = [...tabs];
+  const [selected, setSelected] = useState(tabs[0]);
 
   return (
     <div className="App">
       <Tabs
-        tabs={tabsCopy}
+        tabs={tabs}
+        selected={selected}
+        setSelected={setSelected}
       />
     </div>
   );
