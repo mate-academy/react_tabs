@@ -20,7 +20,7 @@ const App: React.FC = () => {
       </h1>
       <Tabs
         tabs={tabs}
-        selected={selectedTab}
+        selectedTab={selectedTab}
         onTabSelected={setSelectedTab}
       />
     </div>

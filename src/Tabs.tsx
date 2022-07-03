@@ -10,11 +10,17 @@ type Tab = {
 
 type Props = {
   tabs: Tab[],
-  selected: Tab,
+  selectedTab: Tab,
   onTabSelected: (selectedTab: Tab) => void,
 };
 
-export const Tabs: React.FC<Props> = ({ tabs, selected, onTabSelected }) => {
+export const Tabs: React.FC<Props> = ({ tabs, selectedTab, onTabSelected }) => {
+  const changeTab = (tab: Tab) => {
+    if (selectedTab !== tab) {
+      onTabSelected(tab);
+    }
+  };
+
   return (
     <>
       <div className="buttons is-centered container">
@@ -23,9 +29,9 @@ export const Tabs: React.FC<Props> = ({ tabs, selected, onTabSelected }) => {
             key={tab.id}
             type="button"
             className={classnames('button is-rounded', {
-              'button__is-active': selected === tab,
+              'button__is-active': selectedTab === tab,
             })}
-            onClick={tab === selected ? undefined : () => onTabSelected(tab)}
+            onClick={() => changeTab(tab)}
           >
             {tab.title}
           </button>
@@ -33,7 +39,7 @@ export const Tabs: React.FC<Props> = ({ tabs, selected, onTabSelected }) => {
       </div>
       <div className="container container-content">
         <p className="content" data-cy="tab-content">
-          {selected.content}
+          {selectedTab.content}
         </p>
       </div>
     </>
