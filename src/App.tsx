@@ -1,6 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import './App.scss';
+import { Tabs } from './Tabs';
+
+interface Tab {
+  id: string;
+  title: string;
+  content: string;
+}
 
 export const tabs: Tab[] = [
   { id: 'tab-1', title: 'Tab 1', content: 'Some text 1' },
@@ -8,11 +15,30 @@ export const tabs: Tab[] = [
   { id: 'tab-3', title: 'Tab 3', content: 'Some text 3' },
 ];
 
-const App: React.FC = () => (
-  <div className="App">
-    <h1>Selected tab is&nbsp;Tab 1</h1>
-    <div>{tabs.length}</div>
-  </div>
-);
+const App: React.FC = () => {
+  const [selectedTab, setSelectedTab] = useState(tabs[0]);
+
+  const selectHandler = (tab: Tab) => {
+    setSelectedTab(tab);
+  };
+
+  return (
+    <div>
+      <h1>
+        Selected tab is&nbsp;
+        {tabs.find(tab => tab.id === selectedTab.id)?.title}
+      </h1>
+
+      <Tabs
+        tabs={tabs}
+        onSelect={selectHandler}
+      />
+
+      <div data-cy="tab-content">
+        {selectedTab.content}
+      </div>
+    </div>
+  );
+};
 
 export default App;
