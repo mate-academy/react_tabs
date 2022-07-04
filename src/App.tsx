@@ -32,8 +32,11 @@ const App: React.FC = () => {
       <Tabs
         tabs={tabs}
         onSelect={selectHandler}
-        selectedTabId={selectedTab.id}
       />
+
+      <div data-cy="tab-content">
+        {selectedTab.content}
+      </div>
     </div>
   );
 };

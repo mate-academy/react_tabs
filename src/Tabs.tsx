@@ -1,14 +1,9 @@
 interface Props {
   tabs: Tab[];
   onSelect: (tab: Tab) => void;
-  selectedTabId: string;
 }
 
-export const Tabs: React.FC<Props> = ({ tabs, onSelect, selectedTabId }) => {
-  const printContent = (tabId: string) => {
-    return tabs.find(tab => tab.id === tabId)?.content;
-  };
-
+export const Tabs: React.FC<Props> = ({ tabs, onSelect }) => {
   return (
     <>
       <ul>
@@ -23,10 +18,6 @@ export const Tabs: React.FC<Props> = ({ tabs, onSelect, selectedTabId }) => {
           </li>
         ))}
       </ul>
-
-      <div data-cy="tab-content">
-        {printContent(selectedTabId)}
-      </div>
     </>
   );
 };
