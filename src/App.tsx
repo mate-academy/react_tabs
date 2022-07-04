@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
-
 import './App.scss';
-import { Tab } from './react-app-env';
 import { Tabs } from './Tabs';
 
 export const tabs: Tab[] = [
