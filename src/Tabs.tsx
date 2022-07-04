@@ -3,14 +3,14 @@ import { Tab } from './react-app-env';
 interface Props {
   tabs: Tab[];
   selectedTabId: string;
-  onTabSelected: (tab: Tab) => void;
+  onSelectTab: (tab: Tab) => void;
 }
 
 export const Tabs: React.FC<Props> = (
   {
     tabs,
     selectedTabId,
-    onTabSelected,
+    onSelectTab,
   },
 ) => {
   return (
@@ -20,7 +20,7 @@ export const Tabs: React.FC<Props> = (
           <li key={tab.id}>
             <button
               type="button"
-              onClick={() => onTabSelected(tab)}
+              onClick={() => onSelectTab(tab)}
             >
               {tab.title}
             </button>
