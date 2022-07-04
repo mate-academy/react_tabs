@@ -1,1 +1,25 @@
-// Put styles here
+.app {
+  height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+  &__block {
+    display: flex;
+    gap: 40px;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    border: 1px solid black;
+    border-radius: 20px;
+    height: 250px;
+    width: 400px;
+  }
+
+  &__title {
+    border-bottom: 2px solid black;
+    width: 347px;
+    text-align: center;
+  }
+}
