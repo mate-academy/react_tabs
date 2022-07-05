@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import './App.scss';
 import { Tab } from './react-app-env';
 import { Tabs } from './Tabs';
@@ -12,9 +12,10 @@ export const tabs: Tab[] = [
 const App: React.FC = () => {
   const [selectedTab, setSelectedTab] = useState(tabs[0]);
 
-  const selectTab = (tab: Tab): void => {
-    setSelectedTab(tab);
-  };
+  const onTabSelected = useCallback(
+    (tab: Tab) => setSelectedTab(tab),
+    [],
+  );
 
   return (
     <div className="App">
@@ -25,8 +26,8 @@ const App: React.FC = () => {
 
       <Tabs
         tabs={tabs}
-        selectTab={selectTab}
         selectedTabId={selectedTab.id}
+        onTabSelected={onTabSelected}
       />
     </div>
   );
