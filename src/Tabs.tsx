@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import React from 'react';
 import { Tab } from './react-app-env';
 
 interface Props {
@@ -12,11 +12,9 @@ export const Tabs: React.FC<Props> = ({
   selectedTabId,
   onTabSelected,
 }) => {
-  const tabClicked = useMemo(() => tabs.find(
-    tab => selectedTabId === tab.id,
-  ),
-
-  []);
+  const tabClicked = (tabId: string) => {
+    return tabs.find(tab => tab.id === tabId)?.content;
+  };
 
   return (
     <div className="Tabs">
@@ -30,7 +28,7 @@ export const Tabs: React.FC<Props> = ({
         ))}
       </ul>
       <p data-cy="tab-content">
-        {tabClicked}
+        {tabClicked(selectedTabId)}
       </p>
     </div>
   );
