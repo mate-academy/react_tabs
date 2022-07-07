@@ -1,3 +1,4 @@
+// implement a component here
 import { FC } from 'react';
 
 interface Props {
@@ -11,21 +12,24 @@ export const Tabs: FC<Props> = ({
   onTabSelected,
 }) => (
   <div>
-    {tabs.map(tab => (
-      <li>
-        <button
-          type="button"
-          key={tab.id}
-          onClick={() => {
-            if (selectedTabId !== tab.id) {
-              onTabSelected(tab);
-            }
-          }}
-        >
-          {tab.title}
-        </button>
-      </li>
-    ))}
+    <ul>
+      {tabs.map(tab => (
+        <li>
+          <button
+            type="button"
+            key={tab.id}
+            onClick={() => {
+              if (selectedTabId !== tab.id) {
+                onTabSelected(tab);
+              }
+            }}
+          >
+            {tab.title}
+          </button>
+        </li>
+      ))}
+    </ul>
+
     <div
       data-cy="tab-content"
     >
