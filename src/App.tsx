@@ -1,6 +1,5 @@
-import React from 'react';
-
-import './App.scss';
+import React, { useState } from 'react';
+import { Tabs } from './components/Tabs';
 
 export const tabs: Tab[] = [
   { id: 'tab-1', title: 'Tab 1', content: 'Some text 1' },
@@ -8,11 +7,34 @@ export const tabs: Tab[] = [
   { id: 'tab-3', title: 'Tab 3', content: 'Some text 3' },
 ];
 
-const App: React.FC = () => (
-  <div className="App">
-    <h1>Selected tab is&nbsp;Tab 1</h1>
-    <div>{tabs.length}</div>
-  </div>
-);
+export const App: React.FC = () => {
+  const [selectedTab, setTab] = useState(tabs[0]);
 
-export default App;
+  const onTabSelected = (
+    event: React.MouseEvent<HTMLButtonElement, MouseEvent>
+  ) => {
+    const newTab = tabs.find(tab => (
+      tab.id === event.currentTarget.value
+    ));
+
+    if (newTab) {
+      setTab(newTab);
+    }
+  };
+
+  return (
+    <div className="App">
+      <h1>
+        Selected tab is&nbsp;
+        {selectedTab.title}
+      </h1>
+
+      <Tabs
+        tabs={tabs}
+        selectedTabId={selectedTab.id}
+        callback={onTabSelected}
+      />
+    </div>
+
+  );
+};
