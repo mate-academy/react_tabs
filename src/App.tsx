@@ -10,7 +10,7 @@ export const tabs: Tab[] = [
   { id: 'tab-3', title: 'Tab 3', content: 'Some text 3' },
 ];
 
-const App: React.FC = React.memo(() => {
+export const App: React.FC = React.memo(() => {
   const [selectedTab, setSelectedTabs] = useState(tabs[0]);
 
   return (
@@ -26,5 +26,3 @@ const App: React.FC = React.memo(() => {
     </div>
   );
 });
-
-export default App;
