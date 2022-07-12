@@ -9,61 +9,45 @@ type Props = {
   onTabSelected: (obj: Tab) => void,
 };
 
-type State = {
-  selectedId: string,
-};
-
-export class Tabs extends React.Component<Props, State> {
-  state = {
-    selectedId: this.props.selectedTabId,
-  };
-
+export class Tabs extends React.PureComponent<Props> {
   render() {
-    const { selectedId } = this.state;
-
-    const { onTabSelected, tabs } = this.props;
+    const { onTabSelected, tabs, selectedTabId } = this.props;
 
     return (
-      <>
-        <form
-          className="Tabs"
-          onSubmit={(event) => {
-            event.preventDefault();
-          }}
-        >
-          {tabs.map(tab => (
-            <li
-              key={tab.id}
-              className="Tabs__item"
+      <div
+        className="Tabs"
+      >
+        {tabs.map(tab => (
+          <li
+            key={tab.id}
+            className="Tabs__item"
+          >
+            <button
+              type="submit"
+              className={
+                tab.id === selectedTabId
+                  ? 'Tabs__button Tabs__button--active'
+                  : 'Tabs__button'
+              }
+              onClick={() => {
+                onTabSelected(tab);
+              }}
             >
-              <button
-                type="submit"
-                className={
-                  tab.id === selectedId
-                    ? 'Tabs__button Tabs__button--active'
-                    : 'Tabs__button'
-                }
-                onClick={() => {
-                  this.setState({ selectedId: tab.id });
-                  onTabSelected(tab);
-                }}
-              >
-                {tab.title}
-              </button>
-              <span
-                data-cy="tab-content"
-                className={
-                  tab.id === selectedId
-                    ? 'Tabs__content--active'
-                    : 'Tabs__content'
-                }
-              >
-                {selectedId === tab.id ? tab.content : null}
-              </span>
-            </li>
-          ))}
-        </form>
-      </>
+              {tab.title}
+            </button>
+            <span
+              data-cy="tab-content"
+              className={
+                tab.id === selectedTabId
+                  ? 'Tabs__content--active'
+                  : 'Tabs__content'
+              }
+            >
+              {selectedTabId === tab.id ? tab.content : null}
+            </span>
+          </li>
+        ))}
+      </div>
     );
   }
 }

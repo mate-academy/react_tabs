@@ -30,8 +30,7 @@ class App extends React.Component<{}, State> {
     return (
       <div className="App">
         <h1 className="App__title">
-          {'Selected tab is '}
-          {selectedTab.title}
+          {`Selected tab is ${selectedTab.title}`}
         </h1>
         <Tabs
           tabs={tabs}
