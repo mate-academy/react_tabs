@@ -13,15 +13,23 @@ export const tabs: Tab[] = [
 export const App: React.FC = React.memo(() => {
   const [selectedTab, setSelectedTabs] = useState(tabs[0]);
 
+  const onTabSelected = (tab: Tab) => {
+    if (selectedTab.id !== tab.id) {
+      setSelectedTabs(tab);
+    }
+  };
+
   return (
     <div className="app">
       <div className="container">
         <h1>{`Selected tab is: ${selectedTab.title}`}</h1>
         <Tabs
           tabs={tabs}
-          selectedTab={selectedTab}
-          onTabSelected={setSelectedTabs}
-        />
+          selectedTabId={selectedTab.id}
+          onTabSelected={onTabSelected}
+        >
+          <h3>{selectedTab.content}</h3>
+        </Tabs>
       </div>
     </div>
   );

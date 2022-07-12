@@ -4,14 +4,15 @@ import { Tab } from './react-app-env';
 
 type Props = {
   tabs: Tab[],
-  selectedTab: Tab,
+  selectedTabId: string,
   onTabSelected: (tab: Tab) => void,
 };
 
 export const Tabs: React.FC<Props> = React.memo(({
   tabs,
-  selectedTab,
+  selectedTabId,
   onTabSelected,
+  children,
 }) => {
   return (
     <>
@@ -24,7 +25,7 @@ export const Tabs: React.FC<Props> = React.memo(({
               className={classNames(
                 'nav-link',
                 {
-                  active: selectedTab.id === tab.id,
+                  active: selectedTabId === tab.id,
                 },
               )}
             >
@@ -33,10 +34,7 @@ export const Tabs: React.FC<Props> = React.memo(({
           </li>
         ))}
       </ul>
-
-      <h3 data-cy="tab-content">
-        {selectedTab.content}
-      </h3>
+      {children}
     </>
   );
 });
