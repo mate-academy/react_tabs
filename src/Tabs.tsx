@@ -1,3 +1,5 @@
+import { useCallback } from 'react';
+
 interface Props {
   tabs: Tab[];
   onSelect: (tab: Tab) => void;
@@ -5,9 +7,9 @@ interface Props {
 }
 
 export const Tabs: React.FC<Props> = ({ tabs, onSelect, selectedTabId }) => {
-  const printContent = (tabId: string) => {
+  const printContent = useCallback((tabId: string) => {
     return tabs.find(tab => tab.id === tabId)?.content;
-  };
+  }, []);
 
   return (
     <>
