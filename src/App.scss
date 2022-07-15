@@ -1,1 +1,41 @@
-// Put styles here
+.App {
+  display: flex;
+  justify-content: center;
+
+  &__container {
+    width: 50vw;
+    text-align: center;
+    border: 3px solid #f03a5f;
+    border-radius: 20px;
+  }
+
+  &__title {
+    margin: 30px 0;
+    font-size: 36px;
+    font-weight: bold;
+  }
+
+  &__content {
+    font-size: 20px;
+    margin-bottom: 30px;
+  }
+}
+
+.list {
+  display: flex;
+  justify-content: center;
+
+  &__item {
+    &:not(:last-child) {
+      margin-right: 20px;
+    }
+
+    &--selected {
+      background-color: #f00;
+    }
+  }
+
+  &__button {
+    background-color: transparent;
+  }
+}
