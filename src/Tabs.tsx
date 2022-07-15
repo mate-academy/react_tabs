@@ -1,1 +1,38 @@
-// implement a component here
+import classNames from 'classnames';
+import React from 'react';
+
+type Props = {
+  tabs: Tab[]
+  selectedTabId: string,
+  onTabSelected: (tab: Tab) => void
+
+};
+
+export const Tabs: React.FC<Props> = ({
+  tabs,
+  selectedTabId,
+  onTabSelected,
+}) => {
+  return (
+    <>
+      <ul className="list block">
+        {tabs.map(tab => (
+          <li
+            key={tab.id}
+            className="list__item"
+          >
+            <button
+              className={classNames('button is-secondary', {
+                'is-primary is-danger': tab.id === selectedTabId,
+              })}
+              type="button"
+              onClick={() => onTabSelected(tab)}
+            >
+              {tab.title}
+            </button>
+          </li>
+        ))}
+      </ul>
+    </>
+  );
+};
