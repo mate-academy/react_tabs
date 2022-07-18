@@ -1,0 +1,12 @@
+.Tabs {
+  &__content {
+    font-size: 10px;
+    margin-left: 15px;
+  }
+
+  &__button {
+    border: 0;
+    background-color: transparent;
+    border-bottom: 1px solid blue;
+  }
+}
