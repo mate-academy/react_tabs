@@ -5,9 +5,9 @@ const page = {
     return cy.get('h1');
   },
   clickTab(index) {
-    return cy.contains('button', tabs[index].title)
+    return cy.contains('li a', tabs[index].title)
       .click();
-  }
+  },
 };
 
 describe('Page', () => {
@@ -27,7 +27,7 @@ describe('Page', () => {
 
   it('should display the title of the second tab in the header after clicking it', () => {
     page.clickTab(1);
-      
+
     page.header()
       .should('contain', `${tabs[1].title}`);
   });
@@ -41,7 +41,7 @@ describe('Page', () => {
 
   it('should display the title of the third tab in the header after clicking it', () => {
     page.clickTab(2);
-      
+
     page.header()
       .should('contain', `${tabs[2].title}`);
   });
@@ -56,7 +56,7 @@ describe('Page', () => {
   it('should display the title of the first tab if it was clicked after another tab', () => {
     page.clickTab(1);
     page.clickTab(0);
-      
+
     page.header()
       .should('contain', `${tabs[0].title}`);
   });
