@@ -1,0 +1,28 @@
+.tabs {
+  &__button {
+    padding: 10px;
+    border: 1px solid transparent;
+
+    color: #5e89f0;
+    background: transparent;
+    outline: none;
+    cursor: pointer;
+
+    &--active {
+      color: black;
+      cursor: default;
+      border-color: black;
+      border-bottom-color: white;
+    }
+  }
+
+  &__divider {
+    margin: 0;
+    position: relative;
+    transform: translateY(-100%);
+    z-index: -1;
+
+    border: 0;
+    border-bottom: 1px solid black;
+  }
+}
