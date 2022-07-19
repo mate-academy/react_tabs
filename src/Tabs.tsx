@@ -14,6 +14,12 @@ export const Tabs: React.FC<Props> = ({
   selectedTabId,
   onTabSelected,
 }) => {
+  const clickHandler = (tab: Tab) => {
+    if (tab.id !== selectedTabId) {
+      onTabSelected(tab);
+    }
+  };
+
   return (
     <div className="tabs is-centered">
       <ul>
@@ -22,18 +28,11 @@ export const Tabs: React.FC<Props> = ({
             <button
               type="button"
               className={classNames(
-                'button',
-                {
+                'button', {
                   active: selectedTabId === tab.id,
                 },
               )}
-              onClick={() => {
-                if (tab.id === selectedTabId) {
-                  return;
-                }
-
-                onTabSelected(tab);
-              }}
+              onClick={() => clickHandler(tab)}
             >
               {tab.title}
             </button>
