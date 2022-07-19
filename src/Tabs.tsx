@@ -7,23 +7,29 @@ interface Props {
   handleTabselected: (tab: Tab) => void,
 }
 
-export const Tabs: FC<Props> = ({ tabs, selectedTab, handleTabselected }) => {
+export const Tabs: FC<Props> = ({
+  tabs,
+  selectedTab,
+  handleTabselected,
+}) => {
   return (
-    <ul className="nav nav-tabs mb-3">
-      {tabs.map(tab => (
-        <li key={tab.id} className="nav-item">
-          <button
-            className={classNames({
-              'nav-link': true,
-              active: tab.id === selectedTab.id,
-            })}
-            type="button"
-            onClick={() => handleTabselected(tab)}
-          >
-            {tab.title}
-          </button>
-        </li>
-      ))}
-    </ul>
+    <>
+      <ul className="nav nav-tabs mb-3">
+        {tabs.map(tab => (
+          <li key={tab.id} className="nav-item">
+            <button
+              className={classNames('nav-link', {
+                active: tab.id === selectedTab.id,
+              })}
+              type="button"
+              onClick={() => handleTabselected(tab)}
+            >
+              {tab.title}
+            </button>
+          </li>
+        ))}
+      </ul>
+      <div className="content">{selectedTab.content}</div>
+    </>
   );
 };

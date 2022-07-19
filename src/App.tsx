@@ -21,8 +21,7 @@ const App: React.FC = () => {
   return (
     <div className="App m-3">
       <h1>
-        Selected tab is&nbsp;
-        {selectedTab.title}
+        {`Selected tab is ${selectedTab.title}`}
       </h1>
 
       <Tabs
@@ -30,7 +29,6 @@ const App: React.FC = () => {
         selectedTab={selectedTab}
         handleTabselected={handleTabselected}
       />
-      <div data-cy="content m-5">{selectedTab.content}</div>
     </div>
   );
 };
