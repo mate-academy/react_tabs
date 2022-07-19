@@ -1,8 +1,8 @@
 /* eslint-disable @typescript-eslint/no-unused-expressions, react/jsx-filename-extension */
 import React from 'react';
 import { mount } from '@cypress/react';
-import { Tabs } from './Tabs';
 import { tabs } from './App';
+import Tabs from './Components/Tabs/Tabs';
 
 describe('Tabs component', () => {
   it('should have a \'tabs\' prop', () => {
