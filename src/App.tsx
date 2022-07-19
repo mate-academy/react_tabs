@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import classNames from 'classnames';
 import './App.scss';
 import { Tabs } from './Tabs';
 import { Tab } from './Tab';
@@ -11,10 +10,6 @@ export const tabs: Tab[] = [
 ];
 
 const App: React.FC = () => {
-  const mainContent = classNames({
-    'App__main-content': true,
-  });
-
   const [selectedTab, setSelectedTab] = useState(tabs[0]);
 
   const tabChanger = (tab: Tab) => {
@@ -29,24 +24,15 @@ const App: React.FC = () => {
 
   return (
     <div className="App">
-      <div className="App__main">
-        <h1>
-          {`Selected tab is ${selectedTab.title}`}
-        </h1>
+      <h1 className="App__title">
+        {`Selected tab is ${selectedTab.title}`}
+      </h1>
 
-        <Tabs
-          tabs={tabs}
-          tabChanger={tabChanger}
-          currentTab={selectedTab.id}
-        />
-
-        <p
-          data-cy="tab-content"
-          className={mainContent}
-        >
-          {selectedTab.content}
-        </p>
-      </div>
+      <Tabs
+        tabs={tabs}
+        tabChanger={tabChanger}
+        currentTab={selectedTab}
+      />
     </div>
   );
 };

@@ -6,15 +6,16 @@ import { Tab } from './Tab';
 type TabsType = {
   tabs: Tab[],
   tabChanger(tab: Tab): void,
-  currentTab: string,
+  currentTab: Tab,
 };
 
 export const Tabs: React.FC<TabsType> = ({ tabs, tabChanger, currentTab }) => {
   return (
-    <div>
+    <div className="App__container">
       {tabs.map((tab) => {
+        const selectTab = currentTab.id === tab.id;
         const active = classNames({
-          'App__button--active': currentTab === tab.id,
+          'App__button--active': selectTab,
           App__button: true,
         });
 
@@ -29,6 +30,10 @@ export const Tabs: React.FC<TabsType> = ({ tabs, tabChanger, currentTab }) => {
           </button>
         );
       })}
+
+      <p className="App__main-content">
+        {currentTab.content}
+      </p>
     </div>
   );
 };
