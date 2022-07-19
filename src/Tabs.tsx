@@ -14,7 +14,13 @@ export const Tabs: React.FC<Props> = ({
   selectedTabId,
   onTabSelected,
 }) => {
-  let selectedTab = null;
+  let selectedTab = tabs[0];
+
+  const handleTabSelect = (isTabSelected: boolean, tab: Tab) => {
+    if (!isTabSelected) {
+      onTabSelected(tab);
+    }
+  };
 
   return (
     <div className="tabs">
@@ -33,11 +39,7 @@ export const Tabs: React.FC<Props> = ({
               'tabs__button',
               { 'tabs__button--active': isTabSelected },
             )}
-            onClick={() => {
-              if (!isTabSelected) {
-                onTabSelected(tab);
-              }
-            }}
+            onClick={() => handleTabSelect(isTabSelected, tab)}
           >
             {tab.title}
           </button>
@@ -45,7 +47,7 @@ export const Tabs: React.FC<Props> = ({
       })}
       <hr className="tabs__divider" />
       <p data-cy="tab-content">
-        {(selectedTab ?? tabs[0]).content}
+        {selectedTab.content}
       </p>
     </div>
   );
