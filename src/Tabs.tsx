@@ -29,7 +29,7 @@ const Tabs: React.FC<Props> = ({ tabs, selectedTab, changeTab }) => (
       ))}
     </ul>
 
-    <p className="text-center">
+    <p className="text-center" data-cy="tab-content">
       {selectedTab.content}
     </p>
   </nav>
