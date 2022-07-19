@@ -1,1 +1,30 @@
 // Put styles here
+p.content {
+  width: 600px;
+  font-size: 20px;
+  border: 2px solid red;
+  padding: 10px;
+}
+
+div.tabs {
+  display: inline-flex;
+  margin: 0 50px;
+  cursor: pointer;
+}
+
+h3,
+h1 {
+  margin: 0;
+}
+
+.tabs-title {
+  font-size: 20px;
+}
+
+.title {
+  text-align: center;
+}
+
+.active {
+  color: red;
+}
