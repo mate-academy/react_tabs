@@ -16,14 +16,13 @@ export const Tabs: React.FC<TabsType> = ({ tabs, tabChanger, currentTab }) => {
         const selectTab = currentTab.id === tab.id;
         const active = classNames({
           'App__button--active': selectTab,
-          App__button: true,
         });
 
         return (
           <button
             key={tab.id}
             type="button"
-            className={active}
+            className={`App__button ${active}`}
             onClick={() => tabChanger(tab)}
           >
             {tab.title}
