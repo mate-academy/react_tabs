@@ -1,1 +1,68 @@
 // Put styles here
+body,
+li,
+ul,
+span,
+h1 {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: linear-gradient(
+    90deg, rgba(2,0,36,1) 0%, rgba(150,107,206,1) 64%, rgba(0,212,255,1) 100%
+  );
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  padding-top: 200px;
+
+  &__title {
+    margin-bottom: 50px;
+
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    color: #00bad3;
+  }
+}
+
+.Tabs {
+  &__list {
+    display: flex;
+    flex-direction: row;
+
+    list-style: none;
+
+    gap: 30px;
+  }
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__button {
+    color: #00bad3;
+    background-color: #03334b;
+    border: 1px solid #03334b;
+
+    box-sizing: border-box;
+
+    width: 150px;
+    height: 75px;
+
+    cursor: pointer;
+  }
+
+  &__content {
+    color: #00bad3;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+
+}
