@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 import './App.scss';
-import Tabs from './Tabs';
+import Tabs from './Components/Tabs/Tabs';
 
 export const tabs: Tab[] = [
   { id: 'tab-1', title: 'Tab 1', content: 'Some text 1' },

@@ -13,18 +13,15 @@ const Tabs: React.FC<Props> = ({ tabs, selectedTab, changeTab }) => (
     <ul className="nav nav-tabs justify-content-center">
       {tabs.map(tab => (
         <li key={tab.id} className="nav-item">
-          <a
-            href={tab.id}
+          <button
+            type="button"
             className={classNames('nav-link', {
               active: tab.id === selectedTab.id,
             })}
-            onClick={(event) => {
-              event.preventDefault();
-              changeTab(tab);
-            }}
+            onClick={() => changeTab(tab)}
           >
             {tab.title}
-          </a>
+          </button>
         </li>
       ))}
     </ul>
