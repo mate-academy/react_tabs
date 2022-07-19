@@ -10,19 +10,20 @@
 
     &--active {
       color: black;
-      cursor: default;
       border-color: black;
       border-bottom-color: white;
+      cursor: default;
     }
   }
 
   &__divider {
-    margin: 0;
     position: relative;
     transform: translateY(-100%);
     z-index: -1;
 
+    margin: 0;
     border: 0;
+
     border-bottom: 1px solid black;
   }
 }
