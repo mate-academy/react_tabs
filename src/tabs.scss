@@ -1,0 +1,36 @@
+.tabs {
+  display: flex;
+
+  &__button {
+    font-size: 25px;
+    padding: 10px;
+    border: 1px solid black;
+    border-radius: 10px;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    background-color: #fff;
+  }
+
+  &__button:hover {
+    cursor: pointer;
+    background-color: rgba(238, 130, 238, 0.5);
+    transition: 500ms;
+  }
+
+  &__item:not(:last-child) {
+    margin-right: 10px;
+  }
+}
+
+li {
+  list-style-type: none;
+}
+
+.isSelected {
+  background-color: violet;
+  border: none;
+}
+
+.isSelected:hover {
+  background-color: violet;
+}
