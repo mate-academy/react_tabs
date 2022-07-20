@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unused-expressions, react/jsx-filename-extension */
 import { mount } from '@cypress/react';
-import { Tabs } from './Tabs';
+import { Tabs } from '../../Tabs';
 
 const page = {
   tabs: () => cy.get('.tabs li'),
