@@ -1,33 +1,34 @@
 import React from 'react';
+import classNames from 'classnames';
 
 interface Props {
   tabs: Tab[];
-  selectedTabId: string | undefined;
+  selectedTabId: string;
   onTabSelected: (tab: Tab) => Tab | undefined | string;
 }
 
-const Tabs: React.FC<Props> = ({ tabs, selectedTabId, onTabSelected }) => {
+export const Tabs: React.FC<Props> = ({
+  tabs,
+  selectedTabId,
+  onTabSelected,
+}) => {
   const content = tabs.find(t => selectedTabId === t.id)?.content;
 
   return (
     <div>
       {tabs.map(tab => {
         return (
-          <div
-            role="button"
+          <button
+            type="button"
             onClick={() => onTabSelected(tab)}
-            tabIndex={0}
-            onKeyDown={() => onTabSelected}
-            className="tabs"
+            className={classNames(
+              'button-9',
+              { active: tab.id === selectedTabId },
+            )}
             key={tab.id}
           >
-            <h3 className={tab.id === selectedTabId
-              ? 'tabs-title active'
-              : 'tabs-title'}
-            >
-              {tab.title}
-            </h3>
-          </div>
+            {tab.title}
+          </button>
         );
       })}
       <hr />
@@ -37,5 +38,3 @@ const Tabs: React.FC<Props> = ({ tabs, selectedTabId, onTabSelected }) => {
     </div>
   );
 };
-
-export default Tabs;

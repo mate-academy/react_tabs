@@ -1,4 +1,3 @@
-// Put styles here
 p.content {
   width: 600px;
   font-size: 20px;
@@ -6,10 +5,32 @@ p.content {
   padding: 10px;
 }
 
-div.tabs {
-  display: inline-flex;
-  margin: 0 50px;
+.button-9 {
+  margin: 0 10px;
+  backface-visibility: hidden;
+  background-color: #405cf5;
+  border-radius: 6px;
+  box-shadow: 5px 5px 31px 4px #2e2c2c;
+  box-sizing: border-box;
+  color: #fff;
   cursor: pointer;
+  font-size: 100%;
+  height: 44px;
+  line-height: 1.15;
+  outline: none;
+  overflow: hidden;
+  padding: 0 25px;
+  position: relative;
+  text-align: center;
+  text-transform: none;
+  transition: all 0.2s, box-shadow 0.08s ease-in;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.button-9:focus {
+  box-shadow: 5px 5px 31px 4px #2e2c2c;
 }
 
 h3,
@@ -17,11 +38,8 @@ h1 {
   margin: 0;
 }
 
-.tabs-title {
-  font-size: 20px;
-}
-
 .title {
+  font-size: 20px;
   text-align: center;
 }
 

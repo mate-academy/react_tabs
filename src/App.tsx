@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 
 import './App.scss';
-import Tabs from './Tabs';
+import { Tabs } from './Tabs';
 
-export const tabs: Tab[] | undefined = [
+export const tabs: Tab[] = [
   {
     id: 'tab-1', title: 'Home', content: `Lorem ipsum dolor sit amet,
   consectetur adipiscing elit. Curabitur tincidunt viverra urna non iaculis.
@@ -32,7 +32,7 @@ export const tabs: Tab[] | undefined = [
 
 const App: React.FC = () => {
   const [selectedTabId,
-    setSelectedTabId] = useState<string | undefined >(tabs[0].id);
+    setSelectedTabId] = useState<string>(tabs[0].id);
 
   const onTabSelected = (tab: Tab) => {
     if (tab.id === selectedTabId) {
@@ -41,9 +41,13 @@ const App: React.FC = () => {
 
     const findTab = tabs.find(t => t.id === tab.id);
 
-    setSelectedTabId(findTab?.id);
+    if (findTab) {
+      setSelectedTabId(findTab.id);
 
-    return findTab;
+      return findTab;
+    }
+
+    return tabs[0];
   };
 
   const selectedTabTitle = tabs.find(tab => tab.id === selectedTabId)?.title;
@@ -51,9 +55,7 @@ const App: React.FC = () => {
   return (
     <div className="App">
       <h1 className="title">
-        Selected tab is
-        {' '}
-        {selectedTabTitle}
+        {`Selected tab is  ${selectedTabTitle}`}
       </h1>
       <Tabs
         tabs={tabs}
