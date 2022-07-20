@@ -1,3 +1,4 @@
+import classNames from 'classnames';
 import React from 'react';
 
 interface Props {
@@ -9,20 +10,21 @@ const Tabs: React.FC<Props> = ({ tabs, onTabSelected, selectedTab }) => {
   return (
     <>
       <div className="card">
-        <footer className="card-header">
+        <header className="card-header">
           {tabs.map(tab => (
-
             <button
               key={tab.id}
               type="button"
-              className="button"
+              className={classNames(
+                'button',
+                { 'is-link': selectedTab.id === tab.id },
+              )}
               onClick={() => onTabSelected(tab)}
             >
               {tab.title}
-
             </button>
           ))}
-        </footer>
+        </header>
 
         <div className="card-footer">
           <div className="card-content">
