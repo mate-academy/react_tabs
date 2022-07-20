@@ -1,5 +1,5 @@
-import React from 'react';
-
+import React, { useState } from 'react';
+import Tabs from './Tabs';
 import './App.scss';
 
 export const tabs: Tab[] = [
@@ -8,11 +8,30 @@ export const tabs: Tab[] = [
   { id: 'tab-3', title: 'Tab 3', content: 'Some text 3' },
 ];
 
-const App: React.FC = () => (
-  <div className="App">
-    <h1>Selected tab is&nbsp;Tab 1</h1>
-    <div>{tabs.length}</div>
-  </div>
-);
+const App: React.FC = () => {
+  const [selectedTab, selectTabId] = useState(tabs[0]);
+
+  const onTabSelected = (tab: Tab) => {
+    if (tab.id !== selectedTab.id) {
+      selectTabId(tab);
+    }
+  };
+
+  return (
+    <div className="App">
+      <h1>{`Selected tab is ${selectedTab.title}`}</h1>
+
+      <Tabs
+        tabs={tabs}
+        selectedTabId={selectedTab.id}
+        onTabSelected={onTabSelected}
+      />
+
+      <span className="content">
+        {selectedTab.content}
+      </span>
+    </div>
+  );
+};
 
 export default App;
