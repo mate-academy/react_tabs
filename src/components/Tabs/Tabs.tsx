@@ -4,33 +4,30 @@ import React from 'react';
 type Props = {
   tabs: Tab[],
   selectedTab: Tab,
-  handleSelectedTab: (tab: Tab) => void,
+  onTabSelected: (tab: Tab) => void,
 };
 
 export const Tabs: React.FC<Props> = ({
   tabs,
   selectedTab,
-  handleSelectedTab,
+  onTabSelected,
 }) => {
   return (
     <div className="tabs is-boxed">
       <ul>
         {tabs.map(tab => (
-          <>
-            <li
-              className={classNames({ 'is-active': tab.id === selectedTab.id })}
-            >
-              {tab.title}
-            </li>
-            <button
-              type="button"
+          <li
+            className={classNames({ 'is-active': tab.id === selectedTab.id })}
+          >
+            <a
+              href={`#${tab.id}`}
               onClick={() => {
-                handleSelectedTab(tab);
+                onTabSelected(tab);
               }}
             >
-              Select
-            </button>
-          </>
+              {tab.title}
+            </a>
+          </li>
         ))}
       </ul>
       <div className="block" data-cy="tab-content">
