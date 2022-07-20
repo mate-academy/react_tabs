@@ -1,3 +1,4 @@
+import classNames from 'classnames';
 import React from 'react';
 
 type Props = {
@@ -19,11 +20,17 @@ export const Tabs: React.FC<Props> = ({
             <li className="nav-item" key={tab.id}>
               <button
                 type="button"
-                className={`${(selectedTab.id === tab.id)
-                  ? ('nav-link active')
-                  : ('nav-link')
-                }`}
-                onClick={() => setSelectedTab(tab)}
+                className={classNames(
+                  'nav-link', {
+                    active: selectedTab.id === tab.id,
+                  },
+                )}
+                onClick={() => {
+                  if (tab.id !== selectedTab.id) {
+                    setSelectedTab(tab);
+                  }
+                }}
+
               >
                 {tab.title}
               </button>
