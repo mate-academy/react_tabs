@@ -22,17 +22,13 @@ const App: React.FC = () => {
   return (
     <div className="content is-medium">
       <h1>
-        Selected tab is
-        {' '}
-        {selectedTab.title}
+        {`Selected tab is ${selectedTab.title}`}
       </h1>
       <Tabs
         tabs={tabs}
         selectedTabId={selectedTab.id}
         onTabSelected={onTabSelected}
       />
-
-      <p data-cy="tab-content">{selectedTab.content}</p>
     </div>
   );
 };
