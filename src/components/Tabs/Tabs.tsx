@@ -8,13 +8,11 @@ type Props = {
   onTabSelected: (tab: Tab) => void,
 };
 
-export const Tabs: React.FC<Props> = (
-  {
-    tabs,
-    selectedTabId,
-    onTabSelected,
-  },
-) => {
+export const Tabs: React.FC<Props> = ({
+  tabs,
+  selectedTabId,
+  onTabSelected,
+}) => {
   return (
     <>
       <ul className="list tabs">
