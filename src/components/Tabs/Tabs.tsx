@@ -14,7 +14,9 @@ export const Tabs: FC<Props> = ({ tabs, chengeTab, choosedTab }) => (
       {tabs.map(tab => (
         <li
           key={tab.id}
-          className={classNames(tab.id === choosedTab.id ? 'is-active' : '')}
+          className={classNames({
+            'is-active': tab.id === choosedTab.id,
+          })}
         >
           <a
             href={`#${tab.id}`}

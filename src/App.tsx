@@ -21,8 +21,7 @@ export const App: FC = () => {
   return (
     <div className="section">
       <h1 className="title">
-        Selected tab is&nbsp;
-        {choosedTab.title}
+        {`Selected tab is ${choosedTab.title}`}
       </h1>
 
       <div>
