@@ -1,4 +1,4 @@
-import React from 'react';
+import classNames from 'classnames';
 
 interface Tab {
   id: string;
@@ -9,16 +9,16 @@ interface Tab {
 
 type Props = {
   preparedTabs: Tab[];
-  selectedTabID: number;
-  setTabID: (index : number) => void;
+  selectedTabIndex: number;
+  setTabID: (index: number) => void;
 };
 
 export const Tabs: React.FC<Props> = ({
   preparedTabs,
-  selectedTabID,
+  selectedTabIndex,
   setTabID,
 }) => {
-  const actualContent: string = preparedTabs[selectedTabID].content;
+  const actualContent: string = preparedTabs[selectedTabIndex].content;
 
   const clickHandler = (tab: Tab) => {
     setTabID(tab.index);
@@ -27,7 +27,7 @@ export const Tabs: React.FC<Props> = ({
   return (
     <div>
       <div className="tabs is-boxed">
-        <ul>
+        <ul className="nav nav-tabs">
           {preparedTabs.map(tab => (
             <li
               className=""
@@ -35,6 +35,12 @@ export const Tabs: React.FC<Props> = ({
             >
               <button
                 type="button"
+                className={classNames(
+                  'nav-link',
+                  {
+                    active: tab.index === selectedTabIndex,
+                  },
+                )}
                 onClick={() => clickHandler(tab)}
               >
                 {tab.title}

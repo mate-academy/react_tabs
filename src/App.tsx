@@ -11,16 +11,16 @@ export const tabs = [
 const preparedTabs = tabs.map((tab, i) => ({ ...tab, index: i }));
 
 export const App: React.FC = () => {
-  const [selectedTabID, setTabID] = useState(0);
+  const [selectedTabIndex, setTabID] = useState(0);
 
   return (
     <div className="section">
       <h1 className="title">
-        {`Selected tab is ${preparedTabs[selectedTabID].id}`}
+        {`Selected tab is ${preparedTabs[selectedTabIndex].id}`}
       </h1>
       <Tabs
         preparedTabs={[...preparedTabs]}
-        selectedTabID={selectedTabID}
+        selectedTabIndex={selectedTabIndex}
         setTabID={setTabID}
       />
     </div>
