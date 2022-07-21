@@ -1,1 +1,9 @@
-// Put styles here
+.tabs {
+  display: flex;
+  flex-direction: column;
+  font-size: 30px;
+}
+
+.block {
+  margin-top: 50px;
+}
