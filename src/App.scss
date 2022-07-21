@@ -1,1 +1,13 @@
-// Put styles here
+.is-active {
+  border: 1px solid #dbdbdb;
+  border-bottom: 0;
+}
+
+.tabs {
+  display: flex;
+  flex-direction: column;
+
+  &__list {
+    margin-bottom: 15px;
+  }
+}
