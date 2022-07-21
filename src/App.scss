@@ -1,1 +1,30 @@
-// Put styles here
+* {
+  font-family: sans-serif;
+}
+
+.btn {
+  height: 50px;
+  width: 100px;
+  border: 1px solid black;
+  border-radius: 5px 5px 0 0;
+  transition: transform 0.8s, background-color 0.8s;
+  cursor: pointer;
+
+  &:hover {
+    background-color: aqua;
+    transform: translateY(-5px);
+  }
+}
+
+.active {
+  background-color: aqua;
+  border-bottom: 1px solid aqua;
+}
+
+.content {
+  background-color: aqua;
+  border: 1px solid black;
+  border-radius: 0 0 5px 5px;
+  border-top: aqua;
+  margin: 0;
+}
