@@ -10,12 +10,11 @@ export const tabs: Tab[] = [
 ];
 
 const App: React.FC = () => {
-  const innerTabs = [...tabs];
-  const [selectedTab, setSelectedTab] = useState('tab-1');
+  const [selectedTab, setSelectedTab] = useState(tabs[0]);
 
-  const changeId = (tabId: string) => {
-    if (tabId !== selectedTab) {
-      setSelectedTab(tabId);
+  const changeTab = (tab: Tab) => {
+    if (tab.id !== selectedTab.id) {
+      setSelectedTab(tab);
     }
   };
 
@@ -23,12 +22,12 @@ const App: React.FC = () => {
     <div className="App">
       <h1>
         Selected tab is&nbsp;
-        {innerTabs.find(tab => tab.id === selectedTab)?.title}
+        {selectedTab.title}
       </h1>
       <Tabs
         tabs={tabs}
-        selectedTabId={selectedTab}
-        changeId={changeId}
+        selectedTabId={selectedTab.id}
+        changeTab={changeTab}
       />
     </div>
   );

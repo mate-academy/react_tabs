@@ -1,13 +1,16 @@
+import classNames from 'classnames';
 import React from 'react';
 import './Tabs.scss';
 
 type Props = {
   tabs: Tab[]
   selectedTabId: string
-  changeId: (tab: string) => void
+  changeTab: (tab: Tab) => void
 };
 
-export const Tabs: React.FC<Props> = ({ tabs, selectedTabId, changeId }) => {
+export const Tabs: React.FC<Props> = ({ tabs, selectedTabId, changeTab }) => {
+  const currentTab = tabs.find(tab => tab.id === selectedTabId);
+
   return (
     <div>
       <ul className="list">
@@ -17,11 +20,11 @@ export const Tabs: React.FC<Props> = ({ tabs, selectedTabId, changeId }) => {
             key={tab.id}
           >
             <button
-              className={selectedTabId === tab.id
-                ? ('list__button')
-                : ('list__button list__button--active')}
+              className={classNames('list__button', {
+                'list__button--active': tab.id === selectedTabId,
+              })}
               type="button"
-              onClick={() => changeId(tab.id)}
+              onClick={() => changeTab(tab)}
             >
               {tab.title}
             </button>
@@ -33,7 +36,7 @@ export const Tabs: React.FC<Props> = ({ tabs, selectedTabId, changeId }) => {
         className="content"
         data-cy="tab-content"
       >
-        {tabs.find(tab => tab.id === selectedTabId)?.content || ''}
+        {currentTab?.content || ''}
       </p>
     </div>
   );
