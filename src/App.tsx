@@ -1,4 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { Tabs } from './components/Tabs/Tabs';
+import { Tab } from './react-app-env';
 import './App.scss';
 
 export const tabs = [
@@ -8,31 +10,28 @@ export const tabs = [
 ];
 
 export const App: React.FC = () => {
+  const [selectedTab, setSelectedTab] = useState(tabs[0]);
+
+  const onTabSelected = (tab: Tab) => {
+    if (tab.id !== selectedTab.id) {
+      setSelectedTab(tab);
+    }
+  };
+
   return (
     <div className="section">
       <h1 className="title">
-        Selected tab is&nbsp;Tab 1
+        {`Selected tab is ${selectedTab.title}`}
       </h1>
 
       <div>
         <div className="tabs is-boxed">
-          <ul>
-            <li className="is-active">
-              <a href="#tab-1">Tab 1</a>
-            </li>
-
-            <li className="">
-              <a href="#tab-2">Tab 2</a>
-            </li>
-
-            <li className="">
-              <a href="#tab-3">Tab 3</a>
-            </li>
-          </ul>
-        </div>
-
-        <div className="block" data-cy="tab-content">
-          Some text 1
+          <Tabs
+            data-cy="tab-content"
+            tabs={tabs}
+            selectedTabId={selectedTab}
+            onTabSelected={onTabSelected}
+          />
         </div>
       </div>
     </div>
