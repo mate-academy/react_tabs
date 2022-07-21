@@ -1,3 +1,4 @@
+import classNames from 'classnames';
 import React from 'react';
 import { Tab } from '../../types/Tab';
 
@@ -12,13 +13,17 @@ export const Tabs: React.FC<Props> = ({
   selectedTabId,
   onTabSelected,
 }) => {
+  const visibleContent = tabs
+    .filter(tab => tab.id === selectedTabId)
+    .map(tab => tab.content);
+
   return (
     <div>
       <div className="tabs is-boxed">
         <ul>
           {tabs.map(tab => (
             <li
-              className={selectedTabId === tab.id ? 'is-active' : 'non-active'}
+              className={classNames(selectedTabId === tab.id && 'is-active')}
               key={tab.id}
             >
               <a
@@ -38,7 +43,7 @@ export const Tabs: React.FC<Props> = ({
         className="block"
         data-cy="tab-content"
       >
-        {tabs.filter(tab => tab.id === selectedTabId).map(tab => tab.content)}
+        {visibleContent}
       </div>
     </div>
   );
