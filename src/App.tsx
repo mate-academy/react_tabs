@@ -11,6 +11,12 @@ export const tabs: Tab[] = [
 export const App: React.FC = React.memo(() => {
   const [selectedTab, setSelectedTab] = useState<Tab>(tabs[0]);
 
+  const onTabSelected = (tab: Tab) => {
+    if (tab.id !== selectedTab.id) {
+      setSelectedTab(tab);
+    }
+  };
+
   return (
     <div className="section">
       <h1 className="title">
@@ -19,8 +25,8 @@ export const App: React.FC = React.memo(() => {
 
       <Tabs
         tabs={tabs}
-        selectedTabId={selectedTab.id}
-        onTabSelected={setSelectedTab}
+        selectedTab={selectedTab}
+        onTabSelected={onTabSelected}
       />
     </div>
   );

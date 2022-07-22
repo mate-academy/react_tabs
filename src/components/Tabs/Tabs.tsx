@@ -1,49 +1,36 @@
+import classNames from 'classnames';
 import React from 'react';
 
 interface Props {
   tabs: Tab[],
-  selectedTabId: string,
-  onTabSelected: React.Dispatch<React.SetStateAction<Tab>>,
+  selectedTab: Tab,
+  onTabSelected: (tab: Tab) => void,
 }
 
 export const Tabs: React.FC<Props> = ({
   tabs,
-  selectedTabId,
+  selectedTab,
   onTabSelected,
 }) => {
-  let selectedTab = tabs[0];
-
-  function handleTabSelect(isTabSelected: boolean, tab: Tab) {
-    if (!isTabSelected) {
-      onTabSelected(tab);
-    }
-  }
-
   return (
     <div>
-      <div className="tabs is-boxed">
-        <ul>
-          {tabs.map(tab => {
-            const isTabSelected = selectedTabId === tab.id;
-
-            if (isTabSelected) {
-              selectedTab = tab;
-            }
-
-            return (
-              <li
-                className="is-active"
-                key={tab.id}
+      <div className="tabs">
+        <ul className="tabs__list">
+          {tabs.map(tab => (
+            <li
+              key={tab.id}
+              className={classNames({
+                'is-active': tab.id === selectedTab.id,
+              })}
+            >
+              <a
+                href={`#${tab.id}`}
+                onClick={() => onTabSelected(tab)}
               >
-                <a
-                  href={`#${tab.id}`}
-                  onClick={() => handleTabSelect(isTabSelected, tab)}
-                >
-                  {tab.title}
-                </a>
-              </li>
-            );
-          })}
+                {tab.title}
+              </a>
+            </li>
+          ))}
         </ul>
       </div>
 
