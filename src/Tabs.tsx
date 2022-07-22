@@ -1,4 +1,5 @@
 import { FC } from 'react';
+import classNames from 'classnames';
 
 interface Props {
   tabs: Tab[],
@@ -11,7 +12,9 @@ export const Tabs: FC<Props> = ({ tabs, onTabSelected, selectedTab }) => {
     <>
       {tabs.map(tab => (
         <button
-          className={`btn ${selectedTab.id === tab.id ? 'active' : ''}`}
+          className={classNames('btn', {
+            active: selectedTab.id === tab.id,
+          })}
           key={tab.id}
           type="button"
           onClick={() => onTabSelected(tab)}
@@ -19,7 +22,12 @@ export const Tabs: FC<Props> = ({ tabs, onTabSelected, selectedTab }) => {
           {tab.title}
         </button>
       ))}
-      <p className="content" data-cy="tab-content">{selectedTab.content}</p>
+      <p
+        className="content"
+        data-cy="tab-content"
+      >
+        {selectedTab.content}
+      </p>
     </>
   );
 };
