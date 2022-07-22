@@ -14,11 +14,11 @@ export const Tabs: React.FC<Props> = ({
   onTabSelected,
 }) => {
   return (
-    <div>
+    <div className="tabs is-boxed tab-container">
       <ul>
         {tabs.map(tab => (
           <li
-            className={classNames('', {
+            className={classNames({
               'is-active': tab.id === selectedTabId.id,
             })}
             key={tab.id}
@@ -35,9 +35,7 @@ export const Tabs: React.FC<Props> = ({
         ))}
       </ul>
 
-      <div className="block" data-cy="tab-content">
-        {selectedTabId.content}
-      </div>
     </div>
+
   );
 };

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import classNames from 'classnames';
 import { Tabs } from './components/Tabs/Tabs';
 import { Tab } from './types/tab';
 
@@ -27,14 +28,23 @@ export const App: React.FC = () => {
         </h1>
 
         <div>
-          <div className="tabs is-boxed tab-container">
-            <Tabs
-              data-cy="tab-content"
-              tabs={tabs}
-              selectedTabId={selectedTab}
-              onTabSelected={onTabSelected}
-            />
-          </div>
+          <Tabs
+            data-cy="tab-content"
+            tabs={tabs}
+            selectedTabId={selectedTab}
+            onTabSelected={onTabSelected}
+          />
+        </div>
+
+        <div
+          className={classNames('block', {
+            blockOne: selectedTab.id === String('tab-1'),
+            blockTwo: selectedTab.id === String('tab-2'),
+            blockThree: selectedTab.id === String('tab-3'),
+          })}
+          data-cy="tab-content"
+        >
+          {`${selectedTab.content}`}
         </div>
       </div>
     </div>
