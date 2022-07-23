@@ -8,7 +8,8 @@ type Props = {
 };
 
 export const Tabs: React.FC<Props> = ({
-  tabs, Select,
+  tabs,
+  Select,
   selectedTabId,
 }) => {
   return (
