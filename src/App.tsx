@@ -10,17 +10,10 @@ export const tabs: Tab[] = [
 ];
 
 const App: React.FC = () => {
-  const selectedTab = tabs.find(tab => tab.id === 'tab-1');
-  const [activeTab, setActiveTab] = useState(selectedTab);
-
-  if (!activeTab) {
-    return null;
-  }
+  const [activeTab, setActiveTab] = useState(tabs[0]);
 
   const selectTab = (newTab: Tab) => {
-    const filter = tabs.find(tab => tab.id === newTab.id);
-
-    setActiveTab(filter);
+    setActiveTab(newTab);
   };
 
   return (
