@@ -12,31 +12,27 @@ export const Tabs: React.FC<Props> = ({
   selectedTabId,
 }) => {
   return (
-    <div className="tabs is-boxed">
-      <div className="tabs is-boxed">
-        <ul>
-          {tabs.map(tab => {
-            return (
-              <li
-                className={
-                  classNames(
-                    '',
-                    { 'is-active': tab.id === selectedTabId },
-                  )
-                }
-                key={tab.id}
-              >
-                <a
-                  onClick={() => tab.id === selectedTabId || Select(tab.id)}
-                  href={`#${tab.id}`}
-                >
-                  {tab.title}
-                </a>
-              </li>
-            );
-          })}
-        </ul>
-      </div>
-    </div>
+    <ul>
+      {tabs.map(tab => {
+        return (
+          <li
+            className={
+              classNames(
+                '',
+                { 'is-active': tab.id === selectedTabId },
+              )
+            }
+            key={tab.id}
+          >
+            <a
+              onClick={() => tab.id === selectedTabId || Select(tab.id)}
+              href={`#${tab.id}`}
+            >
+              {tab.title}
+            </a>
+          </li>
+        );
+      })}
+    </ul>
   );
 };
