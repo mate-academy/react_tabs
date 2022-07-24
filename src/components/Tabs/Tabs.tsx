@@ -11,7 +11,6 @@ type Props = {
   tabs: Tab[],
   selectedTabId: string,
   onTabSelected: (tabId: string) => void,
-  getSelectedTab: () => Tab | undefined,
 };
 
 export const Tabs:React.FC<Props> = (
@@ -19,9 +18,10 @@ export const Tabs:React.FC<Props> = (
     tabs,
     selectedTabId,
     onTabSelected,
-    getSelectedTab,
   },
 ) => {
+  const currentTab = tabs.find(tab => selectedTabId === tab.id);
+
   return (
     <>
       <div className="tabs is-boxed">
@@ -36,7 +36,11 @@ export const Tabs:React.FC<Props> = (
               >
                 <a
                   href={`#${tab.id}`}
-                  onClick={() => onTabSelected(tab.id)}
+                  onClick={() => {
+                    if (selectedTabId !== tab.id) {
+                      onTabSelected(tab.id);
+                    }
+                  }}
                 >
                   {tab.title}
                 </a>
@@ -47,7 +51,7 @@ export const Tabs:React.FC<Props> = (
       </div>
 
       <div className="block" data-cy="tab-content">
-        {getSelectedTab()?.content}
+        {currentTab?.content}
       </div>
     </>
   );
