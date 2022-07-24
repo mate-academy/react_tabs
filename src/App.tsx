@@ -24,19 +24,12 @@ export const App: React.FC = () => {
       </h1>
 
       <div>
-        <div className="tabs is-boxed">
-          <div className="tabs is-boxed">
-            <Tabs
-              tabs={tabs}
-              Select={onTabSelected}
-              selectedTabId={selectedTabId}
-            />
-          </div>
-        </div>
-
-        <div className="block" data-cy="tab-content">
-          {selectedTab && selectedTab.content}
-        </div>
+        <Tabs
+          tabs={tabs}
+          Select={onTabSelected}
+          selectedTabId={selectedTabId}
+          selectedTab={selectedTab}
+        />
       </div>
     </div>
   );
