@@ -4,14 +4,12 @@ import { Tab } from '../Tabs';
 type Props = {
   tabs: Tab[],
   Select: (value: string) => void,
-  selectedTabId: string,
   selectedTab: Tab | undefined,
 };
 
 export const Tabs: React.FC<Props> = ({
   tabs,
   Select,
-  selectedTabId,
   selectedTab,
 }) => {
   return (
@@ -23,18 +21,19 @@ export const Tabs: React.FC<Props> = ({
               <li
                 className={
                   classNames(
-                    '',
-                    { 'is-active': tab.id === selectedTabId },
+                    { 'is-active': tab.id === selectedTab?.id },
                   )
                 }
                 key={tab.id}
               >
-                <a
-                  onClick={() => tab.id === selectedTabId || Select(tab.id)}
-                  href={`#${tab.id}`}
-                >
-                  {tab.title}
-                </a>
+                {selectedTab && (
+                  <a
+                    onClick={() => tab.id === selectedTab.id || Select(tab.id)}
+                    href={`#${tab.id}`}
+                  >
+                    {tab.title}
+                  </a>
+                )}
               </li>
             );
           })}
