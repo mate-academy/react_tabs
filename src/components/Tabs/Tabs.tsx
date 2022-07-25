@@ -5,14 +5,12 @@ import { Tab } from '../../types/Tab';
 type Props = {
   tabs: Tab[],
   selectedTab: Tab,
-  selectedTabId: string,
   onTabSelected: (tab: Tab) => void,
 };
 
 export const Tabs: React.FC<Props> = ({
   tabs,
   selectedTab,
-  selectedTabId,
   onTabSelected,
 }) => {
   return (
@@ -24,7 +22,7 @@ export const Tabs: React.FC<Props> = ({
               key={tab.id}
               className={classNames(
                 {
-                  'is-active': tab.id === selectedTabId,
+                  'is-active': tab.id === selectedTab.id,
                 },
               )}
             >

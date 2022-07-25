@@ -11,12 +11,10 @@ export const tabs: Tab[] = [
 
 export const App: React.FC = () => {
   const [selectedTab, setSelectedTab] = useState(tabs[0]);
-  const [selectedTabId, setSelectedTabId] = useState(selectedTab.id);
 
   const onTabSelected = (tab: Tab) => {
     if (tab.id !== selectedTab.id) {
       setSelectedTab(tab);
-      setSelectedTabId(tab.id);
     }
   };
 
@@ -29,7 +27,6 @@ export const App: React.FC = () => {
       <Tabs
         tabs={tabs}
         selectedTab={selectedTab}
-        selectedTabId={selectedTabId}
         onTabSelected={onTabSelected}
       />
     </div>
