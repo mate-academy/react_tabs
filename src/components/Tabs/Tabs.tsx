@@ -19,9 +19,7 @@ export const Tabs: React.FC<Props> = ({ tabs, selectedTab, onTabSelected }) => (
             <a
               href={`#${tab.id}`}
               onClick={() => (
-                selectedTab.id !== tab.id && (
-                  onTabSelected(tab)
-                )
+                onTabSelected(tab)
               )}
             >
               {tab.title}
