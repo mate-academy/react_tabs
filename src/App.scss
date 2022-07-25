@@ -1,1 +1,7 @@
-// Put styles here
+.App {
+  &__title {
+    font-weight: bold;
+    font-size: 35px;
+    color: #4c66af;
+  }
+}
