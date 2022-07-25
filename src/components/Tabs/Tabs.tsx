@@ -1,16 +1,10 @@
 import React from 'react';
 import './Tabs.scss';
 
-interface Tab {
-  id: string,
-  title: string,
-  content: string,
-}
-
 type Props = {
   tabs: Tab[],
   selectedTabId: string,
-  onTabSelected: (newTab: Tab) => void,
+  onTabSelected: (newTab: string) => void,
 };
 
 export const Tabs: React.FC<Props> = ({
@@ -33,7 +27,7 @@ export const Tabs: React.FC<Props> = ({
             <button
               type="button"
               className="Tabs__button"
-              onClick={() => onTabSelected(tab)}
+              onClick={() => onTabSelected(tab.id)}
             >
               {tab.title}
             </button>
