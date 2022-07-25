@@ -29,7 +29,6 @@ export const App: React.FC = () => {
 
         <div>
           <Tabs
-            data-cy="tab-content"
             tabs={tabs}
             selectedTabId={selectedTab}
             onTabSelected={onTabSelected}
@@ -37,11 +36,7 @@ export const App: React.FC = () => {
         </div>
 
         <div
-          className={classNames('block', {
-            blockOne: selectedTab.id === String('tab-1'),
-            blockTwo: selectedTab.id === String('tab-2'),
-            blockThree: selectedTab.id === String('tab-3'),
-          })}
+          className="block"
           data-cy="tab-content"
         >
           {`${selectedTab.content}`}
