@@ -7,13 +7,13 @@ type Tab = {
 type Props = {
   tabs: Tab[];
   selectedTab: Tab;
-  setSelectedTabs: (tab: Tab) => void,
+  setSelectedTab: (tab: Tab) => void,
 };
 
 export const Tabs: React.FC<Props> = ({
   tabs,
   selectedTab,
-  setSelectedTabs,
+  setSelectedTab,
 }) => {
   return (
     <div>
@@ -23,10 +23,14 @@ export const Tabs: React.FC<Props> = ({
             // eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-noninteractive-element-interactions
             <li
               className={(tab === selectedTab && 'is-active') || ''}
-              onClick={() => setSelectedTabs(tab)}
               key={tab.id}
             >
-              <a href={`#${tab.id}`}>{tab.title}</a>
+              <a
+                onClick={() => setSelectedTab(tab)}
+                href={`#${tab.id}`}
+              >
+                {tab.title}
+              </a>
             </li>
           ))}
         </ul>
