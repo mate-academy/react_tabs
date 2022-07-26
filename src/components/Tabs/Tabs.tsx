@@ -10,7 +10,7 @@ type Props = {
 
 export const Tabs: React.FC<Props> = ({
   tabs,
-  selectedTabId,
+  selectedTabId = 'tab-1',
   onTabSelected,
 }) => {
   return (
@@ -28,7 +28,13 @@ export const Tabs: React.FC<Props> = ({
             >
               <a
                 href={`#${tab.id}`}
-                onClick={() => onTabSelected(tab)}
+                onClick={() => {
+                  if (tab.id !== selectedTabId) {
+                    onTabSelected(tab);
+                    // eslint-disable-next-line no-console
+                    console.log(tab);
+                  }
+                }}
               >
                 {tab.title}
               </a>
