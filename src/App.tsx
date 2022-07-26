@@ -11,7 +11,7 @@ export const tabs = [
 
 export const App: React.FC = () => {
   const [selectedTab, setSelectedTab] = useState(
-    tabs.find(tab => tab.id === 'tab-112345'),
+    tabs.find(tab => tab.id === 'tab-1'),
   );
   const selectedTabId = selectedTab?.id || 'tab-1';
 
