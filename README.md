@@ -1,7 +1,8 @@
 # React Tabs
 
+> Here is [the working version](https://mate-academy.github.io/react_tabs)
+
 Implement the `App` and `Tabs` components to render and switch between given `tabs`.
-Here is [the working version](https://mate-academy.github.io/react_tabs)
 
 1. Save the `selectedTab` in the `App` (the first `tab` is selected by default);
 1. Implement the `Tabs` component accepting `tabs` as a prop and displaying a link per each `tab` and the content of the selected tab.
