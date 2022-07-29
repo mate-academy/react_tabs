@@ -1,4 +1,5 @@
-import React from 'react';
+import { useState } from 'react';
+import { Tabs } from './components/Tabs/Tabs';
 import './App.scss';
 
 export const tabs = [
@@ -8,33 +9,20 @@ export const tabs = [
 ];
 
 export const App: React.FC = () => {
+  const [selectedTabId, setSelectedTabId] = useState('tab-1');
+
   return (
     <div className="section">
       <h1 className="title">
-        Selected tab is&nbsp;Tab 1
+        Selected tab is&nbsp;
+        {tabs.find(el => el.id === selectedTabId)?.title}
       </h1>
 
-      <div>
-        <div className="tabs is-boxed">
-          <ul>
-            <li className="is-active">
-              <a href="#tab-1">Tab 1</a>
-            </li>
-
-            <li className="">
-              <a href="#tab-2">Tab 2</a>
-            </li>
-
-            <li className="">
-              <a href="#tab-3">Tab 3</a>
-            </li>
-          </ul>
-        </div>
-
-        <div className="block" data-cy="tab-content">
-          Some text 1
-        </div>
-      </div>
+      <Tabs
+        tabs={tabs}
+        selectedTabId={selectedTabId}
+        setSelectedTabId={setSelectedTabId}
+      />
     </div>
   );
 };
