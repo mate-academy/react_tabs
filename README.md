@@ -16,7 +16,7 @@ Implement the `App` and `Tabs` components to render and switch between given `ta
 1. The callback should receive the data of the selected tab (an object from the array)
 1. The `App` title (`h1`) should show a text saying `Selected tab is Tab 1` (show the title of the selected tab).
 1. When the user selects another tab the `h1` should be updated accordingly.
-1. The `Tabs` component should be stateless.
+1. The `Tabs` component should be stateless (don't have internal state, only props).
 
 
 ## Instructions
