@@ -9,7 +9,7 @@ interface Tab {
 type Props = {
   tabs: Tab[],
   selectedTabId: string,
-  handleClick: any,
+  handleClick: (arg: string)=>void,
 };
 
 export const Tabs:React.FC<Props> = (
