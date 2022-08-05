@@ -10,13 +10,13 @@ export const tabs = [
 ];
 
 export const App: React.FC = () => {
-  const [selectedTabId, setTab] = useState(tabs[0].id);
+  const [selectedTabId, setSelectedTabId] = useState(tabs[0].id);
 
   const onClickTabItem = (id: string) => {
-    const tab = tabs.find(el => el.id === id);
+    const tab = tabs.find(tabEl => tabEl.id === id);
 
-    if (tab) {
-      setTab(tab.id);
+    if (tab && (tab.id !== selectedTabId)) {
+      setSelectedTabId(tab.id);
     }
   };
 

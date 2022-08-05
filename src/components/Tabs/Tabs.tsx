@@ -39,7 +39,6 @@ export const Tabs:React.FC<Props> = (
                   href={`#${tab.id}`}
                   id={tab.id}
                   onClick={(e) => {
-                    e.preventDefault();
                     handleClick(e.currentTarget.id);
                   }}
                 >
