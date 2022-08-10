@@ -13,6 +13,12 @@ export const Tabs: React.FC<Props> = ({
 }) => {
   const selectedTab = tabs.find(tab => tab.id === selectedTabId) || tabs[0];
 
+  const handleSelected = (tab: Tab) => {
+    if (tab.id !== selectedTabId) {
+      onTabSelected(tab);
+    }
+  };
+
   return (
     <div>
       <div className="tabs is-boxed">
@@ -21,12 +27,13 @@ export const Tabs: React.FC<Props> = ({
             <li
               key={tab.id}
               className={classNames(
-                { 'is-active': selectedTabId === tab.id },
+                '',
+                { 'is-active': selectedTab.id === tab.id },
               )}
             >
               <a
                 href={`#${tab.id}`}
-                onClick={() => onTabSelected(tab)}
+                onClick={() => handleSelected(tab)}
               >
                 {tab.title}
               </a>
