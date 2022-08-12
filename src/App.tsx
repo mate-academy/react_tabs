@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import { Component } from 'react';
 import './App.scss';
 import { Tabs } from './components/Tabs/Tabs';
 import { TabsType } from './type/TabsType';
@@ -20,9 +20,9 @@ export class App extends Component<{}, State> {
     selectedTab: tabs[0],
   };
 
-  setTable = (event: React.MouseEvent<HTMLElement>): void => {
-    const { id } = event.currentTarget;
-    const currentTable = tabs.find(table => table.id === id) || tabs[0];
+  setTable = (selectedTabId: string): void => {
+    const currentTable = tabs.find(table => table.id === selectedTabId)
+      || tabs[0];
 
     this.setState({ selectedTab: currentTable });
   };

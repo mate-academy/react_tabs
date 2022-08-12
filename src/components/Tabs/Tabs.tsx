@@ -4,7 +4,7 @@ import { TabsType } from '../../type/TabsType';
 type Props = {
   tabs: TabsType[],
   selectedTabId: string,
-  onTabSelected: (event: React.MouseEvent<HTMLElement>) => void,
+  onTabSelected: (selectedTabId: string) => void,
 };
 
 export const Tabs: React.FC<Props> = ({
@@ -27,7 +27,7 @@ export const Tabs: React.FC<Props> = ({
               <a
                 href={`#${table.id}`}
                 id={table.id}
-                onClick={onTabSelected}
+                onClick={({ currentTarget }) => onTabSelected(currentTarget.id)}
               >
                 {table.title}
               </a>
