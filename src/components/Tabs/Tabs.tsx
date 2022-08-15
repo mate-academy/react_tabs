@@ -24,6 +24,7 @@ export const Tabs: React.FC<Props> = ({ tabs, onChange, select }) => {
         <li
           className={classNames('', { 'is-active': index === select })}
           key={tab.id}
+          data-cy={tab.content}
         >
           <a
             href={tab.id}
