@@ -1,15 +1,7 @@
 import { FC } from 'react';
 import classNames from 'classnames';
-
-interface Tab {
-  id: string,
-  title: string,
-  content: string,
-}
-
-interface InterfaceTabs {
-  tabs: Tab[],
-}
+import { Tab } from '../../types/Tab';
+import { InterfaceTabs } from '../../types/InterfaceTabs';
 
 interface Props extends InterfaceTabs {
   onTabSelected: (tab: Tab) => void,
