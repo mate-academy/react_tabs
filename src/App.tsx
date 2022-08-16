@@ -25,10 +25,6 @@ export const App: React.FC = () => {
         selectedTabId={selectedTab.id}
         handleSelected={setSelectedTab}
       />
-
-      <div className="block" data-cy="tab-content">
-        Some text 1
-      </div>
     </div>
   );
 };
