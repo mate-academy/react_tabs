@@ -39,9 +39,7 @@ export const Tabs: React.FC<Props> = ({
       </div>
 
       <div className="block" data-cy="tab-content">
-        {typeof content === 'undefined'
-          ? content
-          : 'Tab not found'}
+        {content || 'Tab not found'}
       </div>
     </div>
   );
