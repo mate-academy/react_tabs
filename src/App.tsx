@@ -18,11 +18,19 @@ export const App: React.FC = () => {
       <h1 className="title">
         {`Selected tab is ${onTabSelected.title}`}
       </h1>
-      <Tabs
-        tabs={tabs}
-        selectedTabId={onTabSelected.id}
-        setOnTabSelected={setOnTabSelected}
-      />
+
+      <div>
+        <div className="tabs is-boxed">
+          <Tabs
+            tabs={tabs}
+            selectedTabId={onTabSelected.id}
+            setOnTabSelected={setOnTabSelected}
+          />
+        </div>
+        <div className="block" data-cy="tab-content">
+          {onTabSelected.content}
+        </div>
+      </div>
     </div>
   );
 };
