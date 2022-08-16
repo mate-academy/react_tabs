@@ -42,7 +42,7 @@ export const Tabs: React.FC<Props> = ({
       </div>
 
       <div className="block" data-cy="tab-content">
-        {currentTab?.content}
+        {currentTab ? currentTab.content : 'Tab not found'}
       </div>
     </div>
   );
