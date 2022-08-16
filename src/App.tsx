@@ -13,12 +13,7 @@ export const App: React.FC = () => {
   const [selectedTab, setSelectedTab] = useState(tabs[0].id);
 
   const onTabSelected = (tabId: string) => {
-    setSelectedTab(() => {
-      // eslint-disable-next-line no-console
-      console.log('updated');
-
-      return tabId;
-    });
+    setSelectedTab(tabId);
   };
 
   return (
