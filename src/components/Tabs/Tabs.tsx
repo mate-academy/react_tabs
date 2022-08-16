@@ -25,7 +25,7 @@ export const Tabs = (Props: Props) => {
               className={cn({ 'is-active': tab.id === selectedTabs })}
             >
               <a
-                href={tab.id}
+                href={`#${tab.id}`}
                 onClick={(e) => handleSelectTab(tab.id, e)}
               >
                 {tab.title}
