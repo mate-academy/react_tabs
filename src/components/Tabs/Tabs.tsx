@@ -15,7 +15,7 @@ type Props = {
 
 export const Tabs: React.FC<Props> = (props) => {
   const { tabs, selectedTabId, setSelectedTab } = props;
-  const tabContent = tabs.find(tab => tab.id === selectedTabId);
+  const tabContent = tabs.find(tab => tab.id === selectedTabId)?.content;
 
   return (
     <div>
@@ -24,10 +24,10 @@ export const Tabs: React.FC<Props> = (props) => {
           {tabs.map(tab => (
             <li
               key={tab.id}
-              className={cn('', { 'is-active': selectedTabId === tab.id })}
+              className={cn({ 'is-active': selectedTabId === tab.id })}
             >
               <a
-                href={tab.id}
+                href={`#${tab.id}`}
                 onClick={(event) => {
                   event.preventDefault();
                   setSelectedTab(tab);
@@ -41,7 +41,7 @@ export const Tabs: React.FC<Props> = (props) => {
       </div>
 
       <div className="block" data-cy="tab-content">
-        {tabContent?.content}
+        {tabContent || 'No content yet :('}
       </div>
     </div>
   );
