@@ -5,9 +5,12 @@ type Props = {
   selectedTabId: string;
   onTabSelected: CallableFunction
 };
-
-export const Tabs: React.FC<Props> = (props) => {
-  const { tabs, selectedTabId, onTabSelected } = props;
+export const Tabs: React.FC<Props> = ({
+  tabs,
+  selectedTabId,
+  onTabSelected,
+}) => {
+  const content = tabs.find(tab => tab.id === selectedTabId)?.content;
 
   return (
     <div>
@@ -36,7 +39,9 @@ export const Tabs: React.FC<Props> = (props) => {
       </div>
 
       <div className="block" data-cy="tab-content">
-        {tabs.find(tab => tab.id === selectedTabId)?.content}
+        {typeof content === 'undefined'
+          ? content
+          : 'Tab not found'}
       </div>
     </div>
   );
