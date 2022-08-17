@@ -17,6 +17,13 @@ export const Tabs: React.FC<Props> = (props) => {
   const { tabs, selectedTabId, setSelectedTab } = props;
   const tabContent = tabs.find(tab => tab.id === selectedTabId)?.content;
 
+  const selectTab = (event: React.MouseEvent<HTMLAnchorElement>, tab: Tab) => {
+    if (tab.id !== selectedTabId) {
+      event.preventDefault();
+      setSelectedTab(tab);
+    }
+  };
+
   return (
     <div>
       <div className="tabs is-boxed">
@@ -29,8 +36,7 @@ export const Tabs: React.FC<Props> = (props) => {
               <a
                 href={`#${tab.id}`}
                 onClick={(event) => {
-                  event.preventDefault();
-                  setSelectedTab(tab);
+                  selectTab(event, tab);
                 }}
               >
                 {tab.title}
