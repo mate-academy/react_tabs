@@ -3,21 +3,21 @@ import { TabsInterface } from '../../Types/TabsInterface';
 
 type Props = {
   tabs: TabsInterface[];
-  onTabSelected: TabsInterface;
-  setOnTabSelected: (tab: TabsInterface) => void;
+  selectedTab: TabsInterface;
+  setSelectedTab: (tab: TabsInterface) => void;
 };
 
 export const Tabs: React.FC<Props> = ({
   tabs,
-  onTabSelected,
-  setOnTabSelected,
+  selectedTab,
+  setSelectedTab,
 }) => {
   return (
     <div>
       <div className="tabs is-boxed">
         <ul>
           {tabs.map(tab => {
-            const isSelected = onTabSelected.id === tab.id;
+            const isSelected = selectedTab.id === tab.id;
 
             return (
               <li
@@ -26,7 +26,7 @@ export const Tabs: React.FC<Props> = ({
               >
                 <a
                   href={`#${tab.id}`}
-                  onClick={() => setOnTabSelected(tab)}
+                  onClick={() => setSelectedTab(tab)}
                 >
                   {tab.title}
                 </a>
@@ -36,7 +36,7 @@ export const Tabs: React.FC<Props> = ({
         </ul>
       </div>
       <div className="block" data-cy="tab-content">
-        {onTabSelected.content}
+        {selectedTab.content}
       </div>
     </div>
   );

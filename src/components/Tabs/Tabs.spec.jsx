@@ -21,7 +21,7 @@ describe('Tabs component', () => {
       <Tabs
         tabs={tabs}
         selectedTabId="tab-10"
-        onTabSelected={() => {}}
+        selectedTab={() => {}}
       />
     ));
 
@@ -52,7 +52,7 @@ describe('Tabs component', () => {
       <Tabs
         tabs={tabs}
         selectedTabId="tab-1"
-        onTabSelected={() => {}}
+        selectedTab={() => {}}
       />
     ));
 
@@ -74,7 +74,7 @@ describe('Tabs component', () => {
       <Tabs
         tabs={tabs}
         selectedTabId="tab-20"
-        onTabSelected={() => {}}
+        selectedTab={() => {}}
       />
     ));
 
@@ -100,7 +100,7 @@ describe('Tabs component', () => {
       <Tabs
         tabs={tabs}
         selectedTabId="asdasd"
-        onTabSelected={() => {}}
+        selectedTab={() => {}}
       />
     ));
 
@@ -123,7 +123,7 @@ describe('Tabs component', () => {
       <Tabs
         tabs={tabs}
         selectedTabId="tab-30"
-        onTabSelected={() => {}}
+        selectedTab={() => {}}
       />
     ));
 
@@ -148,7 +148,7 @@ describe('Tabs component', () => {
       <Tabs
         tabs={tabs}
         selectedTabId="tab-3"
-        onTabSelected={props.onTabSelected}
+        selectedTab={props.onTabSelected}
       />
     ));
 
@@ -178,7 +178,7 @@ describe('Tabs component', () => {
       <Tabs
         tabs={tabs}
         selectedTabId="tab-3"
-        onTabSelected={props.onTabSelected}
+        selectedTab={props.onTabSelected}
       />
     ));
 
