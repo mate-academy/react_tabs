@@ -13,7 +13,7 @@ export const Tabs: React.FC<Props> = ({
   setOnTabSelected,
 }) => {
   return (
-    <>
+    <div>
       <div className="tabs is-boxed">
         <ul>
           {tabs.map(tab => {
@@ -38,6 +38,6 @@ export const Tabs: React.FC<Props> = ({
       <div className="block" data-cy="tab-content">
         {onTabSelected.content}
       </div>
-    </>
+    </div>
   );
 };
