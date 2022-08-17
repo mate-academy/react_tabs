@@ -10,6 +10,8 @@ interface Props {
 export const Tabs: React.FC<Props> = (props) => {
   const { tabs, selectedTabId, onTabSelected } = props;
 
+  const isActiveTab = tabs.find(tab => tab.id === selectedTabId);
+
   return (
     <>
       <div className="tabs is-boxed">
@@ -34,6 +36,11 @@ export const Tabs: React.FC<Props> = (props) => {
             </li>
           ))}
         </ul>
+      </div>
+      <div>
+        <div className="block" data-cy="tab-content">
+          {isActiveTab?.content}
+        </div>
       </div>
     </>
   );
