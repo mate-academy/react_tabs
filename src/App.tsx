@@ -10,27 +10,25 @@ export const tabs = [
 ];
 
 export const App: React.FC = () => {
-  const [selectedTab, setSelectedTab] = useState(0);
+  const [selectedTab, setSelectedTab] = useState(tabs[0]);
 
   return (
     <div className="section">
       <h1 className="title">
-        {`Selected tab is ${tabs[selectedTab].title}`}
+        {`Selected tab is ${selectedTab.title}`}
       </h1>
 
       <div>
         <div className="tabs is-boxed">
           <Tabs
             tabs={tabs}
-            select={selectedTab}
-            onChange={(index:number) => {
-              setSelectedTab(index);
-            }}
+            selectedTabId={selectedTab.id}
+            onTabSelected={setSelectedTab}
           />
         </div>
 
         <div className="block" data-cy="tab-content">
-          {tabs[selectedTab].content}
+          {selectedTab.content}
         </div>
       </div>
     </div>

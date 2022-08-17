@@ -8,27 +8,31 @@ interface Tab {
 
 type Props = {
   tabs: Tab[]
-  onChange: (index: number) => void;
-  select: number;
+  onTabSelected: (tab: Tab) => void;
+  selectedTabId: string;
 };
 
-export const Tabs: React.FC<Props> = ({ tabs, onChange, select }) => {
-  function clickTab(event: React.SyntheticEvent, index:number) {
+export const Tabs: React.FC<Props> = ({
+  tabs,
+  onTabSelected,
+  selectedTabId,
+}) => {
+  function clickTab(tab: Tab, event: React.FormEvent) {
     event.preventDefault();
-    onChange(index);
+    onTabSelected(tab);
   }
 
   return (
     <ul>
-      {tabs.map((tab, index) => (
+      {tabs.map((tab) => (
         <li
-          className={classNames('', { 'is-active': index === select })}
+          className={classNames('', { 'is-active': tab.id === selectedTabId })}
           key={tab.id}
           data-cy={tab.content}
         >
           <a
             href={tab.id}
-            onClick={(event) => clickTab(event, index)}
+            onClick={(event) => clickTab(tab, event)}
           >
             {tab.title}
           </a>
