@@ -14,10 +14,9 @@ export const App: React.FC = () => {
   const [selectedTab, setSelectedTab] = useState(tabs[0]);
 
   const onTabSelected = (tab: Tab): void => {
-    const newTab = tabs.find(link => link.id === tab.id) || tabs[0];
-    const ind = tabs.indexOf(newTab);
-
-    setSelectedTab(tabs[ind]);
+    if (selectedTab.id !== tab.id) {
+      setSelectedTab(tab);
+    }
   };
 
   return (
