@@ -43,7 +43,7 @@ export const Tabs: React.FC<Props> = ({
       </div>
 
       <div className="block" data-cy="tab-content">
-        {tabs.find(tab => selectedTabId === tab.id)?.content}
+        {tabs.find(tab => selectedTabId === tab.id)?.content || tabs[0].content}
       </div>
     </div>
   );
