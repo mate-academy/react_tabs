@@ -9,8 +9,20 @@ export const tabs = [
   { id: 'tab-3', title: 'Tab 3', content: 'Some text 3' },
 ];
 
+type Tab = {
+  id: string,
+  title: string,
+  content: string,
+};
+
 export const App: React.FC = () => {
   const [activeTab, setActiveTab] = useState(tabs[0]);
+
+  const handleTabSelected = (tab: Tab) => {
+    if (tab.id !== activeTab.id) {
+      setActiveTab(tab);
+    }
+  };
 
   return (
 
@@ -22,7 +34,7 @@ export const App: React.FC = () => {
       <Tabs
         tabs={tabs}
         activeTabId={activeTab.id}
-        onTabSelected={setActiveTab}
+        onTabSelected={handleTabSelected}
       />
     </div>
   );

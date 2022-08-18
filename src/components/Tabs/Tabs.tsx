@@ -29,9 +29,7 @@ export const Tabs: React.FC<Props> = (props) => {
               <a
                 href={`#${tab.id}`}
                 onClick={() => {
-                  if (tab.id !== activeTabId) {
-                    onTabSelected(tab);
-                  }
+                  onTabSelected(tab);
                 }}
               >
                 {tab.title}
@@ -42,7 +40,7 @@ export const Tabs: React.FC<Props> = (props) => {
       </div>
 
       <div className="block" data-cy="tab-content">
-        {selectedTab[0].content}
+        {selectedTab[0]?.content}
       </div>
     </div>
   );
