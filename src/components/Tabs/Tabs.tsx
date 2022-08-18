@@ -11,12 +11,6 @@ interface Props {
 export const Tabs: FC<Props> = ({ tabs, selectedTabId, onTabSelected }) => {
   const selectedTab = tabs.find(tab => tab.id === selectedTabId) || tabs[0];
 
-  const selectTabHandler = (tab: Tab) => {
-    if (tab.id !== selectedTabId) {
-      onTabSelected(tab);
-    }
-  };
-
   return (
     <div>
       <div className="tabs is-boxed">
@@ -28,7 +22,7 @@ export const Tabs: FC<Props> = ({ tabs, selectedTabId, onTabSelected }) => {
               )}
               key={tab.id}
             >
-              <a href={`#${tab.id}`} onClick={() => selectTabHandler(tab)}>{tab.title}</a>
+              <a href={`#${tab.id}`} onClick={() => onTabSelected(tab)}>{tab.title}</a>
             </li>
           ))}
         </ul>
