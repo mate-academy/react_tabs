@@ -1,4 +1,5 @@
 import classNames from 'classnames';
+import { Callback } from '../types/Callback';
 import { Tab } from '../types/Tab';
 
 type Props = {
@@ -6,8 +7,6 @@ type Props = {
   selectedTabId: string;
   onTabSelected: Callback;
 };
-
-type Callback = (tab: Tab) => void;
 
 export const Tabs: React.FC<Props> = (props: Props) => {
   const {

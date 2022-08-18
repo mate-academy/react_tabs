@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import 'bulma/css/bulma.css';
 import '@fortawesome/fontawesome-free/css/all.css';
 import { Tabs } from './components/Tabs/Tabs';
-import { Tab } from './components/types/Tab';
+import { Callback } from './components/types/Callback';
 
 export const tabs = [
   { id: 'tab-1', title: 'Tab 1', content: 'Some text 1' },
@@ -13,7 +13,7 @@ export const tabs = [
 export const App: React.FC = () => {
   const [selectedTab, setSelectedTab] = useState(tabs[0]);
 
-  const onTabSelected = (tab: Tab): void => {
+  const onTabSelected: Callback = (tab) => {
     if (selectedTab.id !== tab.id) {
       setSelectedTab(tab);
     }
