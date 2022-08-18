@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import cn from 'classnames';
+import classNames from 'classnames';
 import { Tab } from '../../Types/Tab';
 
 type Props = {
@@ -26,20 +26,14 @@ export const Tabs: FC<Props> = (props) => {
 
             return (
               <li
-                className={cn(
+                className={classNames(
                   { 'is-active': tab.id === selectedTabId },
                 )}
                 key={id}
               >
                 <a
                   href={`#${id}`}
-                  onClick={
-                    () => {
-                      if (tab.id !== selectedTabId) {
-                        onTabSelected(tab);
-                      }
-                    }
-                  }
+                  onClick={() => onTabSelected(tab)}
                 >
                   {title}
                 </a>

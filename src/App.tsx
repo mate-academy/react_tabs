@@ -13,8 +13,10 @@ export const tabs = [
 export const App: FC = () => {
   const [selectedTab, setSelectedTab] = useState<Tab>(tabs[0]);
 
-  const handleTabSelect = (newTab: Tab) => {
-    setSelectedTab(newTab);
+  const handleTabSelect = (nextTab: Tab) => {
+    if (nextTab.id !== selectedTab.id) {
+      setSelectedTab(nextTab);
+    }
   };
 
   return (
