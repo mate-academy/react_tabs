@@ -12,6 +12,11 @@ export const Tabs: React.FC<Props> = ({
   onTabSelected,
 }) => {
   const isSelectedTabExist = tabs.some(tab => tab.id === selectedTab);
+  const handleSelectedTab = (tab: AllTabs) => {
+    if (selectedTab !== tab.id) {
+      onTabSelected(tab);
+    }
+  };
 
   return (
     <div>
@@ -26,11 +31,9 @@ export const Tabs: React.FC<Props> = ({
             >
               <a
                 href={`#${tab.id}`}
-                onClick={event => {
+                onClick={(event) => {
                   event.preventDefault();
-                  if (selectedTab !== tab.id) {
-                    onTabSelected(tab);
-                  }
+                  handleSelectedTab(tab);
                 }}
               >
                 {tab.title}
