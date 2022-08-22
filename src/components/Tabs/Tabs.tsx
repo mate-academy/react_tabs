@@ -13,8 +13,8 @@ export const Tabs: React.FC<Props> = ({
   selectedTabId,
   onTabSelected,
 }) => {
-  const currentTabId = tabs
-    .find(tab => tab.id === selectedTabId)?.id || tabs[0].id;
+  const currentTab = tabs
+    .find(tab => tab.id === selectedTabId) || tabs[0];
 
   return (
     <div>
@@ -24,7 +24,7 @@ export const Tabs: React.FC<Props> = ({
             <li
               key={tab.id}
               className={classNames({
-                'is-active': currentTabId === tab.id,
+                'is-active': currentTab.id === tab.id,
               })}
             >
               <a
