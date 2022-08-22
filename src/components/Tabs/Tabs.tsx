@@ -19,10 +19,6 @@ export const Tabs: React.FC<Props> = ({
 }) => {
   const selectedTab = tabs.find(tab => tab.id === selectedTabId) || tabs[0];
   const handleTabSelect = (tabId: string) => {
-    if (!tabs.find(tab => tab.id === tabId)) {
-      onTabSelected(tabs[0].id);
-    }
-
     if (tabId === selectedTabId) {
       return;
     }
@@ -43,20 +39,6 @@ export const Tabs: React.FC<Props> = ({
             </li>
           );
         })}
-        {/* <li className={classNames({
-          'is-active': selectedTab === 'tab-1',
-        })}
-        >
-          <a href="#tab-1" onClick={() => onTabSelected}>Tab 1</a>
-        </li>
-
-        <li className="">
-          <a href="#tab-2">Tab 2</a>
-        </li>
-
-        <li className="">
-          <a href="#tab-3">Tab 3</a>
-        </li> */}
       </ul>
 
       <div className="block" data-cy="tab-content">
