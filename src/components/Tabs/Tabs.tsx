@@ -1,4 +1,6 @@
 import classNames from 'classnames';
+import 'bulma/css/bulma.css';
+import '@fortawesome/fontawesome-free/css/all.css';
 
 interface Tab {
   id: string;
@@ -27,23 +29,25 @@ export const Tabs: React.FC<Props> = ({
   };
 
   return (
-    <div className="tabs is-boxed">
-      <ul>
-        {tabs.map(tab => {
-          return (
-            <li className={classNames({
-              'is-active': selectedTab.id === tab.id,
-            })}
-            >
-              <a href={`#${tab.id}`} onClick={() => handleTabSelect(tab.id)}>{tab.title}</a>
-            </li>
-          );
-        })}
-      </ul>
+    <>
+      <div className="tabs is-boxed">
+        <ul>
+          {tabs.map(tab => {
+            return (
+              <li className={classNames({
+                'is-active': selectedTab.id === tab.id,
+              })}
+              >
+                <a href={`#${tab.id}`} onClick={() => handleTabSelect(tab.id)}>{tab.title}</a>
+              </li>
+            );
+          })}
+        </ul>
+      </div>
 
       <div className="block" data-cy="tab-content">
         {selectedTab.content}
       </div>
-    </div>
+    </>
   );
 };
