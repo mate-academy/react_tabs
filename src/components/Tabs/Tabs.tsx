@@ -13,6 +13,11 @@ export const Tabs: React.FC<Props> = ({
   setTabSelected,
 }) => {
   const currentTab = tabs.find(tab => tab.id === selectedTab);
+  const onSelectedTab = (tab:Tab) => {
+    if (tab.id !== selectedTab) {
+      setTabSelected(tab);
+    }
+  };
 
   return (
     <div>
@@ -27,11 +32,7 @@ export const Tabs: React.FC<Props> = ({
             >
               <a
                 href={`#${tab.id}`}
-                onClick={() => {
-                  if (tab.id !== selectedTab) {
-                    setTabSelected(tab);
-                  }
-                }}
+                onClick={() => onSelectedTab(tab)}
               >
                 {tab.title}
               </a>
