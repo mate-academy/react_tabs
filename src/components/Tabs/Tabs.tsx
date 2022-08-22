@@ -31,7 +31,11 @@ export const Tabs: React.FC<Props> = React.memo(({
               >
                 <a
                   href={`#${id}`}
-                  onClick={() => onTabSelected(tab)}
+                  onClick={() => {
+                    if (selectedTabId !== id) {
+                      onTabSelected(tab);
+                    }
+                  }}
                 >
                   {title}
                 </a>
