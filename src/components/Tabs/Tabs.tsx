@@ -24,6 +24,12 @@ export const Tabs: React.FC<Props> = ({
     }
   };
 
+  if (tabs.length === 0) {
+    return (
+      <></>
+    );
+  }
+
   return (
     <div>
       <div className="tabs is-boxed">
@@ -45,7 +51,8 @@ export const Tabs: React.FC<Props> = ({
       </div>
 
       <div className="block" data-cy="tab-content">
-        {tabs.find(tab => tab.id === selectedTabId)?.content}
+        {tabs.find(tab => tab.id === selectedTabId)?.content
+          || 'This tab is empty'}
       </div>
     </div>
   );
