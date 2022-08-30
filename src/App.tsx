@@ -11,10 +11,6 @@ export const tabs = [
 export const App: React.FC = () => {
   const [tabId, setTabId] = useState('tab-1');
 
-  // const newTab = (tabId: string): void => {
-  //   setTabId(tabId);
-  // };
-
   return (
     <div className="section">
       <h1 className="title">
