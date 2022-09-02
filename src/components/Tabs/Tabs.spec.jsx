@@ -3,190 +3,110 @@ import { mount } from '@cypress/react';
 import { Tabs } from './Tabs';
 
 const page = {
-  tabs: () => cy.get('.tabs li'),
-  tab: (index) => page.tabs().eq(index),
-  content: () => cy.get('[data-cy="tab-content"]'),
+  getByDataCy: name => cy.get(`[data-cy="${name}"]`),
+  tabs: () => page.getByDataCy('Tab'),
+  content: () => page.getByDataCy('TabContent'),
 };
 
 describe('Tabs component', () => {
-  it('should render all tabs', () => {
-    const tabs = [
-      { id: 'tab-10', title: 'Tab 10', content: 'Some text 10' },
-      { id: 'tab-20', title: 'Tab 20', content: 'Some text 20' },
-      { id: 'tab-30', title: 'Tab 30', content: 'Some text 30' },
-      { id: 'tab-40', title: 'Tab 40', content: 'Some text 40' },
-    ];
+  describe('by default', () => {
+    beforeEach(() => {
+      const tabs = [
+        { id: 'tab-10', title: 'Tab 10', content: 'Some text 10' },
+        { id: 'tab-20', title: 'Tab 20', content: 'Some text 20' },
+        { id: 'tab-30', title: 'Tab 30', content: 'Some text 30' },
+        { id: 'tab-40', title: 'Tab 40', content: 'Some text 40' },
+      ];
 
-    mount((
-      <Tabs
-        tabs={tabs}
-        selectedTabId="tab-10"
-        onTabSelected={() => {}}
-      />
-    ));
+      mount((
+        <Tabs
+          tabs={tabs}
+          selectedTabId="tab-20"
+          onTabSelected={cy.spy().as('onTabSelected')}
+        />
+      ));
+    });
 
-    page.tabs()
-      .should('have.length', 4);
+    it('should render all tabs', () => {
+      page.tabs().should('have.length', 4);
 
-    page.tab(0)
-      .should('contain', 'Tab 10');
+      page.tabs().eq(0).should('have.text', 'Tab 10');
+      page.tabs().eq(1).should('have.text', 'Tab 20');
+      page.tabs().eq(2).should('have.text', 'Tab 30');
+      page.tabs().eq(3).should('have.text', 'Tab 40');
+    });
 
-    page.tab(1)
-      .should('contain', 'Tab 20');
+    it('should have a link in each tab', () => {
+      page.tabs().eq(0).find('a')
+        .should('have.text', 'Tab 10')
+        .and('have.attr', 'href', '#tab-10');
 
-    page.tab(2)
-      .should('contain', 'Tab 30');
+      page.tabs().eq(3).find('a')
+        .should('have.text', 'Tab 40')
+        .and('have.attr', 'href', '#tab-40');
+    });
 
-    page.tab(3)
-      .should('contain', 'Tab 40');
+    it('should highlight only a selected tab', () => {
+      page.tabs().eq(1).should('have.class', 'is-active');
+      page.tabs().eq(0).should('not.have.class', 'is-active');
+      page.tabs().eq(2).should('not.have.class', 'is-active');
+    });
+
+    it('should show the content of the selected tab', () => {
+      page.content().should('have.text', 'Some text 20');
+    });
+
+    it('should not invoke onTabSelected callback before click', () => {
+      cy.get('@onTabSelected').should('not.be.called');
+    });
+
+    it('should invoke onTabSelected if another tab is clicked', () => {
+      page.tabs().eq(3).find('a').click();
+
+      cy.get('@onTabSelected').should('be.calledOnce');
+    });
+
+    it('should invoke onTabSelected with tab data', () => {
+      page.tabs().eq(3).find('a').click();
+
+      const tabData = {
+        id: 'tab-40',
+        title: 'Tab 40',
+        content: 'Some text 40',
+      };
+
+      cy.get('@onTabSelected').should('be.calledWith', tabData);
+    });
+
+    it('should not invoke onTabSelected if the current tab is clicked', () => {
+      page.tabs().eq(1).find('a').click();
+
+      cy.get('@onTabSelected').should('not.be.called');
+    });
   });
 
-  it('should have a link in each tab', () => {
-    const tabs = [
-      { id: 'tab-1', title: 'Tab 1', content: 'Some text 1' },
-      { id: 'tab-2', title: 'Tab 2', content: 'Some text 2' },
-      { id: 'tab-3', title: 'Tab 3', content: 'Some text 3' },
-    ];
+  describe('', () => {
+    it('should highlight the first tab if selectedTabId is wrong', () => {
+      const tabs = [
+        { id: 'tab-10', title: 'Tab 10', content: 'Some text 10' },
+        { id: 'tab-20', title: 'Tab 20', content: 'Some text 20' },
+        { id: 'tab-30', title: 'Tab 30', content: 'Some text 30' },
+        { id: 'tab-40', title: 'Tab 40', content: 'Some text 40' },
+      ];
 
-    mount((
-      <Tabs
-        tabs={tabs}
-        selectedTabId="tab-1"
-        onTabSelected={() => {}}
-      />
-    ));
+      mount((
+        <Tabs
+          tabs={tabs}
+          selectedTabId="asdasd"
+          onTabSelected={() => { }}
+        />
+      ));
 
-    page.tab(1)
-      .find('a')
-      .should('have.text', 'Tab 2')
-      .and('have.attr', 'href', '#tab-2');
-  });
+      page.tabs().eq(0)
+        .should('have.class', 'is-active');
 
-  it('should highlight only a selected tab', () => {
-    const tabs = [
-      { id: 'tab-10', title: 'Tab 10', content: 'Some text 10' },
-      { id: 'tab-20', title: 'Tab 20', content: 'Some text 20' },
-      { id: 'tab-30', title: 'Tab 30', content: 'Some text 30' },
-      { id: 'tab-40', title: 'Tab 40', content: 'Some text 40' },
-    ];
-
-    mount((
-      <Tabs
-        tabs={tabs}
-        selectedTabId="tab-20"
-        onTabSelected={() => {}}
-      />
-    ));
-
-    page.tab(1)
-      .should('have.class', 'is-active');
-
-    page.tab(0)
-      .should('not.have.class', 'is-active');
-
-    page.tab(2)
-      .should('not.have.class', 'is-active');
-  });
-
-  it('should highlight the first tab if selectedTabId is wrong', () => {
-    const tabs = [
-      { id: 'tab-10', title: 'Tab 10', content: 'Some text 10' },
-      { id: 'tab-20', title: 'Tab 20', content: 'Some text 20' },
-      { id: 'tab-30', title: 'Tab 30', content: 'Some text 30' },
-      { id: 'tab-40', title: 'Tab 40', content: 'Some text 40' },
-    ];
-
-    mount((
-      <Tabs
-        tabs={tabs}
-        selectedTabId="asdasd"
-        onTabSelected={() => {}}
-      />
-    ));
-
-    page.tab(0)
-      .should('have.class', 'is-active');
-
-    page.tab(1)
-      .should('not.have.class', 'is-active');
-  });
-
-  it('should show the content of the selected tab', () => {
-    const tabs = [
-      { id: 'tab-10', title: 'Tab 10', content: 'Some text 10' },
-      { id: 'tab-20', title: 'Tab 20', content: 'Some text 20' },
-      { id: 'tab-30', title: 'Tab 30', content: 'Some text 30' },
-      { id: 'tab-40', title: 'Tab 40', content: 'Some text 40' },
-    ];
-
-    mount((
-      <Tabs
-        tabs={tabs}
-        selectedTabId="tab-30"
-        onTabSelected={() => {}}
-      />
-    ));
-
-    page.content()
-      .should('have.text', 'Some text 30');
-  });
-
-  it('should invoke onTabSelected if another tab is clicked', () => {
-    const props = {
-      onTabSelected() {},
-    };
-
-    cy.spy(props, 'onTabSelected');
-
-    const tabs = [
-      { id: 'tab-1', title: 'Tab 1', content: 'Some text 1' },
-      { id: 'tab-2', title: 'Tab 2', content: 'Some text 2' },
-      { id: 'tab-3', title: 'Tab 3', content: 'Some text 3' },
-    ];
-
-    mount((
-      <Tabs
-        tabs={tabs}
-        selectedTabId="tab-3"
-        onTabSelected={props.onTabSelected}
-      />
-    ));
-
-    page.tab(1)
-      .find('a')
-      .click()
-      .then(() => {
-        expect(props.onTabSelected)
-          .to.be.called;
-      });
-  });
-
-  it('should not invoke onTabSelected if the current tab is clicked', () => {
-    const props = {
-      onTabSelected() {},
-    };
-
-    cy.spy(props, 'onTabSelected');
-
-    const tabs = [
-      { id: 'tab-1', title: 'Tab 1', content: 'Some text 1' },
-      { id: 'tab-2', title: 'Tab 2', content: 'Some text 2' },
-      { id: 'tab-3', title: 'Tab 3', content: 'Some text 3' },
-    ];
-
-    mount((
-      <Tabs
-        tabs={tabs}
-        selectedTabId="tab-3"
-        onTabSelected={props.onTabSelected}
-      />
-    ));
-
-    page.tab(2)
-      .find('a')
-      .click()
-      .then(() => {
-        expect(props.onTabSelected).not.to.be.called;
-      });
+      page.tabs().eq(1)
+        .should('not.have.class', 'is-active');
+    });
   });
 });
