@@ -3,13 +3,13 @@ import { Tab } from '../../types/Tab';
 type Props = {
   tabs: Tab[];
   selectedTabId: string;
-  onSelected: (tab: Tab) => void;
+  onTabSelected: (tab: Tab) => void;
 };
 
 export const Tabs: React.FC<Props> = ({
   tabs,
   selectedTabId,
-  onSelected,
+  onTabSelected,
 }) => {
   const selectedTab = tabs.find(tab => tab.id === selectedTabId) || tabs[0];
   const { content } = selectedTab;
@@ -37,7 +37,7 @@ export const Tabs: React.FC<Props> = ({
                       return;
                     }
 
-                    onSelected(tab);
+                    onTabSelected(tab);
                   }}
                 >
                   {title}
