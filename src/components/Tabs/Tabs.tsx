@@ -2,11 +2,17 @@ import { Tab } from '../../types/Tab';
 
 type Props = {
   tabs: Tab[];
-  selectedTab: Tab;
+  selectedTabId: string;
+  content: string;
   onSelected: (tab: Tab) => void;
 };
 
-export const Tabs: React.FC<Props> = ({ tabs, selectedTab, onSelected }) => {
+export const Tabs: React.FC<Props> = ({
+  tabs,
+  selectedTabId,
+  content,
+  onSelected,
+}) => {
   return (
     <div data-cy="TabsComponent">
       <div className="tabs is-boxed">
@@ -17,7 +23,7 @@ export const Tabs: React.FC<Props> = ({ tabs, selectedTab, onSelected }) => {
             return (
               <li
                 key={id}
-                className={selectedTab.id === id
+                className={selectedTabId === id
                   ? 'is-active'
                   : ''}
                 data-cy="Tab"
@@ -26,7 +32,7 @@ export const Tabs: React.FC<Props> = ({ tabs, selectedTab, onSelected }) => {
                   href={`#${id}`}
                   data-cy="TabLink"
                   onClick={() => {
-                    if (selectedTab.id === id) {
+                    if (selectedTabId === id) {
                       return;
                     }
 
@@ -42,7 +48,7 @@ export const Tabs: React.FC<Props> = ({ tabs, selectedTab, onSelected }) => {
       </div>
 
       <div className="block" data-cy="TabContent">
-        {selectedTab.content}
+        {content}
       </div>
     </div>
   );
