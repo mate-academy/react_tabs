@@ -1,3 +1,4 @@
+import classNames from 'classnames';
 import React from 'react';
 import { Tab } from '../../types/Tab';
 
@@ -25,16 +26,17 @@ export const Tabs: React.FC<Props> = ({
             return (
               <li
                 key={id}
-                className={selectedTabId === id
-                  ? 'is-active'
-                  : ''}
+                className={classNames({
+                  'is-active':
+                 selectedTab.id === tab.id,
+                })}
                 data-cy="Tab"
               >
                 <a
                   href={`#${id}`}
                   data-cy="TabLink"
                   onClick={() => {
-                    if (selectedTabId === id) {
+                    if (selectedTab.id === tab.id) {
                       return;
                     }
 
