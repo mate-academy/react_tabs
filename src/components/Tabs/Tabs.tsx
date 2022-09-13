@@ -1,3 +1,4 @@
+import classNames from 'classnames';
 import { Tab } from '../../Tab';
 
 type Props = {
@@ -13,6 +14,14 @@ export const Tabs: React.FC<Props> = ({
 }) => {
   const selectedTab = tabs.find(tab => tab.id === selectedTabId) || tabs[0];
 
+  const handleClick = (tab: Tab) => {
+    if (selectedTabId !== tab.id) {
+      return onTabSelected(tab);
+    }
+
+    return null;
+  };
+
   return (
     <div data-cy="TabsComponent">
       <div className="tabs is-boxed">
@@ -20,20 +29,16 @@ export const Tabs: React.FC<Props> = ({
           {tabs.map(tab => {
             return (
               <li
-                className={
-                  selectedTab?.id === tab.id
-                    ? 'is-active'
-                    : ''
-                }
+                className={classNames({
+                  'is-active': selectedTab?.id === tab.id,
+                })}
                 data-cy="Tab"
                 key={tab.id}
               >
                 <a
                   href={`#${tab.id}`}
                   data-cy="TabLink"
-                  onClick={() => (
-                    selectedTabId !== tab.id && onTabSelected(tab)
-                  )}
+                  onClick={() => handleClick(tab)}
                 >
                   {tab.title}
                 </a>
