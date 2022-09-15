@@ -1,14 +1,17 @@
 import React from 'react';
-
 import { TabsArrow } from '../../types/TabsArrow';
 
 type Props = {
   tabs: TabsArrow[],
   tabId: string,
-  onTab: TabsArrow,
+  onTab: CallableFunction,
 };
 
-export const Tabs: React.FC<Props> = ({ tabs, tabId, onTab }) => {
+export const Tabs: React.FC<Props> = ({
+  tabs,
+  tabId,
+  onTab,
+}) => {
   return (
     <div data-cy="tab-content">
       <div className="tabs is-boxed">
