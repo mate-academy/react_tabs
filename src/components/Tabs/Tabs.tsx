@@ -3,20 +3,15 @@ import Tab from '../../types/tabs';
 
 type Props = {
   tabs: Tab[];
-  selectedTab: Tab;
+  selectedTabId: string;
   changeSelectedTab: React.Dispatch<React.SetStateAction<Tab>>;
 };
 
 export const Tabs: React.FC<Props> = ({
   tabs,
-  selectedTab,
+  selectedTabId,
   changeSelectedTab,
 }) => {
-  const {
-    id: selectedTabId,
-    content: selectedTabContent,
-  } = selectedTab;
-
   const onTabSelected = (currentTab: Tab) => {
     const targetTab = tabs.find(tab => tab === currentTab);
 
@@ -26,38 +21,30 @@ export const Tabs: React.FC<Props> = ({
   };
 
   return (
-    <>
-      <div data-cy="TabsComponent">
-        <div className="tabs is-boxed">
-          <ul>
-            {tabs.map(tab => (
-              <li
-                key={tab.id}
-                className={classNames(
-                  { 'is-active': tab.id === selectedTabId },
+    <div data-cy="TabsComponent">
+      <div className="tabs is-boxed">
+        <ul>
+          {tabs.map(tab => (
+            <li
+              key={tab.id}
+              className={classNames(
+                { 'is-active': tab.id === selectedTabId },
+              )}
+              data-cy="Tab"
+            >
+              <a
+                href={`#${tab.id}`}
+                data-cy="TabLink"
+                onClick={() => (
+                  selectedTabId !== tab.id && onTabSelected(tab)
                 )}
-                data-cy="Tab"
               >
-                <a
-                  href={`#${tab.id}`}
-                  data-cy="TabLink"
-                  onClick={() => {
-                    if (selectedTab !== tab) {
-                      onTabSelected(tab);
-                    }
-                  }}
-                >
-                  {tab.title}
-                </a>
-              </li>
-            ))}
-          </ul>
-        </div>
+                {tab.title}
+              </a>
+            </li>
+          ))}
+        </ul>
       </div>
-
-      <div className="block" data-cy="TabContent">
-        {selectedTabContent}
-      </div>
-    </>
+    </div>
   );
 };

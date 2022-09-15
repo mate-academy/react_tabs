@@ -12,7 +12,7 @@ export const tabs = [
 ];
 
 export const App: React.FC = () => {
-  const [selectedTab, changeSelectedTab] = useState(tabs[0]);
+  const [selectedTab, setSelectedTab] = useState(tabs[0]);
 
   return (
     <div className="section">
@@ -22,9 +22,13 @@ export const App: React.FC = () => {
 
       <Tabs
         tabs={tabs}
-        selectedTab={selectedTab}
-        changeSelectedTab={changeSelectedTab}
+        selectedTabId={selectedTab.id}
+        changeSelectedTab={setSelectedTab}
       />
+
+      <div className="block" data-cy="TabContent">
+        {selectedTab.content}
+      </div>
     </div>
   );
 };
