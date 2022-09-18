@@ -10,31 +10,34 @@ export const tabs = [
 ];
 
 export const App: React.FC = () => {
+  // const [tabs, setTabs] = useState([1]);
+
+  const copyTabs = [...tabs];
+
   return (
     <div className="section">
       <h1 className="title">
-        Selected tab is Tab 1
+        {`Selected tab is Tab ${title}`}
       </h1>
 
       <div data-cy="TabsComponent">
         <div className="tabs is-boxed">
           <ul>
-            <li className="is-active" data-cy="Tab">
-              <a href="#tab-1" data-cy="TabLink">Tab 1</a>
-            </li>
-
-            <li data-cy="Tab">
-              <a href="#tab-2" data-cy="TabLink">Tab 2</a>
-            </li>
-
-            <li data-cy="Tab">
-              <a href="#tab-3" data-cy="TabLink">Tab 3</a>
-            </li>
+            {copyTabs.map(tab => (
+              <li
+                className="is-active"
+                data-cy="Tab"
+                key={tab.id}
+              >
+                <a href={`#tab-${tab.id}`} data-cy="TabLink">{tab.title}</a>
+              </li>
+            ))}
           </ul>
         </div>
 
         <div className="block" data-cy="TabContent">
           Some text 1
+          {/* {copyTabs.content} */}
         </div>
       </div>
     </div>
