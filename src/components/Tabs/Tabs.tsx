@@ -1,64 +1,52 @@
 import classNames from 'classnames';
-
-interface Tab {
-  id: string,
-  title: string,
-  content: string,
-}
+import { Tab } from '../../types/Tab';
 
 type Props = {
   tabs: Tab[],
-  onSelect: (
-    tabId: string,
-    tabTitle: string,
-    tabContent: string,
-  ) => void,
-  tabId: string,
-  tabTitle: string,
-  tabContent: string,
+  onTabSelect: (tab: Tab) => void,
+  selectedTabId: string,
 };
 
 export const Tabs: React.FC<Props> = ({
   tabs,
-  onSelect,
-  tabId,
-  tabTitle,
-  tabContent,
+  onTabSelect,
+  selectedTabId,
 }) => {
-  return (
-    <>
-      <h1 className="title">
-        {`Selected tab is ${tabTitle}`}
-      </h1>
+  const selectedTab = tabs.find(tab => tab.id === selectedTabId) || tabs[0];
 
-      <div data-cy="TabsComponent">
-        <div className="tabs is-boxed">
-          <ul>
-            {tabs.map(({ id, title, content }) => (
+  return (
+    <div data-cy="TabsComponent">
+      <div className="tabs is-boxed">
+        <ul>
+          {tabs.map((tab) => {
+            const { id, title } = tab;
+
+            return (
               <li
                 data-cy="Tab"
-                className={classNames({
-                  'is-active': tabId === id,
-                })}
+                key={id}
+                className={classNames(
+                  { 'is-active': id === selectedTab.id },
+                )}
               >
                 <a
                   href={`#${id}`}
                   data-cy="TabLink"
                   onClick={() => {
-                    onSelect(id, title, content);
+                    onTabSelect(tab);
                   }}
                 >
                   {title}
                 </a>
               </li>
-            ))}
-          </ul>
-        </div>
-
-        <div className="block" data-cy="TabContent">
-          {tabContent}
-        </div>
+            );
+          })}
+        </ul>
       </div>
-    </>
+
+      <div className="block" data-cy="TabContent">
+        {selectedTab.content}
+      </div>
+    </div>
   );
 };
