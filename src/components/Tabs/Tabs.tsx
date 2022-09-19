@@ -1,11 +1,6 @@
 import classNames from 'classnames';
 import { Tab } from '../../Tab';
 
-// type TabsType = {
-//   tabs: Tab[]
-//   selectedTabId: string,
-//   onTabSelected: (tab: Tab) => void
-// };
 type TabsType = {
   tabs: Tab[]
   selectedTab: Tab
