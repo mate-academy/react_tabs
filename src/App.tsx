@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import 'bulma/css/bulma.css';
 import '@fortawesome/fontawesome-free/css/all.css';
 import './App.scss';
@@ -14,7 +14,9 @@ export const tabs = [
 export const App: React.FC = () => {
   const [selectedTabid, setSelectedTabid] = useState(tabs[0].id);
 
-  const selectedTab = tabs.find(tab => tab.id === selectedTabid) || tabs[0];
+  const selectedTab = useMemo(() => {
+    return tabs.find(tab => tab.id === selectedTabid) || tabs[0];
+  }, [selectedTabid]);
 
   const handleTabSelect = (tab: Tab) => {
     setSelectedTabid(tab.id);
@@ -28,7 +30,7 @@ export const App: React.FC = () => {
       <Tabs
         tabs={tabs}
         onTabSelected={handleTabSelect}
-        selectedTabId={selectedTab.id}
+        selectedTab={selectedTab}
       />
     </div>
   );
