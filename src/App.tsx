@@ -3,7 +3,6 @@ import 'bulma/css/bulma.css';
 import '@fortawesome/fontawesome-free/css/all.css';
 import './App.scss';
 import { Tabs } from './components/Tabs';
-import { TabsArrow } from './types/TabsArrow';
 
 export const tabs = [
   { id: 'tab-1', title: 'Tab 1', content: 'Some text 1' },
@@ -16,9 +15,9 @@ export const App: React.FC = () => {
 
   const tabContent = tabs.find(tab => tab.id === selectedTabId);
 
-  const onTabSelected = (tab: TabsArrow) => {
-    if (tab.id !== selectedTabId) {
-      setSelectedTabId(tab.id);
+  const onTabSelected = (tabId: string) => {
+    if (tabId !== selectedTabId) {
+      setSelectedTabId(tabId);
     }
   };
 

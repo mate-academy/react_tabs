@@ -4,7 +4,7 @@ import { TabsArrow } from '../../types/TabsArrow';
 type Props = {
   tabs: TabsArrow[],
   tabId: string,
-  onTab: CallableFunction,
+  onTab: (tab: string) => void,
 };
 
 export const Tabs: React.FC<Props> = ({
@@ -25,7 +25,7 @@ export const Tabs: React.FC<Props> = ({
               <a
                 href={`#${tab.id}`}
                 data-cy="TabLink"
-                onClick={() => onTab(tab)}
+                onClick={() => onTab(tab.id)}
               >
                 {tab.title}
               </a>
