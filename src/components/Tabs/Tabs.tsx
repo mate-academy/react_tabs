@@ -1,25 +1,26 @@
 import classNames from 'classnames';
 import React from 'react';
+import { Tab } from '../../types/Tab';
 
-interface Props {
-  id: string,
-  title: string,
-  content: string,
-}
-
-interface TabsType {
-  tabs: Props[],
+interface Props{
+  tabs: Tab[],
   selectedTabId: string,
-  onTabSelected: (value: Props) => void,
+  onTabSelected: (tab: Tab) => void,
 }
 
-export const Tabs: React.FC<TabsType> = React.memo(
+export const Tabs: React.FC<Props> = React.memo(
   ({
     tabs,
     selectedTabId,
     onTabSelected,
   }) => {
     const selectedTab = tabs.find(tab => tab.id === selectedTabId) || tabs[0];
+
+    const hendleClick = (tab: Tab) => {
+      if (selectedTabId !== tab.id) {
+        onTabSelected(tab);
+      }
+    };
 
     return (
       <div data-cy="TabsComponent">
@@ -38,13 +39,7 @@ export const Tabs: React.FC<TabsType> = React.memo(
                     <a
                       href={`#${tab.id}`}
                       data-cy="TabLink"
-                      onClick={() => {
-                        if (selectedTabId === tab.id) {
-                          return;
-                        }
-
-                        onTabSelected(tab);
-                      }}
+                      onClick={() => hendleClick(tab)}
                     >
                       {tab.title}
                     </a>
