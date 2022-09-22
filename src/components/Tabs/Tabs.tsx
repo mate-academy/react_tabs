@@ -9,16 +9,18 @@ interface Props {
 
 interface TabsType {
   tabs: Props[],
-  selectedTabId: Props,
-  handelClick: (value: Props) => void,
+  selectedTabId: string,
+  onTabSelected: (value: Props) => void,
 }
 
 export const Tabs: React.FC<TabsType> = React.memo(
   ({
     tabs,
     selectedTabId,
-    handelClick,
+    onTabSelected,
   }) => {
+    const selectedTab = tabs.find(tab => tab.id === selectedTabId) || tabs[0];
+
     return (
       <div data-cy="TabsComponent">
         <div className="tabs is-boxed">
@@ -29,14 +31,20 @@ export const Tabs: React.FC<TabsType> = React.memo(
                   <li
                     key={tab.id}
                     className={classNames(
-                      { 'is-active': tab.id === selectedTabId.id },
+                      { 'is-active': tab.id === selectedTab.id },
                     )}
                     data-cy="Tab"
                   >
                     <a
                       href={`#${tab.id}`}
                       data-cy="TabLink"
-                      onClick={() => handelClick(tab)}
+                      onClick={() => {
+                        if (selectedTabId === tab.id) {
+                          return;
+                        }
+
+                        onTabSelected(tab);
+                      }}
                     >
                       {tab.title}
                     </a>
@@ -48,7 +56,7 @@ export const Tabs: React.FC<TabsType> = React.memo(
         </div>
 
         <div className="block" data-cy="TabContent">
-          {selectedTabId.content}
+          {selectedTab.content}
         </div>
       </div>
 
