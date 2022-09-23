@@ -10,15 +10,15 @@ type Props = {
   tabs: TabProp[],
   setSelectedTabId: (id: string) => void,
   selectedTabId: string,
+  selectedTab: TabProp,
 };
 
 export const Tabs: React.FC<Props> = ({
   tabs,
   setSelectedTabId,
   selectedTabId,
+  selectedTab,
 }) => {
-  const selectedTab = tabs.find((tab: TabProp) => tab.id === selectedTabId);
-
   return (
     <div data-cy="TabsComponent">
       <div className="tabs is-boxed">

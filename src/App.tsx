@@ -12,17 +12,21 @@ export const tabs = [
 
 export const App: React.FC = () => {
   const [selectedTabId, setSelectedTabId] = useState('tab-1');
+  const selectedTab = tabs.find(tab => {
+    return tab.id === selectedTabId;
+  });
 
   return (
     <div className="section">
       <h1 className="title">
-        Selected tab is Tab 1
+        {`Selected tab is ${selectedTab && selectedTab.title}`}
       </h1>
 
       <Tabs
         tabs={tabs}
         setSelectedTabId={setSelectedTabId}
         selectedTabId={selectedTabId}
+        selectedTab={selectedTab}
       />
     </div>
   );
