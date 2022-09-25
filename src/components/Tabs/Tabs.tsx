@@ -1,10 +1,14 @@
 import classNames from 'classnames';
 import React from 'react';
-// import classNames from 'classnames';
+
+interface Tab {
+  id: string;
+  title: string;
+  content: string;
+}
 
 type Props = {
   tabs: Tab[],
-  // tabs: Array<{}>,
   selectedTab: {
     id: string;
     title: string;
@@ -38,9 +42,7 @@ export const Tabs: React.FC<Props> = (
                 href={`#${tab.id}`}
                 data-cy="TabLink"
                 onClick={() => {
-                  // eslint-disable-next-line @typescript-eslint/no-unused-expressions
                   setselectedTab(tab);
-                  console.log(tab);
                 }}
               >
                 {tab.title}
