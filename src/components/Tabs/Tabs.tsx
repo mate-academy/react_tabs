@@ -34,16 +34,16 @@ export const Tabs: React.FC<Props> = ({
               data-cy="Tab"
               onClick={() => handleTabClick(tab)}
             >
-              <a href={`#${tab.id}`} data-cy="TabLink">{tab.title}</a>
+              <a href={`#${tab.id}`} data-cy="TabLink">
+                {tab.title}
+              </a>
             </li>
           ))}
         </ul>
       </div>
 
       <div className="block" data-cy="TabContent">
-        {tabs
-          .filter((tab) => tab.id === selectedTabId)
-          .map(({ content }) => content)}
+        {selectedTab.content}
       </div>
     </div>
   );
