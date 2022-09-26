@@ -22,8 +22,9 @@ export const Tabs: React.FC<Props> = ({
         <ul>
           {(tabs.map(tab => (
             <li
-              className={classNames('',
-                { 'is-active': tab.id === selectedTab.id })}
+              className={classNames({
+                'is-active': tab.id === selectedTab.id,
+              })}
               data-cy="Tab"
               key={tab.id}
             >
@@ -31,9 +32,8 @@ export const Tabs: React.FC<Props> = ({
                 href={`#${tab.id}`}
                 data-cy="TabLink"
                 onClick={() => {
-                  // eslint-disable-next-line @typescript-eslint/no-unused-expressions
-                  (tab.id !== selectedTab.id)
-                    && (onTabSelected(tab));
+                  return ((tab.id !== selectedTab.id)
+                    && (onTabSelected(tab)));
                 }}
               >
                 {tab.title}
