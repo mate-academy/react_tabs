@@ -1,4 +1,5 @@
 import ForTabs from '../../types/ForTabs';
+import { Tab } from '../../types/Tab';
 
 type Props = {
   tabs: ForTabs[],
@@ -11,6 +12,10 @@ export const Tabs: React.FC<Props> = ({
   selectedTabId,
   onTabSelected,
 }) => {
+  const handleClick = (tab: Tab) => (
+    tab.id !== selectedTabId && onTabSelected(tab)
+  );
+
   const findSelectedTab = tabs.some(tab => selectedTabId === tab.id);
 
   return (
@@ -25,13 +30,7 @@ export const Tabs: React.FC<Props> = ({
             >
               <a
                 href={`#${tab.id}`}
-                onClick={event => {
-                  event.preventDefault();
-
-                  if (tab.id !== selectedTabId) {
-                    onTabSelected(tab);
-                  }
-                }}
+                onClick={() => handleClick(tab)}
               >
                 {tab.title}
               </a>
