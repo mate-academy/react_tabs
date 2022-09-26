@@ -1,3 +1,4 @@
+import classNames from 'classnames';
 import { Tab } from '../../types/Tab';
 
 type Props = {
@@ -16,11 +17,9 @@ export const Tabs: React.FC<Props> = (props) => {
         <ul>
           {tabs.map(tab => (
             <li
-              className={
-                selectedTab?.id === tab.id
-                  ? 'is-active'
-                  : ''
-              }
+              className={classNames(
+                '',
+                {'is-active': selectedTab.id === tab.id})}
               data-cy="Tab"
               key={tab.id}
             >
