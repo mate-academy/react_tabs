@@ -13,7 +13,7 @@ export const tabs = [
 export const App: React.FC = () => {
   const [selectedTabId, setSelectedTabId] = useState(tabs[0].id);
 
-  const tabContent = tabs.find(tab => tab.id === selectedTabId);
+  const selectedTab = tabs.find(tab => tab.id === selectedTabId);
 
   const onTabSelected = (tabId: string) => {
     if (tabId !== selectedTabId) {
@@ -26,7 +26,7 @@ export const App: React.FC = () => {
       <h1 className="title">
         Selected tab is
         {' '}
-        {tabContent?.title || tabs[0].title}
+        {selectedTab?.title || tabs[0].title}
       </h1>
 
       <Tabs
