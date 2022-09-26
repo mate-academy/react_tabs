@@ -21,9 +21,7 @@ export const App: React.FC = () => {
   return (
     <div className="section">
       <h1 className="title">
-        Selected tab is
-        {' '}
-        {title}
+        {`Selected tab is ${title}`}
       </h1>
 
       <Tabs
