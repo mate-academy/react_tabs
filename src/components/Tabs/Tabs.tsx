@@ -32,7 +32,7 @@ export const Tabs: React.FC<Props> = ({
                 data-cy="Tab"
                 key={id}
                 className={classNames(
-                  { 'is-active': tab.id === selectedTab.id },
+                  { 'is-active': id === selectedTab.id },
                 )}
               >
                 <a
