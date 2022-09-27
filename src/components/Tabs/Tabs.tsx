@@ -28,16 +28,17 @@ export const Tabs: React.FC<Props> = ({
             tabs.map(tab => {
               return (
                 <li
-                  className={classNames('',
-                    { 'is-active': selectedTabId === tab.id })}
+                  className={classNames(
+                    { 'is-active': selectedTab.id === tab.id },
+                  )}
                   data-cy="Tab"
                 >
                   <a
-                    href="#tab-1"
+                    href={`#${tab.id}`}
                     data-cy="TabLink"
                     onClick={() => switchTabs(tab)}
                   >
-                    Tab 1
+                    {tab.title}
                   </a>
                 </li>
               );
