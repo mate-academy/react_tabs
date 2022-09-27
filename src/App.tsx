@@ -15,9 +15,7 @@ export const App: React.FC = () => {
   const [selectedTab, setSelectedTab] = useState(tabs[0]);
 
   const selectTab = (tab: ITab) => {
-    const indexOfSelectedTab = tabs.indexOf(tab);
-
-    setSelectedTab(tabs[indexOfSelectedTab]);
+    setSelectedTab(tab);
   };
 
   const { id, title } = selectedTab;

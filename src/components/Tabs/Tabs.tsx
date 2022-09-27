@@ -1,3 +1,4 @@
+import classNames from 'classnames';
 import { ITab } from '../../types/ITab';
 
 type Props = {
@@ -11,10 +12,16 @@ export const Tabs: React.FC<Props> = ({
   selectedTabId,
   onTabSelected,
 }) => {
-  const tabContent = tabs.find(tab => tab.id === selectedTabId)?.content;
+  const tabContent
+    = (tabs.find(tab => tab.id === selectedTabId) || tabs[0]).content;
+
+  const handleClick = (tab: ITab) => {
+    if (selectedTabId !== tab.id) {
+      onTabSelected(tab);
+    }
+  };
 
   return (
-
     <div data-cy="TabsComponent">
       <div className="tabs is-boxed">
         <ul>
@@ -24,14 +31,13 @@ export const Tabs: React.FC<Props> = ({
             return (
               <li
                 data-cy="Tab"
-                className={selectedTabId === id ? 'is-active' : ''}
+                className={classNames({ 'is-active': selectedTabId === id })}
+                key={id}
               >
                 <a
                   href={`#${id}`}
                   data-cy="TabLink"
-                  onClick={
-                    selectedTabId !== id ? () => onTabSelected(tab) : undefined
-                  }
+                  onClick={() => handleClick(tab)}
                 >
                   {title}
                 </a>
