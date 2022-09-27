@@ -18,8 +18,6 @@ export const Tabs: React.FC<Props> = ({
   selectedTabId,
   onTabSelected,
 }) => {
-  // const { id, title, content } = tabs;
-
   return (
     <div data-cy="TabsComponent">
       <div className="tabs is-boxed">
