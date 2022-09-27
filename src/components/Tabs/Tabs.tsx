@@ -32,11 +32,9 @@ export const Tabs: React.FC<Props> = ({
             // eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-noninteractive-element-interactions
             <li
               key={id}
-              className={classNames(
-                {
-                  'is-active': id === tabId,
-                },
-              )}
+              className={classNames({
+                'is-active': id === tabId,
+              })}
               data-cy="Tab"
               onClick={() => handleClick(id)}
             >
