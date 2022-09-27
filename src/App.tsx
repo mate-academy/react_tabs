@@ -8,7 +8,7 @@ import { tabs } from './tabsFromServer';
 
 export const App: React.FC = () => {
   const tabsArr = [...tabs];
-  const [isActiveId, onTabSelected] = useState('tab-1');
+  const [isActiveId, onTabSelected] = useState(tabs[0].id);
 
   const setActiveId = (tab:Tab) => {
     if (isActiveId === tab.id) {
@@ -25,18 +25,12 @@ export const App: React.FC = () => {
       <h1 className="title">
         {`Selected tab is ${activeTab.title}`}
       </h1>
+      <Tabs
+        tabs={tabsArr}
+        activeTab={activeTab}
+        setActiveId={setActiveId}
 
-      <div data-cy="TabsComponent">
-        <Tabs
-          tabs={tabsArr}
-          isActiveId={isActiveId}
-          setActiveId={setActiveId}
-        />
-
-        <div className="block" data-cy="TabContent">
-          {activeTab.content}
-        </div>
-      </div>
+      />
     </div>
   );
 };
