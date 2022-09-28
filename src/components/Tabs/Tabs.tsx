@@ -11,7 +11,7 @@ type Props = {
   handler: (tabId :string) => void;
   selectedTabId: string;
 };
-
+// \
 export const Tabs : React.FC<Props> = ({ tabs, handler, selectedTabId }) => (
   <div data-cy="TabsComponent">
     <div className="tabs is-boxed">
