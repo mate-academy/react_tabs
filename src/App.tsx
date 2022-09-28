@@ -11,22 +11,22 @@ export const tabs = [
 ];
 
 export const App: React.FC = () => {
-  const [selectedTabId, setSelectedTabId] = useState(1);
+  const [id, setId] = useState(tabs[0].id);
 
   const setTab = (tabId: string) => {
-    const id = tabId;
-
-    setSelectedTabId(+id);
+    setId(tabId);
   };
 
   return (
-    <>
-      <div className="section">
-        <h1 className="title">
-          {`Selected tab is Tab ${selectedTabId}`}
-        </h1>
-      </div>
-      <Tabs tabs={tabs} handler={setTab} selectTab={selectedTabId} />
-    </>
+    <div className="section">
+      <h1 className="title">
+        {`Selected tab is Tab ${id.slice(-1)}`}
+      </h1>
+      <Tabs
+        tabs={tabs}
+        handler={setTab}
+        selectedTabId={id}
+      />
+    </div>
   );
 };

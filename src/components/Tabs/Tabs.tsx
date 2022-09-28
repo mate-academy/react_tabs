@@ -8,11 +8,11 @@ export interface Tab {
 
 type Props = {
   tabs: Tab[];
-  handler: (tabId :string) => void
-  selectTab: number
+  handler: (tabId :string) => void;
+  selectedTabId: string;
 };
 
-export const Tabs : React.FC<Props> = ({ tabs, handler, selectTab }) => (
+export const Tabs : React.FC<Props> = ({ tabs, handler, selectedTabId }) => (
   <div data-cy="TabsComponent">
     <div className="tabs is-boxed">
       <ul>
@@ -23,7 +23,7 @@ export const Tabs : React.FC<Props> = ({ tabs, handler, selectTab }) => (
             <li
               key={id}
               className={classNames(
-                { 'is-active': id.includes(selectTab.toString()) },
+                { 'is-active': id === selectedTabId },
               )}
               data-cy="Tab"
             >
@@ -41,7 +41,7 @@ export const Tabs : React.FC<Props> = ({ tabs, handler, selectTab }) => (
     </div>
 
     <div className="block" data-cy="TabContent">
-      {tabs[selectTab - 1].content}
+      {tabs.find(tab => tab.id === selectedTabId)?.content}
     </div>
   </div>
 );
