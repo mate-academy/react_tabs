@@ -3,19 +3,19 @@ import { Tab } from '../../types/Tab';
 
 interface Props {
   tabs: Tab[],
-  activeTab: string,
+  selectedTabId: string,
   onActiveTab: (tab: Tab) => void,
   selectedTab: Tab,
 }
 
 export const Tabs: React.FC<Props> = ({
   tabs,
-  activeTab,
+  selectedTabId,
   onActiveTab,
   selectedTab,
 }) => {
   const hendleClick = (tab: Tab) => {
-    if (activeTab !== tab.id) {
+    if (selectedTabId !== tab.id) {
       onActiveTab(tab);
     }
   };
@@ -26,20 +26,22 @@ export const Tabs: React.FC<Props> = ({
         <ul>
           {
             tabs.map((tab) => {
+              const { id, title } = tab;
+
               return (
                 <li
-                  key={tab.id}
+                  key={id}
                   className={classNames(
-                    { 'is-active': tab.id === selectedTab.id },
+                    { 'is-active': id === selectedTab.id },
                   )}
                   data-cy="Tab"
                 >
                   <a
-                    href={`#${tab.id}`}
+                    href={`#${id}`}
                     data-cy="TabLink"
                     onClick={() => hendleClick(tab)}
                   >
-                    {tab.title}
+                    {title}
                   </a>
                 </li>
               );
