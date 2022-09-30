@@ -26,7 +26,7 @@ export const App: React.FC = () => {
       <Tabs
         tabs={tabs}
         handler={setTab}
-        selectedTab={selectedTab}
+        selectedTabId={selectedTabId}
       />
     </div>
   );

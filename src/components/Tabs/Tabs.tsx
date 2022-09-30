@@ -9,10 +9,10 @@ export interface Tab {
 type Props = {
   tabs: Tab[];
   handler: (tabId :string) => void;
-  selectedTab: Tab | undefined;
+  selectedTabId: string;
 };
 
-export const Tabs : React.FC<Props> = ({ tabs, handler, selectedTab }) => (
+export const Tabs : React.FC<Props> = ({ tabs, handler, selectedTabId }) => (
   <div data-cy="TabsComponent">
     <div className="tabs is-boxed">
       <ul>
@@ -23,7 +23,7 @@ export const Tabs : React.FC<Props> = ({ tabs, handler, selectedTab }) => (
             <li
               key={id}
               className={classNames(
-                { 'is-active': id === selectedTab?.id },
+                { 'is-active': id === selectedTabId },
               )}
               data-cy="Tab"
             >
@@ -41,7 +41,7 @@ export const Tabs : React.FC<Props> = ({ tabs, handler, selectedTab }) => (
     </div>
 
     <div className="block" data-cy="TabContent">
-      {selectedTab?.content}
+      {tabs.find(tab => tab.id === selectedTabId)}
     </div>
   </div>
 );
