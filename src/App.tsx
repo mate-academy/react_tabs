@@ -30,7 +30,6 @@ export const App: React.FC = () => {
         tabs={tabs}
         selectedTabId={selectedTabId}
         onActiveTab={onActiveTab}
-        selectedTab={selectedTab}
       />
     </div>
   );

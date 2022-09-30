@@ -5,20 +5,20 @@ interface Props {
   tabs: Tab[],
   selectedTabId: string,
   onActiveTab: (tab: Tab) => void,
-  selectedTab: Tab,
 }
 
 export const Tabs: React.FC<Props> = ({
   tabs,
   selectedTabId,
   onActiveTab,
-  selectedTab,
 }) => {
   const hendleClick = (tab: Tab) => {
     if (selectedTabId !== tab.id) {
       onActiveTab(tab);
     }
   };
+
+  const selectedTab = tabs.find((tab) => tab.id === selectedTabId) || tabs[0];
 
   return (
     <div data-cy="TabsComponent">
