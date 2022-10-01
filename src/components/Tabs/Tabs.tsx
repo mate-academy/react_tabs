@@ -10,14 +10,12 @@ interface Tab {
 }
 
 interface Prop {
-  selectedTab: Tab;
   setTabId: (string: string) => void;
   selectedTabId: string;
   tabs: Tab[];
 }
 
 export const Tabs: FC<Prop> = ({
-  selectedTab,
   setTabId,
   selectedTabId,
   tabs,
@@ -26,21 +24,22 @@ export const Tabs: FC<Prop> = ({
     <div data-cy="TabsComponent">
       <div className="tabs is-boxed">
         <ul>
-          {tabs.map(tab => (
+          {tabs.map(({ title, id }) => (
             <li
               className={classNames(
-                { 'is-active': selectedTabId === tab.id },
+                { 'is-active': selectedTabId === id },
               )}
               data-cy="Tab"
+              key={id}
             >
               <a
                 data-cy="TabLink"
-                href={`#${tab.id}`}
+                href={`#${id}`}
                 onClick={() => {
-                  setTabId(tab.id);
+                  setTabId(id);
                 }}
               >
-                {tab.title}
+                {title}
               </a>
             </li>
           ))}
@@ -48,7 +47,7 @@ export const Tabs: FC<Prop> = ({
       </div>
 
       <div className="block" data-cy="TabContent">
-        {selectedTab.content}
+        {tabs.map(({ id, content }) => selectedTabId === id && content)}
       </div>
     </div>
   );
