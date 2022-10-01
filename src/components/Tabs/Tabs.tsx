@@ -1,3 +1,4 @@
+import cn from 'classnames';
 import { Dispatch } from 'react';
 
 interface TabsInterface {
@@ -16,41 +17,36 @@ export const Tabs: React.FC<Props> = ({
   tabs,
   selectedTab,
   onSelect,
-}) => {
-  return (
-
-    <div>
-      <div className="tabs is-boxed">
-        <ul>
-
-          {tabs.map(tab => (
-            <li
-              key={tab.id}
-              className={
-                tab.id === selectedTab.id
-                  ? 'is-active'
-                  : ''
-              }
+}) => (
+  <div>
+    <div className="tabs is-boxed">
+      <ul>
+        {tabs.map(tab => (
+          <li
+            key={tab.id}
+            className={
+              cn('', '', {
+                'is-active': tab === selectedTab,
+              })
+            }
+          >
+            <a
+              href={`#${selectedTab.id}`}
+              onClick={() => {
+                onSelect(tab);
+              }}
             >
-              <a
-                href={`#${selectedTab.id}`}
-                onClick={() => {
-                  onSelect(tab);
-                }}
-              >
-                {tab.title}
-              </a>
-            </li>
-          ))}
-        </ul>
-      </div>
-
-      <div
-        className="block"
-        data-cy="tab-content"
-      >
-        {selectedTab.content}
-      </div>
+              {tab.title}
+            </a>
+          </li>
+        ))}
+      </ul>
     </div>
-  );
-};
+    <div
+      className="block"
+      data-cy="tab-content"
+    >
+      {selectedTab.content}
+    </div>
+  </div>
+);
