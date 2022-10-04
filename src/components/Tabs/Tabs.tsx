@@ -13,15 +13,19 @@ export const Tabs: React.FC<Props> = ({ tabs, selectedTabId, tabSelected }) => (
       <li
         key={tab.id}
         className={tab.id === selectedTabId ? 'is-active' : 'tab'}
-        onClick={() => {
-          if (tab.id !== selectedTabId) {
-            tabSelected(tab);
-          }
-        }}
+
       >
-        <a href="#">
+        <button
+          type="submit"
+          onClick={() => {
+            if (tab.id !== selectedTabId) {
+              tabSelected(tab);
+            }
+          }}
+        >
           {tab.title}
-        </a>
+        </button>
+
       </li>
     ))}
   </ul>
