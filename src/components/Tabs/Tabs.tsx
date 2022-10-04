@@ -1,18 +1,18 @@
-import React, { useState, MouseEvent } from 'react';
+import React from 'react';
 import classNames from 'classnames';
 import { Tab } from '../../types/Tab';
 
 type Props = {
   tabs: Tab[];
-  selectTab: (event: MouseEvent, callback: () => {}, tabsArr: Tab[]) => void;
+  selectTabFunction: (selectTab: Tab) => void;
+  selectTabObj: Tab;
 };
 
 export const Tabs: React.FC<Props> = ({
   tabs,
-  selectTab,
+  selectTabFunction,
+  selectTabObj,
 }) => {
-  const [selectedTab, setSelectedTab] = useState(tabs[0]);
-
   return (
     <div data-cy="TabsComponent">
       <div className="tabs is-boxed">
@@ -21,7 +21,7 @@ export const Tabs: React.FC<Props> = ({
           {tabs.map(tab => (
             <li
               className={classNames({
-                'is-active': selectedTab.id === tab.id,
+                'is-active': selectTabObj.id === tab.id,
               })}
               data-cy="Tab"
               key={tab.id}
@@ -30,10 +30,8 @@ export const Tabs: React.FC<Props> = ({
                 href={`#${tab.id}`}
                 data-cy="TabLink"
                 id={tab.id}
-                onClick={(event) => {
-                  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-                  // @ts-ignore
-                  return selectTab(event, setSelectedTab, tabs);
+                onClick={() => {
+                  return selectTabFunction(tab);
                 }}
               >
                 {tab.title}
@@ -44,7 +42,7 @@ export const Tabs: React.FC<Props> = ({
       </div>
 
       <div className="block" data-cy="TabContent">
-        {selectedTab.content}
+        {selectTabObj.content}
       </div>
     </div>
   );

@@ -1,4 +1,4 @@
-import React, { useState, MouseEvent } from 'react';
+import React, { useState } from 'react';
 import 'bulma/css/bulma.css';
 import '@fortawesome/fontawesome-free/css/all.css';
 import './App.scss';
@@ -14,19 +14,13 @@ export const tabs = [
 export const App: React.FC = () => {
   const [selectedTab, setSelectedTab] = useState(tabs[0]);
 
-  const selectTab = (
-    event: MouseEvent,
-    callback: (arg: Tab | undefined) => {},
-    tabsArr: Tab[],
+  const selectTabFunction = (
+    selectTab: Tab,
   ) => {
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-ignore
-    const { id } = event.target;
-    const selectTabArg: Tab | undefined = tabsArr.find(tab => id === tab.id);
+    const chosenTab = tabs.find(tabEl => selectTab.id === tabEl.id);
 
-    if (selectTabArg) {
-      callback(selectTabArg);
-      setSelectedTab(selectTabArg);
+    if (chosenTab) {
+      setSelectedTab(chosenTab);
     }
   };
 
@@ -39,7 +33,8 @@ export const App: React.FC = () => {
 
       <Tabs
         tabs={tabs}
-        selectTab={selectTab}
+        selectTabFunction={selectTabFunction}
+        selectTabObj={selectedTab}
       />
 
     </div>
