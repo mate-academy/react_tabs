@@ -27,7 +27,6 @@ export const App: React.FC = () => {
         <div className="tabs is-boxed">
           <Tabs
             tabs={tabs}
-            selectedTabId={selectedTab.id}
             tabSelected={setSelectedTab}
           />
         </div>
