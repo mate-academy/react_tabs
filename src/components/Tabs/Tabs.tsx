@@ -4,13 +4,13 @@ import { Tab } from '../../types/Tab';
 
 type Props = {
   tabs: Tab[];
-  selectTabFunction: (selectTab: Tab) => void;
+  onTabSelected: (selectTab: Tab) => void;
   selectTabObj: Tab;
 };
 
 export const Tabs: React.FC<Props> = ({
   tabs,
-  selectTabFunction,
+  onTabSelected,
   selectTabObj,
 }) => {
   return (
@@ -31,7 +31,7 @@ export const Tabs: React.FC<Props> = ({
                 data-cy="TabLink"
                 id={tab.id}
                 onClick={() => {
-                  return selectTabFunction(tab);
+                  return onTabSelected(tab);
                 }}
               >
                 {tab.title}
