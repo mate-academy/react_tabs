@@ -12,7 +12,7 @@ export const Tabs: React.FC<Props> = ({
   selectedTabId,
   onTabSelected,
 }) => {
-  const tabContent = tabs.find(tab => tab.id === selectedTabId);
+  const selectedTab = tabs.find(tab => tab.id === selectedTabId);
 
   return (
     <div data-cy="TabsComponent">
@@ -47,11 +47,7 @@ export const Tabs: React.FC<Props> = ({
       </div>
 
       <div className="block" data-cy="TabContent">
-        { tabContent ? (
-          tabContent.content
-        ) : (
-          tabs[0].content
-        )}
+        {selectedTab && selectedTab.content}
       </div>
     </div>
   );

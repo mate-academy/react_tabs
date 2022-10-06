@@ -30,11 +30,7 @@ export class App extends Component<{}, State> {
     return (
       <div className="section">
         <h1 className="title">
-          {selectedTab ? (
-            `Selected tab is ${selectedTab.title}`
-          ) : (
-            'Selected tab is Tab 1'
-          )}
+          {`Selected tab is ${selectedTab.title}`}
         </h1>
 
         <Tabs
