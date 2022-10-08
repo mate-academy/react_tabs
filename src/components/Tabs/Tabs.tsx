@@ -14,13 +14,21 @@ type Props = {
     title: string;
     content: string;
   },
+<<<<<<< HEAD
   setSelectedTab: React.Dispatch<React.SetStateAction<{
+=======
+  setselectedTab: React.Dispatch<React.SetStateAction<{
+>>>>>>> 25163d1aef2584aa56b7e23996e6a278586af816
     id: string; title: string; content: string; }>>
 };
 
 export const Tabs: React.FC<Props> = (
   {
+<<<<<<< HEAD
     tabs, selectedTab, setSelectedTab,
+=======
+    tabs, selectedTab, setselectedTab,
+>>>>>>> 25163d1aef2584aa56b7e23996e6a278586af816
   },
 ) => {
   return (
@@ -42,7 +50,11 @@ export const Tabs: React.FC<Props> = (
                 href={`#${tab.id}`}
                 data-cy="TabLink"
                 onClick={() => {
+<<<<<<< HEAD
                   setSelectedTab(tab);
+=======
+                  setselectedTab(tab);
+>>>>>>> 25163d1aef2584aa56b7e23996e6a278586af816
                 }}
               >
                 {tab.title}
