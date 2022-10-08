@@ -11,11 +11,7 @@ export const tabs = [
 ];
 
 export const App: React.FC = () => {
-<<<<<<< HEAD
   const [selectedTab, setSelectedTab] = useState(tabs[0]);
-=======
-  const [selectedTab, setselectedTab] = useState(tabs[0]);
->>>>>>> 25163d1aef2584aa56b7e23996e6a278586af816
 
   return (
     <div className="section">
@@ -25,11 +21,7 @@ export const App: React.FC = () => {
 
       <Tabs
         tabs={tabs}
-<<<<<<< HEAD
         setSelectedTab={setSelectedTab}
-=======
-        setselectedTab={setselectedTab}
->>>>>>> 25163d1aef2584aa56b7e23996e6a278586af816
         selectedTab={selectedTab}
       />
 
