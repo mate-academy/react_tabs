@@ -48,11 +48,11 @@ export const Tabs: React.FC<Props> = ({
         </ul>
       </div>
 
-      <div className="block" data-cy="TabContent">
+      <section className="block" data-cy="TabContent">
         {
           tabs.find((searchTab) => searchTab.id === selectedTabId)?.content
         }
-      </div>
+      </section>
     </article>
   );
 };
