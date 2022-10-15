@@ -13,8 +13,11 @@ export const Tabs: React.FC<Props> = ({
   selectedTabId,
   onTabSelected,
 }) => {
+  const currentTab = tabs
+    .some((searchTab) => searchTab.id === selectedTabId);
+
   return (
-    <div data-cy="TabsComponent">
+    <article data-cy="TabsComponent">
       <div className="tabs is-boxed">
         <ul>
           {tabs.map((tab: Tab, index: number) => {
@@ -23,14 +26,9 @@ export const Tabs: React.FC<Props> = ({
             return (
               <li
                 key={id}
-                className={classNames(
-                  selectedTabId === id
-                  || (
-                    !tabs.some((searchTab) => searchTab.id === selectedTabId)
-                    && index === 0
-                  )
-                    ? 'is-active' : '',
-                )}
+                className={classNames({
+                  'is-active': selectedTabId === id || (!currentTab && !index),
+                })}
                 data-cy="Tab"
               >
                 <a
@@ -55,6 +53,6 @@ export const Tabs: React.FC<Props> = ({
           tabs.find((searchTab) => searchTab.id === selectedTabId)?.content
         }
       </div>
-    </div>
+    </article>
   );
 };
