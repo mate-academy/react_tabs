@@ -17,7 +17,7 @@ export const Tabs: React.FC<Props> = ({
     .some((searchTab) => searchTab.id === selectedTabId);
 
   return (
-    <article data-cy="TabsComponent">
+    <section data-cy="TabsComponent">
       <div className="tabs is-boxed">
         <ul>
           {tabs.map((tab: Tab, index: number) => {
@@ -48,11 +48,11 @@ export const Tabs: React.FC<Props> = ({
         </ul>
       </div>
 
-      <section className="block" data-cy="TabContent">
+      <p className="block" data-cy="TabContent">
         {
           tabs.find((searchTab) => searchTab.id === selectedTabId)?.content
         }
-      </section>
-    </article>
+      </p>
+    </section>
   );
 };
