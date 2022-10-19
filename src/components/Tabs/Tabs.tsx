@@ -5,13 +5,13 @@ import { Tab } from '../../types/Tab';
 
 type Props = {
   tabs: Tab[],
-  selectedTabId: string,
+  selectedTab: Tab,
   onTabSelected: (tab: Tab) => void,
 };
 
 export const Tabs: React.FC<Props> = ({
   tabs,
-  selectedTabId,
+  selectedTab,
   onTabSelected,
 }) => {
   return (
@@ -21,7 +21,7 @@ export const Tabs: React.FC<Props> = ({
           {tabs.map(tab => (
             <li
               className={classNames(
-                { 'is-active': tab.id === selectedTabId },
+                { 'is-active': tab.id === selectedTab.id },
               )}
               data-cy="Tab"
               key={tab.id}
@@ -39,7 +39,7 @@ export const Tabs: React.FC<Props> = ({
       </div>
 
       <div className="block" data-cy="tab-content">
-        {tabs[tabs.findIndex(tab => tab.id === selectedTabId)].content}
+        {selectedTab.content}
       </div>
     </div>
   );
