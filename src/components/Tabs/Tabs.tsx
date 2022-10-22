@@ -1,11 +1,10 @@
-import React from 'react';
 import classNames from 'classnames';
 import { Tab } from '../../interface/Tab';
 
 type Props = {
   tabs: Tab[],
   selectedTabId: string,
-  onTabSelected: any,
+  onTabSelected: (tab:Tab) => void,
 };
 
 export const Tabs: React.FC<Props> = (
@@ -15,6 +14,8 @@ export const Tabs: React.FC<Props> = (
     onTabSelected,
   },
 ) => {
+  const selectedTab = tabs.find(tab => selectedTabId === tab.id);
+
   return (
     <div data-cy="TabsComponent">
       <div className="tabs is-boxed">
@@ -23,11 +24,9 @@ export const Tabs: React.FC<Props> = (
             <li
               key={tab.id}
               data-cy="Tab"
-              className={classNames(
-                '', {
-                  'is-active': tab.id === selectedTabId,
-                },
-              )}
+              className={classNames({
+                'is-active': tab.id === selectedTabId,
+              })}
             >
               <a
                 href={`#${tab.id}`}
@@ -44,7 +43,7 @@ export const Tabs: React.FC<Props> = (
       </div>
 
       <div className="block" data-cy="TabContent">
-        {tabs.find(tab => selectedTabId === tab.id)?.content}
+        {selectedTab?.content}
       </div>
     </div>
   );
