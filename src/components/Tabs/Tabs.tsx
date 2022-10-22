@@ -13,7 +13,7 @@ export const Tabs: React.FC<Props> = ({
   selectedTabId,
   onTabSelected,
 }) => {
-  const currentTab = tabs
+  const isCurrentTab = tabs
     .some((searchTab) => searchTab.id === selectedTabId);
 
   return (
@@ -22,12 +22,14 @@ export const Tabs: React.FC<Props> = ({
         <ul>
           {tabs.map((tab: Tab, index: number) => {
             const { id, title } = tab;
+            const isCurrentTabSelected = selectedTabId === id;
 
             return (
               <li
                 key={id}
                 className={classNames({
-                  'is-active': selectedTabId === id || (!currentTab && !index),
+                  'is-active': isCurrentTabSelected
+                    || (!isCurrentTab && !index),
                 })}
                 data-cy="Tab"
               >
@@ -35,7 +37,7 @@ export const Tabs: React.FC<Props> = ({
                   href={`#${id}`}
                   data-cy="TabLink"
                   onClick={() => {
-                    if (selectedTabId !== id) {
+                    if (!isCurrentTabSelected) {
                       onTabSelected(tab);
                     }
                   }}
