@@ -18,10 +18,13 @@ export const App: React.FC = () => {
 
   return (
     <div className="section">
-      <h1 className="title">
-        Selected tab is&nbsp;
-        <span className="tag is-info title is-5">{selectedTab.title}</span>
-      </h1>
+      <div className="wrapper">
+        <i className="fa-regular fa-pen-to-square" />
+
+        <h1 className="title">
+          {`Selected tab is ${selectedTab.title}`}
+        </h1>
+      </div>
 
       <Tabs
         tabs={tabs}

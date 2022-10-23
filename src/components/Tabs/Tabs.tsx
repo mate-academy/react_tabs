@@ -56,8 +56,6 @@ export const Tabs: React.FC<Props> = ({
         data-cy="TabContent"
       >
         {selectedTab.content}
-        &nbsp;
-        <i className="fa-solid fa-pen tabs" />
       </div>
     </div>
   );
