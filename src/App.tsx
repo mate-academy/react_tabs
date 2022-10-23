@@ -32,15 +32,16 @@ export class App extends Component {
 
   render() {
     const { copyTabs, selectedId } = this.state;
+    const selectedTabTitle = copyTabs.find(
+      tab => tab.id === selectedId,
+    )?.title;
 
     return (
       <div className="section">
         <h1 className="title">
           Selected tab is
           {' '}
-          {(copyTabs.find(
-            tab => tab.id === selectedId,
-          )?.title)}
+          { selectedTabTitle }
         </h1>
 
         <Tabs
