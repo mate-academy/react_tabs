@@ -1,7 +1,9 @@
-import React from 'react';
+import { Component } from 'react';
 import 'bulma/css/bulma.css';
 import '@fortawesome/fontawesome-free/css/all.css';
 import './App.scss';
+import { Tabs } from './components/Tabs';
+import { Tab } from './Type/Tab';
 
 export const tabs = [
   { id: 'tab-1', title: 'Tab 1', content: 'Some text 1' },
@@ -9,34 +11,43 @@ export const tabs = [
   { id: 'tab-3', title: 'Tab 3', content: 'Some text 3' },
 ];
 
-export const App: React.FC = () => {
-  return (
-    <div className="section">
-      <h1 className="title">
-        Selected tab is Tab 1
-      </h1>
-
-      <div data-cy="TabsComponent">
-        <div className="tabs is-boxed">
-          <ul>
-            <li className="is-active" data-cy="Tab">
-              <a href="#tab-1" data-cy="TabLink">Tab 1</a>
-            </li>
-
-            <li data-cy="Tab">
-              <a href="#tab-2" data-cy="TabLink">Tab 2</a>
-            </li>
-
-            <li data-cy="Tab">
-              <a href="#tab-3" data-cy="TabLink">Tab 3</a>
-            </li>
-          </ul>
-        </div>
-
-        <div className="block" data-cy="TabContent">
-          Some text 1
-        </div>
-      </div>
-    </div>
-  );
+type State = {
+  copyTabs: Tab[],
+  selectedId: string,
 };
+
+export class App extends Component {
+  state: Readonly<State> = {
+    copyTabs: tabs,
+    selectedId: tabs[0].id,
+  };
+
+  setTab = (event: React.MouseEvent<HTMLAnchorElement>) => {
+    const element = event.target as HTMLAnchorElement;
+
+    this.setState({
+      selectedId: element.getAttribute('href')?.slice(1),
+    });
+  };
+
+  render() {
+    const { copyTabs, selectedId } = this.state;
+    const selectedTabTitle = copyTabs.find(
+      tab => tab.id === selectedId,
+    )?.title;
+
+    return (
+      <div className="section">
+        <h1 className="title">
+          {`Selected tab is ${selectedTabTitle}`}
+        </h1>
+
+        <Tabs
+          tabs={tabs}
+          selectedTabId={selectedId}
+          onClick={this.setTab}
+        />
+      </div>
+    );
+  }
+}
