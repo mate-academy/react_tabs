@@ -4,6 +4,7 @@ import '@fortawesome/fontawesome-free/css/all.css';
 import './App.scss';
 
 import { Tabs } from './components/Tabs';
+import { Tab } from './types/Tab';
 
 export const tabsFromServer = [
   { id: 'tab-1', title: 'Tab 1', content: 'Some text 1' },
@@ -12,7 +13,7 @@ export const tabsFromServer = [
 ];
 
 export const App: React.FC = () => {
-  const [selectedTab, setSelectedTab] = useState(tabsFromServer[0]);
+  const [selectedTab, setSelectedTab] = useState<Tab>(tabsFromServer[0]);
 
   return (
     <div className="section">
