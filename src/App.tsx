@@ -13,7 +13,7 @@ export const tabs: Tab[] = [
 ];
 
 export const App: React.FC = () => {
-  const [selectedTab, setSelectedTab] = useState(tabs[0]);
+  const [selectedTab, setSelectedTab] = useState<Tab>(tabs[0]);
 
   return (
     <div className="section">
