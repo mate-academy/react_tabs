@@ -39,9 +39,7 @@ export class App extends Component {
     return (
       <div className="section">
         <h1 className="title">
-          Selected tab is
-          {' '}
-          { selectedTabTitle }
+          {`Selected tab is ${selectedTabTitle}`}
         </h1>
 
         <Tabs
