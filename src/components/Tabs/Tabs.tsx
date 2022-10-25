@@ -53,9 +53,9 @@ export const Tabs: React.FC<Props> = ({
         </ul>
       </div>
 
-      <div className="block" data-cy="TabContent">
+      <p className="block" data-cy="TabContent">
         {selectedTab.content}
-      </div>
+      </p>
     </div>
   );
 };
