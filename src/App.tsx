@@ -1,5 +1,4 @@
 import React from 'react';
-import { Tab } from './react-app-env.d';
 import { Tabs } from './components/Tabs';
 import 'bulma/css/bulma.css';
 import '@fortawesome/fontawesome-free/css/all.css';
@@ -12,22 +11,18 @@ export const tabs = [
 ];
 
 export const App: React.FC = () => {
-  const [tabId, setTabId] = React.useState(tabs[0].id);
-
-  const changeTab = (tab: Tab) => {
-    setTabId(tab.id);
-  };
+  const [tab, setTab] = React.useState(tabs[0]);
 
   return (
     <div className="section">
       <h1 className="title">
-        {`Selected tab is ${tabs.find(tab => tab.id === tabId)?.title}`}
+        {`Selected tab is ${tab.title}`}
       </h1>
 
       <Tabs
         tabs={tabs}
-        selectedTabId={tabId}
-        onTabSelected={changeTab}
+        selectedTabId={tab.id}
+        onTabSelected={setTab}
       />
     </div>
   );
