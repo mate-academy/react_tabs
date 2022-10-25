@@ -1,31 +1,45 @@
 import classNames from 'classnames';
 import { FC } from 'react';
 
+interface Tab {
+  id: string,
+  title: string,
+  content: string,
+}
+
 interface Props {
   tabs: { id: string; title: string; content: string; }[],
-  selectTabId: (tabId: string) => string,
   selectedTabId: string,
+  onTabSelected: (tabId: Tab) => string,
 }
 
 export const Tabs: FC<Props> = (props) => {
-  const { tabs, selectedTabId, selectTabId } = props;
+  const { tabs, selectedTabId, onTabSelected } = props;
+  const isTypeId = tabs.some(tab => tab.id === selectedTabId);
 
   return (
     <>
       <div className="tabs is-boxed">
         <ul>
-          {tabs.map(tab => (
+          {tabs.map((tab, index) => (
             <li
               key={tab.id}
               data-cy="Tab"
               className={classNames(
-                { 'is-active': tab.id === selectedTabId },
+                {
+                  'is-active': tab.id === selectedTabId
+                  || (!isTypeId && index === 0),
+                },
               )}
             >
               <a
                 href={`#${tab.id}`}
                 data-cy="TabLink"
-                onClick={() => selectTabId(tab.id)}
+                onClick={() => {
+                  if (tab.id !== selectedTabId) {
+                    onTabSelected(tab);
+                  }
+                }}
               >
                 {tab.title}
               </a>

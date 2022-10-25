@@ -10,20 +10,25 @@ export const tabs = [
   { id: 'tab-3', title: 'Tab 3', content: 'Some text 3' },
 ];
 
+interface Tab {
+  id: string,
+  title: string,
+  content: string,
+}
+
 export const App: FC = () => {
-  const [selectedTabId, selectTabId] = useState(tabs[0].id);
+  const [selectedTab, onTabSelected] = useState(tabs[0]);
 
   return (
     <div className="section">
       <h1 className="title">
-        {`Selected tab is ${tabs.find(tab => tab.id === selectedTabId)?.title}`}
+        {`Selected tab is ${tabs.find(tab => tab.id === selectedTab.id)?.title}`}
       </h1>
 
       <Tabs
-        data-cy="tab-content"
         tabs={tabs}
-        selectedTabId={selectedTabId}
-        selectTabId={selectTabId as (tabid: string) => string}
+        selectedTabId={selectedTab.id}
+        onTabSelected={onTabSelected as (tab: Tab) => string}
       />
     </div>
   );
