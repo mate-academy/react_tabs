@@ -18,7 +18,7 @@ export const Tabs: React.FC<Props> = ({
   onTabSelected,
   selectedTabId,
 }) => {
-  const isSelectedTab = tabs.find((tab) => (
+  const currentTab = tabs.find((tab) => (
     tab.id === selectedTabId)) || tabs[0];
 
   return (
@@ -27,7 +27,7 @@ export const Tabs: React.FC<Props> = ({
         <ul>
           {tabs.map((tab) => {
             const { id, title } = tab;
-            const selectedTab = id === isSelectedTab.id;
+            const selectedTab = id === currentTab.id;
 
             return (
               <li
@@ -53,8 +53,7 @@ export const Tabs: React.FC<Props> = ({
       </div>
 
       <article className="block" data-cy="TabContent">
-        {tabs.find(tab => (
-          selectedTabId === tab.id))?.content}
+        {currentTab.content}
       </article>
     </div>
   );
