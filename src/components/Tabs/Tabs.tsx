@@ -1,10 +1,10 @@
 import classNames from 'classnames';
-import { Tab } from '../../types/Tab';
+import { Tab } from '../../types/Tab.js';
 
 type Props = {
   tabs: Tab[];
   selectedTabId: string;
-  onTabSelected: (arg: Tab) => void;
+  onTabSelected: (tab: Tab) => void;
 };
 
 export const Tabs: React.FC<Props> = ({
@@ -12,12 +12,12 @@ export const Tabs: React.FC<Props> = ({
   selectedTabId,
   onTabSelected,
 }) => {
-  const activeTab = tabs.find(({ id }) => (
-    id === selectedTabId
+  const activeTab = tabs.find(tab => (
+    tab.id === selectedTabId
   )) || tabs[0];
 
   return (
-    <>
+    <div data-cy="TabsComponent">
       <div className="tabs is-boxed">
         <ul>
           {tabs.map(tab => (
@@ -45,6 +45,6 @@ export const Tabs: React.FC<Props> = ({
       <div className="block" data-cy="TabContent">
         {activeTab.content}
       </div>
-    </>
+    </div>
   );
 };

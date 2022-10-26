@@ -3,7 +3,7 @@ import 'bulma/css/bulma.css';
 import '@fortawesome/fontawesome-free/css/all.css';
 import './App.scss';
 import { Tabs } from './components/Tabs';
-import { Tab } from './types/Tab';
+import { Tab } from './types/Tab.js';
 
 export const tabs = [
   { id: 'tab-1', title: 'Tab 1', content: 'Some text 1' },
@@ -23,13 +23,11 @@ export const App: React.FC = () => {
         {`Selected tab is ${selectedTab.title}`}
       </h1>
 
-      <div data-cy="TabsComponent">
-        <Tabs
-          tabs={tabs}
-          selectedTabId={selectedTab.id}
-          onTabSelected={onTabSelected}
-        />
-      </div>
+      <Tabs
+        tabs={tabs}
+        selectedTabId={selectedTab.id}
+        onTabSelected={onTabSelected}
+      />
     </div>
   );
 };
