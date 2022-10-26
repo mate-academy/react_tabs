@@ -5,7 +5,7 @@ import { Tab } from '../../react-app-env';
 type Props = {
   tabs: Tab[];
   selectedTabId: string;
-  onTabSelected: (id: Tab) => void;
+  onTabSelected: (tab: Tab) => void;
 };
 
 export const Tabs: React.FC<Props> = ({
@@ -30,7 +30,7 @@ export const Tabs: React.FC<Props> = ({
               >
                 <a
                   onClick={() => (selectedTabId !== id) && onTabSelected(tab)}
-                  href={`"#${id}"`}
+                  href={`#${id}`}
                   data-cy="TabLink"
                 >
                   {title}
