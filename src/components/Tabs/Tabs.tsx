@@ -20,24 +20,27 @@ export const Tabs: React.FC<Props> = ({
         <ul>
           {tabs.map((tab, index) => {
             const currentTabSelected = selectedTabId === tab.id;
+            const isActive = currentTabSelected
+            || (!currentTab && !index)
+
+            const changeTab = () => {
+              if (!(currentTabSelected)) {
+                onTabSelected(tab);
+              }
+            }
 
             return (
               <li
                 data-cy="Tab"
                 className={classNames({
-                  'is-active': currentTabSelected
-                    || (!currentTab && !index),
+                  'is-active': isActive,
                 })}
                 key={tab.id}
               >
                 <a
                   href={`#${tab.id}`}
                   data-cy="TabLink"
-                  onClick={() => {
-                    if (!(currentTabSelected)) {
-                      onTabSelected(tab);
-                    }
-                  }}
+                  onClick={changeTab}
                 >
                   {tab.title}
                 </a>
