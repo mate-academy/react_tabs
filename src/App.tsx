@@ -11,12 +11,13 @@ export const tabs = [
 ];
 
 export const App: React.FC = () => {
-  const [selectedTab, setSelectedTab] = useState('tab-1');
-  const handleTabSelection = (event: React.MouseEvent<HTMLAnchorElement>) => {
+  const [selectedTab, setSelectedTab] = useState(tabs[0].id);
+  const handleTabSelection = (
+    event: React.MouseEvent<HTMLAnchorElement>,
+    id: string,
+  ) => {
     event.preventDefault();
-    if (event.currentTarget) {
-      setSelectedTab(event.currentTarget.id);
-    }
+    setSelectedTab(id);
   };
 
   return (
@@ -24,7 +25,7 @@ export const App: React.FC = () => {
       <h1 className="title">
         Selected tab is
         {' '}
-        {tabs.find(tab => tab.id === selectedTab)?.title}
+        {tabs.find((tab) => tab.id === selectedTab)?.title}
       </h1>
 
       <Tabs
