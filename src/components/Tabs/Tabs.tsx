@@ -1,5 +1,6 @@
+import React from 'react';
 import classNames from 'classnames';
-import { Tab } from '../../types/Tab';
+import { Tab } from '../../react-app-env';
 
 type Props = {
   tabs: Tab[];
@@ -28,11 +29,7 @@ export const Tabs: React.FC<Props> = ({
                 key={id}
               >
                 <a
-                  onClick={() => {
-                    if (selectedTabId !== id) {
-                      onTabSelected(tab);
-                    }
-                  }}
+                  onClick={() => (selectedTabId !== id) && onTabSelected(tab)}
                   href={`"#${id}"`}
                   data-cy="TabLink"
                 >
