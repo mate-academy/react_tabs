@@ -17,7 +17,11 @@ interface Tab {
 }
 
 export const App: FC = () => {
-  const [selectedTab, onTabSelected] = useState(tabs[0]);
+  const [selectedTab, setSelectedTab] = useState(tabs[0]);
+
+  const onTabSelected = (tab: Tab) => {
+    setSelectedTab(tab);
+  };
 
   return (
     <div className="section">
@@ -28,7 +32,7 @@ export const App: FC = () => {
       <Tabs
         tabs={tabs}
         selectedTabId={selectedTab.id}
-        onTabSelected={onTabSelected as (tab: Tab) => string}
+        onTabSelected={onTabSelected}
       />
     </div>
   );

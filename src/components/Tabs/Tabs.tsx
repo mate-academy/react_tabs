@@ -10,7 +10,7 @@ interface Tab {
 interface Props {
   tabs: { id: string; title: string; content: string; }[],
   selectedTabId: string,
-  onTabSelected: (tabId: Tab) => string,
+  onTabSelected: (tab: Tab) => void,
 }
 
 export const Tabs: FC<Props> = (props) => {
