@@ -15,11 +15,9 @@ export const Tabs: React.FC<Props> = (
     onTabSelected,
   },
 ) => {
-  const isFound = (findtabs: Tab[]) => (
-    findtabs.find(tab => (selectedTabId === tab.id))
-  );
+  const selectedTab = tabs.find(tab => (selectedTabId === tab.id));
 
-  const onSelectedTab = (tab: Tab) => (
+  const switchTab = (tab: Tab) => (
     selectedTabId !== tab.id && (
       onTabSelected(tab)
     ));
@@ -39,7 +37,7 @@ export const Tabs: React.FC<Props> = (
               <a
                 href={`#${tab.id}`}
                 data-cy="TabLink"
-                onClick={() => onSelectedTab(tab)}
+                onClick={() => switchTab(tab)}
               >
                 {tab.title}
               </a>
@@ -48,7 +46,7 @@ export const Tabs: React.FC<Props> = (
         </ul>
       </div>
       <div className="block" data-cy="TabContent">
-        {isFound(tabs)?.content}
+        {selectedTab?.content}
       </div>
     </div>
   );

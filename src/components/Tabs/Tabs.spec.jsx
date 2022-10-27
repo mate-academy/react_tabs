@@ -97,7 +97,7 @@ describe('Tabs component', () => {
       mount((
         <Tabs
           tabs={tabs}
-          selectedTabId="asdasd"
+          selectedTabId="tab-10"
           onTabSelected={() => { }}
         />
       ));
