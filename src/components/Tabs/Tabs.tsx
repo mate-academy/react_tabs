@@ -7,15 +7,24 @@ type Props = {
   selectedTabId: string,
   onTabSelected: (tab: Tab) => void,
 };
+type OnSelectTab = (id: string, tab: Tab) => void | undefined;
 
 export const Tabs: React.FC<Props> = ({
   tabs,
   selectedTabId,
   onTabSelected,
 }) => {
-  const rightActiveTab = tabs.some(tab => tab.id === selectedTabId)
+  const selectedTab = tabs.some(tab => tab.id === selectedTabId)
     ? selectedTabId
     : tabs[0].id;
+  const onSelectTab: OnSelectTab = (id, tab) => {
+    if (selectedTabId !== id) {
+      onTabSelected(tab);
+    }
+  };
+
+  const selectedTabContent = tabs
+    .find(tab => selectedTabId === tab.id)?.content;
 
   return (
     <div data-cy="TabsComponent">
@@ -27,18 +36,14 @@ export const Tabs: React.FC<Props> = ({
             return (
               <li
                 className={classNames({
-                  'is-active': rightActiveTab === id,
+                  'is-active': selectedTab === id,
                 })}
                 data-cy="Tab"
               >
                 <a
                   href={`#${tab.id}`}
                   data-cy="TabLink"
-                  onClick={() => {
-                    if (selectedTabId !== id) {
-                      onTabSelected(tab);
-                    }
-                  }}
+                  onClick={() => onSelectTab(id, tab)}
                 >
                   {title}
                 </a>
@@ -49,7 +54,7 @@ export const Tabs: React.FC<Props> = ({
       </div>
 
       <div className="block" data-cy="TabContent">
-        {tabs.find(tab => selectedTabId === tab.id)?.content}
+        {selectedTabContent}
       </div>
     </div>
   );
