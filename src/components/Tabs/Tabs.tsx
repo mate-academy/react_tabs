@@ -15,31 +15,31 @@ export const Tabs: React.FC<Props> = (
     onTabSelected,
   },
 ) => {
-  const isCurrent = tabs.some(tab => tab.id === selectedTabId);
-
-  const findSelectedTab = (findtabs: Tab[]) => (
+  const isFound = (findtabs: Tab[]) => (
     findtabs.find(tab => (selectedTabId === tab.id))
   );
+
+  const onSelectedTab = (tab: Tab) => (
+    selectedTabId !== tab.id && (
+      onTabSelected(tab)
+    ));
 
   return (
     <div data-cy="TabsComponent">
       <div className="tabs is-boxed">
         <ul>
-          {tabs.map((tab, index) => (
+          {tabs.map((tab) => (
             <li
               data-cy="Tab"
               key={tab.id}
               className={classNames({
-                'is-active': tab.id === selectedTabId
-                  || (!isCurrent && index === 0),
+                'is-active': tab.id === selectedTabId,
               })}
             >
               <a
                 href={`#${tab.id}`}
                 data-cy="TabLink"
-                onClick={() => selectedTabId !== tab.id && (
-                  onTabSelected(tab)
-                )}
+                onClick={() => onSelectedTab(tab)}
               >
                 {tab.title}
               </a>
@@ -48,7 +48,7 @@ export const Tabs: React.FC<Props> = (
         </ul>
       </div>
       <div className="block" data-cy="TabContent">
-        {findSelectedTab(tabs)?.content}
+        {isFound(tabs)?.content}
       </div>
     </div>
   );
