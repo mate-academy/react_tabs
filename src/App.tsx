@@ -16,9 +16,7 @@ export const App: React.FC = () => {
   return (
     <div className="section">
       <h1 className="title">
-        Selected tab
-        {' '}
-        {selectedTab.title}
+        {`Selected tab is ${selectedTab.title}`}
       </h1>
 
       <Tabs
@@ -28,10 +26,6 @@ export const App: React.FC = () => {
           setSelectedTab(tabId);
         }}
       />
-
-      <div className="block" data-cy="TabContent">
-        {selectedTab.content}
-      </div>
     </div>
   );
 };

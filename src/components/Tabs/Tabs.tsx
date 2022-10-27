@@ -13,6 +13,8 @@ type Props = {
 };
 
 export const Tabs: React.FC<Props> = ({ tabs, selectedTabId, onSelected }) => {
+  const selectedTab = tabs.find(({ id }) => id === selectedTabId) || tabs[0];
+
   return (
     <div data-cy="TabsComponent">
       <div className="tabs is-boxed">
@@ -35,6 +37,11 @@ export const Tabs: React.FC<Props> = ({ tabs, selectedTabId, onSelected }) => {
 
         </ul>
       </div>
+
+      <div className="block" data-cy="TabContent">
+        {selectedTab.content}
+      </div>
+
     </div>
   );
 };
