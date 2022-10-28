@@ -15,7 +15,7 @@ interface Props {
 
 export const Tabs: FC<Props> = (props) => {
   const { tabs, selectedTabId, onTabSelected } = props;
-  const doesTypeIdExists = tabs.some(tab => tab.id === selectedTabId);
+  const doesTypeIdExist = tabs.some(tab => tab.id === selectedTabId);
 
   return (
     <>
@@ -28,7 +28,7 @@ export const Tabs: FC<Props> = (props) => {
               className={classNames(
                 {
                   'is-active': tab.id === selectedTabId
-                  || (!doesTypeIdExists && index === 0),
+                  || (!doesTypeIdExist && index === 0),
                 },
               )}
             >
