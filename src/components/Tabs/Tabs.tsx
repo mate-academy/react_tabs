@@ -28,11 +28,6 @@ export const Tabs: React.FC<Props> = ({
           {tabs.map((tab) => {
             const { id, title } = tab;
             const isSelectedTab = id === currentTab.id;
-            const handleClick = () => {
-              if (!isSelectedTab) {
-                onTabSelected(tab);
-              }
-            };
 
             return (
               <li
@@ -43,7 +38,11 @@ export const Tabs: React.FC<Props> = ({
                 <a
                   href={`#${id}`}
                   data-cy="TabLink"
-                  onClick={handleClick}
+                  onClick={() => {
+                    if (!isSelectedTab) {
+                      onTabSelected(tab);
+                    }
+                  }}
                 >
                   {title}
                 </a>
