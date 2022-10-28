@@ -10,18 +10,8 @@ export const tabs = [
   { id: 'tab-3', title: 'Tab 3', content: 'Some text 3' },
 ];
 
-interface Tab {
-  id: string,
-  title: string,
-  content: string,
-}
-
 export const App: FC = () => {
   const [selectedTab, setSelectedTab] = useState(tabs[0]);
-
-  const onTabSelected = (tab: Tab) => {
-    setSelectedTab(tab);
-  };
 
   return (
     <div className="section">
@@ -32,7 +22,7 @@ export const App: FC = () => {
       <Tabs
         tabs={tabs}
         selectedTabId={selectedTab.id}
-        onTabSelected={onTabSelected}
+        onTabSelected={setSelectedTab}
       />
     </div>
   );

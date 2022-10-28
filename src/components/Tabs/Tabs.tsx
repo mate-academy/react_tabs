@@ -8,14 +8,14 @@ interface Tab {
 }
 
 interface Props {
-  tabs: { id: string; title: string; content: string; }[],
+  tabs: Tab[],
   selectedTabId: string,
   onTabSelected: (tab: Tab) => void,
 }
 
 export const Tabs: FC<Props> = (props) => {
   const { tabs, selectedTabId, onTabSelected } = props;
-  const isTypeId = tabs.some(tab => tab.id === selectedTabId);
+  const doesTypeIdExists = tabs.some(tab => tab.id === selectedTabId);
 
   return (
     <>
@@ -28,7 +28,7 @@ export const Tabs: FC<Props> = (props) => {
               className={classNames(
                 {
                   'is-active': tab.id === selectedTabId
-                  || (!isTypeId && index === 0),
+                  || (!doesTypeIdExists && index === 0),
                 },
               )}
             >
