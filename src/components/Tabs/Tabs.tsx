@@ -8,14 +8,12 @@ type Props = {
   onTabSelected: (tabNr: Tab) => void,
   tabs: Tab[] | [],
   selectedTabId: string,
-  // selectedTab: Tab,
 };
 
 export const Tabs: FC<Props> = ({
   onTabSelected,
   tabs,
   selectedTabId,
-  // selectedTab,
 }) => {
   const tabContent = tabs.find(tab => (
     selectedTabId === tab.id
@@ -60,56 +58,6 @@ export const Tabs: FC<Props> = ({
               );
             })
           }
-          {/* <li
-            className={cn(
-              {
-                'is-active': selectedTab.id === 'tab-1',
-              },
-            )}
-            data-cy="Tab"
-          >
-            <a
-              href="#tab-1"
-              data-cy="TabLink"
-              onClick={() => onTabSelected(1)}
-            >
-              Tab 1
-            </a>
-          </li>
-
-          <li
-            className={cn(
-              {
-                'is-active': selectedTab.id === 'tab-2',
-              },
-            )}
-            data-cy="Tab"
-          >
-            <a
-              href="#tab-2"
-              data-cy="TabLink"
-              onClick={() => onTabSelected(2)}
-            >
-              Tab 2
-            </a>
-          </li>
-
-          <li
-            className={cn(
-              {
-                'is-active': selectedTab.id === 'tab-3',
-              },
-            )}
-            data-cy="Tab"
-          >
-            <a
-              href="#tab-3"
-              data-cy="TabLink"
-              onClick={() => onTabSelected(3)}
-            >
-              Tab 3
-            </a>
-          </li> */}
         </ul>
       </div>
 

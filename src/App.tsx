@@ -29,7 +29,6 @@ export const App: FC = () => {
         onTabSelected={onTabSelected}
         tabs={tabs}
         selectedTabId={selectedTab.id}
-        // selectedTab={selectedTab}
       />
     </div>
   );
