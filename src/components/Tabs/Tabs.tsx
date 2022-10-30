@@ -16,7 +16,7 @@ export const Tabs: FC<Props> = ({
   selectedTabId,
 }) => {
   const tabContent = tabs.find(tab => (
-    selectedTabId === tab.id
+    tab.id === selectedTabId
   ))?.content;
 
   const isIdCorrect:boolean = tabs.some((tab:Tab) => (
@@ -37,6 +37,7 @@ export const Tabs: FC<Props> = ({
                     {
                       'is-active':
                       selectedTabId === id
+                      // select first tab if selectedTabId is incorrect
                       || (!isIdCorrect && index === 0),
                     },
                   )}
