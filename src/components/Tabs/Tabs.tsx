@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-import { Tab } from '../../react-app-env.d';
+import { Tab } from '../../types/types';
 
 type Props = {
   tabs: Tab[],
@@ -13,6 +13,12 @@ export const Tabs: React.FC<Props> = ({
   onTabSelected,
 }) => {
   const currentTab = tabs.find(tab => tab.id === selectedTabId) || tabs[0];
+
+  const handleTabClick = (tab: Tab) => {
+    if (selectedTabId !== tab.id) {
+      onTabSelected(tab);
+    }
+  };
 
   return (
     <div data-cy="TabsComponent">
@@ -29,11 +35,7 @@ export const Tabs: React.FC<Props> = ({
               <a
                 href={`#${tab.id}`}
                 data-cy="TabLink"
-                onClick={() => {
-                  if (selectedTabId !== tab.id) {
-                    onTabSelected(tab);
-                  }
-                }}
+                onClick={() => handleTabClick(tab)}
               >
                 {tab.title}
               </a>
