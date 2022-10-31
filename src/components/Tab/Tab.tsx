@@ -3,13 +3,11 @@ import { TabProps } from '../../Types/Type';
 
 type Props = {
   tab: TabProps
-  setActiveTabs: (x: string) => void
-  setSelektedTab: (x: string) => void
+  setSelektedTab: (x: TabProps) => void
 };
 
 export const Tab: React.FC<Props> = ({
   tab,
-  setActiveTabs,
   setSelektedTab,
 }) => {
   return (
@@ -17,8 +15,7 @@ export const Tab: React.FC<Props> = ({
       href="#tab-1"
       data-cy="TabLink"
       onClick={() => {
-        setSelektedTab(tab.id);
-        setActiveTabs(tab.id);
+        setSelektedTab(tab);
       }}
     >
       {tab.title}
