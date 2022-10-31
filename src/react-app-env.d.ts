@@ -1,5 +1,1 @@
-export interface Tab {
-  id: string;
-  title: string;
-  content: string;
-}
+/// <reference types="react-scripts" />

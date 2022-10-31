@@ -1,6 +1,6 @@
 import classNames from 'classnames';
 import { FC } from 'react';
-import { Tab } from '../../react-app-env';
+import { Tab } from '../../types/tab';
 
 type Probs = {
   tabs: Tab[];
@@ -16,6 +16,10 @@ export const Tabs: FC<Probs> = ({
   const selectedTab = tabs.find(({ id }) => (
     id === selectedTabId
   )) || tabs[0];
+
+  const handleTabClick = (tab: Tab) => (
+    tab.id !== selectedTab.id && onTabSelected(tab)
+  );
 
   return (
     <div data-cy="TabsComponent">
@@ -35,9 +39,7 @@ export const Tabs: FC<Probs> = ({
                 <a
                   href={`#${id}`}
                   data-cy="TabLink"
-                  onClick={() => (
-                    id !== selectedTab.id && onTabSelected(tab)
-                  )}
+                  onClick={() => handleTabClick(tab)}
                 >
                   {title}
                 </a>
