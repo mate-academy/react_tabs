@@ -12,24 +12,30 @@ interface ArrOfTabs {
   onTabSelected: (arg: Tab) => void;
 }
 
-export const Tabs = ({ tabs, selectedTabId, onTabSelected }: ArrOfTabs) => {
-  const isCurrentTab = tabs
-    .some((tab) => tab.id === selectedTabId);
+export const Tabs = ({
+  tabs,
+  selectedTabId,
+  onTabSelected,
+}: ArrOfTabs) => {
+  const handleTabClick = (idIsEqual: boolean, tab: Tab) => (
+    !idIsEqual && onTabSelected(tab)
+  );
+
+  const currentTab = tabs.find(tab => tab.id === selectedTabId) || tabs[0];
 
   return (
     <div data-cy="TabsComponent">
       <div className="tabs is-boxed">
         <ul>
-          {tabs.map((tab: Tab, index: number) => {
+          {tabs.map((tab: Tab) => {
             const { id, title } = tab;
-            const idIsEqual = selectedTabId === id;
+            const idIsEqual = currentTab.id === id;
 
             return (
               <li
                 className={classNames(
                   {
-                    'is-active': idIsEqual
-                      || (!isCurrentTab && !index),
+                    'is-active': idIsEqual,
                   },
                 )}
                 data-cy="Tab"
@@ -38,7 +44,7 @@ export const Tabs = ({ tabs, selectedTabId, onTabSelected }: ArrOfTabs) => {
                 <a
                   href={`#${id}`}
                   data-cy="TabLink"
-                  onClick={() => (!idIsEqual && onTabSelected(tab))}
+                  onClick={() => handleTabClick(idIsEqual, tab)}
                 >
                   {title}
                 </a>
@@ -49,8 +55,7 @@ export const Tabs = ({ tabs, selectedTabId, onTabSelected }: ArrOfTabs) => {
       </div>
 
       <div className="block" data-cy="TabContent">
-        {tabs.filter((tab: Tab) => tab.id === selectedTabId)
-          .map((tab: Tab) => tab.content)}
+        {currentTab.content}
       </div>
     </div>
   );
