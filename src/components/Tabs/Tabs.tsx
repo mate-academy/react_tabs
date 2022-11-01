@@ -28,11 +28,7 @@ export const Tabs: FC<Props> = ({
                 className={classNames({
                   'is-active': id === selectedTab.id,
                 })}
-                onFocus={() => {
-                  return selectedTabId !== id
-                    ? onTabSelected(tab)
-                    : 0;
-                }}
+                onFocus={() => selectedTabId !== id && onTabSelected(tab)}
                 key={id}
               >
                 <a href={`#${id}`} data-cy="TabLink">
