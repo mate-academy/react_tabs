@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-import { Tab } from '../../types/types.js';
+import { Tab } from '../../types/types';
 
 type Props = {
   tabs: Tab[],
