@@ -1,6 +1,6 @@
 import React from 'react';
 import classNames from 'classnames';
-import { Tab } from '../../react-app-env';
+import { Tab } from '../../types/Tab';
 
 type Props = {
   tabs: Tab[],
@@ -15,31 +15,36 @@ export const Tabs: React.FC<Props> = ({
 }) => {
   const selectedTab = tabs.find(tab => tab.id === selectedTabId) || tabs[0];
 
+  const isSelectedTab = (tab: Tab) => (tab.id === selectedTab.id);
+  const hanlerClick = (tab: Tab) => {
+    return !isSelectedTab(tab) && onTabSelected(tab);
+  };
+
   return (
     <div data-cy="TabsComponent">
       <div className="tabs is-boxed">
         <ul>
-          {tabs.map(tab => (
-            <li
-              className={classNames({
-                'is-active': tab.id === selectedTab.id,
-              })}
-              data-cy="Tab"
-              key={tab.id}
-            >
-              <a
-                href={`#${tab.id}`}
-                data-cy="TabLink"
-                onClick={() => {
-                  return tab.id !== selectedTab.id
-                    ? onTabSelected(tab)
-                    : null;
-                }}
+          {tabs.map(tab => {
+            const { id, title } = tab;
+
+            return (
+              <li
+                className={classNames({
+                  'is-active': isSelectedTab(tab),
+                })}
+                data-cy="Tab"
+                key={id}
               >
-                {tab.title}
-              </a>
-            </li>
-          ))}
+                <a
+                  href={`#${id}`}
+                  data-cy="TabLink"
+                  onClick={() => hanlerClick(tab)}
+                >
+                  {title}
+                </a>
+              </li>
+            );
+          })}
         </ul>
       </div>
 
