@@ -1,15 +1,15 @@
 import React from 'react';
 import className from 'classnames';
-import { TabProps } from '../../Types/Type';
-import { Tab } from '../Tab';
+import { Tab } from '../../Types/Type';
+import { TabItem } from '../TabItem';
 
 type Props = {
-  tabs: TabProps[]
-  setSelektedTab: (clickTab: TabProps) => void
-  selectedTab: TabProps
+  tabs: Tab[]
+  setSelektedTab: (clickTab: Tab) => void
+  selectedTab: Tab
 };
 
-export const Tabs: React.FC<Props> = ({
+export const TabList: React.FC<Props> = ({
   tabs,
   setSelektedTab,
   selectedTab,
@@ -22,7 +22,7 @@ export const Tabs: React.FC<Props> = ({
           data-cy="Tab"
           key={tab.id}
         >
-          <Tab
+          <TabItem
             tab={tab}
             setSelektedTab={setSelektedTab}
           />

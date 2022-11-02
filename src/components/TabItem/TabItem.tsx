@@ -1,18 +1,18 @@
 import React from 'react';
-import { TabProps } from '../../Types/Type';
+import { Tab } from '../../Types/Type';
 
 type Props = {
-  tab: TabProps
-  setSelektedTab: (x: TabProps) => void
+  tab: Tab
+  setSelektedTab: (x: Tab) => void
 };
 
-export const Tab: React.FC<Props> = ({
+export const TabItem: React.FC<Props> = ({
   tab,
   setSelektedTab,
 }) => {
   return (
     <a
-      href="#tab-1"
+      href={`#${tab.id}`}
       data-cy="TabLink"
       onClick={() => {
         setSelektedTab(tab);

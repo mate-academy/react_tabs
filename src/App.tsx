@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import 'bulma/css/bulma.css';
 import '@fortawesome/fontawesome-free/css/all.css';
 import './App.scss';
-import { Tabs } from './components/Tabs';
+import { TabList } from './components/TabList';
 
 export const tabs = [
   { id: 'tab-1', title: 'Tab 1', content: 'Some text 1' },
@@ -23,7 +23,7 @@ export const App: React.FC = () => {
 
       <div data-cy="TabsComponent">
         <div className="tabs is-boxed">
-          <Tabs
+          <TabList
             tabs={tabs}
             setSelektedTab={setSelektedTab}
             selectedTab={selectedTab}
