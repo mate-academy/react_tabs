@@ -13,31 +13,35 @@ export const Tabs: React.FC<Props> = ({
 }) => {
   const selectedTab = tabs.find(({ id }) => id === selectedTabId) || tabs[0];
 
+  const test = (param: Tab) => {
+    if (param.id !== selectedTab.id) {
+      onTabSelected(param);
+    }
+  };
+
   return (
     <div data-cy="TabsComponent">
       <div className="tabs is-boxed">
         <ul>
-          {tabs.map(({ id, title, content }) => (
-            <li
-              key={id}
-              className={classNames({ 'is-active': id === selectedTab.id })}
-              data-cy="Tab"
-            >
-              <a
-                href={`#${id}`}
-                data-cy="TabLink"
-                onClick={() => {
-                  if (id !== selectedTab.id) {
-                    onTabSelected({
-                      id, title, content,
-                    });
-                  }
-                }}
+          {tabs.map(({ id, title, content }) => {
+            const isSelected = id === selectedTab.id;
+
+            return (
+              <li
+                key={id}
+                className={classNames({ 'is-active': isSelected })}
+                data-cy="Tab"
               >
-                {title}
-              </a>
-            </li>
-          ))}
+                <a
+                  href={`#${id}`}
+                  data-cy="TabLink"
+                  onClick={() => test({ id, title, content })}
+                >
+                  {title}
+                </a>
+              </li>
+            );
+          })}
         </ul>
       </div>
 
