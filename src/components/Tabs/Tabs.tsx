@@ -15,7 +15,7 @@ export const Tabs: React.FC<Props> = ({
 }) => {
   const selectedTab = tabs.find(tab => tab.id === selectedTabId) || tabs[0];
 
-  const tabHandler = (tab: Tab) => {
+  const handleTabChange = (tab: Tab) => {
     if (selectedTabId !== tab.id) {
       onTabSelected(tab);
     }
@@ -36,7 +36,7 @@ export const Tabs: React.FC<Props> = ({
               <a
                 href={`#${tab.id}`}
                 data-cy="TabLink"
-                onClick={() => tabHandler(tab)}
+                onClick={() => handleTabChange(tab)}
                 id={tab.id}
               >
                 {tab.title}
