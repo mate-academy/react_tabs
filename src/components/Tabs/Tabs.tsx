@@ -15,7 +15,10 @@ type Props = {
     content: string;
   },
   setSelectedTab: React.Dispatch<React.SetStateAction<{
-    id: string; title: string; content: string; }>>
+    id: string;
+    title: string;
+    content: string;
+  }>>
 };
 
 export const Tabs: React.FC<Props> = (
@@ -26,7 +29,6 @@ export const Tabs: React.FC<Props> = (
   return (
     <div data-cy="TabsComponent">
       <div className="tabs is-boxed">
-
         <ul>
           {tabs.map(tab => (
             <li
@@ -50,7 +52,6 @@ export const Tabs: React.FC<Props> = (
             </li>
           ))}
         </ul>
-
       </div>
     </div>
   );
