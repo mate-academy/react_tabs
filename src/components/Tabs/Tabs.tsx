@@ -1,6 +1,6 @@
 import classNames from 'classnames';
 import { FC } from 'react';
-import { Tab } from '../../react-app-env';
+import { Tab } from '../../types/Tab';
 
 type Props = {
   tabs: Tab[];
@@ -14,6 +14,11 @@ export const Tabs: FC<Props> = ({
   onTabSelected,
 }) => {
   const selectedTab = tabs.find(tab => tab.id === selectedTabId) || tabs[0];
+  const handleSelectTab = (id: string, tab: Tab) => {
+    if (selectedTabId !== id) {
+      onTabSelected(tab);
+    }
+  };
 
   return (
     <div data-cy="TabsComponent">
@@ -28,10 +33,13 @@ export const Tabs: FC<Props> = ({
                 className={classNames({
                   'is-active': id === selectedTab.id,
                 })}
-                onFocus={() => selectedTabId !== id && onTabSelected(tab)}
                 key={id}
               >
-                <a href={`#${id}`} data-cy="TabLink">
+                <a
+                  href={`#${id}`}
+                  data-cy="TabLink"
+                  onClick={() => handleSelectTab(id, tab)}
+                >
                   {title}
                 </a>
               </li>
