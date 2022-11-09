@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import 'bulma/css/bulma.css';
 import '@fortawesome/fontawesome-free/css/all.css';
 import './App.scss';
-// import { Tabs } from './components/Tabs';
 import { Tabs } from './components/Tabs/Tabs';
 
 export const tabs = [
@@ -12,7 +11,7 @@ export const tabs = [
 ];
 
 export const App: React.FC = () => {
-  const [selectedTab, setTab] = useState(tabs[0]);
+  const [selectedTab, setSelectedTab] = useState(tabs[0]);
 
   return (
     <div className="section">
@@ -23,7 +22,7 @@ export const App: React.FC = () => {
       <Tabs
         tabs={tabs}
         selectedTabId={selectedTab.id}
-        onTabSelected={setTab}
+        onTabSelected={setSelectedTab}
       />
     </div>
   );
