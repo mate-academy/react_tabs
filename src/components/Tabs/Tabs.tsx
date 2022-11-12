@@ -1,4 +1,4 @@
-import cn from 'classnames';
+import classNames from 'classnames';
 
 interface Tab {
   id: string,
@@ -20,6 +20,12 @@ export const Tabs: React.FC<Props> = ({
   const currentSelectedTab = tabs
     .find(tab => selectedTabId === tab.id) || tabs[0];
 
+  const selectTabHandler = (item: Tab) => {
+    if (currentSelectedTab.id !== item.id) {
+      onTabSelected(item);
+    }
+  };
+
   return (
     <div data-cy="TabsComponent">
       <div className="tabs is-boxed">
@@ -27,17 +33,15 @@ export const Tabs: React.FC<Props> = ({
           {tabs.map(tab => (
             <li
               key={tab.id}
-              className={cn({ 'is-active': tab.id === currentSelectedTab.id })}
+              className={classNames(
+                { 'is-active': tab.id === currentSelectedTab.id },
+              )}
               data-cy="Tab"
             >
               <a
                 href={`#${tab.id}`}
                 data-cy="TabLink"
-                onClick={() => {
-                  if (currentSelectedTab.id !== tab.id) {
-                    onTabSelected(tab);
-                  }
-                }}
+                onClick={() => selectTabHandler(tab)}
               >
                 {tab.title}
               </a>
