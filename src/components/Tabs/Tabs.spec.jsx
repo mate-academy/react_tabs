@@ -1,4 +1,5 @@
 /* eslint-disable @typescript-eslint/no-unused-expressions, react/jsx-filename-extension */
+import React from 'react';
 import { mount } from '@cypress/react';
 import { Tabs } from './Tabs';
 
