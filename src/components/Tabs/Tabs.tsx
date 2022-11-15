@@ -17,15 +17,15 @@ export const Tabs: React.FC<Props> = ({
   selectedTabId,
   onTabSelected,
 }) => {
-  const selectedTab = tabs.find(tab => tab.id === selectedTabId) || tabs[0];
+  const currentTab = tabs.find(tab => tab.id === selectedTabId) || tabs[0];
 
   const selectHandler = (
     event: React.MouseEvent<HTMLAnchorElement, MouseEvent>,
-    isSelected: Tab,
+    selectedTab: Tab,
     tab: Tab,
   ): void => {
     event.preventDefault();
-    if (isSelected !== tab) {
+    if (selectedTab !== tab) {
       onTabSelected(tab);
     }
   };
@@ -37,7 +37,7 @@ export const Tabs: React.FC<Props> = ({
           {tabs.map(tab => (
             <li
               className={classNames({
-                'is-active': selectedTab.id === tab.id,
+                'is-active': currentTab.id === tab.id,
               })}
               data-cy="Tab"
               key={tab.id}
@@ -45,7 +45,7 @@ export const Tabs: React.FC<Props> = ({
               <a
                 href={`#${tab.id}`}
                 data-cy="TabLink"
-                onClick={(event) => selectHandler(event, selectedTab, tab)}
+                onClick={(event) => selectHandler(event, currentTab, tab)}
               >
                 {tab.title}
               </a>
@@ -55,7 +55,7 @@ export const Tabs: React.FC<Props> = ({
       </div>
 
       <div className="block" data-cy="TabContent">
-        {selectedTab.content}
+        {currentTab.content}
       </div>
     </div>
   );
