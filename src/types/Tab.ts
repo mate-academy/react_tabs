@@ -3,3 +3,5 @@ export interface Tab {
   title: string,
   content: string,
 }
+
+export type OnTabSelected = (tab: Tab) => void;
