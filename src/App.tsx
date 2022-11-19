@@ -15,11 +15,7 @@ export const App: React.FC = () => {
   const [selectedTabId, setSelectedTabId] = useState(tabs[0].id);
   const selectedTab = tabs.find(tab => tab.id === selectedTabId) || tabs[0];
 
-  const onTabSelected = (
-    tab: Tab,
-  ) => {
-    setSelectedTabId(tab.id);
-  };
+  const onTabSelected = (tab: Tab) => setSelectedTabId(tab.id);
 
   return (
     <div className="section">
