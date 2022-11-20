@@ -21,7 +21,7 @@ export const Tabs: React.FC<Props> = ({
           {tabs.map(tab => (
             <li
               className={classNames({ 'is-active': selectedTabId === tab.id })}
-              data-cy={tab}
+              data-cy="Tab"
             >
               <button
                 type="button"
@@ -29,7 +29,7 @@ export const Tabs: React.FC<Props> = ({
               >
                 <a
                   href={`#${tab.id}`}
-                  data-cy={`#${tab.id}`}
+                  data-cy="TabLink"
                 >
                   {tab.title}
                 </a>
@@ -39,7 +39,7 @@ export const Tabs: React.FC<Props> = ({
         </ul>
       </div>
 
-      <div className="block" data-cy={content}>
+      <div className="block" data-cy="TabContent">
         {content}
       </div>
     </div>
