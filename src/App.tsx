@@ -3,6 +3,7 @@ import 'bulma/css/bulma.css';
 import '@fortawesome/fontawesome-free/css/all.css';
 import './App.scss';
 import { Tabs } from './components/Tabs';
+import { Tab } from './types/Tab';
 
 export const tabs = [
   { id: 'tab-1', title: 'Tab 1', content: 'Some text 1' },
@@ -11,24 +12,23 @@ export const tabs = [
 ];
 
 export const App: React.FC = () => {
-  const [selectedTab, setSelectedTab] = useState('Tab 1');
-  const handlerTabLink = (event: React.MouseEvent) => {
-    const currentTab = event.currentTarget.textContent || '';
-
-    setSelectedTab(currentTab);
+  const [selectedTab, setSelectedTab] = useState(tabs[0]);
+  const onTabSelected = (tab: Tab) => {
+    setSelectedTab(tab);
   };
 
   return (
     <div className="section">
       <h1 className="title">
         Selected tab is
-        {selectedTab}
+        {' '}
+        {selectedTab.title}
       </h1>
 
       <Tabs
         tabs={tabs}
-        selectedTab={selectedTab}
-        handlerTabLink={handlerTabLink}
+        selectedTabId={selectedTab.id}
+        onTabSelected={onTabSelected}
       />
     </div>
   );
