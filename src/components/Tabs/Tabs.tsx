@@ -1,3 +1,4 @@
+import React, { memo, useCallback, useMemo } from 'react';
 import classNames from 'classnames';
 import { Tab } from '../../Types/Tab';
 
@@ -7,20 +8,22 @@ type Props = {
   onTabSelected: (tab: Tab) => void;
 };
 
-export const Tabs: React.FC<Props> = ({
+export const Tabs: React.FC<Props> = memo(({
   tabs,
   selectedTabId,
   onTabSelected,
 }) => {
-  const selectedTab: Tab = tabs.find(({ id }) => {
-    return id === selectedTabId;
-  }) || tabs[0];
+  const selectedTab: Tab = useMemo(() => {
+    return tabs.find(({ id }) => {
+      return id === selectedTabId;
+    }) || tabs[0];
+  }, [selectedTabId]);
 
-  const handleClick = (tab: Tab) => {
+  const handleClick = useCallback((tab: Tab) => {
     if (tab !== selectedTab) {
       onTabSelected(tab);
     }
-  };
+  }, [selectedTab]);
 
   return (
     <div data-cy="TabsComponent">
@@ -52,4 +55,4 @@ export const Tabs: React.FC<Props> = ({
       </div>
     </div>
   );
-};
+});
