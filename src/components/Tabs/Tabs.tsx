@@ -18,6 +18,8 @@ export const Tabs: React.FC<Props> = ({
     onTabSelected(tab);
   };
 
+  const selectedTab = tabs.find((tab) => tab.id === selectedTabId) || tabs[0];
+
   return (
     <div data-cy="TabsComponent">
       <div className="tabs is-boxed">
@@ -44,11 +46,12 @@ export const Tabs: React.FC<Props> = ({
           ))}
         </ul>
       </div>
+      {selectedTab && (
+        <div className="block" data-cy="tab-content">
+          {selectedTab.content}
+        </div>
+      )}
 
-      <div className="block" data-cy="tab-content">
-        {tabs.find((tab) => tab.id === selectedTabId)
-          ?.content}
-      </div>
     </div>
   );
 };
