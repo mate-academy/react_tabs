@@ -1,4 +1,5 @@
 import cn from 'classnames';
+import { useCallback, useMemo } from 'react';
 import { Tab } from '../../types/Tab';
 
 type Props = {
@@ -12,7 +13,18 @@ export const Tabs: React.FC<Props> = ({
   selectedTabId,
   onTabSelected,
 }) => {
-  const selectedTab = tabs.find(tab => tab.id === selectedTabId) || tabs[0];
+  const selectedTab = useMemo(
+    () => tabs.find(tab => tab.id === selectedTabId)
+      || tabs[0], [selectedTabId],
+  );
+
+  const selectTabHandler = useCallback((tab) => {
+    if (tab.id === selectedTabId) {
+      return {};
+    }
+
+    return onTabSelected(tab);
+  }, [selectedTab]);
 
   return (
     <div data-cy="TabsComponent">
@@ -29,9 +41,7 @@ export const Tabs: React.FC<Props> = ({
               <a
                 href={`#${tab.id}`}
                 data-cy="TabLink"
-                onClick={() => (tab.id === selectedTabId
-                  ? () => {}
-                  : onTabSelected(tab))}
+                onClick={() => selectTabHandler(tab)}
               >
                 {tab.title}
               </a>

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useCallback, useMemo, useState } from 'react';
 import 'bulma/css/bulma.css';
 import '@fortawesome/fontawesome-free/css/all.css';
 import './App.scss';
@@ -14,11 +14,14 @@ export const tabs = [
 export const App: React.FC = () => {
   const [selectedTabId, setSelectedTabId] = useState(tabs[0].id);
 
-  const selectedTab = tabs.find(tab => tab.id === selectedTabId) || tabs[0];
+  const selectedTab = useMemo(
+    () => tabs.find(tab => tab.id === selectedTabId)
+      || tabs[0], [selectedTabId],
+  );
 
-  const onTabSelected = (tab: Tab) => {
+  const onTabSelected = useCallback((tab: Tab) => {
     setSelectedTabId(tab.id);
-  };
+  }, [selectedTab]);
 
   return (
     <div className="section">
