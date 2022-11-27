@@ -1,4 +1,5 @@
 import classNames from 'classnames';
+import { useCallback, useMemo } from 'react';
 import { Tab } from '../../types/Tab';
 
 type Props = {
@@ -12,13 +13,18 @@ export const Tabs: React.FC<Props> = ({
   selectedTabId,
   onTabSelected,
 }) => {
-  const clickHandler = (tab: Tab) => {
+  const clickHandler = useCallback((tab: Tab) => {
     if (selectedTabId !== tab.id) {
       onTabSelected(tab);
     }
-  };
+  }, [selectedTabId]);
 
-  const selectedTab = tabs.find((tab) => (tab.id === selectedTabId)) || tabs[0];
+  const selectedTab = useMemo(
+    () => (
+      tabs.find((tab) => (tab.id === selectedTabId)) || tabs[0]
+    ),
+    [selectedTabId, tabs],
+  );
 
   return (
     <div data-cy="TabsComponent">
