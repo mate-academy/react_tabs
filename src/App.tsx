@@ -13,10 +13,7 @@ export const tabs = [
 
 export const App: React.FC = () => {
   const [activeTab, setActiveTab] = useState(tabs[0]);
-
-  const onTabSelected = (tab: Tab) => {
-    setActiveTab(tab);
-  };
+  const onTabSelected = (tab: Tab) => setActiveTab(tab);
 
   return (
     <div className="section">
