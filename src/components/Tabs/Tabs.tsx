@@ -3,18 +3,18 @@ import { Tab } from '../../types/tab';
 
 type Props = {
   tabs: Tab[],
-  onTabSelect: (tab: Tab) => void,
+  onTabSelected: (tab: Tab) => void,
   selectedTabID: string,
 };
 
 export const Tabs: React.FC<Props> = ({
   tabs,
-  onTabSelect,
+  onTabSelected,
   selectedTabID,
 }) => {
   const handleTabSelection = (tab: Tab) => {
     if (selectedTabID !== tab.id) {
-      onTabSelect(tab);
+      onTabSelected(tab);
     }
   };
 
@@ -24,23 +24,21 @@ export const Tabs: React.FC<Props> = ({
     <div data-cy="TabsComponent">
       <div className="tabs is-boxed">
         <ul>
-          {tabs.map(tab => {
-            return (
-              <li
-                className={classNames(selectedTabID === tab.id && 'is-active')}
-                data-cy="Tab"
-                key={tab.id}
+          {tabs.map(tab => (
+            <li
+              className={classNames(selectedTabID === tab.id && 'is-active')}
+              data-cy="Tab"
+              key={tab.id}
+            >
+              <a
+                href={`#${tab.id}`}
+                data-cy="TabLink"
+                onClick={() => handleTabSelection(tab)}
               >
-                <a
-                  href={`#${tab.id}`}
-                  data-cy="TabLink"
-                  onClick={() => handleTabSelection(tab)}
-                >
-                  {tab.title}
-                </a>
-              </li>
-            );
-          })}
+                {tab.title}
+              </a>
+            </li>
+          ))}
         </ul>
       </div>
 
