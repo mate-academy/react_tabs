@@ -1,7 +1,7 @@
 import React from 'react';
 import classNames from 'classnames';
 
-export type Tab = {
+type Tab = {
   id: string;
   title: string;
   content: string;
