@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { Tabs, Tab } from './components/Tabs';
+import { Tab } from './types/Tab';
+import { Tabs } from './components/Tabs';
 import 'bulma/css/bulma.css';
 import '@fortawesome/fontawesome-free/css/all.css';
 import './App.scss';
