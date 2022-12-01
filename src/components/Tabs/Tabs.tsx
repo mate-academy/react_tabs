@@ -4,7 +4,7 @@ import { Tab } from '../../types/Tab';
 interface Props {
   tabs: Tab[],
   selectedTabId : string,
-  onTabSelected: (tabData: Tab) => Tab,
+  onTabSelected: (tabData: Tab) => void,
 }
 
 export const Tabs: React.FC<Props> = ({
@@ -12,11 +12,7 @@ export const Tabs: React.FC<Props> = ({
   selectedTabId,
   onTabSelected,
 }) => {
-  const findSelectedTab = tabs.find(tab => tab.id === selectedTabId);
-
-  const selectedTab = findSelectedTab !== undefined
-    ? findSelectedTab
-    : tabs[0];
+  const selectedTab = tabs.find(tab => tab.id === selectedTabId) || tabs[0];
 
   return (
     <div data-cy="TabsComponent">

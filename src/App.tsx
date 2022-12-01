@@ -20,21 +20,18 @@ export const App: React.FC = () => {
     } else {
       setSelectedTab(tabs[0]);
     }
-
-    return tabData;
   };
 
   return (
     <div className="section">
       <h1 className="title">
-        {'Selected tab is '}
-        {selectedTab.title}
+        {`Selected tab is ${selectedTab.title}`}
       </h1>
 
       <Tabs
         tabs={tabs}
         selectedTabId={selectedTab.id}
-        onTabSelected={onTabSelected}
+        onTabSelected={(tab) => onTabSelected(tab)}
       />
     </div>
   );
