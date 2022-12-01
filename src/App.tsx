@@ -15,11 +15,7 @@ export const App: React.FC = () => {
   const [selectedTab, setSelectedTab] = useState(tabs[0]);
 
   const onTabSelected = (tabData: Tab) => {
-    if (tabData) {
-      setSelectedTab(tabData);
-    } else {
-      setSelectedTab(tabs[0]);
-    }
+    setSelectedTab(tabData);
   };
 
   return (
