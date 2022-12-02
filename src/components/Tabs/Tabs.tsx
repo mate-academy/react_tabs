@@ -1,13 +1,13 @@
 import React from 'react';
-import { Tabls } from '../../types/Tabls';
+import { TabsType } from '../../types/Tabs';
 
-interface Tables {
-  tabs: Tabls[];
+interface Props {
+  tabs: TabsType[];
   selectedTab: number;
   onChangeTab: (param: number)=>void;
 }
 
-export const Tabs: React.FC<Tables> = ({ tabs, selectedTab, onChangeTab }) => {
+export const Tabs: React.FC<Props> = ({ tabs, selectedTab, onChangeTab }) => {
   return (
     <div data-cy="TabsComponent">
       <div className="tabs is-boxed">
