@@ -4,15 +4,23 @@ import { Tab } from '../../Types/Tab';
 
 type Props = {
   tabs: Tab[];
-  selectedTab: Tab;
-  onSelect: (tab: Tab) => void;
+  selectedTabId: string;
+  onTabSelected: (tab: Tab) => void;
 };
 
 export const Tabs: FC<Props> = ({
   tabs,
-  selectedTab,
-  onSelect,
+  selectedTabId,
+  onTabSelected,
 }) => {
+  const selectedTab = tabs.find(tab => tab.id === selectedTabId) || tabs[0];
+
+  const handleClick = (tab: Tab) => {
+    if (tab.id !== selectedTabId) {
+      onTabSelected(tab);
+    }
+  };
+
   return (
     <div data-cy="TabsComponent">
       <div className="tabs is-boxed">
@@ -29,7 +37,7 @@ export const Tabs: FC<Props> = ({
               <a
                 href={`#${tab.id}`}
                 data-cy="TabLink"
-                onClick={() => onSelect(tab)}
+                onClick={() => handleClick(tab)}
               >
                 {tab.title}
               </a>
