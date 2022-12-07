@@ -1,23 +1,22 @@
+import React from 'react';
 import { Tab } from '../../types/tab';
 
-type Props = {
+interface Props {
   tabs: Tab[],
-  onTabSelected: (tab: Tab) => void,
-  selectedTabID: string,
-};
+  onTabSelected: React.Dispatch<React.SetStateAction<Tab>>,
+  selectedTab: Tab,
+}
 
 export const Tabs: React.FC<Props> = ({
   tabs,
   onTabSelected,
-  selectedTabID,
+  selectedTab,
 }) => {
   const handleTabSelection = (tab: Tab) => {
-    if (selectedTabID !== tab.id) {
+    if (selectedTab.id !== tab.id) {
       onTabSelected(tab);
     }
   };
-
-  const currentTab = tabs.find(tab => tab.id === selectedTabID) || tabs[0];
 
   return (
     <div data-cy="TabsComponent">
@@ -25,7 +24,7 @@ export const Tabs: React.FC<Props> = ({
         <ul>
           {tabs.map(tab => (
             <li
-              className={selectedTabID === tab.id ? 'is-active' : ''}
+              className={selectedTab.id === tab.id ? 'is-active' : ''}
               data-cy="Tab"
               key={tab.id}
             >
@@ -42,7 +41,7 @@ export const Tabs: React.FC<Props> = ({
       </div>
 
       <div className="block" data-cy="TabContent">
-        {currentTab.content}
+        {selectedTab.content}
       </div>
     </div>
   );
