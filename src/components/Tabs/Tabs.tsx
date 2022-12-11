@@ -17,6 +17,22 @@ export const Tabs: React.FC<Props> = ({
   selectedTabId,
   onTabSelected,
 }) => {
+  const onTabClick = (
+    event: React.MouseEvent<HTMLAnchorElement, MouseEvent>,
+  ) => {
+    if (event.currentTarget.hash.slice(1) === selectedTabId) {
+      return;
+    }
+
+    const currentTab = {
+      id: event.currentTarget.hash.slice(1),
+      title: event.currentTarget.textContent,
+      content: `Some text ${(event.currentTarget.textContent ?? '').replace(/^\D+/g, '')}`,
+    };
+
+    onTabSelected(currentTab);
+  };
+
   return (
     <div data-cy="TabsComponent">
       <div className="tabs is-boxed">
@@ -25,23 +41,12 @@ export const Tabs: React.FC<Props> = ({
             <li
               className={classNames({ 'is-active': tab.id === selectedTabId })}
               data-cy="Tab"
+              key={tab.id}
             >
               <a
                 href={`#${tab.id}`}
                 data-cy="TabLink"
-                onClick={(event) => {
-                  if (event.currentTarget.hash.slice(1) === selectedTabId) {
-                    return;
-                  }
-
-                  const currentTab = {
-                    id: event.currentTarget.hash.slice(1),
-                    title: event.currentTarget.textContent,
-                    content: `Some text ${(event.currentTarget.textContent ?? '').replace(/^\D+/g, '')}`,
-                  };
-
-                  onTabSelected(currentTab);
-                }}
+                onClick={onTabClick}
               >
                 {tab.title}
               </a>
@@ -51,7 +56,7 @@ export const Tabs: React.FC<Props> = ({
       </div>
 
       <div className="block" data-cy="TabContent">
-        {tabs.find(tab => tab.id === selectedTabId)?.content}
+        {tabs.find(tab => tab.id === selectedTabId)?.content || tabs[0].content}
       </div>
     </div>
   );
