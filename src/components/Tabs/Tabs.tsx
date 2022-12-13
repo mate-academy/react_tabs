@@ -1,4 +1,5 @@
 import classNames from 'classnames';
+import { useEffect, useState } from 'react';
 
 export interface Tab {
   id: string,
@@ -33,13 +34,28 @@ export const Tabs: React.FC<Props> = ({
     onTabSelected(currentTab);
   };
 
+  const [activeTab, setActiveTab] = useState(tabs[0].content);
+  const [activeTabId, setActiveTabId] = useState(tabs[0].id);
+
+  useEffect(() => {
+    const isActiveTab = tabs.find(tab => tab.id === selectedTabId)?.content
+    || tabs[0].content;
+    const isActiveTabId = tabs.find(tab => tab.id === selectedTabId)?.id
+    || tabs[0].id;
+
+    setActiveTab(isActiveTab);
+    setActiveTabId(isActiveTabId);
+  }, [selectedTabId]);
+
   return (
     <div data-cy="TabsComponent">
       <div className="tabs is-boxed">
         <ul>
           {tabs.map(tab => (
             <li
-              className={classNames({ 'is-active': tab.id === selectedTabId })}
+              className={classNames({
+                'is-active': tab.id === activeTabId,
+              })}
               data-cy="Tab"
               key={tab.id}
             >
@@ -56,7 +72,7 @@ export const Tabs: React.FC<Props> = ({
       </div>
 
       <div className="block" data-cy="TabContent">
-        {tabs.find(tab => tab.id === selectedTabId)?.content || tabs[0].content}
+        {activeTab}
       </div>
     </div>
   );
