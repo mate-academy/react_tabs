@@ -11,6 +11,12 @@ export const Tabs: React.FC<Props> = (props) => {
   const { tabs, selectedTabId, onTabSelected } = props;
   const selectedTab = tabs.find(tab => tab.id === selectedTabId) || tabs[0];
 
+  const changeTab = (tabId: string, tab: Tab) => {
+    if (tabId !== selectedTab.id) {
+      onTabSelected(tab);
+    }
+  };
+
   return (
     <div data-cy="TabsComponent">
       <div className="tabs is-boxed">
@@ -19,19 +25,16 @@ export const Tabs: React.FC<Props> = (props) => {
             <li
               data-cy="Tab"
               key={tab.id}
-              className={classNames('',
+              className={classNames(
                 {
                   'is-active': tab.id === selectedTab.id,
-                })}
+                },
+              )}
             >
               <a
                 href={`#${tab.id}`}
                 data-cy="TabLink"
-                onClick={() => {
-                  if (tab.id !== selectedTab.id) {
-                    onTabSelected(tab);
-                  }
-                }}
+                onClick={() => changeTab(tab.id, tab)}
               >
                 {tab.title}
               </a>
