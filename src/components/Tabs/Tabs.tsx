@@ -16,7 +16,7 @@ type Props = {
 export const Tabs:React.FC<Props> = ({ tabs, selectedTabId, onSelectTab }) => {
   const selectedTab = tabs.find(tab => tab.id === selectedTabId) || tabs[0];
 
-  const doOnClick = (tab: Tab) => {
+  const handleClick = (tab: Tab) => {
     if (tab.id !== selectedTab.id) {
       onSelectTab(tab);
     }
@@ -37,7 +37,7 @@ export const Tabs:React.FC<Props> = ({ tabs, selectedTabId, onSelectTab }) => {
               <a
                 href={`#${tab.id}`}
                 data-cy="TabLink"
-                onClick={() => doOnClick(tab)}
+                onClick={() => handleClick(tab)}
                 id={tab.id}
               >
                 {tab.title}
