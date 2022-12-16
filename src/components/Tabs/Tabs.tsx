@@ -4,16 +4,18 @@ import { TabsType } from '../../types/TabsType';
 type Props = {
   tabs: TabsType[];
   selectedTabId: string;
-  onSelectedTab: (tab: TabsType) => void;
+  onTabSelected: (tab: TabsType) => void;
 };
 
 export const Tabs: React.FC<Props> = ({
   tabs,
-  onSelectedTab,
+  onTabSelected,
   selectedTabId,
 }) => {
   const onClickTab = (tab: TabsType) => {
-    onSelectedTab(tab);
+    if (tab.id !== selectedTabId) {
+      onTabSelected(tab);
+    }
   };
 
   return (
