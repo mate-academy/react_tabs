@@ -1,1 +1,53 @@
-export const Tabs = () => {};
+import classNames from 'classnames';
+import { TabsType } from '../../types/TabsType';
+
+type Props = {
+  tabs: TabsType[];
+  selectedTabId: string;
+  onSelectedTab: (tab: TabsType) => void;
+};
+
+export const Tabs: React.FC<Props> = ({
+  tabs,
+  onSelectedTab,
+  selectedTabId,
+}) => {
+  const onClickTab = (tab: TabsType) => {
+    onSelectedTab(tab);
+  };
+
+  return (
+    <div data-cy="TabsComponent">
+      <div className="tabs is-boxed">
+        <ul>
+          {
+            tabs.map(tab => {
+              return (
+                <li
+                  data-cy="Tab"
+                  id={tab.id}
+                  key={tab.id}
+                  className={classNames(
+                    { 'is-active': tab.id === selectedTabId },
+                  )}
+                >
+                  <a
+                    href={`#${tab.id}`}
+                    data-cy="TabLink"
+                    onClick={() => onClickTab(tab)}
+                  >
+                    {tab.title}
+                  </a>
+                </li>
+              );
+            })
+          }
+        </ul>
+      </div>
+
+      <div className="block" data-cy="TabContent">
+        {tabs.find(tab => tab.id === selectedTabId)?.content}
+      </div>
+    </div>
+  );
+};
