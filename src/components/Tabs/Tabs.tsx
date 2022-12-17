@@ -9,25 +9,21 @@ type Tab = {
 
 type Props = {
   tabs: Tab[];
-  selectedTabs: {
-    id: string;
-    title: string;
-    content: string;
-  };
-  setTabs: (tab: Tab) => void
+  selectedTab: Tab;
+  setSelectedTab: (tab: Tab) => void
 };
 
 export const Tabs: React.FC<Props> = (
   {
-    tabs, selectedTabs, setTabs,
+    tabs, selectedTab, setSelectedTab,
   },
 ) => {
   const handleClick = (tab: Tab) => {
-    if (selectedTabs.id === tab.id) {
+    if (selectedTab.id === tab.id) {
       return;
     }
 
-    setTabs(tab);
+    setSelectedTab(tab);
   };
 
   return (
@@ -37,7 +33,7 @@ export const Tabs: React.FC<Props> = (
           {tabs.map(tab => (
             <li
               className={classNames(
-                { 'is-active': tab.id === selectedTabs.id },
+                { 'is-active': tab.id === selectedTab.id },
               )}
               data-cy="Tab"
               key={tab.id}
