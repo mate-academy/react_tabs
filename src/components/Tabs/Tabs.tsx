@@ -13,14 +13,14 @@ export const Tabs: React.FC<Props> = ({
   tabs,
   onTabSelected,
 }) => {
-  // eslint-disable-next-line max-len
-  const selectedTab = tabs.find(tab => selectedTabId === tab.id) || tabs[0];
+  const selectedTab = tabs.find(tab => selectedTabId === tab.id)
+  || tabs[0];
 
   return (
     <div data-cy="TabsComponent">
       <div className="tabs is-boxed">
         <ul>
-          {tabs.map((tab: Tab) => (
+          {tabs.map(tab => (
             <li
               key={tab.id}
               data-cy="Tab"
