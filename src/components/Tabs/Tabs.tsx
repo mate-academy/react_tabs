@@ -11,7 +11,7 @@ interface Props {
 export const Tabs: React.FC<Props> = (props) => {
   const { tabs, selectedTabId, onTabSelected } = props;
   const selectedTab = tabs.find(
-    (tab: { id: string; }) => tab.id === selectedTabId,
+    (tab: Tab) => tab.id === selectedTabId,
   ) || tabs[0];
   const handleClick = (tab: Tab) => {
     if (tab.id !== selectedTab.id) {
