@@ -5,7 +5,7 @@ import { Tab } from '../../types/Tab';
 type Props = {
   tabs: Tab[],
   selectedTabId: string,
-  onTabSelected: (tabId: Tab) => void,
+  onTabSelected: (tab: Tab) => void,
 };
 
 export const Tabs: React.FC<Props> = (props) => {
@@ -35,6 +35,7 @@ export const Tabs: React.FC<Props> = (props) => {
               className={classNames(
                 { 'is-active': selectedTab.id === tab.id },
               )}
+              key={tab.id}
             >
               <a
                 href={`#${tab.id}`}
