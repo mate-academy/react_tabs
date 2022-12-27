@@ -16,11 +16,9 @@ export const App: React.FC = () => {
   const onTabSelected = (tab: Tab) => {
     const index = tabs.findIndex(t => t.id === tab.id);
 
-    if (index === -1) {
-      setSelectedTab(tabs[0]);
-    } else {
-      setSelectedTab(tabs[index]);
-    }
+    setSelectedTab(tabs[index !== -1
+      ? index
+      : 0]);
   };
 
   return (

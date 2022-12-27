@@ -16,7 +16,20 @@ export const Tabs = ({ tabs, selectedTabId, onTabSelected }: Props) => {
   let index = tabs
     .findIndex(tab => tab.id === selectedTabId);
 
-  index = index !== -1 ? index : 0;
+  index = index !== -1
+    ? index
+    : 0;
+
+  const onSwitchTab = (
+    e: React.MouseEvent<HTMLAnchorElement, MouseEvent>,
+    tab: Tab,
+    isSelected: boolean,
+  ) => {
+    e.preventDefault();
+    if (!isSelected) {
+      onTabSelected(tab);
+    }
+  };
 
   return (
     <div data-cy="TabsComponent">
@@ -34,12 +47,7 @@ export const Tabs = ({ tabs, selectedTabId, onTabSelected }: Props) => {
                 <a
                   href={`#${tab.id}`}
                   data-cy="TabLink"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    if (!isSelected) {
-                      onTabSelected(tab);
-                    }
-                  }}
+                  onClick={e => onSwitchTab(e, tab, isSelected)}
                 >
                   {tab.title}
                 </a>
