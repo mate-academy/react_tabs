@@ -41,7 +41,7 @@ export const App = () => {
           />
         </div>
 
-        <div className="block" data-cy="tab-content">
+        <div className="block" data-cy="TabConten">
           {selected.content}
         </div>
       </div>
