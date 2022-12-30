@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 
 type Tab = {
   id: string;
@@ -9,26 +9,18 @@ type Tab = {
 
 type Props = {
   tabs: Tab[];
-  selectedTabId: string;
+  selectedTab: Tab;
   onTabSelected: (event: React.MouseEvent<HTMLAnchorElement>) => void;
 };
 
-const Tabs: React.FC<Props> = ({ tabs, selectedTabId, onTabSelected }) => {
-  const [tabContent, setTabContent] = useState('');
-
-  useEffect(() => {
-    const [currentTabContent] = tabs.filter(tab => tab.id === selectedTabId);
-
-    setTabContent(currentTabContent.content);
-  }, [selectedTabId]);
-
+const Tabs: React.FC<Props> = ({ tabs, selectedTab, onTabSelected }) => {
   return (
     <div data-cy="TabsComponent">
       <div className="tabs is-boxed">
         <ul>
           {tabs.map(({ id, title }) => (
             <li
-              className={classNames({ 'is-active': id === selectedTabId })}
+              className={classNames({ 'is-active': id === selectedTab.id })}
               data-cy="Tab"
               key={id}
             >
@@ -45,7 +37,7 @@ const Tabs: React.FC<Props> = ({ tabs, selectedTabId, onTabSelected }) => {
       </div>
 
       <div className="block" data-cy="TabContent">
-        {tabContent}
+        {selectedTab.content}
       </div>
     </div>
   );
