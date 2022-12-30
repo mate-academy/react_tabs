@@ -17,10 +17,9 @@ const Tabs: React.FC<Props> = ({ tabs, selectedTabId, onTabSelected }) => {
   const [tabContent, setTabContent] = useState('');
 
   useEffect(() => {
-    const currentTabContent = tabs.filter(tab => tab.id === selectedTabId)[0]
-      .content;
+    const [currentTabContent] = tabs.filter(tab => tab.id === selectedTabId);
 
-    setTabContent(currentTabContent);
+    setTabContent(currentTabContent.content);
   }, [selectedTabId]);
 
   return (
