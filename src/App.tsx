@@ -3,6 +3,7 @@ import Tabs from './Tabs';
 import 'bulma/css/bulma.css';
 import '@fortawesome/fontawesome-free/css/all.css';
 import './App.scss';
+import { Tab } from './types/tab';
 
 export const tabs = [
   { id: 'tab-1', title: 'Tab 1', content: 'Some text 1' },
@@ -11,11 +12,10 @@ export const tabs = [
 ];
 
 export const App: React.FC = () => {
-  const [selectedTab, setSelectedTab] = useState(tabs[0]);
+  const [selectedTab, setSelectedTab] = useState<Tab>(tabs[0]);
 
-  const onTabSelected = (event: React.MouseEvent<HTMLAnchorElement>) => {
-    const currentTabId = event.currentTarget.hash.slice(1);
-    const [currentTab] = tabs.filter(tab => tab.id === currentTabId);
+  const onTabSelected = (choisedTab: Tab) => {
+    const [currentTab] = tabs.filter(tab => tab.id === choisedTab.id);
 
     setSelectedTab(currentTab);
   };

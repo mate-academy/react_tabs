@@ -1,16 +1,10 @@
 import classNames from 'classnames';
-import React from 'react';
-
-type Tab = {
-  id: string;
-  title: string;
-  content: string;
-};
+import { Tab } from './types/tab';
 
 type Props = {
   tabs: Tab[];
   selectedTab: Tab;
-  onTabSelected: (event: React.MouseEvent<HTMLAnchorElement>) => void;
+  onTabSelected: (choisedTab: Tab) => void;
 };
 
 const Tabs: React.FC<Props> = ({ tabs, selectedTab, onTabSelected }) => {
@@ -18,18 +12,18 @@ const Tabs: React.FC<Props> = ({ tabs, selectedTab, onTabSelected }) => {
     <div data-cy="TabsComponent">
       <div className="tabs is-boxed">
         <ul>
-          {tabs.map(({ id, title }) => (
+          {tabs.map(tab => (
             <li
-              className={classNames({ 'is-active': id === selectedTab.id })}
+              className={classNames({ 'is-active': tab.id === selectedTab.id })}
               data-cy="Tab"
-              key={id}
+              key={tab.id}
             >
               <a
-                href={`#${id}`}
+                href={`#${tab.id}`}
                 data-cy="TabLink"
-                onClick={onTabSelected}
+                onClick={() => onTabSelected(tab)}
               >
-                {title}
+                {tab.title}
               </a>
             </li>
           ))}
