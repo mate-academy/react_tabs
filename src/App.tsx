@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import 'bulma/css/bulma.css';
 import '@fortawesome/fontawesome-free/css/all.css';
 import './App.scss';
-import { Tabs } from './components/Tabs';
+import { Tab, Tabs } from './components/Tabs';
 
 export const tabs = [
   { id: 'tab-1', title: 'Tab 1', content: 'Some text 1' },
@@ -11,13 +11,9 @@ export const tabs = [
 ];
 
 export const App: React.FC = () => {
-  const [selectedTabIdState, setSelectedTabIdState] = useState(tabs[0].id);
-  const [selectedTabTitle, setSelectedTabTitle] = useState(tabs[0].title);
-  const [selectedTabContent, setSelectedTabContent] = useState(tabs[0].content);
-  const changeTab = (tabId: string, tabTitle: string, tabContent: string) => {
-    setSelectedTabIdState(tabId);
-    setSelectedTabTitle(tabTitle);
-    setSelectedTabContent(tabContent);
+  const [selectedTab, setSelectedTab] = useState(tabs[0]);
+  const changeTab = (tab: Tab) => {
+    setSelectedTab(tab);
   };
 
   return (
@@ -25,12 +21,12 @@ export const App: React.FC = () => {
       <h1 className="title">
         Selected tab is
         {' '}
-        {selectedTabTitle}
+        {selectedTab.title}
       </h1>
       <Tabs
         tabs={tabs}
-        selectedTabId={selectedTabIdState}
-        selectedTabContent={selectedTabContent}
+        selectedTabId={selectedTab.id}
+        selectedTabContent={selectedTab.content}
         changeTab={changeTab}
       />
     </div>
