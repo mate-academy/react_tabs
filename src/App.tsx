@@ -14,8 +14,8 @@ export const tabs = [
 export const App: React.FC = () => {
   const [selectedTab, setSelectedTab] = useState<Tab>(tabs[0]);
 
-  const onTabSelected = (choisedTab: Tab) => {
-    const [currentTab] = tabs.filter(tab => tab.id === choisedTab.id);
+  const onTabSelected = (chosenTab: Tab) => {
+    const currentTab = tabs.find(tab => tab.id === chosenTab.id) || tabs[0];
 
     setSelectedTab(currentTab);
   };

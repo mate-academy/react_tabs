@@ -4,10 +4,14 @@ import { Tab } from './types/tab';
 type Props = {
   tabs: Tab[];
   selectedTab: Tab;
-  onTabSelected: (choisedTab: Tab) => void;
+  onTabSelected: (chosenTab: Tab) => void;
 };
 
-const Tabs: React.FC<Props> = ({ tabs, selectedTab, onTabSelected }) => {
+const Tabs: React.FC<Props> = ({
+  tabs,
+  selectedTab,
+  onTabSelected,
+}) => {
   return (
     <div data-cy="TabsComponent">
       <div className="tabs is-boxed">
