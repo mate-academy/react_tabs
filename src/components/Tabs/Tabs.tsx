@@ -2,7 +2,7 @@ import React from 'react';
 import { Tab } from '../../types/Tab';
 
 export const Tabs: React.FC<{
-  tabs: Tab[], selectedTabId: string, onTabSelected: (tab:Tab)=>void,
+  tabs: Tab[], selectedTabId: string, onTabSelected: (tab:Tab) => void,
 }> = ({ tabs, selectedTabId, onTabSelected }) => {
   const activeTab = tabs.find(tab => tab.id === selectedTabId) || tabs[0];
 
