@@ -13,23 +13,10 @@ const tabs = [
 ];
 
 export const App: React.FC = () => {
-  const tab1 = tabs.find(({ id }) => id === 'tab-1') as Tab;
-  const [selectedTab, setSelectedTab] = useState(tab1);
-
-  const {
-    id,
-    title,
-    content,
-  } = selectedTab;
+  const [selectedTab, setSelectedTab] = useState(tabs[0]);
+  const { id, title } = selectedTab;
 
   const onTabSelected = (tab: Tab) => {
-    if (!tabs.includes(tab)) {
-      setSelectedTab(tab1);
-      throw new Error(
-        'Invalid Tab - Switched to Tab 1',
-      );
-    }
-
     setSelectedTab(tab);
   };
 
@@ -43,7 +30,6 @@ export const App: React.FC = () => {
         tabs={tabs}
         selectedTabId={id}
         onTabSelected={onTabSelected}
-        content={content}
       />
     </div>
   );
