@@ -23,14 +23,14 @@ export const App: React.FC = () => {
         <div className="tabs is-boxed">
           <Tabs
             tabs={tabs}
-            selectedTab={selectedTab}
-            onTabSelect={setSelectedTab}
+            selectedTabID={selectedTab.id}
+            onTabSelected={setSelectedTab}
           />
         </div>
       </div>
 
       <Content
-        selectedTab={selectedTab}
+        selectedTabContent={selectedTab.content}
       />
     </div>
   );

@@ -1,22 +1,16 @@
 import React from 'react';
 
-type Tab = {
-  id: string;
-  title: string;
-  content: string;
-};
-
 interface Props {
-  selectedTab: Tab;
+  selectedTabContent: string;
 }
 
-export const Content: React.FC<Props> = ({ selectedTab }) => {
+export const Content: React.FC<Props> = ({ selectedTabContent }) => {
   return (
     <div
       className="block"
       data-cy="TabContent"
     >
-      {selectedTab.content}
+      {selectedTabContent}
     </div>
   );
 };
