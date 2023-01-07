@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import 'bulma/css/bulma.css';
 import '@fortawesome/fontawesome-free/css/all.css';
 import './App.scss';
-import { Tabs } from './components/Tabs';
-import { Tab } from './components/types/Tab';
+import { Tabs } from './components/Tabs/Tabs';
+import { Tab } from './types/Tab';
 
 export const tabs: Tab[] = [
   { id: 'tab-1', title: 'Tab 1', content: 'Some text 1' },
