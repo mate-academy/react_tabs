@@ -13,7 +13,7 @@ export const Tabs: React.FC<Props> = ({
   selectedTabId,
   onTabSelected,
 }) => {
-  const findSelectedTab = tabs.find(tab => tab.id === selectedTabId) || tabs[0];
+  const selectedTab = tabs.find(tab => tab.id === selectedTabId) || tabs[0];
 
   const handleChangeTabClick = (tab: Tab) => {
     if (tab.id !== selectedTabId) {
@@ -28,7 +28,7 @@ export const Tabs: React.FC<Props> = ({
           {tabs.map(tab => (
             <li
               className={cn(
-                { 'is-active': tab.id === findSelectedTab.id },
+                { 'is-active': tab.id === selectedTab.id },
               )}
               data-cy="Tab"
               key={tab.id}
@@ -46,7 +46,7 @@ export const Tabs: React.FC<Props> = ({
       </div>
 
       <div className="block" data-cy="TabContent">
-        {findSelectedTab.content}
+        {selectedTab.content}
       </div>
     </div>
   );
