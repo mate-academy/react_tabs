@@ -15,17 +15,17 @@ export const App: React.FC = () => {
   const [selectedTab, setSelectedTab] = useState<Tab>(tabs[0]);
 
   const onTabSelected = (chosenTab: Tab) => {
-    const currentTab = tabs.find(tab => tab.id === chosenTab.id) || tabs[0];
+    // console.log(chosenTab);
 
-    setSelectedTab(currentTab);
+    // const currentTab = tabs.find(tab => tab.id === chosenTab.id) || tabs[0];
+
+    setSelectedTab(chosenTab);
   };
 
   return (
     <div className="section">
       <h1 className="title">
-        Selected tab is
-        {' '}
-        {selectedTab.title}
+        {`Selected tab is ${selectedTab.title}`}
       </h1>
       <Tabs
         tabs={tabs}

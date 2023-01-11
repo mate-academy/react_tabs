@@ -16,21 +16,27 @@ const Tabs: React.FC<Props> = ({
     <div data-cy="TabsComponent">
       <div className="tabs is-boxed">
         <ul>
-          {tabs.map(tab => (
-            <li
-              className={classNames({ 'is-active': tab.id === selectedTab.id })}
-              data-cy="Tab"
-              key={tab.id}
-            >
-              <a
-                href={`#${tab.id}`}
-                data-cy="TabLink"
-                onClick={() => onTabSelected(tab)}
+          {tabs.map(tab => {
+            const { id, title } = tab;
+
+            return (
+              <li
+                className={classNames({ 'is-active': id === selectedTab.id })}
+                data-cy="Tab"
+                key={id}
               >
-                {tab.title}
-              </a>
-            </li>
-          ))}
+                <a
+                  href={`#${id}`}
+                  data-cy="TabLink"
+                  onClick={() => {
+                    onTabSelected(tab);
+                  }}
+                >
+                  {title}
+                </a>
+              </li>
+            );
+          })}
         </ul>
       </div>
 
