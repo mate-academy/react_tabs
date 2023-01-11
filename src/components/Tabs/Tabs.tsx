@@ -5,13 +5,13 @@ import { Tab } from '../../types/Tab';
 type Props = {
   tabs: Tab[];
   selectedTabId: string;
-  onSelectedTab: (tab: Tab) => void;
+  onTabSelected: (tab: Tab) => void;
 };
 
 export const Tabs: FC<Props> = ({
   tabs,
   selectedTabId,
-  onSelectedTab,
+  onTabSelected: onSelectedTab,
 }) => {
   const handleTabClick = (tab: Tab) => {
     if (tab.id === selectedTabId) {
