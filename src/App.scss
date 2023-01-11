@@ -1,3 +1,16 @@
 iframe {
   display: none;
 }
+
+body {
+  display: grid;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  background-color: hsl(171, 100%, 41%);
+}
+
+.section {
+  height: 300px;
+  width: max-content;
+}
