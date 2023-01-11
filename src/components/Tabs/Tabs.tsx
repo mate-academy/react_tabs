@@ -36,7 +36,7 @@ export const Tabs: FC<Props> = ({
               key={tab.id}
             >
               <a
-                href="#tab-1"
+                href={`#${tab.id}`}
                 data-cy="TabLink"
                 onClick={() => handleTabClick(tab)}
               >
