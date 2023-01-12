@@ -14,12 +14,11 @@ export const Tabs: React.FC<Props> = ({
 }) => {
   const selectedTab = tabs.find(({ id }) => id === selectedTabId || tabs[0]);
 
-  function handleOnClick(tab: Tab): void | '' {
-    return (tab.id !== selectedTabId
-      ? selectedOnTab(tab)
-      : ''
-    );
-  }
+  const handleOnClick = (tab: Tab): void | '' => {
+    if (tab.id !== selectedTabId) {
+      selectedOnTab(tab);
+    }
+  };
 
   return (
     <div data-cy="TabsComponent">
@@ -47,7 +46,7 @@ export const Tabs: React.FC<Props> = ({
         </ul>
       </div>
 
-      <div className="block" data-ce="TabContent">
+      <div className="block" data-cy="TabContent">
         {selectedTab?.content}
       </div>
     </div>
