@@ -93,3 +93,36 @@ input:checked + .slider:before {
 .switch-checkbox {
   padding: 10px;
 }
+
+.cat1 {
+  background: url("cat1.jpg");
+  background-repeat: no-repeat;
+
+  position: fixed;
+  top: 246px;
+  left: 45px;
+  width: 100%;
+  height: 100%;
+}
+
+.cat2 {
+  background: url("cat2.jpg");
+  background-repeat: no-repeat;
+
+  position: fixed;
+  top: 246px;
+  left: 45px;
+  width: 100%;
+  height: 100%;
+}
+
+.cat3 {
+  background: url("cat3.jpg");
+  background-repeat: no-repeat;
+
+  position: fixed;
+  top: 246px;
+  left: 45px;
+  width: 100%;
+  height: 100%;
+}

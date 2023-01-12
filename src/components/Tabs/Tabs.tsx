@@ -49,6 +49,7 @@ export const Tabs: React.FC<Props> = ({
       <div className="block" data-cy="TabContent">
         {selectedTab?.content}
       </div>
+
     </div>
   );
 };
