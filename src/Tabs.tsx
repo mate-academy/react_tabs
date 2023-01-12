@@ -4,12 +4,14 @@ import { Tab } from './types/tab';
 type Props = {
   tabs: Tab[];
   selectedTab: Tab;
+  selectedTabId: string;
   onTabSelected: (chosenTab: Tab) => void;
 };
 
 const Tabs: React.FC<Props> = ({
   tabs,
   selectedTab,
+  selectedTabId,
   onTabSelected,
 }) => {
   return (
@@ -21,7 +23,7 @@ const Tabs: React.FC<Props> = ({
 
             return (
               <li
-                className={classNames({ 'is-active': id === selectedTab.id })}
+                className={classNames({ 'is-active': id === selectedTabId })}
                 data-cy="Tab"
                 key={id}
               >

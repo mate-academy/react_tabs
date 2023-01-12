@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import Tabs from './Tabs';
+import { Tab } from './types/tab';
 import 'bulma/css/bulma.css';
 import '@fortawesome/fontawesome-free/css/all.css';
 import './App.scss';
-import { Tab } from './types/tab';
 
 export const tabs = [
   { id: 'tab-1', title: 'Tab 1', content: 'Some text 1' },
@@ -15,10 +15,6 @@ export const App: React.FC = () => {
   const [selectedTab, setSelectedTab] = useState<Tab>(tabs[0]);
 
   const onTabSelected = (chosenTab: Tab) => {
-    // console.log(chosenTab);
-
-    // const currentTab = tabs.find(tab => tab.id === chosenTab.id) || tabs[0];
-
     setSelectedTab(chosenTab);
   };
 
@@ -30,6 +26,7 @@ export const App: React.FC = () => {
       <Tabs
         tabs={tabs}
         selectedTab={selectedTab}
+        selectedTabId={selectedTab.id}
         onTabSelected={onTabSelected}
       />
     </div>
