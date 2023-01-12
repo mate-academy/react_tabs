@@ -1,11 +1,7 @@
 import React from 'react';
 import classNames from 'classnames';
 
-type Tab = {
-  id: string,
-  title: string,
-  content: string,
-};
+import { Tab } from '../../types/Tab';
 
 type Props = {
   tabs: Tab[];
