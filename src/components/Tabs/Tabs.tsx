@@ -9,10 +9,10 @@ type Props = {
 
 export const Tabs: React.FC<Props> = ({
   tabs,
-  selectedTabId,
+  selectedTabId = tabs[0],
   selectedOnTab,
 }) => {
-  const selectedTab = tabs.find(({ id }) => id === selectedTabId || tabs[0]);
+  const selectedTab = tabs.find(({ id }) => id === selectedTabId);
 
   const handleOnClick = (tab: Tab): void | '' => {
     if (tab.id !== selectedTabId) {
@@ -29,7 +29,7 @@ export const Tabs: React.FC<Props> = ({
               data-cy="Tab"
               key={tab.id}
               className={cn({
-                'is-active': tab.id === selectedTab?.id,
+                'is-active': tab.id === selectedTabId,
               })}
             >
               <a
