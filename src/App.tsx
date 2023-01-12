@@ -18,14 +18,16 @@ export const App: FC = () => {
   return (
     <div className="section">
       <h1 className="title">
-        Selected tab is {selectedTab.title}
+        Selected tab is
+        {' '}
+        {selectedTab.title}
       </h1>
 
-    <Tabs
-      tabs={tabs}
-      selectedTabId={selectedTab.id}
-      onTabSelected={(setSelectedTab)}
-    />
+      <Tabs
+        tabs={tabs}
+        selectedTabId={selectedTab.id}
+        onTabSelected={(setSelectedTab)}
+      />
     </div>
   );
 };
