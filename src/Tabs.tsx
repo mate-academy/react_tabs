@@ -11,7 +11,7 @@ type Props = {
 const Tabs: React.FC<Props> = ({
   tabs,
   selectedTab,
-  selectedTabId,
+  selectedTabId = tabs[0].id,
   onTabSelected,
 }) => {
   return (

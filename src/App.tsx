@@ -15,6 +15,8 @@ export const App: React.FC = () => {
   const [selectedTab, setSelectedTab] = useState<Tab>(tabs[0]);
 
   const onTabSelected = (chosenTab: Tab) => {
+    // console.log('callback calling');
+
     setSelectedTab(chosenTab);
   };
 
