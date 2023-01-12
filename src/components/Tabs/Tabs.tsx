@@ -1,3 +1,4 @@
+import cn from 'classnames';
 import { Tab } from './types/Tab';
 
 type Props = {
@@ -24,7 +25,25 @@ export const Tabs: React.FC<Props> = ({
     <div data-cy="TabsComponent">
       <div className="tabs is-boxed">
         <ul>
-          // maped tabs
+          {tabs.map((tab: Tab) => (
+            <li
+              data-cy="Tab"
+              key={tab.id}
+              className={cn({
+                'is-active': tab.id === selectedTab?.id,
+              })}
+            >
+              <a
+                href={`#${tab.id}`}
+                data-cy="TabLink"
+                onClick={() => {
+                  handleOnClick(tab);
+                }}
+              >
+                {tab.title}
+              </a>
+            </li>
+          ))}
         </ul>
       </div>
 
