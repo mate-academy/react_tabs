@@ -1,11 +1,11 @@
 import classNames from 'classnames';
-import React from 'react';
+
 import { Tab } from '../../types/Tab';
 
 type Props = {
   tabs: Tab[],
   selectedTabId: string,
-  onTabSelected: (tab: Tab) => void
+  onTabSelected: (tab: Tab) => void,
 };
 
 export const Tabs: React.FC<Props> = ({
@@ -13,7 +13,7 @@ export const Tabs: React.FC<Props> = ({
   selectedTabId,
   onTabSelected,
 }) => {
-  const visibleTab = tabs.find(tab => tab.id === selectedTabId) || tabs[0];
+  const selectedTab = tabs.find(tab => tab.id === selectedTabId) || tabs[0];
 
   const hadleChangeTab = (tab: Tab) => {
     if (selectedTabId !== tab.id) {
@@ -28,7 +28,7 @@ export const Tabs: React.FC<Props> = ({
           {tabs.map(tab => (
             <li
               className={classNames(
-                { 'is-active': visibleTab.id === tab.id },
+                { 'is-active': selectedTab.id === tab.id },
               )}
               data-cy="Tab"
               key={tab.id}
@@ -46,7 +46,7 @@ export const Tabs: React.FC<Props> = ({
       </div>
 
       <div className="block" data-cy="TabContent">
-        {visibleTab.content}
+        {selectedTab.content}
       </div>
     </div>
   );
