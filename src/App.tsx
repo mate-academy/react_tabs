@@ -8,8 +8,7 @@ import { Tab } from './components/Tabs/types/Tab';
 
 export const tabs: Tab[] = [
   {
-    id:
-    'tab-1',
+    id: 'tab-1',
     title: 'Tab 1',
     content: 'First week with React. BTW the second too.',
     cat: 1,

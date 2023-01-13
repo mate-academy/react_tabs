@@ -58,18 +58,26 @@ span {
   background-color: none;
   -webkit-transition: 0.4s;
   transition: 0.4s;
-}
 
-.slider:before {
-  position: absolute;
-  content: "";
-  height: 13px;
-  width: 13px;
-  left: 2px;
-  bottom: 2px;
-  background-color: #7598ae;
-  -webkit-transition: 0.4s;
-  transition: 0.4s;
+  &:before {
+    position: absolute;
+    content: "";
+    height: 13px;
+    width: 13px;
+    left: 2px;
+    bottom: 2px;
+    background-color: #7598ae;
+    -webkit-transition: 0.4s;
+    transition: 0.4s;
+  }
+
+  &.round {
+    border-radius: 34px;
+  }
+
+  &.round:before {
+    border-radius: 50%;
+  }
 }
 
 input:checked + .slider {
@@ -80,14 +88,6 @@ input:checked + .slider:before {
   -webkit-transform: translateX(13px);
   -ms-transform: translateX(13px);
   transform: translateX(13px);
-}
-
-.slider.round {
-  border-radius: 34px;
-}
-
-.slider.round:before {
-  border-radius: 50%;
 }
 
 .switch-checkbox {
