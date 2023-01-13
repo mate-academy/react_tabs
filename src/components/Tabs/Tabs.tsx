@@ -27,6 +27,7 @@ export const Tabs: React.FC<Props> = ({
         <ul>
           {tabs.map(tab => (
             <li
+              key={tab.id}
               className={classNames(
                 { 'is-active': tab.id === selectedTabId },
               )}
