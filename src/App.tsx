@@ -34,22 +34,22 @@ export const tabs: Tab[] = [
 ];
 
 export const App: React.FC = () => {
-  const [darkMode, setDarkMode] = useState(false);
+  const [isDarkMode, setDarkMode] = useState(false);
   const [selectedTab, setSelectedTab] = useState(tabs[0]);
 
   return (
     <div className={cn(
       'section',
       {
-        'dark-mode': darkMode,
-        'light-mode': !darkMode,
+        'dark-mode': isDarkMode,
+        'light-mode': !isDarkMode,
       },
     )}
     >
       <div className="container">
         <div className="switch-checkbox">
           <label className="switch">
-            <input type="checkbox" onChange={() => setDarkMode(!darkMode)} />
+            <input type="checkbox" onChange={() => setDarkMode(!isDarkMode)} />
             <span className="slider round"> </span>
           </label>
         </div>
@@ -59,7 +59,7 @@ export const App: React.FC = () => {
         className={cn(
           'title',
           {
-            'dark-mode--title': darkMode,
+            'dark-mode--title': isDarkMode,
           },
         )}
       >
