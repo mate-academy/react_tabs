@@ -2,7 +2,6 @@ import { FC } from 'react';
 import cn from 'classnames';
 import { Tab } from '../../types/Tab';
 
-
 type Props = {
   tabs: Tab[],
   onTabSelected: (tab: Tab) => void,
