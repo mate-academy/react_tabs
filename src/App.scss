@@ -1,3 +1,30 @@
 iframe {
   display: none;
 }
+
+body {
+  text-transform: uppercase;
+  letter-spacing: -2px;
+  text-shadow: 0 0 5px cyan;
+  color: rgb(1, 1, 1);
+  text-align: center;
+}
+
+.tabs {
+  box-shadow: 0 0 5px rgb(128, 0, 128);
+  border: 1px solid fuchsia;
+}
+
+.block {
+  height: 100vh;
+  box-shadow: 0 0 5px rgb(128, 0, 128);
+  border: 1px solid fuchsia;
+}
+
+li[data-cy="Tab"] {
+  width: 100%;
+}
+
+.tint {
+  background-color: rgba(50, 49, 49, 0.42);
+}
