@@ -1,5 +1,7 @@
 import { FC } from 'react';
+import cn from 'classnames';
 import { Tab } from '../../types/Tab';
+
 
 type Props = {
   tabs: Tab[],
@@ -27,9 +29,9 @@ export const Tabs: FC<Props> = ({
         <ul>
           {tabs.map(tab => (
             <li
-              className={visibleTab.id === tab.id
-                ? 'is-active'
-                : ''}
+              className={cn({
+                'is-active': visibleTab.id === tab.id,
+              })}
               data-cy="Tab"
               key={tab.id}
             >
