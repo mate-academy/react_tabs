@@ -25,6 +25,12 @@ export const tabs: Tab[] = [
     content: 'But we are sweet bulochki and can do it! Move your bulochki!',
     cat: 3,
   },
+  {
+    id: 'tab-4',
+    title: 'Tab 4',
+    content: 'Me, when you dropped the edits under this artwork.',
+    cat: 4,
+  },
 ];
 
 export const App: React.FC = () => {
@@ -66,9 +72,8 @@ export const App: React.FC = () => {
         selectedOnTab={setSelectedTab}
       />
 
-      <img
-        src=""
-        alt=""
+      <div
+        data-cy={`cat${selectedTab.cat}`}
         className={`cat${selectedTab.cat}`}
       />
     </div>
