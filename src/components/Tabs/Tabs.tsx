@@ -1,5 +1,4 @@
 import classNames from 'classnames';
-
 import { Tab } from '../../types/Tab';
 
 type Props = {
