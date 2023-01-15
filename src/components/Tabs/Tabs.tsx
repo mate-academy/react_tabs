@@ -1,22 +1,22 @@
-import classNames from 'classnames';
+import cn from 'classnames';
 import React from 'react';
 import { Tab } from '../../type/Tab';
 
 type Props = {
   tabs: Tab[];
   selectedTabId: string;
-  setSelectedTab: (tab: Tab) => void,
+  onTabSelected : (tab: Tab) => void,
 };
 
 export const Tabs: React.FC<Props>
-  = ({ tabs, selectedTabId, setSelectedTab }) => {
+  = ({ tabs, selectedTabId, onTabSelected }) => {
     const properTab = tabs.find(element => (
       element.id === selectedTabId
     )) || tabs[0];
 
     const newSelectedTab = (newTab: Tab) => {
       if (newTab.id !== selectedTabId) {
-        setSelectedTab(newTab);
+        onTabSelected(newTab);
       }
     };
 
@@ -27,7 +27,7 @@ export const Tabs: React.FC<Props>
             {tabs.map(tab => (
               <li
                 key={tab.id}
-                className={classNames(
+                className={cn(
                   { 'is-active': properTab?.id === tab.id },
                 )}
               >
