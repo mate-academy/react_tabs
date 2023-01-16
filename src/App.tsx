@@ -74,7 +74,7 @@ export const App: React.FC = () => {
 
       <div
         data-cy={`cat${selectedTab.cat}`}
-        className={`cat${selectedTab.cat}`}
+        className={`cat cat${selectedTab.cat}`}
       />
     </div>
   );
