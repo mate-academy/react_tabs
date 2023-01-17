@@ -15,13 +15,9 @@ export const Tabs: React.FC<Props> = memo(({
 }) => {
   const activeTab = tabs.find(tab => tab.id === selectedTabId) || tabs[0];
 
-  const handleClickOnTab = (tabId: string) => {
-    if (activeTab.id !== tabId) {
-      const selectedTab = tabs.find(tab => tab.id === tabId);
-
-      if (selectedTab) {
-        onTabSelected(selectedTab);
-      }
+  const handleClickOnTab = (tab: Tab) => {
+    if (selectedTabId !== tab.id) {
+      onTabSelected(tab);
     }
   };
 
@@ -40,7 +36,7 @@ export const Tabs: React.FC<Props> = memo(({
               )}
             >
               <a
-                onClick={() => handleClickOnTab(tab.id)}
+                onClick={() => handleClickOnTab(tab)}
                 href={`#${tab.id}`}
                 data-cy="TabLink"
               >
@@ -52,7 +48,7 @@ export const Tabs: React.FC<Props> = memo(({
       </div>
 
       <div className="block" data-cy="TabContent">
-        {activeTab?.content}
+        {activeTab.content}
       </div>
     </div>
   );
