@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import { Tab } from './Types/Tab';
 
 import 'bulma/css/bulma.css';
@@ -17,9 +17,9 @@ const firstTab: Tab | undefined = tabs[0];
 export const App: React.FC = () => {
   const [selectetedTab, setSelectedTab] = useState(firstTab);
 
-  const onTabSelected = (tab: Tab) => {
+  const onTabSelected = useCallback((tab: Tab) => {
     setSelectedTab(tab);
-  };
+  }, [selectetedTab]);
 
   return (
     <div className="section">
