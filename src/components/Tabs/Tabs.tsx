@@ -1,3 +1,4 @@
+import React from 'react';
 import cn from 'classnames';
 import { Tab } from '../../types/Tab';
 
@@ -7,7 +8,7 @@ type Props = {
   onTabSelected: (tab: Tab) => void
 };
 
-export const Tabs: React.FC<Props> = (props) => {
+export const Tabs: React.FC<Props> = React.memo((props) => {
   const { tabs, selectedTabId, onTabSelected } = props;
   const seletedTab = tabs.find(tab => tab.id === selectedTabId) || tabs[0];
 
@@ -44,4 +45,4 @@ export const Tabs: React.FC<Props> = (props) => {
       </div>
     </div>
   );
-};
+});
