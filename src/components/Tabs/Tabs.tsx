@@ -1,4 +1,5 @@
 import cn from 'classnames';
+import { memo } from 'react';
 import { Tab } from '../../types/Tab';
 
 type Props = {
@@ -7,45 +8,47 @@ type Props = {
   onTabSelected: (tab: Tab) => void,
 };
 
-export const Tabs: React.FC<Props> = (props) => {
-  const {
-    tabs,
-    selectedTabId,
-    onTabSelected,
-  } = props;
-  const selectedTab = tabs.find(({ id }) => id === selectedTabId) || tabs[0];
-  const { id, content } = selectedTab;
+export const Tabs: React.FC<Props> = memo(
+  (props) => {
+    const {
+      tabs,
+      selectedTabId,
+      onTabSelected,
+    } = props;
+    const selectedTab = tabs.find(({ id }) => id === selectedTabId) || tabs[0];
+    const { id, content } = selectedTab;
 
-  const handleTab = (tab: Tab) => {
-    if (tab.id !== selectedTabId) {
-      onTabSelected(tab);
-    }
-  };
+    const handleTab = (tab: Tab) => {
+      if (tab.id !== selectedTabId) {
+        onTabSelected(tab);
+      }
+    };
 
-  return (
-    <div data-cy="TabsComponent">
-      <div className="tabs is-boxed">
-        <ul>
-          {tabs.map(tab => (
-            <li
-              key={tab.id}
-              className={cn({ 'is-active': id === tab.id })}
-              data-cy="Tab"
-            >
-              <a
-                href={`#${tab.id}`}
-                data-cy="TabLink"
-                onClick={() => handleTab(tab)}
+    return (
+      <div data-cy="TabsComponent">
+        <div className="tabs is-boxed">
+          <ul>
+            {tabs.map(tab => (
+              <li
+                key={tab.id}
+                className={cn({ 'is-active': id === tab.id })}
+                data-cy="Tab"
               >
-                {tab.title}
-              </a>
-            </li>
-          ))}
-        </ul>
+                <a
+                  href={`#${tab.id}`}
+                  data-cy="TabLink"
+                  onClick={() => handleTab(tab)}
+                >
+                  {tab.title}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div className="block" data-cy="TabContent">
+          {content}
+        </div>
       </div>
-      <div className="block" data-cy="TabContent">
-        {content}
-      </div>
-    </div>
-  );
-};
+    );
+  },
+);
