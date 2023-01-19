@@ -12,10 +12,10 @@ export const tabs = [
 ];
 
 export const App: React.FC = () => {
-  const [selectedTab, hasSelectedTab] = useState(tabs[0]);
+  const [selectedTab, setSelectedTab] = useState(tabs[0]);
 
   const handleSelectedTab = (tab: Tab) => {
-    hasSelectedTab(tab);
+    setSelectedTab(tab);
   };
 
   return (
