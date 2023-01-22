@@ -15,6 +15,10 @@ export const App: React.FC = () => {
   const [selectedTabId, setSelectedTabId] = useState<string>(tabs[0].id);
 
   const onTabSelected = (chosenTab: Tab) => {
+    if (chosenTab.id === selectedTabId) {
+      return;
+    }
+
     setSelectedTabId(chosenTab.id);
   };
 
