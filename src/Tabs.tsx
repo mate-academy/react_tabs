@@ -3,16 +3,16 @@ import { Tab } from './types/tab';
 
 type Props = {
   tabs: Tab[];
-  // selectedTab: Tab;
+  selectedTab: Tab;
   selectedTabId: string;
-  handleTabSelected: (chosenTab: Tab) => void;
+  onTabSelected: (chosenTab: Tab) => void;
 };
 
 const Tabs: React.FC<Props> = ({
   tabs,
-  // selectedTab,
+  selectedTab,
   selectedTabId,
-  handleTabSelected,
+  onTabSelected,
 }) => {
   return (
     <div data-cy="TabsComponent">
@@ -31,7 +31,7 @@ const Tabs: React.FC<Props> = ({
                   href={`#${id}`}
                   data-cy="TabLink"
                   onClick={() => {
-                    handleTabSelected(tab);
+                    onTabSelected(tab);
                   }}
                 >
                   {title}
@@ -43,7 +43,7 @@ const Tabs: React.FC<Props> = ({
       </div>
 
       <div className="block" data-cy="TabContent">
-        {/* {selectedTab.content} */}
+        {selectedTab.content}
       </div>
     </div>
   );
