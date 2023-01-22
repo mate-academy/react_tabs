@@ -27,7 +27,7 @@ export const App: React.FC = () => {
         <Tabs
           tables={tables}
           selectedTabId={selectedTabId}
-          onSelectedTabId={setSelectedTabId}
+          onTabSelected={setSelectedTabId}
         />
       </div>
     </div>

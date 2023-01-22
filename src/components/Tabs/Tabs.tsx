@@ -10,14 +10,14 @@ export interface Tab {
 type Props = {
   tables: Tab[],
   selectedTabId: string,
-  onSelectedTabId: ((selectedTabId: string) => void),
+  onTabSelected: ((selectedTabId: string) => void),
 };
 
 export const Tabs: React.FC<Props> = React.memo(
   ({
     tables,
     selectedTabId = 'tab-1',
-    onSelectedTabId,
+    onTabSelected,
   }) => (
     <>
       <div className="tabs is-boxed">
@@ -33,7 +33,7 @@ export const Tabs: React.FC<Props> = React.memo(
               <a
                 href={`#${tab.id}`}
                 data-cy="TabLink"
-                onClick={() => onSelectedTabId(tab.id)}
+                onClick={() => onTabSelected(tab.id)}
               >
                 {tab.title}
               </a>
