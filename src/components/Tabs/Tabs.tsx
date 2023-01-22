@@ -1,10 +1,5 @@
 import React from 'react';
-
-export type Tab = {
-  id: string;
-  title: string;
-  content: string;
-};
+import { Tab } from '../../types/Tab';
 
 type Props = {
   tabs: Tab[];
