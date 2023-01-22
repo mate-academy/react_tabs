@@ -8,14 +8,14 @@ type Props = {
   onTabSelected: (chosenTab: Tab) => void;
 };
 
-const Tabs: React.FC<Props> = ({
+export const Tabs: React.FC<Props> = ({
   tabs,
   currentTab,
   selectedTabId,
   onTabSelected,
 }) => {
   return (
-    <div>
+    <div data-cy="TabsComponent">
       <div className="tabs is-boxed">
         <ul>
           {tabs.map(tab => {
@@ -29,6 +29,7 @@ const Tabs: React.FC<Props> = ({
               >
                 <a
                   href={`#${id}`}
+                  data-cy="TabLink"
                   onClick={() => {
                     onTabSelected(tab);
                   }}
@@ -47,5 +48,3 @@ const Tabs: React.FC<Props> = ({
     </div>
   );
 };
-
-export default Tabs;

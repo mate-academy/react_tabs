@@ -1,6 +1,6 @@
 /* eslint-disable no-console */
 import React, { useState } from 'react';
-import Tabs from './Tabs';
+import { Tabs } from './Tabs';
 import { Tab } from './types/tab';
 import 'bulma/css/bulma.css';
 import '@fortawesome/fontawesome-free/css/all.css';
