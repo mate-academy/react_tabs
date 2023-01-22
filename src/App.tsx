@@ -19,17 +19,16 @@ export const App: React.FC = () => {
     setSelectedTabId(chosenTab.id);
   };
 
-  const currentTab: Tab = tabs
-    .find(({ id }) => id === selectedTabId) || tabs[0];
+  const title: string = tabs
+    .filter(({ id }) => id === selectedTabId)[0].title || tabs[0].title;
 
   return (
     <div className="section">
       <h1 className="title">
-        {`Selected tab is ${currentTab.title}`}
+        {`Selected tab is ${title}`}
       </h1>
       <Tabs
         tabs={tabs}
-        currentTab={currentTab}
         selectedTabId={selectedTabId}
         onTabSelected={onTabSelected}
       />
