@@ -1,11 +1,11 @@
 import classNames from 'classnames';
 import React from 'react';
 
-export type Tab = {
+export interface Tab {
   id: string,
   title: string,
   content: string,
-};
+}
 
 type Props = {
   tables: Tab[],
@@ -16,29 +16,38 @@ type Props = {
 export const Tabs: React.FC<Props> = React.memo(
   ({
     tables,
-    selectedTabId,
+    selectedTabId = 'tab-1',
     onSelectedTabId,
-  }) => {
-    return (
-      <>
-        {tables.map((tab: Tab) => (
-          <li
-            key={tab.id}
-            className={classNames({
-              'is-active': tab.id === selectedTabId,
-            })}
-            data-cy="Tab"
-          >
-            <a
-              href={`#${tab.id}`}
-              data-cy="TabLink"
-              onClick={() => onSelectedTabId(tab.id)}
+  }) => (
+    <>
+      <div className="tabs is-boxed">
+        <ul>
+          {tables.map((tab: Tab) => (
+            <li
+              key={tab.id}
+              className={classNames({
+                'is-active': tab.id === selectedTabId,
+              })}
+              data-cy="Tab"
             >
-              {tab.title}
-            </a>
-          </li>
+              <a
+                href={`#${tab.id}`}
+                data-cy="TabLink"
+                onClick={() => onSelectedTabId(tab.id)}
+              >
+                {tab.title}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+      <div className="block" data-cy="tab-content">
+        {tables.map((tab) => (
+          tab.id === selectedTabId && (
+            tab.content
+          )
         ))}
-      </>
-    );
-  },
+      </div>
+    </>
+  ),
 );

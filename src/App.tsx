@@ -11,8 +11,8 @@ export const tabs = [
 ];
 
 export const App: React.FC = () => {
-  const [selectedTabId, setSelectedTabId] = useState('tab-1');
   const [tables] = useState(tabs);
+  const [selectedTabId, setSelectedTabId] = useState('tab-1');
 
   return (
     <div className="section">
@@ -24,23 +24,11 @@ export const App: React.FC = () => {
         ))}
       </h1>
       <div data-cy="TabsComponent">
-        <div className="tabs is-boxed">
-          <ul>
-            <Tabs
-              tables={tables}
-              selectedTabId={selectedTabId}
-              onSelectedTabId={setSelectedTabId}
-            />
-          </ul>
-        </div>
-
-        <div className="block" data-cy="TabContent">
-          {tables.map((tab) => (
-            tab.id === selectedTabId && (
-              tab.content
-            )
-          ))}
-        </div>
+        <Tabs
+          tables={tables}
+          selectedTabId={selectedTabId}
+          onSelectedTabId={setSelectedTabId}
+        />
       </div>
     </div>
   );
