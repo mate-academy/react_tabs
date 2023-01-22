@@ -29,7 +29,6 @@ const Tabs: React.FC<Props> = ({
               >
                 <a
                   href={`#${id}`}
-                  data-cy="TabLink"
                   onClick={() => {
                     onTabSelected(tab);
                   }}
@@ -42,7 +41,7 @@ const Tabs: React.FC<Props> = ({
         </ul>
       </div>
 
-      <div className="block" data-cy="TabContent">
+      <div className="block" data-cy="tab-content">
         {selectedTab.content}
       </div>
     </div>
