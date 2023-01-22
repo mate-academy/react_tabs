@@ -3,14 +3,14 @@ import { Tab } from './types/tab';
 
 type Props = {
   tabs: Tab[];
-  selectedTab: Tab;
+  currentTab: Tab;
   selectedTabId: string;
   onTabSelected: (chosenTab: Tab) => void;
 };
 
 const Tabs: React.FC<Props> = ({
   tabs,
-  selectedTab,
+  currentTab,
   selectedTabId,
   onTabSelected,
 }) => {
@@ -42,7 +42,7 @@ const Tabs: React.FC<Props> = ({
       </div>
 
       <div className="block" data-cy="tab-content">
-        {selectedTab.content}
+        {currentTab.content}
       </div>
     </div>
   );

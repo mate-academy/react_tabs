@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import React, { useState } from 'react';
 import Tabs from './Tabs';
 import { Tab } from './types/tab';
@@ -13,23 +14,22 @@ export const tabs = [
 
 export const App: React.FC = () => {
   const [selectedTabId, setSelectedTabId] = useState<string>(tabs[0].id);
-  const [selectedTab, setSelectedTab] = useState<Tab>(tabs[0]);
 
   const onTabSelected = (chosenTab: Tab) => {
-    // console.log('callback calling');
-
     setSelectedTabId(chosenTab.id);
-    setSelectedTab(chosenTab);
   };
+
+  const currentTab: Tab = tabs
+    .find(({ id }) => id === selectedTabId) || tabs[0];
 
   return (
     <div className="section">
       <h1 className="title">
-        {`Selected tab is ${selectedTab.title}`}
+        {`Selected tab is ${currentTab.title}`}
       </h1>
       <Tabs
         tabs={tabs}
-        selectedTab={selectedTab}
+        currentTab={currentTab}
         selectedTabId={selectedTabId}
         onTabSelected={onTabSelected}
       />
