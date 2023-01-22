@@ -48,5 +48,5 @@ export const Tabs: React.FC<Props> = ({
         tab.id === selectedTabId && (tab.content)
       ))}
     </div>
-  </div >
+  </div>
 );
