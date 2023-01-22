@@ -18,6 +18,8 @@ export const App: React.FC = () => {
     setSelectedTabId(chosenTab.id);
   };
 
+  // dfg
+
   const title: string = tabs
     .filter(({ id }) => id === selectedTabId)[0].title || tabs[0].title;
 
