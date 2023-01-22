@@ -15,7 +15,7 @@ const Tabs: React.FC<Props> = ({
   onTabSelected,
 }) => {
   return (
-    <div data-cy="TabsComponent">
+    <div>
       <div className="tabs is-boxed">
         <ul>
           {tabs.map(tab => {
