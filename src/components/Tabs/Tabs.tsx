@@ -8,21 +8,21 @@ export interface Tab {
 }
 
 type Props = {
-  tables: Tab[],
+  tabs: Tab[],
   selectedTabId: string,
   onTabSelected: ((selectedTabId: string) => void),
 };
 
 export const Tabs: React.FC<Props> = React.memo(
   ({
-    tables,
+    tabs,
     selectedTabId = 'tab-1',
     onTabSelected,
   }) => (
     <>
       <div className="tabs is-boxed">
         <ul>
-          {tables.map((tab: Tab) => (
+          {tabs.map((tab: Tab) => (
             <li
               key={tab.id}
               className={classNames({
@@ -33,7 +33,11 @@ export const Tabs: React.FC<Props> = React.memo(
               <a
                 href={`#${tab.id}`}
                 data-cy="TabLink"
-                onClick={() => onTabSelected(tab.id)}
+                onClick={() => {
+                  if (tab.id !== selectedTabId) {
+                    onTabSelected(tab.id);
+                  }
+                }}
               >
                 {tab.title}
               </a>
@@ -41,8 +45,8 @@ export const Tabs: React.FC<Props> = React.memo(
           ))}
         </ul>
       </div>
-      <div className="block" data-cy="tab-content">
-        {tables.map((tab) => (
+      <div className="block" data-cy="TabContent">
+        {tabs.map((tab) => (
           tab.id === selectedTabId && (
             tab.content
           )
