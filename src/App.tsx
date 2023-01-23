@@ -15,15 +15,11 @@ export const App: React.FC = () => {
   const [selectedTabId, setSelectedTabId] = useState<string>(tabs[0].id);
 
   const onTabSelected = (chosenTab: Tab) => {
-    // if (chosenTab.id === selectedTabId) {
-    //   return;
-    // }
-
     setSelectedTabId(chosenTab.id);
   };
 
-  const title: string = tabs
-    .filter(({ id }) => id === selectedTabId)[0].title || tabs[0].title;
+  const { title } = tabs
+    .find(({ id }) => id === selectedTabId) || tabs[0];
 
   return (
     <div className="section">
