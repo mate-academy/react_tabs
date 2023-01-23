@@ -12,15 +12,15 @@ export const tabs = [
 
 export const App: React.FC = () => {
   const [selectedTabId, setSelectedTabId] = useState('tab-1');
+  const isSelectedTab = tabs.find((tab) => selectedTabId === tab.id)
+    || tabs[0];
 
   return (
     <div className="section">
       <h1 className="title">
-        {tabs.map((tab) => (
-          tab.id === selectedTabId && (
-            `Selected tab is ${tab.title}`
-          )
-        ))}
+        {isSelectedTab && (
+          `Selected tab is ${isSelectedTab.title}`
+        )}
       </h1>
       <div data-cy="TabsComponent">
         <Tabs

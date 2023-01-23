@@ -16,42 +16,43 @@ type Props = {
 export const Tabs: React.FC<Props> = React.memo(
   ({
     tabs,
-    selectedTabId = 'tab-1',
+    selectedTabId,
     onTabSelected,
-  }) => (
-    <>
-      <div className="tabs is-boxed">
-        <ul>
-          {tabs.map((tab: Tab) => (
-            <li
-              key={tab.id}
-              className={classNames({
-                'is-active': tab.id === selectedTabId,
-              })}
-              data-cy="Tab"
-            >
-              <a
-                href={`#${tab.id}`}
-                data-cy="TabLink"
-                onClick={() => {
-                  if (tab.id !== selectedTabId) {
-                    onTabSelected(tab.id);
-                  }
-                }}
+  }) => {
+    const isSelectedTab = tabs.find((tab) => selectedTabId === tab.id)
+     || tabs[0];
+
+    return (
+      <>
+        <div className="tabs is-boxed">
+          <ul>
+            {tabs.map((tab) => (
+              <li
+                key={tab.id}
+                className={classNames({
+                  'is-active': tab.id === isSelectedTab.id,
+                })}
+                data-cy="Tab"
               >
-                {tab.title}
-              </a>
-            </li>
-          ))}
-        </ul>
-      </div>
-      <div className="block" data-cy="TabContent">
-        {tabs.map((tab) => (
-          tab.id === selectedTabId && (
-            tab.content
-          )
-        ))}
-      </div>
-    </>
-  ),
+                <a
+                  href={`#${tab.id}`}
+                  data-cy="TabLink"
+                  onClick={() => {
+                    if (tab.id !== isSelectedTab.id) {
+                      onTabSelected(tab.id);
+                    }
+                  }}
+                >
+                  {tab.title}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div className="block" data-cy="TabContent">
+          {isSelectedTab.content}
+        </div>
+      </>
+    );
+  },
 );
