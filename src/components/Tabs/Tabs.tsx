@@ -8,7 +8,7 @@ type Props = {
   onTabSelected: (tab: Tab) => void,
 };
 
-export const Tabs: React.FC<Props> = ({
+export const Tabs: React.FC<Props> = React.memo(({
   selectedTabId,
   tabs,
   onTabSelected,
@@ -52,4 +52,4 @@ export const Tabs: React.FC<Props> = ({
       </div>
     </div>
   );
-};
+});
