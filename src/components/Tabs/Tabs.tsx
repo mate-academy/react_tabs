@@ -34,7 +34,7 @@ export const Tabs: React.FC<Props> = ({
                   href={`#${id}`}
                   data-cy="TabLink"
                   onClick={() => {
-                    if (tab.id !== selectedTabId) {
+                    if (tab.id !== currentTab.id) {
                       onTabSelected(tab);
                     }
                   }}
