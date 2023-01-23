@@ -3,46 +3,52 @@ import { FC } from 'react';
 import { Tab } from '../../types/Tab';
 
 type Props = {
-  tabs: Tab[],
-  selectedTab: Tab,
-  handleTabClick: (tab: Tab) => void,
+  tabs: Tab[];
+  selectedTabId: string;
+  onTabSelected: (tab: Tab) => void;
 };
 
 export const Tabs: FC<Props> = ({
   tabs,
-  selectedTab,
-  handleTabClick,
+  selectedTabId,
+  onTabSelected,
 }) => {
-  const { id: selectedTabId, content } = selectedTab;
+  const selectedTab = tabs.find(tab => selectedTabId === tab.id)
+  || tabs[0];
 
   return (
     <div data-cy="TabsComponent">
       <div className="tabs is-boxed">
         <ul>
-          {tabs.map(tab => {
-            const { id, title } = tab;
-
-            return (
-              <li
-                className={cn({ 'is-active': id === selectedTabId })}
-                data-cy="Tab"
-                key={id}
+          {tabs.map(tab => (
+            <li
+              key={tab.id}
+              className={cn({
+                'is-active': selectedTab.id === tab.id,
+              })}
+              data-cy="Tab"
+            >
+              <a
+                href={`#${tab.id}`}
+                data-cy="TabLink"
+                onClick={() => {
+                  if (tab.id !== selectedTabId) {
+                    onTabSelected(tab);
+                  }
+                }}
               >
-                <a
-                  href={`#${id}`}
-                  data-cy="TabLink"
-                  onClick={() => handleTabClick(tab)}
-                >
-                  {title}
-                </a>
-              </li>
-            );
-          })}
+                {tab.title}
+              </a>
+            </li>
+          ))}
         </ul>
       </div>
 
-      <div className="block" data-cy="TabContent">
-        {content}
+      <div
+        className="block"
+        data-cy="TabContent"
+      >
+        {selectedTab.content}
       </div>
     </div>
   );
