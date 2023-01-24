@@ -1,11 +1,6 @@
 import cn from 'classnames';
 import React from 'react';
-
-interface Tab {
-  id: string;
-  title: string;
-  content: string;
-}
+import { Tab } from '../../Tab';
 
 interface Props {
   tabs: Tab[];
