@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import 'bulma/css/bulma.css';
 import '@fortawesome/fontawesome-free/css/all.css';
 import './App.scss';
-import { Tabs } from './components/Tabs';
+import { Tab, Tabs } from './components/Tabs';
 
 export const tabs = [
   { id: 'tab-1', title: 'Tab 1', content: 'Some text 1' },
@@ -15,6 +15,10 @@ export const App: React.FC = () => {
   const isSelectedTab = tabs.find((tab) => selectedTabId === tab.id)
     || tabs[0];
 
+  const tabSelectHandler = (tab: Tab) => {
+    setSelectedTabId(tab.id);
+  };
+
   return (
     <div className="section">
       <h1 className="title">
@@ -26,7 +30,7 @@ export const App: React.FC = () => {
         <Tabs
           tabs={tabs}
           selectedTabId={selectedTabId}
-          onTabSelected={setSelectedTabId}
+          onTabSelected={tabSelectHandler}
         />
       </div>
     </div>
