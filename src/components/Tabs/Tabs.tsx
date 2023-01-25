@@ -5,13 +5,13 @@ import { Tab } from '../../types/type';
 type Props = {
   tabs: Tab[];
   selectedTabId: string;
-  onSelected: (tab: Tab) => void;
+  onTabSelected: (tab: Tab) => void;
 };
 
 export const Tabs: React.FC<Props> = ({
   tabs,
   selectedTabId,
-  onSelected,
+  onTabSelected,
 }) => {
   const selectedTab = tabs.find(tab => selectedTabId === tab.id) || tabs[0];
 
@@ -32,7 +32,7 @@ export const Tabs: React.FC<Props> = ({
                 href={`#${tab.id}`}
                 onClick={() => {
                   if (tab.id !== selectedTabId) {
-                    onSelected(tab);
+                    onTabSelected(tab);
                   }
                 }}
                 data-cy="TabLink"
