@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import 'bulma/css/bulma.css';
 import '@fortawesome/fontawesome-free/css/all.css';
 import './App.scss';
@@ -12,30 +12,22 @@ export const tabs = [
 ];
 
 export const App: React.FC = () => {
-  const [selectedTabId, setSelectedTabId] = useState('tab-1');
-  const selectedTab = tabs.find(tab => tab.id === selectedTabId)
-    || tabs[0];
-  const selectTab = (tab: Tab) => {
-    const foundId = tabs.findIndex(item => item.id === tab.id);
+  const [tab, setTab] = useState(tabs[0]);
 
-    if (foundId !== -1) {
-      setSelectedTabId(tab.id);
-    } else {
-      setSelectedTabId('tab-1');
-    }
-  };
+  const selectTab = useCallback((newTab: Tab) => {
+    setTab(newTab);
+  }, [setTab]);
 
   return (
     <div className="section">
       <h1 className="title">
-        {`Selected tab is ${selectedTab?.title}`}
+        {`Selected tab is ${tab.title}`}
       </h1>
 
       <Tabs
         tabs={tabs}
-        selectedTabId={selectedTabId}
+        selectedTabId={tab.id}
         onSelectTab={selectTab}
-        selectedTab={selectedTab}
       />
     </div>
   );

@@ -6,15 +6,19 @@ type Props = {
   tabs: Tab[];
   selectedTabId: string;
   onSelectTab: (tab: Tab) => void;
-  selectedTab: Tab;
 };
 
 export const Tabs:React.FC<Props> = ({
   tabs,
   selectedTabId,
   onSelectTab,
-  selectedTab,
 }) => {
+  let selectedTabIndex = tabs.findIndex(tab => tab.id === selectedTabId);
+
+  selectedTabIndex = selectedTabIndex !== -1
+    ? selectedTabIndex
+    : 0;
+
   return (
     <div data-cy="TabsComponent">
       <div className="tabs is-boxed">
@@ -39,7 +43,7 @@ export const Tabs:React.FC<Props> = ({
       </div>
 
       <div className="block" data-cy="TabContent">
-        {selectedTab.content}
+        {tabs[selectedTabIndex].content}
       </div>
     </div>
   );
