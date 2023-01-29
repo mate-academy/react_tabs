@@ -3,6 +3,7 @@ import 'bulma/css/bulma.css';
 import '@fortawesome/fontawesome-free/css/all.css';
 import './App.scss';
 import { Tabs } from './components/Tabs/Tabs';
+import { Tab } from './types/Tab';
 
 export const tabs = [
   { id: 'tab-1', title: 'Tab 1', content: 'Some text 1' },
@@ -12,23 +13,30 @@ export const tabs = [
 
 export const App: React.FC = () => {
   const [selectedTabId, setSelectedTabId] = useState('tab-1');
-  const [selectedTabTitle, setSelectedTabTitle] = useState('Tab 1');
-  const [selectedTabContent, setSelectedTabContent] = useState('Some text 1');
+  const selectedTab = tabs.find(tab => tab.id === selectedTabId)
+    || tabs[0];
+  const selectTab = (tab: Tab) => {
+    const foundId = tabs.findIndex(item => item.id === tab.id);
 
-  const selectedTab = (id: string, title: string, content: string) => {
-    setSelectedTabId(id);
-    setSelectedTabTitle(title);
-    setSelectedTabContent(content);
+    if (foundId !== -1) {
+      setSelectedTabId(tab.id);
+    } else {
+      setSelectedTabId('tab-1');
+    }
   };
 
   return (
-    <Tabs
-      tabs={tabs}
-      selectedTabTitle={selectedTabTitle}
-      selectedTabId={selectedTabId}
-      selectedTabContent={selectedTabContent}
-      onSelectedTab={selectedTab}
+    <div className="section">
+      <h1 className="title">
+        {`Selected tab is ${selectedTab?.title}`}
+      </h1>
 
-    />
+      <Tabs
+        tabs={tabs}
+        selectedTabId={selectedTabId}
+        onSelectTab={selectTab}
+        selectedTab={selectedTab}
+      />
+    </div>
   );
 };
