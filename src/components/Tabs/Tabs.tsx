@@ -8,9 +8,11 @@ type TabsProps = {
   onTabSelected: (tab: Tab) => void,
 };
 
-export const Tabs: React.FC<TabsProps> = (
-  { tabs, selectedTabId, onTabSelected },
-) => {
+export const Tabs: React.FC<TabsProps> = ({
+  tabs,
+  selectedTabId,
+  onTabSelected,
+}) => {
   const tabToDisplay = tabs.find((tab: Tab) => (
     tab.id === selectedTabId
   )) || tabs[0];
@@ -33,7 +35,13 @@ export const Tabs: React.FC<TabsProps> = (
               data-cy="Tab"
               key={tab.id}
             >
-              <a href={`#${tab.id}`} onClick={() => handleClick(tab)} data-cy="TabLink">{tab.title}</a>
+              <a
+                href={`#${tab.id}`}
+                onClick={() => handleClick(tab)}
+                data-cy="TabLink"
+              >
+                {tab.title}
+              </a>
             </li>
           ))}
         </ul>
