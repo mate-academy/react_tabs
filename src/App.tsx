@@ -27,7 +27,7 @@ export const App: React.FC = () => {
       <Tabs
         tabs={tabs}
         selectedTabId={tab.id}
-        onSelectTab={selectTab}
+        onTabSelected={selectTab}
       />
     </div>
   );

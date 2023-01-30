@@ -5,13 +5,13 @@ import { Tab } from '../../types/Tab';
 type Props = {
   tabs: Tab[];
   selectedTabId: string;
-  onSelectTab: (tab: Tab) => void;
+  onTabSelected: (tab: Tab) => void;
 };
 
 export const Tabs:React.FC<Props> = ({
   tabs,
   selectedTabId,
-  onSelectTab: onTabSelected,
+  onTabSelected,
 }) => {
   const selectedTab = tabs.find(tab => tab.id === selectedTabId)
     || tabs[0];
