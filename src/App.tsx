@@ -18,9 +18,7 @@ export const App: React.FC = () => {
 
   useEffect(() => {
     setSelectedTabId(selectedTab.id);
-  }, [selectedTab]);
 
-  useEffect(() => {
     if (tabs.some(tab => tab.id === selectedTabId)) {
       return;
     }
@@ -28,7 +26,7 @@ export const App: React.FC = () => {
     setSelectedTab({
       id: 'tab-1', title: 'Tab 1', content: 'Some text 1',
     });
-  }, [selectedTabId]);
+  }, [selectedTab]);
 
   return (
     <div className="section">
@@ -36,21 +34,12 @@ export const App: React.FC = () => {
         {`Selected tab is ${selectedTab.title}`}
       </h1>
 
-      <div data-cy="TabsComponent">
-        <div className="tabs is-boxed">
-          <ul>
-            <Tabs
-              tabs={tabs}
-              selectedTabId={selectedTabId}
-              onTabSelected={setSelectedTab}
-            />
-          </ul>
-        </div>
-
-        <div className="block" data-cy="TabContent">
-          {selectedTab.content}
-        </div>
-      </div>
+      <Tabs
+        tabs={tabs}
+        selectedTabId={selectedTabId}
+        onTabSelected={setSelectedTab}
+        selectedTab={selectedTab}
+      />
 
     </div>
   );
