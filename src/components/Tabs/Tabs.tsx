@@ -28,7 +28,7 @@ export const Tabs: React.FC<Props> = (props) => {
                 key={tab.id}
                 tab={tab}
                 onTabSelected={onTabSelected}
-                selectedTabId={selectedTabId}
+                selectedTabId={selectedTab.id}
               />
             );
           })}
