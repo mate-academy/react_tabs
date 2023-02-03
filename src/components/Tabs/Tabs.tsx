@@ -17,27 +17,31 @@ export const Tabs: FC<Props> = ({
   return (
     <div className="tabs is-toggle is-fullwidth">
       <ul>
-        {tabs.map(tab => (
-          <li
-            key={tab.id}
-            className={classNames({
-              'is-active': tab.id === selectedTab.id,
-            })}
-            data-cy="Tab"
-          >
-            <a
-              href={`#${tab.id}`}
-              data-cy="TabLink"
-              onClick={() => {
-                if (tab.id !== selectedTab.id) {
-                  onTabSelected(tab);
-                }
-              }}
+        {tabs.map(tab => {
+          const isSelected = tab.id === selectedTab.id;
+
+          return (
+            <li
+              key={tab.id}
+              className={classNames({
+                'is-active': isSelected,
+              })}
+              data-cy="Tab"
             >
-              {`Reason #${tab.id}`}
-            </a>
-          </li>
-        ))}
+              <a
+                href={`#${tab.id}`}
+                data-cy="TabLink"
+                onClick={() => {
+                  if (!isSelected) {
+                    onTabSelected(tab);
+                  }
+                }}
+              >
+                {`Reason #${tab.id}`}
+              </a>
+            </li>
+          );
+        })}
       </ul>
     </div>
   );
