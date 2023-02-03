@@ -37,7 +37,6 @@ export const Tabs: React.FC<Props> = ({
               </a>
             </li>
           ))}
-
         </ul>
       </div>
 
