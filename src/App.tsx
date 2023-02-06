@@ -27,7 +27,7 @@ export const App: React.FC = () => {
   return (
     <div className="section">
       <h1 className="title">
-        {`Selected tab is  ${currentTab?.title}`}
+        {`Selected tab is ${currentTab?.title}`}
       </h1>
 
       <div data-cy="TabsComponent">
