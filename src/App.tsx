@@ -16,7 +16,7 @@ export const App: React.FC = () => {
   const [selectedTabId, setSelectedTabId] = useState('tab-1');
   const currentTab = tabs.find(tab => tab.id === selectedTabId);
 
-  const handleTab = (tab: Tab) => {
+  const handleSelectTab = (tab: Tab) => {
     if (selectedTabId === tab.id) {
       return;
     }
@@ -34,7 +34,7 @@ export const App: React.FC = () => {
         <Tabs
           tabs={tabs}
           selected={selectedTabId}
-          onTabSelected={handleTab}
+          onTabSelected={handleSelectTab}
         />
 
         <div className="block" data-cy="TabContent">
