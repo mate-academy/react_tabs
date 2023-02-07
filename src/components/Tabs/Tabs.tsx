@@ -4,17 +4,17 @@ import { TabInfo } from '../TabInfo';
 
 type Props = {
   tabs: Tab[];
-  setSelectedTab:SetSelectedTab,
-  selectedTab: Tab,
+  onTabSelected:SetSelectedTab,
+  selectedTabId: string,
+  selectedTabContent: string,
 };
 
 export const Tabs: React.FC<Props> = ({
   tabs,
-  setSelectedTab,
-  selectedTab,
+  onTabSelected,
+  selectedTabId,
+  selectedTabContent,
 }) => {
-  const { content, id } = selectedTab;
-
   return (
     <div data-cy="TabsComponent">
       <div className="tabs is-boxed">
@@ -23,15 +23,15 @@ export const Tabs: React.FC<Props> = ({
             <TabInfo
               key={tab.id}
               tab={tab}
-              setSelectedTab={setSelectedTab}
-              activeId={id}
+              onTabSelected={onTabSelected}
+              selectedTabId={selectedTabId}
             />
           ))}
         </ul>
       </div>
 
       <div className="block" data-cy="TabContent">
-        {content}
+        {selectedTabContent}
       </div>
     </div>
   );

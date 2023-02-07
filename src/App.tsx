@@ -12,7 +12,7 @@ export const tabs = [
 
 export const App: React.FC = () => {
   const [selectedTab, setSelectedTab] = useState(tabs[0]);
-  const { title } = selectedTab;
+  const { title, id, content } = selectedTab;
 
   return (
     <div className="section">
@@ -22,8 +22,9 @@ export const App: React.FC = () => {
 
       <Tabs
         tabs={tabs}
-        setSelectedTab={setSelectedTab}
-        selectedTab={selectedTab}
+        onTabSelected={setSelectedTab}
+        selectedTabId={id}
+        selectedTabContent={content}
       />
     </div>
   );

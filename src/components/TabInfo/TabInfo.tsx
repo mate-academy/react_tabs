@@ -5,20 +5,22 @@ import { Tab } from '../../types/Tab';
 
 type Props = {
   tab: Tab,
-  setSelectedTab: SetSelectedTab,
-  activeId: string,
+  onTabSelected: SetSelectedTab,
+  selectedTabId: string,
 };
 
 export const TabInfo: React.FC<Props> = ({
   tab,
-  setSelectedTab,
-  activeId,
+  onTabSelected,
+  selectedTabId,
 }) => {
   const { id, title } = tab;
-  const isActive = activeId === id;
+  const isActive = selectedTabId === id;
 
   const handleOnClick = () => {
-    setSelectedTab(tab);
+    if (!isActive) {
+      onTabSelected(tab);
+    }
   };
 
   return (
