@@ -24,8 +24,8 @@ export const Tabs: React.FC<TabsType> = ({
     }
   };
 
-  const isTabActive = (id: string, index: number) => (
-    id === selectedTabId
+  const isTabActive = (tabId: string, index: number) => (
+    tabId === selectedTabId
     || (!tabs.some(({ id }) => (id === selectedTabId)) && index === 0)
   );
 
