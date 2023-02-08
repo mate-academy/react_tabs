@@ -41,12 +41,15 @@ export const Tabs: React.FC<Props> = ({
                 onClick={() => handleClickTab(tab)}
                 aria-hidden="true"
               >
-                <a href={`#${tab.id}`} data-cy="TabLink">{tab.title}</a>
+                <a href={`#${tab.id}`} data-cy="TabLink">
+                  {tab.title}
+                </a>
               </li>
             );
           })}
         </ul>
       </div>
+
       <div className="block" data-cy="TabContent">
         {selectedTab.content}
       </div>
