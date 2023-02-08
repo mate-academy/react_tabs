@@ -4,20 +4,20 @@ import { Tab } from '../../types/tabs';
 
 type Prop = {
   tabs: Tab[]
-  isSelected: string;
-  handler: (tab: Tab) => void,
+  selectedTabId: string;
+  onTabSelected: (tab: Tab) => void,
 };
 
 export const Tabs:React.FC<Prop> = ({
   tabs,
-  isSelected,
-  handler,
+  selectedTabId,
+  onTabSelected,
 }) => {
-  const isSelectedTab = tabs.find(tab => tab.id === isSelected) || tabs[0];
-  
+  const selectedTab = tabs.find(tab => tab.id === selectedTabId) || tabs[0];
+
   const handleTabClick = (tab: Tab) => {
-    if (isSelected !== tab.id) {
-      handler(tab);
+    if (selectedTabId !== tab.id) {
+      onTabSelected(tab);
     }
   };
 
@@ -29,7 +29,7 @@ export const Tabs:React.FC<Prop> = ({
             <li
               key={tab.id}
               className={classNames(
-                { 'is-active': isSelectedTab.id === tab.id },
+                { 'is-active': selectedTab.id === tab.id },
               )}
               data-cy="Tab"
             >
@@ -46,7 +46,7 @@ export const Tabs:React.FC<Prop> = ({
       </div>
 
       <div className="block" data-cy="TabContent">
-        {isSelectedTab?.content}
+        {selectedTab?.content}
       </div>
     </div>
   );

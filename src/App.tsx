@@ -14,7 +14,7 @@ export const tabs: Tab[] = [
 export const App: React.FC = () => {
   const [selectedTabId, setSelectedTabId] = useState(tabs[0].id);
 
-  const isSelectedTab = tabs.find(tab => tab.id === selectedTabId);
+  const selectedTab = tabs.find(tab => tab.id === selectedTabId);
 
   const handlerSelect = (tab: Tab) => {
     setSelectedTabId(tab.id);
@@ -23,12 +23,12 @@ export const App: React.FC = () => {
   return (
     <div className="section">
       <h1 className="title">
-        {`Selected tab is ${isSelectedTab?.title}`}
+        {`Selected tab is ${selectedTab?.title}`}
       </h1>
       <Tabs
         tabs={tabs}
-        isSelected={selectedTabId}
-        handler={handlerSelect}
+        selectedTabId={selectedTabId}
+        onTabSelected={handlerSelect}
       />
     </div>
   );
