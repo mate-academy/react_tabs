@@ -14,12 +14,10 @@ export const tabs = [
 export const App: React.FC = () => {
   const [selectedTabId, setselectedTabId] = useState(tabs[0].id);
   const [selectedTabTitle, setSelectedTabTitle] = useState(tabs[0].title);
-  const [selectedTabContent, setSelectedTabContent] = useState(tabs[0].content);
 
   const onTabSelected = (tab: Tab): void => {
     setselectedTabId(tab.id);
     setSelectedTabTitle(tab.title);
-    setSelectedTabContent(tab.content);
   };
 
   return (
@@ -33,7 +31,6 @@ export const App: React.FC = () => {
       <Tabs
         tabs={tabs}
         selectedTabId={selectedTabId}
-        selectedTabContent={selectedTabContent}
         onTabSelected={onTabSelected}
       />
     </div>

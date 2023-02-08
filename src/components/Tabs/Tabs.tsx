@@ -5,13 +5,11 @@ type Props = {
   tabs: Tab[],
   selectedTabId: string,
   onTabSelected: (params: Tab) => void,
-  selectedTabContent: string
 };
 
 export const Tabs: React.FC<Props> = ({
   tabs,
   selectedTabId,
-  selectedTabContent,
   onTabSelected,
 }) => {
   const validSelectedTab = tabs.find(tab => tab.id === selectedTabId);
@@ -49,7 +47,7 @@ export const Tabs: React.FC<Props> = ({
       </div>
 
       <div className="block" data-cy="TabContent">
-        {selectedTabContent}
+        {validSelectedTab?.content || tabs[0].content}
       </div>
     </div>
   );
