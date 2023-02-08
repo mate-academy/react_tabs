@@ -26,11 +26,11 @@ export const Tabs: React.FC<TabsType> = ({
 
   const isTabActive = (id: string, index: number) => (
     id === selectedTabId
-    || (!tabs.some(tab => (tab.id === selectedTabId)) && index === 0)
+    || (!tabs.some(({ id }) => (id === selectedTabId)) && index === 0)
   );
 
   const selectedTabContent
-    = tabs.find(tab => tab.id === selectedTabId)?.content;
+    = tabs.find(({ id }) => id === selectedTabId)?.content;
 
   return (
     <div data-cy="TabsComponent">

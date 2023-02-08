@@ -14,16 +14,17 @@ export const App: React.FC = () => {
   const [selectedTabId, setSelectedTab] = useState(tabs[0].id);
 
   useEffect(() => {
-    if (!tabs.some(tab => (tab.id === selectedTabId))) {
+    if (!tabs.some(({ id }) => (id === selectedTabId))) {
       setSelectedTab(tabs[0].id);
     }
   }, [selectedTabId]);
 
-  const onTabSelected = (tab: Tab) => {
-    setSelectedTab(tab.id);
+  const onTabSelected = ({ id }: Tab) => {
+    setSelectedTab(id);
   };
 
-  const selectedTabTitle = tabs.find(tab => tab.id === selectedTabId)?.title;
+  const selectedTabTitle = tabs
+    .find(({ id }) => id === selectedTabId)?.title;
 
   return (
     <div className="section">
