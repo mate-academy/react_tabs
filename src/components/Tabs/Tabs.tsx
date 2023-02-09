@@ -8,8 +8,11 @@ interface Props {
   onTabSelected: (tab: Tab) => void;
 }
 
-export const Tabs: React.FC<Props> = (props) => {
-  const { tabs, selectedTabId, onTabSelected } = props;
+export const Tabs: React.FC<Props> = ({
+  tabs,
+  selectedTabId,
+  onTabSelected,
+}) => {
   const selectedTab = tabs.find(tab => tab.id === selectedTabId) || tabs[0];
 
   const handleTabClick = (tab: Tab) => {
