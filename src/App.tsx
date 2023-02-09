@@ -2,7 +2,8 @@ import React, { useState, useEffect } from 'react';
 import 'bulma/css/bulma.css';
 import '@fortawesome/fontawesome-free/css/all.css';
 import './App.scss';
-import { Tab, Tabs } from './components/Tabs';
+import { Tabs } from './components/Tabs';
+import { Tab } from './types/Tabs';
 
 export const tabs = [
   { id: 'tab-1', title: 'Tab 1', content: 'Some text 1' },

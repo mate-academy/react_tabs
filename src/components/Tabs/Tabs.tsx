@@ -1,17 +1,6 @@
 import React from 'react';
 import classNames from 'classnames';
-
-export interface TabsType {
-  tabs: Tab[];
-  selectedTabId: string;
-  onTabSelected: (arg: Tab) => void;
-}
-
-export type Tab = {
-  id: string;
-  title: string;
-  content: string;
-};
+import { Tab, TabsType } from '../../types/Tabs';
 
 export const Tabs: React.FC<TabsType> = ({
   tabs,
@@ -26,7 +15,7 @@ export const Tabs: React.FC<TabsType> = ({
 
   const isTabActive = (tabId: string, index: number) => (
     tabId === selectedTabId
-    || (!tabs.some(({ id }) => (id === selectedTabId)) && index === 0)
+      || (!tabs.some(({ id }) => (id === selectedTabId)) && index === 0)
   );
 
   const selectedTabContent
