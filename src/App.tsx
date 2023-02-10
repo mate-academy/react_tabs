@@ -12,10 +12,11 @@ export const tabsFromServer = [
 ];
 
 export const App: React.FC = () => {
-  const [selectedTabId, setSelectedTabId] = useState(tabsFromServer[0].id);
+  const [selectedTabId, setSelectedTabId] = useState(tabsFromServer[0]);
 
-  const onTabSelected = (tab: Tab) => setSelectedTabId(tab.id);
-  const selectedTab = tabsFromServer.find(tab => tab.id === selectedTabId)
+  const onTabSelected = (tab: Tab) => setSelectedTabId(tab);
+
+  const selectedTab = tabsFromServer.find(tab => tab.id === selectedTabId.id)
   || tabsFromServer[0];
 
   return (

@@ -4,7 +4,7 @@ import { Tab } from '../../types/Tab';
 type Props = {
   tabs: Tab[];
   onTabSelected: (tab: Tab) => void;
-  selectedTabId: string;
+  selectedTabId: Tab;
 };
 
 export const Tabs: React.FC<Props> = ({
@@ -12,10 +12,8 @@ export const Tabs: React.FC<Props> = ({
   onTabSelected,
   selectedTabId,
 }) => {
-  const selectedTab = tabs.find(tab => tab.id === selectedTabId) || tabs[0];
-
   const handleЕTabSelect = (tab: Tab) => {
-    if (selectedTabId !== tab.id) {
+    if (selectedTabId.id !== tab.id) {
       onTabSelected(tab);
     }
   };
@@ -29,7 +27,7 @@ export const Tabs: React.FC<Props> = ({
               data-cy="Tab"
               key={tab.id}
               className={classNames({
-                'is-active': tab.id === selectedTab.id,
+                'is-active': tab.id === selectedTabId.id,
               })}
             >
               <a
@@ -45,7 +43,7 @@ export const Tabs: React.FC<Props> = ({
       </div>
 
       <div className="block" data-cy="TabContent">
-        {selectedTab.content}
+        {selectedTabId.content}
       </div>
     </div>
   );
