@@ -12,12 +12,9 @@ export const tabsFromServer = [
 ];
 
 export const App: React.FC = () => {
-  const [selectedTabId, setSelectedTabId] = useState(tabsFromServer[0]);
+  const [selectedTab, setSelectedTab] = useState(tabsFromServer[0]);
 
-  const onTabSelected = (tab: Tab) => setSelectedTabId(tab);
-
-  const selectedTab = tabsFromServer.find(tab => tab.id === selectedTabId.id)
-  || tabsFromServer[0];
+  const onTabSelected = (tab: Tab) => setSelectedTab(tab);
 
   return (
     <div className="section">
@@ -27,7 +24,7 @@ export const App: React.FC = () => {
 
       <Tabs
         tabs={tabsFromServer}
-        selectedTabId={selectedTabId}
+        selectedTabId={selectedTab.id}
         onTabSelected={onTabSelected}
       />
     </div>
