@@ -13,10 +13,8 @@ export const Tabs: React.FC<TabsType> = ({
     }
   };
 
-  const isTabActive = (tabId: string, index: number) => (
-    tabId === selectedTabId
-      || (!tabs.some(({ id }) => (id === selectedTabId)) && index === 0)
-  );
+  const selectedTab = tabs
+    .find(({ id }) => id === selectedTabId) || tabs[0];
 
   const selectedTabContent
     = tabs.find(({ id }) => id === selectedTabId)?.content;
@@ -25,11 +23,11 @@ export const Tabs: React.FC<TabsType> = ({
     <div data-cy="TabsComponent">
       <div className="tabs is-boxed">
         <ul>
-          {tabs.map((tab, index) => (
+          {tabs.map((tab) => (
             <li
               key={tab.id}
               className={classNames({
-                'is-active': isTabActive(tab.id, index),
+                'is-active': selectedTab.id === tab.id,
               })}
               data-cy="Tab"
             >
