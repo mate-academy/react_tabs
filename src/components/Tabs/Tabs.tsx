@@ -4,8 +4,7 @@ import { Tab } from '../typeTab';
 type Props = {
   tabs: Tab[],
   selectedTabId: string,
-  // eslint-disable-next-line @typescript-eslint/ban-types
-  onTabSelected:Function,
+  onTabSelected:(tab: Tab) => void,
 };
 
 export const Tabs: React.FC<Props> = ({
@@ -32,8 +31,7 @@ export const Tabs: React.FC<Props> = ({
               <a
                 href={`#${tab.id}`}
                 data-cy="TabLink"
-                onClick={(e) => {
-                  e.preventDefault();
+                onClick={() => {
                   if (tabId !== tab.id) {
                     onTabSelected(tab);
                   }

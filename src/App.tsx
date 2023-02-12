@@ -24,10 +24,6 @@ export const App: React.FC = () => {
     }
   };
 
-  const onTabSelected = (tab:Tab) => {
-    setAnotherTab(tab);
-  };
-
   return (
     <div className="section">
       <h1 className="title">
@@ -36,7 +32,7 @@ export const App: React.FC = () => {
 
       <Tabs
         tabs={tabs}
-        onTabSelected={onTabSelected}
+        onTabSelected={setAnotherTab}
         selectedTabId={tabId}
       />
     </div>
