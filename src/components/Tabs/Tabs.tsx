@@ -3,14 +3,22 @@ import cn from 'classnames';
 
 interface Props {
   tabs: Tab[];
-  selectedTab: Tab;
+  selectedTabId: string;
   onTabSelected: (tab: Tab) => void;
 }
 export const Tabs: React.FC<Props> = ({
   tabs,
-  selectedTab,
+  selectedTabId,
   onTabSelected,
 }) => {
+  const selectedTab = tabs.find(tab => tab.id === selectedTabId) || tabs[0];
+
+  const setSelectedTab = (tab: Tab) => {
+    if (tab.id !== selectedTabId) {
+      onTabSelected(tab);
+    }
+  };
+
   return (
     <div data-cy="TabsComponent">
       <div className="tabs is-boxed">
@@ -22,8 +30,8 @@ export const Tabs: React.FC<Props> = ({
               data-cy="Tab"
             >
               <a
-                onClick={() => onTabSelected(tab)}
-                href={`#${selectedTab}`}
+                onClick={() => setSelectedTab(tab)}
+                href={`#${tab.id}`}
                 data-cy="TabLink"
               >
                 {tab.title}
@@ -34,7 +42,7 @@ export const Tabs: React.FC<Props> = ({
       </div>
 
       <div className="block" data-cy="TabContent">
-        {`Some text ${selectedTab.id.slice(-1)}`}
+        {selectedTab.content}
       </div>
     </div>
   );
