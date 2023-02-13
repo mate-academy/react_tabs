@@ -14,12 +14,6 @@ export const Tabs: React.FC<Props> = ({
 }) => {
   const isSelectedTab = tabs.find(tab => selectedTabId === tab.id) || tabs[0];
 
-  // const handlerClick2 = (tab: Tab) => {
-  //   if (selectedTabId !== tab.id) {
-  //     onTabSelected(tab);
-  //   }
-  // };
-
   return (
     <div data-cy="TabsComponent">
       <div className="tabs is-boxed">
