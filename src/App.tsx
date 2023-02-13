@@ -12,12 +12,17 @@ export const tabs = [
 ];
 
 export const App: React.FC = () => {
-  const [selectedTab, setSelectedTab] = useState<Tab>(tabs[0]);
+  const [selectedTab, setSelectedTab1] = useState<Tab>(tabs[0]);
+
+  const setSelectedTab = (tab: React.SetStateAction<Tab>) => {
+    console.log('click111');
+    setSelectedTab1(tab);
+  };
 
   return (
     <div className="section">
       <h1 className="title">
-        {`Selected tab is ${selectedTab.title}`}
+        {`Selected tab is ${selectedTab?.title}`}
       </h1>
 
       <Tabs

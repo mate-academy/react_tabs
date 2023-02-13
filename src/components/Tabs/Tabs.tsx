@@ -1,6 +1,6 @@
 import cn from 'classnames';
 import React from 'react';
-
+/* eslint-disable no-console */
 type Props = {
   tabId: string,
   onTabSelected: (tab: Tab)=>void,
@@ -15,35 +15,30 @@ export const Tabs: React.FC<Props> = (props) => {
   } = props;
 
   const selectedTab = tabs.find(tab => tab.id === tabId) || tabs[0];
+  const handleClick = (tab: Tab = tabs[0]) => (
+    !(selectedTab.id === tab.id) && onTabSelected(tab)
+  );
 
   return (
     <div data-cy="TabsComponent">
       <div className="tabs is-boxed">
         <ul>
-          {tabs.map(tab => {
-            const {
-              id,
-              title,
-            } = tab;
-
-            const isSelected = selectedTab.id === id;
-
-            return (
-              <li
-                key={id}
-                className={cn({ 'is-active': isSelected })}
-                data-cy="Tab"
+          {tabs.map((tab) => (
+            <li
+              key={tab.id}
+              className={cn({ 'is-active': selectedTab.id === tab.id })}
+              data-cy="Tab"
+              onClick={() => handleClick(tab)}
+              aria-hidden="true"
+            >
+              <a
+                href={`#${tab.id}`}
+                data-cy="TabLink"
               >
-                <a
-                  href={`#${id}`}
-                  data-cy="TabLink"
-                  onClick={() => !isSelected && onTabSelected(tab)}
-                >
-                  {title}
-                </a>
-              </li>
-            );
-          })}
+                {tab.title}
+              </a>
+            </li>
+          ))}
         </ul>
       </div>
 
