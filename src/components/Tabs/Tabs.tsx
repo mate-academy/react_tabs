@@ -1,17 +1,15 @@
-import className from "classnames";
-import { Tab } from "../../Tab";
+import className from 'classnames';
+import { Tab } from '../../Tab';
 
 type Props = {
   tabs: Tab[];
-  active: Tab;
-  selected: (tab: Tab) => void;
+  content: string;
+  onSelectTab: (tab: Tab) => void;
 };
 
-export const Tabs: React.FC<Props> = ({ tabs, active, selected }) => {
-  const handleTab = (tab: Tab) => {
-    if (active.id !== tab.id) {
-      selected(tab);
-    }
+export const Tabs: React.FC<Props> = ({ tabs, content, onSelectTab }) => {
+  const onSelectedTab = (tab: Tab) => {
+    onSelectTab(tab);
   };
 
   return (
@@ -21,13 +19,14 @@ export const Tabs: React.FC<Props> = ({ tabs, active, selected }) => {
           {tabs.map((tab) => {
             return (
               <li
-                className={className({ "is-active": active.id === tab.id })}
+                className={className({ 'is-active': content === tab.content })}
                 data-cy="Tab"
+                key={tab.id}
               >
                 <a
                   href={`#${tab.id}`}
                   data-cy="TabLink"
-                  onClick={() => handleTab(tab)}
+                  onClick={() => onSelectedTab(tab)}
                 >
                   {tab.title}
                 </a>
@@ -38,7 +37,7 @@ export const Tabs: React.FC<Props> = ({ tabs, active, selected }) => {
       </div>
 
       <div className="block" data-cy="TabContent">
-        {active.content}
+        {content}
       </div>
     </div>
   );
