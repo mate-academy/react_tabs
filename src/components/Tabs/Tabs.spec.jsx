@@ -21,7 +21,7 @@ describe('Tabs component', () => {
       mount((
         <Tabs
           tabs={tabs}
-          selectedTabIdId="tab-20"
+          selectedTabId="tab-20"
           onTabSelected={cy.spy().as('onTabSelected')}
         />
       ));

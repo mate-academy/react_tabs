@@ -9,11 +9,11 @@ type Props = {
 };
 
 export const Tabs: React.FC<Props> = (
-  { 
-    tabs, 
-    selectedTabId, 
-    onTabSelected 
-  }
+  {
+    tabs,
+    selectedTabId,
+    onTabSelected,
+  },
 ) => {
   const handleSelected = (tab: Tab) => {
     if (tab.id !== selectedTabId) {
