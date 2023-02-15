@@ -1,6 +1,6 @@
 /* eslint-disable max-len */
 import React, { useState } from 'react';
-import { Tabs, currentTab } from './components/Tabs';
+import { Tabs } from './components/Tabs';
 import 'bulma/css/bulma.css';
 import '@fortawesome/fontawesome-free/css/all.css';
 import './App.scss';
@@ -12,7 +12,7 @@ export const tabs = [
 ];
 
 export const App: React.FC = () => {
-  const [selectedTab, setSelectedTab] = useState(currentTab('Tab 1', tabs));
+  const [selectedTab, setSelectedTab] = useState(tabs[0]);
 
   return (
     <div className="section">
@@ -21,7 +21,7 @@ export const App: React.FC = () => {
         {selectedTab?.title}
       </h1>
 
-      <Tabs tabs={tabs} selectedTab={selectedTab} setSelectedTab={setSelectedTab} />
+      <Tabs tabs={tabs} selectedTabId={selectedTab.id} onTabSelected={setSelectedTab} />
 
     </div>
   );

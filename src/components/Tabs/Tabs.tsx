@@ -1,5 +1,4 @@
 import classNames from 'classnames';
-import { Dispatch, SetStateAction } from 'react';
 
 interface Tab {
   id: string,
@@ -9,8 +8,8 @@ interface Tab {
 
 type Props = {
   tabs: Tab[],
-  selectedTab: Tab | undefined,
-  setSelectedTab: Dispatch<SetStateAction<Tab | undefined>>
+  selectedTabId: string,
+  onTabSelected: (tab: Tab) => void,
 };
 
 export const currentTab = function selectTab(
@@ -20,7 +19,19 @@ export const currentTab = function selectTab(
   return tabs.find(tab => tab.title === title);
 };
 
-export const Tabs:React.FC<Props> = ({ tabs, selectedTab, setSelectedTab }) => {
+export const Tabs:React.FC<Props> = ({
+  tabs,
+  selectedTabId,
+  onTabSelected,
+}) => {
+  const selectedTab = tabs.find(tab => tab.id === selectedTabId);
+
+  const handleTab = (tab: Tab) => {
+    if (tab.id !== selectedTabId) {
+      onTabSelected(tab);
+    }
+  };
+
   return (
     <div data-cy="TabsComponent">
       <div className="tabs is-boxed">
@@ -28,16 +39,14 @@ export const Tabs:React.FC<Props> = ({ tabs, selectedTab, setSelectedTab }) => {
           {tabs.map(tab => (
             <li
               key={tab.id}
-              className={classNames({ 'is-active': tab === selectedTab })}
+              className={classNames({ 'is-active': tab.id === selectedTabId })}
               data-cy="Tab"
             >
               <a
                 href={`#${tab.id}`}
                 data-cy="TabLink"
-                onClick={(event) => {
-                  setSelectedTab(
-                    currentTab(event.currentTarget.textContent, tabs),
-                  );
+                onClick={() => {
+                  handleTab(tab);
                 }}
               >
                 {tab.title}
