@@ -29,7 +29,7 @@ export const Tabs:React.FC<Props> = ({ tabs, selectedTab, setSelectedTab }) => {
             <li
               key={tab.id}
               className={classNames({ 'is-active': tab === selectedTab })}
-              data-cy={tab.id}
+              data-cy="Tab"
             >
               <a
                 href={`#${tab.id}`}
