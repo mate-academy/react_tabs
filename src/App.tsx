@@ -1,6 +1,6 @@
 /* eslint-disable max-len */
 import React, { useState } from 'react';
-/* import { Tabs } from './components/Tabs'; */
+import { Tabs, currentTab } from './components/Tabs';
 import 'bulma/css/bulma.css';
 import '@fortawesome/fontawesome-free/css/all.css';
 import './App.scss';
@@ -12,11 +12,7 @@ export const tabs = [
 ];
 
 export const App: React.FC = () => {
-  const currentTab = function selectTab(title: string | null) {
-    return tabs.find(tab => tab.title === title);
-  };
-
-  const [selectedTab, setSelectedTab] = useState(currentTab('Tab 1'));
+  const [selectedTab, setSelectedTab] = useState(currentTab('Tab 1', tabs));
 
   return (
     <div className="section">
@@ -25,33 +21,8 @@ export const App: React.FC = () => {
         {selectedTab?.title.slice(-1)}
       </h1>
 
-      <div data-cy="TabsComponent">
-        <div className="tabs is-boxed">
-          <ul>
-            {tabs.map(tab => (
-              <li
-                key={tab.id}
-                className="is-active"
-                data-cy={tab.id}
-              >
-                <a
-                  href={`#${tab.id}`}
-                  data-cy="TabLink"
-                  onClick={(event) => {
-                    setSelectedTab(currentTab(event.currentTarget.textContent));
-                  }}
-                >
-                  {tab.title}
-                </a>
-              </li>
-            ))}
-          </ul>
-        </div>
+      <Tabs tabs={tabs} selectedTab={selectedTab} setSelectedTab={setSelectedTab} />
 
-        <div className="block" data-cy="TabContent">
-          {selectedTab?.content}
-        </div>
-      </div>
     </div>
   );
 };
