@@ -1,11 +1,11 @@
+import React from 'react';
 import classNames from 'classnames';
 import { Tab } from '../../types/Tab';
 
 type Props = {
   tabs: Tab[];
   selectedTabId: string;
-  onTabSelected: CallableFunction;
-  selectedTab: Tab;
+  onTabSelected: (tab: Tab) => void;
 };
 
 export const Tabs: React.FC<Props> = ({
@@ -17,6 +17,14 @@ export const Tabs: React.FC<Props> = ({
     tab.id === selectedTabId
   )) || tabs[0];
 
+  const handleButtonClick = (tab: Tab) => {
+    const isSelected = tab.id === selectedTabId;
+
+    if (!isSelected) {
+      onTabSelected(tab);
+    }
+  };
+
   return (
     <div data-cy="TabsComponent">
       <div className="tabs is-boxed">
@@ -26,19 +34,13 @@ export const Tabs: React.FC<Props> = ({
               key={tab.id}
               data-cy="Tab"
               className={classNames(
-                { 'is-active': tab.id === selectedTabId },
+                { 'is-active': tab.id === selectedTab.id },
               )}
             >
               <a
                 href={`#${tab.id}`}
                 data-cy="TabLink"
-                onClick={() => {
-                  const isSelected = tab.id === selectedTabId;
-
-                  if (!isSelected) {
-                    onTabSelected(tab);
-                  }
-                }}
+                onClick={() => handleButtonClick(tab)}
               >
                 {tab.title}
               </a>
