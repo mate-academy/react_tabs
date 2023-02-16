@@ -27,7 +27,8 @@ export const Tabs: React.FC<Props> = (
               data-cy="Tab"
             >
               <a
-                href={`'#tab-' + ${id}`}
+                // href={`'#' + ${id}`}
+                href={`#${id}`}
                 data-cy="TabLink"
                 onClick={() => getSelectedTabId(id)}
               >
