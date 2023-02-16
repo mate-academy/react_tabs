@@ -12,9 +12,15 @@ export const tabs = [
 ];
 
 export const App: React.FC = () => {
-  const [selectedTabId, setSelectedTabId] = useState('tab-4');
+  const [selectedTabId, setSelectedTabId] = useState('tab-1');
 
-  const selectedTab = tabs.find((tab) => tab.id === selectedTabId) || tabs[0];
+  const isSelectedTabIdCorrect = tabs
+    .map((tab) => tab.id)
+    .includes(selectedTabId);
+
+  const currentTab = isSelectedTabIdCorrect
+    ? tabs.find((tab) => tab.id === selectedTabId)
+    : tabs[0];
 
   const handleTabSelecting = (tab: Tab) => {
     setSelectedTabId(tab.id);
@@ -22,12 +28,11 @@ export const App: React.FC = () => {
 
   return (
     <div className="section">
-      <h1 className="title">{`Selected tab is ${selectedTab.title}`}</h1>
+      <h1 className="title">{`Selected tab is ${currentTab?.title}`}</h1>
 
       <Tabs
         tabs={tabs}
-        selectedTab={selectedTab}
-        selectedTabId={selectedTabId}
+        selectedTabId={isSelectedTabIdCorrect ? selectedTabId : tabs[0].id}
         onTabSelected={handleTabSelecting}
       />
     </div>

@@ -3,25 +3,17 @@ import { Tab } from '../../types/Tab';
 
 type Props = {
   tabs: Tab[];
-  selectedTab: Tab;
   selectedTabId: string;
   onTabSelected: (tab: Tab) => void;
 };
 
 export const Tabs: React.FC<Props> = ({
   tabs,
-  selectedTab,
   selectedTabId,
   onTabSelected,
 }) => {
-  let tabId = selectedTabId;
-
-  if (!tabs.find((tab) => tab.id === selectedTabId)) {
-    tabId = 'tab-1';
-  }
-
-  const handleTabSelecting = (tab: Tab) => {
-    if (tab.id !== tabId) {
+  const handleTabSelecting = (tab: Tab) => () => {
+    if (tab.id !== selectedTabId) {
       onTabSelected(tab);
     }
   };
@@ -33,13 +25,11 @@ export const Tabs: React.FC<Props> = ({
           {tabs.map((tab) => (
             <li
               key={tab.id}
-              className={cn({ 'is-active': tab.id === tabId })}
+              className={cn({ 'is-active': tab.id === selectedTabId })}
               data-cy="Tab"
             >
               <a
-                onClick={() => {
-                  handleTabSelecting(tab);
-                }}
+                onClick={handleTabSelecting(tab)}
                 href={`#${tab.id}`}
                 data-cy="TabLink"
               >
@@ -51,7 +41,7 @@ export const Tabs: React.FC<Props> = ({
       </div>
 
       <div className="block" data-cy="TabContent">
-        {selectedTab.content}
+        {tabs.find((tab) => tab.id === selectedTabId)?.content}
       </div>
     </div>
   );
