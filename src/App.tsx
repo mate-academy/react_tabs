@@ -17,7 +17,9 @@ export const App: React.FC = () => {
   const selectedTab = tabs.find(tab => tab.id === selectedTabId) || tabs[0];
 
   const handleSelect = (tab: Tab) => {
-    setSelectedTabId(tab.id);
+    if (selectedTabId !== tab.id) {
+      setSelectedTabId(tab.id);
+    }
   };
 
   return (
