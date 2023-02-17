@@ -19,15 +19,14 @@ export const Tabs: React.FC<Props> = (
       {
         tabs.map(tab => {
           const { id, title } = tab;
-          const booleanClass = id === selectedTabId;
+          const comparisonId = id === selectedTabId;
 
           return (
             <li
-              className={ClassNames({ 'is-active': booleanClass })}
+              className={ClassNames({ 'is-active': comparisonId })}
               data-cy="Tab"
             >
               <a
-                // href={`'#' + ${id}`}
                 href={`#${id}`}
                 data-cy="TabLink"
                 onClick={() => getSelectedTabId(id)}
