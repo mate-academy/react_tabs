@@ -13,29 +13,29 @@ export const tabs = [
 export const App: React.FC = () => {
   const [selectedTabId, setSelectedTabId] = useState('tab-1');
 
-  const selectedTabIdInstall = (id: string) => {
+  const IdSelectedTab = (id: string) => {
     setSelectedTabId(id);
   };
 
-  const tabSelect = tabs.find(tab => tab.id === selectedTabId);
+  const selectTab = tabs.find(tab => tab.id === selectedTabId);
 
   return (
     <div className="section">
       <h1 className="title">
         Selected tab is
         {' '}
-        {tabSelect?.title}
+        {selectTab?.title}
       </h1>
       <div data-cy="TabsComponent">
         <div className="tabs is-boxed">
           <Tabs
             tabs={tabs}
             selectedTabId={selectedTabId}
-            getSelectedTabId={selectedTabIdInstall}
+            getSelectedTabId={IdSelectedTab}
           />
         </div>
         <div className="block" data-cy="TabContent">
-          {tabSelect?.content}
+          {selectTab?.content}
         </div>
       </div>
     </div>
