@@ -11,9 +11,9 @@ export const tabs = [
 ];
 
 export const App: React.FC = () => {
-  const [selectedTabId, setSelectedTabId] = useState('tab-1');
+  const [selectedTabId, setSelectedTabId] = useState(tabs[0].id);
 
-  const IdSelectedTab = (id: string) => {
+  const handleTabSelected = (id: string) => {
     setSelectedTabId(id);
   };
 
@@ -22,16 +22,14 @@ export const App: React.FC = () => {
   return (
     <div className="section">
       <h1 className="title">
-        Selected tab is
-        {' '}
-        {selectTab?.title}
+        {`Selected tab is ${selectTab?.title}`}
       </h1>
       <div data-cy="TabsComponent">
         <div className="tabs is-boxed">
           <Tabs
             tabs={tabs}
             selectedTabId={selectedTabId}
-            getSelectedTabId={IdSelectedTab}
+            onTabSelected={handleTabSelected}
           />
         </div>
         <div className="block" data-cy="TabContent">

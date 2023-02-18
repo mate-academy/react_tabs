@@ -1,35 +1,36 @@
 import React from 'react';
 import ClassNames from 'classnames';
+import { Tab } from '../types/Tab';
 
 type Props = {
-  tabs: {
-    id: string;
-    title: string;
-    content: string;
-  }[]
+  tabs: Tab[];
   selectedTabId: string;
-  getSelectedTabId: (id: string) => void;
+  onTabSelected: (id: string) => void;
 };
 
 export const Tabs: React.FC<Props> = (
-  { tabs, selectedTabId, getSelectedTabId },
+  {
+    tabs,
+    selectedTabId,
+    onTabSelected,
+  },
 ) => {
   return (
     <ul>
       {
         tabs.map(tab => {
           const { id, title } = tab;
-          const comparisonId = id === selectedTabId;
+          const isActive = id === selectedTabId;
 
           return (
             <li
-              className={ClassNames({ 'is-active': comparisonId })}
+              className={ClassNames({ 'is-active': isActive })}
               data-cy="Tab"
             >
               <a
                 href={`#${id}`}
                 data-cy="TabLink"
-                onClick={() => getSelectedTabId(id)}
+                onClick={() => onTabSelected(id)}
               >
                 {title}
               </a>
