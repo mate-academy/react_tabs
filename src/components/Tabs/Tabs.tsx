@@ -1,3 +1,4 @@
+import { useMemo } from 'react';
 import { Tab } from '../../types/tabs';
 
 type Props = {
@@ -13,7 +14,7 @@ export const Tabs: React.FC<Props> = (
     onTabSelected,
   },
 ) => {
-  const active = () => {
+  const active = useMemo(() => {
     const defaultSelect = tabs
       .filter((el: Tab) => el.id === selectedTabId).length > 0;
 
@@ -22,7 +23,7 @@ export const Tabs: React.FC<Props> = (
     }
 
     return tabs[0].id;
-  };
+  }, [selectedTabId]);
 
   return (
     <div data-cy="TabsComponent">
@@ -30,10 +31,10 @@ export const Tabs: React.FC<Props> = (
         <ul>
           {
             tabs
-              .map((el: { id: string, title: string, content: string }) => {
+              .map((el: Tab) => {
                 return (
                   <li
-                    className={`${active() === el.id ? 'is-active' : ''}`}
+                    className={`${active === el.id ? 'is-active' : ''}`}
                     data-cy="Tab"
                     key={el.id}
                   >
@@ -57,7 +58,7 @@ export const Tabs: React.FC<Props> = (
       </div>
 
       <div className="block" data-cy="TabContent">
-        {`Some text ${active().replace(/[^0-9]/g, '')}`}
+        {`Some text ${active.replace(/[^0-9]/g, '')}`}
       </div>
     </div>
   );

@@ -11,9 +11,7 @@ export const tabs = [
 ];
 
 export const App: React.FC = () => {
-  const [select, setSelect] = useState(
-    { id: 'tab-1', title: 'Tab 1', content: 'Some text 1' },
-  );
+  const [select, setSelect] = useState(tabs[0]);
 
   return (
     <div className="section">
