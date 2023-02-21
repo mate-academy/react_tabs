@@ -13,14 +13,9 @@ export class Tabs extends React.Component<Props, {}> {
   render() {
     const { tabs, selectedTabId, onTabSelected } = this.props;
 
-    let selectedTab = tabs.find(
+    const selectedTab = tabs.find(
       (tab: Tab) => tab.id === selectedTabId,
-    );
-
-    if (!selectedTab) {
-      // eslint-disable-next-line prefer-destructuring
-      selectedTab = tabs[0];
-    }
+    ) || tabs[0];
 
     return (
       <div data-cy="TabsComponent">
@@ -32,7 +27,6 @@ export class Tabs extends React.Component<Props, {}> {
 
               return (
                 <>
-
                   <li
                     className={
                       classNames({ 'is-active': active })
@@ -42,7 +36,7 @@ export class Tabs extends React.Component<Props, {}> {
                     <a
                       href={tabHref}
                       data-cy="TabLink"
-                      onClick={active ? undefined : () => onTabSelected(tab)}
+                      onClick={() => onTabSelected(tab)}
                     >
                       {tab.title}
                     </a>

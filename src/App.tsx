@@ -13,19 +13,19 @@ export const tabs = [
 
 type State = {
   selectedTabId: string,
-  tabs: Tab[],
 };
 
 export class App extends React.Component<{}, State> {
   state = {
     selectedTabId: 'tab-1',
-    tabs: [...tabs],
   };
 
   onTabSelected = (tab: Tab) => {
-    this.setState({
-      selectedTabId: tab.id,
-    });
+    if (tab.id !== this.state.selectedTabId) {
+      this.setState({
+        selectedTabId: tab.id,
+      });
+    }
   };
 
   render() {
@@ -47,7 +47,7 @@ export class App extends React.Component<{}, State> {
         </h1>
 
         <Tabs
-          tabs={this.state.tabs}
+          tabs={tabs}
           selectedTabId={this.state.selectedTabId}
           onTabSelected={this.onTabSelected}
         />
