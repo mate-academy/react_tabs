@@ -20,25 +20,24 @@ export class App extends React.Component<{}, State> {
     selectedTabId: 'tab-1',
   };
 
-  onTabSelected = (tab: Tab) => {
-    if (tab.id !== this.state.selectedTabId) {
+  onTabSelected = (id: string) => {
+    const { selectedTabId } = this.state;
+
+    if (id !== selectedTabId) {
       this.setState({
-        selectedTabId: tab.id,
+        selectedTabId: id,
       });
     }
   };
 
   render() {
-    let activeTab = tabs.find(
-      (tab: Tab) => tab.id === this.state.selectedTabId,
-    );
+    const { selectedTabId } = this.state;
 
-    if (!activeTab) {
-      // eslint-disable-next-line prefer-destructuring
-      activeTab = tabs[0];
-    }
+    const { title } = tabs.find(
+      ({ id }: Tab) => id === selectedTabId,
+    ) || tabs[0];
 
-    const header = `Selected tab is ${activeTab.title}`;
+    const header = `Selected tab is ${title}`;
 
     return (
       <div className="section">
@@ -48,7 +47,7 @@ export class App extends React.Component<{}, State> {
 
         <Tabs
           tabs={tabs}
-          selectedTabId={this.state.selectedTabId}
+          selectedTabId={selectedTabId}
           onTabSelected={this.onTabSelected}
         />
       </div>
