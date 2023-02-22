@@ -14,10 +14,13 @@ export const tabs = [
 ];
 
 export const App: React.FC = () => {
-  const [selectedTabId, setselectedTabId] = useState(tabs[0]);
+  const [selectedTab, setselectedTabId] = useState(tabs[0]);
+  const selectedTabId = tabs.find(tab => tab.id === selectedTab.id) || tabs[0];
 
   const tabSelection = (tab: Tab) => {
-    setselectedTabId(tab);
+    if (tab !== selectedTabId) {
+      setselectedTabId(tab);
+    }
   };
 
   return (
