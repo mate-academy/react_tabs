@@ -1,4 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
+
+import { Tabs } from './components/Tabs';
+import { Tab } from './components/types/Tab';
+
 import 'bulma/css/bulma.css';
 import '@fortawesome/fontawesome-free/css/all.css';
 import './App.scss';
@@ -10,31 +14,32 @@ export const tabs = [
 ];
 
 export const App: React.FC = () => {
+  const [selectedTab, setselectedTabId] = useState(tabs[0]);
+  const selectedTabId = tabs.find(tab => tab.id === selectedTab.id) || tabs[0];
+
+  const tabSelection = (tab: Tab) => {
+    if (tab !== selectedTabId) {
+      setselectedTabId(tab);
+    }
+  };
+
   return (
     <div className="section">
       <h1 className="title">
-        Selected tab is Tab 1
+        {`Selected tab is ${selectedTabId.title}`}
       </h1>
 
       <div data-cy="TabsComponent">
         <div className="tabs is-boxed">
-          <ul>
-            <li className="is-active" data-cy="Tab">
-              <a href="#tab-1" data-cy="TabLink">Tab 1</a>
-            </li>
-
-            <li data-cy="Tab">
-              <a href="#tab-2" data-cy="TabLink">Tab 2</a>
-            </li>
-
-            <li data-cy="Tab">
-              <a href="#tab-3" data-cy="TabLink">Tab 3</a>
-            </li>
-          </ul>
+          <Tabs
+            tabs={tabs}
+            selectedTabId={selectedTabId.id}
+            onTabSelected={tabSelection}
+          />
         </div>
 
         <div className="block" data-cy="TabContent">
-          Some text 1
+          {selectedTabId.content}
         </div>
       </div>
     </div>
