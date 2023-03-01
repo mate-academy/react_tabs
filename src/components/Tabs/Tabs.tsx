@@ -1,41 +1,46 @@
 import classNames from 'classnames';
 import React from 'react';
-
 import { Tab } from '../../type/Tab';
-
-type Callback = (id: number) => void;
 
 type Props = {
   tabs: Tab[];
-  selectedTab : number;
-  changeTab: Callback;
+  selectedTabId: string;
+  onTabSelected: (tab: Tab) => void;
 };
 
 export const Tabs: React.FC<Props> = ({
   tabs,
-  selectedTab: selectedTabId,
-  changeTab: handleClick,
+  selectedTabId,
+  onTabSelected,
 }) => {
+  const selectedTab = tabs.find(tab => selectedTabId === tab.id) || tabs[0];
+
+  const handleClick = (tab: Tab) => {
+    if (selectedTabId !== tab.id) {
+      onTabSelected(tab);
+    }
+  };
+
   return (
     <div data-cy="TabsComponent">
       <div className="tabs is-boxed">
         <ul>
-          {tabs.map(({ id, title }, index) => (
+          {tabs.map(tab => (
             <li
               className={classNames(
                 {
-                  'is-active': index === selectedTabId,
+                  'is-active': tab.id === selectedTabId,
                 },
               )}
               data-cy="Tab"
-              key={id}
+              key={tab.id}
             >
               <a
-                href={`#${id}`}
+                href={`#${tab.id}`}
                 data-cy="TabLink"
-                onClick={() => handleClick(index)}
+                onClick={() => handleClick(tab)}
               >
-                {title}
+                {tab.title}
               </a>
             </li>
           ))}
@@ -43,7 +48,7 @@ export const Tabs: React.FC<Props> = ({
       </div>
 
       <div className="block" data-cy="TabContent">
-        {tabs[selectedTabId].content}
+        {selectedTab.content}
       </div>
     </div>
   );
