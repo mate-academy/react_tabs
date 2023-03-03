@@ -13,7 +13,7 @@ export const tabs = [
 export const App: React.FC = () => {
   const [selectedTabId, selectedTabIdEdit] = useState('tab-1');
   const selectedForm = tabs.filter((tab) => tab.id === selectedTabId);
-  const [content, title] = selectedForm;
+  const [{ content, title }] = selectedForm;
 
   return (
     <div className="section">
@@ -22,14 +22,11 @@ export const App: React.FC = () => {
       <div data-cy="TabsComponent">
         <div className="tabs is-boxed">
           <ul>
-            {tabs.map((tab) => (
-              <Tabs
-                key={tab.id}
-                tab={tab}
-                selectId={selectedTabId}
-                onTabSelected={selectedTabIdEdit}
-              />
-            ))}
+            <Tabs
+              tabs={tabs}
+              selectedTabId={selectedTabId}
+              onTabSelected={selectedTabIdEdit}
+            />
           </ul>
         </div>
 

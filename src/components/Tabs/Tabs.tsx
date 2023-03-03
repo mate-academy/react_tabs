@@ -7,31 +7,32 @@ type TabsType = {
 };
 
 export const Tabs = ({
-  tab,
-  selectId,
+  tabs,
+  selectedTabId,
   onTabSelected,
 }: {
-  tab: TabsType;
-  selectId: string;
+  tabs: TabsType[];
+  selectedTabId: string;
   onTabSelected: React.Dispatch<React.SetStateAction<string>>;
 }) => {
-  const { id, title } = tab;
-
   return (
-    <li
-      data-cy="Tab"
-      className={classNames(
-        { 'is-active': id === selectId },
-      )}
-    >
-      <a
-        href={`#${id}`}
-        data-cy="TabLink"
-        id={id}
-        onClick={event => onTabSelected(event.currentTarget.id)}
-      >
-        {title}
-      </a>
-    </li>
+    <>
+      {tabs.map((tab) => (
+        <li
+          key={tab.id}
+          data-cy="Tab"
+          className={classNames({ 'is-active': tab.id === selectedTabId })}
+        >
+          <a
+            href={`#${tab.id}`}
+            data-cy="TabLink"
+            id={tab.id}
+            onClick={(event) => onTabSelected(event.currentTarget.id)}
+          >
+            {tab.title}
+          </a>
+        </li>
+      ))}
+    </>
   );
 };
