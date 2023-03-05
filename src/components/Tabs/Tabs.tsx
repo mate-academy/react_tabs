@@ -18,8 +18,9 @@ export const Tabs = (props: Props) => {
           {tabs.map(tab => {
             return (
               <li
-                // eslint-disable-next-line max-len
-                className={classNames({ 'is-active': tab.id === selectedTabId })}
+                className={
+                  classNames({ 'is-active': tab.id === selectedTabId })
+                }
                 data-cy="Tab"
                 key={tab.id}
               >
