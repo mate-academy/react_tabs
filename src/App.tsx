@@ -11,9 +11,9 @@ export const tabs = [
 ];
 
 export const App: React.FC = () => {
-  const [selectedTabId, selectedTabIdEdit] = useState('tab-1');
-  const selectedForm = tabs.filter((tab) => tab.id === selectedTabId);
-  const [{ content, title }] = selectedForm;
+  const [selectedTabId, selectedTabIdEdit] = useState(tabs[0].id);
+  const currentTab = tabs.find((tab) => tab.id === selectedTabId) || tabs[0];
+  const { content, title } = currentTab;
 
   return (
     <div className="section">
