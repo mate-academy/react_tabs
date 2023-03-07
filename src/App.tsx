@@ -10,19 +10,23 @@ export const tabs = [
   { id: 'tab-3', title: 'Tab 3', content: 'Some text 3' },
 ];
 
+const simplifyId = (stringId: string) => {
+  return stringId.slice(4);
+};
+
 export const App: React.FC = () => {
-  const [selectedTabId, setSelectedTabId] = useState(0);
+  const [tab, setTab] = useState(tabs[1]);
 
   return (
     <div className="section">
       <h1 className="title">
-        {`Selected tab is Tab ${selectedTabId + 1}`}
+        {`Selected tab is Tab ${simplifyId(tab.id)}`}
       </h1>
 
       <Tabs
         tabs={tabs}
-        selectedTabId={selectedTabId}
-        onTabSelected={setSelectedTabId}
+        tab={tab}
+        onTabSelected={setTab}
       />
     </div>
   );

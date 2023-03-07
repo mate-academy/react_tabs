@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { MouseEvent } from 'react';
 import classNames from 'classnames';
 
 interface Tab {
@@ -9,40 +9,45 @@ interface Tab {
 
 type Props = {
   tabs: Tab[],
-  selectedTabId: number,
-  onTabSelected: (ind: number) => void;
+  tab: Tab,
+  onTabSelected: (tab: Tab) => void;
 };
 
 export const Tabs: React.FC<Props> = ({
   tabs,
-  selectedTabId,
+  tab,
   onTabSelected,
 }) => {
-  const selectTab = (event: React.SyntheticEvent, ind: number) => {
+  const selectTab = (event: MouseEvent) => {
     event.preventDefault();
-    onTabSelected(ind);
+    const selectedId
+      = (event.target as HTMLAnchorElement)
+        .getAttribute('href')?.replace('#', '');
+    const selectedTab = tabs.find(currentTab => currentTab.id === selectedId);
+
+    if (selectedTab) {
+      onTabSelected(selectedTab);
+    }
   };
 
   return (
     <div data-cy="TabsComponent">
       <div className="tabs is-boxed">
         <ul>
-          {tabs.map((tab, ind) => (
+          {tabs.map((currentTab) => (
             <li
-              key={tab.id}
+              key={currentTab.id}
               className={classNames({
-                'is-active': ind === selectedTabId,
+                'is-active': currentTab.id === tab.id,
               })}
               data-cy="Tab"
             >
               <a
-                href={`#${tab.id}`}
+                href={`#${currentTab.id}`}
                 data-cy="TabLink"
-                onClick={(e) => {
-                  selectTab(e, ind);
-                }}
+                onClick={selectTab}
               >
-                {tab.title}
+                {currentTab.title}
               </a>
             </li>
           ))}
@@ -50,7 +55,7 @@ export const Tabs: React.FC<Props> = ({
       </div>
 
       <div className="block" data-cy="TabContent">
-        {tabs[selectedTabId].content}
+        {tab.content}
       </div>
     </div>
   );
