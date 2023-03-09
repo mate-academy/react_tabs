@@ -5,7 +5,7 @@ import { Tab } from '../../types/Tab';
 type Props = {
   tabs: Tab[],
   selectedTabId: string,
-  onTabSelected: (tab: Tab) => void,
+  onTabSelected: (tab: { id: string, title: string, content: string, }) => void,
 };
 
 export const Tabs: React.FC<Props> = ({
@@ -19,9 +19,7 @@ export const Tabs: React.FC<Props> = ({
     <div data-cy="TabsComponent">
       <div className="tabs is-boxed">
         <ul>
-          {tabs.map(tab => {
-            const { id, title } = tab;
-
+          {tabs.map(({ id, title, content }) => {
             return (
               <li
                 className={classNames(
@@ -36,7 +34,7 @@ export const Tabs: React.FC<Props> = ({
                   data-cy="TabLink"
                   onClick={() => {
                     if (selectedTabId !== id) {
-                      onTabSelected(tab);
+                      onTabSelected({ id, title, content });
                     }
                   }}
                 >
