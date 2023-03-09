@@ -12,8 +12,8 @@ export const tabs = [
 
 export const App: React.FC = () => {
   const [selectedTabId, setSelectedTabId] = useState('tab-1' || tabs[0]);
-  const selectedTab: string = tabs.find(tab => tab.id === selectedTabId)?.title
-                              || tabs[0].title;
+  const selectedTab: string = tabs
+    .find(tab => tab.id === selectedTabId)?.title || tabs[0].title;
 
   const onTabSelected = (tabId: string) => {
     if (tabId === selectedTabId) {
