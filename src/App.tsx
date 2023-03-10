@@ -21,11 +21,9 @@ export const App: FC = () => {
   const getActiveTabTitle = () => {
     const currentTab = tabs.find((tab) => tab.id === selectedTabId);
 
-    if (currentTab) {
-      return currentTab.title;
-    }
-
-    return tabs[0].title;
+    return currentTab
+      ? currentTab.title
+      : tabs[0].title;
   };
 
   return (
