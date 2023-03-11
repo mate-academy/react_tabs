@@ -12,7 +12,8 @@ export const tabs: Tab[] = [
 ];
 
 export const App: React.FC = () => {
-  const [selectedTabId, setSelectedTabId] = useState(tabs[0]);
+  const [selectedTab, setSelectedTabId] = useState(tabs[0]);
+  const { id, title } = selectedTab;
 
   const onTabSelected = (currentTab: Tab) => {
     const active = tabs.findIndex((tab) => (
@@ -27,12 +28,12 @@ export const App: React.FC = () => {
       <h1 className="title">
         Selected tab is
         {' '}
-        {selectedTabId.title}
+        {title}
       </h1>
 
       <Tabs
         tabs={tabs}
-        selectedTabId={selectedTabId.id}
+        selectedTabId={id}
         onTabSelected={onTabSelected}
       />
     </div>
