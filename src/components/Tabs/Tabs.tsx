@@ -7,7 +7,8 @@ export const Tabs: React.FC<TabsType> = ({
   selectedTabId,
   onTabSelected,
 }) => {
-  const currentСomponent = tabs.filter(tab => tab.id === selectedTabId);
+  const currentСomponent = tabs.find(tab => tab.id === selectedTabId)
+    || tabs[0];
 
   return (
     <div data-cy="TabsComponent">
@@ -18,7 +19,7 @@ export const Tabs: React.FC<TabsType> = ({
               data-cy="Tab"
               key={tab.id}
               className={classNames({
-                'is-active': currentСomponent[0].id === tab.id,
+                'is-active': currentСomponent.id === tab.id,
               })}
             >
               <a
@@ -38,7 +39,7 @@ export const Tabs: React.FC<TabsType> = ({
       </div>
 
       <div className="block" data-cy="TabContent">
-        {currentСomponent[0].content}
+        {currentСomponent.content}
       </div>
     </div>
   );
