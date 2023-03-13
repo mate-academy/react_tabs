@@ -26,17 +26,11 @@ export const App: React.FC = () => {
         {`Selected tab is ${currentTab && currentTab.title}`}
       </h1>
 
-      <div data-cy="TabsComponent">
-        <Tabs
-          tabs={tabs}
-          hendlerTabs={hendlerTabs}
-          selectedTabId={selectedTabId}
-        />
-
-        <div className="block" data-cy="TabContent">
-          {currentTab.content}
-        </div>
-      </div>
+      <Tabs
+        tabs={tabs}
+        hendlerTabs={hendlerTabs}
+        selectedTabId={selectedTabId}
+      />
     </div>
   );
 };
