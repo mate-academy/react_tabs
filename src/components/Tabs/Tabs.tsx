@@ -4,11 +4,13 @@ import { Tab } from '../../Type';
 
 type Props = {
   tabs: Tab[],
-  hendlerTabs: (tab: Tab) => void,
+  onTabSelected: (tab: Tab) => void,
   selectedTabId: string,
 };
 
-export const Tabs: React.FC<Props> = ({ tabs, hendlerTabs, selectedTabId }) => {
+export const Tabs: React.FC<Props> = (
+  { tabs, onTabSelected, selectedTabId },
+) => {
   const currentTab = tabs.find(({ id }) => id === selectedTabId) || tabs[0];
 
   return (
@@ -24,7 +26,7 @@ export const Tabs: React.FC<Props> = ({ tabs, hendlerTabs, selectedTabId }) => {
               <a
                 href={`#${tab.id}`}
                 data-cy="TabLink"
-                onClick={() => hendlerTabs(tab)}
+                onClick={() => onTabSelected(tab)}
               >
                 {tab.title}
               </a>

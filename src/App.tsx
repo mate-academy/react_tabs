@@ -14,7 +14,7 @@ export const tabs = [
 export const App: React.FC = () => {
   const [selectedTabId, setSelectedTabId] = useState(tabs[0].id);
   const currentTab = tabs.find(({ id }) => id === selectedTabId) || tabs[0];
-  const hendlerTabs = (tab: Tab) => {
+  const onTabSelected = (tab: Tab) => {
     if (tab.id !== selectedTabId) {
       setSelectedTabId(tab.id);
     }
@@ -28,7 +28,7 @@ export const App: React.FC = () => {
 
       <Tabs
         tabs={tabs}
-        hendlerTabs={hendlerTabs}
+        onTabSelected={onTabSelected}
         selectedTabId={selectedTabId}
       />
     </div>
