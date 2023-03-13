@@ -3,46 +3,54 @@ import { Tab } from '../../types/tab';
 
 type Props = {
   tabs: Tab[],
-  selected: Tab,
   onTabSelected: (id: Tab) => void
+  selectedTabId: string
 };
 
 export const Tabs: React.FC<Props> = (
   {
     tabs,
-    selected,
     onTabSelected,
+    selectedTabId,
   },
-) => (
-  <div data-cy="TabsComponent">
-    <div className="tabs is-boxed">
-      <ul>
-        {tabs.map(tab => (
-          <li
-            className={
-              classNames({ 'is-active': tab.id === selected.id })
-            }
-            data-cy="Tab"
-            key={tab.id}
-          >
-            <a
-              href="#tab-1"
-              data-cy="TabLink"
-              onClick={() => {
-                if (selected.id !== tab.id) {
-                  onTabSelected(tab);
-                }
-              }}
-            >
-              {tab.title}
-            </a>
-          </li>
-        ))}
-      </ul>
-    </div>
+) => {
+  const selectedTab = tabs.find((tab) => (
+    tab.id === selectedTabId
+  )) || tabs[0];
 
-    <div className="block" data-cy="TabContent">
-      {selected.content}
+  const handleTab = (tab: Tab) => {
+    if (selectedTab.id !== tab.id) {
+      onTabSelected(tab);
+    }
+  };
+
+  return (
+    <div data-cy="TabsComponent">
+      <div className="tabs is-boxed">
+        <ul>
+          {tabs.map(tab => (
+            <li
+              className={
+                classNames({ 'is-active': tab.id === selectedTab.id })
+              }
+              data-cy="Tab"
+              key={tab.id}
+            >
+              <a
+                href={`#${tab.id}`}
+                data-cy="TabLink"
+                onClick={() => handleTab(tab)}
+              >
+                {tab.title}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <div className="block" data-cy="TabContent">
+        {selectedTab.content}
+      </div>
     </div>
-  </div>
-);
+  );
+};

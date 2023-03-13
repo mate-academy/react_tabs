@@ -20,8 +20,11 @@ export const App: React.FC = () => {
         {' '}
         {select.title}
       </h1>
-
-      <Tabs tabs={tabs} onTabSelected={setSelect} selected={select} />
+      <Tabs
+        tabs={tabs}
+        onTabSelected={setSelect}
+        selectedTabId={select.id}
+      />
     </div>
   );
 };
