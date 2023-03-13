@@ -28,7 +28,6 @@ export const Tabs: FC<Props> = ({ tabs, handleChangeTab, selected }: Props) => {
             { 'is-active': tab.id === selected })}
         >
           <a href={tab.id} data-cy="TabLink">
-            Tab
             {tab.title}
           </a>
         </li>
