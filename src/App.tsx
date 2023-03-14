@@ -32,14 +32,11 @@ export const App: FC = () => {
 
       <div data-cy="TabsComponent">
         <div className="tabs is-boxed">
-          <ul>
-
-            <Tabs
-              tabs={tabs}
-              handleChangeTab={handleChangeTab}
-              selected={selectedTabId}
-            />
-          </ul>
+          <Tabs
+            tabs={tabs}
+            handleChangeTab={handleChangeTab}
+            selected={selectedTabId}
+          />
         </div>
 
         <div className="block" data-cy="TabContent">

@@ -16,7 +16,7 @@ type Props = {
 
 export const Tabs: FC<Props> = ({ tabs, handleChangeTab, selected }: Props) => {
   return (
-    <>
+    <ul>
       {tabs.map(tab => (
         <li
           key={tab.id}
@@ -32,6 +32,6 @@ export const Tabs: FC<Props> = ({ tabs, handleChangeTab, selected }: Props) => {
           </a>
         </li>
       ))}
-    </>
+    </ul>
   );
 };
