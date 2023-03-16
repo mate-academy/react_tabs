@@ -21,13 +21,9 @@ export class App extends Component<{}, State> {
   };
 
   onTabSelected = (tab: Tab) => {
-    const { selectedTabId } = this.state;
-
-    if (selectedTabId !== tab.id) {
-      this.setState({
-        selectedTabId: tab.id,
-      });
-    }
+    this.setState({
+      selectedTabId: tab.id,
+    });
   };
 
   render() {
