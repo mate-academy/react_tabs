@@ -8,9 +8,11 @@ type Props = {
   onTabSelected: (tab: Tab) => void,
 };
 
-export const Tabs: React.FC<Props> = (
-  { tabs, selectedTabId, onTabSelected },
-) => {
+export const Tabs: React.FC<Props> = ({
+  tabs,
+  selectedTabId,
+  onTabSelected,
+}) => {
   const currentTab = tabs.find(({ id }) => id === selectedTabId) || tabs[0];
 
   return (
@@ -32,9 +34,7 @@ export const Tabs: React.FC<Props> = (
                   href={`#${id}`}
                   data-cy="TabLink"
                   onClick={() => {
-                    if (selectedTabId !== id) {
-                      onTabSelected(tab);
-                    }
+                    onTabSelected(tab);
                   }}
                 >
                   {title}
