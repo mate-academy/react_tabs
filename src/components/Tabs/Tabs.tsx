@@ -13,7 +13,13 @@ export const Tabs: FC<Props> = ({
   selectedTabId,
   onTabSelected,
 }) => {
-  const choosedTab = tabs.find(tab => tab.id === selectedTabId) || tabs[0];
+  const selectedTab = tabs.find(tab => tab.id === selectedTabId) || tabs[0];
+
+  const handleTabSelect = (tab: Tab) => {
+    if (tab.id !== selectedTabId) {
+      onTabSelected(tab);
+    }
+  };
 
   return (
     <div data-cy="TabsComponent">
@@ -28,7 +34,7 @@ export const Tabs: FC<Props> = ({
             return (
               <li
                 className={classNames({
-                  'is-active': id === choosedTab.id,
+                  'is-active': id === selectedTab.id,
                 })}
                 data-cy="Tab"
                 key={id}
@@ -37,9 +43,7 @@ export const Tabs: FC<Props> = ({
                   href={`#${id}`}
                   data-cy="TabLink"
                   onClick={() => {
-                    if (id !== selectedTabId) {
-                      onTabSelected(tab);
-                    }
+                    handleTabSelect(tab);
                   }}
                 >
                   {title}
@@ -51,7 +55,7 @@ export const Tabs: FC<Props> = ({
       </div>
 
       <div className="block" data-cy="TabContent">
-        {choosedTab.content}
+        {selectedTab.content}
       </div>
     </div>
   );
