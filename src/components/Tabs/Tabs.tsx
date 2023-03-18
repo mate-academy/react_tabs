@@ -24,9 +24,7 @@ export const Tabs: FC<Props> = ({ tabs, selectedTabId, onTabSelected }) => {
               key={tab.id}
             >
               <a
-                onClick={() => (selectedTab !== tab
-                  ? onTabSelected(tab)
-                  : null)}
+                onClick={() => selectedTab !== tab && onTabSelected(tab)}
                 href={`#${tab.id}`}
                 data-cy="TabLink"
               >
