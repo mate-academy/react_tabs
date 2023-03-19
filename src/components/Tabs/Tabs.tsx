@@ -2,7 +2,7 @@ import React from "react";
 import { Tab, TabProps } from "./Tab";
 
 export interface ITabDefinition
-  extends Omit<TabProps, "onSelect" | "selected"> {
+  extends Omit<TabProps, 'onSelect' | 'selected'> {
   content: React.ReactNode;
 }
 
@@ -19,7 +19,7 @@ export const Tabs: React.FC<Props> = ({
 }) => {
   const selectedTab = React.useMemo<ITabDefinition>(
     () => tabs.find((tab) => tab.id === selectedTabId) ?? tabs[0],
-    [tabs, selectedTabId]
+    [tabs, selectedTabId],
   );
 
   return (
