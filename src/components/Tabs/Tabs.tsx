@@ -1,5 +1,5 @@
-import React from "react";
-import { Tab, TabProps } from "./Tab";
+import React from 'react';
+import { Tab, TabProps } from './Tab';
 
 export interface ITabDefinition
   extends Omit<TabProps, 'onSelect' | 'selected'> {
@@ -32,6 +32,7 @@ export const Tabs: React.FC<Props> = ({
               title={tab.title}
               onSelect={() => onTabSelected(tab)}
               selected={tab === selectedTab}
+              key={tab.id}
             />
           ))}
         </ul>
