@@ -1,16 +1,11 @@
 import classNames from 'classnames';
 import React from 'react';
-
-interface Tab {
-  id: string,
-  title: string,
-  content: string,
-}
+import { Tab } from '../../types/Tab';
 
 type Props = {
   tabs: Tab[],
   selectedTabId: string,
-  onTabSelected: (id: string) => void,
+  onTabSelected: (tab: Tab) => void,
 };
 
 export const Tabs:React.FC<Props> = React.memo(
@@ -34,7 +29,7 @@ export const Tabs:React.FC<Props> = React.memo(
                   data-cy="Tab"
                   className={classNames({ 'is-active': selectedTabId === id })}
                 >
-                  <a href={`#${id}`} data-cy="TabLink" onClick={() => currentTab !== tab && onTabSelected(id)}>
+                  <a href={`#${id}`} data-cy="TabLink" onClick={() => currentTab !== tab && onTabSelected(tab)}>
                     {title}
                   </a>
                 </li>
