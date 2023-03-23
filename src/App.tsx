@@ -14,14 +14,15 @@ export const tabs = [
 export const App: React.FC = () => {
   const [selectedTabId, setSelectedTabId] = useState('tab-1');
 
-  const currentTab = tabs.find(tab => tab.id === selectedTabId) || tabs[0];
+  const currentTabFinder = (arrOfTabs: Tab[], indexOfCurrTab: string): Tab => {
+    return arrOfTabs
+      .find((tab: Tab) => tab.id === indexOfCurrTab) || arrOfTabs[0];
+  };
 
-  const onTabSelected = (tab: Tab) => {
-    if (tabs.find(someTab => someTab.id === tab.id)) {
-      setSelectedTabId(tab.id);
-    } else {
-      setSelectedTabId(tabs[0].id);
-    }
+  const currentTab = currentTabFinder(tabs, selectedTabId);
+
+  const handleTabSelected = (tab: Tab) => {
+    setSelectedTabId(tab.id);
   };
 
   return (
@@ -33,7 +34,8 @@ export const App: React.FC = () => {
       <Tabs
         tabs={tabs}
         selectedTabId={selectedTabId}
-        onTabSelected={onTabSelected}
+        onTabSelected={handleTabSelected}
+        onTabFinder={currentTabFinder}
       />
     </div>
   );

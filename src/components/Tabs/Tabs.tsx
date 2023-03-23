@@ -6,6 +6,7 @@ type Props = {
   tabs: Tab[],
   selectedTabId: string,
   onTabSelected: (tab: Tab) => void,
+  onTabFinder: (arrOfTabs: Tab[], indexOfCurrTab: string) => Tab,
 };
 
 export const Tabs:React.FC<Props> = React.memo(
@@ -13,8 +14,9 @@ export const Tabs:React.FC<Props> = React.memo(
     tabs,
     selectedTabId,
     onTabSelected,
+    onTabFinder,
   }) => {
-    const currentTab = tabs.find(tab => tab.id === selectedTabId) || tabs[0];
+    const currentTab = onTabFinder(tabs, selectedTabId);
 
     return (
       <div data-cy="TabsComponent">
@@ -27,9 +29,14 @@ export const Tabs:React.FC<Props> = React.memo(
                 <li
                   key={id}
                   data-cy="Tab"
-                  className={classNames({ 'is-active': selectedTabId === id })}
+                  className={classNames({ 'is-active': currentTab.id === id })}
                 >
-                  <a href={`#${id}`} data-cy="TabLink" onClick={() => currentTab !== tab && onTabSelected(tab)}>
+                  <a
+                    href={`#${id}`}
+                    data-cy="TabLink"
+                    onClick={() => currentTab.id !== tab.id
+                      && onTabSelected(tab)}
+                  >
                     {title}
                   </a>
                 </li>
