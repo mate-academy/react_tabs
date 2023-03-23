@@ -26,6 +26,8 @@ export const Tabs: React.FC<Props> = ({
       <div className="tabs is-boxed">
         <ul>
           {tabs.map((tab) => {
+            const isSelected = selectedTabId === tab.id;
+
             return (
               <li
                 data-cy="Tab"
@@ -38,7 +40,7 @@ export const Tabs: React.FC<Props> = ({
                   href={`#${tab.id}`}
                   data-cy="TabLink"
                   onClick={() => {
-                    if (selectedTabId !== tab.id) {
+                    if (!isSelected) {
                       onTabSelected(tab);
                     }
                   }}
