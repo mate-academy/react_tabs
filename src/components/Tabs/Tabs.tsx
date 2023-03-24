@@ -18,12 +18,13 @@ export const Tabs: FC<Props> = (props) => {
         <ul>
           {tabs.map(tab => {
             const { id, title } = tab;
+            const isSelected = id === selectedTab.id;
 
             return (
               <li
                 key={id}
                 className={cn({
-                  'is-active': id === selectedTab.id,
+                  'is-active': isSelected,
                 })}
                 data-cy="Tab"
               >
@@ -31,7 +32,7 @@ export const Tabs: FC<Props> = (props) => {
                   href={`#${id}`}
                   data-cy="TabLink"
                   onClick={() => {
-                    if (id !== selectedTabId) {
+                    if (!isSelected) {
                       onTabSelected(tab);
                     }
                   }}
