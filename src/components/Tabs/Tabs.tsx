@@ -15,6 +15,12 @@ export const Tabs: React.FC<Props> = ({
 }) => {
   const currentTab = tabs.find(({ id }) => id === selectedTabId) || tabs[0];
 
+  const handleClick = (tab: Tab) => {
+    if (selectedTabId !== tab.id) {
+      onTabSelected(tab);
+    }
+  };
+
   return (
     <div data-cy="TabsComponent">
       <div className="tabs is-boxed">
@@ -30,15 +36,10 @@ export const Tabs: React.FC<Props> = ({
               <a
                 href={`#${tab.id}`}
                 data-cy="TabLink"
-                onClick={() => {
-                  if (selectedTabId !== tab.id) {
-                    onTabSelected(tab);
-                  }
-                }}
+                onClick={() => handleClick(tab)}
               >
                 {tab.title}
               </a>
-
             </li>
           ))}
         </ul>
