@@ -1,5 +1,4 @@
-// import classNames from 'classnames';
-// import React, { useState } from 'react';
+import classNames from 'classnames';
 
 export interface Tab {
   id: string,
@@ -10,31 +9,30 @@ export interface Tab {
 interface TabsProps {
   tabs: Tab[],
   selectedTabId: string
-  onTabSelected: (selectedTabId:string)=>void
+  setSelectedTabId: (selectedTabId:string) => void;
 }
 
-export const Tabs = ({ tabs, selectedTabId, onTabSelected }: TabsProps) => {
+export const Tabs = ({ tabs, selectedTabId, setSelectedTabId }: TabsProps) => {
   return (
     <div data-cy="TabsComponent">
       <div className="tabs is-boxed">
         <ul>
           {tabs.map(tab => (
-            <>
-              <li
-                className={selectedTabId === tab.id ? 'is-active' : ''}
-                key={tab.id}
-                data-cy="Tab"
+            <li
+              className={classNames(
+                selectedTabId === tab.id ? 'is-active' : '',
+              )}
+              key={tab.id}
+              data-cy="Tab"
+            >
+              <a
+                href={`#tab-${selectedTabId}}`}
+                data-cy="TabLink"
+                onClick={() => setSelectedTabId(tab.id)}
               >
-                <a
-                  href={`#tab-${selectedTabId}}`}
-                  data-cy="TabLink"
-                >
-                  {tab.title}
-                  onClick=
-                  {() => onTabSelected(tab.id)}
-                </a>
-              </li>
-            </>
+                {tab.title}
+              </a>
+            </li>
           ))}
         </ul>
       </div>
