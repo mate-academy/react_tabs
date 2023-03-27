@@ -12,11 +12,9 @@ export const tabs = [
 
 export const App: React.FC = () => {
   const [clickTabId, setClickTabId] = useState(tabs[0].id);
-  const [clickTabTitle, setClickTabTitle] = useState(tabs[0].title);
 
-  const onClick = (tabId: string, tabTitle: string) => {
+  const onClick = (tabId: string) => {
     setClickTabId(tabId);
-    setClickTabTitle(tabTitle);
   };
 
   const clickTab = tabs.find(tab => tab.id === clickTabId) || tabs[0];
@@ -24,7 +22,7 @@ export const App: React.FC = () => {
   return (
     <div className="section">
       <h1 className="title">
-        {`Selected tab is ${clickTabTitle}`}
+        {`Selected tab is ${clickTab.title}`}
       </h1>
 
       <Tabs clickTab={clickTab} onClick={onClick} tabs={tabs} />

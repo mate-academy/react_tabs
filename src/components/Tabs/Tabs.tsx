@@ -10,7 +10,7 @@ interface TabType {
 type Props = {
   clickTab: TabType,
   tabs: TabType[],
-  onClick: (tabId: string, tabTitle: string) => void,
+  onClick: (tabId: string) => void,
 };
 
 export const Tabs: React.FC<Props> = ({ clickTab, tabs, onClick }) => {
@@ -26,7 +26,7 @@ export const Tabs: React.FC<Props> = ({ clickTab, tabs, onClick }) => {
             >
               <a
                 href={`#${tab.id}`}
-                onClick={() => onClick(tab.id, tab.title)}
+                onClick={() => onClick(tab.id)}
                 data-cy="TabLink"
               >
                 {tab.title}
