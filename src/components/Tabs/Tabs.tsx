@@ -23,7 +23,7 @@ export const Tabs = ({ tabs, selectedTabId, setSelectedTabId }: TabsProps) => {
                 selectedTabId === tab.id ? 'is-active' : '',
               )}
               key={tab.id}
-              data-cy="Tab"
+              data-cy="Tab tab-content"
             >
               <a
                 href={`#tab-${selectedTabId}}`}
