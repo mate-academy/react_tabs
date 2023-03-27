@@ -1,4 +1,7 @@
 import classNames from 'classnames';
+
+import './Tabs.scss';
+
 import Tab from '../../types/Tab';
 
 type Props = {
@@ -32,13 +35,17 @@ export const Tabs: React.FC<Props> = (props) => {
             <li
               data-cy="Tab"
               key={tab.id}
-              className={classNames({
-                'is-active': tab.id === selectedTab.id,
-              })}
+              className={classNames(
+                'tabs__tab',
+                {
+                  'is-active': tab.id === selectedTab.id,
+                },
+              )}
             >
               <a
                 href={`#${tab.id}`}
                 data-cy="TabLink"
+                className="tabs__link"
                 onClick={() => handleTabSelect(tab)}
               >
                 {tab.title}
@@ -49,7 +56,9 @@ export const Tabs: React.FC<Props> = (props) => {
       </div>
 
       <div className="block" data-cy="TabContent">
-        {selectedTab.content}
+        <div>
+          {selectedTab.content}
+        </div>
       </div>
     </div>
   );
