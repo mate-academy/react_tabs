@@ -11,8 +11,8 @@ export const tabs = [
 ];
 
 export const App: React.FC = () => {
-  const [clickTabId, setClickTabId] = useState('tab-1');
-  const [clickTabTitle, setClickTabTitle] = useState('tab-1');
+  const [clickTabId, setClickTabId] = useState(tabs[0].id);
+  const [clickTabTitle, setClickTabTitle] = useState(tabs[0].title);
 
   const onClick = (tabId: string, tabTitle: string) => {
     setClickTabId(tabId);
