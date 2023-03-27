@@ -8,12 +8,12 @@ interface TabType {
 }
 
 type Props = {
-  clickTabId: string,
+  clickTab: TabType,
   tabs: TabType[],
   onClick: (tabId: string, tabTitle: string) => void,
 };
 
-export const Tabs: React.FC<Props> = ({ clickTabId, tabs, onClick }) => {
+export const Tabs: React.FC<Props> = ({ clickTab, tabs, onClick }) => {
   return (
     <div data-cy="TabsComponent">
       <div className="tabs is-boxed">
@@ -21,7 +21,7 @@ export const Tabs: React.FC<Props> = ({ clickTabId, tabs, onClick }) => {
           {tabs.map(tab => (
             <li
               key={tab.id}
-              className={classNames({ 'is-active': clickTabId === tab.id })}
+              className={classNames({ 'is-active': clickTab.id === tab.id })}
               data-cy="Tab"
             >
               <a
@@ -37,7 +37,7 @@ export const Tabs: React.FC<Props> = ({ clickTabId, tabs, onClick }) => {
       </div>
 
       <div className="block" data-cy="TabContent">
-        {(tabs.find(tab => tab.id === clickTabId) || tabs[0]).content}
+        {clickTab.content}
       </div>
     </div>
   );

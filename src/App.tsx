@@ -19,13 +19,15 @@ export const App: React.FC = () => {
     setClickTabTitle(tabTitle);
   };
 
+  const clickTab = tabs.find(tab => tab.id === clickTabId) || tabs[0];
+
   return (
     <div className="section">
       <h1 className="title">
         {`Selected tab is ${clickTabTitle}`}
       </h1>
 
-      <Tabs clickTabId={clickTabId} onClick={onClick} tabs={tabs} />
+      <Tabs clickTab={clickTab} onClick={onClick} tabs={tabs} />
     </div>
   );
 };
