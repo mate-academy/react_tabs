@@ -37,7 +37,7 @@ export const Tabs: React.FC<Props> = ({ clickTabId, tabs, onClick }) => {
       </div>
 
       <div className="block" data-cy="TabContent">
-        {tabs.filter(tab => tab.id === clickTabId)[0].content}
+        {(tabs.find(tab => tab.id === clickTabId) || tabs[0]).content}
       </div>
     </div>
   );
