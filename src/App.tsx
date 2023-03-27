@@ -14,13 +14,7 @@ export const tabs: Tab[] = [
 export const App: React.FC = () => {
   const [selectedTabId, setSelectedTabId] = useState(tabs[0].id);
 
-  const getTitle = () => {
-    const findTab = tabs.find(tab => tab.id === selectedTabId);
-
-    return findTab
-      ? findTab.title
-      : tabs[0].id;
-  };
+  const findTab = tabs.find(tab => tab.id === selectedTabId) || tabs[0];
 
   const handleClick = (tab: Tab) => {
     setSelectedTabId(tab.id);
@@ -32,7 +26,7 @@ export const App: React.FC = () => {
         data-cy="tab-content"
         className="title"
       >
-        {`Selected tab is ${getTitle()}`}
+        {`Selected tab is ${findTab.title}`}
       </h1>
       <Tabs
         tabs={tabs}

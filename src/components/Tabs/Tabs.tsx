@@ -1,4 +1,5 @@
 import React from 'react';
+import './Tabs.scss';
 import classNames from 'classnames';
 import { Tab } from '../../types.ts/Tab';
 
@@ -15,11 +16,7 @@ export const Tabs: React.FC<Props> = ({
   onTabSelected,
   selectedTabId,
 }) => {
-  const getTab = () => {
-    const findTab = tabs.find(tab => tab.id === selectedTabId);
-
-    return findTab || tabs[0];
-  };
+  const findTab = tabs.find(tab => tab.id === selectedTabId) || tabs[0];
 
   return (
     <div data-cy="TabsComponent">
@@ -32,13 +29,14 @@ export const Tabs: React.FC<Props> = ({
               <li
                 data-cy="Tab"
                 className={classNames({
-                  'is-active': tab.id === getTab().id,
+                  'is-active': tab.id === findTab.id,
                 })}
                 key={tab.id}
               >
                 <a
                   href={`#${tab.id}`}
                   data-cy="TabLink"
+                  className="tab-link"
                   onClick={() => {
                     if (!isSelected) {
                       onTabSelected(tab);
@@ -56,7 +54,7 @@ export const Tabs: React.FC<Props> = ({
         className="block"
         data-cy="TabContent"
       >
-        {getTab().content}
+        {findTab.content}
       </div>
     </div>
   );
