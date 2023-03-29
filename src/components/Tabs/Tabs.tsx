@@ -1,3 +1,4 @@
+import classNames from 'classnames';
 import React from 'react';
 import { Tab } from '../../types/Tab';
 
@@ -11,26 +12,30 @@ export const Tabs: React.FC<Props> = ({
   tabs,
   selectedId,
   onTabSelected,
-}) => (
-  <ul>
-    {tabs.map(tab => (
-      <li
-        className={selectedId === tab.id ? 'is-active' : ''}
-        data-cy="Tab"
-        key={tab.id}
-      >
-        <a
-          href={`#${tab.id}`}
-          data-cy="TabLink"
-          onClick={() => {
-            if (selectedId !== tab.id) {
-              onTabSelected(tab);
-            }
-          }}
+}) => {
+  const clickHandler = (tab: Tab) => {
+    if (selectedId !== tab.id) {
+      onTabSelected(tab);
+    }
+  };
+
+  return (
+    <ul>
+      {tabs.map(tab => (
+        <li
+          className={classNames('', { 'is-active': selectedId === tab.id })}
+          data-cy="Tab"
+          key={tab.id}
         >
-          {tab.title}
-        </a>
-      </li>
-    ))}
-  </ul>
-);
+          <a
+            href={`#${tab.id}`}
+            data-cy="TabLink"
+            onClick={() => clickHandler(tab)}
+          >
+            {tab.title}
+          </a>
+        </li>
+      ))}
+    </ul>
+  );
+};
