@@ -4,32 +4,39 @@ import { Tab } from '../../types/Tab';
 
 type Props = {
   tabs: Tab[],
-  selectedTab: Tab,
-  setSelectedTab: React.Dispatch<React.SetStateAction<Tab>>
+  selectedTabId: string,
+  onTabSelected: React.Dispatch<React.SetStateAction<Tab>>
 };
 
-export const Tabs: React.FC<Props> = (
-  { tabs, selectedTab, setSelectedTab },
-) => {
+export const Tabs: React.FC<Props> = ({
+  tabs,
+  selectedTabId,
+  onTabSelected,
+}) => {
+  const updateSelectedTab = (tab: Tab) => {
+    if (tab.id !== selectedTabId) {
+      onTabSelected(tab);
+    }
+  };
+
+  const selectedTab = tabs.find((tab) => tab.id === selectedTabId) || tabs[0];
+
   return (
     <div data-cy="TabsComponent">
       <div className="tabs is-boxed">
         <ul>
-          {tabs.map(tab => (
+          {tabs.map((tab) => (
             <li
+              key={tab.id}
               className={classNames({
                 'is-active': selectedTab.id === tab.id,
               })}
               data-cy="Tab"
-              key={tab.id}
             >
               <a
-                href={tab.id}
+                href={`#${tab.id}`}
                 data-cy="TabLink"
-                onClick={(event) => {
-                  event.preventDefault();
-                  setSelectedTab(tab);
-                }}
+                onClick={() => updateSelectedTab(tab)}
               >
                 {tab.title}
               </a>
