@@ -28,7 +28,7 @@ export const Tabs: React.FC<Props> = ({
           {tabs.map(tab => (
             <li
               className={classNames({
-                'is-active': selectedTab?.id === tab.id,
+                'is-active': selectedTab.id === tab.id,
               })}
               data-cy="Tab"
             >
@@ -45,7 +45,7 @@ export const Tabs: React.FC<Props> = ({
       </div>
 
       <div className="block" data-cy="TabContent">
-        {selectedTab?.content}
+        {selectedTab.content}
       </div>
     </div>
   );
