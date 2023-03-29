@@ -12,10 +12,11 @@ export const tabs = [
 
 export const App: React.FC = () => {
   const [selectedTab, setSelectedTab] = useState(tabs[0]);
+
   return (
     <div className="section">
       <h1 className="title">
-      {`Selected tab is ${selectedTab.title}`}
+        {`Selected tab is ${selectedTab.title}`}
       </h1>
 
       <Tabs
