@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Tabs } from './components/Tabs';
+import { findId } from './helpers';
 import { Tab } from './types/Tab';
 
 import 'bulma/css/bulma.css';
@@ -20,7 +21,7 @@ export const App: React.FC = () => {
   };
 
   const getTabTitle = () => {
-    const selectedTab = tabs.find(({ id }) => id === selectedTabId) || tabs[0];
+    const selectedTab = findId(tabs, selectedTabId);
 
     return selectedTab.title;
   };

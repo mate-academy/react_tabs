@@ -1,5 +1,6 @@
 import React from 'react';
 import classNames from 'classnames';
+import { findId } from '../../helpers';
 import { Tab } from '../../types/Tab';
 
 type Props = {
@@ -13,7 +14,7 @@ export const Tabs: React.FC<Props> = ({
   selectedTabId,
   onTabSelected,
 }) => {
-  const currentTab = tabs.find(({ id }) => id === selectedTabId) || tabs[0];
+  const currentTab = findId(tabs, selectedTabId);
 
   const handleClickTab = (isTabActive: boolean, tab: Tab) => {
     if (!isTabActive) {
