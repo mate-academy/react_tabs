@@ -1,4 +1,5 @@
 import classNames from 'classnames';
+import { getTabById } from '../../helpers';
 import { Tab } from '../../types/Tab';
 
 type Props = {
@@ -12,7 +13,7 @@ export const Tabs = ({
   selectedTabId,
   onTabSelected,
 }: Props) => {
-  const selectedTab = tabs.find(tab => tab.id === selectedTabId) || tabs[0];
+  const selectedTab = getTabById(tabs, selectedTabId);
 
   const handleClick = (isTabSelected: boolean, tab: Tab): void => {
     if (!isTabSelected) {
@@ -25,7 +26,8 @@ export const Tabs = ({
       <div className="tabs is-boxed">
         <ul>
           {tabs.map(tab => {
-            const isTabSelected = tab.id === selectedTab.id;
+            const { id, title } = tab;
+            const isTabSelected = id === selectedTab.id;
 
             return (
               <li
@@ -35,14 +37,14 @@ export const Tabs = ({
                   },
                 )}
                 data-cy="Tab"
-                key={tab.id}
+                key={id}
               >
                 <a
-                  href={`#${tab.id}`}
+                  href={`#${id}`}
                   data-cy="TabLink"
                   onClick={() => handleClick(isTabSelected, tab)}
                 >
-                  {tab.title}
+                  {title}
                 </a>
               </li>
             );

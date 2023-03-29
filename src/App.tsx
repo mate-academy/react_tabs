@@ -4,6 +4,7 @@ import '@fortawesome/fontawesome-free/css/all.css';
 import './App.scss';
 import { Tabs } from './components/Tabs';
 import { Tab } from './types/Tab';
+import { getTabById } from './helpers';
 
 export const tabs: Tab[] = [
   { id: 'tab-1', title: 'Tab 1', content: 'Some text 1' },
@@ -14,15 +15,7 @@ export const tabs: Tab[] = [
 export const App: React.FC = () => {
   const [selectedTabId, setSelectedTabId] = useState(tabs[0].id);
 
-  const getTitle = (allTabs: Tab[]): string => {
-    const selectedTab = allTabs.find(tab => tab.id === selectedTabId);
-
-    const currentTitle = selectedTab
-      ? selectedTab.title
-      : tabs[0].title;
-
-    return currentTitle;
-  };
+  const selectedTab = getTabById(tabs, selectedTabId);
 
   const handleSelectTab = (tab: Tab): void => {
     setSelectedTabId(tab.id);
@@ -33,7 +26,7 @@ export const App: React.FC = () => {
       <h1 className="title">
         Selected tab is
         {' '}
-        {getTitle(tabs)}
+        {selectedTab.title}
       </h1>
 
       <div data-cy="TabsComponent">
