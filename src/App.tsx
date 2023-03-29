@@ -4,6 +4,7 @@ import '@fortawesome/fontawesome-free/css/all.css';
 import './App.scss';
 import { Tab } from './types.ts/Tab';
 import { Tabs } from './components/Tabs/Tabs';
+import { findTab } from './HelperFunction';
 
 export const tabs: Tab[] = [
   { id: 'tab-1', title: 'Tab 1', content: 'Some text 1' },
@@ -14,7 +15,7 @@ export const tabs: Tab[] = [
 export const App: React.FC = () => {
   const [selectedTabId, setSelectedTabId] = useState(tabs[0].id);
 
-  const findTab = tabs.find(tab => tab.id === selectedTabId) || tabs[0];
+  const currentTab = findTab(tabs, selectedTabId);
 
   const handleClick = (tab: Tab) => {
     setSelectedTabId(tab.id);
@@ -26,7 +27,7 @@ export const App: React.FC = () => {
         data-cy="tab-content"
         className="title"
       >
-        {`Selected tab is ${findTab.title}`}
+        {`Selected tab is ${currentTab.title}`}
       </h1>
       <Tabs
         tabs={tabs}
