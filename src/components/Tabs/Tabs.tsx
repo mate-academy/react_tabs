@@ -4,14 +4,16 @@ type Props = {
   tabs: Tab[];
   selectedTabId: string;
   onTabSelected: (props: Tab) => void;
+  onFindTab: (arrayOfTabs: Tab[], selectedTabId: string) => Tab;
 };
 
 export const Tabs: React.FC<Props> = ({
   tabs,
   selectedTabId,
   onTabSelected,
+  onFindTab,
 }) => {
-  const findTab = tabs.find((tab) => tab.id === selectedTabId) || tabs[0];
+  const foundTab = onFindTab(tabs, selectedTabId);
 
   return (
     <div data-cy="TabsComponent">
@@ -23,7 +25,9 @@ export const Tabs: React.FC<Props> = ({
             return (
               <li
                 key={tab.id}
-                className={classNames({ 'is-active': findTab.id === tab.id })}
+                className={classNames({
+                  'is-active': isSelected,
+                })}
                 data-cy="Tab"
               >
                 <a
@@ -44,7 +48,7 @@ export const Tabs: React.FC<Props> = ({
       </div>
 
       <div className="block" data-cy="TabContent">
-        {findTab.content}
+        {foundTab.content}
       </div>
     </div>
   );
