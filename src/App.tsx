@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 import 'bulma/css/bulma.css';
 import '@fortawesome/fontawesome-free/css/all.css';
 import './App.scss';
+import { Tabs } from './components/Tabs';
 
 export const tabs = [
   { id: 'tab-1', title: 'Tab 1', content: 'Some text 1' },
@@ -10,31 +11,35 @@ export const tabs = [
 ];
 
 export const App: React.FC = () => {
+  const [selectedTabId, setSelectedTabId] = useState('tab-1');
+
+  const setTextByTabId = (tabId: string) => {
+    setSelectedTabId(tabId);
+  };
+
+  const tabById = tabs.filter(tab => tab.id === selectedTabId);
+
+  const [{ content, title }] = tabById;
+
   return (
     <div className="section">
       <h1 className="title">
-        Selected tab is Tab 1
+        Selected tab is {title}
       </h1>
 
       <div data-cy="TabsComponent">
         <div className="tabs is-boxed">
           <ul>
-            <li className="is-active" data-cy="Tab">
-              <a href="#tab-1" data-cy="TabLink">Tab 1</a>
-            </li>
-
-            <li data-cy="Tab">
-              <a href="#tab-2" data-cy="TabLink">Tab 2</a>
-            </li>
-
-            <li data-cy="Tab">
-              <a href="#tab-3" data-cy="TabLink">Tab 3</a>
-            </li>
+            <Tabs
+              tabs={tabs}
+              setTextByTabId={setTextByTabId}
+              selectedTabId={selectedTabId}
+            />
           </ul>
         </div>
 
         <div className="block" data-cy="TabContent">
-          Some text 1
+          {content}
         </div>
       </div>
     </div>
