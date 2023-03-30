@@ -6,7 +6,10 @@ type Props = {
   selected: Tab;
   selectTabById: React.Dispatch<React.SetStateAction<string>>;
   selectedTabId: string;
-  getTabById: (idToFind: string, tabsArr: Tab[]) => Tab;
+};
+
+export const getTabById = (idToFind: string, tabsArr: Tab[]) => {
+  return tabsArr.find(({ id }) => id === idToFind) || tabsArr[0];
 };
 
 export const Tabs: React.FC<Props> = ({
@@ -14,7 +17,6 @@ export const Tabs: React.FC<Props> = ({
   selected,
   selectTabById,
   selectedTabId,
-  getTabById,
 }) => {
   const onTabSelect = (
     event: React.MouseEvent<HTMLAnchorElement, MouseEvent>,
