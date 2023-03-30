@@ -15,6 +15,22 @@ export const tabs = [
 export const App: React.FC = () => {
   const [selectedTabId, setSelectedTabId] = useState(tabs[0].id);
 
+  const onTabSelect = (
+    event: React.MouseEvent<HTMLAnchorElement, MouseEvent>,
+  ) => {
+    const { target } = event;
+
+    const { attributes } = target as HTMLAnchorElement;
+
+    const href = attributes[0].value;
+
+    const id = getTabById(href.slice(1), tabs).id || tabs[0].id;
+
+    if (!(href.slice(1) === selectedTabId)) {
+      setSelectedTabId(id);
+    }
+  };
+
   return (
     <div className="section">
       <h1 className="title">
@@ -25,8 +41,9 @@ export const App: React.FC = () => {
       <Tabs
         tabs={tabs}
         selected={getTabById(selectedTabId, tabs)}
-        selectTabById={setSelectedTabId}
+        onTabSelect={onTabSelect}
         selectedTabId={selectedTabId}
+        setSelectedTabId={setSelectedTabId}
       />
     </div>
   );
