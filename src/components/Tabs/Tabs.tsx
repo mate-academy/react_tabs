@@ -21,7 +21,7 @@ export const Tabs: React.FC<Props> = (props) => {
     tab => tab.id === selectedTabId,
   ) || tabs[0];
 
-  const handleTabSelect = (tab: Tab) => {
+  const handleTabChange = (tab: Tab) => {
     if (tab.id !== selectedTabId) {
       onTabSelected(tab);
     }
@@ -31,27 +31,31 @@ export const Tabs: React.FC<Props> = (props) => {
     <div data-cy="TabsComponent">
       <div className="tabs is-boxed">
         <ul>
-          {tabs.map(tab => (
-            <li
-              data-cy="Tab"
-              key={tab.id}
-              className={classNames(
-                'tabs__tab',
-                {
-                  'is-active': tab.id === selectedTab.id,
-                },
-              )}
-            >
-              <a
-                href={`#${tab.id}`}
-                data-cy="TabLink"
-                className="tabs__link"
-                onClick={() => handleTabSelect(tab)}
+          {tabs.map(tab => {
+            const { id, title } = tab;
+
+            return (
+              <li
+                data-cy="Tab"
+                key={id}
+                className={classNames(
+                  'tabs__tab',
+                  {
+                    'is-active': id === selectedTab.id,
+                  },
+                )}
               >
-                {tab.title}
-              </a>
-            </li>
-          ))}
+                <a
+                  href={`#${id}`}
+                  data-cy="TabLink"
+                  className="tabs__link"
+                  onClick={() => handleTabChange(tab)}
+                >
+                  {title}
+                </a>
+              </li>
+            );
+          })}
         </ul>
       </div>
 
