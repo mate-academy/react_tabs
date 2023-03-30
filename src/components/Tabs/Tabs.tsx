@@ -3,36 +3,58 @@ import { Tab } from '../../types/Tab';
 
 type Props = {
   tabs: Tab[],
-  setTextByTabId: (tabId: string) => void,
+  onTabSelected: (tab: Tab) => void,
   selectedTabId: string,
 };
 
 export const Tabs: React.FC<Props> = (
-  { tabs, setTextByTabId, selectedTabId },
+  { tabs, onTabSelected, selectedTabId },
 ) => {
-  return (
-    <>
-      {tabs.map(tab => {
-        const { id, title } = tab;
+  const syncSelectedTab = (tab: Tab) => {
+    if (tab.id !== selectedTabId) {
+      onTabSelected(tab);
+    }
+  };
 
-        return (
-          <li
-            className={classNames(
-              { 'is-active': id === selectedTabId },
-            )}
-            data-cy="Tab"
-            key={id}
-          >
-            <a
-              href={`#${id}`}
-              data-cy="TabLink"
-              onClick={() => setTextByTabId(id)}
-            >
-              {title}
-            </a>
-          </li>
-        );
-      })}
-    </>
+  const tabById = tabs.find((tab) => tab.id === selectedTabId) || tabs[0];
+
+  return (
+    <div data-cy="TabsComponent">
+      <div
+        className="tabs is-boxed"
+        data-cy="tab-content"
+      >
+        <ul>
+          {tabs.map(tab => {
+            const { id, title } = tab;
+
+            return (
+              <li
+                className={classNames(
+                  { 'is-active': id === tabById.id },
+                )}
+                data-cy="Tab"
+                key={id}
+              >
+                <a
+                  href={`#${id}`}
+                  data-cy="TabLink"
+                  onClick={() => syncSelectedTab(tab)}
+                >
+                  {title}
+                </a>
+              </li>
+            );
+          })}
+        </ul>
+      </div>
+
+      <div
+        className="block"
+        data-cy="TabContent"
+      >
+        {tabById.content}
+      </div>
+    </div>
   );
 };
