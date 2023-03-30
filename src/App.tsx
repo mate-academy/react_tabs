@@ -3,10 +3,10 @@ import 'bulma/css/bulma.css';
 import '@fortawesome/fontawesome-free/css/all.css';
 import './App.scss';
 
-import { Tabs, getTabById } from './components/Tabs';
-// import { Tab } from './types/Tab';
+import { Tab } from './types/Tab';
+import { Tabs } from './components/Tabs';
 
-export const tabs = [
+export const tabs: Tab[] = [
   { id: 'tab-1', title: 'Tab 1', content: 'Some text 1' },
   { id: 'tab-2', title: 'Tab 2', content: 'Some text 2' },
   { id: 'tab-3', title: 'Tab 3', content: 'Some text 3' },
@@ -15,35 +15,29 @@ export const tabs = [
 export const App: React.FC = () => {
   const [selectedTabId, setSelectedTabId] = useState(tabs[0].id);
 
-  const onTabSelect = (
-    event: React.MouseEvent<HTMLAnchorElement, MouseEvent>,
-  ) => {
-    const { target } = event;
+  const getSelectedTitle = () => {
+    const selectedTab = tabs
+      .find(tab => tab.id === selectedTabId);
 
-    const { attributes } = target as HTMLAnchorElement;
+    return selectedTab
+      ? selectedTab.title
+      : tabs[0].title;
+  };
 
-    const href = attributes[0].value;
-
-    const id = getTabById(href.slice(1), tabs).id || tabs[0].id;
-
-    if (!(href.slice(1) === selectedTabId)) {
-      setSelectedTabId(id);
-    }
+  const handleTabSelect = (tab: Tab) => {
+    setSelectedTabId(tab.id);
   };
 
   return (
     <div className="section">
       <h1 className="title">
-        {'Selected tab is '}
-        {getTabById(selectedTabId, tabs).title}
+        {`Selected tab is ${getSelectedTitle()}`}
       </h1>
 
       <Tabs
         tabs={tabs}
-        selected={getTabById(selectedTabId, tabs)}
-        onTabSelect={onTabSelect}
         selectedTabId={selectedTabId}
-        setSelectedTabId={setSelectedTabId}
+        onTabSelected={handleTabSelect}
       />
     </div>
   );

@@ -1,58 +1,60 @@
+import React from 'react';
 import classNames from 'classnames';
+
 import { Tab } from '../../types/Tab';
 
 type Props = {
   tabs: Tab[];
-  selected: Tab;
-  onTabSelect: (event: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => void;
   selectedTabId: string;
-  setSelectedTabId: React.Dispatch<React.SetStateAction<string>>;
-};
-
-export const getTabById = (idToFind: string, tabsArr: Tab[]) => {
-  return tabsArr.find(({ id }) => id === idToFind) || tabsArr[0];
+  onTabSelected: (tab: Tab) => void;
 };
 
 export const Tabs: React.FC<Props> = ({
   tabs,
-  selected,
-  onTabSelect,
   selectedTabId,
-  setSelectedTabId,
+  onTabSelected,
 }) => {
-  if (!tabs.some(({ id }) => id === selectedTabId)) {
-    setSelectedTabId(tabs[0].id);
-  }
+  const selectedTab = tabs
+    .find(tab => tab.id === selectedTabId) || tabs[0];
+
+  const handleTabSelect = (tab: Tab, isSelected: boolean) => {
+    if (!isSelected) {
+      onTabSelected(tab);
+    }
+  };
 
   return (
     <div data-cy="TabsComponent">
       <div className="tabs is-boxed">
         <ul>
-          {tabs.map((tab) => (
-            <li
-              key={tab.id}
-              className={classNames(
-                { 'is-active': tab.id === selectedTabId },
-              )}
-              data-cy="Tab"
-            >
-              <a
-                href={`#${tab.id}`}
-                data-cy="TabLink"
-                onClick={onTabSelect}
+          {tabs.map(tab => {
+            const { id, title } = tab;
+
+            const isSelected = id === selectedTab.id;
+
+            return (
+              <li
+                className={classNames(
+                  { 'is-active': isSelected },
+                )}
+                data-cy="Tab"
+                key={id}
               >
-                { tab.title }
-              </a>
-            </li>
-          ))}
+                <a
+                  href={`#${id}`}
+                  data-cy="TabLink"
+                  onClick={() => handleTabSelect(tab, isSelected)}
+                >
+                  {title}
+                </a>
+              </li>
+            );
+          })}
         </ul>
       </div>
 
-      <div
-        className="block"
-        data-cy="TabContent"
-      >
-        {selected.content}
+      <div className="block" data-cy="TabContent">
+        {selectedTab.content}
       </div>
     </div>
   );
