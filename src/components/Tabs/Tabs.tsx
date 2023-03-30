@@ -8,7 +8,7 @@ type Props = {
   selectedTabId: string,
 };
 
-const Tabs: React.FC<Props> = (props) => {
+export const Tabs: React.FC<Props> = (props) => {
   const {
     tabs,
     onTabSelected,
@@ -60,5 +60,3 @@ const Tabs: React.FC<Props> = (props) => {
     </div>
   );
 };
-
-export default Tabs;
