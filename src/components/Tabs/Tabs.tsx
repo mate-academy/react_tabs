@@ -18,7 +18,8 @@ export const Tabs: React.FC<Props> = ({
   selectedTabId,
   onTabSelected,
 }) => {
-  const currentTabs = tabs.find(tab => tab.id === selectedTabId) || tabs[0];
+  const currentTab = tabs.find(tab => tab.id === selectedTabId) || tabs[0];
+
   const handleClickOnTab = (isTabCurrent: boolean, tab: Tab) => {
     if (!isTabCurrent) {
       onTabSelected(tab);
@@ -31,7 +32,7 @@ export const Tabs: React.FC<Props> = ({
         <ul>
           {tabs.map(tab => {
             const { id, title } = tab;
-            const isCurrentTab = id === currentTabs.id;
+            const isCurrentTab = id === currentTab.id;
 
             return (
               <li
@@ -55,7 +56,7 @@ export const Tabs: React.FC<Props> = ({
       </div>
 
       <div className="block" data-cy="TabContent">
-        {currentTabs.content}
+        {currentTab.content}
       </div>
     </div>
   );

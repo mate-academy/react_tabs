@@ -10,37 +10,19 @@ export const tabs = [
   { id: 'tab-3', title: 'Tab 3', content: 'Some text 3' },
 ];
 
-interface Tab {
-  id: string,
-  title: string,
-  content: string,
-}
-
 export const App: React.FC = () => {
-  const [selectedTabId, setSelectedTabId] = useState(tabs[0].id);
-
-  const getCurrentTab = () => {
-    const currentTab = tabs.find(tab => tab.id === selectedTabId);
-
-    return currentTab
-      ? currentTab.title
-      : tabs[0].title;
-  };
-
-  const handleClick = (tab: Tab) => {
-    setSelectedTabId(tab.id);
-  };
+  const [selectedTabId, setSelectedTabId] = useState(tabs[0]);
 
   return (
     <div className="section">
       <h1 className="title">
-        {`Selected tab is ${getCurrentTab()}`}
+        {`Selected tab is ${selectedTabId.title}`}
       </h1>
 
       <Tabs
         tabs={tabs}
-        selectedTabId={selectedTabId}
-        onTabSelected={handleClick}
+        selectedTabId={selectedTabId.id}
+        onTabSelected={setSelectedTabId}
       />
     </div>
   );
