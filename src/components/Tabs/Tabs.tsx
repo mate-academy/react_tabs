@@ -1,3 +1,5 @@
+import classNames from 'classnames';
+import { getSelectedTabById } from '../../helper';
 import { Tab } from '../../types/Tab';
 
 type TabsProps = {
@@ -11,31 +13,35 @@ export const Tabs: React.FC<TabsProps> = ({
   selectedTabId,
   onTabSelected,
 }) => {
-  const selectedTab = tabs.find((tab) => tab.id === selectedTabId) || tabs[0];
+  const selectedTab = getSelectedTabById(tabs, selectedTabId);
 
   return (
     <div data-cy="TabsComponent">
       <div className="tabs is-boxed">
         <ul>
-          {tabs.map(tab => (
-            <li
-              key={tab.id}
-              className={tab.id === selectedTab.id ? 'is-active' : ''}
-              data-cy="Tab"
-            >
-              <a
-                href={`#${tab.id}`}
-                data-cy="TabLink"
-                onClick={() => {
-                  if (tab.id !== selectedTab.id) {
-                    onTabSelected(tab);
-                  }
-                }}
+          {tabs.map(tab => {
+            const isIdCorrect = tab.id === selectedTab.id;
+
+            return (
+              <li
+                key={tab.id}
+                className={classNames({ 'is-active': isIdCorrect })}
+                data-cy="Tab"
               >
-                {tab.title}
-              </a>
-            </li>
-          ))}
+                <a
+                  href={`#${tab.id}`}
+                  data-cy="TabLink"
+                  onClick={() => {
+                    if (!isIdCorrect) {
+                      onTabSelected(tab);
+                    }
+                  }}
+                >
+                  {tab.title}
+                </a>
+              </li>
+            );
+          })}
         </ul>
       </div>
 
@@ -45,7 +51,6 @@ export const Tabs: React.FC<TabsProps> = ({
       >
         {selectedTab.content}
       </div>
-
     </div>
   );
 };
