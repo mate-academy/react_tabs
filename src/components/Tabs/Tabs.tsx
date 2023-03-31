@@ -5,7 +5,7 @@ import { getTabById } from '../../helpers';
 type Props = {
   tabs: Tab[],
   selectedTabId: string,
-  onTabSelected: (tab: Tab) => void,
+  onTabSelected: (tabId: Tab) => void,
 };
 
 export const Tabs: FC<Props> = (
@@ -15,13 +15,11 @@ export const Tabs: FC<Props> = (
     onTabSelected,
   },
 ) => {
-  const isTabSelected = (currentTabId: string) => (
-    getTabById(tabs, selectedTabId).id === currentTabId
-  );
+  const selectedTab = getTabById(tabs, selectedTabId);
 
-  const handleSelectTab = (currentTabId: string, tab: Tab) => {
-    if (!isTabSelected(currentTabId)) {
-      onTabSelected(tab);
+  const handleSelectTab = (currentTab: Tab) => {
+    if (currentTab.id !== selectedTab.id) {
+      onTabSelected(currentTab);
     }
   };
 
@@ -36,14 +34,14 @@ export const Tabs: FC<Props> = (
               <li
                 key={id}
                 className={classNames(
-                  { 'is-active': isTabSelected(id) },
+                  { 'is-active': id === selectedTab.id },
                 )}
                 data-cy="Tab"
               >
                 <a
                   href={`#${id}`}
                   data-cy="TabLink"
-                  onClick={() => handleSelectTab(id, tab)}
+                  onClick={() => handleSelectTab(tab)}
                 >
                   {title}
                 </a>
@@ -53,7 +51,7 @@ export const Tabs: FC<Props> = (
         </ul>
       </div>
       <div className="block fancy-text" data-cy="TabContent">
-        {getTabById(tabs, selectedTabId).content}
+        {selectedTab.content}
       </div>
     </div>
   );
