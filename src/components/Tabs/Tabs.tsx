@@ -1,6 +1,6 @@
 import classNames from 'classnames';
 import React from 'react';
-import { Tab } from '../../App';
+import { Tab } from '../../types/types';
 
 interface Props {
   tabs: Tab[],

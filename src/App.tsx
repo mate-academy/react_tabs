@@ -2,13 +2,8 @@ import React, { useState } from 'react';
 import 'bulma/css/bulma.css';
 import '@fortawesome/fontawesome-free/css/all.css';
 import './App.scss';
+import { Tab } from './types/types';
 import { Tabs } from './components/Tabs';
-
-export interface Tab {
-  id: string,
-  title: string,
-  content: string,
-}
 
 export const tabs: Tab[] = [
   { id: 'tab-1', title: 'Tab 1', content: 'Some text 1' },
@@ -24,10 +19,11 @@ export const App: React.FC = () => {
 
     return currentTab
       ? currentTab.title
-      : tabs[0].title
-  }
+      : tabs[0].title;
+  };
 
   const onTabSelected = (tab: Tab) => setSelectedTabId(tab.id);
+
   return (
     <div className="section">
       <h1 className="title">
