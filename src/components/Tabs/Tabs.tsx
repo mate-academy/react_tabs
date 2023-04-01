@@ -14,7 +14,7 @@ export const Tabs: FC<TabsProps> = ({
   selectedTabId,
   onTabSelected,
 }) => {
-  const currentTab = findCorrectTab(tabs, selectedTabId) || tabs[0];
+  const currentTab = findCorrectTab(tabs, selectedTabId);
 
   return (
     <div data-cy="TabsComponent">
@@ -22,7 +22,7 @@ export const Tabs: FC<TabsProps> = ({
         <ul>
           {tabs.map(tab => {
             const { id, title } = tab;
-            const isSelectedTab = currentTab.id === id;
+            const isSelectedTab = currentTab?.id === id;
 
             return (
               <li
@@ -53,7 +53,7 @@ export const Tabs: FC<TabsProps> = ({
         className="block"
         data-cy="TabContent"
       >
-        {currentTab.content}
+        {currentTab?.content}
       </div>
     </div>
   );

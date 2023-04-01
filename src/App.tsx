@@ -17,10 +17,6 @@ export const App: FC = () => {
 
   const currentTab = findCorrectTab(tabs, selectedTabId);
 
-  const currenTitle = currentTab
-    ? currentTab.title
-    : tabs[0].title;
-
   const handleButtonClick = (tab: Tab) => {
     setSelectedTabId(tab.id);
   };
@@ -28,7 +24,7 @@ export const App: FC = () => {
   return (
     <div className="section">
       <h1 className="title">
-        {`Selected tab is ${currenTitle}`}
+        {`Selected tab is ${currentTab?.title}`}
       </h1>
 
       <Tabs

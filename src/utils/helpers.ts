@@ -4,5 +4,5 @@ export const findCorrectTab = (
   initTabs: Tab[],
   selectedId: string,
 ): Tab | undefined => {
-  return initTabs.find(({ id }) => id === selectedId);
+  return initTabs.find(({ id }) => id === selectedId) || initTabs[0];
 };
