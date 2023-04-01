@@ -1,16 +1,11 @@
 import classNames from 'classnames';
+import { Tab } from '../../types/Tab';
 
 type Props = {
   tabs: Tab[];
   selectedTabId: string;
   onTabSelected: (tab: Tab) => void;
 };
-
-interface Tab {
-  id: string,
-  title: string,
-  content: string,
-}
 
 export const Tabs: React.FC<Props> = ({
   tabs,
@@ -36,7 +31,9 @@ export const Tabs: React.FC<Props> = ({
               <li
                 data-cy="Tab"
                 key={tab.id}
-                className={classNames({ 'is-active': isSelected })}
+                className={classNames({
+                  'is-active': isSelected,
+                })}
               >
                 <a
                   href={`#${tab.id}`}
@@ -54,7 +51,7 @@ export const Tabs: React.FC<Props> = ({
       </div>
 
       <div className="block" data-cy="TabContent">
-        {selectedTab?.content || ''}
+        {selectedTab.content}
       </div>
     </div>
   );
