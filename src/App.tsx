@@ -5,6 +5,7 @@ import './App.scss';
 
 import { Tab } from './types/Tab';
 import { Tabs } from './components/Tabs';
+import { getSelectedTab } from './helpers';
 
 export const tabs = [
   { id: 'tab-1', title: 'Tab 1', content: 'Some text 1' },
@@ -19,7 +20,7 @@ export const App: React.FC = () => {
     setSelectedTabId(newTab.id);
   };
 
-  const selectedTab = tabs.find(tab => tab.id === selectedTabId) || tabs[0];
+  const selectedTab = getSelectedTab(tabs, selectedTabId);
 
   return (
     <div className="section">
