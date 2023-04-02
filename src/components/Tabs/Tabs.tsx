@@ -9,13 +9,17 @@ type Props = {
   onTabSelected: (tab: Tab) => void;
 };
 
+export const getTabById = (tabsArr: Tab[], idToFind: string) => {
+  return tabsArr
+    .find(tab => tab.id === idToFind) || tabsArr[0];
+};
+
 export const Tabs: React.FC<Props> = ({
   tabs,
   selectedTabId,
   onTabSelected,
 }) => {
-  const selectedTab = tabs
-    .find(tab => tab.id === selectedTabId) || tabs[0];
+  const selectedTab = getTabById(tabs, selectedTabId);
 
   const handleTabSelect = (tab: Tab, isSelected: boolean) => {
     if (!isSelected) {
