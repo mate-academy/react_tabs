@@ -5,6 +5,7 @@ import './App.scss';
 
 import { Tab } from './types/Tabs';
 import { Tabs } from './components/Tabs';
+import { findId } from './helpers/findIdHelper';
 
 export const tabs: Tab[] = [
   { id: 'tab-1', title: 'Tab 1', content: 'Some text 1' },
@@ -14,7 +15,7 @@ export const tabs: Tab[] = [
 
 export const App: React.FC = () => {
   const [selectedTabId, setSelectedTabId] = useState(tabs[0].id);
-  const selectedTab = tabs.find(tab => tab.id === selectedTabId) || tabs[0];
+  const selectedTab = findId(tabs, selectedTabId);
 
   const handleClick = (tab: Tab) => {
     setSelectedTabId(tab.id);
