@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import cn from 'classnames';
 import { Tab } from '../../types/Tabs';
-import { findId } from '../../helpers/findIdHelper';
+import { findTabById } from '../../helpers/findIdHelper';
 
 type Props = {
   tabs: Tab[],
@@ -11,7 +11,7 @@ type Props = {
 
 export const Tabs: FC<Props> = (props) => {
   const { tabs, selectedTabId, onTabSelected } = props;
-  const selectedTab = findId(tabs, selectedTabId);
+  const selectedTab = findTabById(tabs, selectedTabId);
 
   return (
     <div data-cy="TabsComponent">
