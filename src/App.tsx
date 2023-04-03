@@ -12,17 +12,14 @@ export const tabs = [
 ];
 
 export const App: React.FC = () => {
-  const [selectedTabId, setSelectedTabId] = useState('tab-1');
-  const selectedTab: Tab = tabs.find(tab => (
-    tab.id === selectedTabId
-  )) || tabs[0];
+  const [selectedTab, setSelectedTab] = useState(tabs[0]);
 
-  const handleClickTab = (tabId: string) => {
-    if (selectedTabId !== tabId) {
-      setSelectedTabId(tabId);
+  const handleClickTab = (tab: Tab) => {
+    if (selectedTab.id !== tab.id) {
+      setSelectedTab(tab);
     }
 
-    return selectedTabId;
+    return selectedTab;
   };
 
   return (
@@ -33,7 +30,6 @@ export const App: React.FC = () => {
 
       <Tabs
         tabs={tabs}
-        selectedTabId={selectedTabId}
         onTabSelected={handleClickTab}
         selectedTab={selectedTab}
       />

@@ -4,14 +4,12 @@ import { Tab } from '../../types/Tab';
 
 type Props = {
   tabs: Tab[],
-  selectedTabId: string,
-  onTabSelected: (tabId: string) => void,
+  onTabSelected: (tab: Tab) => void,
   selectedTab: Tab,
 };
 
 export const Tabs: React.FC<Props> = ({
   tabs,
-  selectedTabId,
   onTabSelected,
   selectedTab,
 }) => {
@@ -20,7 +18,7 @@ export const Tabs: React.FC<Props> = ({
       <div className="tabs is-boxed">
         <ul>
           {tabs.map(tab => {
-            const isSelected = selectedTabId === tab.id;
+            const isSelected = selectedTab.id === tab.id;
 
             return (
               <li
@@ -34,7 +32,7 @@ export const Tabs: React.FC<Props> = ({
                   href={`#${tab.id}`}
                   data-cy="TabLink"
                   onClick={() => {
-                    onTabSelected(tab.id);
+                    onTabSelected(tab);
                   }}
                 >
                   {tab.title}
