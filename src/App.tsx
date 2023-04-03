@@ -17,20 +17,20 @@ export const App: FC = () => {
 
   const currentTab = findCorrectTab(tabs, selectedTabId);
 
-  const handleButtonClick = (tab: Tab) => {
+  const handleTabSelected = (tab: Tab) => {
     setSelectedTabId(tab.id);
   };
 
   return (
     <div className="section">
       <h1 className="title">
-        {`Selected tab is ${currentTab?.title}`}
+        {`Selected tab is ${currentTab.title}`}
       </h1>
 
       <Tabs
         tabs={tabs}
         selectedTabId={selectedTabId}
-        onTabSelected={handleButtonClick}
+        onTabSelected={handleTabSelected}
       />
     </div>
   );
