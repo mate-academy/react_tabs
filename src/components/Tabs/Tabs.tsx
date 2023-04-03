@@ -1,11 +1,12 @@
 import classNames from 'classnames';
 import React from 'react';
 import { Tab } from '../types/Tab';
+import { findVisibleTab } from '../helpers';
 
 type Props = {
   tabs: Tab[],
   onTabSelected: (tab: Tab) => void
-  selectedTabId: string | undefined,
+  selectedTabId: string,
 };
 
 export const Tabs:React.FC<Props> = (
@@ -15,7 +16,12 @@ export const Tabs:React.FC<Props> = (
     selectedTabId,
   },
 ) => {
-  const content = tabs.find(tab => tab.id === selectedTabId) || tabs[0];
+  const content = findVisibleTab(tabs, selectedTabId);
+  const handleOnClick = (tab: Tab, isSelected: boolean) => {
+    if (!(isSelected)) {
+      onTabSelected(tab);
+    }
+  };
 
   return (
     <div data-cy="TabsComponent">
@@ -37,13 +43,7 @@ export const Tabs:React.FC<Props> = (
                 <a
                   href={`#${tab.id}`}
                   data-cy="TabLink"
-                  onClick={(event) => {
-                    event.preventDefault();
-
-                    if (!(isSelected)) {
-                      onTabSelected(tab);
-                    }
-                  }}
+                  onClick={() => handleOnClick(tab, isSelected)}
                 >
                   {tab.title}
                 </a>

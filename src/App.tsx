@@ -2,8 +2,9 @@ import React, { useState } from 'react';
 import 'bulma/css/bulma.css';
 import '@fortawesome/fontawesome-free/css/all.css';
 import './App.scss';
-import { Tabs } from './components/Tabs/Tabs';
 import { Tab } from './components/types/Tab';
+import { Tabs } from './components/Tabs';
+import { findVisibleTab } from './components/helpers';
 
 export const tabs = [
   { id: 'tab-1', title: 'Tab 1', content: 'Some text 1' },
@@ -13,16 +14,17 @@ export const tabs = [
 
 export const App: React.FC = () => {
   const [selectedTabId, setSelectedTabId] = useState(tabs[0].id);
-  const visibleTab = tabs.find(tab => tab.id === selectedTabId) || tabs[0];
 
-  const selectTab: (tab: Tab) => void = (tab) => {
+  const selectTab = (tab: Tab) => {
     setSelectedTabId(tab.id);
   };
+
+  const visibleTab = findVisibleTab(tabs, selectedTabId);
 
   return (
     <div className="section">
       <h1 className="title">
-        {`Selected tab is ${visibleTab?.title}`}
+        {`Selected tab is ${visibleTab.title}`}
       </h1>
 
       <Tabs
