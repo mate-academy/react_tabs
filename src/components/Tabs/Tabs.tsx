@@ -23,21 +23,20 @@ export const Tabs: React.FC<Props> = ({
       <div className="tabs is-boxed">
         <ul>
           {tabs.map((tab) => {
-            const tabId = +tab.id.slice(-1);
-
+            const isActiveTab = selectedTab.id === tab.id;
             return (
               <li
                 className={classNames({
-                  'is-active': selectedTab.id === tab.id,
+                  'is-active': isActiveTab,
                 })}
                 data-cy="Tab"
-                key={tabId}
+                key={tab.id}
               >
                 <a
                   href={`#${tab.id}`}
                   data-cy="TabLink"
                   onClick={() => {
-                    if (selectedTab.id !== tab.id) {
+                    if (!isActiveTab) {
                       onTabSelected(tab);
                     }
                   }}
