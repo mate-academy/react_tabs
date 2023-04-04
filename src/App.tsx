@@ -18,8 +18,6 @@ export const App: React.FC = () => {
     if (selectedTab.id !== tab.id) {
       setSelectedTab(tab);
     }
-
-    return selectedTab;
   };
 
   return (
@@ -31,7 +29,7 @@ export const App: React.FC = () => {
       <Tabs
         tabs={tabs}
         onTabSelected={handleClickTab}
-        selectedTab={selectedTab}
+        selectedTabId={selectedTab.id}
       />
     </div>
   );
