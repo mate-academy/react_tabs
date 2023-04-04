@@ -5,12 +5,14 @@ type Props = {
   tabs: Tab[];
   selectedTabId: string;
   onTabSelected: (tab: Tab) => void;
+  getTabById: (tabId: string) => Tab | null;
 };
 
 export const Tabs: React.FC<Props> = ({
   tabs,
   selectedTabId,
   onTabSelected,
+  getTabById,
 }) => {
   const handleTab = (tab: Tab) => {
     if (tab.id !== selectedTabId) {
@@ -18,7 +20,7 @@ export const Tabs: React.FC<Props> = ({
     }
   };
 
-  const selectedTab = tabs.find(tab => tab.id === selectedTabId) || tabs[0];
+  const selectedTab = getTabById(selectedTabId) || tabs[0];
 
   return (
     <div data-cy="TabsComponent">
