@@ -16,9 +16,9 @@ export const Tabs:React.FC<Props> = (
     selectedTabId,
   },
 ) => {
-  const content = findVisibleTab(tabs, selectedTabId);
+  const visibleTab = findVisibleTab(tabs, selectedTabId);
   const handleOnClick = (tab: Tab, isSelected: boolean) => {
-    if (!(isSelected)) {
+    if (!isSelected) {
       onTabSelected(tab);
     }
   };
@@ -28,7 +28,7 @@ export const Tabs:React.FC<Props> = (
       <div className="tabs is-boxed">
         <ul>
           {tabs.map(tab => {
-            const isSelected = tab.id === content.id;
+            const isSelected = tab.id === visibleTab.id;
 
             return (
               <li
@@ -53,8 +53,8 @@ export const Tabs:React.FC<Props> = (
         </ul>
       </div>
 
-      <div className="block" data-cy="TabContent">
-        {content.content}
+      <div className="block" data-cy="TabvisibleTab">
+        {visibleTab.content}
       </div>
     </div>
   );
