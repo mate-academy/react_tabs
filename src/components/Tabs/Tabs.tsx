@@ -53,7 +53,7 @@ export const Tabs:React.FC<Props> = (
         </ul>
       </div>
 
-      <div className="block" data-cy="TabvisibleTab">
+      <div className="block" data-cy="TabContent">
         {visibleTab.content}
       </div>
     </div>
