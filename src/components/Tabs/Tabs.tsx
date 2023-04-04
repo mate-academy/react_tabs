@@ -1,18 +1,17 @@
 import classNames from 'classnames';
+import { getTabById } from '../../helper/getTabById';
 import { Tab } from '../../types/Tab';
 
 type Props = {
   tabs: Tab[];
   selectedTabId: string;
   onTabSelected: (tab: Tab) => void;
-  getTabById: (tabId: string) => Tab | null;
 };
 
 export const Tabs: React.FC<Props> = ({
   tabs,
   selectedTabId,
   onTabSelected,
-  getTabById,
 }) => {
   const handleTab = (tab: Tab) => {
     if (tab.id !== selectedTabId) {
@@ -20,7 +19,7 @@ export const Tabs: React.FC<Props> = ({
     }
   };
 
-  const selectedTab = getTabById(selectedTabId) || tabs[0];
+  const selectedTab = getTabById(tabs, selectedTabId);
 
   return (
     <div data-cy="TabsComponent">
