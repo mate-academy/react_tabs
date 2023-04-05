@@ -10,7 +10,12 @@ interface Props {
 }
 
 export const Tabs: FC<Props> = (props) => {
-  const { tabs, selectedTabId, onTabSelected } = props;
+  const {
+    tabs,
+    selectedTabId,
+    onTabSelected,
+  } = props;
+
   const selectedTab = getSelectedTabById(tabs, selectedTabId);
 
   return (
