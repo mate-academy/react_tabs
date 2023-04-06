@@ -1,6 +1,6 @@
 import classNames from 'classnames';
 import { Tab } from '../../types/Tab';
-import { findTabById } from '../../helper/findTabById';
+import { findTabById as getTabById } from '../../helper/findTabById';
 
 type Props = {
   tabs: Tab[],
@@ -13,7 +13,7 @@ export const Tabs: React.FC<Props> = ({
   selectedTabId,
   onTabSelected,
 }) => {
-  const findedSelectedTab = findTabById(tabs, selectedTabId);
+  const findedSelectedTab = getTabById(tabs, selectedTabId);
 
   const handelSelectTabId = (tab: Tab) => {
     if (tab.id !== selectedTabId) {
