@@ -1,3 +1,4 @@
+import classNames from 'classnames';
 import { Tab } from '../../types/Tab';
 
 type Props = {
@@ -10,13 +11,13 @@ export const Tabs: React.FC<Props> = ({
   selectedTab, tabs, setSelectedTab,
 }) => {
   const handleTabSelected = (idTab: string) => {
-    const found = tabs.find(tab => tab.id === idTab) || null;
+    const currentTab = tabs.find(tab => tab.id === idTab) || null;
 
-    if (found) {
+    if (currentTab) {
       setSelectedTab({
-        title: found.title,
-        content: found.content,
-        id: found.id,
+        title: currentTab.title,
+        content: currentTab.content,
+        id: currentTab.id,
       });
     }
   };
@@ -37,8 +38,9 @@ export const Tabs: React.FC<Props> = ({
               role="tab"
               onClick={() => handleTabSelected(tab.id)}
               onKeyDown={handleKeyDown}
-              className={selectedTab.title === tab.title
-                ? 'is-active' : ''}
+              className={classNames({
+                'is-active': selectedTab.title === tab.title,
+              })}
               data-cy="Tab"
             >
               <a href={`#${tab.id}`} data-cy="TabLink">{tab.title}</a>
