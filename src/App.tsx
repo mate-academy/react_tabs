@@ -18,7 +18,6 @@ export const App: React.FC = () => {
     setSelectedTabId(tab.id);
   };
 
-
   return (
     <div className="section">
       <h1 className="title">
