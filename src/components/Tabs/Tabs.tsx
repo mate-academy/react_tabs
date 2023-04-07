@@ -1,4 +1,5 @@
 import React from 'react';
+import classNames from 'classnames';
 import { Tab } from '../../Types/Tab';
 
 type Props = {
@@ -27,7 +28,9 @@ export const Tabs: React.FC<Props> = ({
             <li
               key={tab.id}
               data-cy="Tab"
-              className={selectedTabId === tab.id ? 'is-active' : ''}
+              className={
+                classNames(selectedTabId === tab.id ? 'is-active' : '')
+              }
             >
               <a
                 href={`#${tab.id}`}
