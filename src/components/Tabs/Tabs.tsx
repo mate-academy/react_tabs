@@ -2,16 +2,12 @@ import React from 'react';
 import classNames from 'classnames';
 
 import { Tab } from '../../types/Tab';
+import { getTabById } from '../../utils/Helpers';
 
 type Props = {
   tabs: Tab[];
   selectedTabId: string;
   onTabSelected: (tab: Tab) => void;
-};
-
-export const getTabById = (tabsArr: Tab[], idToFind: string) => {
-  return tabsArr
-    .find(tab => tab.id === idToFind) || tabsArr[0];
 };
 
 export const Tabs: React.FC<Props> = ({
@@ -21,8 +17,8 @@ export const Tabs: React.FC<Props> = ({
 }) => {
   const selectedTab = getTabById(tabs, selectedTabId);
 
-  const handleTabSelect = (tab: Tab, isSelected: boolean) => {
-    if (!isSelected) {
+  const handleTabSelect = (tab: Tab, isSelectedTab: boolean) => {
+    if (!isSelectedTab) {
       onTabSelected(tab);
     }
   };
@@ -34,12 +30,12 @@ export const Tabs: React.FC<Props> = ({
           {tabs.map(tab => {
             const { id, title } = tab;
 
-            const isSelected = id === selectedTab.id;
+            const isSelectedTab = id === selectedTab.id;
 
             return (
               <li
                 className={classNames(
-                  { 'is-active': isSelected },
+                  { 'is-active': isSelectedTab },
                 )}
                 data-cy="Tab"
                 key={id}
@@ -47,7 +43,7 @@ export const Tabs: React.FC<Props> = ({
                 <a
                   href={`#${id}`}
                   data-cy="TabLink"
-                  onClick={() => handleTabSelect(tab, isSelected)}
+                  onClick={() => handleTabSelect(tab, isSelectedTab)}
                 >
                   {title}
                 </a>

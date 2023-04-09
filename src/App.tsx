@@ -4,7 +4,8 @@ import '@fortawesome/fontawesome-free/css/all.css';
 import './App.scss';
 
 import { Tab } from './types/Tab';
-import { Tabs, getTabById } from './components/Tabs';
+import { Tabs } from './components/Tabs';
+import { getTabById } from './utils/Helpers';
 
 export const tabs: Tab[] = [
   { id: 'tab-1', title: 'Tab 1', content: 'Some text 1' },
