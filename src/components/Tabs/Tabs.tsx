@@ -2,6 +2,7 @@ import React from 'react';
 import classNames from 'classnames';
 
 import { Tab } from '../../Types/Tab';
+import { getSelectedTabById } from './helper';
 
 type Props = {
   tabs: Tab[],
@@ -14,7 +15,7 @@ export const Tabs: React.FC<Props> = ({
   selectedTabId,
   onTabSelected,
 }) => {
-  const selectedTab = tabs.find((tab) => tab.id === selectedTabId) || tabs[0];
+  const selectedTab = getSelectedTabById(tabs, selectedTabId);
 
   return (
     <div data-cy="TabsComponent">
