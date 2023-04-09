@@ -18,7 +18,7 @@ type Tab = {
 
 export const App: React.FC = () => {
   const [selectedTabId, setSelectedTabId] = useState(tabs[0].id);
-  const currentTab = tabs.find(tab => tab.id === selectedTabId) || tabs[0];
+  const currentTab = tabs?.find(tab => tab.id === selectedTabId) || tabs[0];
   const { title } = currentTab;
 
   const onTabSelected = (tab: Tab) => {

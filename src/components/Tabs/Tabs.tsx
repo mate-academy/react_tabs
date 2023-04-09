@@ -19,6 +19,10 @@ export const Tabs: React.FC<Props> = (
     onTabSelected,
   },
 ) => {
+  if (!tabs) {
+    return null;
+  }
+
   const currentTab = tabs.find(tab => tab.id === selectedTabId) || tabs[0];
   const { content } = currentTab;
   const onSelect = (tab: Tab) => {
