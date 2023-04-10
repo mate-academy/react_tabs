@@ -1,4 +1,6 @@
-import cn from 'classnames';
+import { useCallback } from 'react';
+
+import { TabInfo } from '../TabInfo/TabInfo';
 
 import { Tab } from '../../types/Tab';
 
@@ -15,44 +17,25 @@ export const Tabs: React.FC<Props> = (props) => {
     onTabSelected,
   } = props;
 
-  const currentTab = tabs
-    .find(tab => tab.id === selectedTabId) || tabs[0];
+  const currentTab = tabs.find(tab => tab.id === selectedTabId) || tabs[0];
 
-  function handleSelectTab(tab: Tab) {
+  const handleSelectTab = useCallback((tab: Tab) => {
     if (tab.id !== selectedTabId) {
       onTabSelected(tab);
     }
-  }
+  }, [selectedTabId]);
 
   return (
     <div data-cy="TabsComponent">
       <div className="tabs is-boxed">
         <ul>
-          {
-            tabs.map(tab => {
-              const { id, title } = tab;
-
-              return (
-                <li
-                  data-cy="Tab"
-                  key={id}
-                  className={cn({
-                    'is-active': id === currentTab.id,
-                  })}
-                >
-                  <a
-                    href={`#${id}`}
-                    data-cy="TabLink"
-                    onClick={() => {
-                      handleSelectTab(tab);
-                    }}
-                  >
-                    {title}
-                  </a>
-                </li>
-              );
-            })
-          }
+          {tabs.map(tab => (
+            <TabInfo
+              tab={tab}
+              onTabSelect={() => handleSelectTab(tab)}
+              currentTabId={currentTab.id}
+            />
+          ))}
         </ul>
       </div>
 
