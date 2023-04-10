@@ -29,8 +29,7 @@ export const App: React.FC = () => {
     <div className="section">
       <h1 className="title">
         Selected tab is
-        {' '}
-        {title}
+        {` ${title}`}
       </h1>
 
       <Tabs
