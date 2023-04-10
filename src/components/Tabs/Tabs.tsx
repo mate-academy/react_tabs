@@ -23,7 +23,7 @@ export const Tabs: React.FC<Props> = (props) => {
     if (tab.id !== selectedTabId) {
       onTabSelected(tab);
     }
-  }, [selectedTabId]);
+  }, [selectedTabId, onTabSelected]);
 
   return (
     <div data-cy="TabsComponent">
@@ -31,6 +31,7 @@ export const Tabs: React.FC<Props> = (props) => {
         <ul>
           {tabs.map(tab => (
             <TabInfo
+              key={tab.id}
               tab={tab}
               onTabSelect={() => handleSelectTab(tab)}
               currentTabId={currentTab.id}
