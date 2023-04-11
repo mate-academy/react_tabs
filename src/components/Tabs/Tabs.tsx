@@ -3,7 +3,7 @@ import { Tab } from '../../types';
 
 type Props = {
   tabs: Tab[],
-  selectedTab: Tab,
+  selectedTab: string,
   onTabSelected: (tab: Tab) => void,
 };
 
@@ -12,18 +12,15 @@ export const Tabs: React.FC<Props> = ({
   selectedTab,
   onTabSelected,
 }) => {
-  const hanldeTabSelected = (
-    tab: Tab,
-    event: React.SyntheticEvent<Element, Event>,
-  ) => {
-    event.preventDefault();
-
-    if (tab.id === selectedTab.id) {
-      onTabSelected(selectedTab);
+  const hanldeTabSelected = (tab: Tab) => {
+    if (tab.id !== selectedTab) {
+      onTabSelected(tab);
     }
-
-    return onTabSelected(tab);
   };
+
+  const currentTab = tabs.find((tab) => tab.id === selectedTab) || tabs[0];
+
+  const { content } = currentTab;
 
   return (
     <div data-cy="TabsComponent">
@@ -33,14 +30,14 @@ export const Tabs: React.FC<Props> = ({
             <li
               key={tab.id}
               className={classNames({
-                'is-active': selectedTab === tab,
+                'is-active': tab === currentTab,
               })}
               data-cy="Tab"
             >
               <a
                 href={`#${tab.id}`}
                 data-cy="TabLink"
-                onClick={(event) => hanldeTabSelected(tab, event)}
+                onClick={() => hanldeTabSelected(tab)}
               >
                 {tab.title}
               </a>
@@ -50,7 +47,7 @@ export const Tabs: React.FC<Props> = ({
       </div>
 
       <div className="block" data-cy="TabContent">
-        {selectedTab.content}
+        {content}
       </div>
     </div>
   );

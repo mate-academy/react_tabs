@@ -13,12 +13,6 @@ export const tabs = [
 export const App: React.FC = () => {
   const [selectedTabId, setSelectedTabId] = useState(tabs[0]);
 
-  // const hanldeTabSelected = (tab: Tab) => {
-  //   if (tab.id !== selectedTabId.id) {
-  //     setSelectedTabId(tab.id);
-  //   }
-  // };
-
   return (
     <div className="section">
       <h1 className="title">
@@ -29,13 +23,9 @@ export const App: React.FC = () => {
 
       <Tabs
         tabs={tabs}
-        selectedTab={selectedTabId}
+        selectedTab={selectedTabId.id}
         onTabSelected={setSelectedTabId}
       />
-
-      {/* <div className="block" data-cy="TabContent">
-        {selectedTabId.content}
-      </div> */}
     </div>
   );
 };
