@@ -3,22 +3,22 @@ import { Tab } from '../../types';
 
 type Props = {
   tabs: Tab[],
-  selectedTab: string,
+  selectedTabId: string,
   onTabSelected: (tab: Tab) => void,
 };
 
 export const Tabs: React.FC<Props> = ({
   tabs,
-  selectedTab,
+  selectedTabId,
   onTabSelected,
 }) => {
   const hanldeTabSelected = (tab: Tab) => {
-    if (tab.id !== selectedTab) {
+    if (tab.id !== selectedTabId) {
       onTabSelected(tab);
     }
   };
 
-  const currentTab = tabs.find((tab) => tab.id === selectedTab) || tabs[0];
+  const currentTab = tabs.find((tab) => tab.id === selectedTabId) || tabs[0];
 
   const { content } = currentTab;
 
