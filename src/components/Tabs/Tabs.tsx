@@ -1,6 +1,7 @@
 import classNames from 'classnames';
 import React from 'react';
 import { Tab } from '../../types/types';
+import { getSelectedTab } from '../../helper';
 
 interface Props {
   tabs: Tab[],
@@ -13,8 +14,7 @@ export const Tabs: React.FC<Props> = ({
   selectedId,
   onTabSelected,
 }) => {
-  const selectedTab = tabs.find(tab => tab.id === selectedId) || tabs[0];
-
+  const selectedTab = getSelectedTab(tabs, selectedId);
   const handleClick = (tab: Tab) => {
     if (tab.id !== selectedId) {
       onTabSelected(tab);
