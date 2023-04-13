@@ -1,6 +1,6 @@
 import classNames from 'classnames';
 
-export interface Tab {
+interface Tab {
   id: string,
   title: string,
   content: string,
@@ -9,15 +9,15 @@ export interface Tab {
 type Props = {
   tabs: Tab[],
   selectedTabId: string,
-  selectTab: (id: Tab) => void,
+  onSelectTab: (id: Tab) => void,
 };
 
-export const Tabs: React.FC<Props> = ({ tabs, selectTab, selectedTabId }) => {
+export const Tabs: React.FC<Props> = ({ tabs, onSelectTab, selectedTabId }) => {
   const selectedTab = tabs.find(tab => tab.id === selectedTabId) || tabs[0];
 
   const handleTabClick = (tab: Tab) => {
     if (selectedTabId !== tab.id) {
-      selectTab(tab);
+      onSelectTab(tab);
     }
   };
 
