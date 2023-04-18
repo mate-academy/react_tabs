@@ -10,14 +10,12 @@ type Props = {
   tabs: TabsType[],
   selectedTabsId: string,
   onTabSelected: React.MouseEventHandler<HTMLAnchorElement>,
-  selectedTab: TabsType | undefined,
 };
 
 export const Tabs: React.FC<Props> = React.memo(({
   tabs,
   selectedTabsId,
   onTabSelected,
-  selectedTab,
 }) => (
   <>
     <div className="tabs is-boxed">
@@ -41,7 +39,7 @@ export const Tabs: React.FC<Props> = React.memo(({
     </div>
 
     <div className="block" data-cy="TabContent">
-      {selectedTab?.content}
+      {tabs.find(tab => tab.id === selectedTabsId)?.content}
     </div>
   </>
 ));

@@ -12,11 +12,11 @@ export const tabs = [
 ];
 
 export const App: React.FC = () => {
-  const [selectedTabsId, setTabsId] = useState('tab-1');
+  const [selectedTabsId, setSelectedTabsId] = useState('tab-1');
   const handleClick = (event: React.MouseEvent<HTMLAnchorElement>) => {
     const targetTab = event.currentTarget as HTMLAnchorElement;
 
-    setTabsId(targetTab.hash.slice(1));
+    setSelectedTabsId(targetTab.hash.slice(1));
   };
 
   const selectedTab = tabs.find(tab => tab.id === selectedTabsId);
@@ -32,7 +32,6 @@ export const App: React.FC = () => {
           tabs={tabs}
           selectedTabsId={selectedTabsId}
           onTabSelected={handleClick}
-          selectedTab={selectedTab}
         />
       </div>
     </div>
