@@ -17,8 +17,7 @@ export const App: React.FC = () => {
     <div className="section">
       <h1 className="title">
         Selected tab is
-        {' '}
-        {selectedTabId.title}
+        { ` ${selectedTabId.title}` }
       </h1>
 
       <div data-cy="TabsComponent">

@@ -2,7 +2,7 @@ import { SyntheticEvent } from 'react';
 import { Tab, TabsProps } from '../../types/tab';
 
 export const Tabs = ({ tabs, selectedTabId, onTabSelected }: TabsProps) => {
-  const onTabClickHandle = (event: SyntheticEvent, tab: Tab) => {
+  const handleTabClick = (event: SyntheticEvent, tab: Tab) => {
     event.preventDefault();
 
     if (!tab?.id) {
@@ -31,7 +31,7 @@ export const Tabs = ({ tabs, selectedTabId, onTabSelected }: TabsProps) => {
               <a
                 href={`#${tab.id}`}
                 data-cy="TabLink"
-                onClick={(event) => onTabClickHandle(event, tab)}
+                onClick={(event) => handleTabClick(event, tab)}
               >
                 {tab.title}
               </a>
