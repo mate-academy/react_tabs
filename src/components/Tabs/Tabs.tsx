@@ -1,3 +1,4 @@
+import classnames from 'classnames';
 import { Tab } from '../../types/Tab';
 
 interface Props {
@@ -11,33 +12,36 @@ export const Tabs: React.FC<Props> = ({
   selectedTabId,
   onTabSelected,
 }) => {
-  const selectedTab = tabs.find(tab => tab.id === selectedTabId);
+  const selectedTab = tabs.find(tab => tab.id === selectedTabId) || tabs[0];
 
   return (
     <div data-cy="TabsComponent">
       <div className="tabs is-boxed">
         <ul>
-          {tabs.map(tab => (
-            <li
-              data-cy="Tab"
-              className={tab.id === selectedTabId
-                ? 'is-active'
-                : ''}
-              key={tab.id}
-            >
-              <a
-                href={`#${tab.id}`}
-                data-cy="TabLink"
-                onClick={() => {
-                  if (selectedTabId !== tab.id) {
-                    onTabSelected(tab);
-                  }
-                }}
+          {tabs.map(tab => {
+            return (
+              <li
+                key={tab.id}
+                data-cy="Tab"
+                className={classnames(
+                  { 'is-active': tab.id === selectedTab.id },
+                )}
+
               >
-                {tab.title}
-              </a>
-            </li>
-          ))}
+                <a
+                  href={`#${tab.id}`}
+                  data-cy="TabLink"
+                  onClick={() => {
+                    if (tab.id !== selectedTab.id) {
+                      onTabSelected(tab);
+                    }
+                  }}
+                >
+                  {tab.title}
+                </a>
+              </li>
+            );
+          })}
         </ul>
       </div>
 
