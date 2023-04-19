@@ -1,7 +1,7 @@
 import { SyntheticEvent } from 'react';
 import { Tab, TabsProps } from '../../types/tab';
 
-export const Tabs = ({ tabs, selectedTabId, onTabSelected }: TabsProps) => {
+export const Tabs = ({ tabs, selectedTab, onTabSelected }: TabsProps) => {
   const handleTabClick = (event: SyntheticEvent, tab: Tab) => {
     event.preventDefault();
 
@@ -11,7 +11,7 @@ export const Tabs = ({ tabs, selectedTabId, onTabSelected }: TabsProps) => {
       return;
     }
 
-    if (tab.id === selectedTabId.id) {
+    if (tab.id === selectedTab.id) {
       return;
     }
 
@@ -24,7 +24,7 @@ export const Tabs = ({ tabs, selectedTabId, onTabSelected }: TabsProps) => {
         <ul>
           {tabs.map((tab: Tab) => (
             <li
-              className={tab.id === selectedTabId.id ? 'is-active' : ''}
+              className={tab.id === selectedTab.id ? 'is-active' : ''}
               data-cy="Tab"
               key={tab.id}
             >
@@ -44,7 +44,7 @@ export const Tabs = ({ tabs, selectedTabId, onTabSelected }: TabsProps) => {
         className="block"
         data-cy="TabContent"
       >
-        {selectedTabId.content}
+        {selectedTab.content}
       </div>
     </div>
   );
