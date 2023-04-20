@@ -1,4 +1,3 @@
-import classNames from 'classnames';
 import { Tab } from '../Tab';
 import { TabType } from '../../types/Tab';
 
@@ -16,26 +15,14 @@ export const Tabs: React.FC<Props> = ({
   <div data-cy="TabsComponent">
     <div className="tabs is-boxed">
       <ul>
-        {tabs.map((tab, index) => {
-          const { id, title } = tab;
-          const tabId = index + 1;
-
-          return (
-            <li
-              key={id}
-              data-cy="Tab"
-              className={classNames({
-                'is-active': tabId === selectedTabId,
-              })}
-            >
-              <Tab
-                tabId={tabId}
-                title={title}
-                onTabSelected={onTabSelected}
-              />
-            </li>
-          );
-        })}
+        {tabs.map((tab, index) => (
+          <Tab
+            tab={tab}
+            index={index}
+            selectedTabId={selectedTabId}
+            onTabSelected={onTabSelected}
+          />
+        ))}
       </ul>
     </div>
 
