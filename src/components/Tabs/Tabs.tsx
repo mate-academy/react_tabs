@@ -1,9 +1,9 @@
 import classNames from 'classnames';
 import { Tab } from '../Tab';
-import { TTab } from '../../types/Tab';
+import { TabType } from '../../types/Tab';
 
 type Props = {
-  tabs: TTab[],
+  tabs: TabType[],
   selectedTabId: number,
   onTabSelected: (tabId: number) => void,
 };
