@@ -2,7 +2,7 @@ import { Tab } from '../../types';
 
 interface TabsProps {
   tabs: Tab[],
-  onTabSelected: (id: string) => void,
+  onTabSelected: (tab: Tab) => void,
   selectedTabId: string
 }
 
@@ -23,7 +23,9 @@ export const Tabs: React.FC<TabsProps>
               >
                 <a
                   onClick={() => {
-                    onTabSelected(tab.id);
+                    if (selectedTabId !== tab.id) {
+                      onTabSelected(tab);
+                    }
                   }}
                   href={`#${tab.id}`}
                   data-cy="TabLink"
