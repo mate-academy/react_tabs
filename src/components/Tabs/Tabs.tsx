@@ -7,14 +7,18 @@ interface TabsProps {
   onTabSelected: (tab: Tab) => void;
 }
 
-export const Tabs: React.FC<TabsProps> = (
-  { tabs, selectedTabId, onTabSelected },
-) => {
-  const selectedTab = tabs.find((tab) => tab.id === selectedTabId) || tabs[0];
+const getTabById = (id: string, tabs: Tab[]) => tabs
+  .find((tab) => tab.id === id) ?? tabs[0];
 
-  const handleTabClick = (tab: Tab) => {
-    if (tab.id !== selectedTab.id) {
-      onTabSelected(tab);
+export const Tabs: React.FC<TabsProps> = ({
+  tabs, selectedTabId, onTabSelected,
+}) => {
+  const selectedTab = getTabById(selectedTabId, tabs);
+  const { content } = selectedTab;
+
+  const handleTabClick = (id: string) => {
+    if (id !== selectedTabId) {
+      onTabSelected(getTabById(id, tabs));
     }
   };
 
@@ -22,25 +26,25 @@ export const Tabs: React.FC<TabsProps> = (
     <div data-cy="TabsComponent">
       <div className="tabs is-boxed">
         <ul>
-          {tabs.map((tab) => (
+          {tabs.map(({ id, title }) => (
             <li
-              key={tab.id}
-              className={selectedTab.id === tab.id ? 'is-active' : ''}
+              key={id}
+              className={id === selectedTab.id ? 'is-active' : ''}
               data-cy="Tab"
             >
               <a
-                href={`#${tab.id}`}
-                onClick={() => handleTabClick(tab)}
+                href={`#${id}`}
+                onClick={() => handleTabClick(id)}
                 data-cy="TabLink"
               >
-                {tab.title}
+                {title}
               </a>
             </li>
           ))}
         </ul>
       </div>
       <div className="block" data-cy="TabContent">
-        {selectedTab.content}
+        {content}
       </div>
     </div>
   );
