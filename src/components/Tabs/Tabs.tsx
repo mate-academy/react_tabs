@@ -17,6 +17,8 @@ export const Tabs: React.FC<TabsProps> = ({
     selectedTab, setSelectedTab,
   ] = useState(() => getTabById(selectedTabId, tabs));
 
+  const { content } = selectedTab;
+
   const handleTabClick = (id: string) => {
     const tab = getTabById(id, tabs);
 
@@ -47,7 +49,7 @@ export const Tabs: React.FC<TabsProps> = ({
         </ul>
       </div>
       <div className="block" data-cy="TabContent">
-        {selectedTab.content}
+        {content}
       </div>
     </div>
   );
