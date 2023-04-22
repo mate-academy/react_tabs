@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Tab } from '../../types/tab';
 
 interface TabsProps {
@@ -13,12 +13,15 @@ const getTabById = (id: string, tabs: Tab[]) => tabs
 export const Tabs: React.FC<TabsProps> = ({
   tabs, selectedTabId, onTabSelected,
 }) => {
-  const selectedTab = getTabById(selectedTabId, tabs);
-  const { content } = selectedTab;
+  const [
+    selectedTab, setSelectedTab,
+  ] = useState(() => getTabById(selectedTabId, tabs));
 
   const handleTabClick = (id: string) => {
-    if (id !== selectedTabId) {
-      onTabSelected(getTabById(id, tabs));
+    const tab = getTabById(id, tabs);
+
+    if (tab !== selectedTab) {
+      setSelectedTab(tab); onTabSelected(tab);
     }
   };
 
@@ -44,7 +47,7 @@ export const Tabs: React.FC<TabsProps> = ({
         </ul>
       </div>
       <div className="block" data-cy="TabContent">
-        {content}
+        {selectedTab.content}
       </div>
     </div>
   );
