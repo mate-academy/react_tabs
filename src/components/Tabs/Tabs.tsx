@@ -25,13 +25,13 @@ export const Tabs: React.FC<Props> = ({
               <li
                 data-cy="Tab"
                 key={id}
-                className={classNames({ 'is-active': id === selectedTabId })}
+                className={classNames({ 'is-active': id === selectedTab.id })}
               >
                 <a
                   href={`#${id}`}
                   data-cy="TabLink"
                   onClick={() => {
-                    if (id !== selectedTabId) {
+                    if (id !== selectedTab.id) {
                       onTabSelected(tab);
                     }
                   }}
