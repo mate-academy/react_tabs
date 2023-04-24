@@ -12,7 +12,7 @@ export const tabs = [
 ];
 
 export const App: React.FC = () => {
-  const [selectedTabId, setSelectedTabId] = useState<string>(tabs[0].id);
+  const [selectedTab, setSelectedTab] = useState<string>(tabs[0]);
 
   const getTabTitleByID = (id: string) => tabs.find(
     (tab) => tab.id === id,
