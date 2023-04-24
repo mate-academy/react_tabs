@@ -6,8 +6,11 @@ interface TabsProps {
   selectedTabId: string
 }
 
-export const Tabs: React.FC<TabsProps>
-  = ({ tabs, onTabSelected, selectedTabId }) => {
+export const Tabs: React.FC<TabsProps>= ({ 
+  tabs, 
+  onTabSelected, 
+  selectedTabId,
+}) => {
     const getContentById = (id: string) => tabs.find(
       (tab: Tab) => tab.id === id,
     )?.content;
