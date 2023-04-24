@@ -37,8 +37,7 @@ export const App: React.FC = () => {
   return (
     <div className="section">
       <h1 className="title">
-        Selected tab is
-        {` ${getTabTitleByID(selectedTabId)}`}
+       {`Selected tab is ${selectedTab.title}`}
       </h1>
       <Tabs
         tabs={tabs}
