@@ -11,11 +11,11 @@ export const tabs = [
 ];
 
 export const App: React.FC = () => {
-  const [selectedTabId, setSelectedTabId] = useState('tab-1');
-  const selectedTab = tabs.filter(tab => tab.id === selectedTabId)[0];
+  const [selectedTabId, setSelectedTabId] = useState(tabs[0].id);
+  const selectedTab = tabs.find(tab => tab.id === selectedTabId);
 
-  const onTabSelected = (index: number): void => {
-    setSelectedTabId(`tab-${index + 1}`);
+  const onTabSelected = (id: string) => {
+    setSelectedTabId(id);
   };
 
   return (
@@ -23,13 +23,12 @@ export const App: React.FC = () => {
       <h1 className="title">
         Selected tab is
         {' '}
-        {selectedTab.title}
+        {selectedTab?.title}
       </h1>
 
       <Tabs
         tabs={tabs}
         tabId={selectedTabId}
-        content={selectedTab.content}
         onClick={onTabSelected}
       />
     </div>

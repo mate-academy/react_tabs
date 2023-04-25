@@ -5,18 +5,17 @@ import { Tab } from '../../Tab';
 interface Props {
   tabs: Tab[];
   tabId: string;
-  content: string;
-  onClick: (index: number) => void;
+  onClick: (id: string) => void;
 }
 
 export const Tabs: React.FC<Props> = ({
-  tabs, tabId, content, onClick,
+  tabs, tabId, onClick,
 }) => {
   return (
     <div data-cy="TabsComponent">
       <div className="tabs is-boxed">
         <ul>
-          {tabs.map(({ id, title }, index) => (
+          {tabs.map(({ id, title }) => (
             <li
               className={classNames({ 'is-active': tabId === id })}
               data-cy="Tab"
@@ -24,7 +23,7 @@ export const Tabs: React.FC<Props> = ({
             >
               <a
                 href={`#${id}`}
-                onClick={() => onClick(index)}
+                onClick={() => onClick(id)}
                 data-cy="TabLink"
               >
                 {title}
@@ -35,7 +34,7 @@ export const Tabs: React.FC<Props> = ({
       </div>
 
       <div className="block" data-cy="TabContent">
-        {content}
+        {tabId && tabs.find(tab => tab.id === tabId)?.content}
       </div>
     </div>
   );
