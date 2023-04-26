@@ -25,8 +25,9 @@ export const Tabs: React.FC<Props> = ({
             const { id, title } = tab;
             const isCurrentTabSelected = id === selectedTabId;
             const isCurrentTabFirst = id === tabs[0].id;
-            const activeCondition = (!isSelectedTabExists && isCurrentTabFirst)
-            || (isSelectedTabExists && isCurrentTabSelected);
+            const activeCondition = isSelectedTabExists
+              ? isCurrentTabSelected
+              : isCurrentTabFirst;
 
             return (
               <li
