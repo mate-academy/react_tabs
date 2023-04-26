@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import 'bulma/css/bulma.css';
 import '@fortawesome/fontawesome-free/css/all.css';
 import './App.scss';
-import classNames from 'classnames';
 import { Tabs } from './components/Tabs';
 
 export const tabs = [
@@ -12,45 +11,25 @@ export const tabs = [
 ];
 
 export const App: React.FC = () => {
-  const [selectedTabId, setSelectedTabId] = useState('tab-1');
-  const [selectedTabTitle, setSelectedTabTitle] = useState('Tab 1');
-  const [selectedTabContent, setSelectedTabContent] = useState('Some text 1');
+  const [selectedTab, setSelectedTab] = useState(tabs[0]);
 
   const onTabSelected = (ev: React.MouseEvent<HTMLAnchorElement>) => {
-    const selectedTab = tabs.filter(tab => tab.id === ev.currentTarget.id)[0];
-
-    setSelectedTabId(selectedTab.id);
-    setSelectedTabTitle(selectedTab.title);
-    setSelectedTabContent(selectedTab.content);
+    setSelectedTab(tabs.find(tab => tab.id === ev.currentTarget.id) || tabs[0]);
   };
 
   return (
     <div className="section">
       <h1 className="title">
         Selected tab is&nbsp;
-        {selectedTabTitle}
+        {selectedTab.title}
       </h1>
 
       <div data-cy="TabsComponent">
-        <div className="tabs is-boxed">
-          <ul>
-            {tabs.map(tab => (
-              <li
-                className={classNames({
-                  'is-active': tab.id === selectedTabId,
-                })}
-                data-cy="Tab"
-                key={tab.id}
-              >
-                <Tabs tab={tab} onTabSelected={onTabSelected} />
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        <div className="block" data-cy="TabContent">
-          {selectedTabContent}
-        </div>
+        <Tabs
+          tabs={tabs}
+          onTabSelected={onTabSelected}
+          selectedTab={selectedTab}
+        />
       </div>
     </div>
   );
