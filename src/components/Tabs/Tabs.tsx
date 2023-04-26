@@ -1,10 +1,5 @@
 import classNames from 'classnames';
-
-interface Tab {
-  id: string,
-  title: string,
-  content: string,
-}
+import { Tab } from '../../types/Tab';
 
 interface Props {
   tabs: Tab[],
