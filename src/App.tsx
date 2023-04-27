@@ -13,22 +13,16 @@ export const tabs = [
 
 export const App: React.FC = () => {
   const [selectedTabId, setSelectedTabId] = useState('tab-1');
-  const [title, steTitle] = useState('Tab 1');
+  const selectedTabTitle = tabs.find(tab => tab.id === selectedTabId)?.title;
 
   const handleTabSelect = (tab: Tab) => {
     setSelectedTabId(tab.id);
-    steTitle(tab.title);
   };
-
-  if ((tabs.find(tab => tab.id === selectedTabId)) === undefined) {
-    setSelectedTabId('tab-1');
-  }
 
   return (
     <div className="section">
       <h1 className="title">
-        Selected tab is
-        {` ${title}`}
+        {`Selected tab is ${selectedTabTitle}`}
       </h1>
 
       <Tabs

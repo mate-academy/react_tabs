@@ -1,4 +1,5 @@
 import { Tab } from '../../types/Tab';
+import { TabInfo } from '../Tab/TabInfo';
 
 interface Props {
   tabs: Tab[],
@@ -11,38 +12,29 @@ export const Tabs: React.FC<Props> = ({
   selectedTabId,
   onTabSelected,
 }) => {
-  const activeTabId = tabs.some(tab => tab.id === selectedTabId)
+  const activeTabId = tabs.find(tab => tab.id === selectedTabId)
     ? selectedTabId
     : tabs[0].id;
+
+  const foundTab = tabs.find(tab => tab.id === selectedTabId);
 
   return (
     <div data-cy="TabsComponent">
       <div className="tabs is-boxed">
         <ul>
           {tabs.map(tab => (
-            <li
+            <TabInfo
               key={tab.id}
-              className={tab.id === activeTabId ? 'is-active' : ''}
-              data-cy="Tab"
-            >
-              <a
-                href={`#${tab.id}`}
-                data-cy="TabLink"
-                onClick={() => {
-                  if (tab.id !== activeTabId) {
-                    onTabSelected(tab);
-                  }
-                }}
-              >
-                {tab.title}
-              </a>
-            </li>
+              tab={tab}
+              isActive={tab.id === activeTabId}
+              onTabSelected={onTabSelected}
+            />
           ))}
         </ul>
       </div>
 
       <div className="block" data-cy="TabContent">
-        {tabs.find(tab => tab.id === selectedTabId)?.content}
+        {foundTab?.content}
       </div>
     </div>
   );
