@@ -10,6 +10,13 @@ interface Props {
 
 export const Tabs: FC<Props> = ({ tabs, selectedTabId, onTabSelected }) => {
   const currentTab = tabs.find((tab) => tab.id === selectedTabId) || tabs[0];
+  const { content } = currentTab;
+
+  const handlerChange = (active: boolean, tab: Tab): void => {
+    if (!active) {
+      onTabSelected(tab);
+    }
+  };
 
   return (
     <div data-cy="TabsComponent">
@@ -17,6 +24,7 @@ export const Tabs: FC<Props> = ({ tabs, selectedTabId, onTabSelected }) => {
         <ul>
           {tabs.map((tab) => {
             const isActive = tab.id === currentTab.id;
+            const { id, title } = tab;
 
             return (
               <li
@@ -24,18 +32,16 @@ export const Tabs: FC<Props> = ({ tabs, selectedTabId, onTabSelected }) => {
                   'is-active': isActive,
                 })}
                 data-cy="Tab"
-                key={tab.id}
+                key={id}
               >
                 <a
-                  href={`#${tab.id}`}
+                  href={`#${id}`}
                   data-cy="TabLink"
                   onClick={() => {
-                    if (!isActive) {
-                      onTabSelected(tab);
-                    }
+                    handlerChange(isActive, tab);
                   }}
                 >
-                  {tab.title}
+                  {title}
                 </a>
               </li>
             );
@@ -44,7 +50,7 @@ export const Tabs: FC<Props> = ({ tabs, selectedTabId, onTabSelected }) => {
       </div>
 
       <div className="block" data-cy="TabContent">
-        {currentTab.content}
+        {content}
       </div>
     </div>
 
