@@ -1,4 +1,4 @@
-import { FC, useState } from 'react';
+import { FC } from 'react';
 import classNames from 'classnames';
 import { Tab } from './types/interface';
 
@@ -9,24 +9,7 @@ interface Props {
 }
 
 export const Tabs: FC<Props> = ({ tabs, selectedTabId, onTabSelected }) => {
-  let currentTab = tabs.find(({ id }) => id === selectedTabId);
-
-  if (!currentTab) {
-    const [tab] = tabs;
-
-    currentTab = tab;
-  }
-
-  const [text, setText] = useState(currentTab.content);
-  const choseTab = (tab: Tab) => {
-    const { content, id } = tab;
-
-    setText(content);
-
-    if (id !== selectedTabId) {
-      onTabSelected(tab);
-    }
-  };
+  const currentTab = tabs.find(({ id }) => id === selectedTabId) || tabs[0];
 
   return (
     <div data-cy="TabsComponent">
@@ -46,7 +29,11 @@ export const Tabs: FC<Props> = ({ tabs, selectedTabId, onTabSelected }) => {
                 <a
                   href={`#${id}`}
                   data-cy="TabLink"
-                  onClick={() => choseTab(tab)}
+                  onClick={() => {
+                    if (tab.id !== selectedTabId) {
+                      onTabSelected(tab);
+                    }
+                  }}
                 >
                   {title}
                 </a>
@@ -57,7 +44,7 @@ export const Tabs: FC<Props> = ({ tabs, selectedTabId, onTabSelected }) => {
       </div>
 
       <div className="block" data-cy="TabContent">
-        {text}
+        {currentTab.content}
       </div>
     </div>
   );
