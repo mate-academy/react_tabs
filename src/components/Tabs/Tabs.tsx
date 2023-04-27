@@ -4,12 +4,12 @@ import { Tab } from '../../types/Tab';
 
 interface Props {
   tabs: Tab[];
-  selectedTab: Tab,
+  selectedTabId: string,
   onTabSelected: (tab: Tab) => void,
 }
 
-export const Tabs: FC<Props> = ({ tabs, selectedTab, onTabSelected }) => {
-  const currentTab = tabs.find((tab) => tab.id === selectedTab.id) || tabs[0];
+export const Tabs: FC<Props> = ({ tabs, selectedTabId, onTabSelected }) => {
+  const currentTab = tabs.find((tab) => tab.id === selectedTabId) || tabs[0];
 
   return (
     <div data-cy="TabsComponent">
