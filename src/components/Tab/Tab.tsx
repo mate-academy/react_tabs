@@ -1,3 +1,4 @@
+import classNames from 'classnames';
 import { Tab } from '../../types/Tab';
 
 type Props = {
@@ -18,12 +19,20 @@ export const TabComponent: React.FC<Props> = ({
   };
 
   return (
-    <a
-      href={`#${tab.id}`}
-      data-cy="TabLink"
-      onClick={handleClick}
+    <li
+      key={tab.id}
+      data-cy="Tab"
+      className={classNames({
+        'is-active': isSelected,
+      })}
     >
-      {tab.title}
-    </a>
+      <a
+        href={`#${tab.id}`}
+        data-cy="TabLink"
+        onClick={handleClick}
+      >
+        {tab.title}
+      </a>
+    </li>
   );
 };
