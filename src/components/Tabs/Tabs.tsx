@@ -51,6 +51,7 @@ export const Tabs: React.FC<Props> = ({
                   { 'is-active': id === selectedId },
                 )}
                 data-cy="Tab"
+                key={id}
               >
                 <a
                   href={`#${id}`}
