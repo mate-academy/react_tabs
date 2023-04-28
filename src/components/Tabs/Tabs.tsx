@@ -13,9 +13,7 @@ export const Tabs: React.FC<Props> = ({
   selectedTabId,
   onTabSelected,
 }) => {
-  const selectedTab = tabs.find(({ id }) => id === selectedTabId);
-  const isSelectedTabExists = tabs
-    .find(({ id }) => id === selectedTabId) !== undefined;
+  const selectedTab = tabs.find(({ id }) => id === selectedTabId) || tabs[0];
 
   return (
     <div data-cy="TabsComponent">
@@ -23,16 +21,12 @@ export const Tabs: React.FC<Props> = ({
         <ul>
           {tabs.map(tab => {
             const { id, title } = tab;
-            const isCurrentTabSelected = id === selectedTabId;
-            const isCurrentTabFirst = id === tabs[0].id;
-            const activeCondition = isSelectedTabExists
-              ? isCurrentTabSelected
-              : isCurrentTabFirst;
+            const isCurrentTabSelected = id === selectedTab.id;
 
             return (
               <li
                 className={classNames({
-                  'is-active': activeCondition,
+                  'is-active': isCurrentTabSelected,
                 })}
                 data-cy="Tab"
                 key={id}
