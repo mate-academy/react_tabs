@@ -1,5 +1,5 @@
-import classNames from 'classnames';
 import { Tab } from '../../types/Tab';
+import { TabItem } from '../Tab/TabItem';
 
 interface Props {
   tabs: Tab[];
@@ -12,7 +12,7 @@ export const Tabs: React.FC<Props> = ({
   selectedTabId,
   onTabSelected,
 }) => {
-  const selectedTab = tabs.find(({ id }: Tab): boolean => id === selectedTabId);
+  const selectedTab = tabs.find(({ id }) => id === selectedTabId);
 
   const isNoTabSelected = tabs.every(
     ({ id }: Tab): boolean => id !== selectedTabId,
@@ -29,25 +29,11 @@ export const Tabs: React.FC<Props> = ({
             || (isNoTabSelected && isFirstTab);
 
             return (
-              <li
-                className={classNames({
-                  'is-active': isActiveTab,
-                })}
-                data-cy="Tab"
-                key={tab.id}
-              >
-                <a
-                  href={`#${tab.id}`}
-                  data-cy="TabLink"
-                  onClick={() => {
-                    if (!isActiveTab) {
-                      onTabSelected(tab);
-                    }
-                  }}
-                >
-                  {tab.title}
-                </a>
-              </li>
+              <TabItem
+                tab={tab}
+                isActiveTab={isActiveTab}
+                onTabSelected={onTabSelected}
+              />
             );
           })}
         </ul>
