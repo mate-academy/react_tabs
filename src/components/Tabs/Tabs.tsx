@@ -1,6 +1,6 @@
 import { FC } from 'react';
-import classNames from 'classnames';
 import { Tab } from '../../interfaces/Tab';
+import { TabInfo } from './TabInfo';
 
 interface Props {
   tabs: Tab[];
@@ -19,25 +19,11 @@ export const Tabs:FC<Props> = ({
       <div className="tabs is-boxed">
         <ul>
           {tabs.map(tab => (
-            <li
-              className={classNames(
-                { 'is-active': tab.id === selectedTab.id },
-              )}
-              data-cy="Tab"
-              key={tab.id}
-            >
-              <a
-                href={`#${tab.id}`}
-                data-cy="TabLink"
-                onClick={() => {
-                  if (tab.id !== selectedTab.id) {
-                    onTabselected(tab);
-                  }
-                }}
-              >
-                {tab.title}
-              </a>
-            </li>
+            <TabInfo
+              tab={tab}
+              isActive={tab.id === selectedTabId}
+              onTabselected={onTabselected}
+            />
           ))}
         </ul>
       </div>
