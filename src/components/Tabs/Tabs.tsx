@@ -18,25 +18,30 @@ export const Tabs: React.FC<Props> = ({
     <div data-cy="TabsComponent">
       <div className="tabs is-boxed">
         <ul>
-          {tabs.map(tab => (
-            <li
-              className={cn({ 'is-active': tab.id === currentTab.id })}
-              data-cy="Tab"
-              key={tab.id}
-            >
-              <a
-                href={`#${tab.id}`}
-                data-cy="TabLink"
-                onClick={() => {
-                  if (tab.id !== selectedTabId) {
-                    onTabSelected(tab);
-                  }
-                }}
+          {tabs.map((tab) => {
+            const isActive = tab.id === currentTab.id;
+            const isSelectable = tab.id !== selectedTabId;
+
+            return (
+              <li
+                className={cn({ 'is-active': isActive })}
+                data-cy="Tab"
+                key={tab.id}
               >
-                {tab.title}
-              </a>
-            </li>
-          ))}
+                <a
+                  href={`#${tab.id}`}
+                  data-cy="TabLink"
+                  onClick={() => {
+                    if (isSelectable) {
+                      onTabSelected(tab);
+                    }
+                  }}
+                >
+                  {tab.title}
+                </a>
+              </li>
+            );
+          })}
         </ul>
       </div>
 
