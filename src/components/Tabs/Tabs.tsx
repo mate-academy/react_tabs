@@ -1,13 +1,15 @@
 import classNames from 'classnames';
 
+type Tab = {
+  id: string;
+  title: string;
+  content: string;
+};
+
 interface Props {
   selectedTabId: string;
-  tabs: {
-    id: string;
-    title: string;
-    content: string;
-  }[];
-  onTabSelected: (pressedId: string) => void;
+  tabs: Tab[];
+  onTabSelected: (selectedTabId: string) => void;
 }
 
 export const Tabs: React.FC<Props> = ({
@@ -15,6 +17,14 @@ export const Tabs: React.FC<Props> = ({
   tabs,
   onTabSelected,
 }) => {
+  const handleTabSelect = (tab: Tab) => {
+    if (tab.id === selectedTabId) {
+      return;
+    }
+
+    onTabSelected(tab.id);
+  };
+
   return (
     <div className="section">
       <h1 className="title">
@@ -36,7 +46,7 @@ export const Tabs: React.FC<Props> = ({
                   <a
                     href={`#${tab.id}`}
                     data-cy="TabLink"
-                    onClick={() => onTabSelected(tab.id)}
+                    onClick={() => handleTabSelect(tab)}
                   >
                     {tab.title}
                   </a>

@@ -2,8 +2,8 @@
 import 'bulma/css/bulma.css';
 import '@fortawesome/fontawesome-free/css/all.css';
 import './App.scss';
-import { Tabs } from './components/Tabs';
 import { useState } from 'react';
+import { Tabs } from './components/Tabs';
 
 export const tabs = [
   { id: 'tab-1', title: 'Tab 1', content: 'Some text 1' },
@@ -13,19 +13,12 @@ export const tabs = [
 
 export const App: React.FC = () => {
   const [selectedTabId, setSelectedTabId] = useState(tabs[0].id);
-  const onTabSelected = (pressedId: string): void => {
-    if (pressedId === selectedTabId) {
-      return;
-    }
-
-    setSelectedTabId(pressedId);
-  };
 
   return (
     <Tabs
       selectedTabId={selectedTabId}
       tabs={tabs}
-      onTabSelected={onTabSelected}
+      onTabSelected={setSelectedTabId}
     />
     // <Tabs />
   );
