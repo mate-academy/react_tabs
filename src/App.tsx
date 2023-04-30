@@ -14,8 +14,8 @@ export const App: React.FC = () => {
   const [selectedTabId, onTabSelected] = useState('tab-1');
   let selectedTitle = 'Tab 1';
 
-  const preventDef = (e: MouseEvent) => {
-    e.preventDefault();
+  const preventDef = (event: MouseEvent) => {
+    event.preventDefault();
   };
 
   tabs.map((tab) => {
