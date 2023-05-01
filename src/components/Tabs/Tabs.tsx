@@ -49,7 +49,7 @@ export const Tabs: React.FC<Props> = ({
           })}
         </ul>
       </div>
-      
+
       <div className="block" data-cy="TabContent">
         {selectedTab.content}
       </div>
