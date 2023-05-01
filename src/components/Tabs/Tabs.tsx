@@ -1,6 +1,6 @@
 import { FC } from 'react';
-import classNames from 'classnames';
 import { Tab } from '../../types/Tab';
+import { TabInfo } from '../TabInfo';
 
 type Props = {
   tabs: Tab[];
@@ -15,7 +15,11 @@ export const Tabs: FC<Props> = ({ tabs, onTabSelected, selectedTabId }) => {
     }
   };
 
-  const findTab = tabs.find(tab => tab.id === selectedTabId);
+  const foundTab = tabs.find(tab => tab.id === selectedTabId);
+
+  if (!foundTab) {
+    onTabSelected(tabs[0]);
+  }
 
   return (
     <div data-cy="TabsComponent">
@@ -26,26 +30,21 @@ export const Tabs: FC<Props> = ({ tabs, onTabSelected, selectedTabId }) => {
             const isActive = selectedTabId === id;
 
             return (
-              <li
-                data-cy="Tab"
+              <TabInfo
                 key={id}
-                className={classNames({ 'is-active': isActive })}
-              >
-                <a
-                  href={`#${id}`}
-                  data-cy="TabLink"
-                  onClick={() => handleClick(tab)}
-                >
-                  {title}
-                </a>
-              </li>
+                id={id}
+                isActive={isActive}
+                title={title}
+                tab={tab}
+                handleClick={handleClick}
+              />
             );
           })}
         </ul>
       </div>
 
       <div className="block" data-cy="TabContent">
-        {`${findTab?.content}`}
+        {`${foundTab?.content}`}
       </div>
     </div>
   );

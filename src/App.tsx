@@ -19,9 +19,13 @@ export const App: FC = () => {
     setSelectedTabId(tab.id);
   };
 
-  const findTab = (id: string): Tab | null => (
-    tabs.find(tab => tab.id === id) || null
+  const findTab = (id: string): Tab => (
+    tabs.find(tab => tab.id === id) || tabs[0]
   );
+
+  if (!findTab) {
+    setSelectedTabId(tabs[0].id);
+  }
 
   return (
     <div className="section">
