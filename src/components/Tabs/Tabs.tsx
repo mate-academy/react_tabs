@@ -34,19 +34,22 @@ export const Tabs: React.FC<Props> = ({
             return (
               <li
                 className={classNames(
-                  { 'is-active ': isActive },
+                  { 'is-active': isActive },
                 )}
                 data-cy="Tab"
                 key={tab.id}
                 onClick={() => handleClickTab(tab)}
                 aria-hidden="true"
               >
-                <a href={`#${tab.id}`} data-cy="TabLink">{tab.title}</a>
+                <a href={`#${tab.id}`} data-cy="TabLink">
+                  {tab.title}
+                </a>
               </li>
             );
           })}
         </ul>
       </div>
+      
       <div className="block" data-cy="TabContent">
         {selectedTab.content}
       </div>
