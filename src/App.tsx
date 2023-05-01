@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { Tabs } from './components/Tabs';
-// import { Tab } from './types/Tab';
 import 'bulma/css/bulma.css';
 import '@fortawesome/fontawesome-free/css/all.css';
 import './App.scss';
@@ -13,8 +12,6 @@ export const tabs = [
 
 export const App: React.FC = () => {
   const [selectedTab, setSelectedTab] = useState(tabs[0]);
-
-  // const selectedTab = tabs.find((tab: Tab) => tab.id === selectedTabId);
 
   return (
     <div className="section">
