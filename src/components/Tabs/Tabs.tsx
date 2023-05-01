@@ -43,7 +43,7 @@ export const Tabs: React.FC<Props> = (
       </div>
 
       <div className="block" data-cy="TabContent">
-        {`Some ${currentTab.content}`}
+        {currentTab.content}
       </div>
     </div>
   );
