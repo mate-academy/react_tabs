@@ -15,20 +15,20 @@ export const Tabs: FC<Props> = ({ tabs, selectedTabId, onTabSelected }) => {
     <div data-cy="TabsComponent">
       <div className="tabs is-boxed">
         <ul>
-          {tabs.map(element => (
+          {tabs.map(tab => (
             <li
               data-cy="Tab"
-              key={element.id}
+              key={tab.id}
               className={classNames({
-                'is-active': currentTab.id === element.id,
+                'is-active': currentTab.id === tab.id,
               })}
             >
               <a
-                href={`#${element.id}`}
+                href={`#${tab.id}`}
                 data-cy="TabLink"
-                onClick={() => onTabSelected(element)}
+                onClick={() => onTabSelected(tab)}
               >
-                {element.title}
+                {tab.title}
               </a>
             </li>
           ))}
