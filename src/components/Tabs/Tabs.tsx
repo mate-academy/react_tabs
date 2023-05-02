@@ -9,25 +9,26 @@ type Props = {
 };
 
 export const Tabs: FC<Props> = ({ tabs, tabId, onTabSelect }) => {
-  const selectedTab = () => {
-    return tabs.find((tab: Tab) => tab.id === tabId) || tabs[0];
-  };
+  const selectedTab = tabs.find((tab: Tab) => tab.id === tabId) || tabs[0];
 
   return (
     <div data-cy="TabsComponent">
       <div className="tabs is-boxed">
         <ul>
-          {tabs.map((item: Tab) => {
+          {tabs.map((item) => {
+            const isSelected = tabId === item.id;
+            const handleClick = () => (!isSelected ? onTabSelect(item) : '');
+
             return (
               <li
                 key={item.id}
                 className={classNames({
-                  'is-active': tabId === item.id,
+                  'is-active': isSelected,
                 })}
                 data-cy="Tab"
               >
                 <a
-                  onClick={() => (tabId !== item.id ? onTabSelect(item) : '')}
+                  onClick={handleClick}
                   href={`#${item.id}`}
                   data-cy="TabLink"
                 >
@@ -40,7 +41,7 @@ export const Tabs: FC<Props> = ({ tabs, tabId, onTabSelect }) => {
       </div>
 
       <div className="block" data-cy="`TabContent`">
-        {selectedTab().content}
+        {selectedTab.content}
       </div>
     </div>
   );
