@@ -12,11 +12,13 @@ export const Tabs: React.FC<Props> = ({
   selectedTabId,
   onTabSelected,
 }) => {
-  const activeTabId = tabs.find(tab => tab.id === selectedTabId)
-    ? selectedTabId
-    : tabs[0].id;
+  const currentTab = tabs.find(tab => tab.id === selectedTabId) || tabs[0];
 
-  const foundTab = tabs.find(tab => tab.id === selectedTabId);
+  const handleTabClick = (tab: Tab) => {
+    if (tab.id !== currentTab.id) {
+      onTabSelected(tab);
+    }
+  };
 
   return (
     <div data-cy="TabsComponent">
@@ -26,15 +28,15 @@ export const Tabs: React.FC<Props> = ({
             <TabInfo
               key={tab.id}
               tab={tab}
-              isActive={tab.id === activeTabId}
-              onTabSelected={onTabSelected}
+              currentTabId={currentTab.id}
+              handleTabClick={handleTabClick}
             />
           ))}
         </ul>
       </div>
 
       <div className="block" data-cy="TabContent">
-        {foundTab?.content}
+        {currentTab?.content}
       </div>
     </div>
   );
