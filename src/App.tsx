@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import { Tabs } from './components/Tabs/Tabs';
 import 'bulma/css/bulma.css';
 import '@fortawesome/fontawesome-free/css/all.css';
@@ -25,7 +25,9 @@ export const App: React.FC = () => {
     }
   };
 
-  const [selectedTab] = tabs.filter((tab) => tab.id === selectedTabId);
+  const [selectedTab] = useMemo(
+    () => tabs.filter((tab) => tab.id === selectedTabId), [selectedTabId],
+  );
 
   return (
     <div className="section">
