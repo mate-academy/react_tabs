@@ -9,13 +9,17 @@ type Props = {
   onTabSelected: (tab: Tab) => void;
 };
 
+function selectTab(tabs: Tab[], selectedTabId: string) {
+  return tabs.find((tab) => tab.id === selectedTabId) || tabs[0];
+}
+
 export const Tabs: React.FC<Props> = ({
   tabs,
   selectedTabId,
   onTabSelected,
 }) => {
   const [selectedTab, setSelectedTab] = useState(
-    tabs.find((tab) => tab.id === selectedTabId) || tabs[0],
+    selectTab(tabs, selectedTabId),
   );
   const { id, content } = selectedTab;
 
@@ -50,6 +54,7 @@ export const Tabs: React.FC<Props> = ({
           })}
         </ul>
       </div>
+
       <div className="block" data-cy="TabContent">
         {content}
       </div>
