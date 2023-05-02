@@ -9,31 +9,19 @@ type Props = {
   onTabSelected: TabChangeCallback;
 };
 
-const refineSelectedId = (tabs: Tab[], selectedTabId: string) => {
-  const isValidSelectedId = tabs.some(tab => tab.id === selectedTabId);
-
-  if (!isValidSelectedId) {
-    return tabs[0].id;
-  }
-
-  return selectedTabId;
-};
-
-const getSelectedTabContent = (tabs: Tab[], selectedId: string) => {
-  const selectedTab = tabs.find(tab => tab.id === selectedId);
-
-  return selectedTab && selectedTab.content;
-};
+const getSelectedTabById = (tabs: Tab[], id: string) => (
+  tabs.find(tab => tab.id === id) || tabs[0]
+);
 
 export const Tabs: React.FC<Props> = ({
   tabs,
   selectedTabId,
   onTabSelected,
 }) => {
-  const selectedId = refineSelectedId(tabs, selectedTabId);
+  const selectedTab = getSelectedTabById(tabs, selectedTabId);
 
   const handleTabSelection = (tab: Tab) => {
-    if (tab.id !== selectedTabId) {
+    if (tab.id !== selectedTab.id) {
       onTabSelected(tab);
     }
   };
@@ -48,7 +36,7 @@ export const Tabs: React.FC<Props> = ({
             return (
               <li
                 className={classNames(
-                  { 'is-active': id === selectedId },
+                  { 'is-active': id === selectedTab.id },
                 )}
                 data-cy="Tab"
                 key={id}
@@ -67,7 +55,7 @@ export const Tabs: React.FC<Props> = ({
       </div>
 
       <div className="block" data-cy="TabContent">
-        {getSelectedTabContent(tabs, selectedId)}
+        {selectedTab.content}
       </div>
     </div>
   );
