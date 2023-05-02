@@ -1,4 +1,4 @@
-import React from 'react';
+import { useState } from 'react';
 import 'bulma/css/bulma.css';
 import '@fortawesome/fontawesome-free/css/all.css';
 import './App.scss';
@@ -11,7 +11,7 @@ export const tabs = [
 ];
 
 export const App: React.FC = () => {
-  const [selectedTabId, setselectedTabId] = React.useState(tabs[0]);
+  const [selectedTabId, setselectedTabId] = useState(tabs[0]);
 
   return (
     <div className="section">

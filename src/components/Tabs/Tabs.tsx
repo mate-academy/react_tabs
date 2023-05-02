@@ -1,4 +1,4 @@
-import React from 'react';
+import { FC } from 'react';
 import classNames from 'classnames';
 
 interface Tab {
@@ -13,13 +13,12 @@ interface Props {
   onTabSelected: (tab: Tab) => void;
 }
 
-export const Tabs: React.FC<Props> = ({
+export const Tabs: FC<Props> = ({
   tabs,
   selectedTabId,
   onTabSelected,
 }) => {
-  const findselectedTabId = tabs
-    .find(tab => tab.id === selectedTabId) || tabs[0];
+  const selectedTab = tabs.find(tab => tab.id === selectedTabId) || tabs[0];
 
   const handleTabSelected = (tab: Tab) => {
     if (tab.id !== selectedTabId) {
@@ -31,28 +30,32 @@ export const Tabs: React.FC<Props> = ({
     <div data-cy="TabsComponent">
       <div className="tabs is-boxed">
         <ul>
-          {tabs.map(tab => (
-            <li
-              className={classNames('tab', {
-                'is-active': tab.id === findselectedTabId.id,
-              })}
-              key={tab.id}
-              data-cy="Tab"
-            >
-              <a
-                href={`#${tab.id}`}
-                data-cy="TabLink"
-                onClick={() => handleTabSelected(tab)}
+          {tabs.map(tab => {
+            const isTabSelected = tab.id === selectedTab.id;
+
+            return (
+              <li
+                className={classNames('tab', {
+                  'is-active': isTabSelected,
+                })}
+                key={tab.id}
+                data-cy="Tab"
               >
-                {tab.title}
-              </a>
-            </li>
-          ))}
+                <a
+                  href={`#${tab.id}`}
+                  data-cy="TabLink"
+                  onClick={() => handleTabSelected(tab)}
+                >
+                  {tab.title}
+                </a>
+              </li>
+            );
+          })}
         </ul>
       </div>
 
       <div className="block" data-cy="TabContent">
-        {findselectedTabId.content}
+        {selectedTab.content}
       </div>
     </div>
   );
