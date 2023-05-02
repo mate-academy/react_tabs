@@ -17,13 +17,7 @@ export const Tabs: FC<Props> = ({
     onTabSelected(tab);
   };
 
-  const correctSelectedTabId = tabs.some((tab) => tab.id === selectedTabId)
-    ? selectedTabId
-    : tabs[0].id;
-
-  const selectedContent = tabs.find((tab) => (
-    tab.id === correctSelectedTabId
-  ))?.content;
+  const selectedTab = tabs.find((tab) => tab.id === selectedTabId) ?? tabs[0];
 
   return (
     <div data-cy="TabsComponent">
@@ -31,15 +25,16 @@ export const Tabs: FC<Props> = ({
         <ul>
           {tabs.map((tab) => (
             <TabComponent
+              key={tab.id}
               tab={tab}
-              isActive={tab.id === correctSelectedTabId}
+              isActive={tab.id === selectedTab.id}
               onTabClick={handleTabSelected}
             />
           ))}
         </ul>
       </div>
       <div className="block" data-cy="TabContent">
-        {selectedContent}
+        {selectedTab.content}
       </div>
     </div>
   );
