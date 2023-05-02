@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
+
 import 'bulma/css/bulma.css';
 import '@fortawesome/fontawesome-free/css/all.css';
 import './App.scss';
+
 import { Tabs } from './components/Tabs';
+import { Tab } from './Types/Tab';
 
 export const tabs = [
   { id: 'tab-1', title: 'Tab 1', content: 'Some text 1' },
@@ -11,13 +14,11 @@ export const tabs = [
 ];
 
 export const App: React.FC = () => {
-  const [selectedTabId, setSelectedTabId] = useState('tab-1');
+  const [selectedTab, setSelectedTab] = useState(tabs[0]);
 
-  const onTabSelected = (id: string) => {
-    setSelectedTabId(id);
+  const onTabSelected = (tab: Tab) => {
+    setSelectedTab(tab);
   };
-
-  const selectedTab = tabs.find(tab => tab.id === selectedTabId);
 
   return (
     <div className="section">
@@ -25,20 +26,11 @@ export const App: React.FC = () => {
         Selected tab is
         {selectedTab?.title}
       </h1>
-
-      <div data-cy="TabsComponent">
-        <div className="tabs is-boxed">
-          <Tabs
-            tabs={tabs}
-            selectedTabId={selectedTabId}
-            onTabSelected={onTabSelected}
-          />
-        </div>
-
-        <div className="block" data-cy="TabContent">
-          {selectedTab?.content}
-        </div>
-      </div>
+      <Tabs
+        tabs={tabs}
+        selectedTabId={selectedTab.id}
+        onTabSelected={onTabSelected}
+      />
     </div>
   );
 };
