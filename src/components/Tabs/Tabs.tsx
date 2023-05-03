@@ -11,10 +11,14 @@ type Props = {
   tabs: Tab[],
   handleChangeTab: (event: React.MouseEvent<HTMLLIElement, MouseEvent>,
     id: string) => void,
-  selected: string
+  selectedTab: string
 };
 
-export const Tabs: FC<Props> = ({ tabs, handleChangeTab, selected }: Props) => {
+export const Tabs: FC<Props> = ({
+  tabs,
+  handleChangeTab,
+  selectedTab: selected,
+}: Props) => {
   return (
     <ul>
       {tabs.map(tab => (

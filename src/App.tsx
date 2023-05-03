@@ -17,11 +17,11 @@ type Tab = {
 };
 
 export const App: FC = () => {
-  const [selectedTabId, setselectedTabId] = useState('tab-1');
+  const [selectedTabId, setSelectedTabId] = useState(tabs[0].id);
 
   const handleChangeTab = (event: React.MouseEvent, id: string) => {
     event.preventDefault();
-    setselectedTabId(id);
+    setSelectedTabId(id);
   };
 
   return (
@@ -35,12 +35,12 @@ export const App: FC = () => {
           <Tabs
             tabs={tabs}
             handleChangeTab={handleChangeTab}
-            selected={selectedTabId}
+            selectedTab={selectedTabId}
           />
         </div>
 
         <div className="block" data-cy="TabContent">
-          {`Some text ${selectedTabId.slice(-1)}`}
+          { tabs[Number(selectedTabId.slice(-1)) - 1].content }
         </div>
       </div>
     </div>
