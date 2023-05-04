@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import cn from 'classnames';
 import { Tab } from '../../types/Tab';
 import { TabInfo } from './TabInfo';
@@ -14,15 +14,12 @@ export const Tabs: React.FC<Props> = ({
   selectedTabId,
   onTabSelected,
 }) => {
-  const [selectedTab, setSelectedTab] = useState(
-    tabs.find(tab => tab.id === selectedTabId) || tabs[0],
-  );
+  const selectedTab = tabs.find(tab => tab.id === selectedTabId) || tabs[0];
 
   const { id, content } = selectedTab;
 
-  const handleTabClick = (tab: Tab) => {
-    if (tab.id !== selectedTabId) {
-      setSelectedTab(tab);
+  const handleTabClick = (selected: boolean, tab: Tab) => {
+    if (!selected) {
       onTabSelected(tab);
     }
   };
@@ -44,7 +41,9 @@ export const Tabs: React.FC<Props> = ({
               >
                 <TabInfo
                   tab={tab}
-                  onTabSelected={handleTabClick}
+                  onTabSelected={() => {
+                    handleTabClick(isSelected, tab);
+                  }}
                 />
               </li>
             );
