@@ -14,18 +14,6 @@ export const tabs: Tab[] = [
 export const App: React.FC = () => {
   const [selectedTab, setSelectedTab] = useState(tabs[0]);
 
-  const handleTabSelected = (id: string) => {
-    const foundTab = tabs.find(tab => tab.id === id);
-
-    if (!foundTab || foundTab.id === selectedTab.id) {
-      setSelectedTab(tabs[0]);
-
-      return;
-    }
-
-    setSelectedTab(foundTab);
-  };
-
   return (
     <div className="section">
       <h1 className="title">
@@ -35,8 +23,8 @@ export const App: React.FC = () => {
       <div data-cy="TabsComponent">
         <Tabs
           tabs={tabs}
-          selectedTab={selectedTab}
-          onTabSelected={handleTabSelected}
+          selectedTabId={selectedTab.id}
+          onTabSelected={setSelectedTab}
         />
       </div>
     </div>
