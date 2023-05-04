@@ -5,14 +5,15 @@ interface Props {
   tab: Tab;
   isActiveTab: boolean;
   onTabSelected: (tab: Tab) => void;
-
 }
 export const TabItem: React.FC<Props> = ({
   tab,
   isActiveTab,
   onTabSelected,
 }) => {
-  const handleSelect = () => {
+  const { id, title } = tab;
+
+  const handleClick = () => {
     if (!isActiveTab) {
       onTabSelected(tab);
     }
@@ -24,10 +25,9 @@ export const TabItem: React.FC<Props> = ({
         'is-active': isActiveTab,
       })}
       data-cy="Tab"
-      key={tab.id}
     >
-      <a href={`#${tab.id}`} data-cy="TabLink" onClick={handleSelect}>
-        {tab.title}
+      <a href={`#${id}`} data-cy="TabLink" onClick={handleClick}>
+        {title}
       </a>
     </li>
   );

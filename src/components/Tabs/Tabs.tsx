@@ -12,27 +12,22 @@ export const Tabs: React.FC<Props> = ({
   selectedTabId,
   onTabSelected,
 }) => {
-  const selectedTab = tabs.find(({ id }) => id === selectedTabId);
-
-  const isNoTabSelected = tabs.every(
-    ({ id }: Tab): boolean => id !== selectedTabId,
-  );
+  const selectedTab = tabs.find(({ id }: Tab) => id === selectedTabId)
+  || tabs[0];
 
   return (
     <div data-cy="TabsComponent">
       <div className="tabs is-boxed">
         <ul>
-          {tabs.map((tab, index) => {
-            const isTabSelected = tab.id === selectedTabId;
-            const isFirstTab = index === 0;
-            const isActiveTab = isTabSelected
-            || (isNoTabSelected && isFirstTab);
+          {tabs.map((tab) => {
+            const isTabSelected = tab.id === selectedTab.id;
 
             return (
               <TabItem
                 tab={tab}
-                isActiveTab={isActiveTab}
+                isActiveTab={isTabSelected}
                 onTabSelected={onTabSelected}
+                key={tab.id}
               />
             );
           })}
@@ -40,7 +35,7 @@ export const Tabs: React.FC<Props> = ({
       </div>
 
       <div className="block" data-cy="TabContent">
-        {selectedTab?.content}
+        {selectedTab.content}
       </div>
     </div>
   );
