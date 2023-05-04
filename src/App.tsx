@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import 'bulma/css/bulma.css';
 import '@fortawesome/fontawesome-free/css/all.css';
 import './App.scss';
@@ -11,69 +11,33 @@ export const tabs = [
 ];
 
 export const App: React.FC = () => {
-  const [selectedTabId, onTabSelected] = useState('tab-1');
-  let selectedTitle = 'Tab 1';
-
-  const preventDef = (event: MouseEvent) => {
-    event.preventDefault();
-  };
+  const [selectedTabId, setSelectedTabId] = useState(tabs[0].id);
+  let selecetedContent = tabs[0].content;
 
   tabs.map((tab) => {
-    if (selectedTabId === tab.id) {
-      selectedTitle = tab.title;
+    if (tab.id === selectedTabId) {
+      selecetedContent = tab.content;
     }
 
     return 0;
   });
 
-  useEffect(() => {
-    window.addEventListener('click', preventDef);
-  }, []);
+  const handleSelectedTab = (tabId: string) => {
+    setSelectedTabId(tabId);
+  };
 
   return (
     <div className="section">
       <h1 className="title">
-        {`Selected tab is ${selectedTitle}`}
+        {`Selected tab is ${selectedTabId}`}
       </h1>
 
-      <div data-cy="TabsComponent">
-        <div className="tabs is-boxed">
-          <ul>
-            {tabs.map((tab) => {
-              return (
-                <li
-                  key={tab.id}
-                  className={selectedTabId === tab.id
-                    ? 'is-active'
-                    : ''}
-                  data-cy="Tab"
-                >
-                  <a
-                    key={tab.id}
-                    href={tab.title}
-                    onClick={() => onTabSelected(tab.id)}
-                  >
-                    {tab.title}
-                  </a>
-                </li>
-              );
-            })}
-          </ul>
-        </div>
-        <div className="block" data-cy="TabContent">
-          <Tabs
-            tabsArr={tabs}
-            selectedTabId={selectedTabId}
-          />
-          {tabs.map((tab) => {
-            return (
-              <span key={tab.id}>
-                {selectedTabId === tab.id ? tab.content : ''}
-              </span>
-            );
-          })}
-        </div>
-      </div>
+      <Tabs
+        selectedTabId={selectedTabId}
+        tabsArr={tabs}
+        onTabSelected={handleSelectedTab}
+        selecetedContent={selecetedContent}
+      />
     </div>
   );
 };
