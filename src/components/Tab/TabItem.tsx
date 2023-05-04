@@ -26,7 +26,11 @@ export const TabItem: React.FC<Props> = ({
       })}
       data-cy="Tab"
     >
-      <a href={`#${id}`} data-cy="TabLink" onClick={handleClick}>
+      <a
+        href={`#${id}`}
+        data-cy="TabLink"
+        onClick={handleClick}
+      >
         {title}
       </a>
     </li>
