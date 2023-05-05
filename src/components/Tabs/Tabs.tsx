@@ -5,15 +5,16 @@ interface Props {
   tabs: Tab[];
   selectedTabId: string;
   onTabSelected: (tab: Tab) => void;
+  selectedTab?: Tab;
 }
 
 export const Tabs: React.FC<Props> = ({
   tabs,
   selectedTabId,
   onTabSelected,
+  selectedTab,
 }) => {
-  const selectedTab = tabs.find(({ id }: Tab): boolean => id === selectedTabId);
-
+  // const selectedTab = tabs.find(({ id }: Tab): boolean => id === selectedTabId);
   const notSelected = tabs.every(
     ({ id }: Tab): boolean => id !== selectedTabId,
   );
@@ -32,7 +33,7 @@ export const Tabs: React.FC<Props> = ({
             return (
               <li
                 className={classNames({
-                  'is-active': isActiveTab,
+                  'is-active': selectedTab?.id,
                 })}
                 data-cy="Tab"
                 key={id}
