@@ -12,15 +12,6 @@ export const tabs = [
 
 export const App: React.FC = () => {
   const [selectedTabId, setSelectedTabId] = useState(tabs[0].id);
-  let selecetedContent = tabs[0].content;
-
-  tabs.map((tab) => {
-    if (tab.id === selectedTabId) {
-      selecetedContent = tab.content;
-    }
-
-    return 0;
-  });
 
   const handleSelectedTab = (tabId: string) => {
     setSelectedTabId(tabId);
@@ -35,8 +26,7 @@ export const App: React.FC = () => {
       <Tabs
         selectedTabId={selectedTabId}
         tabsArr={tabs}
-        onTabSelected={handleSelectedTab}
-        selecetedContent={selecetedContent}
+        setTabId={handleSelectedTab}
       />
     </div>
   );

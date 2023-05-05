@@ -10,33 +10,42 @@ interface Type {
 
   selectedTabId: string,
 
-  onTabSelected: (tabId: string)=> void,
-
-  selecetedContent: string;
+  setTabId: (tabId: string)=> void,
 
 }
 
 export const Tabs: React.FC<Type> = ({
   tabsArr,
   selectedTabId,
-  onTabSelected,
-  selecetedContent,
+  setTabId,
 }) => {
+  const selecetedContent = tabsArr.find(tab => tab.id === selectedTabId);
+
+  let newContent = selecetedContent?.content;
+
+  if (newContent === undefined) {
+    newContent = tabsArr[0].content;
+  }
+
   return (
     <>
       <div className="tabs is-boxed" data-cy="TabContent">
         <ul>
           {tabsArr.map((tab) => {
             return (
-              <li className={selectedTabId === tab.id ? 'is-active' : ''}>
+              <li
+                key={tab.id}
+                className={selectedTabId === tab.id ? 'is-active' : ''}
+              >
                 <a
-                  onClick={() => onTabSelected(tab.id)}
+                  data-cy="TabLink"
+                  href={`#${selectedTabId}`}
+                  onClick={() => setTabId(tab.id)}
                   key={tab.id}
                   role="button"
-                  tabIndex={0}
-                  onKeyDown={() => onTabSelected(tab.id)}
+                  onKeyDown={() => setTabId(tab.id)}
                 >
-                  {tab.id}
+                  {tab.title}
                 </a>
               </li>
 
@@ -45,7 +54,10 @@ export const Tabs: React.FC<Type> = ({
         </ul>
       </div>
       <div className="block" data-cy="TabContent">
-        {selecetedContent}
+        <span data-cy="tab-content">
+          {newContent}
+        </span>
+
       </div>
     </>
 
