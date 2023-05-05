@@ -1,5 +1,3 @@
-import { useEffect } from 'react';
-
 interface Tab {
   id: string,
   title: string,
@@ -8,24 +6,15 @@ interface Tab {
 
 type Props = {
   tabs: Tab[],
-  selectedTabId: string,
+  selectedTab: Tab,
   onTabSelected: (tab: Tab) => void
-  selectedTab: Tab
-
 };
 
 export const Tabs: React.FC<Props> = ({
   tabs,
   onTabSelected,
-  selectedTabId,
   selectedTab,
 }) => {
-  useEffect(() => {
-    const selected = tabs.find(tab => tab.id === selectedTabId);
-
-    onTabSelected(selected || tabs[0]);
-  }, []);
-
   return (
     <div data-cy="TabsComponent">
       <div className="tabs is-boxed">
