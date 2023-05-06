@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react';
 
-interface Type {
+interface Props {
   tabsArr: {
     id: string;
     title: string;
@@ -14,18 +14,14 @@ interface Type {
 
 }
 
-export const Tabs: React.FC<Type> = ({
+export const Tabs: React.FC<Props> = ({
   tabsArr,
   selectedTabId,
   setTabId,
 }) => {
   const selecetedContent = tabsArr.find(tab => tab.id === selectedTabId);
 
-  let newContent = selecetedContent?.content;
-
-  if (newContent === undefined) {
-    newContent = tabsArr[0].content;
-  }
+  const newContent = selecetedContent?.content;
 
   return (
     <>
@@ -39,11 +35,9 @@ export const Tabs: React.FC<Type> = ({
               >
                 <a
                   data-cy="TabLink"
-                  href={`#${selectedTabId}`}
+                  href={`#${tab.id}`}
                   onClick={() => setTabId(tab.id)}
-                  key={tab.id}
                   role="button"
-                  onKeyDown={() => setTabId(tab.id)}
                 >
                   {tab.title}
                 </a>
@@ -54,10 +48,7 @@ export const Tabs: React.FC<Type> = ({
         </ul>
       </div>
       <div className="block" data-cy="TabContent">
-        <span data-cy="tab-content">
-          {newContent}
-        </span>
-
+        {newContent}
       </div>
     </>
 
