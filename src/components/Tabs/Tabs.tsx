@@ -1,18 +1,19 @@
 import classNames from 'classnames';
-import { useState } from 'react';
 import { Tab } from '../../types/Tab';
 
 interface Props {
   tabs: Tab[];
   onTabSelect: (tab: Tab) => void;
+  selectedTabId: string;
 }
 
-export const Tabs: React.FC<Props> = ({ tabs, onTabSelect }) => {
-  const [currentTab, setCurrentTab] = useState(tabs[0]?.title);
+export const Tabs: React.FC<Props> = ({ tabs, onTabSelect, selectedTabId }) => {
+  const currentTab = tabs.find(tab => tab.id === selectedTabId) || tabs[0];
 
   const handleTabClick = (tab: Tab) => {
-    setCurrentTab(tab.title);
-    onTabSelect(tab);
+    if (tab.id !== currentTab.id) {
+      onTabSelect(tab);
+    }
   };
 
   return (
@@ -20,34 +21,31 @@ export const Tabs: React.FC<Props> = ({ tabs, onTabSelect }) => {
       <div className="tabs is-boxed">
         <ul>
           {tabs.map(tab => (
-            <>
-              <li
-                data-cy="Tab"
-                className={classNames(
-                  {
-                    'is-active': tab.title === currentTab,
-                  },
-                )}
+            <li
+              data-cy="Tab"
+              className={classNames(
+                {
+                  'is-active': tab.title === currentTab.title,
+                },
+              )}
+            >
+              <a
+                href={tab.id}
+                data-cy="TabLink"
+                onClick={() => {
+                  handleTabClick(tab);
+                }}
               >
-                <a
-                  href={tab.id}
-                  data-cy="TabLink"
-                  onClick={(event) => {
-                    event.preventDefault();
-                    handleTabClick(tab);
-                  }}
-                >
-                  {tab.title}
-                </a>
-              </li>
-            </>
+                {tab.title}
+              </a>
+            </li>
           ))}
         </ul>
       </div>
 
       <div className="block" data-cy="TabContent">
         {tabs.find(tab => (
-          currentTab === tab.title
+          currentTab.title === tab.title
         ))?.content}
       </div>
     </div>
