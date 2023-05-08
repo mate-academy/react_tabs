@@ -23,6 +23,12 @@ export const Tabs: React.FC<Props> = ({
           {tabs.map((tab) => {
             const { id } = tab;
 
+            const handleTabClick = (clickedTab: Tab) => {
+              if (clickedTab.id !== selectedTab.id) {
+                onTabSelected(tab);
+              }
+            };
+
             return (
               <li
                 key={id}
@@ -31,8 +37,7 @@ export const Tabs: React.FC<Props> = ({
               >
                 <TabComponent
                   tab={tab}
-                  selectedTab={selectedTab}
-                  onTabSelected={onTabSelected}
+                  handleTabClick={handleTabClick}
                 />
               </li>
             );

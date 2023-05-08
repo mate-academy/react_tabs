@@ -18,12 +18,13 @@ export const App: React.FC = () => {
     setSelectedTabId(tab.id);
   };
 
-  const selectedTab = tabs.find((tab) => tab.id === selectedTabId)?.title || '';
+  const selectedTab = tabs.find((tab) => tab.id === selectedTabId);
+  const selectedTabTitle = selectedTab?.title || '';
 
   return (
     <div className="section">
       <h1 className="title">
-        {`Selected tab is ${selectedTab}`}
+        {`Selected tab is ${selectedTabTitle}`}
       </h1>
 
       <Tabs

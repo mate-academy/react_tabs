@@ -3,21 +3,13 @@ import { Tab } from '../../types/Tab';
 
 type Props = {
   tab: Tab;
-  selectedTab: Tab;
-  onTabSelected: (tab: Tab) => void;
+  handleTabClick: (tab: Tab) => void;
 };
 
 export const TabComponent: React.FC<Props> = ({
   tab,
-  selectedTab,
-  onTabSelected,
+  handleTabClick,
 }) => {
-  const handleTabClick = (clickedTab: Tab) => {
-    if (clickedTab.id !== selectedTab.id) {
-      onTabSelected(tab);
-    }
-  };
-
   const { id, title } = tab;
 
   return (
