@@ -12,7 +12,7 @@ export const Tabs: FC<Props> = ({ tabs, selectedTabId, onTabSelected }) => {
   const currentTab = tabs.find((tab) => tab.id === selectedTabId) || tabs[0];
   const { content } = currentTab;
 
-  const handlerChange = (active: boolean, tab: Tab): void => {
+  const handlerChange = (active: boolean, tab: Tab) => {
     if (!active) {
       onTabSelected(tab);
     }
