@@ -6,40 +6,44 @@ interface Tab {
 
 type Props = {
   tabs: Tab[],
-  selectedTab: Tab,
+  selectedTabId: string,
   onTabSelected: (tab: Tab) => void
 };
 
 export const Tabs: React.FC<Props> = ({
   tabs,
   onTabSelected,
-  selectedTab,
+  selectedTabId,
 }) => {
+  const currentTab = tabs.find(tab => tab.id === selectedTabId) || tabs[0];
+
   return (
     <div data-cy="TabsComponent">
       <div className="tabs is-boxed">
         <ul>
-          {tabs.map((tab) => (
-            <li
-              data-cy="Tab"
-              id={tab.id}
-              key={tab.id}
-              className={`${tab === selectedTab ? 'is-active' : ''}`}
-            >
-              <a
-                href={`#${tab.id}`}
-                data-cy="TabLink"
-                onClick={() => onTabSelected(tab)}
+          {tabs.map((tab) => {
+            return (
+              <li
+                data-cy="Tab"
+                id={tab.id}
+                key={tab.id}
+                className={`${tab === currentTab ? 'is-active' : ''}`}
               >
-                {tab.title}
-              </a>
-            </li>
-          ))}
+                <a
+                  href={`#${tab.id}`}
+                  data-cy="TabLink"
+                  onClick={() => tab !== currentTab && onTabSelected(tab)}
+                >
+                  {tab.title}
+                </a>
+              </li>
+            );
+          })}
         </ul>
       </div>
 
       <div className="block" data-cy="TabContent">
-        {selectedTab.content}
+        {currentTab.content}
       </div>
     </div>
   );
