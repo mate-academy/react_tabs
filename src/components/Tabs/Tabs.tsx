@@ -4,8 +4,8 @@ import { Tab } from '../../types/Tab';
 interface Props {
   tabs: Tab[];
   selectedTabId: string;
-  onTabSelected: (tab: Tab) => void;
-  selectedTab?: Tab;
+  onTabSelected: (id: string) => void;
+  selectedTab: Tab;
 }
 
 export const Tabs: React.FC<Props> = ({
@@ -14,7 +14,6 @@ export const Tabs: React.FC<Props> = ({
   onTabSelected,
   selectedTab,
 }) => {
-  // const selectedTab = tabs.find(({ id }: Tab): boolean => id === selectedTabId);
   const notSelected = tabs.every(
     ({ id }: Tab): boolean => id !== selectedTabId,
   );
@@ -43,7 +42,7 @@ export const Tabs: React.FC<Props> = ({
                   data-cy="TabLink"
                   onClick={() => {
                     if (!isActiveTab) {
-                      onTabSelected(tab);
+                      onTabSelected(id);
                     }
                   }}
                 >
@@ -56,7 +55,7 @@ export const Tabs: React.FC<Props> = ({
       </div>
 
       <div className="block" data-cy="TabContent">
-        {selectedTab?.content}
+        {selectedTab.content}
       </div>
     </div>
   );
