@@ -1,16 +1,16 @@
 import { FC } from 'react';
-import { Tab } from '../../Types/Types';
 import classNames from 'classnames';
+import { Tab } from '../../Types/Types';
 
 interface Props {
   tabs: Tab[];
-  selectedTabId: string;
-  onTabSelected: (tabId: string) => void;
+  selectedTab: Tab;
+  onTabSelected: (tab: Tab) => void;
 }
 
 export const Tabs:FC<Props> = ({
   tabs,
-  selectedTabId,
+  selectedTab,
   onTabSelected,
 }) => {
   return (
@@ -18,22 +18,28 @@ export const Tabs:FC<Props> = ({
       <div className="tabs is-boxed">
         <ul>
           {
-            tabs.map(({ id, title }) => (
-              <li
-                key={id}
-                data-cy="Tab"
-                //eslint-disable-next-line max-len
-                className={classNames({ 'is-active': id === selectedTabId })}
-              >
-                <a
-                  href={`#${id}`}
-                  data-cy="TabLink"
-                  onClick={() => onTabSelected(id)}
+            tabs.map((tab) => {
+              const { id, title } = tab;
+              const isRigthId = id === selectedTab.id;
+
+              return (
+                <li
+                  key={id}
+                  data-cy="Tab"
+                  className={classNames({
+                    'is-active': isRigthId,
+                  })}
                 >
-                  {title}
-                </a>
-              </li>
-            ))
+                  <a
+                    href={`#${id}`}
+                    data-cy="TabLink"
+                    onClick={() => onTabSelected(tab)}
+                  >
+                    {title}
+                  </a>
+                </li>
+              );
+            })
           }
         </ul>
       </div>
