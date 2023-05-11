@@ -24,7 +24,6 @@ export const Tabs = ({ tabs, selectedTabId, onTabSelected }: TabsProps) => {
                   onClick={() => tab.id !== currentTab.id && onTabSelected(tab)}
                 >
                   {tab.title}
-
                 </a>
               </li>
             );
