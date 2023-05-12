@@ -22,8 +22,7 @@ export const App: React.FC = () => {
   return (
     <div className="section">
       <h1 className="title">
-        Selected tab is
-        {selectedTabTitle}
+        Selected tab is {selectedTabTitle}
       </h1>
 
       <Tabs
@@ -31,6 +30,7 @@ export const App: React.FC = () => {
         selectedTab={selectedTab}
         onTabSelected={onTabSelected}
       />
+
       <div className="block" data-cy="TabContent">
         {selectedTabContent}
       </div>
