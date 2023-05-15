@@ -2,18 +2,22 @@ import React from 'react';
 import classNames from 'classnames';
 
 interface Tab {
-  id:string;
-  title:string;
-  content:string;
+  id: string;
+  title: string;
+  content: string;
 }
 
 type TabsProps = {
-  tab:Tab;
-  btn:string;
-  setIsBtn:React.Dispatch<React.SetStateAction<string>>;
+  tab: Tab;
+  btn: string;
+  setIsBtn: React.Dispatch<React.SetStateAction<string>>;
 };
 
-export const Tabs: React.FC<TabsProps> = ({ tab, btn, setIsBtn }) => {
+export const Tabs: React.FC<TabsProps> = ({
+  tab,
+  btn,
+  setIsBtn,
+}) => {
   return (
     <li
       data-cy="Tab"

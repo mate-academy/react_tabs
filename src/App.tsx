@@ -11,11 +11,12 @@ export const tabs = [
 ];
 
 export const App: React.FC = () => {
-  const [isBtn, setIsBtn] = useState(tabs[tabs.length - 1].title);
+  const [isBtn, setIsBtn] = useState('Tab 1');
   const setVisibleContent = (title:string) => {
     const visibleContent = tabs.find(tab => tab.title === title);
 
-    return visibleContent?.content;
+    return visibleContent ? visibleContent?.content
+      : tabs[0].content;
   };
 
   return (
@@ -28,7 +29,12 @@ export const App: React.FC = () => {
         <div className="tabs is-boxed">
           <ul>
             {tabs.map(tab => (
-              <Tabs tab={tab} btn={isBtn} setIsBtn={setIsBtn} />
+              <Tabs
+                tab={tab}
+                btn={isBtn}
+                setIsBtn={setIsBtn}
+                key={tab.id}
+              />
             ))}
           </ul>
         </div>
