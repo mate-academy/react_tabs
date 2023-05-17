@@ -15,14 +15,14 @@ export const App: React.FC = () => {
 
   const findTab = tabs.find(tab => tab.id === selectedTab.id);
 
-  const selectedTabTitle = findTab?.title;
-
-  const selectedTabContent = findTab?.content;
+  const { content, title } = findTab || {};
 
   return (
     <div className="section">
       <h1 className="title">
-        Selected tab is {selectedTabTitle}
+        Selected tab is
+        {' '}
+        {title}
       </h1>
 
       <Tabs
@@ -32,7 +32,7 @@ export const App: React.FC = () => {
       />
 
       <div className="block" data-cy="TabContent">
-        {selectedTabContent}
+        {content}
       </div>
     </div>
   );
