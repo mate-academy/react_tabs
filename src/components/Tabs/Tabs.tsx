@@ -3,7 +3,7 @@ import { Tab } from '../../Types/Tab';
 interface TabsProps {
   tabs: Tab[],
   selectedTabId: string,
-  onTabSelected: (event: React.MouseEvent, id: string) => void;
+  onTabSelected: (tab: Tab) => void;
 }
 
 export const Tabs: React.FC<TabsProps> = ({
@@ -11,16 +11,23 @@ export const Tabs: React.FC<TabsProps> = ({
   selectedTabId,
   onTabSelected,
 }) => {
+  const currentTab = tabs.find(tab => tab.id === selectedTabId) || tabs[0];
+  const handleTabSelect = (tab: Tab) => {
+    if (selectedTabId !== tab.id) {
+      onTabSelected(tab);
+    }
+  };
+
   const tabElements = tabs.map(tab => (
     <li
-      className={selectedTabId === tab.id ? 'is-active' : ''}
+      className={currentTab.id === tab.id ? 'is-active' : ''}
       data-cy="Tab"
       key={tab.id}
     >
       <a
-        href={tab.id}
+        href={`#${tab.id}`}
         data-cy="TabLink"
-        onClick={(event) => onTabSelected(event, tab.id)}
+        onClick={() => handleTabSelect(tab)}
       >
         {tab.title}
       </a>
@@ -28,10 +35,16 @@ export const Tabs: React.FC<TabsProps> = ({
   ));
 
   return (
-    <div className="tabs is-boxed">
-      <ul>
-        {tabElements}
-      </ul>
+    <div data-cy="TabsComponent">
+      <div className="tabs is-boxed">
+        <ul>
+          {tabElements}
+        </ul>
+      </div>
+
+      <div className="block" data-cy="TabContent">
+        {currentTab.content}
+      </div>
     </div>
   );
 };

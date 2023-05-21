@@ -3,6 +3,7 @@ import 'bulma/css/bulma.css';
 import '@fortawesome/fontawesome-free/css/all.css';
 import './App.scss';
 import { Tabs } from './components/Tabs';
+import { Tab } from './Types/Tab';
 
 export const tabs = [
   { id: 'tab-1', title: 'Tab 1', content: 'Some text 1' },
@@ -11,15 +12,13 @@ export const tabs = [
 ];
 
 export const App: React.FC = () => {
-  const [selectedTab, setSelectedTab] = useState('tab-1');
+  const [selectedTab, setSelectedTab] = useState(tabs[0].id);
 
-  const onTabSelected = (event: React.MouseEvent, id: string) => {
-    event.preventDefault();
-
-    setSelectedTab(id);
+  const onTabSelected = (tab: Tab) => {
+    setSelectedTab(tab.id);
   };
 
-  const findSelectedTab = tabs.find(tab => tab.id === selectedTab);
+  const findSelectedTab = tabs.find(tab => tab.id === selectedTab) || tabs[0];
 
   return (
     <div className="section">
@@ -27,16 +26,11 @@ export const App: React.FC = () => {
         {`Selected tab is ${findSelectedTab?.title}`}
       </h1>
 
-      <div data-cy="TabsComponent">
-        <Tabs
-          tabs={tabs}
-          selectedTabId={selectedTab}
-          onTabSelected={onTabSelected}
-        />
-        <div className="block" data-cy="TabContent">
-          {findSelectedTab?.content}
-        </div>
-      </div>
+      <Tabs
+        tabs={tabs}
+        selectedTabId={selectedTab}
+        onTabSelected={onTabSelected}
+      />
     </div>
   );
 };
