@@ -1,3 +1,4 @@
+import classNames from 'classnames';
 import React from 'react';
 
 interface Tab {
@@ -33,7 +34,9 @@ export const Tabs: React.FC<Props> = ({
               <li
                 key={tab.id}
                 data-cy="Tab"
-                className={tab.id === selectedTab.id ? 'is-active' : ''}
+                className={classNames(
+                  { 'is-active': tab.id === selectedTab.id },
+                )}
               >
                 <a
                   href={`#${tab.id}`}
