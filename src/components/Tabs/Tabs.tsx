@@ -3,16 +3,11 @@ import { Tab } from '../../../types/Tab';
 interface TabsProps {
   selectedTabId: string,
   tabs: Tab[],
-  onTabSelected: (id: Tab) => void,
+  onTabSelected: (tab: Tab) => void,
 }
 
 export const Tabs = ({ selectedTabId, tabs, onTabSelected }: TabsProps) => {
-  let currentTab = tabs.find(tab => tab.id === selectedTabId);
-
-  if (!currentTab) {
-    // eslint-disable-next-line prefer-destructuring
-    currentTab = tabs[0];
-  }
+  const currentTab = tabs.find(tab => tab.id === selectedTabId) || tabs[0];
 
   const { title, id, content } = currentTab;
 
@@ -33,7 +28,8 @@ export const Tabs = ({ selectedTabId, tabs, onTabSelected }: TabsProps) => {
                 <a
                   href={`#${tab.id}`}
                   data-cy="TabLink"
-                  onClick={() => selectedTabId !== tab.id && onTabSelected(tab)}
+                  onClick={() => (
+                    id !== tab.id && onTabSelected(tab))}
                 >
                   {tab.title}
                 </a>

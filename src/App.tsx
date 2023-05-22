@@ -14,7 +14,7 @@ export const tabs = [
 export const App: React.FC = () => {
   const [selectedTabId, setSelectedTabId] = useState<string>(tabs[0].id);
 
-  const swapTabs = (tab: Tab) => {
+  const selectTab = (tab: Tab) => {
     setSelectedTabId(tab.id);
   };
 
@@ -23,7 +23,7 @@ export const App: React.FC = () => {
       <Tabs
         selectedTabId={selectedTabId}
         tabs={tabs}
-        onTabSelected={swapTabs}
+        onTabSelected={selectTab}
       />
     </div>
   );
