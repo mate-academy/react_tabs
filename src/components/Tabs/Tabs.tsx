@@ -16,6 +16,7 @@ export const Tabs = ({ tabs, selectedTab, currentTab }: PropsTabs) => {
             <li
               className={cn({ 'is-active': currentTab.id === tab.id })}
               data-cy="Tab"
+              key={tab.id}
             >
               <a
                 href={`#${tab.id}`}
