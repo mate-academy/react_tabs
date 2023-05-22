@@ -11,28 +11,26 @@ export const tabs = [
 ];
 
 export const App: React.FC = () => {
-  const [selectedTab, setSelectedTab] = useState(' Tab 1');
-  const [selectedContent, setSelectedContent] = useState('Some text 1');
+  const [selectedTab, setSelectedTab] = useState(tabs[0]);
 
   return (
     <div className="section">
       <h1 className="title">
         Selected tab is
-        {selectedTab}
+        {` ${selectedTab.title}`}
       </h1>
 
       <div data-cy="TabsComponent">
         <div className="tabs is-boxed">
           <Tabs
             tabs={tabs}
-            handleContent={setSelectedContent}
-            handleTile={setSelectedTab}
+            handleTab={setSelectedTab}
             selectedTab={selectedTab}
           />
         </div>
 
         <div className="block" data-cy="TabContent">
-          {selectedContent}
+          {selectedTab.content}
         </div>
       </div>
     </div>

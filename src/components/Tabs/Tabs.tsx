@@ -9,15 +9,13 @@ type Tab = {
 
 type Props = {
   tabs: Tab[],
-  handleContent: Dispatch<SetStateAction<string>>,
-  handleTile: Dispatch<SetStateAction<string>>,
-  selectedTab: string,
+  handleTab: Dispatch<SetStateAction<Tab>>,
+  selectedTab: Tab,
 };
 
 export const Tabs = ({
   tabs,
-  handleContent,
-  handleTile,
+  handleTab,
   selectedTab,
 }: Props) => {
   return (
@@ -26,7 +24,7 @@ export const Tabs = ({
         <li
           className={
             cn(
-              { 'is-active': selectedTab.trim() === tab.title },
+              { 'is-active': selectedTab.id === tab.id },
             )
           }
           data-cy="Tab"
@@ -36,8 +34,7 @@ export const Tabs = ({
             href={`#${tab.id}`}
             data-cy="TabLink"
             onClick={() => {
-              handleContent(tab.content);
-              handleTile(` ${tab.title}`);
+              handleTab(tab);
             }}
           >
             {tab.title}
