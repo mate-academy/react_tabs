@@ -8,11 +8,11 @@ interface PropsTabs {
 }
 
 export const Tabs = ({ tabs, selectedTabId, onTabSelected }: PropsTabs) => {
-  const findSelectedTab = (id: string): Tab => (
+  const getSelectedTab = (id: string) => (
     tabs.find(tab => tab.id === id) || tabs[0]
   );
 
-  const selectedTab = findSelectedTab(selectedTabId);
+  const selectedTab = getSelectedTab(selectedTabId);
 
   const handleClickOnTab = (tab: Tab) => {
     onTabSelected(tab);
