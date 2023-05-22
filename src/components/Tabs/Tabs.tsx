@@ -25,16 +25,12 @@ export const Tabs: React.FC<Props> = ({
     onTabSelected(tab.id);
   };
 
-  const findTabById = (tabId: string): Tab | null => (
-    tabs.find(tab => tab.id === tabId) || null
-  );
+  const selectedTab = tabs.find(tab => tab.id === selectedTabId) || tabs[0];
 
   return (
     <div className="section">
       <h1 className="title">
-        Selected tab is
-        {' '}
-        {findTabById(selectedTabId)?.title}
+        {`Selected tab is ${selectedTab.title}`}
       </h1>
 
       <div data-cy="TabsComponent">
@@ -63,7 +59,7 @@ export const Tabs: React.FC<Props> = ({
         </div>
 
         <div className="block" data-cy="TabContent">
-          {findTabById(selectedTabId)?.content}
+          {selectedTab.content}
         </div>
       </div>
     </div>
