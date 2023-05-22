@@ -13,7 +13,9 @@ type Props = {
 };
 
 export const Tabs = ({ tabs, selectedTab, onTab }: Props) => {
-  const content = tabs.find(tab => tab.id === selectedTab.id)?.content;
+  const content = tabs.find(
+    tab => tab.id === selectedTab.id,
+  )?.content || tabs[0];
 
   return (
     <div data-cy="TabsComponent">
