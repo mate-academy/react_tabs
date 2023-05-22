@@ -15,11 +15,13 @@ export const App: React.FC = () => {
   const [tabId, setTabId] = useState(tabs[0].id);
 
   const onTabSelected = (tab: Tab) => {
-    if (tabs.includes(tab)) {
-      setTabId(tab.id);
-    } else {
-      setTabId(tabs[0].id);
+    let newId = tab.id;
+
+    if (!tabs.includes(tab)) {
+      newId = tabs[0].id;
     }
+
+    setTabId(newId);
   };
 
   const titleTabSelected = tabs.find(tab => tab.id === tabId)?.title;
