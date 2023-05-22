@@ -15,7 +15,9 @@ export const Tabs = ({ tabs, selectedTabId, onTabSelected }: PropsTabs) => {
   const selectedTab = getSelectedTab(selectedTabId);
 
   const handleClickOnTab = (tab: Tab) => {
-    onTabSelected(tab);
+    if (tab !== selectedTab) {
+      onTabSelected(tab);
+    }
   };
 
   return (
