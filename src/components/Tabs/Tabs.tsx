@@ -29,7 +29,7 @@ export const Tabs = ({ tabs, selectedTabId, onTabSelected }: PropsTabs) => {
 
             return (
               <li
-                className={cn({ 'is-active': selectedTabId === id })}
+                className={cn({ 'is-active': selectedTab.id === id })}
                 data-cy="Tab"
                 key={id}
               >
