@@ -11,19 +11,15 @@ type Props = {
 };
 
 export const Tabs: React.FC<Props> = ({ tabs }) => {
-  const [toggleState, setToggle] = useState(tabs[0]);
+  const [selectedTab, setToggle] = useState(tabs[0]);
 
-  const chooseTab = (tab: Tab) => {
-    setToggle(tab);
-  };
-
-  const selectedTab: Tab = tabs.find(
-    tab => toggleState.id === tab.id,
+  const selectedTabId: Tab = tabs.find(
+    tab => selectedTab.id === tab.id,
   ) || tabs[0];
 
-  const tabClick = (tab: Tab) => {
-    if (toggleState.id !== tab.id) {
-      chooseTab(tab);
+  const handleTabClick = (tab: Tab) => {
+    if (selectedTab.id !== tab.id) {
+      setToggle(tab);
     }
   };
 
@@ -33,7 +29,7 @@ export const Tabs: React.FC<Props> = ({ tabs }) => {
       <h1 className="title">
         Selected tab is
         {' '}
-        {toggleState.title}
+        {selectedTab.title}
       </h1>
       <div data-cy="TabsComponent">
         <div className="tabs is-boxed">
@@ -41,15 +37,14 @@ export const Tabs: React.FC<Props> = ({ tabs }) => {
             {tabs.map((tab) => (
               <li
                 key={tab.id}
-                className={toggleState.id === tab.id ? 'is-active' : ''}
+                className={selectedTab.id === tab.id ? 'is-active' : ''}
                 data-cy="Tab"
               >
                 <a
                   href={`#${tab.id}`}
                   data-cy="TabLink"
-                  onClick={(e) => {
-                    tabClick(tab);
-                    e.preventDefault();
+                  onClick={() => {
+                    handleTabClick(tab);
                   }}
                 >
                   {tab.title}
@@ -62,7 +57,7 @@ export const Tabs: React.FC<Props> = ({ tabs }) => {
         </div>
 
         <div className="block" data-cy="TabContent">
-          {selectedTab.content}
+          {selectedTabId.content}
         </div>
       </div>
     </>
