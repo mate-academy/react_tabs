@@ -14,32 +14,24 @@ export const tabs = [
 
 export const App: React.FC = () => {
   const [textTitle, setTextTitle] = useState(tabs[0].title);
-  const [contentText, setContentText] = useState(tabs[0].content);
 
   const clickedContent = (contentValue: string) => {
-    const foundedValue = tabs.find(tab => tab.id === contentValue);
+    const foundedValue = tabs.find((tab) => tab.id === contentValue);
 
     if (foundedValue) {
       setTextTitle(foundedValue.title);
-      setContentText(foundedValue.content);
     }
   };
 
   return (
     <div className="section">
-      <h1 className="title">
-        {`Selected tab is ${textTitle}`}
-      </h1>
+      <h1 className="title">{`Selected tab is ${textTitle}`}</h1>
 
-      <div data-cy="TabsComponent">
-        <TabList
-          tabs={tabs}
-          clickedContent={clickedContent}
-        />
-        <div className="block" data-cy="TabContent">
-          {contentText}
-        </div>
-      </div>
+      <TabList
+        tabs={tabs}
+        clickedContent={clickedContent}
+
+      />
     </div>
   );
 };
