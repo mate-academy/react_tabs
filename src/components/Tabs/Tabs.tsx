@@ -1,3 +1,4 @@
+import classNames from 'classnames';
 import React, { useState } from 'react';
 
 type Tab = {
@@ -16,20 +17,24 @@ export const Tabs: React.FC<Props> = ({ tabs }) => {
   const selectedTabId: Tab = tabs.find(
     tab => selectedTab.id === tab.id,
   ) || tabs[0];
+  const result = '';
+  const chooseTab = (e:React.MouseEvent<HTMLAnchorElement>,
+    tab: Tab) => {
+    e.preventDefault();
+    if (selectedTab.id === tab.id) {
+      result = selectedTab.id === tab.id;
 
-  const chooseTab = (tab: Tab) => {
-    if (selectedTab.id !== tab.id) {
-      setToggle(tab);
+      return;
     }
+
+    setToggle(tab);
   };
 
   return (
 
     <>
       <h1 className="title">
-        Selected tab is
-        {' '}
-        {selectedTab.title}
+        {`Selected tab is ${selectedTab.title}`}
       </h1>
       <div data-cy="TabsComponent">
         <div className="tabs is-boxed">
@@ -37,16 +42,18 @@ export const Tabs: React.FC<Props> = ({ tabs }) => {
             {tabs.map((tab) => (
               <li
                 key={tab.id}
-                className={selectedTab.id === tab.id ? 'is-active' : ''}
-                data-cy={selectedTab.id === tab.id ? 'tab-content' : 'Tab'}
+                className={classNames(
+                  '',
+                  {
+                    'tab-content': result,
+                  },
+                )}
+                data-cy={result ? 'tab-content' : 'Tab'}
               >
                 <a
                   href={tab.id}
                   data-cy="TabLink"
-                  onClick={(e) => {
-                    chooseTab(tab);
-                    e.preventDefault();
-                  }}
+                  onClick={(e) => chooseTab(e, tab)}
                 >
                   {tab.title}
                 </a>
