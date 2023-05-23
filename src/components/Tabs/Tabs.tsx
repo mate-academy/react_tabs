@@ -13,20 +13,18 @@ type Props = {
 
 export const Tabs: React.FC<Props> = ({ tabs }) => {
   const [selectedTab, setToggle] = useState(tabs[0]);
-
   const selectedTabId: Tab = tabs.find(
     tab => selectedTab.id === tab.id,
   ) || tabs[0];
-  let result = false;
+  // nst resultco = selectedTab.id === tab.id;
   const chooseTab = (e:React.MouseEvent<HTMLAnchorElement>,
     tab: Tab) => {
     e.preventDefault();
     if (selectedTab.id === tab.id) {
-      result = selectedTab.id === tab.id;
-
       return;
     }
 
+    // setResult(true);
     setToggle(tab);
   };
 
@@ -42,16 +40,14 @@ export const Tabs: React.FC<Props> = ({ tabs }) => {
             {tabs.map((tab) => (
               <li
                 key={tab.id}
-                className={classNames(
-                  '',
-                  {
-                    'tab-content': result,
-                  },
-                )}
-                data-cy={result ? 'tab-content' : 'Tab'}
+                className={classNames({
+                  'is-active':
+                 selectedTab.id === tab.id,
+                })}
+                data-cy="Tab"
               >
                 <a
-                  href={tab.id}
+                  href={`#${tab.id}`}
                   data-cy="TabLink"
                   onClick={(e) => chooseTab(e, tab)}
                 >
@@ -64,7 +60,10 @@ export const Tabs: React.FC<Props> = ({ tabs }) => {
 
         </div>
 
-        <div className="block" data-cy="TabContent">
+        <div
+          className="block"
+          data-cy="TabContent"
+        >
           {selectedTabId.content}
         </div>
       </div>
