@@ -17,8 +17,11 @@ export const tabs: Tab[] = [
 ];
 
 export const App: React.FC = () => {
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars, @typescript-eslint/naming-convention
-  const [selectedTabId, _setSelectedTabId] = useState('tab-1');
+  const [selectedTabId, setSelectedTabId] = useState('tab-1');
+
+  const onTabSelected = (id: string) => {
+    setSelectedTabId(id);
+  };
 
   return (
     <div className="section">
@@ -28,7 +31,11 @@ export const App: React.FC = () => {
         {tabs.find(tab => selectedTabId === tab.id)?.title}
       </h1>
 
-      <Tabs tabs={tabs} selectedTabId={selectedTabId} />
+      <Tabs
+        tabs={tabs}
+        selectedTabId={selectedTabId}
+        onTabSelected={onTabSelected}
+      />
     </div>
   );
 };

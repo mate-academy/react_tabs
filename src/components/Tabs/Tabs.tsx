@@ -7,9 +7,10 @@ interface Tab {
 interface TabsProps {
   tabs: Tab[],
   selectedTabId: string,
+  onTabSelected: (id: string) => void,
 }
 
-export const Tabs = ({ tabs, selectedTabId }: TabsProps) => {
+export const Tabs = ({ tabs, selectedTabId, onTabSelected }: TabsProps) => {
   return (
     <div data-cy="TabsComponent">
       <div className="tabs is-boxed">
@@ -25,6 +26,7 @@ export const Tabs = ({ tabs, selectedTabId }: TabsProps) => {
                 <a
                   href={`"#${tab.id}"`}
                   data-cy="TabLink"
+                  onClick={() => onTabSelected(tab.id)}
                 >
                   {tab.title}
                 </a>
