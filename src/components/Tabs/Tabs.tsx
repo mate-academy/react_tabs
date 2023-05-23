@@ -17,7 +17,7 @@ export const Tabs: React.FC<Props> = ({ tabs }) => {
   const selectedTabId: Tab = tabs.find(
     tab => selectedTab.id === tab.id,
   ) || tabs[0];
-  const result = '';
+  let result = false;
   const chooseTab = (e:React.MouseEvent<HTMLAnchorElement>,
     tab: Tab) => {
     e.preventDefault();
