@@ -8,7 +8,7 @@ interface TabsProps {
 
 export const Tabs = ({ tabs, selectedTabId, onTabSelected }: TabsProps) => {
   const defaultTab = tabs[0];
-  const selectedTab = () => {
+  const selectTab = () => {
     return tabs.find((tab) => tab.id === selectedTabId) || defaultTab;
   };
 
@@ -18,7 +18,7 @@ export const Tabs = ({ tabs, selectedTabId, onTabSelected }: TabsProps) => {
         <ul>
           {tabs.map((tab) => (
             <li
-              className={tab.id === selectedTab().id ? 'is-active' : ''}
+              className={tab.id === selectTab().id ? 'is-active' : ''}
               data-cy="Tab"
               key={tab.id}
             >
@@ -26,7 +26,7 @@ export const Tabs = ({ tabs, selectedTabId, onTabSelected }: TabsProps) => {
                 href={`#${tab.id}`}
                 data-cy="TabLink"
                 onClick={() => (
-                  selectedTab().id !== tab.id && onTabSelected(tab)
+                  selectTab().id !== tab.id && onTabSelected(tab)
                 )}
               >
                 {tab.title}
@@ -37,7 +37,7 @@ export const Tabs = ({ tabs, selectedTabId, onTabSelected }: TabsProps) => {
       </div>
 
       <div className="block" data-cy="TabContent">
-        {selectedTab().content}
+        {selectTab().content}
       </div>
     </div>
   );
