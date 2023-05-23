@@ -1,5 +1,4 @@
 import classNames from 'classnames';
-import React, { useState } from 'react';
 
 type Tab = {
   id: string,
@@ -7,66 +6,65 @@ type Tab = {
   content: string,
 };
 
-type Props = {
-  tabs: Tab[]
-};
+interface TabsProps {
+  tabs: Tab[],
+  selectedTabId: string,
+  onTabSelected: (tab: Tab) => void;
+}
 
-export const Tabs: React.FC<Props> = ({ tabs }) => {
-  const [selectedTab, setToggle] = useState(tabs[0]);
-  const selectedTabId: Tab = tabs.find(
-    tab => selectedTab.id === tab.id,
-  ) || tabs[0];
-  // nst resultco = selectedTab.id === tab.id;
-  const chooseTab = (e:React.MouseEvent<HTMLAnchorElement>,
-    tab: Tab) => {
-    e.preventDefault();
-    if (selectedTab.id === tab.id) {
-      return;
+export const Tabs: React.FC<TabsProps> = ({
+  tabs,
+  selectedTabId,
+  onTabSelected,
+}) => {
+  const selectedTab = (id: string): Tab => (
+    tabs.find((tab) => tab.id === id)
+  || tabs[0]
+  );
+
+  const handleTabClick = (tab : Tab) => {
+    if (tab.id !== selectedTabId) {
+      onTabSelected(tab);
     }
-
-    // setResult(true);
-    setToggle(tab);
   };
+
+  const findTab = selectedTab(selectedTabId);
 
   return (
 
-    <>
-      <h1 className="title">
-        {`Selected tab is ${selectedTab.title}`}
-      </h1>
-      <div data-cy="TabsComponent">
-        <div className="tabs is-boxed">
-          <ul>
-            {tabs.map((tab) => (
-              <li
-                key={tab.id}
-                className={classNames({
-                  'is-active':
-                 selectedTab.id === tab.id,
-                })}
-                data-cy="Tab"
+    <div data-cy="TabsComponent">
+      <div className="tabs is-boxed">
+        <ul>
+          {tabs.map((tab) => (
+            <li
+              key={tab.id}
+              className={classNames({
+                'is-active':
+                 selectedTabId === tab.id,
+              })}
+              data-cy="Tab"
+            >
+              <a
+                href={`#${tab.id}`}
+                data-cy="TabLink"
+                onClick={() => handleTabClick(tab)}
               >
-                <a
-                  href={`#${tab.id}`}
-                  data-cy="TabLink"
-                  onClick={(e) => chooseTab(e, tab)}
-                >
-                  {tab.title}
-                </a>
-              </li>
+                {tab.title}
+              </a>
+            </li>
 
-            ))}
-          </ul>
+          ))}
+        </ul>
 
-        </div>
-
-        <div
-          className="block"
-          data-cy="TabContent"
-        >
-          {selectedTabId.content}
-        </div>
       </div>
-    </>
+
+      <div
+        className="block"
+        data-cy="TabContent"
+      >
+        {findTab.content}
+      </div>
+    </div>
+
   );
 };

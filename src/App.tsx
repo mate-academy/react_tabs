@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import 'bulma/css/bulma.css';
 import '@fortawesome/fontawesome-free/css/all.css';
 import './App.scss';
 import { Tabs } from './components/Tabs';
+import { Tab } from './types/Tab';
 
 export const tabs = [
   { id: 'tab-1', title: 'Tab 1', content: 'Some text 1' },
@@ -11,10 +12,23 @@ export const tabs = [
 ];
 
 export const App: React.FC = () => {
+  const [selectedTab, setSelectedTab] = useState(tabs[0].id);
+
+  const settabSelected = (tab: Tab) => {
+    setSelectedTab(tab.id);
+  };
+
+  const selectedTitle = tabs.find((tab) => tab.id === selectedTab)?.title;
+
   return (
     <div className="section">
+      <h1 className="title">
+        {`Selected tab is ${selectedTitle}`}
+      </h1>
       <Tabs
         tabs={tabs}
+        selectedTabId={selectedTab}
+        onTabSelected={settabSelected}
       />
     </div>
   );
