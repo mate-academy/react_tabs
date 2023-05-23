@@ -24,13 +24,13 @@ export const Tabs = (props: TabsProps) => {
   const selectedTab = findSelectedTab(selectedTabId) || tabs[0];
 
   return (
-    <div className="tabs is-boxed">
-      <ul>
-        {tabs.map((tab) => {
-          const isSelected = selectedTab.id === tab.id;
+    <div data-cy="TabsComponent">
+      <div className="tabs is-boxed">
+        <ul>
+          {tabs.map((tab) => {
+            const isSelected = selectedTab.id === tab.id;
 
-          return (
-            <>
+            return (
               <li
                 data-cy="Tab"
                 key={tab.id}
@@ -47,17 +47,15 @@ export const Tabs = (props: TabsProps) => {
 
                 </a>
               </li>
+            );
+          })}
 
-              {isSelected
-                && (
-                  <div className="block" data-cy="TabContent">
-                    {selectedTab.content}
-                  </div>
-                )}
-            </>
-          );
-        })}
-      </ul>
+        </ul>
+      </div>
+
+      <div className="block" data-cy="TabContent">
+        {selectedTab.content}
+      </div>
     </div>
   );
 };

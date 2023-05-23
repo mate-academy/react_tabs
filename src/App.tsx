@@ -33,13 +33,11 @@ export const App: React.FC = () => {
         {`Selected tab is ${findTitle()}`}
       </h1>
 
-      <div data-cy="TabsComponent">
-        <Tabs
-          tabs={tabs}
-          selectedTabId={selectedTabId}
-          onTabSelected={onTabSelected}
-        />
-      </div>
+      <Tabs
+        tabs={tabs}
+        selectedTabId={selectedTabId}
+        onTabSelected={onTabSelected}
+      />
     </div>
   );
 };
