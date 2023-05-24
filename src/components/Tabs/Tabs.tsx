@@ -13,7 +13,7 @@ interface TabsProps {
 export const Tabs = ({ tabs, selectedTabId, onTabSelected }: TabsProps) => {
   const activeTabId = tabs.some(tab => tab.id === selectedTabId)
     ? selectedTabId
-    : tabs;
+    : tabs[0].id;
 
   const handleTabChange = (tab: Tab) => {
     if (tab.id !== selectedTabId) {
