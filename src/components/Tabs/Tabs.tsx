@@ -9,38 +9,34 @@ interface TabsProps {
 export const Tabs = ({ selectedTabId, tabs, onTabSelected }: TabsProps) => {
   const currentTab = tabs.find(tab => tab.id === selectedTabId) || tabs[0];
 
-  const { title, id, content } = currentTab;
-
   return (
-    <>
-      <h1 className="title">
-        {`Selected tab is ${currentTab && title}`}
-      </h1>
-      <div data-cy="TabsComponent">
-        <div className="tabs is-boxed">
-          <ul>
-            {tabs.map(tab => (
-              <li
-                className={`${id === tab.id && 'is-active'}`}
-                data-cy="Tab"
+    <div data-cy="TabsComponent">
+      <div className="tabs is-boxed">
+        <ul>
+          {tabs.map(tab => {
+            const { id, title } = tab;
 
+            return (
+              <li
+                className={`${currentTab.id === id && 'is-active'}`}
+                data-cy="Tab"
               >
                 <a
-                  href={`#${tab.id}`}
+                  href={`#${id}`}
                   data-cy="TabLink"
                   onClick={() => (
-                    id !== tab.id && onTabSelected(tab))}
+                    currentTab.id !== id && onTabSelected(tab))}
                 >
-                  {tab.title}
+                  {title}
                 </a>
               </li>
-            ))}
-          </ul>
-        </div>
-        <div className="block" data-cy="TabContent">
-          {currentTab && content}
-        </div>
+            );
+          })}
+        </ul>
       </div>
-    </>
+      <div className="block" data-cy="TabContent">
+        {currentTab && currentTab.content}
+      </div>
+    </div>
   );
 };
