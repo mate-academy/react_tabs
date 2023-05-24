@@ -1,9 +1,7 @@
 import React, { useState } from 'react';
-
 import 'bulma/css/bulma.css';
 import '@fortawesome/fontawesome-free/css/all.css';
 import './App.scss';
-
 import { TabList } from './components/Tabs/TabList';
 
 export const tabs = [
@@ -13,24 +11,24 @@ export const tabs = [
 ];
 
 export const App: React.FC = () => {
-  const [textTitle, setTextTitle] = useState(tabs[0].title);
+  const [selectedTab, setSelectedTab] = useState(tabs[0]);
 
-  const clickedContent = (contentValue: string) => {
-    const foundedValue = tabs.find((tab) => tab.id === contentValue);
+  const selectedTabId = (idValue: string) => {
+    const foundedTab = tabs.find((tab) => tab.id === idValue);
 
-    if (foundedValue) {
-      setTextTitle(foundedValue.title);
+    if (foundedTab) {
+      setSelectedTab(foundedTab);
     }
   };
 
   return (
     <div className="section">
-      <h1 className="title">{`Selected tab is ${textTitle}`}</h1>
+      <h1 className="title">{`Selected tab is ${selectedTab.title}`}</h1>
 
       <TabList
         tabs={tabs}
-        clickedContent={clickedContent}
-
+        selectedTabId={selectedTabId}
+        idTitle={selectedTab.id}
       />
     </div>
   );
