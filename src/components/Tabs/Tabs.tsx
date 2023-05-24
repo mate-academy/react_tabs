@@ -7,10 +7,20 @@ interface Tab {
 interface TabsProps {
   tabs: Tab[],
   selectedTabId: string,
-  onTabSelected: (id: string) => void,
+  onTabSelected: (tab: Tab) => void,
 }
 
 export const Tabs = ({ tabs, selectedTabId, onTabSelected }: TabsProps) => {
+  const activeTabId = tabs.some(tab => tab.id === selectedTabId)
+    ? selectedTabId
+    : tabs;
+
+  const handleTabChange = (tab: Tab) => {
+    if (tab.id !== selectedTabId) {
+      onTabSelected(tab);
+    }
+  };
+
   return (
     <div data-cy="TabsComponent">
       <div className="tabs is-boxed">
@@ -19,14 +29,14 @@ export const Tabs = ({ tabs, selectedTabId, onTabSelected }: TabsProps) => {
             return (
               <li
                 data-cy="Tab"
-                {...selectedTabId === tab.id
+                {...activeTabId === tab.id
                   ? { className: 'is-active' }
                   : undefined}
               >
                 <a
-                  href={`"#${tab.id}"`}
+                  href={`#${tab.id}`}
                   data-cy="TabLink"
-                  onClick={() => onTabSelected(tab.id)}
+                  onClick={() => handleTabChange(tab)}
                 >
                   {tab.title}
                 </a>
