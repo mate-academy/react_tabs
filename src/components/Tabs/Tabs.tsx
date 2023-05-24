@@ -20,8 +20,7 @@ export const Tabs: React.FC<TabsProps> = ({
 
   const selectedTab = tabs.find((tab) => tab.id === selectedTabId) || tabs[0];
 
-  const selectedTabContent = tabs
-    .find((tab) => tab.id === selectedTabId)?.content;
+  const selectedTabContent = selectedTab.content;
 
   return (
     <div data-cy="TabsComponent">
