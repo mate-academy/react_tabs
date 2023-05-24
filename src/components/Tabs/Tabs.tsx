@@ -1,10 +1,5 @@
 import classNames from 'classnames';
-
-type Tab = {
-  id: string,
-  title: string,
-  content: string,
-};
+import { Tab } from '../../types/Tab';
 
 interface TabsProps {
   tabs: Tab[],
@@ -40,7 +35,7 @@ export const Tabs: React.FC<TabsProps> = ({
               key={tab.id}
               className={classNames({
                 'is-active':
-                 selectedTabId === tab.id,
+                 tab.id === findTab.id,
               })}
               data-cy="Tab"
             >
