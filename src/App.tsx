@@ -17,7 +17,7 @@ export const tabs: Tab[] = [
 ];
 
 export const App: React.FC = () => {
-  const [selectedTabId, setSelectedTabId] = useState('tab-1');
+  const [selectedTabId, setSelectedTabId] = useState(tabs[0].id);
 
   const onTabSelected = (tab: Tab) => {
     setSelectedTabId(tab.id);

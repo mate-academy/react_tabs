@@ -11,15 +11,16 @@ interface TabsProps {
 }
 
 export const Tabs = ({ tabs, selectedTabId, onTabSelected }: TabsProps) => {
-  const activeTabId = tabs.some(tab => tab.id === selectedTabId)
-    ? selectedTabId
-    : tabs[0].id;
+  const activeTabId = tabs.find(tab => tab.id === selectedTabId)?.id
+    || tabs[0].id;
 
   const handleTabChange = (tab: Tab) => {
     if (tab.id !== selectedTabId) {
       onTabSelected(tab);
     }
   };
+
+  const activeTab = tabs.find(tab => tab.id === selectedTabId);
 
   return (
     <div data-cy="TabsComponent">
@@ -29,9 +30,7 @@ export const Tabs = ({ tabs, selectedTabId, onTabSelected }: TabsProps) => {
             return (
               <li
                 data-cy="Tab"
-                {...activeTabId === tab.id
-                  ? { className: 'is-active' }
-                  : undefined}
+                {...activeTabId === tab.id && { className: 'is-active' }}
               >
                 <a
                   href={`#${tab.id}`}
@@ -47,7 +46,7 @@ export const Tabs = ({ tabs, selectedTabId, onTabSelected }: TabsProps) => {
       </div>
 
       <div className="block" data-cy="TabContent">
-        {(tabs.find(tab => tab.id === selectedTabId)?.content)}
+        {(activeTab?.content)}
       </div>
     </div>
   );
