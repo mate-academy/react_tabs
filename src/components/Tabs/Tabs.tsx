@@ -15,9 +15,9 @@ interface TabsProps {
 export const Tabs: React.FC<TabsProps> = ({
   tabs, selectedTabId, onTabSelected,
 }) => {
-  function findTab(tabId: string): Tab {
+  const findTab = (tabId: string) => {
     return tabs.find((tab) => tab.id === tabId) || tabs[0];
-  }
+  };
 
   function handleTabClick(clickedTab: string) {
     if (selectedTabId !== clickedTab) {
