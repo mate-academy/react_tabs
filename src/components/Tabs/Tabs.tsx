@@ -4,12 +4,14 @@ type Props = {
   tabs: Tab[];
   selectedTabId: string;
   setSelectedTabId: (id: string) => void;
+  content?: string;
 };
 
 export const Tabs: React.FC<Props> = ({
   tabs,
   selectedTabId,
   setSelectedTabId,
+  content,
 }) => {
   return (
     <>
@@ -33,13 +35,7 @@ export const Tabs: React.FC<Props> = ({
         </div>
 
         <div className="block" data-cy="TabContent">
-          {tabs.map(tab => {
-            if (tab.id === selectedTabId) {
-              return tab.content;
-            }
-
-            return null;
-          })}
+          {content}
         </div>
       </div>
     </>

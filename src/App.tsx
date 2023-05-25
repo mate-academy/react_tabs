@@ -12,25 +12,19 @@ export const tabs = [
 
 export const App: React.FC = () => {
   const [selectedTabId, setSelectedTabId] = useState(tabs[0].id);
+  const currentTab = tabs.find(tab => tab.id === selectedTabId);
 
   return (
     <div className="section">
       <h1 className="title">
-        Selected tab is
-        {' '}
-        {tabs.map(tab => {
-          if (tab.id === selectedTabId) {
-            return tab.title;
-          }
-
-          return null;
-        })}
+        {`Selected tab is ${currentTab?.title}`}
       </h1>
 
       <Tabs
         tabs={tabs}
         selectedTabId={selectedTabId}
         setSelectedTabId={setSelectedTabId}
+        content={currentTab?.content}
       />
     </div>
   );
