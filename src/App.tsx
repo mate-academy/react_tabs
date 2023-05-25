@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import 'bulma/css/bulma.css';
 import '@fortawesome/fontawesome-free/css/all.css';
 import './App.scss';
+import { Tab } from './types/Tab';
 import { Tabs } from './components/Tabs/Tabs';
 
 export const tabs = [
@@ -11,18 +12,22 @@ export const tabs = [
 ];
 
 export const App: React.FC = () => {
-  const [selectedTabId, setSelectedTabId] = useState(tabs[0]); // Why does it have to be called selectedTabId? It isn't an id at all
+  const [selectedTabId, setSelectedTabId] = useState(tabs[0].id);
+  const currentTab = tabs.find((tab) => tab.id === selectedTabId) || tabs[0];
+  const onTabSelected = (tab: Tab) => {
+    setSelectedTabId(tab.id);
+  };
 
   return (
     <div className="section">
       <h1 className="title">
-        {`Selected tab is ${selectedTabId.title}`}
+        {`Selected tab is ${currentTab.title}`}
       </h1>
 
       <Tabs
         tabs={tabs}
-        selectedTabId={selectedTabId.id} // selectedTabId.id looks silly, why can't we name it selectedTab instead?
-        onTabSelected={setSelectedTabId}
+        selectedTabId={selectedTabId}
+        onTabSelected={onTabSelected}
       />
     </div>
   );

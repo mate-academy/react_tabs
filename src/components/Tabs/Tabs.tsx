@@ -1,10 +1,5 @@
 import React from 'react';
-
-interface Tab {
-  id: string,
-  title: string,
-  content: string,
-}
+import { Tab } from '../../types/Tab';
 
 interface TabsProps {
   selectedTabId: string,
