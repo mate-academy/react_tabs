@@ -1,3 +1,4 @@
+import classNames from 'classnames';
 import { SyntheticEvent } from 'react';
 import { Tab, TabsProps } from '../../types/tab';
 
@@ -24,7 +25,9 @@ export const Tabs = ({ tabs, selectedTab, onTabSelected }: TabsProps) => {
         <ul>
           {tabs.map((tab: Tab) => (
             <li
-              className={tab.id === selectedTab.id ? 'is-active' : ''}
+              className={classNames({
+                'is-active': tab.id === selectedTab.id,
+              })}
               data-cy="Tab"
               key={tab.id}
             >
