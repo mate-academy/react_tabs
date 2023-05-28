@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Tabs } from './components/Tabs';
 import { Tab } from './Types/Tab';
 import 'bulma/css/bulma.css';
@@ -11,34 +11,28 @@ export const tabs = [
   { id: 'tab-3', title: 'Tab 3', content: 'Some text 3' },
 ];
 
-export class App extends React.Component {
-  state = {
-    tabsData: tabs,
-    selectedTabId: tabs[0].id,
-  };
+export const App:React.FC = () => {
+  const [selectedTabId, setSelectedTabId] = useState(tabs[0].id);
 
-  handleTabSelected = (tab: Tab) => {
-    if (tab.id !== this.state.selectedTabId) {
-      this.setState({ selectedTabId: tab.id });
+  const handleTabSelected = (tab: Tab) => {
+    if (tab.id !== selectedTabId) {
+      setSelectedTabId(tab.id);
     }
   };
 
-  render() {
-    const { tabsData, selectedTabId } = this.state;
-    const selectedTab = tabsData.find((tab) => tab.id === selectedTabId);
+  const selectedTab = tabs.find(tab => tab.id === selectedTabId);
 
-    return (
-      <div className="section">
-        <h1 className="title">
-          {`Selected tab is ${selectedTab?.title}`}
-        </h1>
+  return (
+    <div className="section">
+      <h1 className="title">
+        {`Selected tab is ${selectedTab?.title}`}
+      </h1>
 
-        <Tabs
-          tabs={tabsData}
-          selectedTabId={selectedTabId}
-          onTabSelected={this.handleTabSelected}
-        />
-      </div>
-    );
-  }
-}
+      <Tabs
+        tabs={tabs}
+        selectedTabId={selectedTabId}
+        onTabSelected={handleTabSelected}
+      />
+    </div>
+  );
+};

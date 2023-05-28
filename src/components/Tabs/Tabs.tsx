@@ -1,4 +1,5 @@
 import React from 'react';
+import classNames from 'classnames';
 import { Tab } from '../../Types/Tab';
 
 type Props = {
@@ -7,51 +8,54 @@ type Props = {
   onTabSelected: (tab: Tab) => void,
 };
 
-export class Tabs extends React.Component<Props> {
-  handleTabClick = (tab: Tab) => {
-    this.props.onTabSelected(tab);
+export const Tabs: React.FC<Props> = ({ 
+  tabs, 
+  selectedTabId, 
+  onTabSelected }) => {
+  const handleTabClick = (tab: Tab) => {
+    onTabSelected(tab);
   };
 
-  render() {
-    const { tabs, selectedTabId } = this.props;
+  const tabDisplay: { [key: string]: string } = {};
 
-    return (
-      <div data-cy="TabsComponent">
-        <div className="tabs is-boxed">
-          <ul>
-            {tabs.map(tab => (
-              // eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-noninteractive-element-interactions
-              <li
-                className={tab.id === selectedTabId ? 'is-active' : ''}
-                data-cy="Tab"
-                key={tab.id}
-                onClick={() => this.handleTabClick(tab)}
+  tabs.forEach(tab => {
+    tabDisplay[tab.id] = tab.id === selectedTabId ? 'block' : 'none';
+  });
+
+  return (
+    <div data-cy="TabsComponent">
+      <div className="tabs is-boxed">
+        <ul>
+          {tabs.map(tab => (
+            <li
+              className={classNames({ 'is-active': tab.id === selectedTabId })}
+              data-cy="Tab"
+              key={tab.id}
+            >
+              <a
+                href={`#${tab.id}`}
+                data-cy="TabLink"
+                onClick={() => handleTabClick(tab)}
               >
-                <a
-                  key={tab.id}
-                  href={`#${tab.id}`}
-                  data-cy="TabLink"
-                >
-                  {tab.title}
-                </a>
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        {tabs.map(tab => (
-          <div
-            className="block"
-            data-cy="tab-content"
-            key={tab.id}
-            style={{
-              display: tab.id === selectedTabId ? 'block' : 'none',
-            }}
-          >
-            {tab.content}
-          </div>
-        ))}
+                {tab.title}
+              </a>
+            </li>
+          ))}
+        </ul>
       </div>
-    );
-  }
-}
+
+      {tabs.map(tab => (
+        <div
+          className="block"
+          data-cy="tab-content"
+          key={tab.id}
+          style={{
+            display: tabDisplay[tab.id],
+          }}
+        >
+          {tab.content}
+        </div>
+      ))}
+    </div>
+  );
+};
