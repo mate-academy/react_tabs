@@ -1,23 +1,19 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Tab } from '../../type/Tabs';
 
-interface TabsProps {
+interface TabListProps {
   tabs: Tab[];
-  selectedTabId: (elem: string) => void;
-  idTitle: string;
+  selectedTabId: string;
+  onTabClick: (tabId: string) => void;
 }
 
-export const TabList: React.FC<TabsProps> = ({
+export const TabList: React.FC<TabListProps> = ({
   tabs,
-  selectedTabId: clickedContent,
-  idTitle,
+  selectedTabId,
+  onTabClick,
 }) => {
-  const [activeTabId, setActiveTabId] = useState(idTitle);
-  const activeTab = tabs.find(tab => tab.id === activeTabId);
-
-  const getClassName = (className: string) => {
-    setActiveTabId(className);
-    clickedContent(className);
+  const handleTabClick = (tabId: string) => {
+    onTabClick(tabId);
   };
 
   return (
@@ -26,14 +22,14 @@ export const TabList: React.FC<TabsProps> = ({
         <ul>
           {tabs.map((tab) => (
             <li
-              className={activeTabId === tab.id ? 'is-active' : ''}
+              className={selectedTabId === tab.id ? 'is-active' : ''}
               data-cy="Tab"
               key={tab.id}
             >
               <a
                 href={`#${tab.id}`}
                 data-cy="TabLink"
-                onClick={() => getClassName(tab.id)}
+                onClick={() => handleTabClick(tab.id)}
               >
                 {tab.title}
               </a>
@@ -42,7 +38,7 @@ export const TabList: React.FC<TabsProps> = ({
         </ul>
       </div>
       <div className="block" data-cy="TabContent">
-        {activeTab && activeTab.content}
+        {tabs.find((tab) => tab.id === selectedTabId)?.content}
       </div>
     </div>
   );
