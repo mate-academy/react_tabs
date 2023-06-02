@@ -1,7 +1,7 @@
 import { Tab } from '../../react-app-env';
 
 interface TabsProps {
-  onTabSelected:(arg0:Tab)=>void,
+  onTabSelected:(tab:Tab)=>void,
   selectedTabId: string,
   tabs: Tab[],
 }
