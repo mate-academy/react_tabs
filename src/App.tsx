@@ -1,10 +1,8 @@
-import React from 'react';
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { Tabs } from './components/Tabs';
 import 'bulma/css/bulma.css';
 import '@fortawesome/fontawesome-free/css/all.css';
 import './App.scss';
-import { use } from 'chai';
 
 export const tabs = [
   { id: 'tab-1', title: 'Tab 1', content: 'Some text 1' },
@@ -18,7 +16,7 @@ export const App: React.FC = () => {
   return (
     <div className="section">
       <h1 className="title">
-        {`Selected tab is ${selectedTab.title}`}
+        { `Selected tab is ${selectedTab.title}` }
       </h1>
 
       <Tabs
