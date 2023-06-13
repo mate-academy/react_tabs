@@ -15,7 +15,7 @@ export const tabs: Tab[] = [
 export const App: React.FC = () => {
   const [selectedTabId, setSelectedTabId] = useState(tabs[0].id);
 
-  const onTabSelected = (tab: Tab) => {
+  const handleTabSelected = (tab: Tab) => {
     setSelectedTabId(tab.id);
   };
 
@@ -25,14 +25,13 @@ export const App: React.FC = () => {
     <div className="section">
       <h1 className="title">
         Selected tab is
-        {' '}
-        {selectedTab.title}
+        {` ${selectedTab.title}`}
       </h1>
 
       <Tabs
         tabs={tabs}
         selectedTabId={selectedTabId}
-        onTabSelected={onTabSelected}
+        onTabSelected={handleTabSelected}
       />
     </div>
   );

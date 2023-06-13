@@ -1,11 +1,11 @@
 import React from 'react';
 import { Tab } from '../../types/Tab';
 
-type Props = {
+interface Props {
   tabs: Tab[];
   selectedTabId: string;
   onTabSelected: (tab: Tab) => void;
-};
+}
 
 export const Tabs: React.FC<Props> = ({
   tabs,
