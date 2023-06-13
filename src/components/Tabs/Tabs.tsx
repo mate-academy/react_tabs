@@ -1,15 +1,18 @@
+import cn from 'classnames';
 import { Tab } from '../types/Tab';
 
-export const Tabs: React.FunctionComponent<{
-  tabs: Tab[], selectedTabId: string, onTabSelected: (tab : Tab) => void
-}> = ({
-  tabs,
-  selectedTabId,
-  onTabSelected,
-}) => {
-  const selectedTab = tabs.find((tab) => (
-    tab.id === selectedTabId
-  )) || tabs[0];
+interface PropsTabs {
+  tabs: Tab[];
+  onTabSelected: (tab: Tab) => void;
+  selectedTabId: string;
+}
+
+export const Tabs = ({ tabs, selectedTabId, onTabSelected }: PropsTabs) => {
+  const getSelectedTab = (id: string) => (
+    tabs.find(tab => tab.id === id) || tabs[0]
+  );
+
+  const selectedTab = getSelectedTab(selectedTabId);
 
   const handleTabClick = (tab: Tab) => {
     if (tab.id !== selectedTabId) {
@@ -21,23 +24,26 @@ export const Tabs: React.FunctionComponent<{
     <div data-cy="TabsComponent">
       <div className="tabs is-boxed">
         <ul>
-          {tabs.map(tab => (
-            <li
-              key={tab.id}
-              className={tab.id === selectedTab.id ? 'is-active' : ''}
-              data-cy="Tab"
-            >
-              <a
-                href={`#${tab.id}`}
-                data-cy="TabLink"
-                onClick={() => {
-                  handleTabClick(tab);
-                }}
+          {tabs.map(tab => {
+            const { id, title } = tab;
+
+            return (
+              <li
+                className={cn({ 'is-active': selectedTab.id === id })}
+                data-cy="Tab"
+                key={id}
               >
-                {tab.title}
-              </a>
-            </li>
-          ))}
+                <a
+                  href={`#${id}`}
+                  data-cy="TabLink"
+                  onClick={() => (id !== selectedTabId
+                  && handleTabClick(tab))}
+                >
+                  {title}
+                </a>
+              </li>
+            );
+          })}
         </ul>
       </div>
 
