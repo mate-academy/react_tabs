@@ -36,8 +36,11 @@ export const Tabs = ({ tabs, selectedTabId, onTabSelected }: PropsTabs) => {
                 <a
                   href={`#${id}`}
                   data-cy="TabLink"
-                  onClick={() => (id !== selectedTabId
-                  && handleTabClick(tab))}
+                  onClick={() => {
+                    if (id !== selectedTabId) {
+                      handleTabClick(tab);
+                    }
+                  }}
                 >
                   {title}
                 </a>
