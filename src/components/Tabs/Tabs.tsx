@@ -1,6 +1,5 @@
-// import { useState } from 'react';
-import { Tab } from '../../type/Tab';
 import classNames from 'classnames';
+import { Tab } from '../../type/Tab';
 
 interface Props {
   tabs: Tab[];
