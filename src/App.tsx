@@ -13,23 +13,30 @@ export const tabs = [
 
 export const App: React.FC = () => {
   const [activeTab, setActiveTab] = useState('tab-1');
-  const activeIndex = activeTab.slice(-1);
+  const selectedTabId = activeTab.slice(-1);
 
-  const handlerClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
-    setActiveTab(e.currentTarget.id);
+  const handlerClick = (id: string) => {
+    if (id !== tabs[0].id
+        || id !== tabs[1].id
+        || id !== tabs[2].id
+    ) {
+      setActiveTab('ab-1');
+    }
+
+    setActiveTab(id);
   };
 
   return (
     <div className="section">
       <h1 className="title">
-        {`Selected tab is Tab ${activeIndex}`}
+        {`Selected tab is Tab ${selectedTabId}`}
       </h1>
 
       <Tabs
         tabs={tabs}
         activeTab={activeTab}
-        activeIndex={activeIndex}
-        onClick={handlerClick}
+        selectedTabId={selectedTabId}
+        onTabSelected={handlerClick}
       />
     </div>
   );

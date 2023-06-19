@@ -8,15 +8,15 @@ type Props = {
   }[];
 
   activeTab: string;
-  activeIndex: string;
-  onClick: (e: React.MouseEvent<HTMLAnchorElement>) => void;
+  selectedTabId: string;
+  onTabSelected: (id: string) => void;
 };
 
 export const Tabs: React.FC<Props> = ({
   tabs,
   activeTab,
-  activeIndex,
-  onClick,
+  selectedTabId,
+  onTabSelected,
 }) => {
   return (
     <div data-cy="TabsComponent">
@@ -30,7 +30,11 @@ export const Tabs: React.FC<Props> = ({
             >
               <a
                 href={`#${tab.id}`}
-                onClick={onClick}
+                onClick={(e: React.MouseEvent<HTMLAnchorElement>) => {
+                  if (e.currentTarget.id !== activeTab) {
+                    onTabSelected(e.currentTarget.id);
+                  }
+                }}
                 data-cy="TabLink"
                 id={tab.id}
               >
@@ -42,7 +46,7 @@ export const Tabs: React.FC<Props> = ({
       </div>
 
       <div className="block" data-cy="TabContent">
-        {`Some text ${activeIndex}`}
+        {`Some text ${selectedTabId}`}
       </div>
     </div>
   );
