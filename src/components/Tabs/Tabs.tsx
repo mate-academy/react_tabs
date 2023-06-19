@@ -1,3 +1,4 @@
+import classNames from 'classnames';
 import React from 'react';
 
 type Props = {
@@ -7,8 +8,8 @@ type Props = {
     content: string;
   }[];
 
-  activeTab: string;
-  selectedTabId: string;
+  activeTab: number;
+  selectedTabId: (id: string) => number;
   onTabSelected: (id: string) => void;
 };
 
@@ -18,23 +19,27 @@ export const Tabs: React.FC<Props> = ({
   selectedTabId,
   onTabSelected,
 }) => {
+  const checkSelected = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    if (selectedTabId(e.currentTarget.id) !== activeTab) {
+      onTabSelected(e.currentTarget.id);
+    }
+  };
+
   return (
     <div data-cy="TabsComponent">
       <div className="tabs is-boxed">
         <ul>
           {tabs.map((tab) => (
             <li
-              className={activeTab === tab.id ? 'is-active' : ''}
+              className={classNames({
+                'is-active': activeTab === selectedTabId(tab.id),
+              })}
               data-cy="Tab"
               key={tab.title}
             >
               <a
                 href={`#${tab.id}`}
-                onClick={(e: React.MouseEvent<HTMLAnchorElement>) => {
-                  if (e.currentTarget.id !== activeTab) {
-                    onTabSelected(e.currentTarget.id);
-                  }
-                }}
+                onClick={checkSelected}
                 data-cy="TabLink"
                 id={tab.id}
               >
@@ -46,7 +51,7 @@ export const Tabs: React.FC<Props> = ({
       </div>
 
       <div className="block" data-cy="TabContent">
-        {`Some text ${selectedTabId}`}
+        {`Some text ${activeTab}`}
       </div>
     </div>
   );

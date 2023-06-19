@@ -12,24 +12,24 @@ export const tabs = [
 ];
 
 export const App: React.FC = () => {
-  const [activeTab, setActiveTab] = useState('tab-1');
-  const selectedTabId = activeTab.slice(-1);
+  const [activeTab, setActiveTab] = useState(1);
+  const selectedTabId = (id: string) => +id.slice(-1);
 
   const handlerClick = (id: string) => {
     if (id !== tabs[0].id
         || id !== tabs[1].id
         || id !== tabs[2].id
     ) {
-      setActiveTab('ab-1');
+      setActiveTab(1);
     }
 
-    setActiveTab(id);
+    setActiveTab(selectedTabId(id));
   };
 
   return (
     <div className="section">
       <h1 className="title">
-        {`Selected tab is Tab ${selectedTabId}`}
+        {`Selected tab is Tab ${activeTab}`}
       </h1>
 
       <Tabs
