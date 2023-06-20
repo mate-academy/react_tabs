@@ -1,21 +1,15 @@
 import cn from 'classnames';
 import { FC } from 'react';
 import { Tab } from '../../types';
+import { getTabById } from '../../helpers/getTabById';
 
 interface Props {
   tabs: Tab[],
   selectedTabId: string,
-  onTabSelected: (id: string) => void,
+  onTabSelected: (id: Tab) => void,
 }
 
 export const Tabs:FC<Props> = ({ tabs, selectedTabId, onTabSelected }) => {
-  const getSelectedTabTitleById = (
-    tabsList: Tab[],
-    id: string,
-  ) => (
-    tabsList.find(tab => tab.id === id)?.content
-  );
-
   return (
     <div data-cy="TabsComponent">
       <div className="tabs is-boxed">
@@ -33,7 +27,7 @@ export const Tabs:FC<Props> = ({ tabs, selectedTabId, onTabSelected }) => {
                 <a
                   href={`#${id}`}
                   data-cy="TabLink"
-                  onClick={() => !isSelected && onTabSelected(id)}
+                  onClick={() => !isSelected && onTabSelected(tab)}
                 >
                   {title}
                 </a>
@@ -44,7 +38,7 @@ export const Tabs:FC<Props> = ({ tabs, selectedTabId, onTabSelected }) => {
       </div>
 
       <div className="block" data-cy="TabContent">
-        {getSelectedTabTitleById(tabs, selectedTabId)}
+        {getTabById(tabs, selectedTabId)?.content}
       </div>
     </div>
   );
