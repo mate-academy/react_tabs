@@ -14,12 +14,13 @@ export const tabs = [
 export const App: React.FC = () => {
   const [activeTab, setActiveTab] = useState(1);
   const selectedTabId = (id: string) => +id.slice(-1);
+  const checkId = (id: string) => (
+    id !== tabs[0].id
+    || id !== tabs[1].id
+    || id !== tabs[2].id);
 
   const handlerClick = (id: string) => {
-    if (id !== tabs[0].id
-        || id !== tabs[1].id
-        || id !== tabs[2].id
-    ) {
+    if (checkId(id)) {
       setActiveTab(1);
     }
 
