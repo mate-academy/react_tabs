@@ -10,10 +10,8 @@ interface Props {
 }
 
 export const Tabs:FC<Props> = ({ tabs, selectedTabId, onTabSelected }) => {
-  let currentSelectedTabId = selectedTabId;
-
-  if (!getTabById(tabs, currentSelectedTabId)) {
-    currentSelectedTabId = tabs[0].id;
+  if (!getTabById(tabs, selectedTabId)) {
+    onTabSelected(tabs[0]);
   }
 
   return (
@@ -22,7 +20,7 @@ export const Tabs:FC<Props> = ({ tabs, selectedTabId, onTabSelected }) => {
         <ul>
           {tabs.map(tab => {
             const { id, title } = tab;
-            const isSelected = currentSelectedTabId === id;
+            const isSelected = selectedTabId === id;
 
             return (
               <li
@@ -44,7 +42,7 @@ export const Tabs:FC<Props> = ({ tabs, selectedTabId, onTabSelected }) => {
       </div>
 
       <div className="block" data-cy="TabContent">
-        {getTabById(tabs, currentSelectedTabId)?.content}
+        {getTabById(tabs, selectedTabId)?.content}
       </div>
     </div>
   );
