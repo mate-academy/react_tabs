@@ -10,13 +10,19 @@ interface Props {
 }
 
 export const Tabs:FC<Props> = ({ tabs, selectedTabId, onTabSelected }) => {
+  let currentSelectedTabId = selectedTabId;
+
+  if (!getTabById(tabs, currentSelectedTabId)) {
+    currentSelectedTabId = tabs[0].id;
+  }
+
   return (
     <div data-cy="TabsComponent">
       <div className="tabs is-boxed">
         <ul>
           {tabs.map(tab => {
             const { id, title } = tab;
-            const isSelected = selectedTabId === id;
+            const isSelected = currentSelectedTabId === id;
 
             return (
               <li
@@ -38,7 +44,7 @@ export const Tabs:FC<Props> = ({ tabs, selectedTabId, onTabSelected }) => {
       </div>
 
       <div className="block" data-cy="TabContent">
-        {getTabById(tabs, selectedTabId)?.content}
+        {getTabById(tabs, currentSelectedTabId)?.content}
       </div>
     </div>
   );

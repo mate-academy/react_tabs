@@ -19,10 +19,6 @@ export const App: React.FC = () => {
     setSelectedTabId(tabData.id);
   };
 
-  if (!getTabById(tabs, selectedTabId)) {
-    setSelectedTabId(tabs[0].id);
-  }
-
   const selectedTabTitle = getTabById(tabs, selectedTabId)?.title;
 
   return (
