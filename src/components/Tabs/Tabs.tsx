@@ -10,8 +10,12 @@ interface Props {
 }
 
 export const Tabs:FC<Props> = ({ tabs, selectedTabId, onTabSelected }) => {
-  if (!getTabById(tabs, selectedTabId)) {
+  const isSelectedTabIdInvalid = !getTabById(tabs, selectedTabId);
+  let selectedValidTabId = selectedTabId;
+
+  if (isSelectedTabIdInvalid) {
     onTabSelected(tabs[0]);
+    selectedValidTabId = tabs[0].id;
   }
 
   return (
@@ -20,7 +24,7 @@ export const Tabs:FC<Props> = ({ tabs, selectedTabId, onTabSelected }) => {
         <ul>
           {tabs.map(tab => {
             const { id, title } = tab;
-            const isSelected = selectedTabId === id;
+            const isSelected = selectedValidTabId === id;
 
             return (
               <li
