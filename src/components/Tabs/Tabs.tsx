@@ -1,5 +1,5 @@
-import cn from 'classnames';
 import { FC } from 'react';
+import cn from 'classnames';
 import { Tab } from '../../types/Tab';
 
 type Props = {
