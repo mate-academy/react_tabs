@@ -10,13 +10,7 @@ interface Props {
 }
 
 export const Tabs:FC<Props> = ({ tabs, selectedTabId, onTabSelected }) => {
-  const isSelectedTabIdInvalid = !getTabById(tabs, selectedTabId);
-  let selectedValidTabId = selectedTabId;
-
-  if (isSelectedTabIdInvalid) {
-    onTabSelected(tabs[0]);
-    selectedValidTabId = tabs[0].id;
-  }
+  const selectedValidTabId = getTabById(tabs, selectedTabId).id;
 
   return (
     <div data-cy="TabsComponent">

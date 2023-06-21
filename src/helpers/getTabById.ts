@@ -4,5 +4,5 @@ export const getTabById = (
   tabsList: Tab[],
   id: string,
 ) => (
-  tabsList.find(tab => tab.id === id)
+  tabsList.find(tab => tab.id === id) || tabsList[0]
 );
