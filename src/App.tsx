@@ -1,4 +1,4 @@
-import { FC, useState } from 'react';
+import { useState } from 'react';
 import { Tabs } from './components/Tabs';
 import 'bulma/css/bulma.css';
 import '@fortawesome/fontawesome-free/css/all.css';
@@ -16,7 +16,7 @@ export const tabs = [
   { id: 'tab-3', title: 'Tab 3', content: 'Some text 3' },
 ];
 
-export const App: FC = () => {
+export const App = () => {
   const [selectedTabId, setselectedTabId] = useState(tabs[0].id);
 
   const handleTab = (tabId: string) => {
