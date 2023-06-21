@@ -15,34 +15,30 @@ export const Tabs: FC<PropsTabs> = (props) => {
     onTabSelected,
   } = props;
 
-  // useEffect(() => {
-  //   // const isDefaultSelectedId = !tabs
-  //   //   .map(t => t.id)
-  //   //   .includes(selectedTabId);
-
-  //   const isValidTabId = () => {
-  //     return tabs.map(tab => tab.id).includes(selectedTabId);
-  //   };
-
-  //   if (!isValidTabId()) {
-  //     onTabSelected(tabs[0]);
-  //   }
-  // }, []);
-
-  const isValidTabId = () => {
-    return tabs.map(tab => tab.id).includes(selectedTabId);
+  const isValidCurrentTabId = () => {
+    return tabs
+      .map(tab => tab.id)
+      .includes(selectedTabId);
   };
 
-  const selected = isValidTabId()
+  const currentTabId = isValidCurrentTabId()
     ? selectedTabId
     : tabs[0].id;
+
+  const changeTab = (tab: Tab) => {
+    if (tab.id === currentTabId) {
+      return;
+    }
+
+    onTabSelected(tab);
+  };
 
   return (
     <div data-cy="TabsComponent">
       <div className="tabs is-boxed">
         <ul>
           {tabs.map(tab => {
-            const isSelected = selected === tab.id;
+            const isSelected = currentTabId === tab.id;
 
             return (
               <li
@@ -55,13 +51,7 @@ export const Tabs: FC<PropsTabs> = (props) => {
                 <a
                   href={`#${tab.id}`}
                   data-cy="TabLink"
-                  onClick={() => {
-                    if (isSelected) {
-                      return;
-                    }
-
-                    onTabSelected(tab);
-                  }}
+                  onClick={() => changeTab(tab)}
                 >
                   {tab.title}
                 </a>
