@@ -1,4 +1,5 @@
 import { Tab } from '../../types/Tab';
+import cn from 'classnames';
 
 interface Props {
   tabs: Tab[];
@@ -27,9 +28,7 @@ export const Tabs = ({
         <ul>
           {tabs.map(tab => (
             <li
-              className={tab.id === selectedTab.id
-                ? 'is-active'
-                : ''}
+              className={cn({ 'is-active': tab.id === selectedTab.id })}
               data-cy="Tab"
               key={tab.id}
             >
