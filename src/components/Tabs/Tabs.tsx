@@ -24,7 +24,7 @@ export const Tabs: FC<Props> = ({
   return (
     <div className="section">
       <h1 className="title">
-        {selectedTab && `Selected tab is ${selectedTab.title}`}
+        {`Selected tab is ${selectedTab.title}`}
       </h1>
 
       <div data-cy="TabsComponent">
