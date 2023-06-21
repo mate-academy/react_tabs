@@ -19,7 +19,7 @@ export const Tabs: React.FC<Props> = ({
   onTabSelected,
 }) => {
   const selectedTab = tabs.find(tab => tab.id === selectedTabId) || tabs[0];
-  const handleTab = (tab: Tab) => {
+  const selectTab = (tab: Tab) => {
     if (tab.id !== selectedTab.id) {
       onTabSelected(tab);
     }
@@ -32,7 +32,7 @@ export const Tabs: React.FC<Props> = ({
           {tabs.map(tab => (
             <li
               key={tab.id}
-              className={classNames('', {
+              className={classNames({
                 'is-active': selectedTab.id === tab.id,
               })}
               data-cy="Tab"
@@ -40,7 +40,7 @@ export const Tabs: React.FC<Props> = ({
               <a
                 href={`#${tab.id}`}
                 data-cy="TabLink"
-                onClick={() => handleTab(tab)}
+                onClick={() => selectTab(tab)}
               >
                 {tab.title}
               </a>
