@@ -3,6 +3,7 @@ import { Tabs } from './components/Tabs';
 import 'bulma/css/bulma.css';
 import '@fortawesome/fontawesome-free/css/all.css';
 import './App.scss';
+import { Tab } from './types/Tab';
 
 export const tabs = [
   { id: 'tab-1', title: 'Tab 1', content: 'Some text 1' },
@@ -13,8 +14,8 @@ export const tabs = [
 export const App = () => {
   const [selectedTabId, setselectedTabId] = useState(tabs[0].id);
 
-  const handleTab = (tabId: string) => {
-    setselectedTabId(tabId);
+  const handleTab = (tab:Tab) => {
+    setselectedTabId(tab.id);
   };
 
   return (
