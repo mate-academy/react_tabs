@@ -1,26 +1,34 @@
 import { FC } from 'react';
 import { Tab } from '../../types';
-import { TabItem } from '../Tab/TabItem';
+import { TabItem } from '../TabItem/TabItem';
 
 type Props = {
   tabs: Tab[] | undefined;
-  selectedTabId: string;
-  onTabSelected: (id: string) => void;
+  selectedTab: Tab;
+  onTabSelected: (tab :Tab) => void;
 };
 
-export const Tabs: FC<Props> = ({ tabs, selectedTabId, onTabSelected }) => {
+export const Tabs: FC<Props> = ({ tabs, selectedTab, onTabSelected }) => {
+  const { id, content } = selectedTab;
+
   return (
-    <div className="tabs is-boxed">
-      <ul>
-        {tabs?.map(tabItem => (
-          <TabItem
-            key={tabItem.id}
-            tabItem={tabItem}
-            selectedTabId={selectedTabId}
-            onTabSelected={onTabSelected}
-          />
-        ))}
-      </ul>
+    <div data-cy="TabsComponent">
+      <div className="tabs is-boxed">
+        <ul>
+          {tabs?.map(tabItem => (
+            <TabItem
+              key={id}
+              tabItem={tabItem}
+              selectedTabId={id}
+              onTabSelected={onTabSelected}
+            />
+          ))}
+        </ul>
+      </div>
+
+      <div className="block" data-cy="TabContent">
+        {content}
+      </div>
     </div>
   );
 };

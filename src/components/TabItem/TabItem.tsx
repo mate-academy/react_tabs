@@ -5,7 +5,7 @@ import { Tab } from '../../types';
 type Props = {
   tabItem: Tab | undefined;
   selectedTabId: string;
-  onTabSelected: (id: string) => void;
+  onTabSelected: (tab: Tab) => void;
 };
 
 export const TabItem: FC<Props> = ({
@@ -23,9 +23,7 @@ export const TabItem: FC<Props> = ({
       <a
         href={`#${tabItem?.id}`}
         data-cy="TabLink"
-        onClick={() => {
-          return !isActive && tabItem?.id ? onTabSelected(tabItem.id) : null;
-        }}
+        onClick={() => (!isActive && tabItem) && onTabSelected(tabItem)}
       >
         {tabItem?.title}
       </a>
