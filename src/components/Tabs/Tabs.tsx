@@ -22,37 +22,33 @@ export const Tabs: FC<Props> = ({
   };
 
   return (
-    <div className="section">
-      <h1 className="title">
-        {`Selected tab is ${selectedTab.title}`}
-      </h1>
 
-      <div data-cy="TabsComponent">
-        <div className="tabs is-boxed">
-          <ul>
-            {tabs.map(tab => (
-              <li
-                className={cn({ 'is-active': selectedTab === tab })}
-                data-cy="Tab"
-                key={tab.id}
+    <div data-cy="TabsComponent">
+      <div className="tabs is-boxed">
+        <ul>
+          {tabs.map(tab => (
+            <li
+              className={cn({ 'is-active': selectedTab === tab })}
+              data-cy="Tab"
+              key={tab.id}
+            >
+              <a
+                href={`#${tab.id}`}
+                data-cy="TabLink"
+                onClick={() => selectTabId(tab)}
               >
-                <a
-                  href={`#${tab.id}`}
-                  data-cy="TabLink"
-                  onClick={() => selectTabId(tab)}
-                >
-                  {tab.title}
-                </a>
-              </li>
+                {tab.title}
+              </a>
+            </li>
 
-            ))}
-          </ul>
-        </div>
+          ))}
+        </ul>
+      </div>
 
-        <div className="block" data-cy="TabContent">
-          {selectedTab.content}
-        </div>
+      <div className="block" data-cy="TabContent">
+        {selectedTab.content}
       </div>
     </div>
+
   );
 };

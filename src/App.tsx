@@ -14,10 +14,16 @@ export const App: FC = () => {
   const [selectedTabId, setsSelectedTabId] = useState(tabs[0]);
 
   return (
-    <Tabs
-      tabs={tabs}
-      selectedTabId={selectedTabId.id}
-      onTabSelected={setsSelectedTabId}
-    />
+    <div className="section">
+      <h1 className="title">
+        {`Selected tab is ${selectedTabId.title}`}
+      </h1>
+
+      <Tabs
+        tabs={tabs}
+        selectedTabId={selectedTabId.id}
+        onTabSelected={setsSelectedTabId}
+      />
+    </div>
   );
 };
