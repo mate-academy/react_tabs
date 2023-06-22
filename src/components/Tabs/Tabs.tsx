@@ -1,4 +1,5 @@
 import React from 'react';
+import classNames from 'classnames';
 import { Tab } from '../../types/tab';
 
 type Props = {
@@ -27,17 +28,15 @@ export const Tabs: React.FC<Props> = ({
           {tabs.map(tab => (
             <li
               data-cy="Tab"
-              className={selectedTab === tab
-                ? 'is-active'
-                : ''}
+              className={classNames({
+                'is-active': selectedTab === tab,
+              })}
               key={tab.id}
             >
               <a
                 href={`#${tab.id}`}
                 data-cy="TabLink"
-                onClick={() => {
-                  handleSelect(tab);
-                }}
+                onClick={() => handleSelect(tab)}
               >
                 {tab.title}
               </a>
