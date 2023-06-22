@@ -11,13 +11,22 @@ export const tabs = [
 ];
 
 export const App: FC = () => {
-  const [selectedTabId, setsSelectedTabId] = useState(tabs[0]);
+  const [selectedTabId, setsSelectedTabId] = useState(tabs[0].id);
+
+  const selectedTab = tabs.find(tab => tab.id === selectedTabId) || tabs[0];
 
   return (
-    <Tabs
-      tabs={tabs}
-      selectedTabId={selectedTabId.id}
-      onTabSelected={setsSelectedTabId}
-    />
+    <div className="section">
+      <h1 className="title">
+        {`Selected tab is ${selectedTab.title}`}
+      </h1>
+
+      <Tabs
+        tabs={tabs}
+        selectedTabId={selectedTabId}
+        onTabSelected={setsSelectedTabId}
+      />
+
+    </div>
   );
 };
