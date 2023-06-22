@@ -15,18 +15,11 @@ export const Tabs: FC<PropsTabs> = (props) => {
     onTabSelected,
   } = props;
 
-  const isValidCurrentTabId = () => {
-    return tabs
-      .map(tab => tab.id)
-      .includes(selectedTabId);
-  };
-
-  const currentTabId = isValidCurrentTabId()
-    ? selectedTabId
-    : tabs[0].id;
+  const selectedTab = tabs
+    .find(tab => tab.id === selectedTabId) || tabs[0];
 
   const changeTab = (tab: Tab) => {
-    if (tab.id === currentTabId) {
+    if (tab.id === selectedTab.id) {
       return;
     }
 
@@ -38,7 +31,7 @@ export const Tabs: FC<PropsTabs> = (props) => {
       <div className="tabs is-boxed">
         <ul>
           {tabs.map(tab => {
-            const isSelected = currentTabId === tab.id;
+            const isSelected = selectedTab.id === tab.id;
 
             return (
               <li
@@ -62,7 +55,7 @@ export const Tabs: FC<PropsTabs> = (props) => {
       </div>
 
       <div className="block" data-cy="TabContent">
-        {tabs.find(tab => tab.id === selectedTabId)?.content}
+        {selectedTab.content}
       </div>
     </div>
   );
