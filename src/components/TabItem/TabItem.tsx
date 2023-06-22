@@ -3,17 +3,18 @@ import classNames from 'classnames';
 import { Tab } from '../../types';
 
 type Props = {
-  tabItem: Tab | undefined;
-  selectedTabId: string;
-  onTabSelected: (tab: Tab) => void;
+  tabItem: Tab;
+  selectedTab: Tab;
+  onTabSelect: (tab: Tab) => void;
 };
 
 export const TabItem: FC<Props> = ({
   tabItem,
-  selectedTabId,
-  onTabSelected,
+  selectedTab,
+  onTabSelect,
 }) => {
-  const isActive = tabItem?.id === selectedTabId;
+  const { id, title } = tabItem;
+  const isActive = id === selectedTab.id;
 
   return (
     <li
@@ -21,11 +22,11 @@ export const TabItem: FC<Props> = ({
       className={classNames({ 'is-active': isActive })}
     >
       <a
-        href={`#${tabItem?.id}`}
+        href={`#${id}`}
         data-cy="TabLink"
-        onClick={() => (!isActive && tabItem) && onTabSelected(tabItem)}
+        onClick={() => tabItem && onTabSelect(tabItem)}
       >
-        {tabItem?.title}
+        {title}
       </a>
     </li>
   );
