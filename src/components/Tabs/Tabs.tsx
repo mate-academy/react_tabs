@@ -1,27 +1,21 @@
 import classNames from 'classnames';
 import React from 'react';
+import { TabsType } from '../../types/Tabs';
 
 type Props = {
-  tabs: {
-    id: string;
-    title: string;
-    content: string;
-  }[];
-
-  activeTab: number;
-  selectedTabId: (id: string) => number;
-  onTabSelected: (id: string) => void;
+  tabs: TabsType[];
+  activeTab: TabsType;
+  onTabSelected: (tab: TabsType) => void;
 };
 
 export const Tabs: React.FC<Props> = ({
   tabs,
   activeTab,
-  selectedTabId,
   onTabSelected,
 }) => {
   const checkSelected = (e: React.MouseEvent<HTMLAnchorElement>) => {
-    if (selectedTabId(e.currentTarget.id) !== activeTab) {
-      onTabSelected(e.currentTarget.id);
+    if (e.currentTarget.id !== activeTab.id) {
+      onTabSelected(tabs.find(el => el.id === e.currentTarget.id) || tabs[0]);
     }
   };
 
@@ -32,7 +26,7 @@ export const Tabs: React.FC<Props> = ({
           {tabs.map((tab) => (
             <li
               className={classNames({
-                'is-active': activeTab === selectedTabId(tab.id),
+                'is-active': activeTab === tab,
               })}
               data-cy="Tab"
               key={tab.title}
@@ -51,7 +45,7 @@ export const Tabs: React.FC<Props> = ({
       </div>
 
       <div className="block" data-cy="TabContent">
-        {`Some text ${activeTab}`}
+        {activeTab.content}
       </div>
     </div>
   );
