@@ -1,5 +1,4 @@
-// eslint-disable-next-line import/no-cycle
-import { Tab } from './components/Tabs';
+import { Tab } from './types';
 
 export const findTabById = (tabsList: Tab[], tabId: string) => {
   return tabsList.find(tab => tabId === tab.id);

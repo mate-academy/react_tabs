@@ -1,13 +1,7 @@
 import { FC } from 'react';
 import classNames from 'classnames';
-// eslint-disable-next-line import/no-cycle
 import { findTabById } from '../../helpers';
-
-export interface Tab {
-  id: string,
-  title: string,
-  content: string,
-}
+import { Tab } from '../../types';
 
 interface Props {
   tabs: Tab[],
