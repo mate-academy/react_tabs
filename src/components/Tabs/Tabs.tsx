@@ -1,3 +1,4 @@
+import cn from 'classnames';
 import { Tab } from '../../types/Tab';
 
 interface Props {
@@ -13,7 +14,7 @@ export const Tabs = ({
 }: Props) => {
   const selectedTab = tabs.find((tab) => tab.id === selectedTabId) || tabs[0];
 
-  const handleTabClick = (tab: Tab) => {
+  const selectTab = (tab: Tab) => {
     if (tab.id !== selectedTabId) {
       onTabSelected(tab);
     }
@@ -25,9 +26,7 @@ export const Tabs = ({
         <ul>
           {tabs.map((tab) => (
             <li
-              className={tab.id === selectedTab.id
-                ? 'is-active'
-                : ''}
+              className={cn({ 'is-active': tab.id === selectedTab.id })}
               data-cy="Tab"
               key={tab.id}
             >
@@ -35,7 +34,7 @@ export const Tabs = ({
                 href={`#${tab.id}`}
                 data-cy="TabLink"
                 onClick={() => {
-                  handleTabClick(tab);
+                  selectTab(tab);
                 }}
               >
                 {tab.title}
