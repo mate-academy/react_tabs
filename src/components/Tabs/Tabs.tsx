@@ -13,7 +13,7 @@ export const Tabs: React.FC<Props> = ({
   activeTab,
   onTabSelected,
 }) => {
-  const checkSelected = (e: React.MouseEvent<HTMLAnchorElement>) => {
+  const handleSelect = (e: React.MouseEvent<HTMLAnchorElement>) => {
     if (e.currentTarget.id !== activeTab.id) {
       onTabSelected(tabs.find(el => el.id === e.currentTarget.id) || tabs[0]);
     }
@@ -33,7 +33,7 @@ export const Tabs: React.FC<Props> = ({
             >
               <a
                 href={`#${tab.id}`}
-                onClick={checkSelected}
+                onClick={handleSelect}
                 data-cy="TabLink"
                 id={tab.id}
               >
