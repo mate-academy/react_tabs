@@ -1,7 +1,14 @@
 import React, { useState } from 'react';
 import 'bulma/css/bulma.css';
 import '@fortawesome/fontawesome-free/css/all.css';
+import { Tabs } from './components/Tabs';
 import './App.scss';
+
+export interface TabType {
+  id: string;
+  title: string;
+  content: string;
+}
 
 export const tabs = [
   { id: 'tab-1', title: 'Tab 1', content: 'Some text 1' },
@@ -9,49 +16,26 @@ export const tabs = [
   { id: 'tab-3', title: 'Tab 3', content: 'Some text 3' },
 ];
 
-interface TabType {
-  id: string;
-  title: string;
-  content: string;
-}
-
-type TabListProps = {
-  tab: TabType[],
-};
-
-export const App: React.FC<TabListProps> = () => {
-  const [activeTab, seActiveTab] = useState(tabs[0]);
+export const App: React.FC = () => {
+  const [activeTab, setActiveTab] = useState(tabs[0]);
 
   const handleTabClick = (tab: TabType) => {
-    seActiveTab(tab);
+    setActiveTab(tab);
   };
 
   return (
     <div className="section">
       <h1 className="title">
-        Selected tab is
-        {` ${activeTab.title}`}
+        {`Selected tab is ${activeTab.title}`}
       </h1>
 
       <div data-cy="TabsComponent">
         <div className="tabs is-boxed">
-          <ul>
-            {tabs.map((tabItem) => (
-              <li
-                key={tabItem.id}
-                className={tabItem === activeTab ? 'is-active' : ''}
-                data-cy="Tab"
-              >
-                <a
-                  href={`#${tabItem.id}`}
-                  data-cy="TabLink"
-                  onClick={() => handleTabClick(tabItem)}
-                >
-                  {tabItem.title}
-                </a>
-              </li>
-            ))}
-          </ul>
+          <Tabs
+            tabs={tabs}
+            handleTabClick={handleTabClick}
+            activeTab={activeTab}
+          />
         </div>
 
         <div className="block" data-cy="TabContent">
