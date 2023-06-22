@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import 'bulma/css/bulma.css';
 import '@fortawesome/fontawesome-free/css/all.css';
 import './App.scss';
@@ -14,19 +14,16 @@ export const tabs: Tab[] = [
 export const App: React.FC = () => {
   const [selectedTabId, setSelectedTabId] = useState(tabs[0].id);
 
-  const onTabSelected = (event: React.MouseEvent, tabId: string) => {
-    event.preventDefault();
-    if (selectedTabId !== tabId) {
-      setSelectedTabId(tabId);
-    }
-  };
+  const activeTab = tabs.find(tab => tab.id === selectedTabId) || tabs[0];
 
-  const activeTab = tabs.find((tab:Tab) => tab.id === selectedTabId) || null;
+  const onTabSelected = (tabData: Tab):void => {
+    setSelectedTabId(tabData.id);
+  };
 
   return (
     <div className="section">
       <h1 className="title">
-        {`Selected tab is ${activeTab?.title}`}
+        {`Selected tab is ${activeTab.title}`}
       </h1>
       <Tabs
         tabs={tabs}
