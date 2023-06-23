@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import 'bulma/css/bulma.css';
 import '@fortawesome/fontawesome-free/css/all.css';
 import './App.scss';
@@ -11,9 +11,15 @@ export const tabs = [
 ];
 
 export const App: React.FC = () => {
+  const [isActive, setIsActive] = useState(0);
+
   return (
     <div className="section">
-      <Tabs tabs={tabs} />
+      <Tabs
+        tabs={tabs}
+        isActive={isActive}
+        setIsActive={setIsActive}
+      />
     </div>
   );
 };

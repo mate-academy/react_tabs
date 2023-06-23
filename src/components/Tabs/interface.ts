@@ -6,4 +6,6 @@ export interface ITabs {
 
 export type TabsProps = {
   tabs: ITabs[];
+  isActive: number;
+  setIsActive: (arg: number) => void;
 };

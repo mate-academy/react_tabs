@@ -1,9 +1,7 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { TabsProps } from './interface';
 
-const Tabs: React.FC<TabsProps> = ({ tabs }) => {
-  const [isActive, setIsActive] = useState(0);
-
+const Tabs: React.FC<TabsProps> = ({ tabs, isActive, setIsActive }) => {
   return (
     <div data-cy="TabsComponent">
       <h1 className="title">
@@ -21,9 +19,7 @@ const Tabs: React.FC<TabsProps> = ({ tabs }) => {
                 <a
                   href={`#${tabItem.id}`}
                   data-cy="TabLink"
-                  onClick={() => {
-                    setIsActive(index);
-                  }}
+                  onClick={() => setIsActive(index)}
                 >
                   {tabItem.title}
                 </a>
