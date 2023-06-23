@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 interface Tab {
   id: string;
@@ -11,19 +11,13 @@ interface TabsProps {
   selectedTabId: string;
   onTabSelected: (tab: Tab) => void;
 }
-
 export const Tabs: React.FC<TabsProps> = (
   { tabs, selectedTabId, onTabSelected },
 ) => {
-  const [selectedTab, setSelectedTab] = useState<Tab>(() => {
-    const initialTab = tabs.find(tab => tab.id === selectedTabId);
-
-    return initialTab || tabs[0];
-  });
+  const selectedTab = tabs.find(tab => tab.id === selectedTabId) || tabs[0];
 
   const handleTabClick = (tab: Tab) => {
     if (tab.id !== selectedTab.id) {
-      setSelectedTab(tab);
       onTabSelected(tab);
     }
   };
