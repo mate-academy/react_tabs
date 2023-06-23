@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import 'bulma/css/bulma.css';
 import '@fortawesome/fontawesome-free/css/all.css';
 import './App.scss';
@@ -17,11 +17,13 @@ const tabs: Tab[] = [
 ];
 
 export const App: React.FC = () => {
-  const [selectedTabId, setSelectedTabId] = useState(tabs[0].id);
+  const [selectedTabId, setSelectedTabId] = useState('');
 
-  if (!tabs.some(tab => tab.id === selectedTabId)) {
-    setSelectedTabId(tabs[0].id);
-  }
+  useEffect(() => {
+    if (!selectedTabId || !tabs.some(tab => tab.id === selectedTabId)) {
+      setSelectedTabId(tabs[0].id);
+    }
+  }, [tabs, selectedTabId]);
 
   const handleTabSelected = (tab: Tab) => {
     if (selectedTabId !== tab.id) {

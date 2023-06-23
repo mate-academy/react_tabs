@@ -1,4 +1,5 @@
 import React from 'react';
+import classNames from 'classnames';
 
 interface Tab {
   id: string;
@@ -15,12 +16,6 @@ export const Tabs: React.FC<{
   selectedTabId,
   onTabSelected,
 }) => {
-  let updatedSelectedTabId = selectedTabId;
-
-  if (!tabs.some(tab => tab.id === selectedTabId)) {
-    updatedSelectedTabId = tabs[0].id;
-  }
-
   const handleTabClick = (tab: Tab) => {
     if (selectedTabId !== tab.id) {
       onTabSelected(tab);
@@ -34,7 +29,7 @@ export const Tabs: React.FC<{
           {tabs.map(tab => (
             <li
               key={tab.id}
-              className={updatedSelectedTabId === tab.id ? 'is-active' : ''}
+              className={classNames({ 'is-active': selectedTabId === tab.id })}
               data-cy="Tab"
             >
               <a
@@ -50,7 +45,7 @@ export const Tabs: React.FC<{
       </div>
 
       <div className="block" data-cy="TabContent">
-        {tabs.find(tab => tab.id === updatedSelectedTabId)?.content}
+        {tabs.find(tab => tab.id === selectedTabId)?.content}
       </div>
     </div>
   );
