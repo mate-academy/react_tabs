@@ -17,13 +17,7 @@ const tabs: Tab[] = [
 ];
 
 export const App: React.FC = () => {
-  const [selectedTabId, setSelectedTabId] = useState('');
-
-  useEffect(() => {
-    if (!selectedTabId || !tabs.some(tab => tab.id === selectedTabId)) {
-      setSelectedTabId(tabs[0].id);
-    }
-  }, [tabs, selectedTabId]);
+  const [selectedTabId, setSelectedTabId] = useState(tabs[0].id);
 
   const handleTabSelected = (tab: Tab) => {
     if (selectedTabId !== tab.id) {
