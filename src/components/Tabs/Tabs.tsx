@@ -6,7 +6,7 @@ export interface TabType {
 
 type TabListProps = {
   tabs: TabType[];
-  handleTabClick: (tabItem: TabType) => void;
+  handleTabClick: (id: string) => void;
   activeTab: TabType;
 };
 
@@ -15,28 +15,29 @@ export const Tabs: React.FC<TabListProps> = ({
   handleTabClick,
   activeTab,
 }) => {
+  const handleClick = (e: React.MouseEvent<HTMLAnchorElement>,
+    id: string) => {
+    e.preventDefault();
+    handleTabClick(id);
+  };
+
   return (
-    <>
-      <ul>
-        {tabs.map((tabItem) => (
-          <li
-            key={tabItem.id}
-            className={tabItem === activeTab ? 'is-active' : ''}
-            data-cy="Tab"
+    <ul>
+      {tabs.map(({ id, title }) => (
+        <li
+          key={id}
+          className={id === activeTab.id ? 'is-active' : ''}
+          data-cy="Tab"
+        >
+          <a
+            href={`#${id}`}
+            data-cy="TabLink"
+            onClick={(e) => handleClick(e, id)}
           >
-            <a
-              href={`#${tabItem.id}`}
-              data-cy="TabLink"
-              onClick={(e) => {
-                e.preventDefault();
-                handleTabClick(tabItem);
-              }}
-            >
-              {tabItem.title}
-            </a>
-          </li>
-        ))}
-      </ul>
-    </>
+            {title}
+          </a>
+        </li>
+      ))}
+    </ul>
   );
 };

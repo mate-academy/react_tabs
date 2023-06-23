@@ -19,8 +19,12 @@ export const tabs = [
 export const App: React.FC = () => {
   const [activeTab, setActiveTab] = useState(tabs[0]);
 
-  const handleTabClick = (tab: TabType) => {
-    setActiveTab(tab);
+  const handleTabClick = (id: string) => {
+    const clickedTab = tabs.find((tab) => tab.id === id);
+
+    if (clickedTab) {
+      setActiveTab(clickedTab);
+    }
   };
 
   return (
