@@ -1,11 +1,6 @@
 import React from 'react';
 import cn from 'classnames';
-
-type Tab = {
-  id: string,
-  title: string,
-  content: string;
-};
+import { Tab } from '../../types/Tab';
 
 type Props = {
   tabs: Tab[];
@@ -13,11 +8,15 @@ type Props = {
   onTabSelected: (tab: Tab) => void;
 };
 
-export const Tabs: React.FC<Props> = (
-  { tabs, selectedTabId, onTabSelected },
-) => {
+export const Tabs: React.FC<Props> = ({
+  tabs,
+  selectedTabId,
+  onTabSelected,
+}) => {
   const selectedTab = tabs.find(tab => selectedTabId === tab.id) || tabs[0];
-  const pickTab = (tab: Tab) => tab.id !== selectedTab.id && onTabSelected(tab);
+  const pickTab = (tab: Tab) => {
+    tab.id !== selectedTab.id && onTabSelected(tab)
+  };
 
   return (
     <div data-cy="TabsComponent">
