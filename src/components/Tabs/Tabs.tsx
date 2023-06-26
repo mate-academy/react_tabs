@@ -1,19 +1,19 @@
-import { FC, SetStateAction } from 'react';
-import { Tab } from '../../types';
-import { TabItem } from '../TabItem/TabItem';
+import { FC } from 'react';
+import { Tab as TabType } from '../../types';
+import { Tab } from '../TabItem/Tab';
 
 type Props = {
-  tabs: Tab[];
+  tabs: TabType[];
   selectedTabId: string;
-  setTabSelected: React.Dispatch<SetStateAction<Tab>>
+  setTabSelected: (tab: TabType) => void;
 };
 
 export const Tabs: FC<Props> = ({ tabs, selectedTabId, setTabSelected }) => {
-  const selectedTab: Tab = tabs.find((tab) => (
+  const selectedTab: TabType = tabs.find((tab) => (
     tab.id === selectedTabId
   )) || tabs[0];
 
-  const onTabSelect = (tab: Tab) => {
+  const onTabSelect = (tab: TabType) => {
     if (tab.id !== selectedTabId) {
       setTabSelected(tab);
     }
@@ -23,11 +23,11 @@ export const Tabs: FC<Props> = ({ tabs, selectedTabId, setTabSelected }) => {
     <div data-cy="TabsComponent">
       <div className="tabs is-boxed">
         <ul>
-          {tabs.map(tabItem => (
-            <TabItem
-              key={tabItem.id}
-              tabItem={tabItem}
-              selectedTab={selectedTab}
+          {tabs.map(tab => (
+            <Tab
+              key={tab.id}
+              tab={tab}
+              isActive={tab.id === selectedTabId}
               onTabSelect={onTabSelect}
             />
           ))}

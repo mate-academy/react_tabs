@@ -1,20 +1,19 @@
 import { FC } from 'react';
 import classNames from 'classnames';
-import { Tab } from '../../types';
+import { Tab as TabType } from '../../types';
 
 type Props = {
-  tabItem: Tab;
-  selectedTab: Tab;
-  onTabSelect: (tab: Tab) => void;
+  tab: TabType;
+  isActive: boolean;
+  onTabSelect: (tab: TabType) => void;
 };
 
-export const TabItem: FC<Props> = ({
-  tabItem,
-  selectedTab,
+export const Tab: FC<Props> = ({
+  tab,
+  isActive,
   onTabSelect,
 }) => {
-  const { id, title } = tabItem;
-  const isActive = id === selectedTab.id;
+  const { id, title } = tab;
 
   return (
     <li
@@ -24,7 +23,7 @@ export const TabItem: FC<Props> = ({
       <a
         href={`#${id}`}
         data-cy="TabLink"
-        onClick={() => tabItem && onTabSelect(tabItem)}
+        onClick={() => tab && onTabSelect(tab)}
       >
         {title}
       </a>
