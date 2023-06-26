@@ -15,7 +15,9 @@ export const Tabs: React.FC<Props> = ({
 }) => {
   const selectedTab = tabs.find(tab => selectedTabId === tab.id) || tabs[0];
   const pickTab = (tab: Tab) => {
-    tab.id !== selectedTab.id && onTabSelected(tab)
+    if (tab.id !== selectedTab.id) {
+      onTabSelected(tab);
+    }
   };
 
   return (
