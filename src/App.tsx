@@ -11,18 +11,20 @@ export const tabs = [
 ];
 
 export const App: React.FC = () => {
-  const [selectedTabId, setSelectedTabId] = useState('Tab 1');
+  const [selectedTabId, setSelectedTabId] = useState('tab-1');
 
-  const onTabSelected = (tabTitle: string) => {
-    setSelectedTabId(tabTitle);
+  const onTabSelected = (tabID: string) => {
+    setSelectedTabId(tabID);
   };
 
   return (
     <div className="section">
-      <h1 className="title">
-        {`Selected tab is ${selectedTabId}`}
-      </h1>
-
+      {tabs.filter(tab => tab.id === selectedTabId)
+        .map(tabfilter => (
+          <h1 className="title">
+            {`Selected tab is ${tabfilter.title}`}
+          </h1>
+        ))}
       <Tabs
         tabs={tabs}
         selectedTabId={selectedTabId}

@@ -7,10 +7,17 @@ type Tab = {
   content: string;
 };
 
-export const Tabs = ({ tabs, selectedTabId, onSelected }:
-{ tabs: Tab[],
-  selectedTabId: string,
-  onSelected: (tabTitle: string) => void }) => {
+interface TabsProps {
+  tabs: Tab[];
+  selectedTabId: string;
+  onSelected: (tabId: string) => void;
+}
+
+export const Tabs: React.FC<TabsProps> = ({
+  tabs,
+  selectedTabId,
+  onSelected,
+}) => {
   return (
     <div data-cy="TabsComponent">
       <div className="tabs is-boxed">
@@ -18,13 +25,13 @@ export const Tabs = ({ tabs, selectedTabId, onSelected }:
           {tabs.map((tab) => (
             <li
               data-cy="Tab"
-              className={tab.title === selectedTabId ? 'is-active' : ''}
+              className={tab.id === selectedTabId ? 'is-active' : ''}
             >
               <a
                 href={`#${tab.id}`}
                 data-cy="TabLink"
                 onClick={() => {
-                  onSelected(tab.title);
+                  onSelected(tab.id);
                 }}
               >
                 {tab.title}
@@ -34,7 +41,7 @@ export const Tabs = ({ tabs, selectedTabId, onSelected }:
         </ul>
       </div>
 
-      {tabs.filter(tab => tab.title === selectedTabId)
+      {tabs.filter(tab => tab.id === selectedTabId)
         .map(tab => (
           <div
             className="block"
