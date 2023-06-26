@@ -1,43 +1,51 @@
-export interface TabType {
-  id: string;
-  title: string;
-  content: string;
+import { FC } from 'react';
+import cn from 'classnames';
+import { TabType } from './type';
+
+interface Props {
+  tabs: TabType[];
+  selectedTabId: string;
+  setSelectedTab: (tab: TabType) => void;
 }
 
-type TabListProps = {
-  tabs: TabType[];
-  handleTabClick: (id: string) => void;
-  activeTab: TabType;
-};
+export const Tabs:FC<Props> = ({ tabs, selectedTabId, setSelectedTab }) => {
+  const selectedTab = tabs.find((tab) => (
+    tab.id === selectedTabId
+  )) || tabs[0];
 
-export const Tabs: React.FC<TabListProps> = ({
-  tabs,
-  handleTabClick,
-  activeTab,
-}) => {
-  const handleClick = (e: React.MouseEvent<HTMLAnchorElement>,
-    id: string) => {
-    e.preventDefault();
-    handleTabClick(id);
+  const handleTabClick = (tab:TabType) => {
+    if (tab.id !== selectedTabId) {
+      setSelectedTab(tab);
+    }
   };
 
   return (
-    <ul>
-      {tabs.map(({ id, title }) => (
-        <li
-          key={id}
-          className={id === activeTab.id ? 'is-active' : ''}
-          data-cy="Tab"
-        >
-          <a
-            href={`#${id}`}
-            data-cy="TabLink"
-            onClick={(e) => handleClick(e, id)}
-          >
-            {title}
-          </a>
-        </li>
-      ))}
-    </ul>
+    <div data-cy="TabsComponent">
+      <div className="tabs is-boxed">
+        <ul>
+          {tabs.map(tab => (
+            <li
+              key={tab.id}
+              className={cn({
+                'is-active': tab.id === selectedTab.id,
+              })}
+              data-cy="Tab"
+            >
+              <a
+                href={`#${tab.id}`}
+                onClick={() => handleTabClick(tab)}
+                data-cy="TabLink"
+              >
+                {tab.title}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <div className="block" data-cy="TabContent">
+        {selectedTab.content}
+      </div>
+    </div>
   );
 };
