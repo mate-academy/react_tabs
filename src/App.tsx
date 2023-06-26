@@ -3,6 +3,7 @@ import 'bulma/css/bulma.css';
 import '@fortawesome/fontawesome-free/css/all.css';
 import './App.scss';
 import { Tabs } from './components/Tabs';
+import { Tab } from './types/Tab';
 
 export const tabs = [
   { id: 'tab-1', title: 'Tab 1', content: 'Some text 1' },
@@ -11,24 +12,18 @@ export const tabs = [
 ];
 
 export const App: React.FC = () => {
-  const [selectedTabId, setSelectedTabId] = useState('tab-1');
+  const [selectedTabId, setSelectedTabId] = useState(tabs[0].id);
 
-  const onTabSelected = (tabID: string) => {
-    setSelectedTabId(tabID);
+  const onTabSelected = (tab: Tab) => {
+    setSelectedTabId(tab.id);
   };
 
-  let mainTitle = '';
-
-  if (tabs && selectedTabId) {
-    const selectedTab = tabs.find(tab => tab.id === selectedTabId);
-
-    mainTitle = selectedTab ? selectedTab.title : '';
-  }
+  const selectedTab = tabs.find(tab => tab.id === selectedTabId) || tabs[0];
 
   return (
     <div className="section">
       <h1 className="title">
-        {`Selected tab is ${mainTitle}`}
+        {`Selected tab is ${selectedTab.title}`}
       </h1>
 
       <Tabs
