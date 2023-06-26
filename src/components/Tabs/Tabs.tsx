@@ -1,17 +1,6 @@
 import 'bulma/css/bulma.css';
 import '@fortawesome/fontawesome-free/css/all.css';
-
-type Tab = {
-  id: string;
-  title: string;
-  content: string;
-};
-
-interface TabsProps {
-  tabs: Tab[];
-  selectedTabId: string;
-  onSelected: (tabId: string) => void;
-}
+import { TabsProps } from '../../types/TabsProps';
 
 export const Tabs: React.FC<TabsProps> = ({
   tabs,
@@ -24,6 +13,7 @@ export const Tabs: React.FC<TabsProps> = ({
         <ul>
           {tabs.map((tab) => (
             <li
+              key={tab.id}
               data-cy="Tab"
               className={tab.id === selectedTabId ? 'is-active' : ''}
             >
@@ -42,13 +32,13 @@ export const Tabs: React.FC<TabsProps> = ({
       </div>
 
       {tabs.filter(tab => tab.id === selectedTabId)
-        .map(tab => (
+        .map(tabFiltred => (
           <div
             className="block"
             data-cy="TabContent"
-            key={tab.id}
+            key={tabFiltred.id}
           >
-            {tab.content}
+            {tabFiltred.content}
           </div>
         ))}
     </div>

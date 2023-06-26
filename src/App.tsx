@@ -20,9 +20,9 @@ export const App: React.FC = () => {
   return (
     <div className="section">
       {tabs.filter(tab => tab.id === selectedTabId)
-        .map(tabfilter => (
+        .map(tabFilter => (
           <h1 className="title">
-            {`Selected tab is ${tabfilter.title}`}
+            {`Selected tab is ${tabFilter.title}`}
           </h1>
         ))}
       <Tabs
