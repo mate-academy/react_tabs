@@ -7,6 +7,14 @@ export const Tabs: React.FC<TabsProps> = ({
   selectedTabId,
   onSelected,
 }) => {
+  let text = '';
+
+  if (tabs && selectedTabId) {
+    const selectedTab = tabs.find(tab => tab.id === selectedTabId);
+
+    text = selectedTab ? selectedTab.content : '';
+  }
+
   return (
     <div data-cy="TabsComponent">
       <div className="tabs is-boxed">
@@ -31,16 +39,14 @@ export const Tabs: React.FC<TabsProps> = ({
         </ul>
       </div>
 
-      {tabs.filter(tab => tab.id === selectedTabId)
-        .map(tabFiltred => (
-          <div
-            className="block"
-            data-cy="TabContent"
-            key={tabFiltred.id}
-          >
-            {tabFiltred.content}
-          </div>
-        ))}
+      { text && (
+        <div
+          className="block"
+          data-cy="TabContent"
+        >
+          {text}
+        </div>
+      )}
     </div>
   );
 };

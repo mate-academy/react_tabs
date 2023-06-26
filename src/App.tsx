@@ -17,14 +17,20 @@ export const App: React.FC = () => {
     setSelectedTabId(tabID);
   };
 
+  let mainTitle = '';
+
+  if (tabs && selectedTabId) {
+    const selectedTab = tabs.find(tab => tab.id === selectedTabId);
+
+    mainTitle = selectedTab ? selectedTab.title : '';
+  }
+
   return (
     <div className="section">
-      {tabs.filter(tab => tab.id === selectedTabId)
-        .map(tabFilter => (
-          <h1 className="title">
-            {`Selected tab is ${tabFilter.title}`}
-          </h1>
-        ))}
+      <h1 className="title">
+        {`Selected tab is ${mainTitle}`}
+      </h1>
+
       <Tabs
         tabs={tabs}
         selectedTabId={selectedTabId}
