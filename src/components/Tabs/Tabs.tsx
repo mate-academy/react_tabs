@@ -12,40 +12,43 @@ export const Tabs: React.FC<TabsProps> = ({
   selectedTabId,
   onTabSelected,
 }) => {
-  if (!tabs.find(tab => tab.id === selectedTabId)) {
-    // eslint-disable-next-line no-param-reassign
-    selectedTabId = tabs[0].id;
-  }
+  const selectedTab = tabs.find(tab => tab.id === selectedTabId) || tabs[0];
 
   return (
     <>
       <div data-cy="TabsComponent">
         <div className="tabs is-boxed">
           <ul>
-            {tabs.map(tab => (
-              <li
-                className={classNames(
-                  { 'is-active': tab.id === selectedTabId },
-                )}
-                data-cy="Tab"
-                key={tab.id}
-              >
-                <a
-                  href={`#${tab.id}`}
-                  data-cy="TabLink"
-                  onClick={() => {
-                    return selectedTabId !== tab.id ? onTabSelected(tab) : null;
-                  }}
+            {tabs.map(tab => {
+              const isSelectedTab = selectedTab === tab;
+
+              return (
+                <li
+                  className={classNames({
+                    'is-active': isSelectedTab,
+                  })}
+                  data-cy="Tab"
+                  key={tab.id}
                 >
-                  {tab.title}
-                </a>
-              </li>
-            ))}
+                  <a
+                    href={`#${tab.id}`}
+                    data-cy="TabLink"
+                    onClick={() => {
+                      if (!isSelectedTab) {
+                        onTabSelected(tab);
+                      }
+                    }}
+                  >
+                    {tab.title}
+                  </a>
+                </li>
+              );
+            })}
           </ul>
         </div>
 
         <div className="block" data-cy="TabContent">
-          {tabs.find(tab => tab.id === selectedTabId)?.content}
+          {selectedTab.content}
         </div>
       </div>
     </>
