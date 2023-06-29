@@ -12,10 +12,7 @@ export const Tabs: React.FC<TabsProps> = ({
   selectedTabId,
   onTabSelected,
 }) => {
-  if (!tabs.find(tab => tab.id === selectedTabId)) {
-    // eslint-disable-next-line no-param-reassign
-    selectedTabId = tabs[0].id;
-  }
+const selectedTab = tabs.find(tab => tab.id === selectedTabId) || tabs[0];
 
   return (
     <>
