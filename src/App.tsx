@@ -15,7 +15,7 @@ export const App: React.FC = () => {
 
   const activeTab = tabs.find(tab => tab.id === selectedTabId) || tabs[0];
 
-  const onTabSelected = (tabData: TabsType):void => {
+  const onTabSelected = (tabData: TabsType) => {
     setSelectedTabId(tabData.id);
   };
 
