@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import 'bulma/css/bulma.css';
 import '@fortawesome/fontawesome-free/css/all.css';
 import './App.scss';
@@ -11,32 +11,30 @@ export const tabs = [
 ];
 
 export const App: React.FC = () => {
-  const [selectedTabId, setSelectedTab] = useState('tab-1');
-
-  useEffect(() => {
-    if (!tabs.map(tab => tab.id).includes(selectedTabId)) {
-      setSelectedTab('tab-1');
-    }
-  }, [selectedTabId]);
+  const [selectedTab, setSelectedTab] = useState(tabs[0]);
 
   const onTabSelected = (newTab: {
     id: string;
     title: string;
     content: string }) => {
-    setSelectedTab(newTab.id);
+    if (newTab.id !== selectedTab.id) {
+      if (!tabs.map(tab => tab.id).includes(selectedTab.id)) {
+        setSelectedTab(tabs[0]);
+      }
+
+      setSelectedTab(newTab);
+    }
   };
 
   return (
     <div className="section">
       <h1 className="title">
-        Selected tab is
-        {' '}
-        {tabs.find(tab => tab.id === selectedTabId)?.title || ''}
+        {`Selected tab is ${selectedTab.title}`}
       </h1>
 
       <Tabs
         tabs={tabs}
-        selectedTabId={selectedTabId}
+        selectedTabId={selectedTab.id}
         onTabSelected={onTabSelected}
       />
     </div>

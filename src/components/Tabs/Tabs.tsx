@@ -4,13 +4,16 @@ import '../../App.scss';
 import 'bulma/css/bulma.css';
 import '@fortawesome/fontawesome-free/css/all.css';
 
+interface Tab {
+  id: string,
+  title: string,
+  content: string,
+}
+
 type Props = {
-  tabs: { id: string; title: string; content: string; }[];
-  selectedTabId: string;
-  onTabSelected: (param: {
-    id: string;
-    title: string;
-    content: string }) => void;
+  tabs: Tab[],
+  selectedTabId: string
+  onTabSelected: (tab: Tab) => void;
 };
 
 export const Tabs = ({ tabs, selectedTabId, onTabSelected }: Props) => {
@@ -23,11 +26,17 @@ export const Tabs = ({ tabs, selectedTabId, onTabSelected }: Props) => {
               className={selectedTabId === tab.id ? 'is-active' : ''}
               data-cy="Tab"
               key={tab.id}
-              onClick={selectedTabId === tab.id
-                ? () => null
-                : () => onTabSelected(tab)}
             >
-              <a href={`#${tab.id}`} data-cy="TabLink">{tab.title}</a>
+              <a
+                href={`#${tab.id}`}
+                data-cy="TabLink"
+                onClick={selectedTabId === tab.id
+                  ? () => null
+                  : () => onTabSelected(tab)}
+              >
+                {tab.title}
+
+              </a>
             </li>
           ))}
         </ul>
