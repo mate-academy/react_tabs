@@ -3,7 +3,7 @@ import { Tab } from '../../types/Tab';
 type Props = {
   tabs: Tab[],
   tabId: string,
-  onTabChange: (value: Tab) => void
+  onTabChange: (value: string) => void
 };
 
 export const Tabs = ({ tabs, tabId, onTabChange }: Props) => {
@@ -22,7 +22,7 @@ export const Tabs = ({ tabs, tabId, onTabChange }: Props) => {
               <a
                 href={`#${tab.id}`}
                 data-cy="TabLink"
-                onClick={() => onTabChange(tab)}
+                onClick={() => onTabChange(tab.id)}
               >
                 {tab.title}
               </a>
@@ -31,7 +31,7 @@ export const Tabs = ({ tabs, tabId, onTabChange }: Props) => {
         </ul>
       </div>
 
-      <div className="block" data-cy="TabContent">
+      <div className="block" data-cy="tab-content">
         {activeTab.content}
       </div>
     </div>
