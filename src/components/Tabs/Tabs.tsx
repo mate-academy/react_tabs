@@ -11,42 +11,40 @@ type TabsProps = {
 };
 
 export const Tabs = ({ tabs, selectedTabId, onTabSelected }: TabsProps) => {
-  let selectedTabIdCopy = selectedTabId;
-
-  if (tabs.length > 0 && !tabs.map(tab => tab.id).includes(selectedTabId)) {
-    selectedTabIdCopy = tabs[0].id;
-  }
+  const selectedTabContent = () => tabs
+    .find(({ id }) => id === selectedTabId)?.content;
+  const selectedTab = tabs
+    .find(({ id }) => id === selectedTabId) || tabs[0];
+  const handleTabSelect = (tab: Tab) => {
+    if (tab.id !== selectedTab.id) {
+      onTabSelected(tab);
+    }
+  };
 
   return (
     <div data-cy="TabsComponent">
       <div className="tabs is-boxed">
         <ul>
-          {tabs.map(tab => {
-            const isTabSelected = tab.id === selectedTabIdCopy;
-
-            return (
-              <li
-                data-cy="Tab"
-                key={tab.id}
-                className={isTabSelected ? 'is-active' : ''}
+          {tabs.map(tab => (
+            <li
+              data-cy="Tab"
+              key={tab.id}
+              className={selectedTab.id === tab.id ? 'is-active' : ''}
+            >
+              <a
+                href={`#${tab.id}`}
+                data-cy="TabLink"
+                onClick={() => handleTabSelect(tab)}
               >
-                <a
-                  href={`#${tab.id}`}
-                  data-cy="TabLink"
-                  onClick={
-                    () => (isTabSelected ? {} : onTabSelected(tab))
-                  }
-                >
-                  {tab.title}
-                </a>
-              </li>
-            );
-          })}
+                {tab.title}
+              </a>
+            </li>
+          ))}
         </ul>
       </div>
 
       <div className="block" data-cy="TabContent">
-        {tabs.find(tab => tab.id === selectedTabIdCopy)?.content}
+        {selectedTabContent()}
       </div>
     </div>
   );
