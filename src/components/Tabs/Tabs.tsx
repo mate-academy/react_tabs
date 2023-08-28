@@ -11,7 +11,7 @@ type TabsProps = {
 };
 
 export const Tabs = ({ tabs, selectedTabId, onTabSelected }: TabsProps) => {
-  const selectedTabContent = () => tabs
+  const selectedTabContent = tabs
     .find(({ id }) => id === selectedTabId)?.content;
   const selectedTab = tabs
     .find(({ id }) => id === selectedTabId) || tabs[0];
@@ -44,7 +44,7 @@ export const Tabs = ({ tabs, selectedTabId, onTabSelected }: TabsProps) => {
       </div>
 
       <div className="block" data-cy="TabContent">
-        {selectedTabContent()}
+        {selectedTabContent}
       </div>
     </div>
   );
