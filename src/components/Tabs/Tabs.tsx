@@ -7,18 +7,20 @@ export const Tabs: React.FC<TabsProps> = ({
   setActiveTabId,
 }) => {
   return (
-    <div className="tabs is-boxed">
-      <ul>
-        {tabs.map((tab) => (
-          <Tab
-            key={tab.id}
-            id={tab.id}
-            title={tab.title}
-            isActive={activeTabId === tab.id}
-            setActiveTabId={setActiveTabId}
-          />
-        ))}
-      </ul>
+    <div data-cy="TabsComponent">
+      <div className="tabs is-boxed">
+        <ul>
+          {tabs.map((tab) => (
+            <Tab
+              key={tab.id}
+              id={tab.id}
+              title={tab.title}
+              isActive={activeTabId === tab.id}
+              setActiveTabId={setActiveTabId}
+            />
+          ))}
+        </ul>
+      </div>
     </div>
   );
 };

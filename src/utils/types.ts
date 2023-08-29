@@ -15,5 +15,4 @@ export interface TabProps {
   title: string;
   id: string;
   setActiveTabId: (id: string) => void
-  // onClick: () => void;
 }
