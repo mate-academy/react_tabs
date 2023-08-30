@@ -14,12 +14,12 @@ export const tabs:TabInfo[] = [
 export const App: React.FC = () => {
   const [activeTabId, setActiveTabId] = useState(tabs[0].id);
 
-  const selectedTab = tabs.find(tab => tab.id === activeTabId);
+  const selectedTab = tabs.find(tab => tab.id === activeTabId) || tabs[0];
 
   return (
     <div className="section">
       <h1 className="title">
-        {selectedTab ? `Selected tab is ${selectedTab.title}` : 'No tab selected'}
+        {`Selected Tab is ${selectedTab.title}`}
       </h1>
 
       <Tabs
@@ -27,10 +27,6 @@ export const App: React.FC = () => {
         activeTabId={activeTabId}
         setActiveTabId={setActiveTabId}
       />
-
-      <div className="block" data-cy="TabContent">
-        {selectedTab ? selectedTab.content : 'No tab selected'}
-      </div>
 
     </div>
   );

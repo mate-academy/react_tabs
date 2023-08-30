@@ -9,16 +9,13 @@ export const Tab: React.FC<TabProps> = ({
 }) => {
   return (
     <li className={isActive ? 'is-active' : ''} data-cy="Tab">
-      <button
-        type="button"
-        className="no-style-button"
+      <a
+        href={`#${id}`}
+        data-cy="TabLink"
         onClick={() => setActiveTabId(id)}
-        tabIndex={0}
       >
-        <a href={`#${id}`} data-cy="TabLink">
-          {title}
-        </a>
-      </button>
+        {title}
+      </a>
     </li>
   );
 };

@@ -6,6 +6,8 @@ export const Tabs: React.FC<TabsProps> = ({
   activeTabId,
   setActiveTabId,
 }) => {
+  const selectedTab = tabs.find(tab => tab.id === activeTabId) || tabs[0];
+
   return (
     <div data-cy="TabsComponent">
       <div className="tabs is-boxed">
@@ -21,6 +23,11 @@ export const Tabs: React.FC<TabsProps> = ({
           ))}
         </ul>
       </div>
+
+      <div className="block" data-cy="TabContent">
+        { selectedTab.content}
+      </div>
     </div>
+
   );
 };
