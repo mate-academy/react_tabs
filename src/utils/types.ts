@@ -9,10 +9,3 @@ export type TabsProps = {
   activeTabId: string,
   setActiveTabId: (tabId: string) => void,
 };
-
-export interface TabProps {
-  isActive: boolean;
-  title: string;
-  id: string;
-  setActiveTabId: (id: string) => void
-}
