@@ -17,7 +17,6 @@ export const Tabs = ({
   });
 
   return (
-
     <div data-cy="TabsComponent">
       <div className="tabs is-boxed">
         <ul>
