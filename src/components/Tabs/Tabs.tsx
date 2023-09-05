@@ -1,28 +1,27 @@
-/* eslint-disable no-console */
-import { useEffect } from 'react';
+import cn from 'classnames';
 import { Tab } from '../../types/tab';
 
 type Props = {
   tabs: Array<Tab>,
-  selectedTab: Tab,
+  selectedTabId: string,
   onTabSelected: (tab: Tab) => void,
 };
 
 export const Tabs = ({
-  tabs, selectedTab, onTabSelected,
+  tabs, selectedTabId, onTabSelected,
 }: Props) => {
-  useEffect(() => {
-    if (!tabs.some(t => t === selectedTab)) {
-      onTabSelected(tabs[0]);
-    }
-  });
-
-  const onClickHandler = (event: React.MouseEvent, tab: Tab) => {
-    event.preventDefault();
-    if (tab !== selectedTab) {
+  const onClickHandler = (tab: Tab) => {
+    if (tab.id !== selectedTabId) {
       onTabSelected(tab);
     }
   };
+
+  const getClassName = (tab: Tab) => cn({
+    'is-active': (tabs.some(t => t.id === selectedTabId)
+    && tab.id === selectedTabId)
+    || (tab.id === tabs[0].id
+      && tabs.every(t => t.id !== selectedTabId)),
+  });
 
   return (
     <div data-cy="TabsComponent">
@@ -32,15 +31,13 @@ export const Tabs = ({
             tabs.map(tab => (
               <li
                 key={tab.id}
-                className={tab === selectedTab
-                  ? 'is-active'
-                  : ''}
+                className={getClassName(tab)}
                 data-cy="Tab"
               >
                 <a
                   href={`#${tab.id}`}
                   data-cy="TabLink"
-                  onClick={(event) => onClickHandler(event, tab)}
+                  onClick={() => onClickHandler(tab)}
                 >
                   {tab.title}
                 </a>
@@ -51,7 +48,7 @@ export const Tabs = ({
       </div>
 
       <div className="block" data-cy="TabContent">
-        {selectedTab.content}
+        {tabs.find(tab => tab.id === selectedTabId)?.content}
       </div>
     </div>
 
