@@ -11,6 +11,8 @@ export const Tabs: React.FC<TabsProps> = ({
     }
   };
 
+  const selectedTab = tabs.find((tab) => tab.id === selectedTabId) || tabs[0];
+
   return (
     <div data-cy="TabsComponent">
       <div className="tabs is-boxed">
@@ -19,12 +21,7 @@ export const Tabs: React.FC<TabsProps> = ({
             <li
               key={tab.id}
               data-cy="Tab"
-              className={
-                tab.id === selectedTabId
-                || (selectedTabId === '' && tab === tabs[0])
-                  ? 'is-active'
-                  : ''
-              }
+              className={selectedTab.id === tab.id ? 'is-active' : ''}
             >
               <a
                 href={`#${tab.id}`}
