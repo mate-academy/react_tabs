@@ -1,4 +1,3 @@
-/* eslint-disable */
 import React, { useState } from "react";
 import "bulma/css/bulma.css";
 import "@fortawesome/fontawesome-free/css/all.css";
@@ -14,13 +13,16 @@ export const tabs = [
 export const App: React.FC = () => {
   const [selectedTabId, setSelectedTabId] = useState("tab-1");
 
+  const selectedTab = tabs.find((tab) => tab.id === selectedTabId);
+
   return (
     <div className="section">
-      <h1 className="title">
-        Selected tab is
-        {selectedTabId}
-      </h1>
-      <Tabs selectedTabId={selectedTabId} />
+      <h1 className="title">{`Selected tab is ${selectedTab?.title}`}</h1>
+      <Tabs
+        selectedTabId={selectedTabId}
+        tabs={tabs}
+        handleTabSelected={setSelectedTabId}
+      />
     </div>
   );
 };
