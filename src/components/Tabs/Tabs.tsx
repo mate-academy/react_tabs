@@ -1,14 +1,4 @@
-type Tab = {
-  id: string,
-  title: string,
-  content: string,
-};
-
-type TabProps = {
-  tabs:Tab[],
-  selectedTabId: string;
-  onTabSelected: (tab: Tab) => void;
-};
+import { TabProps } from '../../types/TabProps';
 
 export const Tabs = ({ tabs, selectedTabId, onTabSelected } : TabProps) => {
   const selectedTab = tabs
