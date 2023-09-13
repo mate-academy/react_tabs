@@ -4,7 +4,7 @@ import { Tab } from '../../Types/Tab';
 type Props = {
   tabs: Tab[],
   selectedTabId: string | null,
-  onTabSelected: (tabId: string) => void,
+  onTabSelected: (tab: Tab) => void,
 };
 
 export const Tabs = ({ tabs, selectedTabId, onTabSelected }: Props) => {
@@ -23,7 +23,7 @@ export const Tabs = ({ tabs, selectedTabId, onTabSelected }: Props) => {
                 className={
                   cn(
                     {
-                      'is-active': tab.id === selectedTabId,
+                      'is-active': tab.id === selectedTab.id,
                     },
                   )
                 }
@@ -32,7 +32,7 @@ export const Tabs = ({ tabs, selectedTabId, onTabSelected }: Props) => {
                 <a
                   href={`#${tab.id}`}
                   data-cy="TabLink"
-                  onClick={() => onTabSelected(tab.id)}
+                  onClick={() => tab.id === selectedTabId || onTabSelected(tab)}
                 >
                   {tab.title}
                 </a>
