@@ -3,8 +3,8 @@ import { Tab } from '../../Types';
 
 type TabsProps = {
   tabs: Tab[],
-  handleTabSelect: (tab: Tab) => void,
   selectedTabId: string,
+  handleTabSelect: (tab: Tab) => void,
 };
 
 export const Tabs: React.FC<TabsProps> = (
@@ -32,8 +32,11 @@ export const Tabs: React.FC<TabsProps> = (
                 <a
                   href={`#${tab.id}`}
                   data-cy="tabLink"
-                  onClick={() => tab.id !== selectedTab.id
-                    && handleTabSelect(tab)}
+                  onClick={() => {
+                    if (tab.id !== selectedTab.id) {
+                      handleTabSelect(tab);
+                    }
+                  }}
                 >
                   {tab.title}
                 </a>

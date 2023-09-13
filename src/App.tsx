@@ -12,7 +12,7 @@ export const tabs: Tab[] = [
 ];
 
 export const App: React.FC = () => {
-  const [selectedTabId, setSelectedTabId] = useState(tabs[0].id);
+  const [selectedTabId, setSelectedTabId] = useState('tab-1');
 
   const handleTabSelect = (selectedTab: Tab) => {
     setSelectedTabId(selectedTab.id);
