@@ -1,24 +1,3 @@
-//   const onTabSelected = (tab : Tab) => {
-//     setSelectedTab(tab);
-//   };
-
-//   const chosenTab = tabs.find((tab) => tab.id === selectedTab.id)?.id
-//   || tabs[0].id;
-
-//   return (
-//     <div className="section">
-//       <h1 className="title">
-//         {`Selected tab is ${tabs.find(tab => tab.id === selectedTab.id)?.title || tabs[0].title}`}
-//       </h1>
-
-//       <Tabs
-//         tabs={tabs}
-//         selectedTab={chosenTab}
-//         onTabSelected={onTabSelected}
-//       />
-
-//     </div>
-
 import { useState } from 'react';
 import 'bulma/css/bulma.css';
 import '@fortawesome/fontawesome-free/css/all.css';
