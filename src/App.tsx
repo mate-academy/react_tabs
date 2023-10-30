@@ -13,7 +13,7 @@ export const App: React.FC = () => {
   return (
     <div className="section">
       <h1 className="title">
-        Selected tab is Tab 1
+        Done
       </h1>
 
       <div data-cy="TabsComponent">
