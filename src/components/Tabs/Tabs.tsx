@@ -1,3 +1,5 @@
+import cn from 'classnames';
+
 type Tab = {
   id: string;
   title: string;
@@ -20,37 +22,45 @@ export const Tabs: React.FC<TabsProps> = (
   const isValidTabId = tabs.some(tab => tab.id === selectedTabId);
   const activeTabId = isValidTabId ? selectedTabId : tabs[0].id;
 
+  const handleTabClick = (item: Tab) => {
+    if (item.id !== selectedTabId) {
+      onTabSelected(item);
+    }
+  };
+
+  const showTabContent = tabs.find(tab => tab.id === selectedTabId)?.content;
+
   return (
     <div data-cy="TabsComponent">
       <div className="tabs is-boxed">
         <ul>
-          {tabs.map(item => (
-            <li
-              className={activeTabId === item.id
-                ? 'is-active'
-                : ''}
-              data-cy="Tab"
-              key={item.id}
-            >
-              <a
-                href={`#${item.id}`}
-                data-cy="TabLink"
-                onClick={() => {
-                  if (item.id !== selectedTabId) {
-                    onTabSelected(item);
-                  }
-                }}
+          {tabs.map((item) => {
+            const { id, title } = item;
+
+            return (
+              <li
+                className={cn({ 'is-active': activeTabId === id })}
+                data-cy="Tab"
+                key={id}
               >
-                {item.title}
-              </a>
-            </li>
-          ))}
+                <a
+                  href={`#${id}`}
+                  data-cy="TabLink"
+                  onClick={() => {
+                    handleTabClick(item);
+                  }}
+                >
+                  {title}
+                </a>
+              </li>
+            );
+          })}
         </ul>
 
       </div>
 
       <div className="block" data-cy="TabContent">
-        {tabs.find(tab => tab.id === selectedTabId)?.content}
+        {showTabContent}
       </div>
     </div>
   );

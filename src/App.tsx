@@ -28,9 +28,7 @@ export const App: React.FC = () => {
   return (
     <div className="section">
       <h1 className="title">
-        Selected tab is
-        {' '}
-        {selectedTabs ? selectedTabs.title : 'Tab 1'}
+        {`Selected tab is ${selectedTabs ? selectedTabs.title : 'Tab 1'}`}
       </h1>
 
       <Tabs
