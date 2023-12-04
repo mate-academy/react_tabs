@@ -14,6 +14,11 @@ export type TabsProps = {
 
 export const Tabs = ({ tabs, selectedTabId, onTabSelected }: TabsProps) => {
   const selectedTab = tabs.find((tab) => tab.id === selectedTabId) || tabs[0];
+
+  const getTabContent = () => {
+    return tabs.find((tab) => tab.id === selectedTabId)?.content;
+  };
+
   const handleClick = (tab: Tab) => {
     if (tab.id !== selectedTabId) {
       onTabSelected(tab);
@@ -43,7 +48,7 @@ export const Tabs = ({ tabs, selectedTabId, onTabSelected }: TabsProps) => {
       </div>
 
       <div className="block" data-cy="TabContent">
-        {tabs.find((tab) => tab.id === selectedTabId)?.content}
+        {getTabContent()}
       </div>
     </div>
   );

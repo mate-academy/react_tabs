@@ -22,12 +22,16 @@ export const App: React.FC = () => {
     setSelectedTabId(Tab.id);
   };
 
+  const getTabTitle = () => {
+    return tabs.find((tab) => tab.id === selectedTabId)?.title;
+  };
+
   return (
     <div className="section">
       <h1 className="title">
         Selected tab is
         {' '}
-        {tabs.find((tab) => tab.id === selectedTabId)?.title}
+        {getTabTitle()}
       </h1>
       <Tabs
         tabs={tabs}
