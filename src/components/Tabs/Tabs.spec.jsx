@@ -22,7 +22,7 @@ describe('Tabs component', () => {
         <Tabs
           tabs={tabs}
           selectedTabId="tab-20"
-          onTabSelected={cy.spy().as('onTabSelected')}
+          selectTab={cy.spy().as('onTabSelected')}
         />
       ));
     });
@@ -98,7 +98,7 @@ describe('Tabs component', () => {
         <Tabs
           tabs={tabs}
           selectedTabId="asdasd"
-          onTabSelected={() => { }}
+          selectTab={() => { }}
         />
       ));
 
