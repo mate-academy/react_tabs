@@ -1,18 +1,19 @@
+// import { tap } from 'cypress/types/lodash';
 import { Tab } from '../../types/tab';
 
-type Props = {
+type FormProps = {
   tabs: Tab[]
   selectedTabId: string,
   onTabSelected: (tab: Tab) => void,
 };
 
-export const Tabs = ({ tabs, selectedTabId, onTabSelected }: Props) => {
-  const handleClick = (tab: Tab) => {
-    onTabSelected(tab);
-  };
+export const Tabs = ({ tabs, selectedTabId, onTabSelected }: FormProps) => {
+  const selectedTab = tabs.find(i => i.id === selectedTabId) || tabs[0];
 
-  const getCurrentTab = (data: Tab[], id: string) => {
-    return data.find(el => el.id === id);
+  const handleClick = (tab: Tab) => {
+    if (tab.id !== selectedTabId) {
+      onTabSelected(tab);
+    }
   };
 
   return (
@@ -22,7 +23,7 @@ export const Tabs = ({ tabs, selectedTabId, onTabSelected }: Props) => {
           {tabs.map(tab => {
             return (
               <li
-                className={tab.id === selectedTabId
+                className={tab.id === selectedTab.id
                   ? 'is-active' : ''}
                 data-cy="Tab"
                 key={tab.id}
@@ -41,7 +42,7 @@ export const Tabs = ({ tabs, selectedTabId, onTabSelected }: Props) => {
       </div>
 
       <div className="block" data-cy="TabContent">
-        {getCurrentTab(tabs, selectedTabId)?.content}
+        {selectedTab.content}
       </div>
     </div>
   );
