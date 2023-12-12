@@ -7,21 +7,25 @@ import { Tabs } from './components/Tabs';
 import { tabs } from './tabs';
 
 export const App: FC = () => {
-  const [selectedTabId, setSelectedTabId] = useState('tab-1');
+  const [selectedTabId, setSelectedTabId] = useState(tabs[0].id);
 
-  const onTabSelect = (tab: Tab) => {
-    setSelectedTabId(tab.id);
+  const onTabSelected = (tab: Tab) => {
+    if (tab.id !== selectedTabId) {
+      setSelectedTabId(tab.id);
+    }
   };
+
+  const selectedTab = tabs.find(tab => tab.id === selectedTabId);
 
   return (
     <div className="section">
       <h1 className="title">
-        {`Selected tab is Tab ${selectedTabId.slice(4)}`}
+        {`Selected tab is ${selectedTab ? selectedTab.title : ''}`}
       </h1>
       <Tabs
         tabs={tabs}
         selectedTabId={selectedTabId}
-        onTabSelect={onTabSelect}
+        onTabSelected={onTabSelected}
       />
     </div>
   );

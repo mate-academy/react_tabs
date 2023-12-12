@@ -1,7 +1,7 @@
 import { TabsProps } from '../../types';
 
-export const Tabs = ({ tabs, selectedTabId, onTabSelect }: TabsProps) => {
-  const selectedTab = tabs.find(tab => tab.id === selectedTabId);
+export const Tabs = ({ tabs, selectedTabId, onTabSelected }: TabsProps) => {
+  const selectedTab = tabs.find(tab => tab.id === selectedTabId) || tabs[0];
 
   return (
     <div data-cy="TabsComponent">
@@ -11,13 +11,15 @@ export const Tabs = ({ tabs, selectedTabId, onTabSelect }: TabsProps) => {
             tabs.map(tab => (
               <li
                 key={tab.id}
-                className={tab.id === selectedTabId ? 'is-active' : undefined}
+                className={tab.id === selectedTab?.id ? 'is-active' : ''}
                 data-cy="Tab"
               >
                 <a
                   href={`#${tab.id}`}
                   data-cy="TabLink"
-                  onClick={() => onTabSelect(tab)}
+                  onClick={
+                    () => tab.id !== selectedTab.id && onTabSelected(tab)
+                  }
                 >
                   {tab.title}
                 </a>
@@ -27,7 +29,7 @@ export const Tabs = ({ tabs, selectedTabId, onTabSelect }: TabsProps) => {
         </ul>
       </div>
       <div className="block" data-cy="TabContent">
-        {selectedTab?.content}
+        {selectedTab.content}
       </div>
     </div>
   );

@@ -7,5 +7,5 @@ export interface Tab {
 export type TabsProps = {
   tabs: Tab[];
   selectedTabId: string;
-  onTabSelect: (tab: Tab) => void;
+  onTabSelected: (tab: Tab) => void;
 };
