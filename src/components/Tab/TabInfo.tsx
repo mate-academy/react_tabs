@@ -3,10 +3,14 @@ import { Tab } from '../../types/Tab';
 type Props = {
   tab: Tab,
   isActive: boolean,
-  onTabSelected: (tabId: string) => void,
+  onTabSelected: (tab: Tab) => void,
 };
 
 export const TabInfo = ({ tab, isActive, onTabSelected }:Props) => {
+  const clickHandler = () => (
+    !isActive && onTabSelected(tab)
+  );
+
   return (
     <li
       className={isActive ? 'is-active' : ''}
@@ -15,7 +19,7 @@ export const TabInfo = ({ tab, isActive, onTabSelected }:Props) => {
       <a
         href={`#${tab.id}`}
         data-cy="TabLink"
-        onClick={() => onTabSelected(tab.id)}
+        onClick={clickHandler}
       >
         {tab.title}
       </a>

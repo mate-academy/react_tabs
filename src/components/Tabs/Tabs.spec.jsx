@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unused-expressions, react/jsx-filename-extension */
 import { mount } from '@cypress/react';
-import { TabsInfo } from './TabsInfo';
+import { Tabs } from './Tabs';
 
 const page = {
   getByDataCy: name => cy.get(`[data-cy="${name}"]`),
@@ -19,7 +19,7 @@ describe('Tabs component', () => {
       ];
 
       mount((
-        <TabsInfo
+        <Tabs
           tabs={tabs}
           selectedTabId="tab-20"
           onTabSelected={cy.spy().as('onTabSelected')}
@@ -95,7 +95,7 @@ describe('Tabs component', () => {
       ];
 
       mount((
-        <TabsInfo
+        <Tabs
           tabs={tabs}
           selectedTabId="asdasd"
           onTabSelected={() => { }}
