@@ -1,5 +1,5 @@
-// import { tap } from 'cypress/types/lodash';
 import classNames from 'classnames';
+import React from 'react';
 import { Tab } from '../../types/tab';
 
 type FormProps = {
@@ -8,7 +8,9 @@ type FormProps = {
   onTabSelected: (tab: Tab) => void,
 };
 
-export const Tabs = ({ tabs, selectedTabId, onTabSelected }: FormProps) => {
+export const Tabs: React.FC<FormProps> = (
+  { tabs, selectedTabId, onTabSelected },
+) => {
   const selectedTab = tabs.find(i => i.id === selectedTabId) || tabs[0];
 
   const handleClick = (tab: Tab) => {
