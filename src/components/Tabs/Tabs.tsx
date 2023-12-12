@@ -1,4 +1,5 @@
 // import { tap } from 'cypress/types/lodash';
+import classNames from 'classnames';
 import { Tab } from '../../types/tab';
 
 type FormProps = {
@@ -23,8 +24,11 @@ export const Tabs = ({ tabs, selectedTabId, onTabSelected }: FormProps) => {
           {tabs.map(tab => {
             return (
               <li
-                className={tab.id === selectedTab.id
-                  ? 'is-active' : ''}
+                // className={tab.id === selectedTab.id
+                //   ? 'is-active' : ''}
+                className={classNames(
+                  { 'is-active': tab.id === selectedTab.id },
+                )}
                 data-cy="Tab"
                 key={tab.id}
               >
