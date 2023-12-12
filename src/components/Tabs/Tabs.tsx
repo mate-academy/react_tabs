@@ -7,10 +7,12 @@ type Props = {
 };
 
 export const Tabs = ({ tabs, selectedTabId, onTabSelected }: Props) => {
-  console.log(selectedTabId, onTabSelected);
-
   const handleClick = (tab: Tab) => {
     onTabSelected(tab);
+  };
+
+  const getCurrentTab = (data: Tab[], id: string) => {
+    return data.find(el => el.id === id);
   };
 
   return (
@@ -19,8 +21,17 @@ export const Tabs = ({ tabs, selectedTabId, onTabSelected }: Props) => {
         <ul>
           {tabs.map(tab => {
             return (
-              <li className="is-active" data-cy="Tab" key={tab.id}>
-                <a href={`#${tab.id}`} data-cy="TabLink" onClick={() => handleClick(tab)}>
+              <li
+                className={tab.id === selectedTabId
+                  ? 'is-active' : ''}
+                data-cy="Tab"
+                key={tab.id}
+              >
+                <a
+                  href={`#${tab.id}`}
+                  data-cy="TabLink"
+                  onClick={() => handleClick(tab)}
+                >
                   {tab.title}
                 </a>
               </li>
@@ -30,7 +41,7 @@ export const Tabs = ({ tabs, selectedTabId, onTabSelected }: Props) => {
       </div>
 
       <div className="block" data-cy="TabContent">
-        Some text 1
+        {getCurrentTab(tabs, selectedTabId)?.content}
       </div>
     </div>
   );

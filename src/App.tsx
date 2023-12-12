@@ -23,7 +23,7 @@ export const App: React.FC = () => {
       <h1 className="title">
         Selected tab is
         {' '}
-        {selectedTabId.id}
+        {selectedTabId.title}
       </h1>
 
       <Tabs
