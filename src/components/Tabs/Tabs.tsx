@@ -5,9 +5,7 @@ import { TabsProps } from '../types/Tabs';
 export const Tabs = ({ tabs, selectedTabId, onTabSelected }: TabsProps) => {
   const selectedTab = tabs.find((tab) => tab.id === selectedTabId) || tabs[0];
 
-  const getTabContent = () => {
-    return tabs.find((tab) => tab.id === selectedTabId)?.content;
-  };
+  const getTabContent = tabs.find((tab) => tab.id === selectedTabId)?.content;
 
   const handleClick = (tab: Tab) => {
     if (tab.id !== selectedTabId) {
@@ -38,7 +36,7 @@ export const Tabs = ({ tabs, selectedTabId, onTabSelected }: TabsProps) => {
       </div>
 
       <div className="block" data-cy="TabContent">
-        {getTabContent()}
+        {getTabContent}
       </div>
     </div>
   );
