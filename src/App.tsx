@@ -17,10 +17,12 @@ export const App = () => {
     setSelectedTabId(tabId);
   };
 
+  const selectedTab = tabs.filter((tab) => tab.id === selectedTabId)[0];
+
   return (
     <div className="section">
       <h1 className="title">
-        Selected tab is Tab 1
+        {selectedTabId ? `Selected tab is ${selectedTab.title}` : ''}
       </h1>
 
       <div data-cy="TabsComponent">
@@ -33,7 +35,7 @@ export const App = () => {
         </div>
 
         <div className="block" data-cy="TabContent">
-          Some text 1
+          {selectedTab.content}
         </div>
       </div>
     </div>
