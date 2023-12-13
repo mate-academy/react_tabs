@@ -14,36 +14,34 @@ export const Tabs: React.FC<FormProps> = (
   const selectedTab = tabs.find(i => i.id === selectedTabId) || tabs[0];
 
   const handleClick = (tab: Tab) => {
-    if (tab.id !== selectedTabId) {
-      onTabSelected(tab);
+    if (tab.id === selectedTabId) {
+      return;
     }
+
+    onTabSelected(tab);
   };
 
   return (
     <div data-cy="TabsComponent">
       <div className="tabs is-boxed">
         <ul>
-          {tabs.map(tab => {
-            return (
-              <li
-                // className={tab.id === selectedTab.id
-                //   ? 'is-active' : ''}
-                className={classNames(
-                  { 'is-active': tab.id === selectedTab.id },
-                )}
-                data-cy="Tab"
-                key={tab.id}
+          {tabs.map(tab => (
+            <li
+              className={classNames(
+                { 'is-active': tab.id === selectedTab.id },
+              )}
+              data-cy="Tab"
+              key={tab.id}
+            >
+              <a
+                href={`#${tab.id}`}
+                data-cy="TabLink"
+                onClick={() => handleClick(tab)}
               >
-                <a
-                  href={`#${tab.id}`}
-                  data-cy="TabLink"
-                  onClick={() => handleClick(tab)}
-                >
-                  {tab.title}
-                </a>
-              </li>
-            );
-          })}
+                {tab.title}
+              </a>
+            </li>
+          ))}
         </ul>
       </div>
 
