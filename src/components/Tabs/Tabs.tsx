@@ -9,8 +9,7 @@ type Props = {
 
 export const Tabs = ({ tabs, selectedTabId, onTabSelected }:Props) => {
   const selectedTabIdAdjusted = tabs
-    .map(tab => tab.id)
-    .includes(selectedTabId) ? selectedTabId : tabs[0].id;
+    .find(tab => tab.id === selectedTabId) ? selectedTabId : tabs[0].id;
 
   const selectedTab = tabs.filter((tab) => tab.id === selectedTabIdAdjusted)[0];
 

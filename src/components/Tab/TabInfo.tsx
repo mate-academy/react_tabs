@@ -7,7 +7,7 @@ type Props = {
 };
 
 export const TabInfo = ({ tab, isActive, onTabSelected }:Props) => {
-  const clickHandler = () => (
+  const handleClick = () => (
     !isActive && onTabSelected(tab)
   );
 
@@ -19,7 +19,7 @@ export const TabInfo = ({ tab, isActive, onTabSelected }:Props) => {
       <a
         href={`#${tab.id}`}
         data-cy="TabLink"
-        onClick={clickHandler}
+        onClick={handleClick}
       >
         {tab.title}
       </a>
