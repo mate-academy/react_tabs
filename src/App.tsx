@@ -10,9 +10,11 @@ export const App: FC = () => {
   const [selectedTabId, setSelectedTabId] = useState(tabs[0].id);
 
   const onTabSelected = (tab: Tab) => {
-    if (tab.id !== selectedTabId) {
-      setSelectedTabId(tab.id);
+    if (tab.id === selectedTabId) {
+      return;
     }
+
+    setSelectedTabId(tab.id);
   };
 
   const selectedTab = tabs.find(tab => tab.id === selectedTabId);

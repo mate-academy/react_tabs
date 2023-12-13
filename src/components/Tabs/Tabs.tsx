@@ -1,7 +1,15 @@
-import { TabsProps } from '../../types';
+import { Tab, TabsProps } from '../../types';
 
 export const Tabs = ({ tabs, selectedTabId, onTabSelected }: TabsProps) => {
   const selectedTab = tabs.find(tab => tab.id === selectedTabId) || tabs[0];
+
+  const handleTabClick = (tab: Tab) => {
+    if (tab.id === selectedTab.id) {
+      return;
+    }
+
+    onTabSelected(tab);
+  };
 
   return (
     <div data-cy="TabsComponent">
@@ -17,9 +25,7 @@ export const Tabs = ({ tabs, selectedTabId, onTabSelected }: TabsProps) => {
                 <a
                   href={`#${tab.id}`}
                   data-cy="TabLink"
-                  onClick={
-                    () => tab.id !== selectedTab.id && onTabSelected(tab)
-                  }
+                  onClick={() => handleTabClick(tab)}
                 >
                   {tab.title}
                 </a>
