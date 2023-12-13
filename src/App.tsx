@@ -17,18 +17,11 @@ export const App: FC = () => {
     setSelectedTabId(tab.id);
   };
 
-  const selectedTab = tabs.find(tab => tab.id === selectedTabId);
-
   return (
-    <div className="section">
-      <h1 className="title">
-        {`Selected tab is ${selectedTab ? selectedTab.title : ''}`}
-      </h1>
-      <Tabs
-        tabs={tabs}
-        selectedTabId={selectedTabId}
-        onTabSelected={onTabSelected}
-      />
-    </div>
+    <Tabs
+      tabs={tabs}
+      selectedTabId={selectedTabId}
+      onTabSelected={onTabSelected}
+    />
   );
 };
