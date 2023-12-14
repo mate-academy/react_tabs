@@ -1,8 +1,4 @@
- type Tab = {
-   id: string,
-   title: string,
-   content: string
- };
+import { Tab } from '../../types/Tab';
 
 type Props = {
   tabs: { id: string, title: string, content: string }[];
