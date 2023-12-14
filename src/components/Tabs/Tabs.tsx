@@ -1,6 +1,5 @@
 import { FC } from 'react';
-// eslint-disable-next-line import/no-cycle
-import { Tab } from '../../App';
+import { Tab } from '../../types';
 
 interface Props {
   tabs: Tab[];
