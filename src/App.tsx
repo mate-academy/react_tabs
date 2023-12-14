@@ -2,7 +2,6 @@ import { useState, FC } from 'react';
 import 'bulma/css/bulma.css';
 import '@fortawesome/fontawesome-free/css/all.css';
 import './App.scss';
-// eslint-disable-next-line import/no-cycle
 import { Tabs } from './components/Tabs';
 import { tabs } from './tabData';
 import { Tab } from './types';
