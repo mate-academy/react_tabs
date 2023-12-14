@@ -6,15 +6,13 @@ type Tab = {
 
 type TabsProps = {
   tabs: Tab[],
-  selectedTabId: string,
+  selectedTab: Tab,
   onTabSelected: (tab: Tab) => void;
 };
 
-export const Tabs = ({ tabs, selectedTabId, onTabSelected }: TabsProps) => {
-  const selectedTab = tabs.find(tab => tab.id === selectedTabId) || tabs[0];
-
+export const Tabs = ({ tabs, onTabSelected, selectedTab }: TabsProps) => {
   const handleTabClick = (tab: Tab) => {
-    if (selectedTabId !== tab.id) {
+    if (selectedTab.id !== tab.id) {
       onTabSelected(tab);
     }
   };
