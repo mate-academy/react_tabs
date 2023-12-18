@@ -1,19 +1,24 @@
 import React from 'react';
+import classNames from 'classnames';
 import { Tab } from '../../types';
 
 interface TabsProps {
   tabs: Tab[]
-  selectedTab: Tab
+  selectedTabId: string
   onTabSelected: (tab: Tab) => void
 }
 
 // eslint-disable-next-line max-len
-export const Tabs: React.FC<TabsProps> = ({ tabs, selectedTab, onTabSelected }) => {
+export const Tabs: React.FC<TabsProps> = ({
+  tabs, selectedTabId, onTabSelected,
+}) => {
   const handleTabClick = (tab: Tab) => {
-    if (selectedTab.id !== tab.id) {
+    if (selectedTabId !== tab.id) {
       onTabSelected(tab);
     }
   };
+
+  const selectedTab = tabs.find(tab => tab.id === selectedTabId) || tabs[0];
 
   return (
     <div data-cy="TabsComponent">
@@ -21,7 +26,9 @@ export const Tabs: React.FC<TabsProps> = ({ tabs, selectedTab, onTabSelected }) 
         <ul>
           {tabs.map(tab => (
             <li
-              className={selectedTab.id === tab.id ? 'is-active' : ''}
+              className={classNames({
+                'is-active': selectedTab === tab,
+              })}
               data-cy="Tab"
               key={tab.id}
             >
