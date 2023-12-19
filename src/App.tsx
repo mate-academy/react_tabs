@@ -15,8 +15,8 @@ export const App: React.FC = () => {
 
   const handleTabSelected = (tab: Tab) => {
     setSelectedTabId(tab.id);
-    // eslint-disable-next-line
-    console.log('Selected tab:', tab);
+    // // eslint-disable-next-line
+    // console.log('Selected tab:', tab);
   };
 
   const tabs: Tab[] = [
@@ -25,18 +25,16 @@ export const App: React.FC = () => {
     { id: 'tab-3', title: 'Tab 3', content: 'Some text 3' },
   ];
 
-  const selectedTab = tabs.find(tab => tab.id === selectedTabId);
+  const selectedTab = tabs.find(tab => tab.id === selectedTabId) || tabs[0];
 
   return (
     <div className="section">
       <h1 className="title">
-        Selected tab is&nbsp;
-        {selectedTab ? selectedTab.title : 'Tab 1'}
+        {`Selected tab is ${selectedTab.title}`}
       </h1>
       <Tabs
         tabs={tabs}
         selectedTabId={selectedTabId}
-        setSelectedTabId={setSelectedTabId}
         onTabSelected={handleTabSelected}
       />
     </div>

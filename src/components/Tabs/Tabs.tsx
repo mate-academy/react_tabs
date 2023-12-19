@@ -1,11 +1,5 @@
 import React from 'react';
 
-const tabsData = [
-  { id: 'tab-1', title: 'Tab 1', content: 'Some text 1' },
-  { id: 'tab-2', title: 'Tab 2', content: 'Some text 2' },
-  { id: 'tab-3', title: 'Tab 3', content: 'Some text 3' },
-];
-
 type Tab = {
   id: string;
   title: string;
@@ -15,20 +9,17 @@ type Tab = {
 type TabsProps = {
   tabs: Tab[];
   selectedTabId: string;
-  setSelectedTabId: (id: string) => void;
-  onTabSelected?: (tab: Tab) => void;
+  onTabSelected: (tab: Tab) => void;
 };
 
 export const Tabs: React.FC<TabsProps>
 = ({
-  tabs, selectedTabId, setSelectedTabId, onTabSelected,
+  tabs, selectedTabId, onTabSelected,
 }) => {
+  const selectedTab = tabs.find(tab => tab.id === selectedTabId) || tabs[0];
   const handleTabClick = (tab: Tab) => {
     if (tab.id !== selectedTabId) {
-      setSelectedTabId(tab.id);
-      if (onTabSelected) {
-        onTabSelected(tab);
-      }
+      onTabSelected(tab);
     }
   };
 
@@ -36,10 +27,10 @@ export const Tabs: React.FC<TabsProps>
     <div data-cy="TabsComponent">
       <div className="tabs is-boxed">
         <ul>
-          {tabsData.map(tab => (
+          {tabs.map(tab => (
             <li
               key={tab.id}
-              className={selectedTabId === tab.id
+              className={selectedTab.id === tab.id
                 ? 'is-active' : ''}
               data-cy="Tab"
             >
@@ -63,8 +54,4 @@ export const Tabs: React.FC<TabsProps>
       </div>
     </div>
   );
-};
-
-Tabs.defaultProps = {
-  onTabSelected: () => {},
 };
