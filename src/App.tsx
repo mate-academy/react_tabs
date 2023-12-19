@@ -15,6 +15,7 @@ export const App: React.FC = () => {
 
   const handleTabSelected = (tab: Tab) => {
     setSelectedTabId(tab.id);
+    // eslint-disable-next-line
     console.log('Selected tab:', tab);
   };
 

@@ -16,11 +16,13 @@ type TabsProps = {
   tabs: Tab[];
   selectedTabId: string;
   setSelectedTabId: (id: string) => void;
-  onTabSelected?: (newTabId: string) => void;
+  onTabSelected?: (tab: Tab) => void;
 };
 
 export const Tabs: React.FC<TabsProps>
-= ({ tabs, selectedTabId, setSelectedTabId }) => {
+= ({
+  tabs, selectedTabId, setSelectedTabId, onTabSelected,
+}) => {
   const handleTabClick = (tab: Tab) => {
     if (tab.id !== selectedTabId) {
       setSelectedTabId(tab.id);
@@ -61,4 +63,8 @@ export const Tabs: React.FC<TabsProps>
       </div>
     </div>
   );
+};
+
+Tabs.defaultProps = {
+  onTabSelected: () => {},
 };
