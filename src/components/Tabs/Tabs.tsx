@@ -11,18 +11,17 @@ export const Tabs = (
   { tabs, selectedTabId, onTabSelected }: Props,
 ) => {
   const foundTab = tabs.find(tab => tab.id === selectedTabId) || tabs[0];
+  const handleClick = (tab: Tab) => () => {
+    if (selectedTabId !== tab.id) {
+      onTabSelected(tab);
+    }
+  };
 
   return (
     <div data-cy="TabsComponent">
       <div className="tabs is-boxed">
         <ul>
           {tabs.map(tab => {
-            const handleClick = () => {
-              if (selectedTabId !== tab.id) {
-                onTabSelected(tab);
-              }
-            };
-
             return (
               <li
                 key={tab.id}
@@ -34,7 +33,7 @@ export const Tabs = (
                 <a
                   href={`#${tab.id}`}
                   data-cy="TabLink"
-                  onClick={handleClick}
+                  onClick={handleClick(tab)}
                 >
                   {tab.title}
                 </a>
