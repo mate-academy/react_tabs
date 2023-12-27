@@ -50,9 +50,7 @@ export const Tabs: React.FC<Props>
         </div>
 
         <div className="block" data-cy="TabContent">
-          {tabs
-            .filter((tab) => tab.id === selectedTabId)
-            .map(({ content }) => (content))}
+          {selectedTab.content}
         </div>
       </div>
     );
