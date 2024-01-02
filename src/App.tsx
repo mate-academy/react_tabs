@@ -7,8 +7,8 @@ import { tabs } from './tabData';
 import { Tab } from './types';
 
 export const App: FC = () => {
-  const [selectedTabId, setSelectedTabId] = useState('tab-1');
-  const isActive
+  const [selectedTabId, setSelectedTabId] = useState(tabs[0].id);
+  const activeTab
     = tabs.find(tab => tab.id === selectedTabId) || tabs[0];
 
   const selectTab = (tab: Tab) => {
@@ -22,7 +22,7 @@ export const App: FC = () => {
       <h1 className="title">
         Selected tab is
         {' '}
-        {isActive.title}
+        {activeTab.title}
       </h1>
       <Tabs
         tabs={tabs}

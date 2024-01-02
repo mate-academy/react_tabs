@@ -12,7 +12,7 @@ export const Tabs: FC<Props> = ({
   selectedTabId,
   onTabSelected,
 }) => {
-  const isActive = tabs.find(tab => tab.id === selectedTabId) || tabs[0];
+  const activeTab = tabs.find(tab => tab.id === selectedTabId) || tabs[0];
 
   return (
     <div data-cy="TabsComponent">
@@ -20,7 +20,8 @@ export const Tabs: FC<Props> = ({
         <ul>
           {tabs.map(tab => (
             <li
-              className={tab.id === isActive.id ? 'is-active' : ''}
+              key={tab.id}
+              className={tab.id === activeTab.id ? 'is-active' : ''}
               data-cy="Tab"
             >
               <a
@@ -39,7 +40,7 @@ export const Tabs: FC<Props> = ({
         </ul>
       </div>
       <div className="block" data-cy="TabContent">
-        {isActive.content}
+        {activeTab.content}
       </div>
     </div>
   );
