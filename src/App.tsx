@@ -12,9 +12,11 @@ export const App: FC = () => {
     = tabs.find(tab => tab.id === selectedTabId) || tabs[0];
 
   const selectTab = (tab: Tab) => {
-    if (tab.id !== selectedTabId) {
-      setSelectedTabId(tab.id);
+    if (tab.id === selectedTabId) {
+      return;
     }
+
+    setSelectedTabId(tab.id);
   };
 
   return (
