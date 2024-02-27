@@ -1,15 +1,11 @@
 import React from 'react';
+import classNames from 'classnames';
+import { Tab } from '../../Types/Tab';
 
 interface TabsProps {
   tabs: Tab[];
   selectedTabId: string;
   onTabSelected: (tab: Tab) => void;
-}
-
-interface Tab {
-  id: string;
-  title: string;
-  content: string;
 }
 
 export const Tabs: React.FC<TabsProps> = ({
@@ -37,7 +33,7 @@ export const Tabs: React.FC<TabsProps> = ({
                 key={tab.id}
                 data-cy="Tab"
                 onClick={() => handleTabClick(tab)}
-                className={selectedTab === tab ? 'is-active' : undefined}
+                className={classNames({ 'is-active': selectedTab === tab })}
               >
                 <a href={`#${tab.id}`} data-cy="TabLink">
                   {tab.title}
