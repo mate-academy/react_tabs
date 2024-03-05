@@ -3,13 +3,11 @@ import { Tab } from '../../types/Tab';
 
 type Props = {
   tabs: Tab[];
-  selectedTabId: string;
+  selectedTab: Tab;
   onTabSelected: (tab: Tab) => void;
 };
 
-export const Tabs = ({ tabs, selectedTabId, onTabSelected }: Props) => {
-  const selectedTab = tabs.find(tab => tab.id === selectedTabId) || tabs[0];
-
+export const Tabs = ({ tabs, selectedTab, onTabSelected }: Props) => {
   return (
     <div data-cy="TabsComponent">
       <div className="tabs is-boxed">
@@ -18,18 +16,16 @@ export const Tabs = ({ tabs, selectedTabId, onTabSelected }: Props) => {
             return (
               <li
                 key={tab.id}
-                className={cn({ 'is-active': selectedTab === tab })}
+                className={cn({ 'is-active': selectedTab.id === tab.id })}
                 data-cy="Tab"
               >
                 <a
                   href={`#${tab.id}`}
                   data-cy="TabLink"
                   onClick={() => {
-                    if (tab.id === selectedTabId) {
-                      return;
+                    if (tab.id !== selectedTab.id) {
+                      onTabSelected(tab);
                     }
-
-                    onTabSelected(tab);
                   }}
                 >
                   {tab.title}
