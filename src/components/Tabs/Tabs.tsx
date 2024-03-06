@@ -3,11 +3,13 @@ import { Tab } from '../../types/Tab';
 
 type Props = {
   tabs: Tab[];
-  selectedTab: Tab;
+  selectedTabId: string;
   onTabSelected: (tab: Tab) => void;
 };
 
-export const Tabs = ({ tabs, selectedTab, onTabSelected }: Props) => {
+export const Tabs = ({ tabs, selectedTabId, onTabSelected }: Props) => {
+  const selectedTab = tabs.find(tab => tab.id === selectedTabId) || tabs[0];
+
   return (
     <div data-cy="TabsComponent">
       <div className="tabs is-boxed">
