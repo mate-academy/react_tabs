@@ -18,6 +18,8 @@ export const App: React.FC = () => {
 
     if (foundTab) {
       setTab(foundTab);
+    } else {
+      setTab(tabs[0]);
     }
   };
 
@@ -26,7 +28,11 @@ export const App: React.FC = () => {
       <div className="section">
         <h1 className="title">Selected tab is {tab.title}</h1>
 
-        <Tabs tabs={tabs} onTabSelected={onTabSelected} selectedTabId={tab} />
+        <Tabs
+          tabs={tabs}
+          onTabSelected={onTabSelected}
+          selectedTabId={tab.id}
+        />
       </div>
     </>
   );

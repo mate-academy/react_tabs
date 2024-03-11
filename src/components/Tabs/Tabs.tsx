@@ -5,7 +5,7 @@ import { Tab } from './Types/Tab';
 type Propslist = {
   tabs: Tab[];
   onTabSelected: (tab: Tab) => void;
-  selectedTabId: Tab;
+  selectedTabId: string;
 };
 
 export const Tabs: React.FC<Propslist> = ({
@@ -21,14 +21,14 @@ export const Tabs: React.FC<Propslist> = ({
             return (
               <li
                 key={tab.id}
-                className={cn({ 'is-active': selectedTabId.id === tab.id })}
+                className={cn({ 'is-active': selectedTabId === tab.id })}
                 data-cy="Tab"
               >
                 <a
                   href={`#${tab.id}`}
                   data-cy="TabLink"
                   onClick={() => {
-                    if (tab.id !== selectedTabId.id) {
+                    if (tab.id !== selectedTabId) {
                       onTabSelected(tab);
                     }
                   }}
@@ -42,7 +42,7 @@ export const Tabs: React.FC<Propslist> = ({
       </div>
 
       <div className="block" data-cy="TabContent">
-        {selectedTabId.content}
+        {tabs.find(tab => tab.id === selectedTabId)?.content}
       </div>
     </div>
   );
