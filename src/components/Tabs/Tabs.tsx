@@ -4,11 +4,15 @@ import { Tab } from './Types/Tab';
 
 type Propslist = {
   tabs: Tab[];
-  findTab: (tab: Tab) => void;
-  selectedTab: Tab;
+  onTabSelected: (tab: Tab) => void;
+  selectedTabId: Tab;
 };
 
-export const Tabs: React.FC<Propslist> = ({ tabs, findTab, selectedTab }) => {
+export const Tabs: React.FC<Propslist> = ({
+  tabs,
+  onTabSelected,
+  selectedTabId,
+}) => {
   return (
     <div data-cy="TabsComponent">
       <div className="tabs is-boxed">
@@ -17,15 +21,15 @@ export const Tabs: React.FC<Propslist> = ({ tabs, findTab, selectedTab }) => {
             return (
               <li
                 key={tab.id}
-                className={cn({ 'is-active': selectedTab.id === tab.id })}
+                className={cn({ 'is-active': selectedTabId.id === tab.id })}
                 data-cy="Tab"
               >
                 <a
                   href={`#${tab.id}`}
                   data-cy="TabLink"
                   onClick={() => {
-                    if (tab.id !== selectedTab.id) {
-                      findTab(tab);
+                    if (tab.id !== selectedTabId.id) {
+                      onTabSelected(tab);
                     }
                   }}
                 >
@@ -38,7 +42,7 @@ export const Tabs: React.FC<Propslist> = ({ tabs, findTab, selectedTab }) => {
       </div>
 
       <div className="block" data-cy="TabContent">
-        {selectedTab.content}
+        {selectedTabId.content}
       </div>
     </div>
   );

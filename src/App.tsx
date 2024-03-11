@@ -13,7 +13,7 @@ export const tabs: Tab[] = [
 
 export const App: React.FC = () => {
   const [tab, setTab] = useState<Tab>(tabs[0]);
-  const findTab = (ta: Tab) => {
+  const onTabSelected = (ta: Tab) => {
     const foundTab = tabs.find(t => t.id === ta.id);
 
     if (foundTab) {
@@ -26,7 +26,7 @@ export const App: React.FC = () => {
       <div className="section">
         <h1 className="title">Selected tab is {tab.title}</h1>
 
-        <Tabs tabs={tabs} findTab={findTab} selectedTab={tab} />
+        <Tabs tabs={tabs} onTabSelected={onTabSelected} selectedTabId={tab} />
       </div>
     </>
   );
