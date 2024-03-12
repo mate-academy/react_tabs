@@ -21,12 +21,11 @@ export const App: React.FC = () => {
     setSelectedTabId(tab.id);
   };
 
+  const selectedTab = tabs.find(tab => tab.id === selectedTabId) || tabs[0];
+
   return (
     <div className="section">
-      <h1 className="title">
-        Selected tab is{' '}
-        {tabs.filter(tab => tab.id === selectedTabId).map(tab => tab.title)}
-      </h1>
+      <h1 className="title">Selected tab is {selectedTab.title}</h1>
 
       <Tabs
         tabs={tabs}
