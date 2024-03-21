@@ -1,41 +1,44 @@
 type Props = {
   tabs: { id: string; title: string; content: string }[];
-  changeTab: (id: string) => void;
+  onTabSelected: (tab: { id: string; title: string; content: string }) => void;
   selectedTabId: string;
 };
 
-export const Tabs: React.FC<Props> = ({ tabs, changeTab, selectedTabId }) => {
+export const Tabs: React.FC<Props> = ({
+  tabs,
+  onTabSelected,
+  selectedTabId,
+}) => {
+  const displayTab = tabs.find(tab => tab.id === selectedTabId) || tabs[0];
+
   return (
     <div data-cy="TabsComponent">
       <div className="tabs is-boxed">
-        {tabs.map(({ id, title }) => (
-          <li
-            key={id}
-            className={`${id === selectedTabId ? 'is-active' : '  '}`}
-            data-cy="Tab"
-          >
-            <a
-              onClick={() => {
-                changeTab(id);
-              }}
-              href={`#${id}`}
-              data-cy="TabLink"
+        <ul>
+          {tabs.map(tab => (
+            <li
+              key={tab.id}
+              className={`${tab.id === displayTab?.id ? 'is-active' : '  '}`}
+              data-cy="Tab"
             >
-              {title}
-            </a>
-          </li>
-        ))}
-        <ul></ul>
+              <a
+                href={`#${tab.id}`}
+                data-cy="TabLink"
+                onClick={() => {
+                  if (tab.id !== selectedTabId) {
+                    onTabSelected(tab);
+                  }
+                }}
+              >
+                {tab.title}
+              </a>
+            </li>
+          ))}
+        </ul>
       </div>
 
       <div className="block" data-cy="TabContent">
-        {tabs
-          .filter(({ id }) => id === selectedTabId)
-          .map(({ id, content }) => (
-            <div key={id} className="block" data-cy="TabContent">
-              {content}
-            </div>
-          ))}
+        {displayTab.content}
       </div>
     </div>
   );
