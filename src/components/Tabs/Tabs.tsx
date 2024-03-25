@@ -1,10 +1,10 @@
-type Props = {
+type TabsProps = {
   tabs: { id: string; title: string; content: string }[];
   onTabSelected: (tab: { id: string; title: string; content: string }) => void;
   selectedTabId: string;
 };
 
-export const Tabs: React.FC<Props> = ({
+export const Tabs: React.FC<TabsProps> = ({
   tabs,
   onTabSelected,
   selectedTabId,
