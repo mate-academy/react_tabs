@@ -1,0 +1,42 @@
+{
+    "sourceFile": "src/App.tsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 6,
+            "patches": [
+                {
+                    "date": 1712672119303,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1712672125098,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,9 +11,9 @@\n \n export const App: React.FC = () => {\n   return (\n     <div className=\"section\">\n-      <h1 className=\"title\">Selected tab is {Tab 1}</h1>\n+      <h1 className=\"title\">Selected tab is {tabs}</h1>\n \n       <div data-cy=\"TabsComponent\">\n         <div className=\"tabs is-boxed\">\n           <ul>\n"
+                },
+                {
+                    "date": 1712672140099,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,9 +11,9 @@\n \n export const App: React.FC = () => {\n   return (\n     <div className=\"section\">\n-      <h1 className=\"title\">Selected tab is {tabs}</h1>\n+      <h1 className=\"title\">Selected tab is Tab 1</h1>\n \n       <div data-cy=\"TabsComponent\">\n         <div className=\"tabs is-boxed\">\n           <ul>\n"
+                },
+                {
+                    "date": 1712672255717,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,5 @@\n-import React from 'react';\n+import React, {} from 'react';\n import 'bulma/css/bulma.css';\n import '@fortawesome/fontawesome-free/css/all.css';\n import './App.scss';\n \n"
+                },
+                {
+                    "date": 1712672262900,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,5 @@\n-import React, {} from 'react';\n+import React, { useState } from 'react';\n import 'bulma/css/bulma.css';\n import '@fortawesome/fontawesome-free/css/all.css';\n import './App.scss';\n \n@@ -9,8 +9,10 @@\n   { id: 'tab-3', title: 'Tab 3', content: 'Some text 3' },\n ];\n \n export const App: React.FC = () => {\n+\n+  \n   return (\n     <div className=\"section\">\n       <h1 className=\"title\">Selected tab is Tab 1</h1>\n \n"
+                },
+                {
+                    "date": 1712672268028,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,9 +9,9 @@\n   { id: 'tab-3', title: 'Tab 3', content: 'Some text 3' },\n ];\n \n export const App: React.FC = () => {\n-  const [is]\n+  const [isSelected,]\n \n   return (\n     <div className=\"section\">\n       <h1 className=\"title\">Selected tab is Tab 1</h1>\n"
+                },
+                {
+                    "date": 1712672274358,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,48 @@\n+import React, { useState } from 'react';\n+import 'bulma/css/bulma.css';\n+import '@fortawesome/fontawesome-free/css/all.css';\n+import './App.scss';\n+\n+export const tabs = [\n+  { id: 'tab-1', title: 'Tab 1', content: 'Some text 1' },\n+  { id: 'tab-2', title: 'Tab 2', content: 'Some text 2' },\n+  { id: 'tab-3', title: 'Tab 3', content: 'Some text 3' },\n+];\n+\n+export const App: React.FC = () => {\n+  const [isSelected,setIsSelected] = useState\n+\n+  return (\n+    <div className=\"section\">\n+      <h1 className=\"title\">Selected tab is Tab 1</h1>\n+\n+      <div data-cy=\"TabsComponent\">\n+        <div className=\"tabs is-boxed\">\n+          <ul>\n+            <li className=\"is-active\" data-cy=\"Tab\">\n+              <a href=\"#tab-1\" data-cy=\"TabLink\">\n+                Tab 1\n+              </a>\n+            </li>\n+\n+            <li data-cy=\"Tab\">\n+              <a href=\"#tab-2\" data-cy=\"TabLink\">\n+                Tab 2\n+              </a>\n+            </li>\n+\n+            <li data-cy=\"Tab\">\n+              <a href=\"#tab-3\" data-cy=\"TabLink\">\n+                Tab 3\n+              </a>\n+            </li>\n+          </ul>\n+        </div>\n+\n+        <div className=\"block\" data-cy=\"TabContent\">\n+          Some text 1\n+        </div>\n+      </div>\n+    </div>\n+  );\n+};\n"
+                }
+            ],
+            "date": 1712672119303,
+            "name": "Commit-0",
+            "content": "import React from 'react';\nimport 'bulma/css/bulma.css';\nimport '@fortawesome/fontawesome-free/css/all.css';\nimport './App.scss';\n\nexport const tabs = [\n  { id: 'tab-1', title: 'Tab 1', content: 'Some text 1' },\n  { id: 'tab-2', title: 'Tab 2', content: 'Some text 2' },\n  { id: 'tab-3', title: 'Tab 3', content: 'Some text 3' },\n];\n\nexport const App: React.FC = () => {\n  return (\n    <div className=\"section\">\n      <h1 className=\"title\">Selected tab is {Tab 1}</h1>\n\n      <div data-cy=\"TabsComponent\">\n        <div className=\"tabs is-boxed\">\n          <ul>\n            <li className=\"is-active\" data-cy=\"Tab\">\n              <a href=\"#tab-1\" data-cy=\"TabLink\">\n                Tab 1\n              </a>\n            </li>\n\n            <li data-cy=\"Tab\">\n              <a href=\"#tab-2\" data-cy=\"TabLink\">\n                Tab 2\n              </a>\n            </li>\n\n            <li data-cy=\"Tab\">\n              <a href=\"#tab-3\" data-cy=\"TabLink\">\n                Tab 3\n              </a>\n            </li>\n          </ul>\n        </div>\n\n        <div className=\"block\" data-cy=\"TabContent\">\n          Some text 1\n        </div>\n      </div>\n    </div>\n  );\n};\n"
+        }
+    ]
+}
