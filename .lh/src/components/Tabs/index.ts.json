@@ -1,0 +1,74 @@
+{
+    "sourceFile": "src/components/Tabs/index.ts",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 14,
+            "patches": [
+                {
+                    "date": 1712675148926,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1712675155706,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,2 +1,2 @@\n export * from './Tabs';\n-expo\n+ex\n"
+                },
+                {
+                    "date": 1712675162122,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,2 @@\n+export * from './Tabs';\n+export type Tab\n"
+                },
+                {
+                    "date": 1712675167571,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,4 +1,2 @@\n export * from './Tabs';\n-export type Tab\n-export * from './Tabs';\n-ex\n+export type TabStyle\n"
+                },
+                {
+                    "date": 1712675173267,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,2 @@\n+export * from './Tabs';\n+export type TabType \n"
+                },
+                {
+                    "date": 1712675184143,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,4 +1,4 @@\n export * from './Tabs';\n-export type TabType \n-export * from './Tabs';\n-export type TabStyle\n+export type TabType = {\n+  { id: 'tab-1', title: 'Tab 1', content: 'Some text 1' },\n+}\n"
+                },
+                {
+                    "date": 1712675191055,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,4 +1,8 @@\n export * from './Tabs';\n export type TabType = {\n-  { id: 'tab-1', title: 'Tab 1', content: 'Some text 1' },\n+  {\n+  id: 'tab-1',\n+    title: 'Tab 1',\n+      content: 'Some text 1'\n+},\n }\n"
+                },
+                {
+                    "date": 1712675196564,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,8 @@\n+export * from './Tabs';\n+export type TabType = {\n+  {\n+  id: 'tab-1',\n+    title: 'Tab 1',\n+      content: 'Some text 1'\n+},\n+}\n"
+                },
+                {
+                    "date": 1712675232150,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,1 @@\n+export * from './Tabs';\n"
+                },
+                {
+                    "date": 1712678285149,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,6 @@\n+export * from './Tabs';\n+interface Tab {\n+  id: string;\n+  title: string;\n+  content: string;\n+}\n"
+                },
+                {
+                    "date": 1712678291498,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,6 @@\n+export * from './Tabs';\n+export type Tab {\n+  id: string;\n+  title: string;\n+  content: string;\n+}\n"
+                },
+                {
+                    "date": 1712678298469,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,6 @@\n+export * from './Tabs';\n+export type Tab = {\n+  id: string;\n+  title: string;\n+  content: string;\n+};\n"
+                },
+                {
+                    "date": 1712730708553,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,6 @@\n+export * from './Tabs';\n+export type Tab = {\n+  id: string;\n+  title: string;\n+  content: string;\n+} ;\n"
+                },
+                {
+                    "date": 1712730719501,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,8 @@\n export * from './Tabs';\n-export type Tab = {\n-  id: string;\n-  title: string;\n-  content: string;\n-} | undefined;\n+export type Tab =\n+  | {\n+    id: string;\n+    title: string;\n+    content: string;\n+  }\n+  | undefined;\n"
+                },
+                {
+                    "date": 1712730728921,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,7 @@\n+export * from './Tabs';\n+export type Tab =\n+  | {\n+    id: string;\n+    title: string;\n+    content: string;\n+  }\n"
+                }
+            ],
+            "date": 1712675148926,
+            "name": "Commit-0",
+            "content": "export * from './Tabs';\nexpo\n"
+        }
+    ]
+}
