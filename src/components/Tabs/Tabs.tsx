@@ -3,13 +3,19 @@ import { Tab } from '../../types';
 
 type Props = {
   tabs: Tab[];
-  selectedTab: Tab;
+  selectedTabId: string;
   onTabSelected: (tab: Tab) => void;
 };
 
-export const Tabs: FC<Props> = ({ tabs, selectedTab, onTabSelected }) => {
-  const handleTabClick = (tab: Tab) => {
-    if (selectedTab.id !== tab.id) {
+export const Tabs: FC<Props> = ({ tabs, selectedTabId, onTabSelected }) => {
+  const selected = tabs.find(tab => tab.id === selectedTabId) || tabs[0];
+
+  const handleTabClick = (
+    event: React.MouseEvent<HTMLAnchorElement, MouseEvent>,
+    tab: Tab,
+  ) => {
+    event.preventDefault();
+    if (selected.id !== tab.id) {
       onTabSelected(tab);
     }
   };
@@ -20,14 +26,14 @@ export const Tabs: FC<Props> = ({ tabs, selectedTab, onTabSelected }) => {
         <ul>
           {tabs.map(tab => (
             <li
-              className={selectedTab.id === tab.id ? 'is-active' : ''}
+              className={selected.id === tab.id ? 'is-active' : ''}
               data-cy="Tab"
               key={tab.id}
             >
               <a
                 href={`#${tab.id}`}
                 data-cy="TabLink"
-                onClick={() => handleTabClick(tab)}
+                onClick={event => handleTabClick(event, tab)}
               >
                 {tab.title}
               </a>
@@ -37,7 +43,7 @@ export const Tabs: FC<Props> = ({ tabs, selectedTab, onTabSelected }) => {
       </div>
 
       <div className="block" data-cy="TabContent">
-        {selectedTab.content}
+        {selected.content}
       </div>
     </div>
   );
