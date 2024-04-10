@@ -1,0 +1,158 @@
+{
+    "sourceFile": "src/components/TabContent/TabContent.tsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 35,
+            "patches": [
+                {
+                    "date": 1712674958885,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1712674966036,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,1 +1,1 @@\n-export \n+export const \n"
+                },
+                {
+                    "date": 1712674974394,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,1 @@\n+export const TabContent =\n"
+                },
+                {
+                    "date": 1712674981400,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,1 @@\n+export const TabContent = ()\n"
+                },
+                {
+                    "date": 1712674986848,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,3 +1,3 @@\n-export const TabContent = ()\n-export const TabContent =\n-export const \n+export const TabContent = () => {\n+  return \n+}\n"
+                },
+                {
+                    "date": 1712674999637,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,7 @@\n+export const TabContent = () => {\n+  return (\n+    <div className=\"block\" data-cy=\"TabContent\">\n+      Some text 1\n+    </div>\n+  );\n+}\n"
+                },
+                {
+                    "date": 1712675125388,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,9 @@\n+import React from \"react\";\n+\n+export const TabContent = () => {\n+  return (\n+    <div className=\"block\" data-cy=\"TabContent\">\n+      Some text 1\n+    </div>\n+  );\n+};\n"
+                },
+                {
+                    "date": 1712675130943,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,9 @@\n+import React from 'react';\n+\n+export const TabContent = () => {\n+  return (\n+    <div className=\"block\" data-cy=\"TabContent\">\n+      Some text 1\n+    </div>\n+  );\n+};\n"
+                },
+                {
+                    "date": 1712676131305,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,9 @@\n+import React from 'react';\n+\n+export const TabContent = () => {\n+  return (\n+    <div className=\"block\" data-cy=\"TabContent\">\n+      {Some text 1}\n+    </div>\n+  );\n+};\n"
+                },
+                {
+                    "date": 1712676137156,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,9 @@\n+import React from 'react';\n+\n+export const TabContent = () => {\n+  return (\n+    <div className=\"block\" data-cy=\"TabContent\">\n+      {selectedTab}\n+    </div>\n+  );\n+};\n"
+                },
+                {
+                    "date": 1712676143385,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,9 @@\n+import React from 'react';\n+\n+export const TabContent = () => {\n+  return (\n+    <div className=\"block\" data-cy=\"TabContent\">\n+      {selectedTab.content}}\n+    </div>\n+  );\n+};\n"
+                },
+                {
+                    "date": 1712676164007,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,9 @@\n+import React from 'react';\n+\n+export const TabContent = ({}) => {\n+  return (\n+    <div className=\"block\" data-cy=\"TabContent\">\n+      {selectedTab.content}\n+    </div>\n+  );\n+};\n"
+                },
+                {
+                    "date": 1712676173710,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,9 @@\n+import React from 'react';\n+\n+export const TabContent = ({ selectedTab }) => {\n+  return (\n+    <div className=\"block\" data-cy=\"TabContent\">\n+      {selectedTab.content}\n+    </div>\n+  );\n+};\n"
+                },
+                {
+                    "date": 1712676183895,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,9 @@\n+import React from 'react';\n+ty\n+export const TabContent = ({ selectedTab }) => {\n+  return (\n+    <div className=\"block\" data-cy=\"TabContent\">\n+      {selectedTab.content}\n+    </div>\n+  );\n+};\n"
+                },
+                {
+                    "date": 1712676189866,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,9 @@\n+import React from 'react';\n+ty\n+export const TabContent = ({ selectedTab }) => {\n+  return (\n+    <div className=\"block\" data-cy=\"TabContent\">\n+      {selectedTab.content}\n+    </div>\n+  );\n+};\n"
+                },
+                {
+                    "date": 1712676195331,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,9 @@\n+import React from 'react';\n+type \n+export const TabContent = ({ selectedTab }) => {\n+  return (\n+    <div className=\"block\" data-cy=\"TabContent\">\n+      {selectedTab.content}\n+    </div>\n+  );\n+};\n"
+                },
+                {
+                    "date": 1712676202160,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,11 @@\n+import React from 'react';\n+type Props = {\n+  sele\n+}\n+export const TabContent = ({ selectedTab }) => {\n+  return (\n+    <div className=\"block\" data-cy=\"TabContent\">\n+      {selectedTab.content}\n+    </div>\n+  );\n+};\n"
+                },
+                {
+                    "date": 1712676210375,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,9 @@\n+import React from 'react';\n+\n+export const TabContent = ({ selectedTab }) => {\n+  return (\n+    <div className=\"block\" data-cy=\"TabContent\">\n+      {selectedTab.content}\n+    </div>\n+  );\n+};\n"
+                },
+                {
+                    "date": 1712677861296,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,9 @@\n+import React from 'react';\n+ty\n+export const TabContent = ({ selectedTab }) => {\n+  return (\n+    <div className=\"block\" data-cy=\"TabContent\">\n+      {selectedTab.content}\n+    </div>\n+  );\n+};\n"
+                },
+                {
+                    "date": 1712677866963,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,11 @@\n+import React from 'react';\n+type Tab = {\n+  \n+}\n+export const TabContent = ({ selectedTab }) => {\n+  return (\n+    <div className=\"block\" data-cy=\"TabContent\">\n+      {selectedTab.content}\n+    </div>\n+  );\n+};\n"
+                },
+                {
+                    "date": 1712677875194,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,12 @@\n+import React from 'react';\n+type Tab = {\n+  id: string,\n+  title\n+}\n+export const TabContent = ({ selectedTab }) => {\n+  return (\n+    <div className=\"block\" data-cy=\"TabContent\">\n+      {selectedTab.content}\n+    </div>\n+  );\n+};\n"
+                },
+                {
+                    "date": 1712677881423,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,13 @@\n+import React from 'react';\n+type Tab = {\n+  id: string,\n+  title: string;\n+  conte\n+}\n+export const TabContent = ({ selectedTab }) => {\n+  return (\n+    <div className=\"block\" data-cy=\"TabContent\">\n+      {selectedTab.content}\n+    </div>\n+  );\n+};\n"
+                },
+                {
+                    "date": 1712677888195,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,14 @@\n+import React from 'react';\n+type Tab = {\n+  id: string,\n+  title: string;\n+  content: string\n+};\n+\n+export const TabContent = ({ selectedTab }) => {\n+  return (\n+    <div className=\"block\" data-cy=\"TabContent\">\n+      {selectedTab.content}\n+    </div>\n+  );\n+};\n"
+                },
+                {
+                    "date": 1712677897924,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,15 @@\n+import React from 'react';\n+type Tab = {\n+  id: string;\n+  title: string;\n+  content: string;\n+};\n+\n+\n+export const TabContent = ({ selectedTab }) => {\n+  return (\n+    <div className=\"block\" data-cy=\"TabContent\">\n+      {selectedTab.content}\n+    </div>\n+  );\n+};\n"
+                },
+                {
+                    "date": 1712677907273,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,15 @@\n+import React from 'react';\n+type Tab = {\n+  id: string;\n+  title: string;\n+  content: string;\n+};\n+\n+type Props\n+export const TabContent = ({ selectedTab }) => {\n+  return (\n+    <div className=\"block\" data-cy=\"TabContent\">\n+      {selectedTab.content}\n+    </div>\n+  );\n+};\n"
+                },
+                {
+                    "date": 1712677913419,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,15 @@\n+import React from 'react';\n+type Tab = {\n+  id: string;\n+  title: string;\n+  content: string;\n+};\n+\n+type Props = \n+export const TabContent = ({ selectedTab }) => {\n+  return (\n+    <div className=\"block\" data-cy=\"TabContent\">\n+      {selectedTab.content}\n+    </div>\n+  );\n+};\n"
+                },
+                {
+                    "date": 1712677920165,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,17 @@\n+import React from 'react';\n+type Tab = {\n+  id: string;\n+  title: string;\n+  content: string;\n+};\n+\n+type Props = {\n+  selectedTa\n+}\n+export const TabContent = ({ selectedTab }) => {\n+  return (\n+    <div className=\"block\" data-cy=\"TabContent\">\n+      {selectedTab.content}\n+    </div>\n+  );\n+};\n"
+                },
+                {
+                    "date": 1712677925438,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,237 +5,13 @@\n   content: string;\n };\n \n type Props = {\n-  selectedTa\n+  selectedTab: Tab\n }\n export const TabContent = ({ selectedTab }) => {\n   return (\n     <div className=\"block\" data-cy=\"TabContent\">\n       {selectedTab.content}\n     </div>\n   );\n };\n-import React from 'react';\n-type Tab = {\n-  id: string;\n-  title: string;\n-  content: string;\n-};\n-\n-type Props = \n-export const TabContent = ({ selectedTab }) => {\n-  return (\n-    <div className=\"block\" data-cy=\"TabContent\">\n-      {selectedTab.content}\n-    </div>\n-  );\n-};\n-import React from 'react';\n-type Tab = {\n-  id: string;\n-  title: string;\n-  content: string;\n-};\n-\n-type Props\n-export const TabContent = ({ selectedTab }) => {\n-  return (\n-    <div className=\"block\" data-cy=\"TabContent\">\n-      {selectedTab.content}\n-    </div>\n-  );\n-};\n-import React from 'react';\n-type Tab = {\n-  id: string;\n-  title: string;\n-  content: string;\n-};\n-\n-\n-export const TabContent = ({ selectedTab }) => {\n-  return (\n-    <div className=\"block\" data-cy=\"TabContent\">\n-      {selectedTab.content}\n-    </div>\n-  );\n-};\n-import React from 'react';\n-type Tab = {\n-  id: string,\n-  title: string;\n-  content: string\n-};\n-\n-export const TabContent = ({ selectedTab }) => {\n-  return (\n-    <div className=\"block\" data-cy=\"TabContent\">\n-      {selectedTab.content}\n-    </div>\n-  );\n-};\n-import React from 'react';\n-type Tab = {\n-  id: string,\n-  title: string;\n-  conte\n-}\n-export const TabContent = ({ selectedTab }) => {\n-  return (\n-    <div className=\"block\" data-cy=\"TabContent\">\n-      {selectedTab.content}\n-    </div>\n-  );\n-};\n-import React from 'react';\n-type Tab = {\n-  id: string,\n-  title\n-}\n-export const TabContent = ({ selectedTab }) => {\n-  return (\n-    <div className=\"block\" data-cy=\"TabContent\">\n-      {selectedTab.content}\n-    </div>\n-  );\n-};\n-import React from 'react';\n-type Tab = {\n-  \n-}\n-export const TabContent = ({ selectedTab }) => {\n-  return (\n-    <div className=\"block\" data-cy=\"TabContent\">\n-      {selectedTab.content}\n-    </div>\n-  );\n-};\n-import React from 'react';\n-ty\n-export const TabContent = ({ selectedTab }) => {\n-  return (\n-    <div className=\"block\" data-cy=\"TabContent\">\n-      {selectedTab.content}\n-    </div>\n-  );\n-};\n-import React from 'react';\n-\n-export const TabContent = ({ selectedTab }) => {\n-  return (\n-    <div className=\"block\" data-cy=\"TabContent\">\n-      {selectedTab.content}\n-    </div>\n-  );\n-};\n-import React from 'react';\n-type Props = {\n-  sele\n-}\n-export const TabContent = ({ selectedTab }) => {\n-  return (\n-    <div className=\"block\" data-cy=\"TabContent\">\n-      {selectedTab.content}\n-    </div>\n-  );\n-};\n-import React from 'react';\n-type \n-export const TabContent = ({ selectedTab }) => {\n-  return (\n-    <div className=\"block\" data-cy=\"TabContent\">\n-      {selectedTab.content}\n-    </div>\n-  );\n-};\n-import React from 'react';\n-ty\n-export const TabContent = ({ selectedTab }) => {\n-  return (\n-    <div className=\"block\" data-cy=\"TabContent\">\n-      {selectedTab.content}\n-    </div>\n-  );\n-};\n-import React from 'react';\n-ty\n-export const TabContent = ({ selectedTab }) => {\n-  return (\n-    <div className=\"block\" data-cy=\"TabContent\">\n-      {selectedTab.content}\n-    </div>\n-  );\n-};\n-import React from 'react';\n-\n-export const TabContent = ({ selectedTab }) => {\n-  return (\n-    <div className=\"block\" data-cy=\"TabContent\">\n-      {selectedTab.content}\n-    </div>\n-  );\n-};\n-import React from 'react';\n-\n-export const TabContent = ({}) => {\n-  return (\n-    <div className=\"block\" data-cy=\"TabContent\">\n-      {selectedTab.content}\n-    </div>\n-  );\n-};\n-import React from 'react';\n-\n-export const TabContent = () => {\n-  return (\n-    <div className=\"block\" data-cy=\"TabContent\">\n-      {selectedTab.content}}\n-    </div>\n-  );\n-};\n-import React from 'react';\n-\n-export const TabContent = () => {\n-  return (\n-    <div className=\"block\" data-cy=\"TabContent\">\n-      {selectedTab}\n-    </div>\n-  );\n-};\n-import React from 'react';\n-\n-export const TabContent = () => {\n-  return (\n-    <div className=\"block\" data-cy=\"TabContent\">\n-      {Some text 1}\n-    </div>\n-  );\n-};\n-import React from 'react';\n-\n-export const TabContent = () => {\n-  return (\n-    <div className=\"block\" data-cy=\"TabContent\">\n-      Some text 1\n-    </div>\n-  );\n-};\n-import React from \"react\";\n-\n-export const TabContent = () => {\n-  return (\n-    <div className=\"block\" data-cy=\"TabContent\">\n-      Some text 1\n-    </div>\n-  );\n-};\n-export const TabContent = () => {\n-  return (\n-    <div className=\"block\" data-cy=\"TabContent\">\n-      Some text 1\n-    </div>\n-  );\n-}\n-export const TabContent = () => {\n-  return \n-}\n"
+                },
+                {
+                    "date": 1712677933614,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,11 +5,11 @@\n   content: string;\n };\n \n type Props = {\n-  selectedTab: Tab\n+  selectedTab: Tab;\n }\n-export const TabContent = ({ selectedTab }) => {\n+export const TabContent: react = ({ selectedTab }) => {\n   return (\n     <div className=\"block\" data-cy=\"TabContent\">\n       {selectedTab.content}\n     </div>\n"
+                },
+                {
+                    "date": 1712677939513,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,17 @@\n+import React from 'react';\n+type Tab = {\n+  id: string;\n+  title: string;\n+  content: string;\n+};\n+\n+type Props = {\n+  selectedTab: Tab;\n+}\n+export const TabContent: React.FC = ({ selectedTab }) => {\n+  return (\n+    <div className=\"block\" data-cy=\"TabContent\">\n+      {selectedTab.content}\n+    </div>\n+  );\n+};\n"
+                },
+                {
+                    "date": 1712677947959,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,18 @@\n+import React from 'react';\n+type Tab = {\n+  id: string;\n+  title: string;\n+  content: string;\n+};\n+\n+type Props = {\n+  selectedTab: Tab;\n+};\n+\n+export const TabContent: React.FC<Props> = ({ selectedTab }) => {\n+  return (\n+    <div className=\"block\" data-cy=\"TabContent\">\n+      {selectedTab.content}\n+    </div>\n+  );\n+};\n"
+                },
+                {
+                    "date": 1712678328247,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,13 @@\n+import React from 'react';\n+\n+type Props = {\n+  selectedTab: Tab;\n+};\n+\n+export const TabContent: React.FC<Props> = ({ selectedTab }) => {\n+  return (\n+    <div className=\"block\" data-cy=\"TabContent\">\n+      {selectedTab.content}\n+    </div>\n+  );\n+};\n"
+                },
+                {
+                    "date": 1712679309741,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,16 @@\n+import React from 'react';\n+import { Tab } from '../Tabs';\n+\n+type Props = {\n+  tabs: Tab[];\n+  onTabSelected: Dispatch<SetStateAction<string>>;\n+  selectedTabId: string;\n+};\n+\n+export const TabContent: React.FC<Props> = ({ selectedTab }) => {\n+  return (\n+    <div className=\"block\" data-cy=\"TabContent\">\n+      {selectedTab.content}\n+    </div>\n+  );\n+};\n"
+                },
+                {
+                    "date": 1712679324820,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,11 +1,9 @@\n import React from 'react';\n import { Tab } from '../Tabs';\n \n type Props = {\n-  tabs: Tab[];\n-  onTabSelected: Dispatch<SetStateAction<string>>;\n-  selectedTabId: string;\n+  selectedTab: Tab;\n };\n \n export const TabContent: React.FC<Props> = ({ selectedTab }) => {\n   return (\n"
+                },
+                {
+                    "date": 1712731219972,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,74 +6,7 @@\n };\n \n export const TabContent: React.FC<Props> = ({ selectedTab }) => {\n   return (\n-    <div className=\"block\" data-cy=\"TabContent\">\n-      {selectedTab.content}\n-    </div>\n+  \n   );\n };\n-import React from 'react';\n-\n-type Props = {\n-  selectedTab: Tab;\n-};\n-\n-export const TabContent: React.FC<Props> = ({ selectedTab }) => {\n-  return (\n-    <div className=\"block\" data-cy=\"TabContent\">\n-      {selectedTab.content}\n-    </div>\n-  );\n-};\n-import React from 'react';\n-type Tab = {\n-  id: string;\n-  title: string;\n-  content: string;\n-};\n-\n-type Props = {\n-  selectedTab: Tab;\n-};\n-\n-export const TabContent: React.FC<Props> = ({ selectedTab }) => {\n-  return (\n-    <div className=\"block\" data-cy=\"TabContent\">\n-      {selectedTab.content}\n-    </div>\n-  );\n-};\n-import React from 'react';\n-type Tab = {\n-  id: string;\n-  title: string;\n-  content: string;\n-};\n-\n-type Props = {\n-  selectedTab: Tab;\n-}\n-export const TabContent: React.FC = ({ selectedTab }) => {\n-  return (\n-    <div className=\"block\" data-cy=\"TabContent\">\n-      {selectedTab.content}\n-    </div>\n-  );\n-};\n-import React from 'react';\n-type Tab = {\n-  id: string;\n-  title: string;\n-  content: string;\n-};\n-\n-type Props = {\n-  selectedTab: Tab;\n-}\n-export const TabContent: react = ({ selectedTab }) => {\n-  return (\n-    <div className=\"block\" data-cy=\"TabContent\">\n-      {selectedTab.content}\n-    </div>\n-  );\n-};\n"
+                },
+                {
+                    "date": 1712731322246,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,14 @@\n+import React from 'react';\n+import { Tab } from '../Tabs';\n+\n+type Props = {\n+  selectedTab: Tab;\n+};\n+\n+export const TabContent: React.FC<Props> = ({ selectedTab }) => {\n+  return (\n+    <div className=\"block\" data-cy=\"TabContent\">\n+      {selectedTab.content}\n+    </div>\n+  );\n+};\n"
+                }
+            ],
+            "date": 1712674958885,
+            "name": "Commit-0",
+            "content": "export \n"
+        }
+    ]
+}

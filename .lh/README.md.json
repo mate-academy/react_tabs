@@ -1,0 +1,18 @@
+{
+    "sourceFile": "README.md",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1712734380403,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1712734380403,
+            "name": "Commit-0",
+            "content": "# React Tabs\n\nImplement the `App` and `Tabs` components to render and switch between given `tabs`.\n\n> Here is [the working version](https://mate-academy.github.io/react_tabs)\n\n1. Save the `selectedTabId` in the `App` (the first `tab` is selected by default);\n1. Implement the `Tabs` component accepting `tabs` as a prop and displaying a link per each `tab` and the content of the selected tab.\n1. Each link should have a href with a `#tab-id` (see the markup).\n1. Pass the `selectedTabId` as a prop to the `Tabs`, the specified tab should be selected if possible\n  (otherwise, the first tab is selected).\n1. The `Tabs` should show the content of the selected tab (add an attribute `data-cy=\"TabContent\"` for testing).\n1. The selected tab (`li`) should have an `is-active` class.\n1. Pass the `onTabSelected` callback to the `Tabs`, it should be called whenever the user selects another tab.\n   (Don't call the callback if the tab was not changed)\n1. The callback should receive the data of the selected tab (an object from the array)\n1. The `App` title (`h1`) should show a text saying `Selected tab is Tab 1` (show the title of the selected tab).\n1. When the user selects another tab the `h1` should be updated accordingly.\n1. The `Tabs` component should be stateless (don't have an internal state, only props).\n\n## Instructions\n- Install Prettier Extention and use this [VSCode settings](https://mate-academy.github.io/fe-program/tools/vscode/settings.json) to enable format on save.\n- Implement a solution following the [React task guideline](https://github.com/mate-academy/react_task-guideline#react-tasks-guideline).\n- Use the [React TypeScript cheat sheet](https://mate-academy.github.io/fe-program/js/extra/react-typescript).\n- Open one more terminal and run tests with `npm test` to ensure your solution is correct.\n- Replace `<your_account>` with your Github username in the [DEMO LINK](https://marinatea.github.io/react_tabs/) and add it to the PR description.\n"
+        }
+    ]
+}
