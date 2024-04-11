@@ -1,0 +1,22 @@
+{
+    "sourceFile": "src/index.tsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 1,
+            "patches": [
+                {
+                    "date": 1712831916968,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1712831923973,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,5 @@\n import { createRoot } from 'react-dom/client';\n import { App } from './App';\n-import React = require('react');\n+import React from ;\n \n createRoot(document.getElementById('root') as HTMLElement).render(<App />);\n"
+                }
+            ],
+            "date": 1712831916968,
+            "name": "Commit-0",
+            "content": "import { createRoot } from 'react-dom/client';\nimport { App } from './App';\nimport React = require('react');\n\ncreateRoot(document.getElementById('root') as HTMLElement).render(<App />);\n"
+        }
+    ]
+}
