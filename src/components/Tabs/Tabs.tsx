@@ -8,12 +8,12 @@ export type TabType = {
 
 interface Props {
   tabs: TabType[];
-  selectedTab: string;
+  selectedTabId: string;
   onTabSelected: (tab: TabType) => void;
 }
 
-export const Tabs: FC<Props> = ({ tabs, selectedTab, onTabSelected }) => {
-  const specifiedTab = tabs.find(tab => tab.id === selectedTab) || tabs[0];
+export const Tabs: FC<Props> = ({ tabs, selectedTabId, onTabSelected }) => {
+  const specifiedTab = tabs.find(tab => tab.id === selectedTabId) || tabs[0];
 
   const handleClick = (tab: TabType) => {
     if (specifiedTab.id !== tab.id) {
