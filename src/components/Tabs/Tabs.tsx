@@ -8,15 +8,15 @@ export type TabType = {
 
 interface Props {
   tabs: TabType[];
-  selectedTabId: string;
+  selectedTab: string;
   onTabSelected: (tab: TabType) => void;
 }
 
-export const Tabs: FC<Props> = ({ tabs, selectedTabId, onTabSelected }) => {
-  const sel = tabs.find(tab => tab.id === selectedTabId) || tabs[0];
+export const Tabs: FC<Props> = ({ tabs, selectedTab, onTabSelected }) => {
+  const specifiedTab = tabs.find(tab => tab.id === selectedTab) || tabs[0];
 
-  const onHandleClick = (tab: TabType) => {
-    if (sel.id !== tab.id) {
+  const handleClick = (tab: TabType) => {
+    if (specifiedTab.id !== tab.id) {
       onTabSelected(tab);
     }
   };
@@ -28,14 +28,14 @@ export const Tabs: FC<Props> = ({ tabs, selectedTabId, onTabSelected }) => {
           {tabs.map(tab => {
             return (
               <li
-                className={tab.id === sel.id ? 'is-active' : ''}
+                className={tab.id === specifiedTab.id ? 'is-active' : ''}
                 data-cy="Tab"
                 key={tab.id}
               >
                 <a
                   href={`#${tab.id}`}
                   data-cy="TabLink"
-                  onClick={() => onHandleClick(tab)}
+                  onClick={() => handleClick(tab)}
                 >
                   {tab.title}
                 </a>
@@ -45,7 +45,7 @@ export const Tabs: FC<Props> = ({ tabs, selectedTabId, onTabSelected }) => {
         </ul>
       </div>
       <div className="block" data-cy="TabContent">
-        {sel.content}
+        {specifiedTab.content}
       </div>
     </div>
   );
