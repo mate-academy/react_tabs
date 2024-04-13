@@ -35,7 +35,7 @@ export const Tabs: React.FC<Props> = ({
                   data-cy="TabLink"
                   onClick={event => handleClick(event, tab)}
                 >
-                  {tab.content}
+                  {tab.title}
                 </a>
               </li>
             ))}
