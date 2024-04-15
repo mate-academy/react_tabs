@@ -29,11 +29,11 @@ export const App: React.FC = () => {
 
       <div data-cy="TabsComponent">
         <div className="tabs is-boxed">
-          <Tabs
-            tabs={tabs}
-            onChange={onTabSelected}
-            activeTab={selectedTabId}
-          />
+          <ul>
+            {tabs.map(tab => (
+              <Tabs tab={tab} onChange={onTabSelected} activeTab={selectedTabId} />
+          ))}
+          </ul>
         </div>
         <div className="block" data-cy="TabContent">
           {tabs.find((tab) => tab.title === selectedTabId)?.content}

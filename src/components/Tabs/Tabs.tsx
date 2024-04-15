@@ -5,17 +5,15 @@ type Tab = {
 };
 
 type Props = {
-  tabs: Tab[];
+  tab: Tab;
   onChange: (title: string, content: string) => void;
   activeTab: string;
 };
 
-export const Tabs: React.FC<Props> = ({ tabs, onChange, activeTab }) => {
+export const Tabs: React.FC<Props> = ({ tab, onChange, activeTab }) => {
 
 
   return (
-      <ul>
-        {tabs.map((tab) => (
           <li
             className={tab.title === activeTab ? "is-active" : ""}
             data-cy="Tab"
@@ -29,7 +27,5 @@ export const Tabs: React.FC<Props> = ({ tabs, onChange, activeTab }) => {
               {tab.title}
             </a>
           </li>
-        ))}
-      </ul>
   );
 };
