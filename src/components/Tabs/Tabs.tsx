@@ -11,8 +11,10 @@ type Props = {
 };
 
 export const Tabs: React.FC<Props> = ({ tabs, onChange, activeTab }) => {
+
+  const changeTab = onChange;
+
   return (
-    <>
       <ul>
         {tabs.map((tab) => (
           <li
@@ -23,16 +25,12 @@ export const Tabs: React.FC<Props> = ({ tabs, onChange, activeTab }) => {
             <a
               data-cy="TabLink"
               href={`#${tab.id}`}
-              onClick={(evt) => {
-                evt.preventDefault();
-                onChange(tab.title, tab.content);
-              }}
+              onClick={() => changeTab(tab.title, tab.content)}
             >
               {tab.title}
             </a>
           </li>
         ))}
       </ul>
-    </>
   );
 };
