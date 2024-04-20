@@ -10,7 +10,7 @@ export const Tabs: React.FC<Props> = ({
 }) => {
   const tabSelection = tabs.find(tab => tab.id === selectedTabId) || tabs[0];
   const tabClassName = (tab: TabType) => {
-    return classNames({ 'is-active': tab.id === selectedTabId });
+    return classNames({ 'is-active': tab.id === tabSelection.id });
   };
 
   return (
