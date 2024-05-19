@@ -1,13 +1,9 @@
-type Tab = {
-  id: string;
-  title: string;
-  content: string;
-};
+import { Tab } from '../../type/Tab';
 
 type TabsProps = {
   tabs: Tab[];
   selectedTabId: string;
-  onTabSelected: (id: string) => void;
+  onTabSelected: (tab: Tab) => void;
 };
 
 export const Tabs: React.FC<TabsProps> = ({
@@ -15,7 +11,11 @@ export const Tabs: React.FC<TabsProps> = ({
   selectedTabId,
   onTabSelected,
 }) => {
-  const selectedTab = tabs.find(tab => tab.id === selectedTabId);
+  let selectedTab = tabs.find(tab => tab.id === selectedTabId);
+
+  if (!selectedTab) {
+    selectedTab = tabs[0];
+  }
 
   return (
     <div className="section">
@@ -36,7 +36,7 @@ export const Tabs: React.FC<TabsProps> = ({
                   href={`#${id}`}
                   onClick={() => {
                     if (id !== selectedTabId) {
-                      onTabSelected(id);
+                      onTabSelected(tabs.find(tab => tab.id === id) || tabs[0]);
                     }
                   }}
                   data-cy="TabLink"
@@ -49,7 +49,6 @@ export const Tabs: React.FC<TabsProps> = ({
         </div>
 
         <div className="block" data-cy="TabContent">
-          {/* Some text 1 */}
           {selectedTab ? selectedTab.content : tabs[0].content}
         </div>
       </div>
