@@ -1,4 +1,5 @@
-import { Tab } from '../../type/Tab';
+import React from 'react';
+import { Tab } from '../../types';
 
 type TabsProps = {
   tabs: Tab[];
@@ -13,27 +14,32 @@ export const Tabs: React.FC<TabsProps> = ({
 }) => {
   const selectedTab = tabs.find(tab => tab.id === selectedTabId) || tabs[0];
 
+  const handleOnClick = (
+    event: React.MouseEvent<HTMLAnchorElement, MouseEvent>,
+    tab: Tab,
+  ) => {
+    event.preventDefault();
+    if (tab.id !== selectedTab.id) {
+      onTabSelected(tab);
+    }
+  };
+
   return (
     <div data-cy="TabsComponent">
       <div className="tabs is-boxed">
         <ul>
-          {tabs.map(({ id, title }) => (
+          {tabs.map(tab => (
             <li
-              key={id}
-              className={id === selectedTab.id ? 'is-active' : ''}
+              key={tab.id}
+              className={tab.id === selectedTab.id ? 'is-active' : ''}
               data-cy="Tab"
             >
               <a
-                href={`#${id}`}
-                onClick={event => {
-                  event.preventDefault();
-                  if (id !== selectedTabId) {
-                    onTabSelected(tabs.find(tab => tab.id === id) || tabs[0]);
-                  }
-                }}
+                href={`#${tab.id}`}
+                onClick={event => handleOnClick(event, tab)}
                 data-cy="TabLink"
               >
-                {title}
+                {tab.title}
               </a>
             </li>
           ))}
@@ -41,7 +47,7 @@ export const Tabs: React.FC<TabsProps> = ({
       </div>
 
       <div className="block" data-cy="TabContent">
-        {selectedTab ? selectedTab.content : tabs[0].content}
+        {selectedTab?.content}
       </div>
     </div>
   );
