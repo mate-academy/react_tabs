@@ -21,7 +21,7 @@ export const Tabs = ({ tabs, selectedTabId, onTabSelected }: Props) => {
           {tabs.map(tab => (
             <li
               key={tab.id}
-              className={tab.id === selectedTab.id ? 'is-active' : ''}
+              className={tab.id === selectedTab?.id ? 'is-active' : ''}
               data-cy="Tab"
               onClick={event => {
                 if (event.currentTarget.className !== 'is-active') {
@@ -38,7 +38,7 @@ export const Tabs = ({ tabs, selectedTabId, onTabSelected }: Props) => {
       </div>
 
       <div className="block" data-cy="TabContent">
-        {selectedTab.content}
+        {selectedTab?.content}
       </div>
     </>
   );
