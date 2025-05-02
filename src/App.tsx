@@ -19,7 +19,7 @@ export const tabs = [
 export const App: React.FC = () => {
   const [selectedTabId, setSelectedTabId] = useState('tab-1');
 
-  const onTabSelected = (tab: Tab) => {
+  const onTabSelected = (event: React.MouseEvent, tab: Tab) => {
     event?.preventDefault();
 
     setSelectedTabId(tab.id);

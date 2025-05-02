@@ -7,7 +7,7 @@ type Tab = {
 type Props = {
   tabs: Tab[];
   selectedTabId: string;
-  onTabSelected: (tab: Tab) => void;
+  onTabSelected: (event: React.MouseEvent, tab: Tab) => void;
 };
 
 export const Tabs = ({ tabs, selectedTabId, onTabSelected }: Props) => {
@@ -29,7 +29,9 @@ export const Tabs = ({ tabs, selectedTabId, onTabSelected }: Props) => {
                   <a
                     href={tab.id}
                     data-cy="TabLink"
-                    onClick={() => onTabSelected(tab)}
+                    onClick={(event: React.MouseEvent) =>
+                      onTabSelected(event, tab)
+                    }
                   >
                     {tab.title}
                   </a>
