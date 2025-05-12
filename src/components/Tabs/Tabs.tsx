@@ -17,7 +17,7 @@ export const Tabs = ({ tabs, activeId, onTabClick }: Props) => {
                 'is-active': tab.id === activeId,
               })}
               data-cy="Tab"
-              key = {tab.id}
+              key={tab.id}
             >
               <a
                 href={'#' + tab.id}
