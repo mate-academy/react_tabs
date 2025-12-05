@@ -11,12 +11,14 @@ type TabProps = {
 };
 
 export const Tabs = ({ tabs, selectedTabId, onTabSelected }: TabProps) => {
+  const resolvedId = tabs.find(t => t.id === selectedTabId)?.id ?? tabs[0].id;
+
   return (
     <div data-cy="TabsComponent">
       <div className="tabs is-boxed">
         <ul>
           {tabs.map((tab: Tab) => {
-            const className = tab.id === selectedTabId ? 'is-active' : '';
+            const className = tab.id === resolvedId ? 'is-active' : '';
 
             return (
               <li key={tab.id} data-cy="Tab" className={className}>
@@ -25,7 +27,10 @@ export const Tabs = ({ tabs, selectedTabId, onTabSelected }: TabProps) => {
                   data-cy="TabLink"
                   onClick={event => {
                     event.preventDefault();
-                    onTabSelected(tab);
+
+                    if (tab.id !== resolvedId) {
+                      onTabSelected(tab);
+                    }
                   }}
                 >
                   {tab.title}
@@ -37,8 +42,7 @@ export const Tabs = ({ tabs, selectedTabId, onTabSelected }: TabProps) => {
       </div>
 
       <div className="block" data-cy="TabContent">
-        {tabs.find(tab => tab.id === selectedTabId)?.content ||
-          'Content not found'}
+        {tabs.find(t => t.id === resolvedId)?.content}
       </div>
     </div>
   );
