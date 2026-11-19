@@ -11,9 +11,9 @@ interface Props {
 }
 
 function Tabs({ tabs, selectedTabId, onTabSelected }: Props) {
-  const selectedTab = tabs.find(tab => {
-    return tab.id === selectedTabId || tabs[0];
-  });
+
+  const selectedTab =
+  tabs.find(tab => tab.id === selectedTabId) || tabs[0];
 
   return (
     <>
