@@ -12,7 +12,7 @@ interface Props {
 
 function Tabs({ tabs, selectedTabId, onTabSelected }: Props) {
   const selectedTab = tabs.find(tab => {
-    return tab.id === selectedTabId;
+    return tab.id === selectedTabId || tabs[0];
   });
 
   return (
