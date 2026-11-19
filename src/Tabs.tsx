@@ -26,7 +26,7 @@ function Tabs({ tabs, selectedTabId, onTabSelected }: Props) {
               <a
                 data-cy="TabLink"
                 onClick={() => {
-                  if (tab.id !== selectedTabId) {
+                  if (tab.id !== selectedTab.id) {
                     onTabSelected(tab);
                   }
                 }}
